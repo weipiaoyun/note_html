@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>bat</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">关键字 </a>
+<li><a href="#toc_2">注释 </a>
+<li><a href="#toc_3">设置环境变量 </a>
+<li><a href="#toc_4">连接网络盘 </a>
+<li><a href="#toc_5">存储的用户名和密码 </a>
+<li><a href="#toc_6">获取计算机名称 </a>
+</ul>
+</div>
+
+<h1 id="toc_1">关键字 </h1>
+<p>
+@echo off 如果没有这句。和cmd里面操作显示相同。
+</p>
+
+<p>
+命令前加@，表示该命令在终端中不显示。
+</p>
+
+<h1 id="toc_2">注释 </h1>
+<p>
+rem
+</p>
+
+<h1 id="toc_3">设置环境变量 </h1>
+<p>
+setx GENESIS_DIR \\172.17.3.18\app_w2k\app_gen /m
+setx GENESIS_SHAREDIR  \\172.17.3.72\g2k /m
+</p>
+
+<h1 id="toc_4">连接网络盘 </h1>
+<p>
+net use \\172.17.1.98 iasystem /user:g2k
+net use \\172.17.3.72 iasystem /user:g2k
+</p>
+
+<h1 id="toc_5">存储的用户名和密码 </h1>
+<p>
+cmdkey /add: 172.17.1.98 /user:%computername%\g2k /pass:iasystem
+cmdkey /add: 172.17.3.72 /user:%computername%\g2k /pass:iasystem
+pause install ok
+</p>
+
+
+<h1 id="toc_6">获取计算机名称 </h1>
+<p>
+echo %computername%
+</p>
+
+<p>
+<a href="windows批处理命令.html">windows批处理命令</a><br>
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

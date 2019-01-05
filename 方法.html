@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>方法</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="特殊函数.html">特殊函数</a><br>
+<a href="匿名函数.html">匿名函数</a><br>
+<a href="函数重载.html">函数重载</a><br>
+<a href="csharp函数.html">csharp函数</a><br>
+构造函数也可以实现重载
+</p>
+
+<p>
+构造函数
+	1，实例构造函数
+	构造函数通常用于完成对象的初始化设置，函数名称和所属类名相同，限定符通常用public，不返回数据类型
+</p>
+	
+<p>
+	2，静态构造函数
+</p>
+<blockquote>
+class Program {
+static void Main(string[] args)
+{
+Console.WriteLine(A.strText);
+Console.WriteLine(B.strText);
+</blockquote>
+<blockquote>
+B tmpb = new B();
+A tmpa = new A();
+Console.Read();
+}
+public class A
+{
+public static string strText;
+static A()
+{
+Console.WriteLine("A:strText");
+strText = "aaaa";
+Console.WriteLine("A:strText {0}", strText);
+}
+}
+</blockquote>
+<blockquote>
+public class B : A
+{
+static B()
+{
+Console.WriteLine("B:A:strText");
+strText = "bbbb";
+Console.WriteLine("B:A::strText {0}", strText);
+}
+}
+}
+</blockquote>
+    
+<p>
+	静态构造函数只能执行一次
+</p>
+    
+<p>
+析构函数
+	析构函数何时执行没有真正的控制权。(C++中可以控制何时析构函数)
+	析构函数可能永远不被调用
+</p>
+	
+<p>
+方法、函数、例程
+</p>
+
+<p>
+C#不可以再类的外面创建方法
+</p>
+
+<p>
+C#不允许方法有默认值
+</p>
+
+
+<h1 id="toc_1">参数传递 </h1>
+<h2 id="toc_1.1">out和ref 传递引用</h2>
+<p>
+简单来说，out和ref传递的都是引用而不是值(都是按地址传递的)，out侧重于输出使用之前不需赋值，而ref在使用之前需要赋值，另外这两个关键字可以变相实现使一个方法输出多个值 ，ref侧重修改，out侧重输出。
+</p>
+
+<p>
+相对方法而言，ref是有进有出，out是只出不进
+</p>
+
+<p>
+out可以返回多个不同类型的参数，比如要返回int和string类型的变量，用out较容易实现。还有既要返回周长也要返回面积时，使用out参数。
+</p>
+
+<p>
+params可变参数
+将实参列表中跟可变参数数组类型一致的元素都当做数组的元素去处理。
+params可变参数必须是形参列表中的最后一个元素。
+</p>
+
+
+
+<h1 id="toc_2">扩展方法 </h1>
+<p>
+类中没有此方法。为此类添加一个方法。
+public static class StringExtension
+{
+	public staticvoid Foo(this string s)
+	{
+	  Console.WriteLine("Foo invoked for {0}",s);
+	}
+}
+</p>
+
+
+<p>
+“扩展方法被定义为静态方法，但它们是通过实例方法语法进行调用的。 它们的第一个参数指定该方法作用于哪个类型，并且该参数以 this 修饰符为前缀。”
+</p>
+
+
+<h2 id="toc_2.1">参数</h2>
+<p>
+值参数，不包含任何修饰符。
+输入引用参数，以ref修饰符声明。
+输出引用参数，以out修饰符声明。
+数组型参数，以params修饰符声明。
+</p>
+
+<p>
+2)、ref参数
+能够将一个变量带入一个方法中进行改变，改变完成后，再讲改变后的值带出方法。
+ref参数要求在方法外必须为其赋值，而方法内可以不赋值。
+</p>
+
+<p>
+3)、params可变参数
+将实参列表中跟可变参数数组类型一致的元素都当做数组的元素去处理。
+params可变参数必须是形参列表中的最后一个元素。
+</p>
+
+<p>
+5、方法的重载
+概念：方法的重载指的就是方法的名称相同给，但是参数不同。
+参数不同，分为两种情况
+1)、如果参数的个数相同，那么参数的类型就不能相同。
+2)、如果参数的类型相同，那么参数的个数就不能相同。
+***方法的重载跟返回值没有关系。
+</p>
+
+<p>
+重载:同一个函数，在不同场合，表现行为不同
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

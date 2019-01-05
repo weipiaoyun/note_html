@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>51单片机寻址方式</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+51单片机寻址方式：
+</p>
+
+<p>
+<a href="累加器A和ACC的区别.html">累加器A和ACC的区别</a><br>
+</p>
+
+<p>
+(1)直接寻址：直接给出操作数的地址，直接用00H-FFH来表示或者是用特殊功能寄存器。两种情况都是RAM区：
+		(1)片内真正RAM区，128个单元，直接用00H-FFH地址。
+		(2)特殊功能寄存器区，特殊功能寄存器只能用直接寻址。
+</p>
+	
+<p>
+(2)立即数寻址：数为操作数本身，前面加个#
+</p>
+
+<p>
+(3)寄存器寻址：操作数在寄存器里面，R0~R7和AB,DPTR等。
+注意：INC A是寄存器寻址，INC ACC是直接寻址，寄存器寻址和直接寻址的区别是：寄存器比较快，因为在单片机内设有工作寄存器组，如果放在工作寄存器里面执行起来就比较快。比如A就是工作寄存器组，而ACC是存储器。它们俩是物理上是不同的，但内容是相同的。
+</p>
+
+<p>
+(4)寄存器间接寻址：寄存器寻址是寄存器的地址由指令中断地址段给出该寄存器的地址，寄存器里面存的是操作数的地址，间接寻址只能用R0,1和DPTR寄存器。
+</p>
+
+<p>
+(5)基址加变址寻址：8051没有变址寄存器，用DPTR或PC作为变址寄存器，A + DPTR/PC作为16位的地址。
+</p>
+
+<p>
+(6)相对寻址：
+</p>
+
+
+
+<p>
+“问题”：
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

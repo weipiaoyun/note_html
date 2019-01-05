@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>tmp1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+62	CAM	copyEdit	拷贝edit	child	1	4	1	net	/genesis/sys/scripts/hc/project.pl		
+1	CAM	RunInit	前制制作	parent	1	1					
+2	CAM	RunInner	线路制作	parent	1	2					
+3	CAM	RunSolder	防焊制作	parent	1	3					
+4	CAM	RunSilk	文字制作	parent	1	4					
+5	CAM	RunSet	Set 制作	parent	1	5					
+6	CAM	RunPanel	Pnl 制作	parent	1	6					
+7	CAM	RunOutput	资料输出	parent	1	7					
+8	CAM	RunERP	Erp 后补	parent	1	8					
+9	CAM	Other	其它制作	parent	1	9					
+10	CAM	LayerNaming	层别命名	child	1	3	1	org	/genesis/sys/scripts/hc/LayerNaming.pl		
+11	CAM	Input-zkLine	导入阻抗	child	1	1	2	edit	/genesis/sys/scripts/greate/outer/Input-zkLine.pl		
+12	CAM	select_cu	挑大铜皮	child	1	2	2	edit	/genesis/sys/scripts/hc/select_cu.pl		
+13	CAM	auto_compensate	线路补偿	child	1	3	2	edit	/genesis/sys/scripts/greate/outer/.auto_compensate.pl		
+14	CAM	changeLine	BGA 夹线	child	1	4	2	edit	/genesis/sys/scripts/greate/outer/changeLine.pl		
+15	CAM	shave_cu	套大铜皮	child	1	5	2	edit	/genesis/sys/scripts/hc/shave_cu.pl		
+16	CAM	createCXT	测 线 图	child	1	6	2	edit	/genesis/sys/scripts/hc/createCXT.pl		
+17	CAM	select_sm	挑选 SMD	child	1	1	3	edit	/genesis/sys/scripts/greate/mask/select_sm.pl		
+18	CAM	select_cusm	铜面开窗	child	1	2	3	edit	/genesis/sys/scripts/greate/mask/select_cusm.pl		
+19	CAM	optimize	防焊优化	child	1	3	3	edit	/genesis/sys/scripts/greate/mask/optimize.pl		
+20	CAM	copy_nega	复制负片	child	1	4	3	edit	/genesis/sys/scripts/greate/mask/copy_nega.pl		
+21	CAM	MaskBGA	BGA 优化-OLD	child	1	5	3	edit	/genesis/sys/scripts/greate/mask/smBga.pl		
+22	CAM	analysis	防焊分析	child	1	7	3	edit	/genesis/sys/scripts/greate/mask/analysis.pl		
+23	CAM	saiKong	塞孔制作	child	1	8	3	edit	/genesis/sys/scripts/hc/saiKong.pl		
+24	CAM	editSilkInc	加大线宽	child	1	1	4	edit	/genesis/sys/scripts/hc/silk_reshape.pl		
+25	CAM	editSilkNeg	制作套层	child	1	2	4	edit	/genesis/sys/scripts/hc/silk_making_cut_layer.pl		
+26	CAM	editSilkScale	改字框线	child	1	3	4	edit	/genesis/sys/scripts/.hj/script/text_scale_win.csh		
+27	CAM	editSilkMerg	正负合层	child	1	4	4	edit	/genesis/sys/scripts/hc/silk_merge_layer.pl		
+28	CAM	silk_sliver	文字细丝	child	1	5	4	edit	/genesis/sys/scripts/.hj/script/silk_opt.csh		
+29	CAM	autoWeek	周期更改	child	1	6	4	edit	/genesis/sys/scripts/hc/autoWeek.pl		
+30	CAM	setFillCu	工艺边铜	child	1	2	5	set	/genesis/sys/scripts/hc/setFillCu.pl		
+31	CAM	addQiepianStep	跑切片孔	child	1	3	5	set	/genesis/sys/scripts/greate/misc/addQiepianStep.pl		
+32	CAM	fg-sm	防焊返工	child	1	4	5	set	/genesis/sys/scripts/greate/misc/fg-sm		
+33	CAM	iCoupon	阻抗模块	child	1	1	6	panel	/genesis/sys/scripts/hc/iCoupon.pl		
+34	CAM	PCB_Number	拼版序号	child	1	2	6	panel	/genesis/sys/scripts/greate/panel/PCB_Number.pl		
+35	CAM	addPEChonKOng	Pe  冲孔	child	1	3	6	panel	/genesis/sys/scripts/hc/addPEChongKong.pl		
+36	CAM	Addlotcard	批号铜块	child	0	4	6	panel	/genesis/sys/scripts/greate/panel/Addlotcard.csh		
+37	CAM	outputgo	文字喷墨	child	1	1	7	panel	/genesis/sys/scripts/wxs/outputgo		
+38	CAM	calculationArea	铜箔面积	child	1	1	8	panel	/genesis/sys/scripts/hc/calculationArea.pl		
+39	CAM	countTarget	靶距计算	child	1	2	8	panel	/genesis/sys/scripts/hc/countTarget.pl		
+40	CAM	pushERP	Erp 后补	child	1	3	8	panel	/genesis/sys/scripts/hc/pushERP.pl		
+41	CAM	clearJobAttr	清除属性	child	1	1	9	panel	/genesis/sys/scripts/.hj/bin/clearJobAttr.pl		
+42	CAM	checkList	检查列表	child	1	2	9	panel	/genesis/sys/scripts/hc/checkList.pl		
+43	CAM	netcheck	网络分析	child	1	3	9	edit	/genesis/sys/scripts/netcheck		
+44	CAM	comparelayer	多层对比	child	1	4	9	panel	/genesis/sys/scripts/hc/compare.pl		
+45	CAM	devideCudrill	大铜面孔	child	1	5	9	edit	/genesis/sys/scripts/hc/devideCudrill.pl		
+46	CAM	checklist	分析列表	child	1	6	9	edit	/genesis/sys/scripts/greate/misc/checklist		
+47	CAM	ChoiceLayer	资料输出	child	1	2	7	panel	/genesis/sys/scripts/greate/panel/ChoiceLayer.pl		
+48	CAM	textEdit	文字编辑	child	1	7	4	edit	/genesis/sys/scripts/.hj/script/text_scale_win.csh		
+61	CAM	copyNet	拷贝net	child	1	2	1	org	/genesis/sys/scripts/hc/project.pl		
+54	CAM	checkLuo	锣带检查	child	1	8	9	panel	/genesis/sys/scripts/greate/misc/check/CheckList.pl		
+51	CAM	PGOUTPUT	PG输出	child	1	4	7	panel	/genesis/sys/scripts/hc/project.pl		
+53	CAM	netcheck	网络分析	child	1	7	2	edit	/genesis/sys/scripts/netcheck		
+55	CAM	comparelayer	多层对比	child	1	4	2	edit	/genesis/sys/scripts/hc/compare.pl		
+1001	MI	Input	INPUT	parent	1	1					
+1002	MI	RunInit	初始处理	parent	1	2					
+1003	MI	InputOutput	输入输出	parent	0	3					
+1004	MI	DataDownload	资料下载	child	1	1	1001	org	d:/genesis/sys/scripts/MiScript/script/FtpDownload.csh		
+1005	MI	InputOrg	原稿导入	child	0	2	1001	org			
+1006	MI	LayerAttr	定层属性	child	0	3	1001	org			
+1007	MI	LayerGiveName	层名设置	child	0	4	1001	org			
+1008	MI	LayerSort	层别排序	child	0	5	1001	org			
+1009	MI	LayerAlign	层别对齐	child	0	6	1001	org			
+1010	MI	CreateProfile	建Profile	child	0	7	1001	org			
+1011	MI	Ldrill	钻孔顶底	child	0	8	1001	org			
+1012	MI	ChangeThermal	华为花Pad	child	1	9	1001	org	d:/genesis/sys/scripts/MiScript/miScriptAffairs.csh		
+1013	MI	BasicInfo	基本信息	child	0	10	1001	org			
+1014	MI	OutputTgz	导出Tgz	child	1	11	1001	org	d:/genesis/sys/scripts/MiScript/miScriptAffairs.csh		
+1015	MI	UploadOrig	原稿备份	child	1	12	1001	org	d:/genesis/sys/scripts/MiScript/script/MiFileUpload.csh		
+1016	MI	DelOutProfile	去板外物	child	1	1	1002	cad	d:/genesis/sys/scripts/MiScript/miScriptAffairs.csh		
+1017	MI	AllAnalysis	分析列表	child	1	2	1002	cad	d:/genesis/sys/scripts/MiScript/miScriptAffairs.csh		
+1018	MI	CopperArea	电镀面积	child	1	3	1002	cad	d:/genesis/sys/scripts/MiScript/script/CountCopper.csh		
+1019	MI	stuffHoleSel	塞孔选择	child	1	4	1002	cad	d:/genesis/sys/scripts/MiScript/script/SelectTmDrill.csh		
+1020	MI	select_cu	挑大铜皮	child	1	5	1002	cad	d:/genesis/sys/scripts/MiScript/script/select_cu.csh		
+1021	MI	DrlNameChange	钻孔更名	child	1	6	1002	cad	d:/genesis/sys/scripts/MiScript/script/renameDrill.csh		
+1022	MI	SelBlind	挑选盲孔	child	1	7	1002	cad	d:/genesis/sys/scripts/MiScript/script/SelectOverlapDrill.csh		
+1023	MI	OutputImp	输出阻抗	child	0	1	1003	cad			
+1024	MI	OutputDxf	导出 Dxf	child	0	2	1003	cad			
+1025	MI	OutputVcut	导出Vcut	child	0	3	1003	cad			
+1026	MI	CopyCad	复制 Cad	child	1	13	1001	org	d:/genesis/sys/scripts/MiScript/miScriptAffairs.csh		
+56	CAM	copyWorkLayer	拼工作稿	child	1	5	5	panel	/genesis/sys/scripts/greate/misc/CopyWorking.pl		
+57	CAM	inputMiTgz	导入Tgz	child	1	1	1	org	/genesis/sys/scripts/hc/inputMiTgz.pl		
+63	CAM	addVcutDrill	添加Vcut孔	child	1	5	6	panel	/genesis/sys/scripts/hc/project.pl		
+58	CAM	PROC_CheckDrill	钻孔检查	child	1	1	59	panel	/genesis/sys/scripts/hc/project.pl		
+59	CAM	RunDrill	钻孔制作	parent	1	1					
+60	CAM	comparelayer	多层对比	child	1	5	1	org	/genesis/sys/scripts/hc/compare.pl		
+1027	MI	ImpSearch	挑阻抗线	child	1	10	1002	cad	d:/genesis/sys/scripts/MiScript/miScriptAffairs.csh		
+1028	MI	LayerNaming	层别命名	child	1	8	1002	cad	d:/genesis/sys/scripts/MiScript/script/LayerNaming.csh		
+1029	MI	InputImp	输入阻抗	child	1	9	1002	cad	d:/genesis/sys/scripts/MiScript/script/InputImp.csh		
+1030	MI	comparelayer	多层对比	child	1	11	1002	cad	/genesis/sys/scripts/hc/compare.pl		
+64	CAM	autoLuo	自动跑锣边	child	1	3	7	panel	/genesis/sys/scripts/greate/rout/pan.pl		
+1031	MI	IpcCompare	IPC网络	child	1	14	1001	org	d:/genesis/sys/scripts/MiScript/script/IpcCompare.csh		
+1032	MI	addArcDrill	弧圈转孔	child	1	12	1002	cad	d:/genesis/sys/scripts/MiScript/script/addArcDrill.csh		
+65	CAM	chuanQiBan	喘气板	child	1	2	59	edit	/genesis/sys/scripts/hc/project.pl		
+1033	MI	drillOutput	钻孔输出	child	1	14	1002	cad	d:/genesis/sys/scripts/MiScript/script/formi		
+1034	MI	addQingJiaoKong	加清角孔	child	1	13	1002	cad	d:/genesis/sys/scripts/MiScript/script/addQingJiaoDrill.csh		
+1035	MI	deleteTmpLayer	层别对比	child	1	2	1001	org	d:/genesis/sys/scripts/MiScript/script/deleteTmpLayer.csh		
+66	CAM	MaskBGA	BGA 优化-NEW	child	1	6	3	edit	/genesis/sys/scripts/hc/smBga.pl		
+67	CAM	PGOUTPUT	钻带输出	child	1	5	7	panel	/genesis/sys/scripts/greate/drill/.newdrill		
+68	CAM	film	CAM绘片	child	1	6	7	panel	/genesis/sys/scripts/greate/output/film_output		
+69	CAM	copy	多层拷贝	child	1	9	9	edit	/genesis/sys/scripts/greate/misc/CopyLayers.pl		
+70	CAM	COPY	多层拷贝	child	1	6	1	net	/genesis/sys/scripts/greate/misc/CopyLayers.pl		
+71	CAM	copy	多层拷贝	child	1	8	2	edit	/genesis/sys/scripts/greate/misc/CopyLayers.pl		
+72	CAM	COPY	多层拷贝	child	1	6	6	panel	/genesis/sys/scripts/greate/misc/CopyLayers.pl		
+73	CAM	copy	多层拷贝	child	1	6	5	set	/genesis/sys/scripts/greate/misc/CopyLayers.pl		
+74	CAM	smdHat	SMD优化	child	1	9	3	edit	/genesis/sys/scripts/hc/project.pl		
+75	CAM	panel-g	高多层板边	child	1	7	6	panel	/genesis/sys/scripts/hc/panel-g.pl	/genesis/sys/scripts	
+1036	CAM	FpcOutput	软板绘片	child	1	7	7	panel	/genesis/sys/scripts/topcb/output/output		
+76	CAM	panel-h	HDI板边	child	1	8	6	panel	/genesis/sys/scripts/hc/panel.pl		0000-00-00 00:00:00
+77	CAM	panel-LDI-CCD	LDI-镭射	child	1	9	6	panel	/genesis/sys/scripts/hc/addLaserLDIpl.pl		
+78	CAM	outputCCD	CCD靶距	child	1	4	8	panel	/genesis/sys/scripts/hc/coutTongBaJu.pl		
+79	CAM	devideDrill	自动分孔	child	1	7	1	net	/genesis/sys/scripts/hc/ELIC_DRILL.pl		
+80	CAM	ChangeThermal	华为花Pad	child	1	1	1	org	/genesis/sys/scripts/hc/miScriptAffairs.pl		
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

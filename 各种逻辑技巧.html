@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>各种逻辑技巧</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+与
+	相与可以对指定位清零。指定位是为0的位。单逻辑有效，也就是为1的位无效，只是保持。value = value &amp; ~（1 &lt;&lt; bit_number）
+</p>
+	
+<p>
+	取反相与，对应位清零
+</p>
+
+
+<p>
+或
+相或可以对指定为置1。指定位是为1的位。单逻辑有效，也就是为0的位无效，只是保持。
+VICVectCntl0 = 0x20 | 0x06;			// UART0分配到IRQ slot0，即最高优先级，这个或的作用就是可以很清楚得看出高8位是怎样的，低8位是怎样的。主要是区分功能。value = value &amp; (1 &lt;&lt; bit_number)
+</p>
+
+<p>
+相与有取余的意思。比如一个数与0111相与，那么就是除以4取得的余数。
+</p>
+
+<p>
+相与相或还可以赋值，比如一个数与0x0111相与，其实赋值给的是低三位，其它的都清零了，这个可以用在对固定的位进行赋值，然后与其它位相与就可以设置整个了，所以相与可以部分，相或可以整体。
+</p>
+
+<p>
+&amp;= 和|=经常连在一起用。第一个是对对应位清零，第二位是对对应位置一。我们对对应位置一的时候必须保证其它位是0的，所以要&amp;=先把其它的位清零了。也就是对应的清零，对应的置一，他们需联系起来用。
+</p>
+
+<p>
+&amp;=还可以对对应位如果为1就清0，如果是0就保持不变。一般对应位是为1的位。所以一般要先取反，如：a &amp;= ~(b)；表示的就是对b为1的位清零。
+</p>
+
+<p>
+相与可以取出相对应的位，可以把要留下来的用1，保存下来，不用的用0，清除
+</p>
+
+<p>
+相与可以判断某位是0还是1，把要判断的设为1，当那位为0的时候相与就是0，当那位是1的时候，相与就是1.所以可以判断某位。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

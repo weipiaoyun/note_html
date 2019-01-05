@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>菲林还原</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+  /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT * into #tmpTab
+  FROM [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo_bak] where insertDate = '2018-01-16 08:15:01'
+</p>
+ 
+<p>
+	declare 
+	@Guid_ varchar(50),
+	@group_ varchar(50), 
+</p>
+<blockquote>
+@TiaoMa_ varchar(50),
+@ApplyGuid_ varchar(50),
+@jobName_ varchar(50),
+@Apply2Dep varchar(50),
+@Aplly2People varchar(50),
+@TheFilmReson varchar(50),
+@ScaleX_ varchar(50),
+@ScaleY_ varchar(50),
+@ApplyNum_ varchar(50),
+@FinishX_ varchar(50),
+@FinishY_ varchar(50),
+@TieMoX_ varchar(50),
+@TieMoY_ varchar(50),
+@FilmType_ varchar(50),
+@FilmLayer_ varchar(50),
+@LayerIndex_ varchar(50),
+@Machine_ varchar(50),
+@FilmId_ varchar(50),
+@ApplyTime varchar(50),
+@OrderOfFilm_ varchar(50),
+@CancelFilm_ varchar(50),
+@WIP_ varchar(50),
+@Film_ varchar(50),
+@FilmTime_ varchar(50),
+@Check_ varchar(50),
+@CheckTime_ varchar(50),
+@Mir_ varchar(50),
+@Polarity_ varchar(50),
+@Size_ varchar(50),
+@Priority_ varchar(50),
+@FilmNumApply_ varchar(50),
+@FilmNumIng_ varchar(50),
+@FilmNumOk_ varchar(50),
+@Storage_ varchar(50),
+@StorageTime_ varchar(50),
+@SendName_ varchar(50),
+@SendTime_ varchar(50),
+@SendNum_ varchar(50),
+@ReceiveName_ varchar(50),
+@GivebackTime_ varchar(50),
+@GivebackNum_ varchar(50),
+@ConfirmName_ varchar(50),
+@ReceiveWaiting_ varchar(50),
+@CloseName_ varchar(50),
+@CloseTime_ varchar(50),
+@CloseStatus_ varchar(50),
+@IsBrushoff_ varchar(50),
+@BrushoffName_ varchar(50),
+@BrushoffTime_ varchar(50),
+@Week_ varchar(50),
+@Remark_ varchar(50),
+@selectNum_ varchar(50),
+@addIndex_ varchar(50)
+</blockquote>
+<blockquote>
+--select * from #tmpTab
+</blockquote>
+	
+<p>
+ while exists (select top 1 Guid_ from #tmpTab)
+ begin
+	select top 1 
+	@group_ =    group_,
+@Guid_ = Guid_,
+@TiaoMa_ = TiaoMa_,
+@ApplyGuid_ = ApplyGuid_,
+@jobName_ = jobName_,
+@Apply2Dep = Apply2Dep,
+@Aplly2People = Aplly2People,
+@TheFilmReson = TheFilmReson,
+@ScaleX_ = ScaleX_,
+@ScaleY_ = ScaleY_,
+@ApplyNum_ = ApplyNum_,
+@FinishX_ = FinishX_,
+@FinishY_ = FinishY_,
+@TieMoX_ = TieMoX_,
+@TieMoY_ = TieMoY_,
+@FilmType_ = FilmType_,
+@FilmLayer_ = FilmLayer_,
+@LayerIndex_ = LayerIndex_,
+@Machine_ = Machine_,
+@FilmId_ = FilmId_,
+@ApplyTime = ApplyTime,
+@OrderOfFilm_ = OrderOfFilm_,
+@CancelFilm_ = CancelFilm_,
+@WIP_ = WIP_,
+@Film_ = Film_,
+@FilmTime_ = FilmTime_,
+@Check_ = Check_,
+@CheckTime_ = CheckTime_,
+@Mir_ = Mir_,
+@Polarity_ = Polarity_,
+@Size_ = Size_,
+@Priority_ = Priority_,
+@FilmNumApply_ = FilmNumApply_,
+@FilmNumIng_ = FilmNumIng_,
+@FilmNumOk_ = FilmNumOk_,
+@Storage_ = Storage_,
+@StorageTime_ = StorageTime_,
+@SendName_ = SendName_,
+@SendTime_ = SendTime_,
+@SendNum_ = SendNum_,
+@ReceiveName_ = ReceiveName_,
+@GivebackTime_ = GivebackTime_,
+@GivebackNum_ = GivebackNum_,
+@ConfirmName_ = ConfirmName_,
+@ReceiveWaiting_ = ReceiveWaiting_,
+@CloseName_ = CloseName_,
+@CloseTime_ = CloseTime_,
+@CloseStatus_ = CloseStatus_,
+@IsBrushoff_ = IsBrushoff_,
+@BrushoffName_ = BrushoffName_,
+@BrushoffTime_ = BrushoffTime_,
+@Week_ = Week_,
+@Remark_ = Remark_,
+@selectNum_ = selectNum_,
+@addIndex_ = addIndex_
+</p>
+
+<p>
+	 from #tmpTab
+</p>
+	
+<p>
+	--如果存在，则更新
+</p>
+	
+<p>
+	--if exists (select top 1 Guid_ from [ENGSYS4DG].[EngSys].[dbo].[T_WF_FilmOrderDetialInfo])
+	if exists (select top 1 Guid_ from [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] where Guid_ = @Guid_)
+	begin
+		--update [ENGSYS4DG].[EngSys].[dbo].[T_WF_FilmOrderDetialInfo] set TieMoX_ = '10', TieMoY_ = '20'  where Guid_ = @Guid 
+</p>
+<blockquote>
+print ''
+</blockquote>
+<blockquote>
+update [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] set
+group_ = @group_,
+</blockquote>
+<p>
+		Guid_ = @Guid_,
+		ApplyGuid_ = @ApplyGuid_,
+		jobName_ = @jobName_,
+		Apply2Dep = @Apply2Dep,
+		Aplly2People = @Aplly2People,
+		TheFilmReson = @TheFilmReson,
+		ScaleX_ = @ScaleX_,
+		ScaleY_ = @ScaleY_,
+		ApplyNum_ = @ApplyNum_,
+		FinishX_ = @FinishX_,
+		FinishY_ = @FinishY_,
+		TieMoX_ = @TieMoX_,
+		TieMoY_ = @TieMoY_,
+		FilmType_ = @FilmType_,
+		FilmLayer_ = @FilmLayer_,
+		LayerIndex_ = @LayerIndex_,
+		Machine_ = @Machine_,
+		FilmId_ = @FilmId_,
+		ApplyTime = @ApplyTime,
+		OrderOfFilm_ = @OrderOfFilm_,
+		CancelFilm_ = @CancelFilm_,
+		WIP_ = @WIP_,
+		Film_ = @Film_,
+		FilmTime_ = @FilmTime_,
+		Check_ = @Check_,
+		CheckTime_ = @CheckTime_,
+		Mir_ = @Mir_,
+		Polarity_ = @Polarity_,
+		Size_ = @Size_,
+		Priority_ = @Priority_,
+		FilmNumApply_ = @FilmNumApply_,
+		FilmNumIng_ = @FilmNumIng_,
+		FilmNumOk_ = @FilmNumOk_,
+		Storage_ = @Storage_,
+		StorageTime_ = @StorageTime_,
+		SendName_ = @SendName_,
+		SendTime_ = @SendTime_,
+		SendNum_ = @SendNum_,
+		ReceiveName_ = @ReceiveName_,
+		GivebackTime_ = @GivebackTime_,
+		GivebackNum_ = @GivebackNum_,
+		ConfirmName_ = @ConfirmName_,
+		ReceiveWaiting_ = @ReceiveWaiting_,
+		CloseName_ = @CloseName_,
+		CloseTime_ = @CloseTime_,
+		BrushoffName_ = @BrushoffName_,
+		BrushoffTime_ = @BrushoffTime_,
+		Week_ = @Week_,
+		Remark_ = @Remark_,
+		selectNum_ = @selectNum_,
+		addIndex_ = @addIndex_
+</p>
+<blockquote>
+where Guid_ = @Guid_
+</blockquote>
+<p>
+	end
+</p>
+	
+<p>
+	else
+	begin
+</p>
+
+<p>
+		INSERT INTO [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] 
+		(
+</p>
+<blockquote>
+group_,
+Guid_,
+ApplyGuid_,
+jobName_,
+Apply2Dep,
+Aplly2People,
+TheFilmReson,
+ScaleX_,
+ScaleY_,
+ApplyNum_,
+FinishX_,
+FinishY_,
+TieMoX_,
+TieMoY_,
+FilmType_,
+FilmLayer_,
+LayerIndex_,
+Machine_,
+FilmId_,
+ApplyTime,
+OrderOfFilm_,
+CancelFilm_,
+WIP_,
+Film_,
+FilmTime_,
+Check_,
+CheckTime_,
+Mir_,
+Polarity_,
+Size_,
+Priority_,
+FilmNumApply_,
+FilmNumIng_,
+FilmNumOk_,
+Storage_,
+StorageTime_,
+SendName_,
+SendTime_,
+SendNum_,
+ReceiveName_,
+GivebackTime_,
+GivebackNum_,
+ConfirmName_,
+ReceiveWaiting_,
+CloseName_,
+CloseTime_,
+BrushoffName_,
+BrushoffTime_,
+Week_,
+Remark_,
+selectNum_,
+addIndex_
+</blockquote>
+<p>
+		)
+		VALUES (
+		@group_,
+</p>
+<blockquote>
+@Guid_,
+@ApplyGuid_,
+@jobName_,
+@Apply2Dep,
+@Aplly2People,
+@TheFilmReson,
+@ScaleX_,
+@ScaleY_,
+@ApplyNum_,
+@FinishX_,
+@FinishY_,
+@TieMoX_,
+@TieMoY_,
+@FilmType_,
+@FilmLayer_,
+@LayerIndex_,
+@Machine_,
+@FilmId_,
+@ApplyTime,
+@OrderOfFilm_,
+@CancelFilm_,
+@WIP_,
+@Film_,
+@FilmTime_,
+@Check_,
+@CheckTime_,
+@Mir_,
+@Polarity_,
+@Size_,
+@Priority_,
+@FilmNumApply_,
+@FilmNumIng_,
+@FilmNumOk_,
+@Storage_,
+@StorageTime_,
+@SendName_,
+@SendTime_,
+@SendNum_,
+@ReceiveName_,
+@GivebackTime_,
+@GivebackNum_,
+@ConfirmName_,
+@ReceiveWaiting_,
+@CloseName_,
+@CloseTime_,
+@BrushoffName_,
+@BrushoffTime_,
+@Week_,
+@Remark_,
+@selectNum_,
+@addIndex_
+) 
+</blockquote>
+<p>
+	end
+</p>
+	
+<p>
+	delete #tmpTab where Guid_  = @Guid_
+ end
+ drop table   #tmpTab
+</p>
+  
+<p>
+  return
+</p>
+  
+<p>
+  	INSERT INTO [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] 
+		(Guid_,jobName_ ,ScaleX_,ScaleY_,[FilmType_],[Machine_],[TheFilmReson],[Apply2Dep],[Aplly2People],[ApplyTime],Priority_,FilmLayer_,[FinishX_],[FinishY_],group_,Remark_)
+		VALUES (
+		'5129BB7D-5E5E-42C3-B4A6-7E28840AC53E', 
+		'bk23303a0' ,
+		'100.010' ,
+		'100.010',
+		'防焊', 
+		'防焊自动-新',
+		'更改周期',
+		'',
+		'',
+		GETDATE(),
+		'',
+		'',
+		'',
+		'',
+		'', 
+		'')
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

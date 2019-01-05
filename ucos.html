@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ucos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+任务就绪表全部任务共享一个，而任务等待表每个事件都有一个等待表。所以有多少个事件就有多少个就绪表，所以事件控制块这个数据结构包含有等待表，而任务控制块里面没有就绪表。
+</p>
+
+<p>
+互斥信号量其实是一个二值信号量(同一时间只能一个任务以一个独享的方式使用共享资源)
+</p>
+
+
+<h1 id="toc_1" class="justcenter">问题</h1>
+<p>
+	怎么使等待时间已到的等待任务进入就绪状态。
+		现在只知道等待时间会放到任务控制块里面。
+</p>
+		
+<p>
+pend就是请求，如果请求成功就继续执行，如果请求不成功就就绪表等待表置一，进入等待，同时就绪表对应的位清零。
+post就是发送，也就是释放，释放以后，就有一个任务的就绪表置1，等待状态清零.
+</p>
+
+<h1 id="toc_2">信号量集</h1>
+<p>
+信号量集由<code>标识组</code>和<code>等待任务链表</code>组成。标志组就是信号量集的标志。创建信号量集就是从<code>空标识组链表</code>里面摘取一个。然后进行初始化。创建完信号量集的时候有可能只有标识组
+</p>
+
+<p>
+标识组里面是：	<code>类型</code>(说明是信号量集)。
+</p>
+<blockquote>
+<code>指针</code>(指向等待任务链表的指针)。
+<code>状态</code>各个任务有没准备好的状态。
+</blockquote>
+				
+<p>
+	post里面也有OS_sched，因为要保证实时性，马上使使获得信号量的任务进入就绪，然后按优先级执行。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

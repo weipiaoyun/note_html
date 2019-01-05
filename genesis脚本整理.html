@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>genesis脚本整理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="genesis输出资料.html">genesis输出资料</a><br>
+<a href="genesis Info.html">genesis Info</a><br>
+<a href="测线图.html">测线图</a><br>
+<a href="linehooks.html">linehooks</a><br>
+<a href="自动制作工艺边.html">自动制作工艺边</a><br>
+<a href="FPC板边.html">FPC板边</a><br>
+<a href="硬板板边.html">硬板板边</a><br>
+<a href="志浩板边.html">志浩板边</a><br>
+<a href="阻抗条.html">阻抗条</a><br>
+<a href="辅料标识线.html">辅料标识线</a><br>
+<a href="FPC脚本解释.html">FPC脚本解释</a><br>
+<a href="自动更改周期.html">自动更改周期</a><br>
+<a href="文字漏印防呆.html">文字漏印防呆</a><br>
+<a href="genesis资料输出.html">genesis资料输出</a><br>
+<a href="自动input Gerber.html">自动input Gerber</a><br>
+<a href="CheckList.html">CheckList</a><br>
+<a href="PG.html">PG</a><br>
+<a href="钻孔检测.html">钻孔检测</a><br>
+<a href="工艺边铺铜.html">工艺边铺铜</a><br>
+</p>
+
+<h2 id="toc_0.1">更新flip的检测</h2>
+<p>
+如果是红色，则.releasefrom的值为空，
+如果时蓝色，则.releasefrom的值不为空，可用此判断是否有更新。此时edit和edit+flip没有任何关系。但拼板和edit+flip可能有关系。所以，当更新edit的时候，可能没有跟新edit+flip，就可能造成资料错误。所以必须保证其是红色。这样genenesi会自动检测flip是否过期。
+</p>
+
+<h2 id="toc_0.2">板边symbol防重叠</h2>
+<p>
+1，记最大值和最小值及其对应的symbol。该symbol大小记录起来
+2，放symbol的时候，放在最大值上面，可以根据最大值坐标和该symbol的大小求出不能放的范围。该symbol
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

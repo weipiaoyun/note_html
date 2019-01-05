@@ -1,0 +1,1662 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>base</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+#!/usr/bin/perl -w
+#源码名称: Base.pm
+#功能描述: 为Genesis的基本操作提供类,根据王葛,王智辉的程序所修改
+#开发单位: 集团工程系统开发部
+#作者    : 林伟
+#开发日期: 2014.4.8
+#版本号  : 1.0
+</p>
+
+<p>
+#导入模块
+package Base;
+use strict;
+use warnings;
+use utf8;
+require Exporter;
+our @ISA = qw(Exporter);
+</p>
+
+<p>
+#设置程式名称
+my $appname = 'Base';
+</p>
+
+<p>
+#设置版本号
+my $version = 1.0;
+</p>
+
+<p>
+#new方法
+=sub new {
+</p>
+<blockquote>
+my $caller = shift;
+my \(class  = ref(\)caller) || $caller;
+</blockquote>
+<p>
+	my $self = {};
+</p>
+<blockquote>
+bless \(self, \)class;
+return $self;
+</blockquote>
+<p>
+}
+=cut
+</p>
+
+<p>
+#名字		:SetUser
+#功能		:设置用户名
+#参数		:要设置的用户名
+#返回值		:1
+#使用例子	:$h-&gt;SetUser('lw');
+sub SetUser{
+</p>
+<blockquote>
+my $self = shift;
+</blockquote>
+<p>
+	my $user = shift;
+	\(self-&gt;{User} = \)user, if defined $user;
+</p>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:OpenJob
+#功能		:打开料号
+#参数		:要打开的料号名
+#返回值		:1
+#使用例子	:$h-&gt;OpenJob();
+sub OpenJob{
+	my $self	= shift;
+	\(self-&gt;COM('open_job',job =&gt; \)self-&gt;{Job});
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+
+<p>
+#名字		:SetJob
+#功能		:设置操作的Job
+#参数		:要操作的Job
+#返回值		:设置的job名
+#使用例子	:$h-&gt;SetJob('bd103185a0');
+sub SetJob{
+</p>
+<blockquote>
+my $self = shift;
+my $jobName = shift;
+</blockquote>
+<p>
+	\(self-&gt;{Job} = \)jobName,if defined $jobName;
+	return $self-&gt;{Job};
+}
+</p>
+
+<p>
+#名字		:SetStep
+#功能		:设置操作的step
+#参数		:要操作的step
+#返回值		:设置的step名
+#使用例子	:$h-&gt;SetStep('edit');
+sub SetStep{
+</p>
+<blockquote>
+my $self = shift;
+my $step = shift;
+</blockquote>
+<p>
+	\(self-&gt;{Step} = \)step,if defined $step;
+	return $self-&gt;{Step};
+}
+</p>
+
+<p>
+#名字		:getJobName
+#功能		:获取料号名
+#参数		:要操作的step
+#返回值		:料号名
+#使用例子	:$h-&gt;getJobName();
+sub getJobName{
+</p>
+<blockquote>
+my $self = shift;
+</blockquote>
+<blockquote>
+return $self-&gt;{JobName};
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:SetLayer
+#功能		:设置操作的layer
+#参数		:要设置的层
+#返回值		:设置的层名
+#使用例子	:$h-&gt;SetLayer('gtl');
+sub SetLayer{
+</p>
+<blockquote>
+my $self = shift;
+my $layer = shift;
+</blockquote>
+<p>
+	\(self-&gt;{Layer} = \)layer,if defined $layer;
+	return $self-&gt;{Layer};
+}
+</p>
+
+<p>
+#名字		:WorkLayer
+#功能		:设置某层为工作层
+#参数		:想要设置的工作层名
+#返回值		:1
+#使用例子	:$h-&gt;WorkLayer('gtl');
+sub WorkLayer{
+	my $self	= shift;
+	my $layer	= shift;
+</p>
+
+<p>
+	$self-&gt;COM('display_layer',
+</p>
+<blockquote>
+name	=&gt; "$layer",
+display	=&gt; 'yes',
+number	=&gt; 1,);
+</blockquote>
+<p>
+	$self-&gt;COM('work_layer',
+</p>
+<blockquote>
+name	=&gt; "$layer",);
+</blockquote>
+	
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:DisplayLayer
+#功能		:显示某个层别
+#参数		:第一个为层别名，第二个为第几个颜色
+#返回值		:1
+#使用例子	:$h-&gt;DisplayLayer("gtl",1);
+sub DisplayLayer{
+	my $self	= shift;
+	my $layer	= shift;
+	my $number	= shift;
+</p>
+	
+<p>
+	$self-&gt;COM('display_layer',
+</p>
+<blockquote>
+name	=&gt; "$layer",
+display	=&gt; 'yes',
+number	=&gt; "$number",);
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:AffectedLayer
+#功能		:设置某层为影响层
+#参数		:要影响的层名
+#返回值		:1
+#使用例子	:$h-&gt;AffectedLayer('gtl');
+sub AffectedLayer{
+	my $self	= shift;
+	my $layer	= shift;
+</p>
+
+<p>
+	$self-&gt;COM('affected_layer',
+</p>
+<blockquote>
+name		=&gt; $layer,
+mode		=&gt; 'single',
+affected	=&gt; 'yes',);
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:AffectedAll
+#功能		:设置所有层为影响层
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;AffectedLayer();
+sub AffectedAll{
+	my $self	= shift;
+</p>
+
+<p>
+	$self-&gt;COM('affected_layer',
+</p>
+<blockquote>
+mode		=&gt; 'all',
+affected	=&gt; 'yes',);
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:UnaffectedLayer
+#功能		:取消某层的影响
+#参数		:要取消影响的层名
+#返回值		:1
+#使用例子	:$h-&gt;UnAffectedLayer('gtl');
+sub UnAffectedLayer{
+	my $self	= shift;
+	my $layer	= shift;
+</p>
+
+<p>
+	$self-&gt;COM('affected_layer',
+</p>
+<blockquote>
+name		=&gt; "$layer",
+mode		=&gt; 'single',
+affected	=&gt; 'no',);
+</blockquote>
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:ClearAll
+#功能		:清除所有影响层和显示层
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;ClearAll();
+sub ClearAll{
+</p>
+<blockquote>
+my $self = shift;
+$self-&gt;COM('affected_layer',mode=&gt;'all',affected=&gt;'no');
+$self-&gt;COM('clear_layers');
+</blockquote>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:ClearFeat
+#功能		:清除所选的或者高亮的
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;ClearFeat();
+sub ClearFeat{
+	my $self=shift;
+</p>
+
+<p>
+	$self-&gt;COM('clear_highlight');
+	$self-&gt;COM('sel_clear_feat');
+	return 1;
+}
+</p>
+
+<p>
+#名字		:SelectReverse
+#功能		:反选
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;SelectReverse
+sub SelectReverse{
+	my $self	= shift;
+	$self-&gt;COM('sel_reverse');
+	return 1;
+}
+</p>
+
+<p>
+#名字		:OpenStep
+#功能		:打开某个料号的step
+#参数		:要打开的step名
+#返回值		:1
+#使用例子	:$h-&gt;OpenStep('edit');
+sub OpenStep{
+</p>
+<blockquote>
+my $self	= shift;
+my $step	= shift;
+</blockquote>
+<blockquote>
+$self-&gt;COM('open_entity',
+job    =&gt; "$self-&gt;{Job}",
+type   =&gt; 'step',
+name   =&gt; "$step",
+iconic =&gt; 'no');
+$self-&gt;AUX('set_group',
+group =&gt; "$self-&gt;{COMANS}" );
+</blockquote>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:CloseStep
+#功能		:关闭当前step
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;CloseStep();
+sub CloseStep{
+</p>
+<blockquote>
+my $self = shift;
+$self-&gt;COM('editor_page_close');
+</blockquote>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:SetUnits
+#功能		:设定单位
+#参数		:要设定的单位
+#返回值		:1
+#使用例子	:$h-&gt;SetUnits('mm');
+sub SetUnits{
+	my $self  = shift;
+	my $types = shift;
+	\(self-&gt;COM('units', type =&gt; "\)types");
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:JobExists
+#功能		:判定某个料号名是否存在
+#参数		:1，料号名
+#返回值		:如果存在返回为1，否则为0
+#使用例子	:$h-&gt;JobExists('testJob')
+sub JobExists{
+	my $self	= shift; 
+	my $jobName	= shift; 
+</p>
+	
+<p>
+	\(self-&gt;INFO(entity_type =&gt; 'job',entity_path =&gt; \)jobName,data_type =&gt; 'EXISTS');
+	return $self-&gt;{doinfo}{gEXISTS} eq 'yes'
+		? 1
+		: 0;
+}
+</p>
+
+<p>
+#名字		:StepExist
+#功能		:判定step是否存在，如果存在返回1，否则返回0
+#参数		:第一个为料号名，第二个为step名
+#返回值		:如果存在返回1，否则返回0
+#使用例子	:if($h-&gt;StepExists('panel')){
+</p>
+<blockquote>
+#$h-&gt;OpenStep('panel');
+#};
+</blockquote>
+<p>
+sub StepExists{
+	my \(self=shift; my \)step = shift;
+	$self-&gt;INFO(entity_type =&gt; 'step',
+</p>
+<blockquote>
+entity_path =&gt; "\(self-&gt;{Job}/\)step",
+data_type =&gt; 'EXISTS');
+</blockquote>
+	
+<p>
+	return $self-&gt;{doinfo}{gEXISTS} eq 'yes'
+		? 1
+		: 0;
+}
+</p>
+
+<p>
+#名字		:LayerExists
+#功能		:判定某个layer是否存在
+#参数		:1，料号名，2，step名，3，层名
+#返回值		:如果存在返回为1，否则为0
+#使用例子	:if($h-&gt;LayerExists('edit', 'gtl1')){
+</p>
+<blockquote>
+#$h-&gt;WorkLayer('gtl');
+#};
+</blockquote>
+<p>
+sub LayerExists{
+	my $self	= shift; 
+	my $step	= shift; 
+	my $layer	= shift;
+	$self-&gt;INFO(entity_type =&gt; 'layer',
+</p>
+<blockquote>
+entity_path =&gt; "\(self-&gt;{Job}/\)step/$layer",
+data_type   =&gt; 'EXISTS');
+</blockquote>
+<p>
+	return $self-&gt;{doinfo}{gEXISTS} eq 'yes'
+		? 1
+		: 0;
+}
+</p>
+
+<p>
+#名字		:CreateLayer
+#功能		:创建新层
+#参数		:1，新层名，2，哪个层上面建立
+#返回值		:1
+#使用例子	:$h-&gt;CreateLayer('gtl++','gtl');
+sub CreateLayer{
+	my $self = shift;
+	my (\(newLayer,\)insLayer) = (@_);
+	$self-&gt;COM('create_layer', 
+</p>
+<blockquote>
+layer		=&gt; "$newLayer",
+context		=&gt; 'misc',
+type		=&gt; 'signal',
+polarity	=&gt; 'positive',
+ins_layer	=&gt; "$insLayer");
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:CreateStep
+#功能		:创建Step
+#参数		:新创建的step名
+#返回值		:1
+#使用例子	:$h-&gt;CreateStep('ic');
+sub CreateStep{
+	my $self = shift;
+	my $newStep = shift;
+	\(self-&gt;COM('Create_entity', job =&gt; "\)self-&gt;{Job}", type =&gt; 'step', name =&gt; "$newStep");
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:RenameLayer
+#功能		:重命名层名
+#参数		:1，旧层名；2，新层名
+#返回值		:1
+#使用例子	:$h-&gt;RenameLayer('gtl++', 'gtl_test')
+sub RenameLayer{
+	my $self = shift;
+	my (\(oldLayer,\)newLayer) = (@_);
+	$self-&gt;COM('rename_layer', 
+</p>
+<blockquote>
+name		=&gt; "$oldLayer", 
+new_name	=&gt; "$newLayer");
+</blockquote>
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:DeleteLayer
+#功能		:删除层
+#参数		:要删除的层名
+#返回值		:1
+#使用例子	:$h-&gt;DeleteLayer(gtl_test);
+sub DeleteLayer{
+	my $self	= shift;
+	my $dlayer	= shift;
+	\(self-&gt;COM('delete_layer', layer =&gt; \)dlayer);
+	return 1;
+}
+</p>
+
+<p>
+#名字		:ChangeLayerAttribute
+#功能		:改变层别属性
+#参数		:1，层名；2，context；3，类型；4，正负极性(可省略)
+#返回值		:1
+#使用例子	:$h-&gt;ChangeLayerAttribute('out', 'board', 'rout');
+sub ChangeLayerAttribute{
+	my $self		= shift;
+	my $layer		= shift;
+	my $context		= shift;
+	my $type		= shift;
+	my $polarity 	= shift;
+</p>
+	
+<p>
+	if (! (defined $polarity)) {
+		$polarity = 'positive';
+	}
+</p>
+	
+<p>
+	$self-&gt;COM('matrix_layer_context', 
+			job		=&gt; "$self-&gt;{Job}",
+			matrix	=&gt; 'matrix',
+			layer	=&gt; "$layer",
+			context	=&gt; "$context");
+</p>
+	
+<p>
+	$self-&gt;COM('matrix_layer_type',
+			job		=&gt; "$self-&gt;{Job}",
+			matrix	=&gt; 'matrix',
+			layer	=&gt; "$layer",
+			type	=&gt; "$type");
+</p>
+	
+<p>
+	$self-&gt;COM('matrix_layer_polar', 
+		job			=&gt; "$self-&gt;{Job}",
+		matrix		=&gt; 'matrix',
+		layer		=&gt; "$layer",
+		polarity	=&gt; "$polarity");
+</p>
+	
+<p>
+	return 1;
+}
+</p>
+
+
+<p>
+#名字		:SetCurrentAttribute
+#功能		:设置属性
+#参数		:1，属性名称，2，模式
+#返回值		:1
+#使用例子	:$h-&gt;SetCurrentAttribute('add_text_number');
+sub SetCurrentAttribute{
+	my $self=shift;
+	my (\(attribute,\)option)=@_;
+</p>
+
+<p>
+	$self-&gt;COM('cur_atr_reset');
+	$self-&gt;COM('cur_atr_set', 
+			attribute	=&gt; "$attribute",
+			option		=&gt; "$option");
+	$self-&gt;COM('sel_change_atr',
+</p>
+<blockquote>
+mode =&gt; 'add');
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:ChangeSymbol
+#功能		:改变symbol
+#参数		:要改变的symbol
+#返回值		:1
+#使用例子	:$h-&gt;ChangeSymbol('s500');
+sub ChangeSymbol{
+	my $self   = shift;
+	my $symbol = @_;
+	$self-&gt;COM('sel_change_sym',
+</p>
+<blockquote>
+symbol		=&gt; "$symbol",
+reset_angle =&gt; 'no');
+</blockquote>
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:SelResize
+#功能		:改变实体大小
+#参数		:增减的大小
+#返回值		:1
+#使用例子	:$h-&gt;SelResize('200');
+sub SelResize{
+	my $self = shift;
+	my $size = shift;
+</p>
+	
+<p>
+	\(self-&gt;COM('sel_resize', size =&gt; \)size, corner_ctl =&gt; 'no');
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:AreaSelect
+#功能		:框选
+#参数		:1，第一个x坐标；2，第一个y坐标；3，第二个x坐标；4，第二个y坐标
+#返回值		:1
+#使用例子	:$h-&gt;AreaSelect('1', '1', '2', '2');
+sub AreaSelect{
+	my $self	= shift;
+</p>
+
+<p>
+	my (\(x1,\)y1,\(x2,\)y2)=@_;
+	$self-&gt;COM('filter_area_strt');
+	$self-&gt;COM('filter_area_xy', 
+</p>
+<blockquote>
+x =&gt; $x1, 
+y =&gt; $y1);
+</blockquote>
+<p>
+	$self-&gt;COM('filter_area_xy', 
+</p>
+<blockquote>
+x =&gt; $x2, 
+y =&gt; $y2);
+</blockquote>
+<p>
+	$self-&gt;COM('filter_area_end', 
+</p>
+<blockquote>
+layer			=&gt; '',
+filter_name		=&gt; 'popup',
+operation		=&gt; 'select',
+area_type		=&gt; 'rectangle',
+inside_area		=&gt; 'yes',
+intersect_area	=&gt; 'no',
+lines_only		=&gt; 'no',
+ovals_only		=&gt; 'no',
+min_len			=&gt; 0,
+max_len			=&gt; 0,
+min_angle		=&gt; 0,
+max_angle		=&gt; 0);
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:SelectReference
+#功能		:参考选择
+#参数		:1，层别名；2，模式；3，极性 4,参数类型
+#返回值		:1
+#使用例子	:$h-&gt;SelectReference('d14', 'touch', 'positive' , 'pad');
+sub SelectReference{	
+	my (\(self,\)layer_name,\(mode,\)polarity,$f_types) = @_;
+	if (! defined \(polarity) {\)polarity = 'positive;negative';};
+	\(f_types = 'line;pad;surface;arc;text' if ! defined \)f_types;
+	\(self-&gt;COM('sel_ref_feat', layers       =&gt; "\)layer_name",
+</p>
+<blockquote>
+use          =&gt; 'filter',
+mode         =&gt; "$mode",
+pads_as      =&gt; 'shape',
+f_types      =&gt; $f_types,
+polarity     =&gt; "$polarity",
+include_syms =&gt; '',
+exclude_syms =&gt; '');
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:ResetFilter
+#功能		:复位过滤器
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;ResetFilter();
+sub ResetFilter{
+	my $self=shift;
+	$self-&gt;COM('filter_reset', 
+</p>
+<blockquote>
+filter_name =&gt; 'popup');	
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+
+<p>
+#名字		:FilterIncludeSymbol
+#功能		:设置过滤器包含的symbol
+#参数		:1，symbol名称；2，是否复位过滤器，1表示是复位
+#返回值		:1
+#使用例子	:$h-&gt;FilterIncludeSymbol('r0.1');
+sub FilterIncludeSymbol{
+	my $self=shift;
+	my (\(include_syms,\)reset_filter) = @_;
+</p>
+
+<p>
+	if ($reset_filter eq '1') {
+</p>
+<blockquote>
+$self-&gt;COM('filter_reset', 
+filter_name =&gt; 'popup');
+</blockquote>
+<p>
+	};	
+	$self-&gt;COM('filter_set', 
+</p>
+<blockquote>
+filter_name  =&gt; 'popup',
+update_popup =&gt; 'no',
+include_syms =&gt; "$include_syms");
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:FilterSetAttribute
+#功能		:设置filter包含的属性
+#参数		:1，要设置的属性；2，执行前是否复位filter
+#返回值		:1
+#使用例子	:$h-&gt;FilterSetAttribute('add_text_number');
+sub FilterSetAttribute{
+	my $self=shift;
+</p>
+	
+<p>
+	my (\(atr_set,\)reset_filter) = @_;
+</p>
+	
+<p>
+	if ($reset_filter eq '1') {
+</p>
+<blockquote>
+$self-&gt;COM('filter_reset', 
+filter_name =&gt; 'popup');
+</blockquote>
+<p>
+	}
+</p>
+
+<p>
+	$self-&gt;COM('filter_atr_set', 
+</p>
+<blockquote>
+filter_name =&gt; 'popup',
+condition   =&gt; 'yes',
+attribute   =&gt; "$atr_set");
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:FilterSetOptionAttribute
+#功能		:filter设置含有option的属性
+#参数		:1,属性；2，属性option
+#返回值		:1
+#使用例子	:$h-&gt;FilterSetOptionAttribute('.drill', 'non_plated');
+sub FilterSetOptionAttribute{ 
+   my $self=shift; 
+   my (\(attr,\)option_attr)=@_;
+   $self-&gt;COM('filter_reset',
+</p>
+<blockquote>
+filter_name	=&gt; "popup");
+</blockquote>
+<p>
+   $self-&gt;COM('filter_atr_set',
+</p>
+<blockquote>
+filter_name	=&gt; "popup",
+condition	=&gt; "yes",
+attribute	=&gt; $attr,
+option		=&gt; $option_attr);        
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:FilterSelect
+#功能		:根据filter选择
+#参数		:选择还是不选择，缺省值为select
+#返回值		:1
+#使用例子	:$h-&gt;FilterSelect();
+sub FilterSelect{
+	my $self=shift;
+	my ($operation) = @_;
+	if (! defined \(operation) {\)operation = 'select';};
+	$self-&gt;COM('filter_area_strt');
+	$self-&gt;COM('filter_area_end', 
+</p>
+<blockquote>
+layer			=&gt; '',
+filter_name		=&gt; 'popup',
+operation		=&gt; "$operation",
+area_type		=&gt; 'none',
+inside_area		=&gt; 'no',
+intersect_area	=&gt; 'no',
+lines_only		=&gt; 'no',
+ovals_only		=&gt; 'no',
+min_len			=&gt; 0,
+max_len			=&gt; 0,
+min_angle		=&gt; 0,
+max_angle		=&gt; 0);
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:GetSelectNumber
+#功能		:获取所选feat的个数
+#参数		:无
+#返回值		:所选feat个数
+#使用例子	:$h-&gt;GetSelectNumber();
+sub GetSelectNumber{
+	my $self=shift;
+	$self-&gt;COM('get_select_count');
+	my \(select_count = \)self-&gt;{COMANS};
+</p>
+
+<p>
+	return $select_count;
+}
+</p>
+
+<p>
+#名字		:GetWorkLayer
+#功能		:获取工作层
+#参数		:无
+#返回值		:工作层
+#使用例子	:$h-&gt;GetWorkLayer();
+sub GetWorkLayer{
+	my $self=shift;
+	$self-&gt;COM('get_work_layer');
+	my \(work_layer = \)self-&gt;{COMANS};
+	return $work_layer;
+}
+</p>
+
+<p>
+#名字		:GetUserName
+#功能		:获取用户名
+#参数		:无
+#返回值		:用户名
+#使用例子	:$h-&gt;GetUserName();
+sub GetUserName{
+</p>
+<blockquote>
+my  $self=shift;
+$self-&gt;COM('get_user_name');
+\(self-&gt;{User} = \)self-&gt;{COMANS};
+</blockquote>
+<p>
+	return $self-&gt;{COMANS};
+}
+</p>
+
+<p>
+#名字		:GetUserGroup
+#功能		:获取用户所在组
+#参数		:无
+#返回值		:当前用户所在的组
+#使用例子	:\(user_group = \)h-&gt;GetUserGroup()
+sub GetUserGroup{
+	my $self = shift;
+	$self-&gt;COM('get_user_group');
+	return $self-&gt;{COMANS};
+}
+</p>
+
+
+<p>
+#名字		:GetLayerFeatNumber
+#功能		:获取某层feature的个数
+#参数		:step名，层名
+#返回值		:1
+#使用例子	:$h-&gt;GetlayerFeatNumber('edit', 'gtl');
+sub GetlayerFeatNumber{
+	my $self = shift;
+	my (\(step,\)layer) = (@_);
+</p>
+
+<p>
+	$self-&gt;INFO(entity_type =&gt; 'layer',
+</p>
+<blockquote>
+entity_path =&gt; "\(self-&gt;{Job}/\)step/$layer",
+data_type 	=&gt; 'FEAT_HIST');
+</blockquote>
+<p>
+	return $self-&gt;{doinfo}{gFEAT_HISTtotal};
+}
+</p>
+
+<p>
+#名字		:GetTypeLayer
+#功能		:获取具有某类型的所有层，比如获取所有信号层
+#参数		:层别类型
+#返回值		:具有某类型的所有层
+#使用例子	:my @signal_layer = $h-&gt;GetTypeLayer('signal');
+sub GetTypeLayer{
+	my $self= shift;
+	my $type = shift;
+	my $i=0; my %hashValue; my @LayerValue=();
+</p>
+
+<p>
+	$self-&gt;INFO(entity_type =&gt; 'matrix',
+</p>
+<blockquote>
+entity_path =&gt; "$self-&gt;{Job}/matrix");
+</blockquote>
+
+<p>
+	while ( \(i &lt; scalar @{\)self-&gt;{doinfo}{gROWrow}} ) {
+		if ($type eq 'drill') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board' and 
+</p>
+<blockquote>
+\({\)self-&gt;{doinfo}{gROWlayer_type}}[$i] eq 'drill' ) {
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+</p>
+
+<p>
+		if ($type eq 'signal') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board' and 
+</p>
+<blockquote>
+\({\)self-&gt;{doinfo}{gROWlayer_type}}[$i] eq 'signal' ) {
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'power_ground') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board' and 
+</p>
+<blockquote>
+\({\)self-&gt;{doinfo}{gROWlayer_type}}[$i] eq 'power_ground' ) {
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'silk_screen') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board' and 
+</p>
+<blockquote>
+\({\)self-&gt;{doinfo}{gROWlayer_type}}[$i] eq 'silk_screen' ) {
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'solder_mask') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board' and 
+</p>
+<blockquote>
+\({\)self-&gt;{doinfo}{gROWlayer_type}}[$i] eq 'solder_mask' ) {
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'solder_paste') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board' and 
+</p>
+<blockquote>
+\({\)self-&gt;{doinfo}{gROWlayer_type}}[$i] eq 'solder_paste' ) {
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'inner') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board' and 
+</p>
+<blockquote>
+\({\)self-&gt;{doinfo}{gROWside}}[$i] eq 'inner' ) {
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'outer') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board' and 
+</p>
+<blockquote>
+\({\)self-&gt;{doinfo}{gROWlayer_type}}[$i] eq 'signal' and 
+(\({\)self-&gt;{doinfo}{gROWside}}[$i] eq 'top' 
+or \({\)self-&gt;{doinfo}{gROWside}}[$i] eq 'bottom') ) {
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'board') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'board'  ) {
+</p>
+<blockquote>
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'misc') {
+			if ( \({\)self-&gt;{doinfo}{gROWcontext}}[$i] eq 'misc'  ) {
+</p>
+<blockquote>
+push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[$i];
+</blockquote>
+<p>
+			}
+		}
+		if ($type eq 'all') {
+			push @LayerValue,\({\)self-&gt;{doinfo}{gROWname}}[\(i] if (\){\(self-&gt;{doinfo}{gROWname}}[\)i] ne "");
+		}
+		$i++;
+	}
+</p>
+
+<p>
+	return @LayerValue;
+}
+</p>
+
+
+
+<p>
+#名字		:GetJobMatrix
+#功能		:获取料号矩阵信息
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;GetJobMatrix
+sub GetJobMatrix{
+</p>
+	
+<p>
+	my $self = shift;
+</p>
+	
+<p>
+	$self-&gt;INFO(entity_type =&gt; 'matrix',
+</p>
+<blockquote>
+entity_path =&gt; "$self-&gt;{Job}/matrix");
+</blockquote>
+	
+<p>
+	my $i = 0;
+	while (\(i &lt;= \)#{$self-&gt;{doinfo}{gROWrow}}){
+		if (\(self-&gt;{doinfo}{gROWtype}[\)i] eq 'layer'){
+			my \(layer = \)self-&gt;{doinfo}{gROWname}[$i];
+			\(self-&gt;{matrix}{\)layer}{row}        = \(self-&gt;{doinfo}{gROWrow}[\)i];
+			\(self-&gt;{matrix}{\)layer}{type}       = \(self-&gt;{doinfo}{gROWtype}[\)i];
+			\(self-&gt;{matrix}{\)layer}{name}       = \(self-&gt;{doinfo}{gROWname}[\)i];
+			\(self-&gt;{matrix}{\)layer}{context}    = \(self-&gt;{doinfo}{gROWcontext}[\)i];
+			\(self-&gt;{matrix}{\)layer}{layer_type} = \(self-&gt;{doinfo}{gROWlayer_type}[\)i]; 
+			\(self-&gt;{matrix}{\)layer}{polarity}   = \(self-&gt;{doinfo}{gROWpolarity}[\)i];
+			\(self-&gt;{matrix}{\)layer}{side}       = \(self-&gt;{doinfo}{gROWside}[\)i];
+			\(self-&gt;{matrix}{\)layer}{drl_start}  = \(self-&gt;{doinfo}{gROWdrl_start}[\)i];
+			\(self-&gt;{matrix}{\)layer}{drl_end}    = \(self-&gt;{doinfo}{gROWdrl_end}[\)i];
+		}
+		$i++;
+	}
+</p>
+	
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:GetStepName()
+#功能		:获取所有的Step名
+#参数		:无
+#返回值		:所有step组成数组
+#使用例子	:
+sub GetStepName{
+	my $self= shift;
+	\(self-&gt;INFO(entity_type =&gt; 'matrix',entity_path =&gt; "\)self-&gt;{Job}/matrix");
+	my @StepValue = @{$self-&gt;{doinfo}{gCOLstep_name}};
+	return @StepValue;
+	#return @{$self-&gt;{getstep}};
+}
+</p>
+
+<p>
+#名字		:GetStepLayerList()
+#功能		:获取当前STEP层名
+#参数		:无
+#返回值		:层名列表
+#使用例子	:
+sub GetStepLayerList(){
+</p>
+<blockquote>
+my 	$self = shift;
+</blockquote>
+<p>
+	\(self-&gt;INFO(entity_type =&gt; 'step',entity_path =&gt; "\)self-&gt;{Job}/$self-&gt;{Step}",data_type =&gt; 'LAYERS_LIST');
+</p>
+	
+<p>
+	return @{$self-&gt;{doinfo}{gLAYERS_LIST}};
+}
+</p>
+
+<p>
+#名字		:GetSRLimit
+#功能		:获取某个SR或者profile的的limits
+#参数		:1，step名
+#返回值		:1
+#使用例子	:$h-&gt;GetSRLimit('panel');
+sub GetSRLimit{
+	my $self  =  shift;
+	my $step  =  shift; 
+</p>
+
+<p>
+	$self-&gt;INFO(entity_type =&gt; 'step',
+</p>
+<blockquote>
+entity_path =&gt; "\(self-&gt;{Job}/\)step", 
+units 		=&gt; 'mm',
+type 		=&gt; 'SR_LIMITS');
+</blockquote>
+<p>
+	\(self-&gt;{SR}{xmin} = \)self-&gt;{doinfo}{gSR_LIMITSxmin};
+	\(self-&gt;{SR}{ymin} = \)self-&gt;{doinfo}{gSR_LIMITSymin};
+	\(self-&gt;{SR}{xmax} = \)self-&gt;{doinfo}{gSR_LIMITSxmax};
+	\(self-&gt;{SR}{ymax} = \)self-&gt;{doinfo}{gSR_LIMITSymax};
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:GetPROFLimit
+#功能		:获取某个SR或者profile的的limits
+#参数		:1，step名
+#返回值		:1
+#使用例子	:$h-&gt;GetPROFLimit('panel');
+sub GetPROFLimit{
+	my $self  =  shift;
+	my \(step  =  shift || \)self-&gt;{Step}; 
+</p>
+
+<p>
+	$self-&gt;INFO(entity_type =&gt; 'step',
+</p>
+<blockquote>
+entity_path =&gt; "\(self-&gt;{Job}/\)step", 
+units 		=&gt; 'mm',
+type 		=&gt; 'PROF_LIMITS');
+</blockquote>
+<p>
+	#\(self-&gt;PAUSE("\)units");
+	\(self-&gt;{PROF}{xmin} = \)self-&gt;{doinfo}{gPROF_LIMITSxmin};
+	\(self-&gt;{PROF}{ymin} = \)self-&gt;{doinfo}{gPROF_LIMITSymin};
+	\(self-&gt;{PROF}{xmax} = \)self-&gt;{doinfo}{gPROF_LIMITSxmax};
+	\(self-&gt;{PROF}{ymax} = \)self-&gt;{doinfo}{gPROF_LIMITSymax};
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:FillSurface
+#功能		:填充surface
+#参数		:最小bursh大小，缺省值为1
+#返回值		:1
+#使用例子	:
+sub FillSurface{
+	my $self=shift;
+	my $fillSize = shift;
+	if (! defined \(fillSize) {\)fillSize = '1';}
+	$self-&gt;COM('fill_params', type           =&gt; 'solid',
+</p>
+<blockquote>
+origin_type    =&gt; 'datum',
+solid_type     =&gt; 'fill',
+std_type       =&gt; 'line',
+min_brush      =&gt; "$fillSize",
+use_arcs       =&gt; 'yes',
+symbol         =&gt; '',
+dx             =&gt; '0.1',
+dy             =&gt; '0.1',
+std_angle      =&gt; 45,
+std_line_width =&gt; 10,
+std_step_dist  =&gt; 50,
+std_indent     =&gt; 'odd',
+break_partial  =&gt; 'yes',
+cut_prims      =&gt; 'no',
+outline_draw   =&gt; 'no',
+outline_width  =&gt; 0,
+outline_invert =&gt; 'no');
+</blockquote>
+<p>
+	$self-&gt;COM('sel_fill');
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:SelContourize
+#功能		:转铜皮
+#参数		:1，精确度，缺省情况下0.25；2，清除洞大小。缺省情况下3
+#返回值		:1
+#使用例子	:
+sub SelectContourize{
+	my $self=shift;
+	my (\(accuracy,\)cleanhole) = @_;
+	if (! defined \(accuracy) {\)accuracy = '0.25';}
+	if (! defined \(cleanhole) {\)cleanhole = '3';}
+	\(self-&gt;COM('sel_contourize', accuracy =&gt; "\)accuracy",
+</p>
+<blockquote>
+break_to_islands =&gt; 'yes',
+clean_hole_size  =&gt; "$cleanhole",
+clean_hole_mode  =&gt; 'x_and_y');
+</blockquote>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:FilterSetPolarity
+#功能		:过滤正负片
+#参数		:1，极性；2，是否复位过滤器，缺省值为1
+#返回值		:1
+#使用例子	:FilterSetPolarity
+sub FilterSetPolarity{
+	my $self=shift;
+	my (\(polarity,\)reset_filter) = @_;
+	if ($reset_filter eq '1') {
+</p>
+<blockquote>
+$self-&gt;COM('filter_reset', filter_name =&gt; 'popup');
+</blockquote>
+<p>
+	}
+	$self-&gt;COM('filter_set', 
+			filter_name  =&gt; 'popup',
+			update_popup =&gt; 'no',
+			polarity     =&gt; "$polarity"); 
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:SetStepAttr
+#功能		:设置step属性
+#参数		:1，属性名；2，属性值
+#返回值		:1
+#使用例子	:$h-&gt;SetStepAttr('.xray_c','80');
+sub SetStepAttr{
+	my $self  = shift;
+	my $attr  = shift;
+	my $value = shift;
+</p>
+<blockquote>
+$self-&gt;COM('set_attribute', type  =&gt; 'step',
+job       =&gt; $self-&gt;{Job},
+name1     =&gt; $self-&gt;{Step},
+name2     =&gt; '',
+name3     =&gt; '',
+attribute =&gt; $attr,
+value     =&gt; $value,);
+</blockquote>
+	
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:SetLayerAttr
+#功能		:设置层别属性
+#参数		:1，属性名；2，属性值
+#返回值		:1
+#使用例子	:$h-&gt;SetLayerAttr('.out_y_scale','1');
+sub SetLayerAttr{
+	my $self  = shift;
+	my $attr  = shift;
+	my $value = shift;
+</p>
+<blockquote>
+$self-&gt;COM('set_attribute', type  =&gt; 'layer',
+job       =&gt; $self-&gt;{Job},
+name1     =&gt; $self-&gt;{Step},
+name2     =&gt; $self-&gt;{Layer},
+name3     =&gt; '',
+attribute =&gt; $attr,
+value     =&gt; $value,);
+</blockquote>
+<p>
+	return 1;
+}
+</p>
+
+<p>
+#名字		:SetJobAttr
+#功能		:设置料号属性
+#参数		:1，属性名；2，属性值
+#返回值		:1
+#使用例子	:$h-&gt;SetJobAttr('.ijob','abc');
+sub SetJobAttr{
+	my $self  = shift;
+	my $attr  = shift;
+	my $value = shift;
+</p>
+<blockquote>
+$self-&gt;COM('set_attribute', type  =&gt; 'job',
+job       =&gt; $self-&gt;{Job},
+name1     =&gt; '',
+name2     =&gt; '',
+name3     =&gt; '',
+attribute =&gt; $attr,
+value     =&gt; $value,);
+</blockquote>
+	
+<p>
+	return 1;
+}
+</p>
+
+
+<p>
+#名字		:GetBgaAttrCount
+#功能		:获取某属性物体个数
+#参数		:无
+#返回值		:物体个数
+#使用例子	:$h-&gt;GetBgaAttrCount();
+sub GetFeatureAttrCount{
+</p>
+<blockquote>
+my $self = shift;
+my $attr = shift;
+\(self-&gt;COM("filter_atr_set,filter_name=popup,condition=yes,attribute=\)attr");
+$self-&gt;COM("filter_area_strt");
+$self-&gt;COM("filter_area_end,layer=,filter_name=popup,operation=select,area_type=none,inside_area=no,intersect_area=no,lines_only=no,ovals_only=no,min_len=0,max_len=0,min_angle=0,max_angle=0");
+$self-&gt;COM("filter_reset,filter_name=popup");
+$self-&gt;COM("get_select_count");
+</blockquote>
+<blockquote>
+return $self-&gt;{COMANS};
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:SetSelOption
+#功能		:自定义选择参数
+#参数		:
+#返回值		:1
+#使用例子	:$h-&gt;SetSelOption(clear_mode=&gt;'clear_after');
+sub SetSelOption{
+</p>
+<blockquote>
+my $self = shift;
+my %option = shift;
+my \(clear_mode         = \)option{clear_mode} 	 || 'clear_after';
+my \(display_mode       = \)option{display_mode} 	 || 'all_layers';
+my \(area_inout         = \)option{area_inout} 	 || 'inside';
+my \(area_select        = \)option{area_select} 	 || 'select';
+my \(select_mode        = \)option{select_mode} 	 || 'standard';
+my \(area_touching_mode = \)option{area_touching_mode} || 'exclude';
+</blockquote>
+<blockquote>
+\(self-&gt;COM("sel_options,clear_mode=\)clear_mode,display_mode=\(display_mode,area_inout=\)area_inout,area_select=\(area_select,select_mode=\)select_mode,area_touching_mode=$area_touching_mode");
+</blockquote>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:ClearFilterReset
+#功能		:清除过滤器设置
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;ClearFilterReset();
+sub ClearFilterReset{
+</p>
+<blockquote>
+my 	$self = shift;
+</blockquote>
+<p>
+	$self-&gt;COM("filter_reset,filter_name=popup");
+</p>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:NetListSave
+#功能		:导出网络分析文件
+#参数		:文件路径
+#返回值		:1
+#使用例子	:$h-&gt;NetListSave('c:/test.txt');
+sub NetListSave{
+</p>
+<blockquote>
+my $self = shift;
+my $filePath = shift;
+\(self-&gt;COM("netlist_save_compare_results,out_file=\)filePath,output=file");
+</blockquote>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:GetStepList
+#功能		:获取料号STEP列表
+#参数		:料号名
+#返回值		:STEP列表
+#使用例子	:$h-&gt;GetStepList();
+sub GetStepList{
+</p>
+<blockquote>
+my 	$self = shift;
+my  \(jobName = shift || \)self-&gt;{Job};
+</blockquote>
+<p>
+	\(self-&gt;INFO(entity_type =&gt; 'job',entity_path =&gt; \)jobName,data_type =&gt; 'STEPS_LIST');
+</p>
+<blockquote>
+return @{$self-&gt;{doinfo}{gSTEPS_LIST}}
+</blockquote>
+    
+<p>
+}
+</p>
+
+<p>
+#名字		:GetStepAttr
+#功能		:获取料号STEP某属性的值
+#参数		:1,属性名 2,料号名 3,Step名
+#返回值		:属性的值
+#使用例子	:$h-&gt;GetStepAttr('.out_drill_full');
+sub GetStepAttr{
+</p>
+<blockquote>
+my $self = shift;
+my $attrName = shift;
+my \(jobName = shift || \)self-&gt;{Job};
+my \(stepName = shift || \)self-&gt;{Step};
+</blockquote>
+<blockquote>
+my $attrVal = undef;
+</blockquote>
+<blockquote>
+\(self-&gt;INFO(entity_type =&gt; 'step',entity_path =&gt; "\)jobName/$stepName",data_type =&gt; 'ATTR');
+</blockquote>
+<blockquote>
+for(my \(i=0;\)i&lt;= \(#{\)self-&gt;{doinfo}{gATTRname}};$i++)
+{
+</blockquote>
+<p>
+	if(\(self-&gt;{doinfo}{gATTRname}-&gt;[\)i] eq $attrName)
+	{
+</p>
+<blockquote>
+\(attrVal = \)self-&gt;{doinfo}{gATTRval}-&gt;[$i];
+</blockquote>
+<p>
+	}
+</p>
+<blockquote>
+}
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:GetJobSaveChange
+#功能		:获取料号改变内容
+#参数		:1,属性名 2,文件路径 3,料号名
+#返回值		:1
+#使用例子	:$h-&gt;GetJobSaveChange('d:/test.txt');
+sub GetJobSaveChange{
+</p>
+<blockquote>
+my $self = shift;
+my $filePath = shift;
+my \(job = shift || \)self-&gt;{Job};
+\(self-&gt;COM('info','out_file' =&gt; "\)filePath",'args' =&gt; "-t job -e $job -d CHANGES ");
+</blockquote>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:SkipHooks
+#功能		:中断运行
+#参数		:无
+#返回值		:1
+#使用例子	:$h-&gt;SkipHooks();
+sub SkipHooks{
+</p>
+<blockquote>
+my $self  = shift;
+</blockquote>
+<p>
+	$self-&gt;COM('skip_current_command');
+</p>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+1;
+</p>
+
+<p>
+_<em>END</em>_
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>checkList分析</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+Checklist
+#获取checklist的info，输出到文件/tmp/genesischecklistLine.$job
+#-t(type), check
+#-e \(JOB/\)STEP/camchecklist(分析后新建的checklist名字)；
+#-d MEAS(messages)
+#-o (action=1+category=line+layer=$layer); action = 1表示checklist后分析出的型#(drill/signal/solder mask/),category = line			   
+#种类为线, layer = $layer, 为层别
+\(f-&gt;COM("info",out_file =&gt; "/tmp/genesischecklistLine.\)JOB",args =&gt; "-t check -e \(JOB/\)STEP/camchecklist -m script -d MEAS -o action=1+category=line+layer=\(ROWname[\)ii]");
+</p>
+
+<p>
+#####################################################################
+</p>
+
+<p>
+spacing_length gtl 5 x 223.64 mil r0 r0 LN 0.7173258 1.9647994 0.7173258 1.7411594 0.0025 S 1 Ychecklist
+Spacing_length[2]为最小间距值，Spacing_length[4] 为间距长度。  Spacing_length[9]，Spacing_length[10]为间距线的起始坐标。Spacing_length[11]，Spacing_length[12]，为结束点坐标。
+</p>
+
+<h2 id="toc_0.1">line gtl 7 x 105.434 mil r7 LN 1.6715058 1.1104061 1.6715058 1.21584 0.0035 S 1 Y</h2>
+<p>
+line[6]为最小线宽, 后面的四个数字为坐标
+</p>
+
+<p>
+via_ar gtl 7.478 mil r19.7 r35 SG 0.7097858 1.2561294 0.7097858 1.263607 2 G
+via_ar[2]为最小ring环
+</p>
+
+<p>
+pth_ar gtl 10.859 mil r39.37 r61.2 SG 2.0132664 0.6892988 2.0055883 0.696977 2 B
+pth_ar[2]为pt孔ring环
+</p>
+
+<p>
+文字
+ss2sm 22 0 mil rect95x69.5xr2.75 SG 1.9244996 9.3134212 1.9244996 9.3134212 2 R
+ss2sm[2]为文字到smd的距离
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

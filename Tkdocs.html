@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Tkdocs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+six different way to layout widgets on the screen
+</p>
+
+<p>
+Tkx
+<dl>
+<dt>	</dt>
+<dd>wm_title(".", 'test');</dd>
+<dt>	</dt>
+<dd>grid_columnconfigure( ".", 0, -weight =&gt; 1) and grid_rowconfigure tell tk that if the main window is resized ,the frame should expand.</dd>
+<dt>	</dt>
+<dd>ttk__frame</dd>
+<dt>	</dt>
+<dd>bind(".", "&lt;Return&gt;, sub {calculate();}");</dd>
+</dl>
+</p>
+	
+<h2 id="toc_0.1">concept</h2>
+<p>
+widgets, geometry, event handing
+</p>
+
+<p>
+geometry managers depend on the master(frame, toplevel) and slave widgets(may be include frame and toplevel). each master can have only one geometry manager. grid is generally used.
+</p>
+
+<p>
+frame and toplevel are container
+</p>
+
+<h2 id="toc_0.2">event handling</h2>
+
+
+<p>
+1, ask each slave widget for its nature size
+2, takes information(any parameters from program).
+3,
+</p>
+
+
+<h2 id="toc_0.3">frame</h2>
+<p>
+for some reason, you want an empty frame that does not contain other widgets, you should explicitly set the size that the frame will request. usint width or height.otherwise you'll end up with a very small frame. 
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

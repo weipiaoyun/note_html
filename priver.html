@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>priver</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+#/*************************************************** 
+</p>
+<ol>
+<li>
+源码名称: softwarePriver
+
+<li>
+功能描述: 对软件和程序操作进行分权限进行管控
+
+<li>
+开发单位: 集团工程系统开发部
+
+<li>
+作者    : 王智辉(Jeff)
+
+<li>
+开发时间: 2014.06.07
+
+<li>
+版本号  : 1.0
+
+</ol>
+<p>
+#***************************************************/
+package Priver;
+</p>
+
+<ol>
+<li>
+--导入模块
+
+</ol>
+<p>
+use strict;
+use utf8;
+use Exporter;
+our @ISA = qw(Exporter);
+</p>
+
+<p>
+#设置程式名称
+my $appname = 'Priver';
+</p>
+
+<p>
+#设置版本号
+my $version = 1.0;
+</p>
+
+<p>
+#sub new
+#{
+</p>
+<ol>
+<li>
+my $self = {};
+
+<li>
+bless $self;
+
+<li>
+return $self;
+
+</ol>
+<p>
+#}
+</p>
+
+<ol>
+<li>
+--获取用户是否有权限执行该操作
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+函数名: getUserPriver
+
+<li>
+功  能: 获取用户是否有权限执行该操作
+
+<li>
+参  数: 1,用户名代号 2,操作名
+
+<li>
+返回值: bool
+
+</ol>
+<p>
+#
+sub getUserPriver{
+	my (\(self,\)username,\(privRemark,\)logPath) = @_;
+	my $boolValue = 'TRUE';
+	my $logtxt ;
+</p>
+
+<p>
+	if ( "" eq $logPath){
+		\(logPath = "MSWin32" eq \)^O ? "c:/tmp/hc_log" : "/tmp/hc_log" ;
+	}
+</p>
+	
+<ol>
+<li>
+--获取用户代号对应的ID
+	my $sql = "SELECT
+				HC_username.id
+				FROM
+				HC_username
+				WHERE
+				HC_username.code_name = '$username'";
+
+</ol>
+
+<p>
+	\(logtxt = "*********** info : 接连数据库-获取用户代号对应的ID---SQL: \)sql";
+	\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+</p>
+
+<p>
+	my \(userID = \)self-&gt;FetchrowArrayref($sql);
+	$self-&gt;disconnect();
+</p>
+
+<p>
+	if ("ARRAY" ne ref($userID)) {
+</p>
+		
+<p>
+		\(logtxt = "*********** error : 获取用户代号对应的ID失败---".ref(\)userID)." 数据库返回值不ARRAY";
+		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+</p>
+
+<p>
+		$boolValue = "FALSE";
+		return $boolValue;
+	}
+</p>
+
+<p>
+	\(userID-&gt;[0][0] = "p".\)userID-&gt;[0][0];
+	$userID-&gt;[0][0] .= ";";
+</p>
+
+<ol>
+<li>
+--获取操作用户的权限
+	$sql = "SELECT
+			HC_softwarePriver.userID
+			FROM
+			HC_softwarePriver
+			WHERE
+			HC_softwarePriver.privRemark = '$privRemark'";
+
+</ol>
+
+<p>
+	\(logtxt = "*********** info : 接连数据库-获取操作用户的权限---SQL: \)sql";
+	\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+</p>
+
+<p>
+	my \(userPriv = \)self-&gt;FetchrowArrayref($sql);
+	$self-&gt;disconnect();
+</p>
+
+<p>
+	if ("ARRAY" ne ref($userPriv)) {
+</p>
+		
+<p>
+		\(logtxt = "*********** error : 获取操作用户的权限失败---".ref(\)userPriv)." 数据库返回值不ARRAY";
+		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+</p>
+
+<p>
+		$boolValue = "FALSE";
+		return $boolValue;
+</p>
+
+<p>
+	}
+</p>
+
+<p>
+	if ( index(\(userPriv-&gt;[0][0],\)userID-&gt;[0][0]) &lt; 0 ) {
+</p>
+
+<p>
+		\(logtxt = "*********** error : 用户ID值-- \"\)userID-&gt;[0][0]\" 不在用户权限-- \"$userPriv-&gt;[0][0]\" 中";
+		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+</p>
+
+<p>
+		$boolValue = "FALSE";
+		return $boolValue;
+	}
+</p>
+
+<p>
+	return $boolValue;
+}
+</p>
+
+<p>
+1;
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

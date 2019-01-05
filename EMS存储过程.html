@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>EMS存储过程</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">存储过程</h1>
+<p>
+P_WF_MIDispatchGetCheckMsg	派单检查
+</p>
+
+<p>
+变量
+@PnPdctno
+@PnGuid 工号ID(传递过去的ID) 与Guid4Order_匹配
+@PnUsNo 用户
+@Pdctno_  料号名
+</p>
+
+
+<h2 id="toc_1.1">GENESIS</h2>
+<p>
+P_GS_DFM4CAMGuide				CAM Guide里面的优化
+P_GS_GetInfo4Flow				获取输出信息
+P_GS_OutPubList					自动分析出来的数据
+</p>
+<h2 id="toc_1.2">公共</h2>
+<p>
+P_Pub_GetDrillInfo				获取钻带信息 ----d2-7为埋孔，drl为通孔d，镭射l；和钻的方向T或B(只有镭射默认有TB)
+</p>
+
+
+  
+<h3 id="toc_1.2.1">叠构阻抗</h3>
+<p>
+T_Pub_StackInfo					叠构信息表(客户要求的core，板厚等)，Core的类型，pp的类型，原始厚度，上下公差，耐CAF等。Guid_为[T_ppe_MakeModuleNo]表的外键Guid4Stack_
+[T_Pub_StackUp]					叠构详细信息，每一层的物料叠构信息 Guid4StackUpMain_ 为T_Pub_StackInfo的Guid_
+[T_Pub_StackIMP]				叠构阻抗表，阻抗信息，阻抗层，参考层，阻抗线宽等
+T_Pub_StackIMP_Type				叠构阻抗类型，内层差分，外层单端，图片名字等。
+</p>
+
+
+
+
+<h1 id="toc_2">BM</h1>
+<h2 id="toc_2.1">[P_GS_CAMIMPRunInfo]</h2>
+<p>
+#tmpResult
+单端	L1		L2	6	0	0	0	50	5	1	   	1	6	0	0	O_S(SM)
+单端	L1		L3	6	0	0	0	50	5	1	   	2	6	0	0	O_S(SM)
+单端	L4	L3	L5	4	0	0	0	50	5	0	   	3	4	0	0	I_S_2
+差分	L1		L2	4	4	0	1	100	10	1	   	4	4	4	0	O_D(SM)
+差分	L1		L2	4	4	0	1	90	9	1	   	5	4	4	0	O_D(SM)
+差分	L4	L3	L5	6	4	0	1	90	9	0	   	6	6	4	0	I_D_2
+差分	L2	L1	L3	4	4	0	1	100	10	0	   	7	4	4	0	I_D_2
+差分	L4	L3	L5	4	4	0	1	100	10	0	   	8	4	4	0	I_D_2
+</p>
+
+<p>
+#StackIMP  比#tmpResult 多了三列  控制层第几层，上参考第几层，下参考第几层
+单端	TL		L2	6	0	0	0	50	5	1	   	1	6	0	0	1	0	2	O_S(SM)
+单端	TL		L3	6	0	0	0	50	5	1	   	2	6	0	0	1	0	3	O_S(SM)
+单端	L4	L3	L5	4	0	0	0	50	5	0	   	3	4	0	0	4	3	5	I_S_2
+差分	TL		L2	4	4	0	1	100	10	1	   	4	4	4	0	1	0	2	O_D(SM)
+差分	TL		L2	4	4	0	1	90	9	1	   	5	4	4	0	1	0	2	O_D(SM)
+差分	L4	L3	L5	6	4	0	1	90	9	0	   	6	6	4	0	4	3	5	I_D_2
+差分	L2	TL	L3	4	4	0	1	100	10	0	   	7	4	4	0	2	1	3	I_D_2
+差分	L4	L3	L5	4	4	0	1	100	10	0	   	8	4	4	0	4	3	5	I_D_2
+</p>
+
+<p>
+#StackIMP4NoCross  不是第一层，也不是最后一层，并且跨层不止跨一层
+#StackIMP  不跨层
+</p>
+
+
+<h2 id="toc_2.2">工程</h2>
+<h3 id="toc_2.2.1">制作</h3>
+<p>
+P_ppe_MakeCheck				指示检查
+</p>
+
+<h3 id="toc_2.2.2">钻孔</h3>
+<p>
+获取
+[P_GS_PpeMakeGetDrillInfo]		 PnGuid_ 料号信息表的guid
+</p>
+
+<h3 id="toc_2.2.3">工艺流程TechFlow</h3>
+<h4 id="toc_2.2.3.1">生成</h4>
+<p>
+P_ppe_TechFlowAutoProduceFlow	自动生成流程
+</p>
+
+<h4 id="toc_2.2.3.2">获取</h4>
+<p>
+[P_ppe_TechFlowGetItemInfo]		自动获取流程项目的参数值，如防焊，有阻焊颜色、阻焊油墨型号、阻焊面数、阻焊周期形式等参数项(传递一个TechNo_，获取该工序的项目和项目的参数值)
+</p>
+
+<p>
+[P_ppe_TechFlowGetFlowInfo]  	工艺流程，获取流程信息--主流程
+</p>
+
+<h3 id="toc_2.2.4">报表Rpt</h3>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

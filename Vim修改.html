@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Vim修改</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+C替换到行尾
+s是替换一个字，S是替换一行。
+J是两行合并
+D删除到最后
+:%s/\(\n\)\@&lt;!$\n\(\n\)\@!/\r\r/在行与行之间插入空行
+'&lt;,'&gt;s#/#\#g
+</p>
+
+<p>
+g/^\s*$/d
+经实验，可以删除包括空白，Tab，空白和Tab交错的所有空行。
+“ayy，复制到存储器a，”ap，从存储器里面粘帖出来    
+:% s/\r//g  #删除^M.
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

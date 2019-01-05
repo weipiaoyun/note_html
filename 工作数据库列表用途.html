@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>工作数据库列表用途</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+HC_seachSize      MI用于尺寸防呆
+HC_Sys_Users      用户信息(工程部DepartmentID， CAM组GroupID，做单组positionId)
+HC_Sys_ListDepartment 部门信息(departmentId 1 department：工程部)
+HC_Sys_ListGroup  组信息(group ID 组信息: groupID：1 departmentID 1(工程部) groupName(组名MI) groupStatus 1)
+HC_Sys_ListPosition 职位列表信息(id 1，position 部门主管)
+HC_Sys_Function		权限ID (FunctionName 权限名称)
+</p>
+
+
+<h1 id="toc_1">视图</h1>
+<p>
+UV_Sys_userList     用户列表
+由HC_Sys_users为主要表，其它表提供辅助信息，如提供departmentID, GroupId， positionID， statusId
+视图只用一个主表的ID
+通过id的关系，由多个表组成一个视图(新表)，实现组成可扩展列的表
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

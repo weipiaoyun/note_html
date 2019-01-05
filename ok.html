@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ok</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<p>
+q:
+q/
+:/Ex
+:reg
+:ju
+.重复
+:reg a,b 查a到b的寄存器
+:messages
+d/text
+C
+S
+D
+:%norm jdd                  : 隔行删除
+:g!/^dd/d                   : 删除不含字串\'dd\'的行
+:g/PAUSE/d					:删除含有PAUSE的行
+:g!/^dd/d                   : 删除不含字串\'dd\'的行
+:v/^dd/d                    : 同上 # 译释：v == g!，就是不匹配
+:g/{pattern}/{cmd} 就是全局找到匹配的行
+g/fred/,/joe/s/fred/joe/gic
+fred , joe
+</p>
+
+<p>
+g/pattern/cmd
+这个g命令式在文中查找pattern，然后对找到的这些行执行cmd命令；注意：cmd应用的范围是找到行
+cmd命令有很多，比如d，删除命令；c，删除并且进入insert模式；s，替换命令，这个用的多，例如g/test/s/aaa/bbb/ 在文中查找包含test的行，并且把该行中的aaa替换成bbb,也可以把aaa省略，
+g/test/s//bbb/,这时候表示的是把test替换成bbb指令
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

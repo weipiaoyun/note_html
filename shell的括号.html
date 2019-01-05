@@ -1,0 +1,450 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>shell的括号</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+1，\(｛｝界定变量范围，例如\)VAR将将打印出VAR变量的值，如果我要打印VAR的值加上AA，而$VARAA将打印VARAA的值，所以要VAR有个界定。
+2，$()里面必须是命令,叫做立即转换为，和``是一样的，里面执行的结果立即转为。
+3，()和｛｝，里面放的都是一连串的命令，都是对这些命令进行执行，有点像script，区别：
+	A：()对里面的一连串命令重新打开一个子shell执行，而｛｝用的是当前shell
+	B:()最后一个命令可以不用分号，｛｝最后一个命令须放分号
+	C：()命令不用空格和命令隔开，｛｝要用空格和命令隔开。
+	D：()和｛｝里面不该面外面重定向，外面影响里面重定向。
+</p>
+
+
+<p>
+4，$(())，处理算术运算
+</p>
+<h1 id="toc_1">其它:</h1>
+<p>
+4.\({var:-string},\){var:+string},\({var:=string},\){var:?string}
+</p>
+
+<p>
+5.$((exp))
+</p>
+
+<p>
+6.\((var%pattern),\)(var%%pattern),\((var#pattern),\)(var##pattern)
+</p>
+<blockquote>
+现在来一一详细介绍：
+</blockquote>
+<blockquote>
+１）Shell中变量的原形
+</blockquote>
+<blockquote>
+这个最常见的变量形式就是$var，打印var用命令
+</blockquote>
+<blockquote>
+echo $var
+</blockquote>
+<blockquote>
+可是这里有个问题：当你要显示变量值加随意的字符(如\(varAA)时，就会出错。系统会认为整个varAA是一个变量，这时就可以用一个大括号来限定变量名称的范围，如\){var}AA,这样就好了。
+</blockquote>
+<blockquote>
+2）命令替换$(cmd)
+</blockquote>
+<blockquote>
+命令替换$(cmd)和符号<code>cmd</code>(注意这不是单引号，在美式键盘上，`是ESC下面的那个键)有相同之处.以echo \((ls)来说明整个替换过程：shell扫描一遍命令行，发现了\)(cmd)结构，便将\((cmd)中的cmd执行一次，得到其标准输出，再将此输出放到原来命令echo \)(ls)中的\((ls)位置，即替换了\)(ls),再执行echo命令。如下：
+</blockquote>
+
+<p>
+1
+</p>
+
+<p>
+$ ls
+</p>
+
+<p>
+2
+</p>
+
+<p>
+a b c
+</p>
+
+<p>
+3
+</p>
+
+<p>
+\( echo \)(ls)
+</p>
+
+<p>
+4
+</p>
+
+<p>
+a b c
+</p>
+
+<p>
+5
+</p>
+
+<p>
+$ echo <code>ls</code>
+</p>
+
+<p>
+6
+</p>
+
+<p>
+a b c
+</p>
+<blockquote>
+3）一串的命令执行()和{}
+</blockquote>
+<blockquote>
+()和{}都是对一串的命令进行执行，但有所区别：
+</blockquote>
+
+<p>
+A,()只是对一串命令重新开一个子shell进行执行
+</p>
+
+<p>
+B,{}对一串命令在当前shell执行
+</p>
+
+<p>
+C,()和{}都是把一串的命令放在括号里面，并且命令之间用;号隔开
+</p>
+
+<p>
+D,()最后一个命令可以不用分号
+</p>
+
+<p>
+E,{}最后一个命令要用分号
+</p>
+
+<p>
+F,{}的第一个命令和左括号之间必须要有一个空格
+</p>
+
+<p>
+G,()里的各命令不必和括号有空格
+</p>
+
+<p>
+H,()和{}中括号里面的某个命令的重定向只影响该命令，但括号外的重定向则影响到括号里的所有命令
+</p>
+<blockquote>
+4）几种特殊的替换结构：\({var:-string},\){var:+string},\({var:=string},\){var:?string}
+</blockquote>
+<blockquote>
+A,\({var:-string}和\){var:=string}:若变量var为空，则用在命令行中用string来替换\({var:-string}，否则变量var不为空时，则用变量var的值来替换\){var:-string}；对于\({var:=string}的替换规则和\){var:-string}是一样的，所不同之处是\({var:=string}若var为空时，用string替换\){var:=string}的同时，把string赋给变量var： ${var:=string}很常用的一种用法是，判断某个变量是否赋值，没有的话则给它赋上一个默认值。
+</blockquote>
+<blockquote>
+B. ${var:+string}的替换规则和上面的相反，即只有当var不是空的时候才替换成string，若var为空时则不替换或者说是替换成变量 var的值，即空值。(因为变量var此时为空，所以这两种说法是等价的)
+</blockquote>
+<blockquote>
+C,\({var:?string}替换规则为：若变量var不为空，则用变量var的值来替换\){var:?string}；若变量var为空，则把string输出到标准错误中，并从脚本中退出。我们可利用此特性来检查是否设置了变量的值。
+</blockquote>
+<blockquote>
+补充扩展：在上面这五种替换结构中string不一定是常值的，可用另外一个变量的值或是一种命令的输出。
+</blockquote>
+<blockquote>
+5）POSIX标准的扩展计算:$((exp))
+</blockquote>
+<blockquote>
+这种计算是符合C语言的运算符，也就是说只要符合C的运算符都可用在$((exp))，甚至是三目运算符。注意：这种扩展计算是整数型的计算，不支持浮点型.若是逻辑判断，表达式exp为真则为1,假则为0。
+</blockquote>
+<blockquote>
+6）四种模式匹配替换结构：\({var%pattern},\){var%%pattern},\({var#pattern},\){var##pattern}
+</blockquote>
+<blockquote>
+第一种模式：${variable%pattern}，这种模式时，shell在variable中查找，看它是否一给的模式pattern结尾，如果是，就从命令行把variable中的内容去掉右边最短的匹配模式
+</blockquote>
+<blockquote>
+第二种模式： ${variable%%pattern}，这种模式时，shell在variable中查找，看它是否一给的模式pattern结尾，如果是，就从命令行把variable中的内容去掉右边最长的匹配模式
+</blockquote>
+<blockquote>
+第三种模式：${variable#pattern} 这种模式时，shell在variable中查找，看它是否一给的模式pattern开始，如果是，就从命令行把variable中的内容去掉左边最短的匹配模式
+</blockquote>
+<blockquote>
+第四种模式： ${variable##pattern} 这种模式时，shell在variable中查找，看它是否一给的模式pattern结尾，如果是，就从命令行把variable中的内容去掉右边最长的匹配模式
+</blockquote>
+<blockquote>
+这四种模式中都不会改变variable的值，其中，只有在pattern中使用了*匹配符号时，%和%%，#和##才有区别。结构中的pattern支持通配符，*表示零个或多个任意字符，?表示零个或一个任意字符，[...]表示匹配中括号里面的字符，[!...]表示不匹配中括号里面的字符
+</blockquote>
+
+<p>
+01
+</p>
+
+<p>
+[root@root shell]# var=testcase
+</p>
+
+<p>
+02
+</p>
+
+<p>
+[root@root shell]# echo $var
+</p>
+
+<p>
+03
+</p>
+
+<p>
+testcase
+</p>
+
+<p>
+04
+</p>
+
+<p>
+[root@root shell]# echo ${var%s*e} 从最右边删除最短匹配
+</p>
+
+<p>
+05
+</p>
+
+<p>
+testca
+</p>
+
+<p>
+06
+</p>
+
+<p>
+[root@root shell]# echo $var
+</p>
+
+<p>
+07
+</p>
+
+<p>
+testcase
+</p>
+
+<p>
+08
+</p>
+
+<p>
+[root@root shell]# echo ${var%%s*e} 从最右边删除最长匹配
+</p>
+
+<p>
+09
+</p>
+
+<p>
+te
+</p>
+
+<p>
+10
+</p>
+
+<p>
+[root@root shell]# echo $var  变量没有改变
+</p>
+
+<p>
+11
+</p>
+
+<p>
+testcase
+</p>
+
+<p>
+12
+</p>
+
+<p>
+[root@root shell]# echo ${var#?e} 从最左边删除最短匹配
+</p>
+
+<p>
+13
+</p>
+
+<p>
+stcase
+</p>
+
+<p>
+14
+</p>
+
+<p>
+[root@root shell]# echo $var
+</p>
+
+<p>
+15
+</p>
+
+<p>
+testcase
+</p>
+
+<p>
+16
+</p>
+
+<p>
+[root@root shell]# echo ${var#*e}  从最左边删除最短匹配
+</p>
+
+<p>
+17
+</p>
+
+<p>
+stcase
+</p>
+
+<p>
+18
+</p>
+
+<p>
+[root@root shell]# echo $var
+</p>
+
+<p>
+19
+</p>
+
+<p>
+testcase
+</p>
+
+<p>
+20
+</p>
+
+<p>
+[root@root shell]# echo ${var##*e} 从最左边删除最长匹配，即删除所有
+</p>
+
+<p>
+21
+</p>
+
+<p>
+[root@root shell]# echo $var
+</p>
+
+<p>
+22
+</p>
+
+<p>
+testcase
+</p>
+
+<p>
+23
+</p>
+
+<p>
+[root@root shell]# echo ${var##*s} 从最左边删除最长匹配
+</p>
+
+<p>
+24
+</p>
+
+<p>
+e
+</p>
+
+<p>
+25
+</p>
+
+<p>
+[root@root shell]# echo $var
+</p>
+
+<p>
+26
+</p>
+
+<p>
+testcase
+</p>
+
+<p>
+27
+</p>
+
+<p>
+[root@root shell]# echo ${var#test} 删除test
+</p>
+
+<p>
+28
+</p>
+
+<p>
+case
+</p>
+
+<p>
+29
+</p>
+
+<p>
+[root@root shell]# echo $var
+</p>
+
+<p>
+30
+</p>
+
+<p>
+testcase
+</p>
+
+<p>
+31
+</p>
+
+<p>
+[root@root shell]# echo ${var#tests} 没有匹配
+</p>
+
+<p>
+32
+</p>
+
+<p>
+testcase
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

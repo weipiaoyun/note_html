@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ARM7TDMI的存储器映射</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+FLASH	-&gt;	SRAM	-&gt;	BOOTBLOCK	-&gt;	外部存储器	-&gt;	<a href="VPB.html">VPB</a><br>(低速外设地址，如GPIO,UART)
+0x00000000	-&gt;	0x40000000	-&gt;	0x80000000	-&gt;0XE0000000
+</p>
+
+<p>
+AHB(高性能总线：向量中断控制器，外部存储控制器只占2M)  所以中间有很大部分是空白区域，用户若使用这些空白趋于，或者定义野指针，就可能出现<a href="取指令中止.html">取指令中止</a><br>或者<a href="<code>取数据中止.html"&gt;</code>取数据中止</a><br>
+</p>
+
+<p>
+AHB与vpb有一个桥相连
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

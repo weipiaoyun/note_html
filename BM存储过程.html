@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>BM存储过程</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+	IF @mode_ = 'PANEL_UI'
+		BEGIN
+</p>
+<blockquote>
+DECLARE  @Lncustno				VARCHAR(50),  ---- 客户代码
+@Lncuststy		        VARCHAR(50),  ---- 客户型号
+@LnProductStyle		VARCHAR(50),  ---- 制版类型
+@Lnthk					VARCHAR(5),   ---- 成品板厚
+@LnPosNeg				VARCHAR(5)='N',   ----外层正负片
+@LnSMColor				VARCHAR(20),
+@LnXA					VARCHAR(10)='""',
+@LnXB					VARCHAR(10)='""',
+@LnYA				    VARCHAR(10)='""',
+@LnYB					VARCHAR(10)='""',
+@LnYlb				    VARCHAR(20)='""',   ----内层涂布有预留边数据 
+@Lnx_s				    VARCHAR(10)='""',
+@Lny_s					VARCHAR(10)='""',
+@LnMax			        SMALLINT,
+@Lnid			        SMALLINT,
+@LnPdctno		        VARCHAR(30),
+@Lna			        SMALLINT=1,
+@Lnedge_x1			    VARCHAR(10)='""',
+@Lnedge_y1				VARCHAR(10)='""', 
+@Lnedge_x2			    VARCHAR(10)='""',
+@Lnedge_y2				VARCHAR(10)='""', 
+@Lnedge_x3			    VARCHAR(10)='""',
+@Lnedge_y3				VARCHAR(10)='""',
+@Lnedge_x4			    VARCHAR(10)='""',
+@Lnedge_y4				VARCHAR(10)='""',
+@LnSignalData			VARCHAR(20),
+@LnSMData				VARCHAR(20),
+@LnSilkData			VARCHAR(20),
+@Lnweek_layer			VARCHAR(20),
+@LnCorePdctno			VARCHAR(20),
+@LnCorelayer			VARCHAR(20),
+@LnCorelayerList		VARCHAR(50)='',
+@LnCoreValue			FLOAT,
+@LnCoreCu				VARCHAR(20)='',
+@LnCoreCuList			VARCHAR(50)=''
+</blockquote>
+<blockquote>
+SELECT * INTO #ENG_ProductLayout  FROM [MZBM2].[dbo].ENG_ProductLayout WHERE ProductID LIKE @Pdctno_ + '%'
+SELECT * INTO #ENG_ProcessGeneral  FROM [MZBM2].[dbo].ENG_ProcessGeneral WHERE ProductID LIKE @Pdctno_ + '%'
+SELECT * INTO #SAL_ProductInfo  FROM [ERP_MASTER].[dbo].[SAL_ProductInfo] WHERE ProductID LIKE @Pdctno_ + '%'
+</blockquote>
+<blockquote>
+SELECT @Lncustno=CustomerID,@Lncuststy=CustomerStyle,@LnProductStyle=ProductStyle FROM #SAL_ProductInfo
+SELECT @Lnthk = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T145' AND ParamID = '0001'
+SELECT @LnPosNeg = 'Y' FROM #ENG_ProcessGeneral WHERE ProcessID ='T056' AND ParamID = '0002' AND ParamValue LIKE '%正%'
+SELECT @LnSMColor = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T088' AND ParamID = '0003'
+SELECT @LnXA  = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T004' AND ParamID = '0005' 
+SELECT @LnXB  = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T004' AND ParamID = '0006'  
+SELECT @LnYA  = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T004' AND ParamID = '0003' 
+SELECT @LnYB  = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T004' AND ParamID = '0004' 
+SELECT @LnYlb = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T007' AND ParamID = '0007' 
+SELECT @Lnx_s = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T007' AND ParamID = '0002' 
+SELECT @Lny_s = ISNULL(ParamValue,'') FROM #ENG_ProcessGeneral WHERE ProcessID ='T007' AND ParamID = '0001' 
+</blockquote>
+<blockquote>
+SELECT CASE WHEN InnerLayerType = '内层' THEN 10 ELSE LEN(InnerLayerType) END AS ID,InnerProductID, ParentProductID, MProductID, InnerLayerType, LayerNum,StructType
+INTO #ENG_ProductStruct FROM [MZBM2].[dbo].ENG_ProductStruct WHERE MProductID = @Pdctno_
+SELECT ID INTO #T_Struct_idTmp FROM #ENG_ProductStruct GROUP BY ID
+SELECT TOP 1 @LnMax = ID FROM #T_Struct_idTmp ORDER BY ID DESC
+SELECT * INTO #T_Struct_ID FROM #T_Struct_idTmp WHERE ID &lt; @LnMax
+</blockquote>
+<blockquote>
+----SELECT * FROM #ENG_ProductStruct
+</blockquote>
+<blockquote>
+WHILE EXISTS( SELECT * FROM #T_Struct_ID)
+BEGIN
+SELECT TOP 1 @Lnid = ID FROM #T_Struct_ID ORDER BY ID DESC
+SELECT @LnPdctno = InnerProductID FROM #ENG_ProductStruct WHERE ID = @Lnid
+IF @Lna = 1
+BEGIN
+SELECT @Lnedge_y1 = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnPdctno AND ParamName in ('修边后长边尺寸(mm)') 
+SELECT @Lnedge_x1 = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnPdctno AND ParamName in ('修边后短边尺寸(mm)') 
+END
+IF @Lna = 2
+BEGIN
+SELECT @Lnedge_y2 = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnPdctno AND ParamName in ('修边后长边尺寸(mm)') 
+SELECT @Lnedge_x2 = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnPdctno AND ParamName in ('修边后短边尺寸(mm)') 
+END
+IF @Lna = 3
+BEGIN
+SELECT @Lnedge_y3 = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnPdctno AND ParamName in ('修边后长边尺寸(mm)') 
+SELECT @Lnedge_x3 = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnPdctno AND ParamName in ('修边后短边尺寸(mm)') 
+END
+IF @Lna = 4
+BEGIN
+SELECT @Lnedge_y4 = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnPdctno AND ParamName in ('修边后长边尺寸(mm)') 
+SELECT @Lnedge_x4 = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnPdctno AND ParamName in ('修边后短边尺寸(mm)') 
+END
+DELETE FROM #T_Struct_ID WHERE ID = @Lnid
+SET @Lna = @Lna + 1
+END
+</blockquote>
+<blockquote>
+SELECT * INTO #T_Struct_InCore FROM #ENG_ProductStruct WHERE ID = @LnMax
+SELECT @LnCoreValue = MIN(ParamValue) FROM #ENG_ProcessGeneral WHERE ProductID IN (SELECT InnerProductID FROM  #T_Struct_InCore) AND ProcessID IN ('T001') AND ParamID = '0017'
+WHILE EXISTS( SELECT * FROM #T_Struct_InCore)
+BEGIN
+SELECT TOP 1 @LnCorePdctno = InnerProductID,@LnCorelayer=LayerNum FROM #T_Struct_InCore 
+SELECT @LnCoreCu = ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@LnCorePdctno AND ProcessID IN ('T001') AND ParamID = '0018'
+</blockquote>
+<blockquote>
+IF @LnCorelayerList = ''
+BEGIN
+SET @LnCoreCuList =CONVERT(VARCHAR(6),dbo.SplitString(@LnCoreCu,'/',1)) +  ' ' + CONVERT(VARCHAR(6),dbo.SplitString(@LnCoreCu,'/',2))
+SET @LnCorelayerList ='L' + CONVERT(VARCHAR(6),CONVERT(INT,LEFT(@LnCorelayer,2))) +  ' L' + CONVERT(VARCHAR(6),CONVERT(INT,RIGHT(@LnCorelayer,2)))
+END
+ELSE
+BEGIN
+SET @LnCoreCuList =@LnCoreCuList + ' ' + CONVERT(VARCHAR(6),dbo.SplitString(@LnCoreCu,'/',1)) +  ' ' + CONVERT(VARCHAR(6),dbo.SplitString(@LnCoreCu,'/',2))	
+SET @LnCorelayerList = @LnCorelayerList + ' L' + CONVERT(VARCHAR(6),CONVERT(INT,LEFT(@LnCorelayer,2))) +  ' L' + CONVERT(VARCHAR(6),CONVERT(INT,RIGHT(@LnCorelayer,2)))
+END
+DELETE FROM #T_Struct_InCore WHERE InnerProductID = @LnCorePdctno
+END
+</blockquote>
+<blockquote>
+SELECT @LnSignalData=ParamValue FROM #ENG_ProcessGeneral WHERE ProductID =@Pdctno_ AND ProcessID IN ('T056') AND ParamID = '0007' 
+SELECT @LnSMData=ParamValue		FROM #ENG_ProcessGeneral WHERE ProductID =@Pdctno_ AND ProcessID IN ('T088') AND ParamID = '0011' 
+SELECT @LnSilkData=ParamValue	FROM #ENG_ProcessGeneral WHERE ProductID =@Pdctno_ AND ProcessID IN ('T095') AND ParamID = '0005' 
+SELECT @Lnweek_layer = CASE WHEN @LnSilkData = 'GTO' THEN 'to' WHEN @LnSilkData = 'GBO' THEN 'bo' 
+WHEN @LnSMData = 'GTS' THEN 'ts' WHEN @LnSMData = 'GBS' THEN 'bs' 
+WHEN @LnSignalData = 'GTL' THEN 'tl' WHEN @LnSignalData = 'GBL' THEN 'bl'  ELSE '""' END
+</blockquote>
+<blockquote>
+SELECT 'set Get_thick ' + @Lnthk + ';set film_mode ' + (CASE WHEN @LnPosNeg='Y' THEN '正片' ELSE '负片' END) + 
+';set SM_Color ' + ISNULL(@LnSMColor,'无') + ';set custno ' + @Lncustno + ';set custsty ' + @Lncuststy + 
+';set sel_board ' + (CASE WHEN @LnProductStyle LIKE '%量产%' THEN 'p' ELSE 's' END) +
+';set XA ' + @LnYA + ';set XB ' + @LnYB + ';set YA ' + @LnXA + ';set YB ' + @LnXB +
+';set wxgmq_line_x_pro ' + @LnYlb  + ';set x_s ' + @Lny_s + ';set y_s ' + @Lnx_s + ';set week_layer ' + @Lnweek_layer +
+';set edge_x1  ' + @Lnedge_x1 + ';set edge_y1 ' + @Lnedge_y1 + ';set edge_x2  ' + @Lnedge_x2 + ';set edge_y2 ' + @Lnedge_y2 +
+';set edge_x3  ' + @Lnedge_x3 + ';set edge_y3 ' + @Lnedge_y3 + ';set edge_x4  ' + @Lnedge_x4 + ';set edge_y4 ' + @Lnedge_y4 +
+';set Corelayer  ' + '"' + @LnCorelayerList + '"' + ';set CoreCu  ' + '"' + @LnCoreCuList + '"' + ';set Core_Value  ' + CONVERT(VARCHAR(10),@LnCoreValue)
+</blockquote>
+
+
+                       
+<p>
+		END
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

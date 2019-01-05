@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>MySql模块</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+#!/usr/bin/perl -w
+#源码名称: MySQL.pm
+#功能描述: MySQL数据库的基本调用方法
+#开发单位: 集团工程系统开发部
+#作者    : 洪军
+#开发日期: 2014.4.8
+#版本号  : 1.0
+</p>
+
+<p>
+#导入模块
+package MySQL;
+use strict;
+use warnings;
+use utf8;
+use DBI;
+require Exporter;
+our @ISA = qw(Exporter);
+</p>
+
+<p>
+#设置程式名称
+my $appname = 'MySQL';
+</p>
+
+<p>
+#设置版本号
+my $version = 1.0;
+</p>
+
+<p>
+#new方法
+sub new {
+</p>
+<blockquote>
+my $caller = shift;
+my \(class  = ref(\)caller) || $caller;
+my $self = {};
+bless \(self, \)class;
+return $self;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+sub SetMySQLPar{
+</p>
+<blockquote>
+my $self = shift;
+</blockquote>
+<blockquote>
+$self-&gt;{MySQL}{Host} = shift;
+$self-&gt;{MySQL}{Data} = shift;
+$self-&gt;{MySQL}{User} = shift;
+$self-&gt;{MySQL}{Pwd}  = shift;
+</blockquote>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#初始化数据库连接
+sub initMysql{
+</p>
+<blockquote>
+my $self = shift;
+</blockquote>
+<blockquote>
+my $sqlHost = shift || '172.18.100.4';
+my $sqlData = shift || 'iasystem';
+my $sqlUser = shift || 'iasystem';
+my $sqlPwd  = shift || 'IuidFhD4Qe';
+</blockquote>
+<blockquote>
+my  \(dsn = qq{DBI:mysql:\)sqlData;host=$sqlHost};
+my  $attributes={'AutoCommit' =&gt; 1,};
+</blockquote>
+<blockquote>
+my  $dbh;
+</blockquote>
+<blockquote>
+eval
+{
+#连接数据库
+\(dbh=DBI-&gt;connect(\)dsn,\(sqlUser,\)sqlPwd,$attributes) or die "not connect mysql server";
+};
+</blockquote>
+<blockquote>
+if($@){
+\(self-&gt;StopMsgBox('error',"数据库连接失败！\n\)@");
+}else{
+</blockquote>
+<p>
+		$dbh-&gt;do("SET character_set_client='utf8'");
+		$dbh-&gt;do("SET character_set_connection='utf8'");
+		$dbh-&gt;do("SET character_set_results='utf8'");
+</p>
+<blockquote>
+\(self-&gt;{MySql}{dbh} = \)dbh;
+}
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#对数据库正行增删改查操作
+sub sqlExecute{
+</p>
+<blockquote>
+my $self = shift;
+my $sqlCom = shift;
+eval{
+\(self-&gt;{MySql}{sth} = \)self-&gt;{MySql}{dbh}-&gt;prepare(\(sqlCom) or die \)self-&gt;{MySql}{dbh}-&gt;error;
+\(self-&gt;{MySql}{sth}-&gt;execute() or die \)self-&gt;{MySql}{dbh}-&gt;error;
+};
+</blockquote>
+<blockquote>
+\(self-&gt;StopMsgBox('error',"数据库操作失败！\n\)@") if($@);
+</blockquote>
+<blockquote>
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:FetchrowArray
+#功能		:使用fetchrow_array方式获取数据库内容
+#参数		:sql语句
+#返回值		:
+#使用例子	:$h-&gt;FetchrowArray('select * from ...');
+sub FetchrowArray{
+</p>
+<blockquote>
+my  $self = shift;
+my  $sqlCom = shift;
+my  $data;
+</blockquote>
+<blockquote>
+#初始化数据库
+$self-&gt;initMysql();
+</blockquote>
+<blockquote>
+#执行sql语句
+\(self-&gt;sqlExecute(\)sqlCom);
+</blockquote>
+<blockquote>
+#获取数据库返回值
+while(my @row = $self-&gt;{MySql}{sth}-&gt;fetchrow_array())
+{
+push @$data,\@row;
+}
+</blockquote>
+<blockquote>
+if ($self-&gt;{MySql}{sth} ne '')
+{
+</blockquote>
+<p>
+	$self-&gt;{MySql}{sth}-&gt;finish();
+	delete $self-&gt;{MySql}{sth};
+</p>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+return $data;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:FetchrowArrayref
+#功能		:使用fetchrow_arrayref方式获取数据库内容
+#参数		:sql语句
+#返回值		:
+#使用例子	:$h-&gt;FetchrowArrayref('select * from ...');
+sub FetchrowArrayref
+{
+</p>
+<blockquote>
+my  $self = shift;
+my  $sqlCom = shift;
+my  $data;
+</blockquote>
+<blockquote>
+#初始化数据库
+$self-&gt;initMysql();
+</blockquote>
+<blockquote>
+#执行sql语句
+\(self-&gt;sqlExecute(\)sqlCom);
+</blockquote>
+<blockquote>
+while ( my  \(row_ref = \)self-&gt;{MySql}{sth}-&gt;fetchrow_arrayref()){
+push @\(data,\)row_ref;
+}
+</blockquote>
+<blockquote>
+if ($self-&gt;{MySql}{sth} ne '')
+{
+</blockquote>
+<p>
+	$self-&gt;{MySql}{sth}-&gt;finish();
+	delete $self-&gt;{MySql}{sth};
+</p>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+return $data;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:FetchrowHashref
+#功能		:使用fetchrow_hashref方式获取数据库内容
+#参数		:sql语句
+#返回值		:
+#使用例子	:$h-&gt;FetchrowHashref('select * from ...');
+sub FetchrowHashref
+{
+</p>
+<blockquote>
+my  $self = shift;
+my  $sqlCom = shift;
+my  $data;
+</blockquote>
+<blockquote>
+#初始化数据库
+$self-&gt;initMysql();
+</blockquote>
+<blockquote>
+#执行sql语句
+\(self-&gt;sqlExecute(\)sqlCom);
+</blockquote>
+<blockquote>
+while ( my  \(row_ref = \)self-&gt;{MySql}{sth}-&gt;fetchrow_hashref()){
+push @\(data,\)row_ref;
+}
+</blockquote>
+<blockquote>
+if ($self-&gt;{MySql}{sth} ne '')
+{
+</blockquote>
+<p>
+	$self-&gt;{MySql}{sth}-&gt;finish();
+	delete $self-&gt;{MySql}{sth};
+</p>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+return $data;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:FetchallArrayref
+#功能		:使用fetchall_arrayref方式获取数据库内容
+#参数		:sql语句
+#返回值		:
+#使用例子	:$h-&gt;FetchallArrayref('select * from ...');
+sub FetchallArrayref
+{
+</p>
+<blockquote>
+my  $self = shift;
+my  $sqlCom = shift;
+my  $data;
+</blockquote>
+<blockquote>
+#初始化数据库
+$self-&gt;initMysql();
+</blockquote>
+<blockquote>
+#执行sql语句
+\(self-&gt;sqlExecute(\)sqlCom);
+</blockquote>
+<blockquote>
+my \(table = \)self-&gt;{MySql}{sth}-&gt;fetchall_arrayref;
+</blockquote>
+<blockquote>
+if ($self-&gt;{MySql}{sth} ne '')
+{
+</blockquote>
+<p>
+	$self-&gt;{MySql}{sth}-&gt;finish();
+	delete $self-&gt;{MySql}{sth};
+</p>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+return $table;
+</blockquote>
+<p>
+}
+</p>
+
+
+<p>
+#断开数据库连接
+sub disconnect{
+</p>
+<blockquote>
+my 	$self = shift;
+if ($self-&gt;{MySql}{dbh} ne '')
+{
+</blockquote>
+<p>
+	$self-&gt;{MySql}{dbh}-&gt;disconnect();
+	delete $self-&gt;{MySql}{dbh};
+</p>
+<blockquote>
+}
+</blockquote>
+<p>
+}
+1;
+_<em>END</em>_
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

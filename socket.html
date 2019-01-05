@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>socket</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">什么是socket </h1>
+<p>
+socket：又叫套接字。用于描述IP地址和端口，是一个通信链的句柄（其实就是两个程序通信用的）。
+</p>
+
+
+
+<p>
+5.Socket分类
+</p>
+<blockquote>
+Socket主要有两种类型：
+</blockquote>
+
+<p>
+流式Socket
+</p>
+<blockquote>
+是一种面向连接的Socket，针对于面向连接的TCP服务应用，安全，但是效率低
+</blockquote>
+<blockquote>
+2，数据报式Socket
+</blockquote>
+<blockquote>
+是一种无连接的Socket，对应于无连接的UDP服务应用，不安全，但效率高
+</blockquote>
+
+<p>
+ 6. Socket一般应用模式(服务器端和客户端)
+</p>
+<blockquote>
+服务器端的Socket(至少需要两个)
+</blockquote>
+<blockquote>
+01.一个负责接收客户端连接请求(但不负责与客户端通信)
+</blockquote>
+<blockquote>
+02.每成功接收到客户端的连接便在服务器端产生一个对应的复杂通信的Socket
+</blockquote>
+<blockquote>
+021.在接收到客户端连接时创建
+</blockquote>
+<blockquote>
+022. 为每个连接成功的客户端请求在服务器端都创建一个对应的Socket(负责和客户端通信)
+</blockquote>
+<blockquote>
+客户端的Socket
+</blockquote>
+
+<p>
+必须指定要连接的服务器地址和端口
+通过创建一个Socket对象来初始化一个到服务器端的TCP连接
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>linux防火墙</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+iptables的规则
+简单来说，iptables防火墙是由一系列的规则(rule)组成，一个数据请求进来，会依次和这些规则进行比较，如果正好符合规则的定义，那这个数据请求要么会被接收ACCEPT，要么被拒绝DRIP。如果不符合任何规则的定义，最后缺省的规则会被应用。
+</p>
+
+<p>
+Iptables [-ttable] COMMAND chain CRETIRIA -j ACTION
+</p>
+
+<p>
+分为三种类型
+-ttable有三种选项：filter，nat 和managle
+</p>
+
+
+<p>
+vi /etc/sysconfig/iptables
+*filter #过滤器
+#filter包括input forward output三种类型
+</p>
+
+<p>
+#input：输入
+:INPUT ACCEPT [0:0]
+</p>
+
+<p>
+#output：输出
+:OUTPUT ACCEPT [0:0]
+</p>
+
+<p>
+#forward：转换
+:FORWARD ACCEPT[0:0]
+</p>
+
+<p>
+-A FORWARD -i eth1 -o eth1 -j ACCEPT
+</p>
+
+<p>
+*nat #network address  translation
+#同filter表一样，nat表也有三条缺省的"链"(chains)
+</p>
+
+<p>
+:PREROUTING ACCEPT[0:0]
+:POSTROUTING ACCEPT[0:0]
+:OUTPUT ACCEPT[0:0]
+-A POSTROUTING -s 192.168.8.0/24 -d 172.18.100.104 -o eth0 -j SNAT -to--source 172.18.100.1
+</p>
+
+<p>
+-j SNAT：源网络地址转换，SNAT就是重写包的源IP地址(代理)
+系统先路由——&gt;再过滤（FORWARD)——&gt;最后才进行POSTROUTING SNAT地址翻译
+</p>
+
+<p>
+*COMMIT #
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

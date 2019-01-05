@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>SQL存储过程</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+select  convert(datetime,CONVERT(VARCHAR(10),GETDATE(),120)+' 00:00:00',111)
+</p>
+
+
+
+<h1 id="toc_1">with as</h1>
+<p>
+WITH Data25 AS
+(
+	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,0 AS lvl FROM  [dbo].[T_ppe_MakeModuleNo] c WHERE c.Guid_='8E392F3A-16D3-441C-9C74-F9931AD3AECA'
+	UNION ALL
+	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,lvl+1   FROM  Data25 z
+	INNER JOIN [dbo].[T_ppe_MakeModuleNo] c
+	ON z.Guid_=c.Guid4ChKB
+)
+</p>
+
+<h1 id="toc_2">BM</h1>
+<p>
+SELECT *  FROM Data25
+</p>
+
+<p>
+WITH Data25 AS
+(
+	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,0 AS lvl FROM  [dbo].[T_ppe_MakeModuleNo] c WHERE c.Guid_='8E392F3A-16D3-441C-9C74-F9931AD3AECA'
+	UNION ALL
+	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,lvl+1   FROM  Data25 z
+	INNER JOIN [dbo].[T_ppe_MakeModuleNo] c
+	ON z.Guid_=c.Guid4ChKB
+)
+</p>
+
+<p>
+SELECT *  FROM Data25
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

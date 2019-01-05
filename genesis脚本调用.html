@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>genesis脚本调用</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">genesis脚本调用</a>
+</ul>
+</ul>
+</div>
+<p>
+Genesis的启动文件放在/genesis/sys/hooks/script_start.csh
+</p>
+<h2 id="toc_0.1">genesis脚本调用</h2>
+<ol>
+<li>
+cshell转perl  perl /genesis/e93/all/perl/record2perl.pl script.csh script.pl    <code>/test.pl</code> 两个反引号， test.pl里面print ""
+
+</ol>
+
+<ol>
+<li>
+perl程序调用perl程序：system ("perl","$source_path/script.pl");or System(“usr/bin/perl /script_path);
+
+<li>
+cshell调用已编译perl，直接执行，不用调用perl set tmp_list = (<code>$soutce_path/ftp_main</code>)
+
+</ol>
+<p>
+3，Perl里面执行cshell，注意JOB=$self=&gt;{JOB}的等号两边不能有空格
+4，\(self-&gt;COM(‘script_run’, name =&gt; ‘/genesis/sys/scripts/greate/drill/outputDrill.csh’,  env1 =&gt; “JOB=\)self=&gt;{JOB}”, env2 =&gt; “STEP=$STEP”);
+5，perl的图形界面后台运行可执行
+/usr/bin/perl $scriptPath/script.pl &gt;&amp; /dev/null &amp;
+6，调用系统函数
+system('/usr/bin/gedit', "参数");
+</p>
+
+<p>
+7，cshell调用perl和传递函数。(钻孔输出调用背钻程序)
+perl /gen_db/workfile/input/cam/wzh/drill-BZ.pl \(JOB \)layer[\(ii] \)drill_path/\(JOB."\)layer[\(ii]"x"\)xcom2"y"$ycom2"
+然后在perl里面获取这三个参数。
+</p>
+<ol>
+<li>
+--获取料号名
+
+</ol>
+<p>
+\(h-&gt;{Job} = \)ARGV[0];
+</p>
+
+<ol>
+<li>
+--获取当前钻孔层名
+
+</ol>
+<p>
+\(h-&gt;{currentLayerName} = \)ARGV[1];
+</p>
+
+<ol>
+<li>
+--获取当前文件路径
+
+</ol>
+<p>
+\(h-&gt;{currentFilePath} = \)ARGV[2];
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

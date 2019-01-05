@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>TK</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+-expand只是占用的位置扩展了，而真正的部件没有扩展。fill是扩大填充部件，只在占有的位置上扩大填充部件。
+</p>
+<h1 id="toc_1">Tk</h1>
+
+<h2 id="toc_1.1">$$sw-&gt;update();</h2>
+<p>
+创建一个窗口在内存，用$mw引用查找。
+把各个参数放在$mw所指窗口
+调用MainLoop循环窗口等待enent中断
+</p>
+
+
+<p>
+当产生了窗口后，程序循环与窗口有关的语句，不断更新参数。要执行其它，只能通过事件触发调用子程序。
+</p>
+
+<p>
+########Frame放在以pack的形式MainWindow上面(产生一个Frame 放在$f引用里面)
+\(f = \)mw-&gt;Frame(-borderwidth =&gt; 10, -relief =&gt; 'groove')
+	-&gt;pack(-side =&gt; 'bottom', -expand =&gt; 1, -fill =&gt;'both');
+</p>
+
+<p>
+#####到目前为止$f只是赋值，没有解引用
+在同一个里面是从左到右，在不同个里面是按顺序从上到下
+\(f1-&gt;Label(-text =&gt; '-top')-&gt;grid(\)f1-&gt;Entry(-textvariable =&gt; \$top),
+$f1-&gt;Label(-text =&gt; '-topspring'),  
+\(f1-&gt;Entry(-textvariable =&gt; \\)topspring), 
+-sticky =&gt; 'w', -padx =&gt; 2, -pady =&gt; 5);
+</p>
+
+<p>
+\(f1-&gt;Label(-text =&gt; '-bottom')-&gt;grid(\)f1-&gt;Entry(-textvariable =&gt; \$bottom), 
+	$f1-&gt;Label(-text =&gt; '-bottomspring'), 
+	\(f1-&gt;Entry(-textvariable =&gt; \\)bottomspring), 
+	-sticky =&gt; 'w', -padx =&gt; 2, -pady =&gt; 5);
+</p>
+
+
+<p>
+#######以form的形式产生一个Button，把地址赋值给引用button
+\(button = \)f-&gt;Button(-text =&gt; "Go!", -command =&gt; \&amp;reForm)-&gt;form;
+############解引用formforget，取消显示button引用的form。
+$button-&gt;formForget;
+##############启用button地址的form
+$button-&gt;form(-top =&gt; '%10', -bottom =&gt; '%50', -right=&gt; '%50', -left=&gt; '%10');
+</p>
+
+<p>
+	variable,执行命令
+MW
+	Dialog(会话，对话框)；
+</p>
+	
+<p>
+一个Label和Entry组成一个框架
+<a href="geometry manager.html">geometry manager</a><br>
+<a href="widgets.html">widgets</a><br>
+<a href="Tk menu.html">Tk menu</a><br>
+</p>
+
+
+<p>
+$mw-&gt;withdraw;#隐藏
+</p>
+
+<p>
+$mw-&gt;deiconify();
+$mw-&gt;raise();
+$mw-&gt;minsize(800， 600);
+$mw-&gt;protocol("WM_DELITE_WINDOW", \&amp;onOut);
+$mw-&gt;attributes(-tomost=&gt;"yes");#是否始终置顶
+</p>
+
+<p>
+$mw-&gt;Photo('testPhoto', -file =&gt; 'D:/pnl.jpeg');
+$mw-&gt;Label(-image =&gt; 'testPhoto')-&gt;grid;
+</p>
+
+
+<p>
+$tl-&gt;deiconify( );
+$tl-&gt;raise( );#重新显示隐藏的窗口
+</p>
+
+
+<p>
+my \(blue = \)mw-&gt;ItemStyle('text', -foreground =&gt; 'blue',-font =&gt; 'courier 8');
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

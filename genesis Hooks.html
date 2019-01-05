@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>genesis Hooks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+Hooks规则：
+1，	有些hooks变量名已经确定，只能改变其变量值，比如Ncd下面的machine文件（机台文件）。
+	Machine file决定与机台之位置关系，钻孔机格式及导引孔（当孔较大时，可能导致力矩过大，而出现断刀，故加导引孔，先钻一些小孔），扩孔，slot孔，识别孔的作法，钻孔最佳化和特殊孔序的设定。例如 start_end里面 设置start = yes表示增加首孔。End = no，表示不增加尾孔，下面可以设置x和y的坐标。
+又如选择过滤器-filters，Filter文件夹下有两个文件，一个是过滤器的命名，一个是过滤名字所执行的程序。如在name文件下面加上：
+程序名				过滤器
+s_line			   Select line
+在script文件switch上面加上：
+	case 's_line' 
+			COM filter_set, filter_name = popup, update_popup = yes, feat_types = line
+	breaksw
+在过滤器中就会有 Select line，其选择后会选择所有的线。
+2，文件内部可以是符合语法的任何指令操作，没有指定变量或格式。比如Line_hooks。
+Line_hooks里面的文件有两种，一种是以.pre结尾的，表示执行动作之前执行的程序，另一种是以.post结尾的，表示执行动作之后执行的程序。
+文件名字就是动作的名字。动作的名字不能乱取，可以根据all/helps/line/editor里面有命令的介绍，在命令后面加上.pre和.post就可以作为该命令前后的程序控制。比如，要在切换工作层后暂停提示。可以在line_hooks下面新键一个文档，命名为work_layer.pre，然后输入PAUSE You are switching work layer，are you sure效果是，每次切换工作层都会提示：You are switching work layer，are you sure。
+	Save_job.pre，保存动作之前执行的程序如Save_job.post, 保存动作之后执行的程序。在里面编程可以在保存之前和之后执行想要的动作。
+其它还有很多，比如add_text.pre，在添加文字之前，chklist_close.pre，关闭cheklist之前等等。
+</p>
+
+<p>
+Hook的其它模块如下：
+</p>
+
+<p>
+	Acquire：
+		当我们点击file &gt; archive&gt; acquire的时候，系统自动调用执行。
+	Drill_size:
+		当我们打开drill tool manager使用某个模型的时候，系统自动调用执行，计算drii size值。
+	Drill_size_tab:
+		孔径列表。Drill_size.awk会搜寻到该列表。
+	Drill_size.awk
+		Awk程序，自动搜寻孔列表找出最接近的有效钻孔位，如果找到。其提供钻孔名义上的值
+	Drill_size.prm
+		User parameters用户参数，定义模型名称。Imm_au等
+	目录ffilters:
+		过滤器的控制。下面的name文件是定义选择的名称，起到简化的作用，在另一个文件script里面会用到。Script文件对选择的名称进行相应的程序控制。
+	Film_sizes:
+		设定film optimisation中select film size的尺寸。
+	目录imp：
+		控制stackup中的参数，包括的文件有cc_driver，imp.h等。
+	Lp_prog.config
+		定义打印机名称
+	Lyr_rule
+		自动定义layer names，layer context，layer type，layer polarity等。
+	目录ncd
+		目录config 定义auto drill manager的模型参数。
+		文件create_nibble 定义创建扩孔程序
+		文件create_slot  槽孔处理程序
+		文件out_file 设置输出文件的格式
+		文件set_table 设置table的参数等。
+	目录ncr
+		控制auto rout manager的所有参数。
+	文件note_options:
+		设置note参数
+	Opfx_params:
+		底片输出置光绘底片尺寸和分辨率。
+	目录panel：
+		设置panelization wizard的参数
+	Post_output
+		设置output结束后的一些过程参数。
+	Script_start.csh
+		运行脚本时设置的一些参数。
+	目录line_hooks
+		定义动作前后所要执行的程序。
+</p>
+
+<p>
+Line_hook变量：
+	如在save.pre里面set job = lnVAL[1]，lnVAL[1]表示的时料号名。
+</p>
+
+<h2 id="toc_0.1">自动锣带输出</h2>
+<p>
+/ncr/out_file
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

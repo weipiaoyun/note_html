@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>IO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+#!/usr/bin/perl -w
+#源码名称: IO.pm
+#功能描述: 为文件IO操作,根据王葛,王智辉的所修改
+#开发单位: 集团工程系统开发部
+#作者    : 洪军
+#开发日期: 2014.4.8
+#版本号  : 1.0
+</p>
+
+<p>
+#导入模块
+package IO;
+use strict;
+use warnings;
+use Tk;
+use Tk::MsgBox;
+use utf8;
+use Fcntl qw(:flock);
+require Exporter;
+our @ISA = qw(Exporter);
+</p>
+
+<p>
+#设置程式名称
+my $appname = 'IO';
+</p>
+
+<p>
+#设置版本号
+my $version = 1.0;
+</p>
+
+<p>
+#new方法dc
+sub new {
+</p>
+<blockquote>
+my $caller = shift;
+my \(class  = ref(\)caller) || $caller;
+</blockquote>
+<p>
+	my $self = {};
+</p>
+<blockquote>
+bless \(self, \)class;
+return $self;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:ReadFile
+#功能		:读取文本文件
+#参数		:文件路径
+#返回值		:文件内容
+#使用例子	:$h-&gt;ReadFile('c:/test.txt');
+sub ReadFile{
+</p>
+<blockquote>
+my $self = shift;
+my $filePath = shift;
+my @file;
+</blockquote>
+    
+<p>
+	eval{
+		open FILE,\(filePath or die "can't open \)filePath $!\n";
+		@file = &lt;FILE&gt;;
+		close FILE;
+		#unlink $filePath;
+</p>
+<blockquote>
+};
+</blockquote>
+    
+<p>
+	\(self-&gt;StopMsgBox('error',"读取文件失败！\n \)@") if $@;
+</p>
+<blockquote>
+return @file;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:WriteFile
+#功能		:写文本文件
+#参数		:1,文件路径 2,文件内容
+#返回值		:1
+#使用例子	:$h-&gt;WriteFile('c:/test.txt','test');
+sub WriteFile{
+</p>
+<blockquote>
+my  $self 		= shift;
+my	$filePath 	= shift;
+my  $file 		= shift;
+my  $model          = shift || '&gt;&gt;';
+</blockquote>
+    
+<p>
+	#写入文本文件
+</p>
+<blockquote>
+eval{
+</blockquote>
+<p>
+		open FILE,\(model,\)filePath or die "can't open \(filePath \)!\n";
+		flock (FILE,LOCK_EX);
+		print FILE  "$file\n";
+		flock (FILE,LOCK_UN);
+		close FILE;
+</p>
+<blockquote>
+};
+</blockquote>
+<blockquote>
+\(self-&gt;StopMsgBox('error',"写入文件失败！\n \)@") if $@;
+return 1;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+#名字		:SetUser
+#功能		:设置显示图片
+#参数		:设置显示内容
+#返回值		:无
+#使用例子	:$h-&gt;StopMsgBox('error',"工作层是顶层,添加text字无需镜像");
+sub StopMsgBox{
+</p>
+<blockquote>
+my  $self = shift;
+my 	$icon = shift;
+my 	$msg  = shift;
+my	$mw = MainWindow -&gt; new;
+</blockquote>
+<p>
+	$mw-&gt;withdraw;
+</p>
+<blockquote>
+$mw-&gt;optionAdd("*font" =&gt; 'application 11');
+</blockquote>
+<blockquote>
+my \(d = \)mw-&gt;MsgBox('-icon'   =&gt; $icon,
+-type    =&gt; 'OK',
+-title   =&gt; '提示信息',
+-message =&gt; $msg,);
+$d-&gt; transient('');
+$d-&gt;Show;
+$mw -&gt;destroy;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+1;
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

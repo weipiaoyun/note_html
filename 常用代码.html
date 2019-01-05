@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>常用代码</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">获取Ip地址</h1>
+<p>
+If ls_ip Is Nothing OrElse ls_ip.Count &lt;= 0 Then ls_ip = PHelp_SystemInfo.GetIPList()
+</p>
+
+<h1 id="toc_2">获取Mac地址</h1>
+<p>
+If ls_mac Is Nothing OrElse ls_ip.Count &lt;= 0 Then ls_mac = PHelp_SystemInfo.getMacList()
+</p>
+
+<h1 id="toc_3">获取主机名</h1>
+<p>
+Environment.MachineName
+</p>
+
+<h1 id="toc_4">系统版本</h1>
+<p>
+Environment.OSVersion.ToString()
+</p>
+
+<h1 id="toc_5">消息框</h1>
+<p>
+MsgBox(TextBox1.Text)
+</p>
+
+<h1 id="toc_6">错误提示</h1>
+<p>
+MessageError(strReportPath)
+</p>
+
+<p>
+1. 打开新的窗口并传送参数：
+</p>
+
+<p>
+传送参数：
+</p>
+
+<p>
+response.write("＜script＞window.open(’*.aspx?id="+this.DropDownList1.SelectIndex+"&amp;id1="+...+"’)＜/script＞") 
+接收参数：
+</p>
+
+<p>
+string a = Request.QueryString("id");  
+string b = Request.QueryString("id1"); 
+2.为按钮添加对话框
+</p>
+
+<p>
+Button1.Attributes.Add("onclick","return confirm(’确认?’)");  
+button.attributes.add("onclick","if(confirm(’are you sure...?’)){return true;}else{return false;}")  
+3.删除表格选定记录
+</p>
+
+<p>
+int intEmpID = (int)MyDataGrid.DataKeys[e.Item.ItemIndex];  
+string deleteCmd = "DELETE from Employee where emp_id = " + intEmpID.ToString() 
+</p>
+
+<p>
+4.删除表格记录警告
+</p>
+
+<p>
+private void DataGrid_ItemCreated(Object sender,DataGridItemEventArgs e)  
+{  
+switch(e.Item.ItemType)  
+{  
+case ListItemType.Item :  
+case ListItemType.AlternatingItem :  
+case ListItemType.EditItem:  
+TableCell myTableCell;  
+myTableCell = e.Item.Cells[14];  
+LinkButton myDeleteButton ;  
+myDeleteButton = (LinkButton)myTableCell.Controls[0];  
+myDeleteButton.Attributes.Add("onclick","return confirm(’您是否确定要删除这条信息’);");  
+break;  
+default:  
+break;  
+}  
+} 
+</p>
+
+<p>
+5.点击表格行链接另一页
+</p>
+
+<p>
+private void grdCustomer_ItemDataBound(object sender, System.Web.UI.WebControls.DataGridItemEventArgs e)  
+{  
+//点击表格打开  
+if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)  
+e.Item.Attributes.Add("onclick","window.open(’Default.aspx?id=" + e.Item.Cells[0].Text + "’);");  
+}  
+//双击表格连接到另一页  
+//在itemDataBind事件中  
+if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)  
+{  
+string OrderItemID =e.item.cells[1].Text;  
+...  
+e.item.Attributes.Add("ondblclick", "location.href=’../ShippedGrid.aspx?id=" + OrderItemID + "’");  
+}  
+//双击表格打开新一页  
+if(e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)  
+{  
+string OrderItemID =e.item.cells[1].Text;  
+...  
+e.item.Attributes.Add("ondblclick", "open(’../ShippedGrid.aspx?id=" + OrderItemID + "’)");  
+} 
+6.表格超连接列传递参数
+</p>
+
+<p>
+＜asp:HyperLinkColumn Target="_blank" headertext="ID号" DataTextField="id" NavigateUrl="aaa.aspx?id=’  
+＜%# DataBinder.Eval(Container.DataItem, "数据字段1")%＞’ &amp; name=’＜%# DataBinder.Eval(Container.DataItem, "数据字段2")%＞’ /＞ 
+</p>
+
+<p>
+7.表格点击改变颜色
+</p>
+
+<p>
+if (e.Item.ItemType == ListItemType.Item ||e.Item.ItemType == ListItemType.AlternatingItem)  
+{  
+e.Item.Attributes.Add("onclick","this.style.backgroundColor=’#99cc00’;  
+this.style.color=’buttontext’;this.style.cursor=’default’;");  
+}   
+//写在DataGrid的_ItemDataBound里  
+if (e.Item.ItemType == ListItemType.Item ||e.Item.ItemType == ListItemType.AlternatingItem)  
+{  
+e.Item.Attributes.Add("onmouseover","this.style.backgroundColor=’#99cc00’;  
+this.style.color=’buttontext’;this.style.cursor=’default’;");  
+e.Item.Attributes.Add("onmouseout","this.style.backgroundColor=’’;this.style.color=’’;");  
+} 
+8.VB.NET常用代码关于日期格式
+</p>
+
+<p>
+日期格式设定
+</p>
+
+<p>
+DataFormatString="{0:yyyy-MM-dd}" 
+我觉得应该在itembound事件中
+</p>
+
+<p>
+e.items.cell["你的列"].text=DateTime.Parse(e.items.cell["你的列"].text.ToString("yyyy-MM-dd"))  
+9.获取错误信息并到指定页面
+</p>
+
+<p>
+不要使用Response.Redirect,而应该使用Server.Transfer
+</p>
+
+<p>
+e.g  
+// in global.asax  
+protected void Application_Error(Object sender, EventArgs e) {  
+if (Server.GetLastError() is HttpUnhandledException)  
+Server.Transfer("MyErrorPage.aspx");  
+//其余的非HttpUnhandledException异常交给ASP.NET自己处理就okay了 :)  
+} 
+Redirect会导致post－back的产生从而丢失了错误信息，所以页面导向应该直接在服务器端执行，这样就可以在错误处理页面得到出错信息并进行相应的处理
+</p>
+
+<p>
+10.VB.NET常用代码清空Cookie
+</p>
+
+<p>
+Cookie.Expires=[DateTime];  
+Response.Cookies("UserName").Expires = 0 
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

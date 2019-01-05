@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Tcl</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">快捷键</h1>
+<p>
+F3 导入tgz
+F4 CAM_Guid
+F5 跑板边
+F6 输出
+F7 临时文件输出
+</p>
+
+<p>
+<a href="Tcl软件.html">Tcl软件</a><br>
+</p>
+
+<h1 id="toc_2">工厂</h1>
+<p>
+<a href="CDX.html">CDX</a><br>
+<a href="QD.html">QD</a><br>
+</p>
+
+<h1 id="toc_3">检查tcl的语法</h1>
+<p>
+1，类似if 的{}
+#数组元素个数
+\(i &lt; [llength \)Arr_x]
+#自增
+incr i
+</p>
+
+<p>
+<a href="TCL函数.html">TCL函数</a><br>
+<a href="TCL字符操作.html">TCL字符操作</a><br>
+<a href="TCL文件操作.html">TCL文件操作</a><br>
+<a href="TCL数值操作.html">TCL数值操作</a><br>
+<a href="程序对应的环境.html">程序对应的环境</a><br>
+<a href="TCL输出.html">TCL输出</a><br>
+</p>
+
+<h1 id="toc_4">过程</h1>
+<p>
+main里面获取$scr_path
+</p>
+
+<p>
+配置文件里获取Config文件
+$scr_path/Cam_Guide/EMS.GUIDE.exe.Config
+ConnMODE=1 NetType=1 表示内部网络
+</p>
+
+<h1 id="toc_5">环境变量</h1>
+<p>
+$env(GENESIS_EDIR)
+</p>
+
+<h1 id="toc_6">判断是否存在</h1>
+<p>
+DO_INFO -t step -e \(JOB/\)StepName -d EXISTS
+</p>
+
+<h1 id="toc_7">全局名字设置</h1>
+<h2 id="toc_7.1">层名</h2>
+<p>
+topSigLayer  顶层线路
+botSigLayer 底层线路
+layname_drl 钻孔名
+</p>
+
+<p>
+layname_drl layname_rout rou_Name cut_job_ver pstill
+</p>
+
+<h2 id="toc_7.2">Step名</h2>
+<p>
+cam_name set_name pnl_name org_name cad_name net_name  
+cam_name edit
+pan_name =&gt; pnl
+</p>
+
+<h2 id="toc_7.3">路径名</h2>
+<p>
+料号的路径：path_job
+料号下的user路径：job_dir
+</p>
+
+<h1 id="toc_8">TCL更新存放的位置</h1>
+<p>
+d:\svn\net\FAC\BM\EMS.UI\bin\Release\
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

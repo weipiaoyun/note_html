@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>存储过程</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+一个表查询过滤后插入到另外一个表
+insert into #aaa (columna, columnb, columnc) select (columna,columnb,columnc) from #bbb
+</p>
+
+<h1 id="toc_1">函数</h1>
+<h2 id="toc_1.1">LEFT:</h2>
+<p>
+LEFT(DrillName_,1)，截取第一个字符
+</p>
+
+
+<p>
+create table #Test(column1 INT, column2 varchar(20))
+INSERT INTO #Test EXEC(@orderSql)
+</p>
+
+
+<h2 id="toc_1.2">ISNUMERIC</h2>
+<p>
+判断是否为数字
+(a.minLine)
+</p>
+
+<h2 id="toc_1.3">substring</h2>
+<p>
+截取字符串
+ SUBSTRING(value,3,LEN())
+select SUBSTRING('control_layers',2,5) 
+</p>
+
+<h2 id="toc_1.4" class="justcenter">charindex 获取字符串在第几位</h2>
+<p>
+select charindex('L','contro_layers')
+</p>
+
+<h2 id="toc_1.5">isnull 判断是否为null</h2>
+<p>
+  select isnull(NULL,'0')
+</p>
+  
+<h2 id="toc_1.6">stuff</h2>
+<p>
+stuff(param1, startIndex, length, param2)
+将param1中的自startIndex开始(SQL中都是从1开始)，删除length个字符，然后用param2替换删掉的字符
+</p>
+
+<h1 id="toc_2">with as</h1>
+<p>
+用博敏的数据库
+</p>
+<blockquote>
+with data as 
+(
+</blockquote>
+<p>
+ 		select Guid_,Guid4ChKB from T_ppe_MakeModuleNo c where c.Guid_ = '15E0129A-BEE2-E611-A176-141877593737'
+</p>
+ 		
+<p>
+ 		union all
+ 		select b.Guid_, b.Guid4ChKB from data  a
+ 		inner join T_ppe_MakeModuleNo b on b.Guid_ = a.Guid4ChKB
+</p>
+<blockquote>
+)
+select * from data
+</blockquote>
+ 
+<h1 id="toc_3" class="justcenter">转换</h1>
+<h2 id="toc_3.1">时间</h2>
+<p>
+SET @time= CONVERT(varchar(100), GETDATE(), 23) + ' 08:00:00'
+</p>
+
+<h2 id="toc_3.2">只显示年月日，时分秒为00000</h2>
+<p>
+SELECT CAST(CONVERT(CHAR(10),CURRENT_TIMESTAMP,102) AS DATETIME)
+</p>
+<h2 id="toc_3.3">dateadd</h2>
+<h2 id="toc_3.4">day</h2>
+<h2 id="toc_3.5">getdate</h2>
+<h2 id="toc_3.6">datediff</h2>
+
+<h1 id="toc_4">把所有在线状态合并到一个单元格</h1>
+<p>
+SELECT 
+jobName_
+,jobName_=stuff(
+	(select ';'+jobName_ from [EngSys].[dbo].T_ppe_ErpWip t where jobName_ = 'BM65085A0-EN'for xml path(''))
+	, 1, 1, ''
+)
+FROM [EngSys].[dbo].T_ppe_ErpWip 
+</p>
+
+
+<h1 id="toc_5">更新表 表是变量的形式</h1>
+<p>
+declare @tbname nvarchar(50),
+@sql nvarchar(2000)=''
+</p>
+
+<p>
+SET @tbname = '[EngSys].[dbo].[T_WF_FilmOrderInfo]'
+</p>
+
+<p>
+set @sql='update '+@tbname+' set Remark=''hahahaha''' + ' where Guid_ = ''C6C34E09-E5E1-4D84-8CDE-06FF07DA0BD5'''
+</p>
+
+<p>
+exec (@sql)
+</p>
+
+<p>
+<code>@sql是字符串格式，如果变量的格式不能转换成字符串，将会报错</code>
+如下Guid转换成字符串格式，前后加上单引号
+SET @sqlCmd = 'update [T_WF_FilmOrderDetialInfo] set   ' + @changeField + ' =  ' + @changeValue + ' WHERE Guid_ =  '   + '''' +  convert(VARCHAR(50),@changeGuid) + ''''
+</p>
+
+<h1 id="toc_6">在存储过程里面，单引号'是转意字符</h1>
+
+
+<h1 id="toc_7">特殊变量</h1>
+<p>
+@@rowcount 上一次执行的结果数量
+select HOST_NAME() 主机名
+</p>
+
+<h1 id="toc_8">特殊符号</h1>
+<p>
+select CHAR(13) #回车
+</p>
+
+<h1 id="toc_9">union all合并多行，join合并多列</h1>
+<p>
+select getdate(),'s016012c6a0','LINWEI-PC','tl','1','0.387','22%' 
+union all select getdate(),'s016012c6a0','LINWEI-PC','l2b','2','1.383','80%' 
+union all select getdate(),'s016012c6a0','LINWEI-PC','l3b','3','0.391','23%' 
+union all select getdate(),'s016012c6a0','LINWEI-PC','l4t','4','0.331','19%' 
+union all select getdate(),'s016012c6a0','LINWEI-PC','l5t','5','1.379','80%' 
+union all select getdate(),'s016012c6a0','LINWEI-PC','bl','6','0.399','23%'
+</p>
+
+<h1 id="toc_10">单引号，转义字符</h1>
+<p>
+如果字符串''里面需要添加单引号，需要''用一个单引号作为转义。
+select ''''  打印一个单引号
+字符串里面的两个单引号相当于一个单引号
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

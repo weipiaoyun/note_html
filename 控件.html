@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>控件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="tmp.html">tmp</a><br>
+<a href="控件属性.html">控件属性</a><br>
+<a href="自定义控件.html">自定义控件</a><br>
+</p>
+
+<p>
+<a href="gridControl.html">gridControl</a><br>
+<a href="listBoxControl.html">listBoxControl</a><br>
+</p>
+
+<h1 id="toc_1">报表</h1>
+<p>
+chartControl
+</p>
+
+<h2 id="toc_1.1">RibbonControl</h2>
+<p>
+RibbonControl-&gt;添加RibbonPage-&gt;添加ribbonPageGroup-&gt;添加button，check ，menu等
+</p>
+
+
+<h2 id="toc_1.2">dockPanel</h2>
+<p>
+1,添加，dockManage
+2,在dockManage上添加dockPanel
+</p>
+
+<h2 id="toc_1.3">TreeList控件 (树列表)</h2>
+<p>
+1,把OptionsView设置成ShowColumns=False   不显示列名
+2，在TreeList小三角，单击TreeView，也就是TreeList任务里面，Run Designer可以添加列和设置属性，在小三角Nodes Editor里面可以编辑节点。
+</p>
+
+<h2 id="toc_1.4">TreeView控件</h2>
+	
+
+<h2 id="toc_1.5">被指定窗体的MdiParent的窗体不是MdiContainer</h2>
+<p>
+此问题是由于父窗体的IsMdiContainer 属性设置为false导致的
+</p>
+
+<h2 id="toc_1.6">控件</h2>
+<p>
+Label(标签):标签是用来为用户显示信息的控件，但不允许用户直接修改其值。
+</p>
+
+<p>
+控件的创建和实现：
+1，实例化控件对象；
+2，设置属性值；
+3，将控件对象加入到窗体中。
+</p>
+	
+<p>
+this.button1.Click += new System.EventHandler(this.button2_Click);
+</p>
+
+<p>
+button1这个控件的click 和当前对象的button2_Click函数绑定
+</p>
+
+<p>
+#程序退出
+Application.Exit();
+</p>
+
+<p>
+单选
+radioButton
+</p>
+
+<p>
+容器
+</p>
+<h1 id="toc_2">GroupBox = devExpress里面的GroupControl</h1>
+<p>
+只是groupControl能支持devexpress的样式，添加列和行的要用layoutControl
+</p>
+
+
+<h1 id="toc_3">panelControl 和GroupControl</h1>
+<p>
+都是容器，但是GroupControl更注重分组。可以有组名
+</p>
+
+
+<p>
+在dev中，要设置panelcontrol背景色,必须先把panelcontrol的BorderStyle设置为NoBorder才能使设置的背景色起作用。
+</p>
+<h1 id="toc_4">splitterControl split</h1>
+
+
+<p>
+单选分组用容器
+</p>
+
+<p>
+使用列表框 ListBox
+private ListBox listBox1;
+this.listBox1 = new System.Windows.Forms.ListBox();
+this.listBox1.BeginUpdate();
+this.listBox1.Items.Add("first");
+this.listBox1.Items.Add("second");
+this.listBox1.EndUpdate();
+</p>
+
+<p>
+窗体居中
+this.StartPosition = FormStartPosition.CenterScreen;
+图片：
+PictureBox
+Label
+TextBox
+	如果要能向下拖，得把mutiline属性打成True，由wordwrap控制是否自动换行。
+</p>
+	
+<p>
+	浏览(&amp;B)
+combobox
+comboboxex
+</p>
+
+<p>
+StatusStrip
+设置边沿：BoardSides
+扩开：设置spring为True
+</p>
+
+<p>
+listBox
+Items 选项
+</p>
+
+<h2 id="toc_4.1">分开</h2>
+<p>
+collapsedirection
+expandbuttonalignment
+</p>
+
+<h2 id="toc_4.2">导航</h2>
+<p>
+bindingNavigator 
+	displayStyle
+</p>
+	
+<h2 id="toc_4.3">toolstrip容器</h2>
+<p>
+toolStripContainer在上下左右各有一个ToolStripContentPanel ，可用于放置 ToolStrip, MenuStrip, 和 StatusStrip 控件。
+只能放导航栏， 运行后隐藏
+</p>
+
+<h2 id="toc_4.4">隐藏缩放</h2>
+<p>
+expandablePanel
+</p>
+
+
+<h2 id="toc_4.5">DevExpress Template Gallery</h2>
+<p>
+XtraForm-&gt;相当于winForm
+最大化，最小化和叉叉的是否显示：controlBox
+边缘设置：FormBorderEffect，FormBorderStyle
+</p>
+
+<h3 id="toc_4.5.1">labelcontrol</h3>
+<p>
+用font更改字体格式
+</p>
+
+<h3 id="toc_4.5.2">textEdit</h3>
+<p>
+密码：设计窗口--&gt;属性-&gt;Properties--&gt;Mask节点--&gt;PasswordChar输入字符*。还可以设置最大长度等。
+</p>
+
+<h3 id="toc_4.5.3">属性</h3>
+<p>
+1，控件随着窗体的变大而变大   把Anchor设置成为上下左右
+</p>
+
+<h1 id="toc_5">bar</h1>
+<p>
+状态栏
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

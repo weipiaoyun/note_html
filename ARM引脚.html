@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ARM引脚</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+	首先应该注意的是引脚的读写状态和51单片机是不同的。它的IOPIN寄存器只能读，写不建议。你要写引脚就得对两个寄存器进行写，分别为IOSET和IOCLR。如果全部要改变，那么在写数据的时候一般为先全部清零，然后把数据给IOSET。如果部分要清零，可以对应的IOCLR为1。如果部分要置一，对应的IOSET为1。只有单逻辑1有效，其它0的无效，不用管。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

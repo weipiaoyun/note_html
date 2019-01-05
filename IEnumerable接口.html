@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>IEnumerable接口</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+只要是多个元素的集合，都可以实现foreach，只要支持GetEnumerator()方法。
+</p>
+
+
+<p>
+public class Garage  
+{  
+</p>
+<blockquote>
+Car[] carArray = new Car[4];  //在Garage中定义一个Car类型的数组carArray,其实carArray在这里的本质是一个数组字段  
+</blockquote>
+<blockquote>
+//启动时填充一些Car对象  
+public Garage()  
+{  
+//为数组字段赋值  
+carArray[0] = new Car("Rusty", 30);  
+carArray[1] = new Car("Clunker", 50);  
+carArray[2] = new Car("Zippy", 30);  
+carArray[3] = new Car("Fred", 45);  
+}  
+</blockquote>
+<p>
+}  
+</p>
+
+
+
+<h1 id="toc_1">foreach</h1>
+<p>
+数组能用foreach遍历，是因为其实现了IEnumerabale和IEnumerator的接口，通过IEnumerabale的GetEnumerator 获取IEnumerator。
+IEnumerabale 使成为枚举(枚举器)
+IEnumerator获取每个值(迭代器)
+</p>
+
+<p>
+要实现foreach必须要实现IEnumerabale和IEnumerator的接口。才能实现遍历。
+</p>
+
+<p>
+也可以只实现GetEnumerator方法即可，不需要实现IEnumerable接口
+</p>
+
+<p>
+foreach 里面的in，会调用Emumerator里面的MoveNext()函数。
+</p>
+
+<p>
+foreach里面的定义变量，会访问Current属性，并赋值。
+</p>
+
+<p>
+通过foreach, 获得对象(里面含后GetEnumerator方法，返回Enumerator)的Enumerator。通过Enumerator执行MoveNext()函数获取当前指向，从而获取属性值。
+</p>
+
+<p>
+<code>要实现可枚举的，其必须本身就是一个个的实体组成的对象集合，对对象的集合进行枚举</code>，必定是数组
+</p>
+
+<h1 id="toc_2">1.  IEnumerable 与  IEnumerator</h1>
+<p>
+IEnumerable(可列举的接口)是一个枚举器
+IEnumerator是一个迭代器
+</p>
+<h2 id="toc_2.1">IEnumerable</h2>
+<p>
+IEnumerable是一个类
+继承这个类后的类的对象成了可枚举类型(foreach的操作是针对可枚举类型的)
+</p>
+
+<p>
+有一个抽象方法：GetEnumerator(), 返回IEnumerator
+</p>
+
+<p>
+<code>继承IEnumerable该类的需添加GetEnumerator这个函数</code>
+</p>
+
+<h2 id="toc_2.2">IEnumerator</h2>
+<p>
+字段：
+state: int型，私有，计数器用
+current: object型，私有，当前值
+</p>
+
+<p>
+属性：
+Current: object型，当前值
+</p>
+
+
+<p>
+方法：
+构造函数
+MoveNext：移动到下一个值
+Reset：重置
+</p>
+
+
+<h3 id="toc_2.2.1">作用</h3>
+<p>
+实现可枚举数
+</p>
+
+<p>
+IEnumerator是一个迭代器(计数器), 真正实现了访问集合的功能
+IEnumerator只有一个Current属性，MoveNext和Reset两个方法。
+</p>
+
+<h2 id="toc_2.3">可枚举类型和枚举</h2>
+<p>
+可枚举类型 → 实现IEnumerable接口，可以不需要直接实现这个接口，但必须有个GetEnumerator方法，返回值类型必须为IEnumerator类型，也就是第四点最后一段代码中接口注释的那种写法！
+</p>
+
+
+
+
+<p>
+　I， 实现IEnumerable接口，实现GetEnumerator方法，返回IEnumerator类型的枚举数，使定义的类变为可枚举类型！
+</p>
+
+<p>
+II，实现IEnumerator接口操作返回的枚举数对象(其实枚举数本质上就是数组或集合)，以至于可以依次返回集合中项的类对象！
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>线性控制系统的运动分析</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+	研究系统性能的定量分析，其实是x（t）与各个状态之间的关系
+</p>
+	
+<p>
+	线性定常系统齐次线性方程的解：
+		其次方程，没有输入的方程，x向量的倒数与x之间的关系，先把x（t）的方程展开成幂级数的形式，然后对x（t）进行求导；再把其代进状态方程，然后根据系数相等求解出幂级数的系数，也就求出了x（t）的方程。
+		展开成幂级数以后发现，x（t）状态都可以由x（t0）（当t0 = 0时，说明是初始状态是一开始状态）通过转移矩阵e的A（t - t0）次方得到（也就是幂级数的系数），因为该方程没有输入系统，是自由的，故称自由运动。
+		x（t）与x1，x2有关，从状态图我们可以看到，x（t）是从x1（t），x2（t）里得到的。（积分关系）
+		问题，什么叫差分方程
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

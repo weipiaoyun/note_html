@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>dev</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="gridView gridControl.html">gridView gridControl</a><br>
+</p>
+
+
+
+<h1 id="toc_1">获取datagridview的选中的显示值。 </h1>
+<p>
+GetRowCellDisplayText(dgvJobInfo.View_.FocusedRowHandle, dgvJobInfo.View_.Columns[1]);
+</p>
+
+
+<h1 id="toc_2">获取dataGridView的当前行，当前列数据。 </h1>
+<p>
+ var info = gridview.CalcHitInfo(e.Location);
+ if (gridview.GetRowCellValue(info.RowHandle, info.Column).ToString() == "下载")
+</p>
+ 
+<p>
+var job = dgvJobInfo.View_.GetRowCellDisplayText(dgvJobInfo.View_.FocusedRowHandle, dgvJobInfo.View_.Columns[1]);
+</p>
+
+<p>
+var fileName = gridview.GetRowCellValue(gridview.FocusedRowHandle, gridview.Columns.ColumnByName("FileName_")).ToString();
+</p>
+
+<h1 id="toc_3">DataGriwView 增加popupMenu 右击菜单 </h1>
+<p>
+工具箱-&gt;添加PopupMenu控件
+下面会显示popupMenu控键。点击控件右上角小箭头-》Run Designer 打开设计器
+Sub Menus &amp; Popup Menus 	Menu-&gt;Add popup menu-&gt;然后添加右击菜单。
+</p>
+
+
+<h1 id="toc_4">分组后排序变乱 </h1>
+<h2 id="toc_4.1">重新排序 </h2>
+<p>
+sqlGridControlHaveStorage.View_.Columns["group_"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+sqlGridControlHaveStorage.View_.Columns["LayerIndex_"].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

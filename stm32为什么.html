@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>stm32为什么</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+为什么会有0.5，1.5位。
+	异步通信时两端的时钟频率不会准确同步，为了消除干扰通常接收频率(周期为TR）是数据本身频率（即码元速率，假设周期为T）的若干倍（如为32），则T=32TR。接受时对起始位会监测两次，第一次就是监测到高电平，第二次就是16TR的时候，然后每个32TR读取数据位，读停止位的时候1位就是要求32TR宽度高电平；1.5位就是要求（32+16）TR宽度的高电平；2位就是要求（32+32）TR宽度的高电平。 
+</p>
+	
+<p>
+	USART的CTS和RTS是干什么用的
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

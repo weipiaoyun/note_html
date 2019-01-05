@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>P0口</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+P0口的作用：
+</p>
+
+<p>
+	(1)地址和数据复用(数据时是并行口)
+</p>
+
+<p>
+	(2)准双向I/O口，输入数据时要先输出一个零，使那个场效应管截止，不然会误读
+</p>
+
+<p>
+P0口作一般IO口使用，cpu发出控制电平，v1开通，v2截止，
+</p>
+
+<p>
+P0口有两个<a href="三态门.html">三态门</a><br>，上面一个结了锁存器，下面的没有，上面的主要是用于读-》修改——》写时用的。
+</p>
+
+<p>
+P0口作为地址地址数据总线使用的时候（传输地址或者数据），cpu是控制信号为高电平，开关打在上面。
+</p>
+
+<p>
+P0口如果要驱动，要加上拉
+</p>
+
+<p>
+P0口由四部分组成。
+输出部分，一个锁存，一个多路开关，一个输出驱动
+输入部分：一个读缓冲和读锁存。
+</p>
+
+<p>
+输出的多路开关看指令，如果指令是MOV，说明是通用的IO口，上面的场效应管关闭。然后可以锁存数据，但是数据为1的时候是关闭的。上面下面的场效应管都关闭了。但这时本来是应该输出1的。所以必须加个上拉。如果是MOVX那么，上面下面的场效应管都是开着的，是推挽方式的。既可以输出低电平，也可以输出高电平。但是是先送地址，然后送数据。送完以后又是开关打在通用上。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

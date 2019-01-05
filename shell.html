@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>shell</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+shell是解释执行的。是我们和系统之间的翻译者
+</p>
+<h2 id="toc_0.1">shell的种类，</h2>
+<p>
+sh bash ksh csh
+</p>
+<h1 id="toc_1">shell存在目录</h1>
+<p>
+系统分给使用着什么shell呢，得看你是什么样的使用者，每个使用者使用的一个shell。用户一登录，系统会分配一个shell，终端会为你执行bin/bash
+</p>
+
+<h1 id="toc_2">shell如何执行命令</h1>
+<p>
+凡是能which到的命令都是内建命令，不会创建新的进程。内建命令只是调用shell内部的一个函数。
+内建命令虽然不会创建新的进程，但还是会返回一个0或非0，0表示成功，可以用$？读出。
+shell创建一个child process必须同过fork函数创建，创建成功会有参数返回。两参数，子进程中反悔0，父进程返回子进程ID
+fpid就是相当于任务控制块的一个指针，这个指针如果创建成功会指向下一个子程序的任务控制块，然后返回子程序的ID，也就是地址。而子程序的fpid会为0，等待下次子程序再创建程序的时候变为不为0
+</p>
+
+<h1 id="toc_3">变量</h1>
+<p>
+全由大写字母或下划线组成
+</p>
+
+<p>
+环境变量可以由父进程传递给子进程。
+本地变量就是当前shell的变量。用export命令可以把本地变量导出为环境变量。用unset命令可以删除已定义的环境变量或本地变量。
+变量的类型是字符串类型。
+</p>
+
+<p>
+命令代换：`或者$(), 
+	``也是命令，该命令执行后会立即转为
+</p>
+
+
+<p>
+算术代换：$(()),shell变量取值将转换成整数。
+</p>
+
+<p>
+反斜杠\转义字符。
+</p>
+
+<p>
+shell中的单引号是字符串界定符，双引号将算出里面的值。
+</p>
+
+<p>
+bash启动脚本
+</p>
+
+<p>
+良好的编程习惯总是把变量放到引号当中
+</p>
+
+<p>
+：是一个特殊的命令，它的Exit Status总是为真。
+<a href="shell的括号.html">shell的括号</a><br>
+</p>
+
+<h1 id="toc_4">什么叫交互登录shell启动</h1>
+<p>
+交互shell用户在提示符下输入的shell而不是执行脚本的shell，登录shell是输入用户名和密码后得到的shell。
+注意，从图形界面登录管理器后会显示桌面但不会登录shell，在图形界面下打开的终端窗口得到的shell也不是登录shell。
+</p>
+
+
+<p>
+交互就是一对一，非交互就是shell，你去跟那文件交流吧，它会告诉你该做什么。
+</p>
+
+<h1 id="toc_5">shell命令</h1>
+<table>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+------+------------------------------------------+---+---+---
+</td>
+</tr>
+<tr>
+<td>
+read
+</td>
+<td>
+等待输入，一个参数，输入的字符串存到里面
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+:
+</td>
+<td>
+空命令
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+case
+</td>
+<td>
+可以匹配字符串和wildcard
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+more
+</td>
+<td>
+读取文件
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+
+<p>
+printenv可以打印出全部环境变量，set可以打印出所有变量(包括环境和本地变量)
+环境变量是任何进程都有的概念，而本地变量仅仅是shell特有的。
+事实上shell变量的值都是字符串。不需要先声明后使用。如果对一个没定义的变量取值，则为空字符串。
+</p>
+
+
+<p>
+<a href="shell脚本语法.html">shell脚本语法</a><br>
+<a href="shell编程练习.html">shell编程练习</a><br>
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

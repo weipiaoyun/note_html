@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>genesis文件夹</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">DFMPE </a>
+<ul>
+<li><a href="#toc_1.1">数据库列表位置</a>
+<li><a href="#toc_1.2">config配置：</a>
+<li><a href="#toc_1.3">Gnd的网络地址</a>
+<li><a href="#toc_1.4">帐号权限的控制：</a>
+<li><a href="#toc_1.5">启动genesis初始化</a>
+<li><a href="#toc_1.6">ERF文档存放的位置</a>
+<li><a href="#toc_1.7">铜桥大小分析不出</a>
+<li><a href="#toc_1.8">可执行文件的存放位置</a>
+<li><a href="#toc_1.9">useattr 和 sysattr</a>
+<li><a href="#toc_1.10">/genesis/share目录</a>
+<li><a href="#toc_1.11">/genesis/e93/all</a>
+<li><a href="#toc_1.12">用户锁</a>
+<li><a href="#toc_1.13">Output Minimal brush的默认值设置</a>
+<li><a href="#toc_1.14">D码模板</a>
+<li><a href="#toc_1.15">分析的ERF文档</a>
+</ul>
+<li><a href="#toc_2">ps2pdf的路径</a>
+<li><a href="#toc_3">钻孔管理工具里面的参数名设置</a>
+<li><a href="#toc_4">钻孔管理工具的自动补偿</a>
+<li><a href="#toc_5">开始执行的映射</a>
+<li><a href="#toc_6">错误status</a>
+</ul>
+</div>
+<h1 id="toc_1">DFMPE </h1>
+<ol>
+<li>
+在~/.genesis/prog/添加
+
+<li>
+修改erf后缀对应的.uid 对应的名字。
+
+<li>
+修改erf后缀对应名字的.menu。改地方控制菜单栏。
+
+</ol>
+
+<p>
+<a href="hooks.html">hooks</a><br>
+<a href="genesis line_hooks.html">genesis line_hooks</a><br>
+</p>
+
+<p>
+把genesis放到一台主机，共享出来
+下面放着共享的文件夹，全部链接过去
+把odb放在一台主机，共享出来，每台机链接过去
+Genesis下面共享的有fw，share，sys，tmp
+Fw链接到数据库odb，share链接到gen-linux
+</p>
+
+<h2 id="toc_1.1">数据库列表位置</h2>
+<p>
+/genesis/sys/dblist
+</p>
+
+<h2 id="toc_1.2">config配置：</h2>
+<p>
+<a href="genesis config.html">genesis config</a><br>
+<a href="sys.html">sys</a><br>
+<a href="erf.html">erf</a><br>
+</p>
+
+<h2 id="toc_1.3">Gnd的网络地址</h2>
+<p>
+/genesis/share/.comms/gend_global
+/genesis/share/.comms/gend_local
+</p>
+
+<h2 id="toc_1.4">帐号权限的控制：</h2>
+<p>
+/genesis/share/privs
+</p>
+
+<h2 id="toc_1.5">启动genesis初始化</h2>
+<p>
+/genesis/share/init.gen
+</p>
+
+<h2 id="toc_1.6">ERF文档存放的位置</h2>
+<p>
+analysis的ERF文档位置：
+	/genesis/e93/prog/analysis.
+		比如信号层的ERF文档。在analysis目录里面的signal.erf。在该文档里面可以添加多个不用的ERF。名字时.model后面的名字。再如防焊是在analysis下面的sm.erf里面的。
+</p>
+		
+	
+<h2 id="toc_1.7">铜桥大小分析不出</h2>
+<p>
+large_net_min 加大才能分析
+</p>
+
+<p>
+DFM的ERF存放位置
+	/genesis/e93/prog/dfm
+		比如信号层的ERF，在dfm下面的sigopt.erf(注意改了要重新启动软件)。文档里，可以更改名字，参数等。
+</p>
+
+<h2 id="toc_1.8">可执行文件的存放位置</h2>
+<p>
+/genesis/e92/misc/
+	如dbutil.exe。gzip.exe
+</p>
+
+<p>
+get.exe和glf.exe在:
+		/genesis/e93/get里面
+gui.exe存放的位置在:
+		/genesis/e92/all里面
+</p>
+
+<h2 id="toc_1.9">useattr 和 sysattr</h2>
+<p>
+用户自定义属性存放的位置：
+	/genesis/fw/lib/misc
+系统定义的属性存放的位置：
+	/genesis/e93/all/sysattr
+</p>
+	
+<h2 id="toc_1.10">/genesis/share目录</h2>
+<p>
+	users：用户的基本信息
+	privs：设置用户的权限，比如配置文件谁能更改，能不能保持料号，是否允许录制等,具体怎么更改文件里面有
+	init.csh初始化配置文件，在脚本执行开始初始化一些变量。
+	.comms
+</p>
+	
+<h2 id="toc_1.11">/genesis/e93/all</h2>
+<p>
+	scr_start.csh:脚本执行最先调用的程序，设定一些变量，执行hooks下面的script_start.csh genesis/sys/里面的.script_all.csh程序，一些变量设置。
+	cshrc.target:一些环境变量的设置,刚启动主目录下面的.cshrc即调用该脚本
+</p>
+	
+<h2 id="toc_1.12">用户锁</h2>
+<p>
+	/genesis/sys/share/rcs
+</p>
+	
+<h2 id="toc_1.13">Output Minimal brush的默认值设置</h2>
+<p>
+/genesis/sys/hooks/popup_defaults/output_package	
+</p>
+
+
+<h2 id="toc_1.14">D码模板</h2>
+<p>
+/odb/lib/whltemps/
+</p>
+
+<h2 id="toc_1.15">分析的ERF文档</h2>
+<p>
+d:\genesis\e97\prog\analysis\
+</p>
+
+<h1 id="toc_2">ps2pdf的路径</h1>
+<p>
+在hooks里面
+</p>
+
+<h1 id="toc_3">钻孔管理工具里面的参数名设置</h1>
+<p>
+d:/genesis/sys/hooks/drill_size.prm
+</p>
+
+<h1 id="toc_4">钻孔管理工具的自动补偿</h1>
+<p>
+D:/genesis/sys/hooks/drill_size
+</p>
+
+
+<h1 id="toc_5">开始执行的映射</h1>
+<p>
+D:/genesis\e97\all\scr_start.csh
+alias BQ_PCB_SCRIPTS 'tclsh ${GENESIS_DIR}/sys/scripts/BQ_PCB/BQ_PCB.tcl'
+</p>
+
+<h1 id="toc_6">错误status</h1>
+<p>
+d:\genesis\e97\all\errs\
+</p>
+
+
+<p>
+linux根目录下面.cshrc调用source /genesis/share/init.gen
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

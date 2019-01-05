@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>perl获取时间格式</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2 id="toc_0.1">获取文件修改的年月日，时分秒</h2>
+<p>
+201207251200
+my \(fileTime = strftime "%Y%m%d%H%M%S", localtime((stat "\)filePath")[9])
+</p>
+
+<p>
+File::stat
+stat:获取状态，时间
+localtime:转换成现在时间
+localtime(time)可以简写为localtime()，获取系统时间函数。
+strftime:把时间转成需要的格式
+</p>
+
+<h2 id="toc_0.2">stat命令</h2>
+<p>
+8 atime 上次访问的时间 上次访问的时间 (access time)
+9 mtime 上次修改的时间 上次修改的时间 (modify time)
+10 ctime Inode修改时间 文件的创建时间 (change time)
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ARM定时计数器</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+要识别一个外部脉冲就必须能识别外部脉冲的任意一个边沿；
+</p>
+<blockquote>
+要识别外部脉冲的任意一个边沿，那么至少要对该脉冲采样两次（不然您怎么知道那是一个跳变）；
+也就是说，计数器的采样频率至少为脉冲频率的2倍。
+</blockquote>
+<blockquote>
+而计数器要完成一次采样动作，需要一个PCLK，即：计数器的采样频率为Fpclk。
+因此，外部脉冲频率 &lt;= Fpclk / 2。
+总结：    
+计数器能够计数的信号频率极限，由它的采样频率决定。
+</blockquote>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>NFS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">简介</h1>
+<p>
+NFS：network file system，网络文件系统
+</p>
+
+<h1 id="toc_2">服务器端：</h1>
+<h2 id="toc_2.1">首先要安装NFS</h2>
+<p>
+查看有没有安装NFS：#rpm -q nfs-utils
+</p>
+
+<p>
+安装nfs-utils，
+1,设置主机名和关闭防火墙
+	关闭防火墙：vim /etc/sysconfig/selinux 把SELINUX = enforcing改为SELINUX = disabled。
+</p>
+	
+<h2 id="toc_2.2">配置nfs</h2>
+<p>
+#vim /etc/exports
+在exports文件里面添加
+/home/genesis/test	192.168.<strong>.</strong>(insecure,rw,async,no_root_squash)
+	注意：1，必须保证有该文件夹和文件夹的权限问题
+</p>
+
+<h3 id="toc_2.2.1">配置参数</h3>
+<p>
+ ro                   只读访问 
+ rw                   读写访问 
+ sync                资料同步写入到内存与硬盘当中
+ async               资料会先暂存于内存当中，而非直接写入硬盘 
+ secure             NFS通过1024以下的安全TCP/IP端口发送 
+ insecure          NFS通过1024以上的端口发送  insecure 允许从这台机器过来的非授权访问 
+ wdelay            如果多个用户要写入NFS目录，则归组写入（默认） 
+ no_wdelay      如果多个用户要写入NFS目录，则立即写入，当使用async时，无需此设置。 
+ Hide                在NFS共享目录中不共享其子目录 
+ no_hide           共享NFS目录的子目录 
+ subtree_check   如果共享/usr/bin之类的子目录时，强制NFS检查父目录的权限（默认） 
+ no_subtree_check   和上面相对，不检查父目录权限 
+ all_squash         所有用户都可用匿名，以匿名的身份访问文件。 
+ no_all_squash      不匿名，客户端的用户就相当于服务器端的用户，id后有权限即有权限
+ root_squash  root用户匿名操作文件。默认值root用户的所有请求映射成如anonymous用户一样的权限（默认） 
+ no_root_squash root用户不匿名，当客户机的root用户进入夹子时，直接是root用户操作。拥有任何权限，一般不建议使用。
+ anonuid=xxx            指定NFS服务器/etc/passwd文件中匿名用户的UID 
+</p>
+ 
+
+<p>
+权限设置
+1，服务器端
+	设置为no_all_squash, 表示不是所有用户都允许匿名操作。客户端进入该共享文件的身份不作改变，操作文件的权限跟id号有关，当客户端的用户id和文件在服务器上的文件权限id号一样时。(比较服务器的文件拥有者id和客户端的用户id)(就算客户端根用户都不可以修改,除非anonuid=0，anongid=0)(只允许一个用户(用户的所有者))
+	当设置为all_squash时，配合anonuid和anongid使用，客户端进入该共享文件的身份以匿名(用anonuid，anongid)的身份(不管是什么用户，包括文件所有者)进入，权限就是匿名在服务器端的权限。
+	所有权限都是相对于服务器来讲
+</p>
+
+<p>
+2，客户机端
+	客户机都是以匿名的方式操作文件。只有所匿的名字具有操作文件的权限才能操作。如果服务器是all_squash，则所有的都能匿名，否则只有和匿名相同id号的才能匿名。
+</p>
+	
+<p>
+注意：修改了/etc/exports后，并不需要重启nfs服务，只要用exportfs重新扫描一次/etc/exports，并且重新加载即可
+</p>
+<h1 id="toc_3">参数 含义</h1>
+<p>
+exportfs[-aruv] 
+a 全部挂载(或卸载)/etc/exports档案内的设定 
+r 重新挂载/etc/exports 里面的设定，也同步的更新/etc/exports和/var/lib/nfs/xtab里面的内容 
+u 卸载某一目录 
+v 在export的时候，将分享的目录显示到荧屏上 
+#exportfs -rv//重新export一次 
+#exportfs -au//全部卸载 
+</p>
+
+<h1 id="toc_4">showmount命令</h1>
+<p>
+语法:showmount [-aed] [hostname] 
+-a:显示目前以及连上主机的client机器的使用目录的状态 
+-e:显示hostname的/etc/exports里面共享的目录 
+-d:只显示被client机器挂载的目录
+</p>
+
+<h1 id="toc_5">NFS故障解决</h1>
+<h2 id="toc_5.1">1、can't contactportmapper: RPC:Remotesystem error-Connection refused：</h2>
+<p>
+   出现这个错误信息是由于SEVER端的PORTMAP没有启动。
+</p>
+<h2 id="toc_5.2">2、mountclntudp_create: RPC: Programnotregistered：NFS没有启动起来，可以</h2>
+<p>
+   用showmout-ehost命令来检查NFSSERVER是否正常启动起来。
+</p>
+<h2 id="toc_5.3">3、mount: localhost:/home/test failed, reason given by server: Permission denied：</h2>
+<p>
+   这个提示是当client要mountnfsserver时可能出现的提示，意思是说本机没有权限去mount nfsserver上的目录。解决方法当然是去修改NFSSERVER咯。
+</p>
+<h2 id="toc_5.4">4、被防火墙搞掉</h2>
+<p>
+   这个原因很多人都忽视了，在有严格要求的网络环境中，我们一般会关闭linux上的所有端口，当需要使用哪个端口的时候才会去打开。而NFS默认是使用111端口，所以我们先 
+   要检测是否打开了这个端口，另外也要检查TCP_Wrappers的设定。
+   重新设置防火墙,包括iptables与TCP_Wrappers,因为激活了portmap，所以端口111必须提供出去.因此在iptablesrules中，要增加: 
+   iptables-AINPUT-pTCP --dport111-jACCEPT 
+   iptables-AINPUT-pUDP --dport111-jACCEPT 
+   如果还不行，那就是TCP_Wrappers的问题，检查/etc/hosts.deny，如果有一行是: 
+   ALL:ALL: deny 
+   那就必须在/etc/hosts.allow中增加: 
+   portmap:ALL:allow
+注意：由于NFS使用的这个RPC在client端连上主机时，那么你的主机想要关机，那可就会成为『不可能的任务』。即如果你的Server上面还有Client在联机，那么你要关机，可能 
+</p>
+<blockquote>
+得要等到数个钟头才能够正常的关机成功！所以，建议在NFSServer要关机之前，要先『关掉portmap与nfs』这两个东西。如果无法正确的将这两个daemons关掉，那么先以    
+netstat -utlp找出PID，然后kill掉。
+</blockquote>
+      
+<p>
+mountnfs的其它可选参数：
+HARD:在后台，NFSCLIENT会不断的尝试与SERVER的连接，直到mount上
+SOFT:会在前台尝试与SERVER的连接，是默认的连接方式。当收到错误信息后终止mount尝试，并给出相关信息。 
+例如：mount-F nfs -o hard192.168.0.10:/nfs /nfs
+timeo=n:设置超时时间，当数据传输遇到问题时，会根据这个参数尝试进行重新传输
+intr 允许通知中断一个NFS调用。当服务器没有应答需要放弃的时候有用处。
+retry=n：设定当网络传输出现故障的时候，尝试重新连接多少时间后不再尝试。默认的数值是10000minutes 
+同时使用多个参数的方法：mount -t nfs -o timeo=3,udp,hard 192.168.0.30:/tmp/nfs
+注意:NFS客户机和服务器的选项并不一定完全相同，而且有的时候会有冲突。比如说服务器以只读的方式导出，客户端却以可写的方式mount,虽然可以成功mount上，但尝 
+</p>
+<blockquote>
+试写入的时候就会发生错误。一般服务器和客户端配置冲突的时候，会以服务器的配置为准。
+</blockquote>
+
+<h1 id="toc_6">客户端</h1>
+<h2 id="toc_6.1">查看NFS服务器挂载点</h2>
+<p>
+/usr/bin/showmount -d/a/e 172.18.3.113
+</p>
+
+<p>
+挂载命令：mount -t nfs 192.168.8.88:/home/genesis/test/ /mnt
+</p>
+
+<p>
+自动挂载：<a href="linux自动mount.html">linux自动mount</a><br>
+</p>
+
+<p>
+重新启动nfs：/etc/init.d/nfs start
+			/sbin/service autofs restart
+</p>
+
+<p>
+为了担心会不小心将NFS端挂进来的具有SUID权限档案的程序执行，root可以将NFS所分享的目录以较为安全的情况挂载进来，可以 
+#mount-t nfs -o nosuid,ro hostname:/directory/mountponit
+</p>
+
+<h2 id="toc_6.2">自动挂载autofs</h2>
+<p>
+1, 安装autofs
+2，关闭iptables，selinux
+3，编辑/etc/auto.master, 去掉对misc一行的注释
+4，编辑/etc/auto.misc文件中增加
+5，重启autofs，service autofs restart
+6, 测试autofs是否可用
+7，设置autofs自启动chkconfig autofs on
+</p>
+
+<p>
+参考
+a:编辑 /etc/auto.master 在/net  -hosts下面
+/gen_db	/etc/auto.direct soft,retrans=7,rsize=8192,wsize=8192,noatime,bg,ro
+</p>
+
+<p>
+b:编辑 /etc/auto.direct
+workfile        pesvr:/space/workfile
+pesvr           pesvr:/space/pesvr
+genesis         gen-linux:/frontline/app_gen
+odb1		iasystem:/odb/odb1
+odb2		idb:/odb/odb2
+odb3		iasystem:/odb/odb3
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

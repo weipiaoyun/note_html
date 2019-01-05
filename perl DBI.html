@@ -1,0 +1,324 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>perl DBI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+可移植的DBI方法：
+connect 建立到一个数据库服务器的连接
+disconnect 断开数据库服务器的连接
+prepare 准备执行一个SQL语句
+execute 执行准备好的语句
+do 准备并执行一个SQL语句
+quote 加引号于要插入的字符串或BLOB值
+fetchrow_array 作为一个字段数组取出下一行
+fetchrow_arrayref 作为一个字段的引用数组取出下一行
+fetchrow_hashref 作为一个哈希表的引用取出下一行
+fetchall_arrayref 作为一个字段数组取出所有数据
+finish 完成一条语句并且让系统释放资源
+rows 返回受影响的行数
+data_sources 返回可在localhost上得到的数据库的数组
+ChopBlanks 控制fetchrow_*方法是否剥去空格
+NUM_OF_PARAMS 在准备的语句中的占位(placeholder-参数)的数目
+NULLABLE 其列可以是NULL
+trace 执行调试跟踪
+##########################################################################
+$dbh 数据库句柄
+$sth 语句句柄
+$rc 返回代码(经常是一个状态)
+$rv 返回值(经常是一个行数)
+##########################################################################
+①connect(\(data_source, \)username, $password) 
+使用connect方法使得一个数据库连接到数据源。$data_source值应该以DBI:driver_name:开始。以DBD::mysql驱动程序使用connect的例子：
+\(dbh = DBI-&gt;connect("DBI:mysql:\)database", \(user, \)password);
+\(dbh = DBI-&gt;connect("DBI:mysql:\)database:$hostname",
+\(user, \)password);
+\(dbh = DBI-&gt;connect("DBI:mysql:\)database:\(hostname:\)port",
+\(user, \)password);
+</p>
+
+<p>
+②disconnect 
+disconnect方法从数据库断开数据库句柄。它一般就在你从程序退出之前被调用。范例：
+\(rc = \)dbh-&gt;disconnect;
+prepare($statement) 
+准备一条由数据库引擎执行的SQL语句并且返回语句句柄($sth)，你可以使用它调用execute方法。一般地你借助于prepare和execute来处理SELECT语句(和类SELECT语句，例如SHOW、DESCRIBE和EXPLAIN)。范例：
+\(sth = \)dbh-&gt;prepare($statement)
+or die "Can't prepare \(statement: \)dbh-&gt;errstr/n";
+③execute 
+execute方法执行一个准备好的语句。对非SELECT语句，execute返回受影响的行数。如果没有行受影响，execute返回"0E0"，Perl将它视作零而不是真。对于SELECT语句，execute只是在数据库中启动SQL查询；你需要使用在下面描述的fetch_*方法之一检索数据。范例：
+\(rv = \)sth-&gt;execute
+or die "can't execute the query: $sth-&gt;errstr;
+④do($statement) 
+do方法准备并且执行一条SQL语句并且返回受影响的行数。如果没有行受到影响，do返回"0E0"，Perl将它视为零而不是真。这个方法通常用于事先无法准备好(由于驱动程序的限制)或不需要执行多次(插入、删除等等)的非SELECT语句。范例：
+\(rv = \)dbh-&gt;do($statement)
+or die "Can't execute \(statement: \)dbh- &gt;errstr/n";
+⑤quote($string) 
+quote方法被用来“转义”包含在string中的任何特殊字符并增加所需的外部的引号。范例：
+\(sql = \)dbh-&gt;quote($string)
+⑥fetchrow_array 
+这个方法取下一行数据并且作为一个字段值数组返回它。范例：
+while(@row = $sth-&gt;fetchrow_array) {
+print qw(\(row[0]/t\)row[1]/t$row[2]/n);
+}
+⑦fetchrow_arrayref 
+这个方法取下一行数据并且作为一个对一个字段值数组的引用返回它。范例：
+while(\(row_ref = \)sth-&gt;fetchrow_arrayref) {
+print qw(\(row_ref-&gt;[0]/t\)row_ref-&gt;[1]/t$row_ref-&gt;[2]/n);
+}
+⑧fetchrow_hashref 
+这个方法取一行数据并且返回包含字段名/值对的一个哈希表的一个引用。这个方法不如使用上述数组引用那样有效。范例：
+while(\(hash_ref = \)sth-&gt;fetchrow_hashref) {
+print qw(\(hash_ref-&gt;{firstname}/t\)hash_ref-&gt;{lastname}/t/
+$hash_ref- &gt; title}/n);
+}
+⑨fetchall_arrayref 
+这个方法被用来获得从SQL语句被返回的所有数据(行)。它返回一个数组的引用，该数组包含对每行的数组的引用。你用一个嵌套循环来存取或打印数据。范例：
+my \(table = \)sth-&gt;fetchall_arrayref
+or die "$sth-&gt;errstr/n";
+my(\(i, \)j);
+for \(i ( 0 .. \)#{$table} ) {
+for \(j ( 0 .. \)#{\(table-&gt;[\)i]} ) {
+print "\(table-&gt;[\)i][$j]/t";
+}
+print "/n";
+}
+⑩finish 
+便名没有更多的数据将从这个语句句柄取出。你调用这个方法释放语句句柄和任何与它相关的系统资源。范例： 
+\(rc = \)sth-&gt;finish;
+⑪rows 
+返回由最后一条命令改变(更新、删除等)的行数。这通常用在非SELECT的execute语句之后。范例：
+\(rv = \)sth-&gt;rows; 
+⑫NULLABLE 
+返回一个对一个布尔值数组的引用；对数组的每个成员，一个TRUE值表示该列可以包含NULL值。范例：
+\(null_possible = \)sth-&gt;{NULLABLE};
+⑬NUM_OF_FIELDS 
+这个属性表明由一条SELECT或SHOW FIELDS语句返回的字段数目。你可以用它检查一条语句是否返回了结果：一个零值表明一个象INSERT、DELETE或UPDATE的非SELECT语句。范例：
+\(nr_of_fields = \)sth-&gt;{NUM_OF_FIELDS};
+⑭data_sources($driver_name) 
+这个方法返回一个数组，它包含在主机'localhost'上的MySQL服务器可得到的数据库名。范例：
+@dbs = DBI-&gt;data_sources("mysql");
+⑮ChopBlanks 
+这个属性确定fetchrow_*方法是否将去掉返回值的头和尾的空白。范例：
+$sth-&gt;{'ChopBlanks'} =1;
+trace($trace_level) 
+　 
+⑯trace(\(trace_level, \)trace_filename) 
+trace方法开启或关闭跟踪。当作为一个DBI类方法调用时，它影响对所有句柄的跟踪。当作为一个数据库或语句句柄方法调用时，它影响对给定句柄的跟踪(和句柄的未来子孙)。设置\(trace_level为2以提供详细的踪迹信息，设置\)trace_level为0以关闭跟踪。踪迹输出缺省地输出到标准错误输出。如果指定$trace_filename，文件以添加模式打开并且所有跟踪的句柄的手被写入该文件。范例：
+DBI-&gt;trace(2); # trace everything
+DBI-&gt;trace(2,"/tmp/dbi.out"); # trace everything to /tmp/dbi.out
+$dth-&gt;trace(2); # trace this database handle
+$sth-&gt;trace(2); # trace this statement handle
+你也可以通过设置DBI_TRACE环境变量开启DBI跟踪。将它设置为等价于调用DBI-&gt;(value)的数字值，将它设置为等价于调用DBI-&gt;(2,value)的路径名。
+</p>
+
+<p>
+以上是原文内容。
+</p>
+
+<hr />
+<blockquote>
+看了一上午perl，然后用了一下午的时间写了下面的采集(用的时间比较多，呵呵)，代码没有抽象，高手轻拍。这个采集百万数据从informix到oracle不到10秒钟。
+</blockquote>
+
+
+<p>
+#!/usr/bin/perl
+</p>
+
+<p>
+use strict;
+use DBI;
+use Time::localtime;
+use Data::Dumper;
+use Time::Local;
+use Net::FTP;
+</p>
+
+<p>
+my ($para);
+</p>
+
+<p>
+if(@ARGV != 1){
+</p>
+<blockquote>
+$para = 2;
+print "\\(para = \)para\n";
+</blockquote>
+        
+<p>
+}else{
+</p>
+<blockquote>
+\(para = \)ARGV[0];
+print "\\(para = \)para\n";
+</blockquote>
+    
+<p>
+}
+</p>
+
+<p>
+if($para&lt;2){
+</p>
+<blockquote>
+print "请输入大于等于2的数字！！！\n";
+exit;
+</blockquote>
+    
+<p>
+}
+</p>
+
+
+<p>
+my $npmdb_dbh = DBI-&gt;connect("DBI:ODBC:npmdb", "informix","*******",{RaiseError=&gt;0,PrintError=&gt;0});
+my $gisdb_dbh = DBI-&gt;connect("DBI:Oracle:gisdb", "gis","*******",{RaiseError=&gt;1,AutoCommit=&gt;0});
+</p>
+
+<p>
+if(!\(npmdb_dbh || !\)gisdb_dbh)
+{
+</p>
+<blockquote>
+print"数据库联接失败   \n";
+</blockquote>
+<p>
+}
+else
+{
+</p>
+<blockquote>
+$npmdb_dbh-&gt;do("set isolation to dirty read");    
+</blockquote>
+<blockquote>
+my $sel_sql = " select a.first_result,a.ne_id,
+NVL(CSTRAFFIC_CONV11,0),
+NVL(CSTRAFFIC_CONV22,0),
+NVL(CSTRAFFIC_CONV55,0),
+NVL(TSNBRASSNBRUUL,0),
+NVL(TSNBRASSNBRUDL,0),
+NVL(BRUUL,0),
+NVL(BRUDL,0),
+NVL(TDDMAXTCP,0),
+NVL(TDDMEANTCP,0),
+NVL(NBRERRBLOCKSRECEIVEDCS_CONV55,0),
+NVL(NBRBLOCKSRECEIVEDCS_CONV55,0),
+NVL(NBRERRBLOCKSRECEIVEDPS,0),
+NVL(NBRBLOCKSRECEIVEDPS,0),
+NVL(SUCCMACDESTAB,0),
+NVL(SUCCRBESTAB,0),
+NVL(ATTMACDESTAB,0),
+NVL(ATTRBESTAB,0),
+NVL(a.ATTRABASSIGNESTABCS_CONV11,0)+NVL(a.ATTRABASSIGNESTABCS_CONV22,0),
+NVL(a.SUCCRABASSIGNESTABCS_CONV11,0)+NVL(a.SUCCRABASSIGNESTABCS_CONV22,0),
+NVL(a.ATTCONNESTAB_1,0)+NVL(a.ATTCONNESTAB_6,0),
+NVL(a.SUCCCONNESTAB_1,0)+NVL(a.SUCCCONNESTAB_6,0) ,
+round(NVL(SFB_DIVFLOAT_1(NVL(a.SUCCCONNESTAB_1,0)+NVL(a.SUCCCONNESTAB_6,0),NVL(a.ATTCONNESTAB_1,0)+NVL(a.ATTCONNESTAB_6,0),0,0)*SFB_DIVFLOAT_1(NVL(a.SUCCRABASSIGNESTABCS_CONV11,0)+NVL(a.SUCCRABASSIGNESTABCS_CONV22,0),NVL(a.ATTRABASSIGNESTABCS_CONV11,0)+NVL(a.ATTRABASSIGNESTABCS_CONV22,0),0,0)*100,0),2),
+NVL(a.ATTRABASSIGNESTABCS_CONV55,0),
+NVL(a.SUCCRABASSIGNESTABCS_CONV55,0),
+round(NVL(SFB_DIVFLOAT_1(NVL(a.SUCCCONNESTAB_1,0)+NVL(a.SUCCCONNESTAB_6,0),NVL(a.ATTCONNESTAB_1,0)+NVL(a.ATTCONNESTAB_6,0),0,0)*SFB_DIVFLOAT_1(NVL(a.SUCCRABASSIGNESTABCS_CONV55,0),NVL(a.ATTRABASSIGNESTABCS_CONV55,0),0,0)*100,0),2),
+NVL(a.ATTCONNESTAB,0),
+NVL(a.SUCCCONNESTAB,0),
+NVL(a.ATTRABASSIGNESTABPS,0),
+NVL(a.SUCCRABASSIGNESTABPS,0),
+round(NVL(SFB_DIVFLOAT_1(a.SUCCRABASSIGNESTABPS,a.ATTRABASSIGNESTABPS,0,0),0)*NVL(SFB_DIVFLOAT_1(a.SUCCCONNESTAB,a.ATTCONNESTAB,0,0),0)*100,2),
+NVL(a.NBRRNCRELCSRAB_CONV11,0)+NVL(a.NBRRNCRELCSRAB_CONV22,0),
+NVL(a.NBRRABCSRELIUCONN_CONV11,0)+NVL(a.NBRRABCSRELIUCONN_CONV22,0),
+round(SFB_DIVFLOAT_1(NVL(a.NBRRNCRELCSRAB_CONV11,0)+NVL(a.NBRRNCRELCSRAB_CONV22,0)+NVL(a.NBRRABCSRELIUCONN_CONV11,0)+NVL(a.NBRRABCSRELIUCONN_CONV22,0),NVL(a.SUCCRABASSIGNESTABCS_CONV11,0)+NVL(a.SUCCRABASSIGNESTABCS_CONV22,0),0,0)*100,2),
+NVL(a.NBRRNCRELCSRAB_CONV55,0),
+NVL(a.NBRRABCSRELIUCONN_CONV55,0),
+round(SFB_DIVFLOAT_1(NVL(a.NBRRNCRELCSRAB_CONV55,0)+NVL(a.NBRRABCSRELIUCONN_CONV55,0),NVL(SUCCRABASSIGNESTABCS_CONV55,0),0,0)*100,2),
+NVL(a.NBRRNCRELPSRAB,0)-NVL(a.REL_REQ_PS_16,0)-NVL(a.REL_REQ_PS_40,0),
+NVL(a.NBRRABPSRELIUCONN,0),
+round(SFB_DIVFLOAT_1(NVL(a.NBRRNCRELPSRAB,0)+NVL(a.NBRRABPSRELIUCONN,0)-NVL(a.REL_REQ_PS_16,0)-NVL(a.REL_REQ_PS_40,0)- NVL(a.RAB_PS_REL_IU_CONN_16,0)-NVL(a.RAB_PS_REL_IU_CONN_40,0),a.SUCCRABASSIGNESTABPS,0,0)*100,2),
+NVL(a.NBRBLOCKSRECEIVEDCS_CONV,0),
+NVL(a.NBRERRBLOCKSRECEIVEDCS,0),
+round(NVL(SFB_DIVFLOAT_1(a.NBRERRBLOCKSRECEIVEDCS_CONV55,a.NBRBLOCKSRECEIVEDCS_CONV55,0,0)*100,0),2),
+round(NVL(SFB_DIVFLOAT_1(a.NBRERRBLOCKSRECEIVEDPS,a.NBRBLOCKSRECEIVEDPS,0,0)*100,0),2),
+NVL(b.ATTOUTCS,0),
+NVL(b.FAILOUTCS,0),
+round(SFB_DIVFLOAT_1(NVL(b.ATTOUTCS,0)-NVL(b.FAILOUTCS,0),NVL(b.ATTOUTCS,0),0,0)*100,2),
+NVL(b.ATTOUTPSUTRAN,0),
+NVL(b.FAILOUTPSUTRAN,0),
+round(SFB_DIVFLOAT_1(NVL(b.ATTOUTPSUTRAN,0)-NVL(b.FAILOUTPSUTRAN,0),NVL(b.ATTOUTPSUTRAN,0),0,0)*100,2)
+</blockquote>
+<blockquote>
+from tpc_utrancell_ne a ,TPC_UTRANCELL_HO_NE b,TPC_UTRANCELL_HSPA_NE c
+</blockquote>
+<blockquote>
+where  a.first_result =  current year to hour - $para units hour ||':00:00'
+and a.first_result = b.first_result
+and a.first_result = c.first_result
+and a.ne_id = b.ne_id
+and a.ne_id = c.ne_id";
+</blockquote>
+<blockquote>
+print"$sel_sql\n";
+my \(rsite = \)npmdb_dbh-&gt;prepare($sel_sql);
+$rsite-&gt;execute();
+my \(ref_data = \)rsite-&gt;fetchall_arrayref();
+$rsite-&gt;finish;
+</blockquote>
+<blockquote>
+$gisdb_dbh-&gt;do("delete from BTS_PM_TD where first_result &lt;= sysdate - 74/24");
+</blockquote>
+<blockquote>
+\(gisdb_dbh-&gt;do("delete from BTS_PM_TD where first_result = to_date(to_char((sysdate - \)para/24),'YYYY-MM-DD HH24'),'SYYYY-MM-DD HH24:MI:SS')");
+</blockquote>
+<blockquote>
+my $MM = 0;
+foreach my \(row (@\)ref_data)
+{
+my @data = @$row;
+my $dataLen = @data;
+</blockquote>
+<blockquote>
+my $gisInc = "insert into BTS_PM_TD  
+values (to_date('\(data[0]','SYYYY-MM-DD HH24:MI:SS'),\)data[1],";
+for(my \(HH = 2; \)HH &lt; \(dataLen; \)HH++){
+\(gisInc = \)gisInc . "'\(data[\)HH]',";
+}                        
+\(gisInc = substr(\)gisInc,0,length($gisInc) - 1);
+</blockquote>
+<blockquote>
+\(gisInc = \)gisInc . " )";
+#print"$gisInc   \n";
+#first_result, ne_id, cstraffic_conv11, cstraffic_conv22, cstraffic_conv55, tsnbrassnbruul, tsnbrassnbrudl, bruul, brudl, tddmaxtcp, tddmeantcp, nbrerrblocksreceivedcs_conv55, nbrblocksreceivedcs_conv55, nbrerrblocksreceivedps, nbrblocksreceivedps, succmacdestab, succrbestab, attmacdestab, attrbestab
+\(rsite = \)gisdb_dbh-&gt;do($gisInc);
+$MM++;
+print "$MM\n";
+}    
+</blockquote>
+<blockquote>
+$gisdb_dbh-&gt;do("commit");
+</blockquote>
+
+<p>
+}
+</p>
+<blockquote>
+$npmdb_dbh-&gt;disconnect();
+$gisdb_dbh-&gt;disconnect();
+</blockquote>
+<p>
+exit(0);
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

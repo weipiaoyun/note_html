@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>FPC板边</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+双面板添加的层别；孔层：f
+</p>
+<blockquote>
+线路层：gtl gbl
+文字层：gto gbo
+开窗层：ct cb
+防焊层：gts_w gbs_w
+其他层：gts_p gbs_p
+</blockquote>
+				
+<p>
+df_wzy1 DFsymbol顶层
+df_wzy3 DFsymbol底层
+df_y1   孔
+</p>
+
+<p>
+4个r1000的孔CountHoleR1000，切片范围孔，中间夹着切片孔，(最小切片孔命名)CountQieHoleR300
+</p>
+
+<h2 id="toc_0.1">软硬结合板板边</h2>
+<p>
+1，宽度250。
+2，高度不定
+3，左右宽度不超过15，上下宽度不超过25
+4, F孔不能移动，D1，D2，N2孔和硬板板边的CCD孔类似
+5, 参考料号trj70008，trj60052a0
+</p>
+
+<p>
+4层板板边
+6层板的第四第五层，改为4层板的第2第3层
+</p>
+
+<p>
+6层板板边
+L2层和L4层除了N2，N1还有同心圆，蝴蝶Pad，对位pad以外，其它都相同
+L3层和L5层除同心圆，蝴蝶pad，对位pad外，其他相同
+</p>
+
+<p>
+增加挖铜层
+wtl，和第二层一样。全部铺铜，蝴蝶pad和第二层错开。F孔r1500掏wtl层，蝴蝶pad r3500掏wtl层。角对位孔pad 等大掏铜。
+</p>
+
+<p>
+7层板板边
+6层板第五层改为第六层。
+第二层拷贝到第五层，和第五层一模一样
+</p>
+
+<p>
+角孔PAD对位
+参考70008或700004。隔铜在对话框里面输入。pad的大小用孔层加单边0.1即可
+纵向为1-3，横向为4-6
+</p>
+
+<h1 id="toc_1">添加7层板添加的函数</h1>
+<p>
+CountHuDiePadIn 蝴蝶Pad角度
+CountXYScale mirror
+CountZhengSymbol mirror
+CountZFPSymbol x y mirror
+CountHuDiePadOut 添加7层
+CountHoleR1000	 增加dx，dy == 7
+</p>
+
+<h1 id="toc_2">待解决</h1>
+<p>
+wtl层文字不能放在孔中心
+DF孔移上去
+</p>
+
+<h1 id="toc_3">挖铜层</h1>
+<p>
+挖铜层类型为wtl
+1，铺铜，避profile 1.5mm，不避SR
+2，加symbol
+</p>
+
+<p>
+外层要铺铜
+</p>
+
+<h2 id="toc_3.1">perl</h2>
+<p>
+QieHoleR300 最小via孔切片孔
+</p>
+
+<h2 id="toc_3.2">测试的料号</h2>
+<p>
+br20066c3
+br20142c1
+br20215b2
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

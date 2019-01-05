@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>genesis config</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">常用</h1>
+<p>
+1，break=no，取消判定有一个或多个负片在上面
+2，iol_inp_skip_auto_reg	是否自动跳过钻孔或锣带的自动放置
+3，*cont_stop* = no, 转铜的时候忽略正负片叠加
+</p>
+
+<p>
+rout_skip_tool_dup_check no   skip tool duplication check  跳过重复检查(锣带重复不管)
+</p>
+
+<h2 id="toc_1.1">input之前设置的config</h2>
+<p>
+config_edit,name=iol_gbr_polygon_break,value=2,mode=system"
+config_edit,name=iol_fix_ill_polygon,value=no,mode=system"
+config_edit,name=iol_enable_ill_polygon,value=no,mode=system"
+config_edit,name=iol_274x_ill_polygon,value=no,mode=system"
+</p>
+
+<p>
+iol_gbr_polygon_break=1
+iol_274x_set_octagon_rotation=yes
+</p>
+
+
+<h1 id="toc_2">交叉铜皮暂停报错 </h1>
+<p>
+edt_cont_stop_on_polarity_mismatch
+</p>
+
+<p>
+#原点
+gui_auto_accept				input换行
+iol_read_stp_origin			原点
+</p>
+
+<h1 id="toc_3">GENESIS2000 erf之sigopt设定CAM</h1>
+<p>
+v_handle_non_standard_pads = 1    当设置为“1”时可以涨椭圆形以及一些不规则图形。
+1. resize_smd: 是否可缩小 smd (YES/NO) 
+2. smd_resize_rati smd 可缩小的比例。 
+3. shave_smd: 是否可削 smd (YES/NO) 
+4. v_keep_smd_form: 是否保持 smd 形状 (YES/NO) 
+5. min_neck_len: 最短的 neckdown 线段 
+6. min_rerout_side: 绕线后，其两端的最小线段长度 
+7. max_pad_shaves: 单个 pad 允许被削的最大次数 
+8. do_poly_shave: 是否使用 surface 来削 pad (YES/NO) 
+9. fill_poly: 是否自动 fill 以 surface 削之处 (YES/NO) 
+10. min_brush: fill surface 的最小线宽。 
+11. exact_min_on_compromise: 若 A/R 与间距要求互相冲突时 
+,是否改为达成最小间距即可。
+12 allow_both: 削 pad 时，是否平均削两 pad 
+13. LRR_max_shift: 绕线的最大位移值。(0代表不设限) 
+14. max_pad_enlarge: pad b。(0代表不设限) 
+15. max_pad_shrink: pad 可缩小的数值上限。(0代表不设限) 
+16. same_net_space: 是否考虑相同 net 的间距而不涨 AR 
+17. keep_pad_shape: 是否保持原 pad 形状 
+18. shave_only_vias: 只允许削 via pad 吗？ 
+19. max_pad_misregistration : 钻孔与pad之最大中心偏差, 超 
+过则不校正亦不涨 AR. 
+20. v_handle_non_standard_pads : (0/1) 是否处理圆,方以外之pad 
+涨 AR 或绕线过 pad. 
+21. v_handle_same_net_spacing : 是否处理相同 net 的间距问题 
+à 0 不报缺点 ; 1 只报缺点; 2 报缺点且做改善 
+22. v_ignore_attrs : 忽略含该属性之 pad 不处理. 
+(ignore_action;smd;…..) 
+23. v_use_mask_layer : 是否考虑 action mask layer (yes/no) 
+需配合之 layer attributes (作用层中):
+(1). Action mask layer = : 指定使用之mask layer 
+(2). Use action mask layer to = (exclude/include) 忽略或只 
+考虑作用层中被 mask layer 覆盖之对象. 
+以下的变量在设定: 保持间距的几种做法的执行先后顺序，数字愈大者，愈优先执行 (1,2,.. ) 
+PRD: 在不牺牲最佳A/R的情况下，缩小pad。 
+PRDC: 在不牺牲最小A/R的情况下，缩小pad。 
+PRS: 将smd的四个直角，转圆角。 
+LRR: 绕线。 
+PSH: 在不牺牲最佳A/R的情况下，削pad。 
+PSHC: 在不牺牲最小A/R的情况下，削pad。 
+LRE: 缩小线宽，仅达到最小间距。
+/genesis/sys/config里面 iol_274x_sr_ij_scaled(Yes;No) 	  RS-274x輸出和輸入I code 和J code是否帶有排版漲縮指令  否:排版IJ值沒有帶漲縮  是:排版IJ值有帶漲縮 	   RS-274x輸出和輸入I code 和J code是否帶有排版漲縮指令  否:排版IJ值沒有帶漲縮  是:排版IJ值有帶漲縮 	   輸入RS274X的資料  是:輸入時會試著配合PCB輸入Rs274x , 強破打散排版.  否:輸入274X毎一層會是不同的,允許排版資料input. 	    ol_274X_sr_merge_pcb(Yes;No) 	   輸入RS274X的資料  是:輸入時會試著配合PCB輸入Rs274x , 強破打散排版.  否:輸入274X毎一層會是不同的,允許排版資料input. 	   默认的是yes  下一个参数    iol_accept_raw_data(Yes;No) 	 默认参数为no  控制輸入多邊形自我相交點的問題  否: 不用外框線取代SIP surface.  是: SIP &lt; illegal surface&gt; 部份用外框線來代替.  假如設成是會使iol_fix_ill_polygon或iol_274x_ill_polygon無效.  請用yes, no input 到不同層別, 同時顯示兩層比對.推斷出正確的圖形. 	    iol_clean_surface_min_brush(0-5) 	  控制輸入surface時是否減少不規則的邊.假如在輸入不規則形有許多邊緣.可以由此參數來使邊緣平滑.  範圍:正的數值.  預設值為0.0不簡化  注意:值愈大會失真,只支援DPF輸入 	 iol_compress_meas(Yes;No) 	  在跑完CHECKLIST的結果,如果檔案太大是否要壓縮. 	    iol_diag_rect_line(1;2) 	  輸入矩形的線性如何處理  1.線就是線  2.線是不規則形(contour) 	    iol_dpf_output_cont_as_com(Yes;No)  Define contours as complex in DPF output.  定義輸出DPF的contour是否為複雜的物件	    iol_dpf_output_zero_aper(Yes;No) 	 是否允許輸出DPF有尺寸是零. 	    iol_dpf_patt_borde(1;2;3) 	 輸出時使用者可以自定如何處理不規則形  1.線會有圓角,PAD接觸邊緣會被忽略  2.物件接觸邊緣會被削  3.外形會被加入邊緣 	  iol_dpf_separate_letters(Yes;No) 	 輸入DPF時文字是否要分割  否:文字為單一物件  是:文字分割,每一文字為分割的物件 	 iol_dpf_text_width_factor(0.1-50) 	 DFP輸入文字時只有定義高度.以這一個為乘數計算寬度. 	    dpf 是ucam默认的一种光绘格式  和gerber类似的一种格式   ucam那个公司出品的光绘机和测试机  他们直接支持dpf格式    iol_drl_def_drill(0;1;2;3) 	 當輸入鑽孔時如因資料不足.預設的格式.  0:Eexellon  1:Trudrill  2:Posalux  3:SM 	  iol_dxf_circle_to_pad(Yes;No) 	 控制DXF輸入的圓圏  是:轉為PAD  否:轉為外框圓圏 	  iol_dxf_default_width(1-5) 	 當輸入DXF時有些物件的尺寸是零.這一個參數是在控制零尺寸的預設值. 	  iol_dxf_round_cap(Yes;No) 	 DXF輸入時的收邊形  是:邊角為矩形  否:邊角為圓形 	  iol_dxf_round_line(0=No;1=Yes) 	 是否方形的邊為圓形  0:預設為不轉為圓形  1:方形轉為圓形 	  iol_dxf_separate_frozen_layers(Yes;No) 	 輸入DXF時被凍結的層次是否在Genesis分開層別.  否:不分開  是:輸入是分開  當輸入參數iol_dxf_single_layer = "yes"時.假如被凍結的層次存在加入記錄而且警告加入報告. 	  iol_dxf_single_layer(Yes;No) 	 輸入DXF時如何處理  是:所有的層次合併為單一層別  否:分開處理 	  iol_enable_ill_polygon(Yes;No) 	  輸入IGI Par資料的相交不規則圖形  是:開啟不規則圖形違反規則的設定  否:關閉不規則圖形違反規則的設定,輸入檔案將停止  注意:這一個程序的參數並没建議,除非有輸入有先經過處理 	   不管什么原因 还是要输入的  只有输入资料,就算错误也知道错在什么地方  所以选择yes    iol_exc_g00_canc_comp(Yes;No) 	  Excellon g00指令取消補償  是:G00為取消補償  否:G00仍保留補償 	    ol_exc_use_header(Yes;No) 	  輸入Excellon時是否使用表頭  否:輸入識別時忽略表頭  是:識別時使用表頭  注意:很多的表頭並不適當.Genesis輸入時會自動確認. 	    iol_fill_abort_on_drop(Yes;No) 	  填滿不規則形時的處理方式  是:填滿時如有問題將中斷  否:填滿時有問題繼續.完成時警告加入記錄檔. 	  iol_fill_use_break_arc_k(Yes;No) 	  計算填滿弧時所使用的值  是:打散弧的線值為" out_break_arc_k"  否:打散弧的線值為內建的精確值 	    iol_fill_validation(Yes;No)  Alerts the user that something went wrong during the fill process.  輸出時是否檢查填滿有問題的不規則形.  是:檢查並有警告訊息  否:不檢查 	  iol_fix_ill_polygon(Yes;No) 	  是否修正自我交錯的不規則形  否:不修正自我交錯的不規則形  是:修正自我交錯的不規則形  注意:這一個參數只有在" iol_enable_ill_polygon = Yes"時有用. 	 iol_gbr_arc_as_full_circle(Yes;No)  	 輸入G75指令時如有缺少角度時的處理方式  是:零的角度轉為完整的圓  否:零的角度轉為零長度的線 	  iol_gbr_brk_diag_sqrs(Yes;No) 	 是否打散方形的線  是:在輸入Gerber,RS-274X和Autoplot格式時,打散方形線二個pad加一條線替代方形線.  否:不打散 	  iol_gbr_def_pentax(Yes;No)  identify Gerber files as Pentax Gerber format by default  預設的Gerber是否為Pentax格式 	  iol_gbr_diag_type(1;2) 	  Gerber輸入時方形線的處理方式  1:線  2.外框形  注意:這一個參數只有在"iol_gbr_brk_diag_sqrs = Yes"有做用.假如iol_gbr_brk_diag_sqrs = No時物件為線	    1. get_confirm_undo=yes   Demand user confirmation before undo operation.  請求使用者在 undo 操作前確認	   2. get_def_units=inch   Default units (Inch, MM)  This parameter defines the default units for the Graphic Editor upon system startup.  這個參數定義關於 Graphic Editor 系統啟動時的預設單位。 	   3. get_fill_line_width_res=1  	這個參數是用於 fill 的程序。 	  這是用來限制在填線段之間的 apertures 數量，而且進位 apertures 尺寸到那些數據。 	  according to the following table.  get_fill_line_width_res 的內容定義最小進位值 r 依照以下的表格。  Fill line apertures larger than r can be taken only from the values in the following set: r, r*2, r*4, r*8, r*16, and then increasing in r*16 steps.  填線 apertures 中於 r 僅可以從以下的集合中取得數據：r, r*2, r*4, r*8, r*16 然後以 r*16 增加。  get_fill_line_width_res r - minimal rounding value  1 1/16 mil  2 1/4 micron  3 0.1 mil  4 1 micron  	   註解：  A) Some fill lines can have a width of min_brush*(power of 2).  有些填線可能會有min_brush*(2 的次方) 的寬度。  B) min_brush and secondary_min_brush (if defined) are rounded to the corresponding value. A warning is issued if min_brush or secondary_min_brush have been rounded.  min_brush 及 secondary_min_brush (如果有定義)會進位到對應的數據。如果 min_brush 或 secondary_min_brush 被進位會有警告 	    4. get_inp_exclude=*tar;*zip;*tgz;*exe;*gz   Exclude input files.  排除輸入檔案。 	  這個參數定義使用在自動輸入的"排除"過濾器的預設值做為識別過濾檔案。 	   21. inp_default_path=/genesis/input   Default path for input screen  輸入視窗的預設路徑。 	 iol: Input Format  參數設定與Input格式有關。 	    22. iol_274X_first_eob=no  	 如果設成 Yes，檔案中的第一個字元會成為 RS274X 檔案中的分隔字元	  在有些情況，RS274X 中的第一個字元是 "End-Of-Block" (區塊結束) 字元。如果這個參數設為 Yes ，可以確保辨識過程不會認出其它 EOB (區塊結束) 字元，檔案中的第一個字元會成為EOB (區塊結束) 。預設值是 No。 	    23. iol_274x_aname_with_comma=yes  	  Allow comma in rs274x aperture macro names.  允許逗號 (,) 在 rs274x aperture 巨集名稱中。  If set to No, it will report an error.  如果設為 No，有逗號在 rs274x aperture 巨集名稱中時會報告有錯誤。 	    24. iol_274x_circle_as_edge_in_poly=no  	 允許使用者決定如何對待整個圓看似在 polygon 的邊緣。  No ( default ) - draw a full circle.  (預設值) - 畫出完整的圓。  Yes - treat circle as an arc of 0 degrees.  把圓視為 0 度的弧。 	  25. iol_274x_contourize_neg_symbol=yes   Yes (default) - symbols with negative features will be contourized.  (預設值) - 符號有負的物件會被輪廓化。  No - symbols with negative features will NOT be contourized.  符號有負的物件不會被輪廓化。 	  因為設為 "no" ，如果有些符號有負的物件因而不會被輪廓化，在輸入的記錄檔會加上警告而且顏色會為粉紅色。 	    26. iol_274x_convert_macro=yes   Yes (default) - convert aperture macro to Genesis symbols.  (預設值) - 轉換 aperture 巨集成為 Genesis 符號。  No - do not convert, special symbols created.  不會轉換，會產生特別的符號。 	  註解：自動符號辨別過程使用 0.25 mil 的誤差，所以在一些情況符號的尺寸會與原本的巨集有些微不同。 	    27. iol_274x_dont_accumulate_of=no   Used when a file contains commands such as SF, MI (mirror), OF(offset).  使用於檔案中包含如 SF, MI (鏡射), OF (偏移) 的指令時。  No (default) - The OF and MI parameters are accumulated as before.  (預設值) - 與以前相同，OF 及 MI 參數會被累積。  Example: if you have MI, all the features after this command will be mirrored. Then, from the next MI command forward, the features will not be mirrored.  舉例：如果你有 MI，在這個指令後的所有物件會被鏡射。然而在之後的下一個 MI 指令，物件不會被鏡射。  Yes - parameters are not accumulated. Only a parameter's first appearance is considered. (Absolute)  參數不會被累積。僅考慮參數的第一次出現 (絕對的) 。  Note: Yes is recommended.  註解：建議使用 Yes。 	    28. iol_274x_g75_current_arc=no   No (default) - when negative I or J encountered and G75 was not set, G75 is assumed from now on.  (預設值) - 當負值 I 或 J 且遇到 G75 沒有設定時，會假設 G75 從現在生效。  Yes - when negative I or J encountered and G75 was not set, G75 is assumed for current arc only.  當負值 I 或 J 且遇到 G75 沒有設定時，會假設 G75 僅對現在這個弧有效。 	    29. iol_274x_ignore_d01_alone=no   No (default) - draw line when block contain only D01 command,  (預設值) - 畫線當區塊僅包含 D01 指令時。  Yes - do not draw  不畫線。 	   有些对于咱们来说又涌出  有些对于咱们来说按照默认即可  只是想让大家知道configuure是什么东西  咱们需要修改的有   1\ 默认单位   2\input 默认输入路径   3\关于polaygon,如果因为这个原因无法输入的,就需要修改   4\8角形的pad输入方向不对,需要修改   5\其他的具体问题具体对待  一般如果无法确定修改对咱们有好处的  就不要修改    
+value输入参数   mode选择user   value就是参数  有的是yes和no  有的是0123  大家可以找到那个单位的  把默认的单位修改成mm  测试一下  修改完,重新启动genesis  关于genesis维护  还有一个地方要讲解  就是数据库的管理  一个公司  不可能只有一台电脑使用genesis  如果多台电脑使用genesis  如果每一个gnesis  都有自己的料号存储地  不好管理  最有单独制定一个电脑用来保存料号  其他电脑都保存到这个电脑上  这就是数据库的管理   genesis提供了这个功能  如图   
+他的位置在 options---database   1. 如何啟動Database Management: Engineering Toolkit ! Option ! Database… 2. Joblist ! Recover Lost Jobs: 此功能在檢查某些已存在於資料庫的料號但又沒有出現在 Engineering Toolkit的Joblist畫面中, 如有發現此 情形就會將該料號加入於Joblist. 3. Joblist ! Check Joblist: 此功能在檢查某些已存在於Engineering Toolkit的 Joblist畫面中但又沒有出現在資料庫的料號, 如有發現 此情形就會將該料號清除.    recover lost jobs这个料号很有用处  
+我们创建一个数据库就可以了吗  
+如果是别人建立的料号  你的文件中不会出现  但是你用这命令运行一下  就会在窗口中显示这个文件夹内的所有的料号  check joblist就是如果储存的文件夹已经删除了这个料号  就要运行这个命令  把你genesis显示的料号名字去掉   4. Create: 此功能在於建立一個新的資料庫 5. Rename: 此功能在於變更一個資料庫的名稱 6. Delete: 此功能在於刪除一個資料庫(請勿任意執行該功能) 7. Copy: 此功能在於複製一個資料庫 create创建一个数据化  数据库   database创建的数据库的名字   
+他默认的位置在  ｇｅｎｅｓｉｓ＼ｆｗ＼ｊｏｂｓ下面  如果是建立在其他电脑上  路径就要\\服务器名字（网络上电脑的名字）\磁盘\文件夹  
+那这样，如果服务器关了，工作站还能不能建料号，因为已经没有地方存放料号了  
+不能  那么你多建立一个数据库  当服务器打开的时候    选择服务器的数据库  当服务器关闭的时候    你选择本机的genesis     给大家讲解一下configuure参数   confiute参数众多    iol_274x_ill_polygon= (Yes;No) 	   至于如何打开configute参赛维护  
+参数 就是在你建立料号的窗口   options=----configure参数中   iol_274x_ill_polygon= (Yes;No) 	 第一个参数  是否檢查/修正polygon 	   选择是    他的意思是忽略检查多边形覆铜  选择no  如果多边形有错误,会被检查出来和修正  不过这个命令要起作用的画  必须另外一个参数设置成yes才起作用    注意:只有設定iol_enable_ill_polygon=Yes時才有作用. 	  iol_274x_ko_polarity=(1;2) 	  輸入Rs274x組合參數極性的方式  1- 絕對, 依據寫在KO參數的值來判斷極性(忽略IP和LP)  2- 相對, 依據IP及LP後的值來判斷極性.   注意:IP影象極性;LP層次極性 	   判断数据极性的时候用的,这个不要修改,默认的即可    iol_274x_limit_dcode=(Yes;No) 	   是否限制料號輸入decode數的限制  否:不做限制  是:限制在10~999之間 	  选NO是可以输入超过1000的D码文件了   iol_274x_set_octagon_rotation=(Yes;No) 	  设置8角形的pad的角度    針對RS-274的輸入資料  定義RX-274的八角形有一些問題,因為没有明確定義0度八角形位置.  是:開始的角度是0度  否:開始的角度是22.5度 	   如果发现八角形转向了 就需要设置这个  
+ iol_274X_set_polygon_rotation(Yes;No) 	 RS-274X輸入資料時polygon設定角度或是角落的問題  是:開啟設定開始角度0度  否:開始角度為預設角度 	   
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

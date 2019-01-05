@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>perl函数</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+rindex( $mline, "/" );
+</p>
+
+
+
+<p>
+可以不使用&amp;调用函数。如果之前已经声明或定义函数，在调用的时候可以不使用圆括号。圆括号表示子函数。
+</p>
+
+<p>
+splice @bb, 2, 6, @cc。@cc为插入的数组，2为插入的地点，6为替换掉的个数。
+</p>
+
+<p>
+<a href="perl使用系统函数.html">perl使用系统函数</a><br>
+</p>
+
+
+<h2 id="toc_0.1">实现http上传</h2>
+<p>
+use LWP::UserAgent;;  
+use HTTP::Request;  
+use HTTP::Response;  
+use HTTP::Request::Common;  
+</p>
+  
+<p>
+$agent=new LWP::UserAgent;  
+$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a><br>  
+$request-&gt;header('User-Agent'=&gt;'Mozilla/5.0 (Windows NT 5.1; rv:10.0.1) Gecko/20100101 Firefox/10.0.1');  
+$request-&gt;header('Accept-Encoding'=&gt;'gzip, deflate');  
+</p>
+  
+<p>
+\(response=\)agent-&gt;request($request);  
+print $response-&gt;status_line,"\n";  
+print $response-&gt;content;
+复制代码
+</p>
+ 
+
+<p>
+post 传送文件
+</p>
+
+<p>
+复制代码
+use LWP
+require HTTP::Headers;
+$agent = LWP::UserAgent-&gt;new;
+</p>
+
+<p>
+\(response = \)agent-&gt;post("<a href="http://localhost:8080/springtest/fileupload",'Content_Type'">http://localhost:8080/springtest/fileupload",'Content_Type'</a><br> =&gt; 'multipart/form-data; boundary=----------------------', Content =&gt; [
+"user_id"=&gt;"05C30167EA3B4F76AE0D8A4ADB984679",
+'pic' =&gt; ["dir"]
+#]);
+print $response-&gt;content, "\n";
+复制代码
+</p>
+ 
+
+<p>
+post
+</p>
+
+<p>
+use LWP
+require HTTP::Headers;
+$agent = LWP::UserAgent-&gt;new;
+\(response = \)agent-&gt;post("<a href="http://localhost:8080/service/store/storeSend",">http://localhost:8080/service/store/storeSend",</a><br> [ "user_id" =&gt; "05C30167EA3B4F76AE0D8A4ADB984679" , "bno" =&gt; "bnotest001"]);
+get
+</p>
+
+<p>
+复制代码
+#! /usr/bin/perl
+use LWP;
+</p>
+
+<p>
+$agent = LWP::UserAgent-&gt;new;
+\(response = \)agent-&gt;get("<a href="http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");">http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");</a><br>
+</p>
+
+<p>
+print $response-&gt;content, "\n";
+复制代码
+get add cookie
+</p>
+
+<p>
+复制代码
+#! /usr/bin/perl
+use LWP;
+use HTTP::Cookies;
+</p>
+
+<p>
+$agent = LWP::UserAgent-&gt;new;
+</p>
+
+<p>
+my $cookies = HTTP::Cookies-&gt;new();
+$cookies-&gt;set_cookie(0,'JSESSIONID', 'A9D5B373B86ACDB04914DEC83E3DA40E','/','store.sf-express.com',80,0,0,86400,0);
+\(agent-&gt;cookie_jar(\)cookies);
+$agent-&gt;cookie_jar({ 'STORE'=&gt;'STORE_POOL_CNSZ01_49_130_8080', 'JSESSIONID'=&gt; '84BCF81B536D5CB13AFA48E31ACAA6B6' });
+\(response = \)agent-&gt;get("<a href="http://store.sf-xxxxx.com/html/admin/user_list.html");">http://store.sf-xxxxx.com/html/admin/user_list.html");</a><br>
+</p>
+
+<p>
+print $response-&gt;content, "\n";
+复制代码
+get add header
+</p>
+
+<p>
+复制代码
+#! /usr/bin/perl
+use LWP;
+use HTTP::Cookies;
+</p>
+
+<p>
+$agent = LWP::UserAgent-&gt;new;
+</p>
+
+<p>
+my @netscape_like_headers = (
+'User-Agent' =&gt; 'Mozilla/4.76 [en] (Win98; U)',
+'Accept-Language' =&gt; 'en-US',
+'Accept-Charset' =&gt; 'iso-8859-1,*,utf-8',
+'Accept-Encoding' =&gt; 'gzip',
+'Accept' =&gt;
+"image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, <strong>/</strong>",);
+\(response = \)agent-&gt;get("<a href="http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);">http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);</a><br>
+</p>
+
+<p>
+print $response-&gt;content, "\n";
+复制代码
+</p>
+ 
+
+<p>
+post add header
+</p>
+
+<p>
+复制代码
+use LWP::UserAgent;;  
+use HTTP::Request;  
+use HTTP::Response;  
+use HTTP::Request::Common;  
+</p>
+  
+<p>
+$agent=new LWP::UserAgent;  
+$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a><br>  
+$request-&gt;header('User-Agent'=&gt;'Mozilla/5.0 (Windows NT 5.1; rv:10.0.1) Gecko/20100101 Firefox/10.0.1');  
+$request-&gt;header('Accept-Encoding'=&gt;'gzip, deflate');  
+</p>
+  
+<p>
+\(response=\)agent-&gt;request($request);  
+print $response-&gt;status_line,"\n";  
+print $response-&gt;content;  
+复制代码
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

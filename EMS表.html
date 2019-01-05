@@ -1,0 +1,456 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>EMS表</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+表模块分为
+GS genesis模块
+mkt (market order)市场订单模块
+mtr(material) 物料模块
+ppe 工程模块
+Pub 公共模块
+sys 系统模块
+WF (work flow) 加工流程，工艺流程模块
+</p>
+
+<h1 id="toc_1">找界面，首先找到什么模块的，然后根据模块找到程序入口</h1>
+<p>
+T_sys_User	用户表
+T_ppe_MakeModuleNo	料号信息表
+T_WF_OrderMainInfo MI派单的主要信息
+[T_sys_FrmBtn] 查询等按钮表
+[T_sys_FrmMsP] 主界面左上：工程设计，公用模块，系统管理
+T_sys_FrmMsC
+[T_Pub_StackInfo] 料号信息，完成铜厚等
+[T_ppe_MakeTechDrillParameter] 钻孔流程参数，MI从genesis导入钻带信息
+[T_ppe_MakeTechDrillToolDiameter] 钻孔的刀T01等  Guid为T_ppe_MakeTechDrillParameter的guid
+</p>
+
+
+<h2 id="toc_1.1">市场mkt</h2>
+<p>
+[T_ppe_MakeModuleNo] 料号表   里面有Guid4MktOrder_，市场的Guid_  IsChKB是否子板
+[T_mkt_OrderModuleNo] 市场moduleNo(市场订单模块序号）)
+[T_mkt_OrderManagement] 市场订单管理
+</p>
+
+<p>
+[T_mkt_OrderPriceCalcFormulaList]  订单价格计算公式列表
+[T_mkt_OrderPriceCalcBasicPriceList4Urgent]	加急费用表 
+[T_mkt_OrderPriceCalcBasicPriceList4ENG]	工程费
+[T_mkt_OrderPriceCalcBasicPriceList4Basic]	制版费
+</p>
+
+<h3 id="toc_1.1.1">添加价格体系类型</h3>
+<p>
+1,录入EXCEL表
+2，在T_Pub_DataClassList里面添加数据类型，TypeNo_ = 10005
+3，添加ID_
+4,
+</p>
+
+<h2 id="toc_1.2">公用Pub</h2>
+<p>
+[T_Pub_DataClassType]  数据类型
+[T_Pub_DataClassList]   数据类型值列表  阻焊油墨颜色白色
+T_Pub_DataClassList 公用数据集列表 ,如类型号TypeNo_为36，钻刀类型，锣刀、槽孔、毛刺、邮票孔、清角孔等
+[T_pub_PpeEQContentMod] EQ模版表
+</p>
+<h3 id="toc_1.2.1">EQ</h3>
+<p>
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT *
+  FROM [DATABASE4BM].[dbo].[T_pub_PpeEQContent]  a
+  left join T_pub_PpeEQMain b on a.Guid4Bill_ = b.Guid_
+  left join T_ppe_MakeModuleNo c on b.Guid4Order_ = c.Guid_
+  where c.PdctNo_ = 'A04E018035A0'
+</p>
+  
+
+<h2 id="toc_1.3">工程ppe</h2>
+<p>
+T_ppe_MakeModuleNo 料号, 可以找到叠层的Guid_，物料的Guid_,钻孔的Guid_,市场的Guid_
+	Guid4ChKB			母板的Guid_
+	[IsCheckOk_]		指示检查是否OK
+</p>
+<h3 id="toc_1.3.1">制作</h3>
+<p>
+T_ppe_MakeTechLineParameter		制作流程线路参数 ----线路层ID，层名，最小线宽，最小间隙，铜厚，残铜率等
+		guid_就是料号的Guid_，
+</p>
+		
+<p>
+T_ppe_MakeTechParameter 工艺参数表,图形界面控件对应的值
+	Guid_为料号的Guid，Guid4MOD_为控件的Guid(T_sys_FrmUiGroupMod)
+T_ppe_MakeCheckMarkID			指示检查记录结果
+[T_ppe_MakeCheckList]   指示检查表
+[T_ppe_MakeCheckMarkID] 指示检查结果
+</p>
+
+<h3 id="toc_1.3.2">钻孔</h3>
+<p>
+[T_ppe_MakeTechDrill4PNLInfo]	 钻孔基本信息表
+T_ppe_MakeTechDrillParameter   钻带信息表，最小孔铜，最小平均孔铜钻带名等。
+[T_ppe_MakeTechDrill4PNLParameter]	钻孔钻带信息表(从genesis中捞出来的钻带)
+[T_ppe_MakeTechDrill4PNLToolDiameter]	生产尺寸的钻咀信息表(相同的钻咀已经合并)
+[T_ppe_MakeTechDrill4PNLToolDiameterComb] 这个是补偿以后还没合并的钻孔
+[T_ppe_MakeTechDrill4PNLParameter]	钻带信息表，包括了最小孔铜，平均孔铜等(界面中显示的)
+[T_ppe_MakeTechDrillToolDiameter] 成品尺寸钻带信息表
+[T_mtr_DrillTol]	客户公差表
+[T_mtr_DrillCompensationModel]	钻孔补偿表
+[T_mtr_DrillBoardSideTool] 工艺边及板边工具孔表
+</p>
+
+<p>
+[T_ppe_MakeTechDrill4Info]  流程钻带信息,查找工号
+</p>
+
+<p>
+[T_ppe_MakeTechLineParameter] 线路参数表
+</p>
+<h3 id="toc_1.3.3">工艺流程</h3>
+<p>
+[T_ppe_TechFlowList] 			流程列表，所有流程的ID号对应的ID
+[T_ppe_TechFlowItemList]  		流程项目列表
+</p>
+
+<p>
+T_ppe_TechFlowAutoProduceFlowList	  自动生成工艺流程主流程
+T_ppe_TechFlowAutoProduceItemsList	工艺流程自动产生项目列表	-----显示的顺序
+</p>
+
+
+<p>
+T_ppe_TechFlowInformation		某个料号有哪些主流程以及显示顺序
+T_ppe_TechFlowItemParameter		某个料号流程下面的参数项对应的参数值，如外层正负片--TechNo_，ItemNo_，ItemParms_
+</p>
+
+<p>
+T_ppe_TechFlowAutoProduceFlowList 和T_ppe_TechFlowAutoProduceItemsList 生成最后的T_ppe_TechFlowInformation和T_ppe_TechFlowItemParameter
+</p>
+
+
+<p>
+SELECT top 100 * 
+FROM [T_ppe_TechFlowInformation] a
+left join T_ppe_TechFlowList b on a.TechNo_ = b.TechNo_
+left join T_ppe_MakeModuleNo c on a.Guid_ = c.Guid_
+where c.PdctNo_  like '%C329230C04%'   order by a.Display_ 
+</p>
+
+<h4 id="toc_1.3.3.1">添加主流程</h4>
+<p>
+[T_ppe_TechFlowAutoProduceFlowList]  查出是否已经有该流程但是条件不对
+select * from T_ppe_TechFlowList 查出是否有该流程列表
+[P_ppe_TechFlowAutoProduceFlow] 查该流程需要的条件，查是否有该条件的字段。如果没有添加字段
+[T_ppe_TechFlowAutoProduceFlowList] 添加流程并且添加条件。注意TechNo_ StrSQL_ Display字段
+</p>
+
+
+<h4 id="toc_1.3.3.2">添加流程参数</h4>
+
+<h5 id="toc_1.3.3.2.1">MZBM拷贝流程参数到SZBM</h5>
+<p>
+1，找到描述一样的，拷贝到SZBM
+select distinct  a.Caption_,a.Guid4Mod_,a.Source_,a.StrSQL_,b.TechNo_,b.ItemNo_ from DATABASE4BM.[dbo].[T_ppe_TechFlowAutoProduceItemsList]  a
+inner join [T_ppe_TechFlowAutoProduceItemsList] b
+on a.Caption_ = b.Caption_
+and b.TechNo_ not in (
+112,193,154,240,243,195,179,177,107,162,122,230,
+231,223,161,
+291,
+181,
+181,
+222,
+225,
+126,
+126
+)
+and b.TechNo_ in (103,232,224,189,190,191,171,172,213,214,215,131,183,116)
+order by ItemNo_
+</p>
+
+
+<h5 id="toc_1.3.3.2.2">核实是否子参数生成成功</h5>
+<p>
+SELECT top 100 c.PdctNo_,a.Guid_, a.TechNo_, b.TechName_,d.ItemNo_,d.ItemPars_
+FROM [DATABASE4SZBM].[dbo].[T_ppe_TechFlowInformation] a
+left join [DATABASE4SZBM].[dbo].[T_ppe_TechFlowItemParameter] d on a.Guid_ =d.Guid_
+left join [DATABASE4SZBM].[dbo].T_ppe_TechFlowList b on a.TechNo_ = b.TechNo_
+left join [DATABASE4SZBM].[dbo].T_ppe_MakeModuleNo c on a.Guid_ = c.Guid_
+--where a.Guid_ = 'FDA54ECA-1F48-4658-A9D6-B0A6B1CBC286' 
+where c.PdctNo_  like '%A06E013203A0%'   
+--and a.TechNo_ = '103'
+and ItemPars_ &lt;&gt; ''
+order by a.Display_ 
+</p>
+
+<h5 id="toc_1.3.3.2.3">生成子参数流程</h5>
+<p>
+1，找到对应的字段需要的值控件的Guid_，Guid4MOD_。从表[T_sys_FrmUiGroupMod](Guid_容纳控件的容器的Guid_,Guid4MOD_为控件的Guid_)里面取值。
+2，如果可以直接从里面取值，则直接在表T_ppe_TechFlowAutoProduceItemsList里面的Source_改为1(用的是Guid4Mod_直接查询数据)
+3，如果取到的值需要转换，比如，是否添加UL标记。查出来的是checkbutton的1，需要转为是。则Source_为0。同时设置查询值SELECT (CASE WHEN ISNULL(Value_,0) = 1 THEN '是' ELSE '否' END ) FROM #T_ppe_MakeTechParameter WHERE Guid4MOD_='D82C7623-6C1A-E511-9063-78ACC03D06A8'。注意，T_sys_FrmUiGroupMod只是控件的Guid_，控件的图形界面设置，如长度等。其值在T_ppe_MakeTechParameter里面，对应的是什么料号的哪个控件的值。
+</p>
+
+
+<h5 id="toc_1.3.3.2.4">Genesis上传数据</h5>
+<p>
+[T_ppe_MakeTechDrill4Info]-》[T_ppe_MakeTechDrill4PNLParameter4GS]-》T_ppe_MakeTechDrill4PNLToolDiameter4GS
+</p>
+
+
+<h3 id="toc_1.3.4">参数</h3>
+<p>
+T_ppe_MakeTechParameter 工艺参数表。
+		Guid4MOD_为[T_sys_FrmUiGroupMod]的Guid4MOD_值(组控件下面的子控件比如labelentry)；Guid_ 为料号的Guid_
+	  select * from DATABASE4RB.[dbo].T_ppe_MakeTechParameter where  Guid4MOD_ = '879C84F4-6662-E511-BE9B-C03FD5096658' and Guid_ = '7D078F95-0705-4FBF-8E14-000198AB996A'
+</p>
+  
+
+<h2 id="toc_1.4">系统sys</h2>
+<h3 id="toc_1.4.1">提示信息</h3>
+<p>
+[T_sys_AppMsgList]
+[T_sys_FrmUiCmbConfig]   Combobox的配置
+[T_sys_FrmSeachCTLConfig]	 vs2010需要的Guid
+[T_sys_FrmSeachFormConfig]	搜寻窗口配置表
+		Guid_自动生成和T_sys_FrmSeachCTLConfig，UseFrm为窗体[T_sys_FrmUiFormConfig]的Guid_，窗体的Guid_
+		在[T_sys_FrmUiFormConfig]获取到要添加的Guid_, [T_sys_FrmSeachFormConfig]新增一项，得到but的Guid_
+</p>
+		
+<p>
+T_sys_AppConfig 应用程序配置文件
+	connection：
+		FristValue_：客户
+		ThreeValue_：本地(公司内部的服务器)
+		FourthValue_：单机的(个人的)
+</p>
+		
+
+<h3 id="toc_1.4.2">图形界面</h3>
+<p>
+FrmUi 大块
+FrmUiCTL	小块
+FrmUiGroupMod	
+T_sys_FrmUiGroupConfig(是一个控件，也是一个容器,一个窗体下面分为很多个小组，是小组的配置,一个组的控件的配置(名字，显示顺序，是否自动缩放大小等)  小框架，公用模块-&gt;叠层阻抗-&gt;基本参数信息；上一级是T_sys_FrmUiFormConfig;下一级[T_sys_FrmUiGroupMod](最小控件的Guid)
+[T_sys_FrmUiCmbConfig]  Guid_为一个Group的Guid_, 同一个Group的com用uda来区分(Guid_和uda共同组成主键)
+T_sys_FrmUiGroupMod(最小控件的model)一个个控件， 最小单元 ，公用模块-&gt;叠层阻抗-&gt;基本参数信息-&gt;产品编号
+T_sys_FrmUiFormConfig，。框架配置，公用模块-&gt;叠层阻抗
+T_sys_FrmUi(图形界面)		工程模块-MI派单 (UI主模块)，的Guid
+T_sys_FrmUiCTL(控件模块)	 工程模块-MI派单-订单信息表  工程模块-MI派单-制作人员信息表
+T_sys_FrmBtn	按钮，Pguid为T_sys_FrmMsC的Guid_
+</p>
+
+<p>
+Frm_main-&gt;new一个(构造函数)-&gt;PTsmi_Load(通过查找T_sys_FrmMsP和权限匹配找出显示的父窗口)-&gt;CTsmi_Add(点击后调用，生成子的窗口)  -&gt;Tsmi_Click-&gt;CTsmi_Add-&gt;ButtonX_Click()-&gt;CreateForm()-&gt;产生form的时候自动去加载控件，从而自动调用获取信息。
+</p>
+
+<p>
+SELECT * FROM T_sys_FrmMsP
+  WHERE Guid_ = '49B05D6F-864B-4341-A9BE-85BFF437BCCF'
+</p>
+  
+<p>
+  SELECT * FROM T_sys_FrmMsC
+  WHERE PGuid = '49B05D6F-864B-4341-A9BE-85BFF437BCCF'
+</p>
+  
+<p>
+  SELECT * FROM T_sys_FrmBtn
+  WHERE PGuid='864B19BD-A720-4860-93AF-7371A730372F'
+</p>
+  
+  
+<p>
+  SELECT * FROM T_sys_FrmUi
+  WHERE Guid_='83125266-470F-E511-9063-78ACC03D06A8'
+</p>
+  
+<p>
+  SELECT * FROM T_sys_FrmUiCTL
+  WHERE UiGuid='83125266-470F-E511-9063-78ACC03D06A8'
+</p>
+  
+<p>
+  SELECT * FROM T_sys_FrmUiFormConfig
+  WHERE Guid_='864B19BD-A720-4860-93AF-7371A730372F'
+</p>
+  
+
+<p>
+  SELECT * FROM T_sys_FrmUiGroupConfig
+  WHERE UiGuid='0652A3E8-8918-E511-9063-78ACC03D06A8'
+</p>
+  
+<p>
+  SELECT * FROM T_sys_FrmUiGroupMod
+  WHERE Guid_='ACF59DEA-0F1A-E511-9063-78ACC03D06A8'
+</p>
+  
+<p>
+  SELECT * FROM T_sys_FrmUiGroupSQL
+  WHERE Guid_='83125266-470F-E511-9063-78ACC03D06A8'
+</p>
+  
+  
+  
+<p>
+  SELECT * FROM T_sys_FrmUiDgvConfig
+  WHERE Guid_='FC672B11-6BDB-E511-A906-AC220B72A13F'
+</p>
+  
+<p>
+  SELECT * FROM T_sys_FrmUiDgvColumnConfig
+  WHERE Guid_='FC672B11-6BDB-E511-A906-AC220B72A13F'
+</p>
+  
+<p>
+  SELECT * FROM T_sys_FrmUiDgvSQL
+  WHERE Guid_='E6E0F0FB-9CDA-E511-A87C-AC220B72A13F'
+</p>
+  
+
+<h1 id="toc_2">触发</h1>
+<p>
+[T_sys_FrmUiGroupMod4ExprEffect]
+[T_sys_FrmUiGroupMod4ExprList4PPE]
+</p>
+
+<h1 id="toc_3">工作流</h1>
+<p>
+表[T_WF_OrderMainInfo4MI]
+</p>
+<blockquote>
+--发送者
+</blockquote>
+<p>
+  --发送时间
+  --发送状态
+</p>
+  
+<p>
+  --MI待派
+  --MI制作接收者
+  --MI检查接收者
+  --MI制作接收时间
+  --MI制作开始者
+</p>
+  
+<p>
+  --待制作
+</p>
+  
+<p>
+  --MI制作开始时间
+  --MI制作开始状态
+  --MI1234EQ开始和接收时间和结束状态 	--MI制作中
+  --MI制作结束时间
+  --MI制作结束状态
+</p>
+  
+<p>
+  --MI制作完
+</p>
+  
+<p>
+  --MI审核发送者
+  --MI审核发送时间
+  --审核发送状态
+</p>
+ 
+<p>
+ --待审核
+</p>
+ 
+<p>
+ --MI审核开始者
+ --MI审核开始时间
+ --MI审核开始状态
+</p>
+ 
+<p>
+ --审核中
+</p>
+ 
+<p>
+ --MI审核结束者
+ --MI审核结束时间
+ --MI审核结束状态
+</p>
+ 
+<p>
+ --审核完成
+</p>
+ 
+<p>
+ --返修
+</p>
+
+<h4 id="toc_3.0.0.1">datagridview</h4>
+<p>
+[T_sys_FrmUiDgvColumnConfig]  MI设计-&gt;MI制作-&gt;左上的本厂编码和客户型号等信息和Guid_和配置等。把IsFroZen改成false(是否扩展)
+</p>
+
+<h3 id="toc_3.0.1">MI脚本</h3>
+<p>
+T_sys_FrmUiTreeViewMod
+</p>
+
+<h2 id="toc_3.1">控件类</h2>
+<h3 id="toc_3.1.1">CTL_Sys_Btn</h3>
+<p>
+	button矩阵，常用操作，包括编辑、保存等
+</p>
+	
+<p>
+	该控件类自动根据属于哪个Form下面的，通过获取Form的Guid_获取下面的子Guid_。
+</p>
+	
+<p>
+	该Guid的查找在控件里面查找自动加载的时候添加
+</p>
+	
+<p>
+	在设置FrmGuid() 的时候，定义btn的主Guid等于该Form(Frm_Mai.vb里面有个CreateForm，会获取到该Form的Guid_)的Guid，然后通过ctlbtn.btn_LoadTxt(str_UserNo, _frmGuid)函数，查找到对应Guiid的所有按钮，添加所有的Button。
+</p>
+
+
+
+<h2 id="toc_3.2">工具回收</h2>
+<p>
+[T_pub_ppeEcnToolMain] ECN工具回收主表
+[T_Pub_ppeEcnToolContentMod] ECN工具回收内容MOd
+[T_Pub_ppeEcnToolDepMod] ECN工具部门Mod
+</p>
+
+<h2 id="toc_3.3">叠构信息</h2>
+<p>
+[T_Pub_StackInfo] 叠构主表，包括芯板类型，pp类型，对应的料号
+T_Pub_StackIMP  阻抗详细信息表
+T_Pub_StackIMP_Type 阻抗类型表
+</p>
+
+
+<h1 id="toc_4">genesis表</h1>
+<p>
+T_GS_OutInfoList  输出信息表
+T_GS_OutModule    输出信息module
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

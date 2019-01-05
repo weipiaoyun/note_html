@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>EMS执行过程</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">CTL_Button的执行过程</h1>
+<p>
+加载模块的时候自动将模块的Guid赋值。
+在自动加载按钮的时候，自动根据模块的Guid获取有哪些按钮，在加载的时候自动配置按钮。
+通过按钮的Tag，获取Guid，从而获取调用的函数
+</p>
+
+<p>
+CTL_Sys_Btn通过btn_LoadTxt 加载按钮 有开始制作，制作完成等
+</p>
+
+
+
+<p>
+CreateForm 生成窗体的时候 fm.FrmGuid = model.Guid_
+</p>
+
+
+<p>
+model指：工程模块-  M  I派单
+</p>
+
+
+<p>
+Frm_main.vb 里面的 ButtonX_Click函数 调用CreateForm(model_Fm, Me)
+</p>
+
+
+
+<h1 id="toc_2">获取MI派单数据信息</h1>
+<p>
+GetWFMIDispatchDataInfo
+</p>
+
+
+<h1 id="toc_3">PHelp_NetWork.vb</h1>
+<p>
+WebServerPost
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

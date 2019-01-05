@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>csharp函数</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">回调函数</h1>
+<p>
+如两个窗口：
+	一个是查询窗口，一个是结果窗口
+</p>
+
+<p>
+	在查询窗口里面传递要查询的参数到结果窗口里面，结果窗口处理后回来到查询窗口。这个过程就是回调函数。
+</p>
+
+<p>
+	查询窗口里面定义一个事件。结果窗口里面事件注册一个方法。
+</p>
+	
+<p>
+	通过查询窗口里面事件这个委托对象的执行，同时执行注册的方法。
+</p>
+	
+
+	
+<h2 id="toc_1.1">调用窗口</h2>
+<p>
+logfrm.ShowDialog(); 
+logfrm是窗口类构造的对象
+</p>
+
+<p>
+Application.Run(frmHello);
+</p>
+
+<h2 id="toc_1.2">对话框</h2>
+<p>
+(提示，提示对话框标题，提示类型，提示icon)
+DialogResult sss = MessageBox.Show("请确认要退出本软件!", "请确认要退出!", MessageBoxButtons.YesNo);
+if (sss == DialogResult.Yes)
+{
+</p>
+<h2 id="toc_1.3" class="justcenter">程序退出</h2>
+<p>
+	Application.Exit();
+}
+</p>
+
+
+<p>
+MessageBox.Show("登录名错误!", "提示",
+	MessageBoxButtons.OK, MessageBoxIcon.Warning);
+</p>
+
+<h1 id="toc_2">文件操作 </h1>
+<h2 id="toc_2.1">获取文件夹下所有文件 </h2>
+<p>
+Directory.GetFiles(strTmpPath, "*", SearchOption.AllDirectories)
+</p>
+
+<h2 id="toc_2.2">获取文件名，不包含扩展名 </h2>
+<p>
+strFileName = Path.GetFileNameWithoutExtension(S).ToLower();
+</p>
+<h2 id="toc_2.3">获取文件扩展名 </h2>
+<p>
+strExtensionName = Path.GetExtension(S).ToLower();
+</p>
+
+<h2 id="toc_2.4" class="justcenter">判断文件夹是否存在 </h2>
+<p>
+Directory.Exists(strTargetPath)
+</p>
+
+<h2 id="toc_2.5">判断文件是否存在 </h2>
+<p>
+File.Exists(STR_7ZIP_PATH)
+</p>
+	
+<h2 id="toc_2.6">生成文件夹 </h2>
+<p>
+Directory.CreateDirectory(strTargetPath)
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

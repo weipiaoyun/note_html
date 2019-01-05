@@ -1,0 +1,389 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>gtk控件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+windows:最基本的窗口控件。
+widgets:窗口小部件。
+buttons and toggles:各类型按钮
+</p>
+
+<p>
+GObject
+GinitiallyUnowned
+	GtkObject
+		GtkWidget
+			GtkContainer
+</p>
+<blockquote>
+Gtk::scrolledwindow
+GtkBin
+</blockquote>
+<h3 id="toc_0.0.1">只能添加一个字widget在它上面</h3>
+<blockquote>
+GtkButton
+GtkToggleButton
+GtkcolorButton
+GtkFontButton
+GtkOptionMenu
+GtkFrame
+</blockquote>
+					
+					
+<h1 id="toc_1">#</h1>
+<p>
+Gtk2::Window
+	$window-&gt;signal_connect (delete_event =&gt; sub { Gtk2-&gt;main_quit }); #关闭
+	$window-&gt;signal_connect('key-press-event' =&gt; \&amp;show_key); #按键盘
+	set_border_width(5); border的宽度。
+</p>
+	
+<p>
+	SetDefaultSize  #
+</p>
+	
+<p>
+	获取按键值：%Gtk2::Gdk::Keysyms(按键哈希)
+</p>
+<h2 id="toc_1.1" class="justcenter">#设置位置(始终在中间)</h2>
+<p>
+	set_position('center_always');
+	set_icon_from_file ("./pix/dude.jpg"); #设置icon图片
+</p>
+<h2 id="toc_1.2" class="justcenter">设置标题</h2>
+<p>
+	set_title();
+	destroy();
+</p>
+<h2 id="toc_1.3" class="justcenter">始终置顶</h2>
+<p>
+	$window-&gt;set_keep_above(1);
+</p>
+	
+<p>
+Gtk2::Table #列表的形式
+	homogeneous平均分配
+	my $table = Gtk2::Table -&gt;new (2, 2, FALSE);#产生两行两列的table，当添加的超出的时候会自动扩展，FALSE每行每列不相等
+	$tabe-&gt;set_row_spacings(1)设置行的宽度。(只是table这个容器的行的宽度，里面装的内容不一定)；
+	\(tabe-&gt;attach (\)h-&gt;{WIN}{RunPanel},0, 1,\(tablRow, \)tablRow + 3,[qw/expand fill/],[qw/expand fill/],0, 0);
+</p>
+<blockquote>
+widget, 两个横向坐标点(开始点和结束点)，两个纵向坐标点，横向是否expand和fill，纵向是否expand和fill，xpadding，ypadding；
+</blockquote>
+					
+	
+	
+<p>
+	set_justify('left');左对齐
+	#table的添加方式 和attach相比少了四个参数(默认参数)
+	\(table-&gt;attach_defaults (\)widget, \(left_attach, \)right_attach, \(top_attach, \)bottom_attach)
+</p>
+	
+	
+<p>
+Gtk2::Lable
+   \(entry-&gt;set_markup("&lt;span background = 'green' foreground= 'red' size ='20000'&gt;<i><b><u>\)workWeek</b></i></u>&lt;/span&gt;");#i表示的是斜体,b标识加粗 u表示添加下划线 <code>注意i和span前面的斜杠结束格式</code>
+Gtk2::CheckButton:勾选
+	signal_connect('enter' =&gt; sub{\(check_button-&gt;window-&gt;set_cursor(\)hand_cussor)})
+	set_active(TRUE);###已经勾选
+	set_label("");###checkbutton的label
+	$label-&gt;set_alignment (0.5, 0.5); #0.5放在中间。0，放在最左边。1放在最右边。
+	$innerButton-&gt;set_label("inner")
+	set_property();
+	window
+		set_cussor
+	show;
+</p>
+
+
+<p>
+Gtk2::Image
+	new_from_file()
+</p>
+
+<p>
+Gtk2::Frame
+	set_label_widget($check_button);#check_button以label的形式放在Frame里面
+	set_shadow_type('out');#out表示阴影方式frame看起来在外面，in里面。none表示不显示。etched-in
+	set_sensitive(FALSE/TRUE);#设置是否注释
+	set_size_request(200, -1); 设置长宽大小
+</p>
+
+
+<p>
+Gtk2::ScrolledWindow ##卷页形式
+	my $sw = Gtk2::ScrolledWindow-&gt;new;
+	set_size_request(300, 300);设置需要的大小；
+	$sw-&gt;set_shadow_type ('etched-in');设置阴影，多一条线
+	#$sw-&gt;set_border_width(5);
+	set_border_width(1);设置里放在什么里面的边缘距离
+	set_policy('automatic', 'automatic');自动显示滚动条
+	$sw-&gt;set_policy ('automatic', 'automatic');#设置显示滚动条的模式
+	\(sw-&gt;add_with_viewport(\)vbox_stock);#
+</p>
+	
+<p>
+#文档
+	my $tview = Gtk2::TextView-&gt;new();
+	$tview-&gt;set_editable(FALSE);
+	my \(buffer = \)tview-&gt;get_buffer();
+	\(buffer-&gt;set_text(\)content);
+</p>
+	
+<p>
+	\(sw-&gt;add(\)vbox_stock);#和add_with_viewport相比，这个放不下去的不能显示出来。
+</p>
+	
+<p>
+Gtk2::VBox  #盒
+	my $vbox = Gtk2::VBox-&gt;new(FALSE,5); #FALSE, 表示不平均分，5表示vbox里面两个控件的间距
+	\(vbox-&gt;pack_start(\)box, FALSE, FALSE, 5);#$box, vbox放的空间，FALSE不fill，FALSE不expand，5
+</p>
+	
+<p>
+	\(vbox-&gt;add(\)box); #和pack_start相比，这个是直接平分添加
+</p>
+
+<p>
+Gtk2::entry #输入框
+	set_editable   #是否可以更改
+</p>
+	
+<p>
+Gtk2::SpinButton #旋转
+</p>
+
+<p>
+Gtk2::RadioButton #单选按钮
+	set_active(TRUE);#选中该按钮
+</p>
+	
+<p>
+Gtk2::Gdk::Cursor #鼠标图标
+my $hand_cursor = Gtk2::Gdk::Cursor-&gt;new ('hand2');
+</p>
+
+<p>
+Gtk2::Gdk::Color
+	parse("blue");
+</p>
+	
+<p>
+Gtk2::Box
+</p>
+
+<p>
+Gtk2::Box and Gtk2::Table class contain more than one child.
+</p>
+
+<p>
+Gtk2::ComboBox  #下拉框，组合框
+	my $cb = Gtk2::ComboBox-&gt;new_text();
+	$cb-&gt;set_active(2) #设置刚打开的时候默认的选项(第几个);
+	$cb-&gt;get_active #获取选择的第几个
+	append_text("select a band:"); #
+	$cb-&gt;get_active_text #获取字符串的值
+	$cb-&gt;signal_connect('changed' =&gt; \&amp;cb_changed);
+	$cb-&gt;append_text("Select a band:");
+</p>
+	
+<p>
+	\(d-&gt;set_model(\)list_store); #获取存储空间的值，不是通过append的形式添加
+	$d-&gt;set_wrap_width (2); #设置一行多少列
+</p>
+	
+<p>
+	sub cb_changed {
+	my ($cb) = @_;
+	if($cb-&gt;get_active){
+		print "Right on Man, ".$cb-&gt;get_active_text." is a cool band\n"; 
+	}
+}
+</p>
+	
+<p>
+Gtk2::ComboBoxEntry-&gt;new_text; #可以改变的下拉输入框，组合输入框
+my $combo_box_entry = Gtk2::ComboBoxEntry-&gt;new_text;
+($combo_box_entry-&gt;child)-&gt;signal_connect('changed' =&gt; sub {
+	my ($entry) = @_;
+	print "I Like ". $entry-&gt;get_text."\n";
+</p>
+	
+<p>
+});
+</p>
+
+<p>
+my $d = Gtk2::ComboBox-&gt;new_text;
+</p>
+
+
+
+<h2 id="toc_1.4">button</h2>
+<p>
+#鼠标移开按钮的操作，自动传递两个参数
+$button-&gt;signal_connect('button-release-event' =&gt; sub {
+		my (\(widget,\)event) = @_;
+		#count is in the same namespace as the closure
+		&amp;test_button_release(\(widget,\)event,\$count);
+});
+</p>
+
+<h2 id="toc_1.5">TreeView</h2>
+<p>
+model 也就是listStore对象
+CellRenderer对象-&gt;TreeViewColumn对象-&gt;treeView对象
+</p>
+
+<p>
+通过TreeViewColumn对象设置CellRender，使listStore的存储值和CellRender结合
+</p>
+
+<p>
+使用MVC模式。(model/view/crotroller)，好处是让数据和图形界面分离。同一份数据可以用不同的视图表示。更新数据的时候，自动更新显示，由crontroller负责。model负责存储，view负责显示(存储显示分开)
+</p>
+
+<p>
+第一步，创建一个模式model，也就是数据库，(treeStore(树状数据)或者listStore(链式数据)数据库)，并定义其类型。Gtk2::ListStore-&gt;new(qw/Glib::String Glib::String Glib::String /);
+第二步，在第一步建立的数据库里面添加数据
+foreach my \(i (1..(\)#{$h-&gt;{board}{layer}}+1)) {
+	#线添加一行
+	my \(iter = \)listStore-&gt;append;
+</p>
+	
+<p>
+	#在该行里面添加数据
+	\(listStore-&gt;set (\)iter,
+		C_CHECKNAME, $i,
+		C_CHECKLIST, \({\)h-&gt;{board}{layer}}[($i-1)],
+		C_CHECKSTATUS, 'ok',
+	);
+}
+</p>
+
+<p>
+样式为($iter由listStore用append添加(知道要插的位置))：
+iter		C_CHECKNAME		C_CHECKLIST		C_CHECKSTATUS
+0x1123 		gts				光学点			ok 			   		
+0x1145		gtl				最小线宽		ok
+</p>
+
+<p>
+iter就表示的是某一行的数据;(C_CHECKNAME C_CHECKLIST C_CHECKSTATUS)是第一列，第二列，第三列的数据，可以写直接写1，2，3。可以用常量代替。
+</p>
+
+<p>
+第三步，用GtkTreeView显示数据库里面的数据
+1，先产生一个treeView  my \(treeView = Gtk2::TreeView-&gt;new_with_model(\)model); #使用的$model
+2，由TreeViewColumn产生多个列，my $numColumn = Gtk2::TreeViewColumn-&gt;new();
+3, 由CellRender去渲染列，如	my $renNumText = Gtk2::CellRendererText-&gt;new();产生文字渲染器。
+4，CellRenderer添加到column里面	\(numColumn-&gt;pack_start(\)renNumText, FALSE);
+5，设置该渲染器的值	\(numColumn-&gt;set_attributes(\)renNumText, 'text' =&gt; C_CHECKNUM); (通过set_attribute), model里面的数据和treeview联系
+</p>
+
+<p>
+一个TreeView有多个Column，每个Column有多个CellRenderer(勾选项和序号同一列，也可以把所有放同一列)，一个CellRenderer自身拥有多个属性(TreeViewColumn CellRenderer attributes-&gt;treeStore联系)
+</p>
+
+
+<p>
+一行显示的改变由CellRenderer改变引起，可以通过TreeModel传递给CellRenderer。通过set_attributes把TreeModel和CellRenderer联系起来。
+用TreeStore或ListStore产生一个模型model，然后通过这个模型建立一个树，通过这个树去创建cell
+</p>
+
+<p>
+ListStore产生模型model，也是存储列表
+</p>
+
+
+<p>
+由TreeViewColumn组织列的显示，相当于HBox, 产生一个列
+my $column1 = GTK2::TreeViewColumn-&gt;new();产生一个列
+</p>
+
+<p>
+$column1-&gt;set_title('column 1');第一列设置标题
+</p>
+
+<p>
+由CellRendererText
+</p>
+
+<p>
+my \(treeView = \)h-&gt;{WIN}{treeLayerlist} = Gtk2::TreeView-&gt;new_with_model($model);
+$treeView-&gt;set_hover_selection(TRUE); #设置循环自动选择(鼠标触发选择)
+$treeView-&gt;set_rules_hint (TRUE); #设置波浪线，区分线
+$treeView-&gt;signal_connect ('cursor-changed' =&gt; \&amp;setCheckItem);
+$treeView-&gt;set_enable_tree_lines (TRUE);
+</p>
+
+<p>
+#多选
+my \(selection = \)treeView-&gt;get_selection;
+$selection-&gt;set_mode ('multiple');
+</p>
+
+<h2 id="toc_1.6">定时器</h2>
+<p>
+#create a flasher for the label, we will show or hide it every 1 second
+my $flash = 1;
+Glib::Timeout-&gt;add (1000,sub{ &amp;flash_label() });
+</p>
+
+<p>
+#添加水平分界线
+$vbox-&gt;pack_end(Gtk2::HSeparator-&gt;new(),FALSE,FALSE,4);
+</p>
+
+<p>
+#
+</p>
+
+
+
+<h2 id="toc_1.7">checklist</h2>
+<h3 id="toc_1.7.1">资料上传</h3>
+<p>
+helpVBox-&gt;Gtk2::ScrolledWindow(可以拖拉)-&gt;uploadVbox-&gt;三个frame(待传，传中，已传)
+</p>
+
+
+<h1 id="toc_2">统一大小</h1>
+<p>
+&lt;property name="homogeneous"&gt;True&lt;/property&gt;
+</p>
+
+
+
+
+
+
+
+
+<p>
+this.Model = _store;   TreeStore
+</p>
+
+<p>
+建模型
+	1，根据datatable数据建Model。然后添加列。有些列可以不添加不显示。
+	2，根据treeViewColumn添加的列，建Model。再绑定datatable，datatable里面的列数和Model的列数不同，datatable里面的列有些显示不出来。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

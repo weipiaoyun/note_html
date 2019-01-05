@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>NIS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">NIS服务</h1>
+<p>
+network information service (网络信息服务)
+提供客户端的使用者相关参数查询(如：用户的账号、密码、UID、家目录、shell等)
+</p>
+
+<p>
+网络基础，防火墙，selinux。
+RPC
+sun yellow pages
+</p>
+
+<p>
+/etc/passwd 提供用户账号、UID、GID、家目录所在、Shell 等等
+/etc/group 提供用户账号、UID、GID、家目录所在、Shell 等等
+/etc/hosts
+/etc/service 每一种服务 (daemons) 所对应的埠口 (port number)
+/etc/protocols 基础的 TCP/IP 封包协定，如 TCP, UDP, ICMP 等
+/etc/netgroup	网络群组的定义与使用 (NIS 可能会需要)
+/etc/rpc	每种 RPC 服务器所对应的程序号码
+/var/yp/ypservers	NIS 服务器所提供的数据库
+/etc/nsswitch.conf
+</p>
+
+<p>
+更新NIS库：/usr/lib64/yp/ypinit -m   按&lt;control D&gt;. y
+</p>
+
+
+
+
+<h1 id="toc_2">客户端</h1>
+<p>
+1，运行authconfig-tui
+2, 把NIS服务勾上，然后填写域和服务器
+</p>
+
+
+<p>
+1,检查hostname
+2，
+</p>
+
+<p>
+1，hostname cam09
+2, vim /etc/pam.d/system-auth
+3, nisdomainname	iasystem
+4, vi /etc/host 增加192.168.8.1  	iasystem
+5, /sbin/service portmap restart
+5, /sbin/service nfs restart
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>æŒ‡ä»¤ç³»ç»Ÿ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+	Ö¸ÁîµÄ×÷ÓÃÓÐÊ±ºÍ¼Ä´æÆ÷µÄ×÷ÓÃÊÇÒ»ÑùµÄ¡£¶¼ÊÇ¿ØÖÆ¿ª¹ØµÄ´ò¿ªºÍ¹Ø±Õ£¬±ÈÈçËµ£¬MOV P0,A;¾ÍÊÇ°ÑAÀïÃæµÄÄÚÈÝÐ´½øP0¿Ú£¬ÆäÊµ¾ÍÊÇÐ´½øP0¿Ú½á¹¹ÀïµÄËø´æÆ÷¡£¶øMOVÖ¸Áî¾Í»á¶Ô¿ØÖÆÐÅºÅ£¬Ð´Ëø´æÆ÷µÈ½øÐÐ²Ù×÷¡£
+</p>
+	
+<p>
+	Ö¸Áî·ÖÎªµ¥×Ö½ÚÖ¸Áî£¬Ë«×Ö½ÚÖ¸Áî£¬Èý×Ö½ÚÖ¸Áî¡£±ÈÈçMOVÊÇµ¥×Ö½ÚÖ¸Áî£¬ËüÊÇÒ»¸öÖú¼Ç·û£¬Ëü»á·­Òë³É»úÆ÷ÓïÑÔ£¬¿ØÖÆ»úÆ÷²Ù×÷¡£
+</p>
+
+<ul>
+<li>
+<a href="51µ¥Æ¬»úÑ°Ö··½Ê½.html">51ÂµÂ¥Æ¬Â»ÃºÑ°Ö·Â·Â½Ê½</a><br>
+
+</ul>
+<p>
+RL A,RLÖ»ÄÜ¶ÔA½øÐÐÒÆÎ»£¬²»ÄÜ¶ÔB½øÐÐÒÆÎ»£¬Èç£ºRL BÊÇ´íµÄ¡£
+</p>
+
+<p>
+END±íÊ¾µÄÊÇ»ã±àµÄ½áÊø¡£
+</p>
+
+<p>
+RETÊÇ×Ó³ÌÐòµÄ·µ»Øreturned £¬RETIÊÇÖÐ¶Ï·þÎñ³ÌÐòµÄ½áÊø¡£
+</p>
+<h2 id="toc_0.1">Êý¾Ý´«ËÍÀàÖ¸Áî</h2>
+
+<p>
+	MOVÖ¸Áî£ºMOV:Æ¬ÄÚ00H-FFHÊý¾Ý´æ´¢Æ÷Ñ°Ö·
+	×¢Òâ£º	(1)²»ÄÜÁ½¸ö¶¼ÊÇ¹¤×÷¼Ä´æÆ÷
+</p>
+
+<p>
+	MOVC:
+	²é±íÖ¸ÁîÓÐÁ½¸ö ¶¼ÊÇ¶Ô³ÌÐò´æ´¢Æ÷µÄ¡£MOVC A,@A + DPTR,MOVC A,@A + PC
+	×¢Òâ£º	(1)Ä¿µÄ²Ù×÷Êý¶¼ÊÇÀÛ¼ÓÆ÷A
+			(2)PCµÄ»°Òª×Ô¶¯ÏÈ¼Ó1£¬È»ºóÓëAÏà¼Ó£¬×÷ÎªÐÂµÄµØÖ·£¬ËÍ¸øA,ÒòÎªAÊÇ8Î»µÄ£¬ËùÒÔ£¬Ö»ÄÜÔÚËùÔÚµØÖ·ÒÔºóµÄ256B·¶Î§µÄ´úÂë»òÕß³£Êý£¬³Æ½ü³Ì²é±í¡£
+			(3)ÊÇMOVC,¶ø²»ÊÇMOV
+</p>
+
+<p>
+	MOVXÖ¸Áî£ºÆ¬ÄÚºÍÆ¬ÍâÊý¾Ý´«ÊäµÄÊ±ºòÓÃµÄ¡£Æ¬Íâ0000H-FFFFH
+			MOVXÓÐ¼¸¸ö²Ù×÷£¬1£¬ÏÈËÍÊý¾Ý¡£2£¬ËÍÊý¾Ý¡£3£¬ËÍÊý¾ÝµÄµÄÊ±ºòWRÓÐÐ§¡£
+	×¢Òâ£º(1)ÀÛ¼ÓÆ÷ºÍÆ¬ÍâRAM´«ËÍ£¬Ö»ÄÜÓÃ¼Ä´æÆ÷R0ºÍR1£¨ÆäËü¹¤×÷¼Ä´æÆ÷²»ÐÐ£©,ºÍÊý¾ÝÖ¸ÕëDPTR£¬¶øÇÒÒ²Ö»ÄÜÓÃ¼Ä´æÆ÷¼ä½ÓÑ°Ö·¡£²»ÒªÍü¼ÇÁË@
+			(2)MOVX A,@DPTRÖ´ÐÐÕâÌõÖ¸ÁîÊ±£¬P3.7Êä³ö/RDÓÐÐ§£¬Ñ¡Í¨Íâ²¿Êý¾Ý´æ´¢Æ÷µÄ¶Á£»
+			(3)ºÍÍâ²¿½øÐÐÊý¾ÝµÄ´«Êä£¬ÒòÎªÍâ²¿µÄÑ°Ö··¶Î§±È½Ï¹ã£¬ËùÒÔÓÃµÄÊÇ16Î»µÄ£¬ÔÚ´«ËÍÊý¾ÝÖ®Ç°ÒªÏÈËÍµØÖ·£¬Ñ¡Ôñ¼Ä´æÆ÷¡£µÍ8Î»ÓÉP0¿ÚËÍ£¬¸ß8Î»ÓÉP2¿ÚËÍ
+</p>
+
+
+<h2 id="toc_0.2">Ìø×ªÖ¸Áî</h2>
+<p>
+LCALLÖ¸ÁîÊÇÕ¼3¸ö×Ö½ÚµÄÖ¸Áî£¨¼´ÔÚROMÖÐÕ¼Èý¸ö×Ö½ÚµÄ¿Õ¼ä£©£¬Ö´ÐÐÕâ¸öÖ¸Áîºó°ÑºóÃæµÄµØÖ·¸³Öµ¸øÁËPC£¬°ÑÃ»¸Ä±äÖ®Ç°µÄPC½øÈëÕ»ÖÐ¡£
+</p>
+<h1 id="toc_1">³ÌÐòµÄ×ªÒÆÀàÖ¸Áî</h1>
+
+
+
+<p>
+(2)Ìõ¼þ×ªÒÆÖ¸Áî
+</p>
+
+<p>
+CJNE£¨compare jump not equal²»µÈµÄÊ±ºòÌø×ª£©:	²»µÈÊ±×ª£¬Ó°Ïìc£¬Ä¿µÄ²Ù×÷Êý¾ÍÁ½¸ö£¬Ò»¸öÊÇA£¨Ô­²Ù×÷ÊýÑ°Ö··½Ê½¿ÉÒÔÊÇÁ¢¼´ÊýÑ°Ö·Ò²¿ÉÒÔÊÇÖ±½ÓÑ°Ö·£©£¬Ò»¸öÊÇ¹¤×÷¼Ä´æÆ÷£¨Ô­²Ù×÷ÊýÖ»ÄÜÊÇÁ¢¼´ÊýÑ°Ö·£©¡£
+</p>
+
+
+
+
+<h3 id="toc_1.0.1">¶ÑÕ»ÀàÖ¸Áî</h3>
+<p>
+¶ÑÕ»²Ù×÷Ö¸Áî£ºPUSH,POP,PUSHºÍPOPºóÃæ±ØÐëÊÇ´æ´¢Æ÷£¬²»ÄÜÊÇ¼Ä´æÆ÷×é¡£
+±ÈÈçÏÂÃæµÄÊÇ²»ºÏ·¨µÄ£º
+	 PUSH A
+	 PUSH R0
+	 POP A
+</p>
+
+<p>
+spÈç¹û¸´Î»£¬ÆäÖµ±äÎª07H
+</p>
+
+<h4 id="toc_1.0.1.1">ÔËËãÀàÖ¸Áî</h4>
+<p>
+ÔËËãÀà£º
+¼Ó¼õ·¨Ö¸Áî±ØÐëÓÐA
+ADDC,¿¼ÂÇ½øÎ»Î»
+SUBB£¬ÊÇ´ø½èÎ»µÄ¼õ·¨¡£
+DEC,¼õÒ»Ö¸Áî
+MUL,³Ë·¨Ö¸Áî
+DIV,³ý·¨Ö¸Áî
+</p>
+
+<p>
+Âß¼­Àà£º
+CPL A£¬AÖÐµÄÄÚÈÝÈ¡·´¡£
+RL,Ñ­»·×óÒÆ
+RR,Ñ­»·ÓÒÒÆ
+RLC,´ø½øÎ»Ñ­»·ÓÒÒÆ¡£
+RRC,´ø½øÎ»Ñ­»·×óÒÆ¡£
+SWAP£¬AÖÐµÄ¸ßËÄÎ»ºÍµÍËÄÎ»Ïà»¥½»»»¡£
+ANL,Óë
+ORL,»ò
+XRL,Òì»ò
+</p>
+
+
+<p>
+Î»²Ù×÷ÀàÖ¸Áî£º
+´«ËÍÀàÆäÖÐÒ»¸ö±ØÊÇ²¼¶ûÀÛ¼ÓÆ÷¼´½øÎ»Î»C
+JC:Èç¹û½øÎ»±êÖ¾Î»1£¬×ªÒÆ
+JNC:Ïà·´
+JB£ºÖ±½ÓÑ°Ö·Î»1£¬×ªÒÆ
+</p>
+
+<h5 id="toc_1.0.1.1.1">½»»»ÀàÖ¸Áî</h5>
+<p>
+½»»»ÀàÖ¸ÁîµÄÄ¿µÄ²Ù×÷ÊýÒ²±ØÐëÊÇA
+XCH ×¢Òâ²»ÄÜÖ±½ÓÑ°Ö·¡£XCHD A,@Ri£¨0~3£©±íÊ¾µÄÊÇAµÄµÍËÄÎ»ºÍRiµÄµÍËÄÎ»»¥»»¡£
+</p>
+
+<p>
+ÎÊÌâ£º
+</p>
+<ul>
+<li>
+ËùÎ½µÄÍâ²¿´æ´¢Æ÷¾ÍÊÇROMÂð£¿
+
+<li>
+´ð£º²»ÊÇ£¬Íâ²¿´æ´¢Æ÷ÓÐRAMºÍROM,ÄÚ²¿Ò²ÓÐRAMºÍROM
+
+</ul>
+
+<p>
+ÔõÃ´Çø·ÖÊÇ·ÃÎÊµÄÊÇÆ¬ÄÚRAM£¬ROM,Æ¬ÍâRAM,ROM
+(1)¿´ËùÈ¡µÄ³ÌÐòÊÇÆ¬ÄÚµÄ»¹ÊÇÆ¬ÍâµÄ£¬¾Í¿´/EAµÄÖµ¡£Èç¹û/EAÎª0¾ÍÊÇÆ¬Íâ¡£
+(2)ËùÈ¡µÄÊý¾ÝÊÇÆ¬ÄÚµÄ»¹ÊÇÆ¬ÍâµÄ£¬¾Í¿´Ö¸Áî£¬Èç¹ûÊÇÆ¬ÍâµÄ¾ÍÊÇMOVX,Æ¬ÄÚµÄÊÇMOV
+(3)¿´
+</p>
+
+
+<p>
+·ÃÎÊÍâ²¿RAM(·´ÕýÊÇ´æ´¢¿Õ¼äµÄÊÇºó)£¬MOVX A£¬ @DPTR¡£°ÑÍâ²¿RAMµØÖ·ÎªDPTRÀïÃæµÄÄÚÈÝËÍµ½AÀïÃæ¡£¾ÍÊÇ´«ËÍÊý¾Ý£¬´«ËÍÊý¾ÝÖ®Ç°ÏÈ´«ËÍµØÖ·£¬µØÖ·ÊÇDPTRµÄÖµ£¬ÆäÊµ¾ÍÊÇÑ¡ÔñÄ³¸öÐ¾Æ¬£¬ËÍÆ¬Ñ¡ÐÅºÅ¹ýÈ¥¶øÒÑ¡£ÓÐÊ±Ò»¸öµØÖ·¿ÉÒÔÆ¬Ñ¡ºÜ¶à¶«Î÷(µ«²»¹ÜÔõÑù¶¼ÊÇÆ¬Ñ¡)£¬ÀýÈç£¬8155HÐ¾Æ¬µÄ#7F00H 7FÊÇÐ¾Æ¬µÄ£¬00ÊÇÐ¾Æ¬ÄÚ²¿µÄ¿ØÖÆ×Ö¼Ä´æÆ÷¡£
+</p>
+
+<button class="back_to_top">è¿”å›žé¡¶éƒ¨</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+Â© <span id="year">2018</span> æƒŸé£˜äº‘-ä¸å¿˜åˆå¿ƒ!ç ¥ç ºå‰è¡Œ
+</p>
+</body>
+</body>
+</html>

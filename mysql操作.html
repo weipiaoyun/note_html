@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>mysql操作</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+using System;
+using System.Configuration;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+/// &lt;summary&gt;
+/// TestDatebase 的摘要说明
+/// &lt;/summary&gt;
+public class TestDatebase
+{
+</p>
+<blockquote>
+public TestDatebase()
+{
+//
+// <span class="todo">TODO:</span> 在此处添加构造函数逻辑
+//
+}
+public static void Main(String[] args)
+{
+MySqlConnection mysql = getMySqlCon();
+//查询sql
+String sqlSearch = "select * from student";
+//插入sql
+String sqlInsert = "insert into student values (12,'张三',25,'大专')";
+//修改sql
+String sqlUpdate = "update student set name='李四' where id= 3";
+//删除sql
+String sqlDel = "delete from student where id = 12";
+//打印SQL语句
+Console.WriteLine(sqlDel);
+//四种语句对象
+//MySqlCommand mySqlCommand = getSqlCommand(sqlSearch, mysql);
+//MySqlCommand mySqlCommand = getSqlCommand(sqlInsert, mysql);
+//MySqlCommand mySqlCommand = getSqlCommand(sqlUpdate, mysql);
+MySqlCommand mySqlCommand = getSqlCommand(sqlDel, mysql);
+mysql.Open();
+//getResultset(mySqlCommand);
+//getInsert(mySqlCommand);
+//getUpdate(mySqlCommand);
+getDel(mySqlCommand);
+//记得关闭
+mysql.Close();
+String readLine = Console.ReadLine();
+}
+/// &lt;summary&gt;
+/// 建立mysql数据库链接
+/// &lt;/summary&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+public static MySqlConnection getMySqlCon()
+{
+String mysqlStr = "Database=test;Data Source=127.0.0.1;User Id=root;Password=root;pooling=false;CharSet=utf8;port=3306";
+// String mySqlCon = ConfigurationManager.ConnectionStrings["MySqlCon"].ConnectionString;
+MySqlConnection mysql = new MySqlConnection(mysqlStr);
+return mysql;
+}
+/// &lt;summary&gt;
+/// 建立执行命令语句对象
+/// &lt;/summary&gt;
+/// &lt;param name="sql"&gt;&lt;/param&gt;
+/// &lt;param name="mysql"&gt;&lt;/param&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+public static MySqlCommand getSqlCommand(String sql, MySqlConnection mysql)
+{
+MySqlCommand mySqlCommand = new MySqlCommand(sql, mysql);
+//  MySqlCommand mySqlCommand = new MySqlCommand(sql);
+// mySqlCommand.Connection = mysql;
+return mySqlCommand;
+}
+/// &lt;summary&gt;
+/// 查询并获得结果集并遍历
+/// &lt;/summary&gt;
+/// &lt;param name="mySqlCommand"&gt;&lt;/param&gt;
+public static void getResultset(MySqlCommand mySqlCommand)
+{
+MySqlDataReader reader = mySqlCommand.ExecuteReader();
+try
+{
+while (reader.Read())
+{
+if (reader.HasRows)
+{
+Console.WriteLine("编号:" + reader.GetInt32(0) + "|姓名:" + reader.GetString(1) + "|年龄:" + reader.GetInt32(2) + "|学历:" + reader.GetString(3));
+}
+}
+}
+catch (Exception)
+{
+Console.WriteLine("查询失败了！");
+}
+finally
+{
+reader.Close();
+}
+}
+/// &lt;summary&gt;
+/// 添加数据
+/// &lt;/summary&gt;
+/// &lt;param name="mySqlCommand"&gt;&lt;/param&gt;
+public static void getInsert(MySqlCommand mySqlCommand)
+{
+try
+{
+mySqlCommand.ExecuteNonQuery();
+}
+catch (Exception ex)
+{
+String message = ex.Message;
+Console.WriteLine("插入数据失败了！" + message);
+}
+</blockquote>
+<blockquote>
+}
+/// &lt;summary&gt;
+/// 修改数据
+/// &lt;/summary&gt;
+/// &lt;param name="mySqlCommand"&gt;&lt;/param&gt;
+public static void getUpdate(MySqlCommand mySqlCommand)
+{
+try
+{
+mySqlCommand.ExecuteNonQuery();
+}
+catch (Exception ex)
+{
+String message = ex.Message;
+Console.WriteLine("修改数据失败了！" + message);
+}
+}
+/// &lt;summary&gt;
+/// 删除数据
+/// &lt;/summary&gt;
+/// &lt;param name="mySqlCommand"&gt;&lt;/param&gt;
+public static void getDel(MySqlCommand mySqlCommand)
+{
+try
+{
+mySqlCommand.ExecuteNonQuery();
+}
+catch (Exception ex)
+{
+String message = ex.Message;
+Console.WriteLine("删除数据失败了！" + message);
+}
+}
+</blockquote>
+<p>
+}
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

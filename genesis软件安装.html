@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>genesis软件安装</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">genesis装PDF</h1>
+<p>
+拷贝ps2pdf  ps_merge ps_preview ps_tile
+ps2pdf的set pstill_converter_dir  = "D:/GPStill"路径修改
+夹子拷贝GPStill
+PStillV1.72.8
+</p>
+
+<p>
+<a href="genesisWindows板网络板.html">genesisWindows板网络板</a><br>
+vi inittab
+reboot
+./NVIDIA_Linux~.run
+vi inittab
+reboot
+tar -zxvf odbc-dghdi.tgz
+csh installODBC.csh
+csh installGtk.csh
+install Config-IniFiles-2.38
+install Switch-2.13 perl Makefile.PL &amp;&amp; make &amp;&amp; make test &amp;&amp; make install
+install Text-shellwords-1.08
+这里可能要先安装libX11
+install Tk-804.030
+setup
+cd /gen_db/IMgr
+install autofs
+install ypbind
+ln -s /gen_db/odb1 fw
+ln -s /gen_db/genesis/hosts
+ln -s /gen_db/genesis/logs
+ln -s /gen_db/genesis/sys
+ln -s /tmp
+mkdir share
+cd share
+ln -s /gen_db/genesis/share/.angle1
+ln -s /gen_db/genesis/share/.loks
+ln -s /gen_db/genesis/share/baju
+ln -s /gen_db/genesis/share/groups
+ln 
+scp cam03:/genesis/share/.comms .
+vim /etc/i18n
+scp c
+</p>
+
+
+<p>
+rpm -ivh createrepo
+createrepo -g ~/comps-rh
+</p>
+
+<p>
+1, linux系统安装与配置
+		安装nvidia
+		cd hcinstall
+		cd nvidia
+		./NVIDIA-Linux-x86_64-319.17.run
+	1，安装好后先把libXp和libstdc++装好<a href="yum源.html">yum源</a><br>
+	2，设置好网络 <a href="linux网络与共享.html">linux网络与共享</a><br>
+	3，配置好hostname(/etc/sysconfig/network)<a href="hostname.html">hostname</a><br>和/etc/hosts<a href="hosts.html">hosts</a><br>
+	4, 配置genesis帐号 <a href="linux用户管理.html">linux用户管理</a><br>
+	5，安装软件
+		1,Name:app_gen
+		2,Version:v100
+		3,O.S.:linux
+		4,安装服务器版本
+	5, 拷贝license,get,gnd
+	7, 拷贝
+	8, 安装odbc，在安装之前需要安装DBI <a href="DBD和DBI的安装.html">DBD和DBI的安装</a><br> <a href="odbc安装.html">odbc安装</a><br>
+<a href="odbc安装.html">odbc安装</a><br>
+2，安装完后把app_gen考过去，重新启动，登录genesis，帐号为sys。
+</p>
+
+<p>
+前后注意genesis的权限问题
+/genesis里面所有的权限为 genesis:users 755
+</p>
+
+
+<p>
+3，处理错误
+	a,安装Tk-804.030.tar.gz
+	b,安装Text-Shellwords-1.08.tar.gz
+		tar -xvzf Text-Shellwords-1.08.tar.gz
+		cd Text-Shellwords-1.08
+		perl Makefile.PL
+		make install
+		perl -e "use Text::Shellwords"
+	c,安装Switch-2.13.tar.gz
+	d,修改/etc/sysconfig/i18n
+</p>
+	
+
+<p>
+1,防火墙和selinux问题
+2,账号
+3，权限
+</p>
+<h2 id="toc_1.1">genesis修改Ip</h2>
+<p>
+1，修改主机的IP /etc/sysconfig/network-scripts/eth0-ifg
+2, 修改hosts文件 /etc/hosts
+3, 修改/genesis/share/.command里面的gnd
+</p>
+	
+
+<h2 id="toc_1.2">客户端安装</h2>
+<p>
+1，网络设置;(修改IP地址)
+2，更改主机名。(建立或重设genesis帐号名)
+3，在根目录新建genesis和gen_db文件夹
+4，在gen_db里面设置自动mount;autofs
+5, 拷贝e100，e93到/genesis目录下，并链接其它文件
+6，/usr/lib/libXp.so.6拷贝
+7，拷贝主目录下面的.cshrc
+8, 拷贝/usr/bin/MainWindow(程序主界面)
+10，安装Tk模块
+11，安装Text-ShellWords-1.08
+12，启动
+</p>
+
+<h2 id="toc_1.3">92版本转为97版本</h2>
+<p>
+1，拷贝e97
+2，拷贝share/license
+3, 终端进入D:/genesis/e97/gnd
+	gnd -remove
+	gnd -install
+4，修改环境变量
+5，控制面板-&gt;管理工具-&gt;服务-&gt;Frontline gnd 重新启动
+6，注释掉D:/genesis/sys/frontline_prog，以防dfm更新错误，执行出错
+7, 修改启动文件
+</p>
+
+<h2 id="toc_1.4">禁止的服务</h2>
+<p>
+/sbin/chkconfig blutetooth off
+/sbin/chkconfig cpuspeed off
+ip6tables off
+iscsi off
+iscsid off
+isdn off
+sendmail off
+xinetd off
+yum_updatesd
+</p>
+
+<h2 id="toc_1.5">问题</h2>
+<p>
+如果服务器不让mount上去
+	修改Ip以后能mount上去
+</p>
+
+<h2 id="toc_1.6">待解决</h2>
+<p>
+小键盘
+</p>
+
+
+
+<h1 id="toc_2">安装itcl</h1>
+<p>
+tclConfig的路径，在/usr/lib
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

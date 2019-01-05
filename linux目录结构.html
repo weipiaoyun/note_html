@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>linux目录结构</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+基本的linux目录结构
+/bin: linux的实用程序，binary，其是二进制形式的程序
+/dev:设备驱动程序
+</p>
+
+
+<p>
+/bin,/sbin,/usr/bin,/usr/sbin区别
+/  : this is root directory                root 用户根目录
+/bin : commands in this dir are all system installed user commands    系统的一些指令
+/sbin:  commands in this dir are all system installed super user commands  超级用户指令系统管理命令，这里存放的是系统管理员使用的管理程序 
+/usr/bin: user commands for applications  后期安装的一些软件的运行脚本
+/usr/sbin: super user commands for applications  超级用户的一些管理程序
+/usr/X11R6/bin : X application user commands
+/usr/X11R6/sbin: X application super user commands
+</p>
+
+
+<p>
+Linux 中的某些重要的目录：
+•主目录：/root、/home/username
+•用户可执行文件：/bin、/usr/bin、/usr/local/bin
+•系统可执行文件：/sbin、/usr/sbin、/usr/local/sbin
+•其他挂载点：/media、/mnt
+•配置：/etc
+•临时文件：/tmp
+•内核和Bootloader：/boot
+•服务器数据：/var、/srv
+•系统信息：/proc、/sys
+•共享库：/lib、/usr/lib、/usr/local/lib
+</p>
+
+
+
+
+<p>
+/bin: linux的实用程序，binary，其是二进制形式的程序
+/dev:设备驱动程序
+/etc: 包含基本linux配置命令，包括口令、Apache和Samba之类监控程序和X窗口有关的配置命令。
+/	/home	/home/genesis等用户名	/home/genesis/.history		
+	/genesis（软连接，是frontline里面的app_gen）	/genesis/sys	/genesis/sys/hooks		
+		/genesis/EngDataServer			
+	/gen_db(genesis data base) 里面的不是本身实际的空间，而是其他地方挂载到该地方的。	/gen_db/cam101	Mount Cam101：/frontline		
+		/gen_db/cam103	MountCam103:/frontline		
+		/gen_db/engTools	Mount cam109: /frontline/engine……		
+		/gen_db/share	Mount cam101:
+/genesis/share		
+		/gen_db/workfile			
+	/frontline(genesis软件的安装与备份)	/front_line/app_gen(genesis application)			
+		Lost+fond			
+</p>
+					
+<p>
+	/usr(用户文档)	/usr/bin(用户安装的二进制文档)			
+	/bin
+</p>
+				
+<p>
+	/etc
+	Hosts(计算机名)			
+		/etc/sysconfig	/etc/sysconfig/network		
+	/boot
+</p>
+				
+<p>
+<a href="根目录.html">根目录</a><br>
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

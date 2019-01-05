@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>gridControl</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">GridControl和GridView之间的关系</h1>
+<p>
+GridControl只控制数据，不显示数据
+GridView负责显示数据，所以要控制显示，就要控制GridView控件
+</p>
+
+
+<p>
+sqlGridControl里面有对gridview的设置，对列进行设置。
+</p>
+
+<h1 id="toc_2">1,AutoLoad 获取Guid_对应的datarow</h1>
+
+<p>
+当点击钻孔的时候，会触发事件改变，此时需要获取到焦点行。当点击钻带时，会自动更改钻孔触发改变事件，而焦点还是原来的焦点，此时需要更改焦点。
+</p>
+
+<p>
+点击时获取当前行的Guid_
+</p>
+
+<h1 id="toc_3">GridColumn</h1>
+<p>
+对guidColumn的一些设置，比如：描述，字段名，名，是否可见，可见顺序，是否只读，是否允许编辑。
+</p>
+
+
+<h2 id="toc_3.1">获取一行数据</h2>
+<p>
+DataRow aa = sqlGridControl1.View_.GetDataRow(sqlGridControl1.View_.FocusedRowHandle);
+</p>
+<h1 id="toc_4">GetFocusedRowCellValue</h1>
+
+<h2 id="toc_4.1">获取某数字列的数据</h2>
+<p>
+(view.GetRowCellValue(0, "Guid_")).ToString()
+</p>
+
+<h2 id="toc_4.2">事件</h2>
+<p>
+View.CustomDrawCell		显示每个细胞时
+view.CellValueChanged	配置更改值触发
+view.CustomColumnDisplayText  配置显示的文字时触发
+View_.RowCountChanged	行改变时  e.Column.Name  Appearance.ForeColor, e.Appearance.Options.UseForeColor
+	设置字体e.Column.AppearanceCell.Font.SetAttachedProperty e.Column.AppearanceCell.Options.UseFont  设为粗体
+View_.MouseUp	鼠标点击提起时
+View_.RowClick	点击行是
+</p>
+
+<p>
+#定制指示器，行号
+this.gridViewMake.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewMake_CustomDrawRowIndicator);
+</p>
+
+
+<h1 id="toc_5">属性</h1>
+<p>
+View_.OptionsCustomization.AllowSort = false
+View_.FocusedRowHandle 焦点行句柄
+gridView1.OptionsView.ColumnAutoWidth = true
+gridcontrol --&gt;gridview --&gt;OptionsBehavior --&gt;Editable=false 单元格不可编辑
+Gridview-&gt;Option View-&gt;Show Group Panel=false  //Group by that Column 设置成false
+</p>
+
+<p>
+设置奇、偶行交替颜色
+（1） OptionsView.EnableAppearanceEvenRow = true；OptionsView.EnableAppearanceOddRow = true;
+（2） 设置Appearance.EvenRow.BackColor和Appearance.OddRow.BackColor
+</p>
+
+
+<h2 id="toc_5.1">设置是否显示序号</h2>
+<p>
+this.sqlGridControlWaitingReceive.View_.OptionsView.ShowIndicator
+</p>
+
+<h2 id="toc_5.2">方法</h2>
+<p>
+BestFitColumns(); 所有列：最好的适应列(//自动调整所有字段宽度)
+//调整某列字段宽度
+this.gridView1.Columns[n].BestFit();
+View_.FocusedColumn.FieldName;焦点列的字段名
+</p>
+
+<p>
+this.textBox1.Text = gridView2.GetDataRow(e.RowHandle)["列名"].ToString();//获取某列的数据
+</p>
+
+
+<h1 id="toc_6">固定</h1>
+<p>
+//左边固定
+View_.Columns["selectNum_"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+</p>
+
+<h2 id="toc_6.1">焦点行改变</h2>
+<p>
+ this.sqlGridControl2.View_.FocusedRowChanged += new FocusedRowChangedEventHandler(ChangDrillLayerInfo);
+</p>
+ 
+<h1 id="toc_7">boundGridView</h1>
+<p>
+this.bgvCamDispatchTmpJobList.Grid_.DataSource = ds.Tables[1];
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

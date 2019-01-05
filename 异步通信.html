@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>异步通信</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+发送端不需要在发送一帧之前和接收端进行协调
+</p>
+
+<p>
+空闲位一般是高电位。传送数据，出现了低电位。就是起始位。数据传送结束后。奇偶校验位后面往往以停止位结束。是高电位。一帧以低电位开始。。以高电位结束。。 
+</p>
+
+<p>
+保证两者是已经连接好，也就是接收放随时都准备好接收数据。在没有数据通信的时候线路上是高电平的，当出现低电平(起始位)的时候，接收方会检测到，然后就启动移位寄存器。接收方和发送方的移位寄存器就开始工作，发送方的数据放到了接受方的缓存里面。注意这是相当于同步的。同步和异步的不同在于时钟源的不同。
+</p>
+
+<p>
+当然，接收端必须时刻做好接收的准备（如果接收端主机的电源都没有加上，那么发送端发送字符就没有意义，因为接收端根本无法接收）。
+其他引脚
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>HX</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">全局参数 </h1>
+<p>
+select d279.*,d278.PARAMETER_DESC
+	  FROM     sj_v20_live.dbo.Data0279 as d279
+	  inner join sj_v20_live.dbo.Data0025 as d25 on d25.RKEY = d279.SOURCE_PTR 
+</p>
+<blockquote>
+inner join sj_v20_live.dbo.data0278 as d278 on d278.RKEY = d279.PARAMETER_PTR 
+where d25.MANU_PART_NUMBER like 's08i001815' and d278.PARAMETER_DESC like '%孔%'
+</blockquote>
+         
+
+<h1 id="toc_2">流程参数 </h1>
+<p>
+update Data0494 SET PARAMETER_VALUE = '0.13' WHERE  rkey = (
+		select d494.RKEY
+</p>
+
+<p>
+	  FROM     Data0050 as d50
+	  inner join Data0025 as d25 on d50.RKEY = d25.ANCESTOR_PTR
+</p>
+<blockquote>
+INNER JOIN  dbo.Data0038 AS D38 ON d25.RKEY = D38.SOURCE_PTR
+</blockquote>
+<p>
+		 INNER JOIN dbo.Data0494  as d494 on d494.ROUTE_STEP_PTR = D38.RKEY
+		 INNER JOIN  dbo.Data0278 AS D278 ON D494.PARAMETER_PTR = D278.RKEY
+		 INNER JOIN  dbo.Data0034 AS D34 ON D34.RKEY = d38.DEPT_PTR
+</p>
+		
+<p>
+		where d50.CUSTOMER_PART_NUMBER + d50.CP_REV = 's08i001815a0' and d278.RKEY = '2222'
+</p>
+
+
+
+<p>
+select d25.MANU_PART_NUMBER ,d494.PARAMETER_VALUE,d278.PARAMETER_DESC,d278.RKEY ,d38.STEP_NUMBER,d34.DEPT_NAME,d38.FLOW_NO
+</p>
+
+<p>
+	  FROM     Data0050 as d50
+	  inner join Data0025 as d25 on d50.RKEY = d25.ANCESTOR_PTR
+</p>
+<blockquote>
+INNER JOIN  dbo.Data0038 AS D38 ON d25.RKEY = D38.SOURCE_PTR
+</blockquote>
+<p>
+		 INNER JOIN dbo.Data0494  as d494 on d494.ROUTE_STEP_PTR = D38.RKEY
+		 INNER JOIN  dbo.Data0278 AS D278 ON D494.PARAMETER_PTR = D278.RKEY
+		 INNER JOIN  dbo.Data0034 AS D34 ON D34.RKEY = d38.DEPT_PTR
+		where d50.CUSTOMER_PART_NUMBER like '%s08i001815%'
+		order by d38.STEP_NUMBER
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

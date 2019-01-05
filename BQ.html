@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>BQ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">CAM_Guid</h1>
+<h2 id="toc_1.1">阻焊转pad</h2>
+<p>
+选择线和弧
+DFM-&gt;Cleanup-&gt;Construct Pads(Ref.)...
+</p>
+
+<h2 id="toc_1.2">线路转pad</h2>
+<p>
+循环所有的行，如果为线路，且为顶底层，则转PAD
+DFM-&gt;Cleanup-&gt;Construct Pads(Auto.)
+</p>
+
+<h2 id="toc_1.3">正负叠加</h2>
+<p>
+就是负片优化
+把所有的非文字的负片选中(文字最好不转)，然后把铜皮正片选中，转铜
+</p>
+
+<h2 id="toc_1.4">外框转槽</h2>
+<p>
+铜皮也可以
+铜皮-&gt;DFM-&gt;Cleanup-&gt;Construct Pads(Auto.)自动转pad-&gt;break(打散成线)-&gt;获取线的大小-&gt;转换成槽的symbol
+</p>
+
+
+
+<h1 id="toc_2">函数</h1>
+<p>
+PROC_ROUT_PREHOLE	加拐角孔
+</p>
+
+
+<h1 id="toc_3">板边</h1>
+<h2 id="toc_3.1">函数</h2>
+<p>
+PROC_RUN_ROUT 添加锣边框
+</p>
+
+<h1 id="toc_4">变量</h1>
+<p>
+$GET_yp  是否样品拼版
+sjTIME	时间
+lb_size 左边留边
+</p>
+
+<p>
+Panel_x panel X的尺寸
+</p>
+
+<p>
+NPW 同心圆负量
+</p>
+
+
+<p>
+制作RBK
+RORC_FZ_CREATERBK
+PROC_RUN_ROUT \(Bw_x1 \)Bw_x2 \(Bw_y1 \)Bw_y2 $Bw_y3 rbk  转换成变量
+</p>
+
+<p>
+PROC_RUN_ROUT \(Bw_x1 \)Bw_x2 \(Bw_y1 \)Bw_y2 \(Bw_y3 \)lay_name
+PROC_ADD_ARC \(dtCirA \)inner_maoa_y \(dtCirA \)inner_maoa_y \(inner_maoa_x \)inner_maoa_y r200 positive cw
+</p>
+
+<p>
+\(vYCount \)zh_vcut_xcount \(zh_vcut_x2 \)inner_maob_x2
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

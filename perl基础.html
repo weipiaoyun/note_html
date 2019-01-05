@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>perl基础</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="perl理解.html">perl理解</a><br>
+<a href="perl变量.html">perl变量</a><br>
+<a href="perl运算符.html">perl运算符</a><br>
+<a href="perl列表数组哈希.html">perl列表数组哈希</a><br>
+<a href="引用与结构.html">引用与结构</a><br>
+<a href="perl操作符.html">perl操作符</a><br>
+<a href="perl面向对象.html">perl面向对象</a><br>
+<a href="perl模块.html">perl模块</a><br>
+<a href="perl函数.html">perl函数</a><br>
+<a href="perl特殊命令.html">perl特殊命令</a><br>
+<a href="shift.html">shift</a><br>
+<a href="perl注意.html">perl注意</a><br>
+<a href="perl存储.html">perl存储</a><br>
+<a href="perl的目录操作.html">perl的目录操作</a><br>
+<a href="正则表达式.html">正则表达式</a><br>
+</p>
+
+
+<h2 id="toc_0.1">perl特殊命令</h2>
+<p>
+	%aa = (bb =&gt; [a, c, b], ee =&gt; ff);
+	$cc = \%aa;
+	\(genesis-&gt;PAUSE("@{\)$cc{bb}}");
+	\(genesis-&gt;PAUSE("@{\)aa{bb}}");	
+</p>
+	
+<p>
+	%aa = (bb =&gt; [a, c, b], ee =&gt; ff);一键对一值，bb =&gt; [a, c, b]中的[a, c, b]是个指向数组的引用，类型为scale。注意：里面的时一一对应关系，不会是一对多。
+	名称表地址$cc表示的是aa
+	键值有两种情况：标量数值，数组或哈希的引用。
+</p>
+
+<p>
+	genesis是一个scalar，其是一个变量名，内容为0x1d9b86c，是个引用,指向一个无名哈希。$\(genesis{doinfo}或者\)genesis-&gt;{doinfo}，为哈希值，其也是一个scalar，就是一个地址，这地址指向无名哈希，通过该地址可求出某个键的值。
+</p>
+	
+<p>
+	%aa = (bb =&gt; [hong, tian, liang], ee =&gt; ff);
+	my %tmp;
+	@tmp{@{$aa{"bb"}}} = qw(ha hi ho);
+	@known_opt{@KnownOptIn, @KnownOptOut} = ("aaa") x 100;
+</p>
+	
+<p>
+	print Dumper(@tmp{hong, tian});##打印出来时ha，hi
+	如果是取哈希的单个值，直接用$tmp{}表示，如果是取哈希的多个值，那么用@tmp{多个键值}，表示的是多个键所对应的值所组成的数组
+	变量前面加反斜杠，表示取址
+</p>
+	
+<p>
+   qw/1 2 3 4 5/ 省去单引号和逗号的列表
+</p>
+   
+<p>
+   -font=&gt;[](数组的引用)
+</p>
+   
+<p>
+	perl函数如果能区分什么是参数，就没有必要加括号。
+	sort 子程序或代码块list，后面必须要用括号扩住。
+</p>
+	
+<p>
+	\(h-&gt;{aa}-&gt;{bb}.\)h是引用第一个箭头不能省略，如果省略编程\(h{aa}-&gt;{bb}.\)h不是引用，而是一个变量。由于\(h-&gt;{aa}不管怎样只要后面也是下标都表示引用(不像\)h，h有可能是变量，有可能是引用)。故可以省略左右都是下标的箭头。
+</p>
+	
+<p>
+	标量和引用之间很明显的不同在于引用表示某种类型。可以用ref来返回该引用所指向的数据的类型。
+</p>
+   
+<h2 id="toc_0.2">Exporter 类 (共享包的函数)</h2>
+<p>
+exporter类提供了共享函数的方法
+在包里面需要三个语句和一个函数：
+	require Exporter;
+	our @ISA = qw(Exporter);
+	our @EXPORT = qw(function);
+</p>
+	
+<p>
+	sub function{
+		……
+	}
+</p>
+	
+<p>
+使用的时候需要使用use 包名 qw(function);(前面要包含包地址)
+然后可以直接使用该函数
+	function();
+</p>
+	
+<p>
+@EXPORT = qw(Exists Ev exit MainLoop DoOneEvent tkinit haha);EXPORT数组里面的函数是外部可用的函数
+</p>
+
+<p>
+my %hash = qw(aa bb cc dd ee ff);
+while (my (\(key, \)val) = each %hash) {
+	print "\(key =&gt; \)val\n";
+}
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

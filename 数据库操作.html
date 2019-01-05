@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>数据库操作</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<p>
+1,使用sqlconnection对象连接数据库(连接数据库)
+2，建立sqlcommand对象，负责SQL语句的执行和存储过程的调用(执行SQL语句)
+	如果只需执行SQL语句或者SP，没有必要用到DataAdapter，直接用sqlCommand的Execute。
+3，对SQL或存储过程执行后返回的结果进行操作(处理返回结果)
+	a，用sqlDataReader一行一行读取数据集。(时刻和远程保持连接，将远程的数据通过'流'的形式传输给客户端，它是只读的。效率高，但使用起来不方便)<a href="sqlDataReader.html">sqlDataReader</a><br>
+	b，dataset联合sqldataAdapter (使用方便，性能稍差)
+		DataSet：(数据集合)，内存中的数据库。<a href="DataSet.html">DataSet</a><br>
+		SqlDataAdapter (sql数据适配器) DataSet和SQL Server之间的桥接器<a href="SqlDataAdapter.html">SqlDataAdapter</a><br>
+</p>
+		
+<p>
+		DataSet  --adapter.fill(dataset)更新---&gt; SqlServer
+</p>
+		
+<p>
+<a href="DataTable.html">DataTable</a><br>
+</p>
+
+
+<p>
+ExecuteScalar
+sqlCommand.ExecuteNonQuery();
+</p>
+
+
+
+<p>
+<a href="判断用户密码是否正确.html">判断用户密码是否正确</a><br>
+<a href="mysql操作.html">mysql操作</a><br>
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

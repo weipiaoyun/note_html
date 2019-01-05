@@ -1,0 +1,522 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>ERP数据库</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<h1 id="toc_1">志浩字段</h1>
+<p>
+IMG_AREAPC:有效沉金面积 百分比 4a2584a0
+</p>
+
+<h1 id="toc_2">ERP查找工序代码</h1>
+<p>
+在工程设计-&gt;基础数据-&gt;工序代码设置里面查找
+ERP表关系
+</p>
+
+<p>
+Data0025，料号表，主键r_key, 当外键使用时字段名为SOURCE_PTR
+</p>
+
+<p>
+		sample_NR 负片
+Data0034, 工序表(哪个部门)(部门表)(哪个部门，部门名称)
+</p>
+
+<p>
+Data0038， 流程备注信息表(每个流程的加工指示)(某个料号，某个流程的备注信息)，且是流程序号表(工序流程表) ，查参数的时候，必须链接到某一特定工序
+		dbo.Data0025.RKEY = dbo.Data0038.SOURCE_PTR， 
+		dbo.Data0034.RKEY = dbo.Data0038.DEPT_PTR，
+		select d38.* from data0038 d38, data0025 d25 where d38.source_ptr = d25.rkey and d25.manu_part_number = 'TKH81055A0'
+</p>
+		
+<p>
+SELECT
+	dbo.Data0025.MANU_PART_NUMBER,
+	dbo.Data0034.DEPT_NAME,
+	dbo.Data0038.DEPT_PTR,
+	dbo.Data0034.TTYPE,
+	dbo.Data0034.DEPT_CODE
+</p>
+
+<p>
+FROM
+	dbo.Data0025
+	INNER JOIN dbo.Data0038 ON dbo.Data0025.RKEY = dbo.Data0038.SOURCE_PTR
+	INNER JOIN dbo.Data0034 ON dbo.Data0034.RKEY = dbo.Data0038.DEPT_PTR
+WHERE
+	dbo.Data0025.MANU_PART_NUMBER = 'tkhd101029a0'
+</p>
+	
+<p>
+	0025-&gt;0038-&gt;0034 <code>工序代码在0034，通过工序的具体信息才能找到工序代码，料号是和工序的具体信息联系在一起</code>
+</p>
+	
+<p>
+	<code>要找是否有Vcut，先要找到0034的工序代码，然后根据工序代码从0038里面找出是否有值，通过0038和料号连接在一起</code>
+</p>
+	
+		
+<p>
+Data0008，料号类型 六层盲孔板，产品名字
+</p>
+
+<p>
+Data0278，参数表，如底铜铜厚，pnl长度，pnl宽度(有参数名称，参数描述，参数所属组)
+Data0494, 参数表值，底铜铜厚2OZ，阻焊颜色，绿色，蓝色 字段custpart_ptr连接data0025的rkey (料号直接和参数值表连接，参数值表和参数表连接)
+		dbo.Data0025.RKEY = dbo.Data0494.custpart_ptr
+		dbo.Data0494.PARAMETER_PTR = dbo.Data0278.RKEY
+		STEP_NUMBER (工序的序号)
+</p>
+		
+<p>
+		25 - 38    料号-部门
+		0038(料号25.Rkey，部门rkey连接在一起 38.Source_ptr)   (料号rkey-部门rkey)
+		0494（部门38.SOURCE_PTR，参数278.RKEY, 值）
+		0034 (38.DEPT_PTR, 部门名称)
+		0278  参数
+</p>
+
+<p>
+Data0279，所有料号的全局参数，如底铜铜厚，pnl长度，pnl宽度  SOURCE_PTR:产品指针25.rkey（外键）PARAMETER_PTR:参数指针278.rkey
+</p>
+
+<p>
+Data0502，内层拼板信息，参数值
+</p>
+
+<p>
+Data0010, 客户信息，d10.RKEY = d25.CUSTOMER_PTR
+</p>
+
+<p>
+Data0005，员工信息，如名字，工号等
+</p>
+
+<p>
+Data0033, 靶距表
+</p>
+
+<p>
+Data0029表：钻嘴表
+</p>
+
+<p>
+	SELECT
+	count(*)
+	FROM
+	dbo.DATA0033
+	INNER JOIN dbo.Data0025 ON dbo.DATA0033.SOURCE_PTR = dbo.Data0025.RKEY
+	where dbo.Data0025.MANU_PART_NUMBER = '$h-&gt;{Job}'
+</p>
+
+<h2 id="toc_2.1">2014.1.1至今创建，BK4 芯板(板料厚度) &lt;= 0.3</h2>
+<p>
+		SELECT
+d494.PARAMETER_VALUE , d25.MANU_PART_NUMBER, d25.CUSTPART_ENT_DATE
+		FROM dbo.Data0038 d38
+		INNER JOIN dbo.Data0034 d34 ON d38.DEPT_PTR = d34.RKEY
+		INNER JOIN dbo.Data0025  d25 ON d25.RKEY = d38.SOURCE_PTR
+		INNER JOIN Data0494 d494 ON d38.SOURCE_PTR = d494.custpart_ptr AND d38.STEP_NUMBER = d494.step_number
+		INNER JOIN Data0278 d278 ON d494.PARAMETER_PTR = d278.RKEY
+		WHERE
+   d34.DEPT_CODE = 'CUT' and (d25.MANU_PART_NUMBER LIKE '%bk4%' and d278.PARAMETER_NAME like 'LAM_THK' and d494.PARAMETER_VALUE &lt; '0.3' and d25.MANU_PART_NUMBER not like '%.I%') and  d25.CUSTPART_ENT_DATE &gt;'2014-01-01' ORDER BY d25.CUSTPART_ENT_DATE
+</p>
+
+<h2 id="toc_2.2">2014.1.1至今创建，BKH4 完成板厚 &gt; 1.5</h2>
+<p>
+select d25.MANU_PART_NUMBER, d279.PARAMETER_VALUE, d25.CUSTPART_ENT_DATE from Data0025 d25
+INNER JOIN data0279  d279 on d279.SOURCE_PTR = d25.RKEY
+INNER JOIN data0278 d278 on d279.PARAMETER_PTR = d278.RKEY
+where d25.MANU_PART_NUMBER LIKE '%bkh4%' and d278.PARAMETER_DESC = '完成板厚' and d25.CUSTPART_ENT_DATE &gt;'2014-01-01' and d279.PARAMETER_VALUE &gt; '1.5'
+</p>
+
+
+<h2 id="toc_2.3">除了ASUS的所有防焊油墨颜色为亚光黑油的料号</h2>
+<p>
+select d25.MANU_PART_NUMBER, d494.PARAMETER_VALUE, d10.ABBR_NAME, d25.ORIG_CUSTOMER from 
+	Data0494  d494 LEFT JOIN
+	--data0278 d278 on PARAMETER_PTR d278.
+	Data0025 d25 on d494.custpart_ptr = d25.RKEY LEFT JOIN
+	Data0010 d10 on d10.RKEY = d25.CUSTOMER_PTR left JOIN
+	data0010 d10a on d10a.RKEY = d25.CUSTOMER_PTR
+where PARAMETER_VALUE like '%哑%' and PARAMETER_VALUE like '%黑色%' and d10.CUST_CODE not in (7347,7009,7325,7271,7346,7340) and d10a.CUST_CODE not in (7347,7009,7325,7271,7346,7340) 
+AND d25.ORIG_CUSTOMER not like '%ASUS%'
+</p>
+
+
+<h2 id="toc_2.4">材料为R-500 ZBH的料号</h2>
+<p>
+select d25.MANU_PART_NUMBER, d494.PARAMETER_VALUE from 
+Data0494  d494 left JOIN
+	Data0025 d25 on d494.custpart_ptr = d25.RKEY
+where PARAMETER_VALUE like '%R-500 ZBH%' 
+</p>
+
+
+
+
+<h1 id="toc_3">开料短边为412+-5,468+-5的所有料号</h1>
+<p>
+SELECT	d25.MANU_PART_NUMBER, d502.PNL_LEN, d502.PNL_WTH
+FROM		Data0025 d25 INNER JOIN
+data0502 d502 ON d25.RKEY = d502.SOURCE_PTR
+ WHERE		(d502.Pnl_wth BETWEEN (468-5) and (468+5) or d502.Pnl_wth BETWEEN (412 - 5) and (412+5))
+and d25.MANU_PART_NUMBER not like '%.I%'
+order by PNL_WTH, PNL_LEN
+</p>
+ 
+
+<h1 id="toc_4">表面处理为无铅喷锡流程</h1>
+<p>
+SELECT
+	dbo.Data0034.DEPT_NAME,
+	dbo.Data0034.DEPT_CODE,
+	dbo.Data0025.MANU_PART_NUMBER
+FROM
+	dbo.Data0038    --查出所有料号所有流程
+</p>
+	
+<p>
+INNER JOIN dbo.Data0034 ON dbo.Data0038.DEPT_PTR = dbo.Data0034.RKEY --具有DEPT流程的所有料号
+INNER JOIN dbo.Data0025 ON dbo.Data0025.RKEY = dbo.Data0038.SOURCE_PTR --查出料号
+</p>
+
+<p>
+WHERE
+	dbo.Data0034.DEPT_CODE = 'HALF' and (dbo.Data0025.MANU_PART_NUMBER  like '%bm%' or dbo.Data0025.MANU_PART_NUMBER like '%tm%')
+</p>
+
+
+<h1 id="toc_5">#搜寻工序流程</h1>
+<p>
+SELECT
+dbo.Data0034.DEPT_NAME,
+dbo.Data0038.STEP_NUMBER,
+dbo.Data0034.DEPT_CODE
+</p>
+
+<p>
+FROM
+dbo.Data0038
+INNER JOIN dbo.Data0034 ON dbo.Data0038.DEPT_PTR = dbo.Data0034.RKEY
+INNER JOIN dbo.Data0025 ON dbo.Data0025.RKEY = dbo.Data0038.SOURCE_PTR
+WHERE
+dbo.Data0025.MANU_PART_NUMBER = 'BKHB82292A0'
+</p>
+
+<h1 id="toc_6">查找pnl宽度</h1>
+<p>
+select d278.PARAMETER_NAME,d279.PARAMETER_VALUE from data0279 as d279, data0025 as d25,data0278 as d278 where d279.source_ptr = d25.rkey and d25.manu_part_number = 'bm82100a1' and d279.PARAMETER_PTR = d278.RKEY and d278.PARAMETER_NAME = 'PNL_WTH'
+</p>
+
+<h1 id="toc_7">是否存在文字镭射流程 </h1>
+<p>
+SELECT
+COUNT(*)
+FROM
+dbo.Data0038
+INNER JOIN dbo.Data0034 ON dbo.Data0038.DEPT_PTR = dbo.Data0034.RKEY
+INNER JOIN dbo.Data0025 ON dbo.Data0025.RKEY = dbo.Data0038.SOURCE_PTR
+WHERE
+dbo.Data0025.MANU_PART_NUMBER like '%84408%'  and dbo.Data0034.DEPT_CODE = 'SX_No.'
+</p>
+
+<h1 id="toc_8">获取最后一次锣边</h1>
+<p>
+		SELECT
+d494.PARAMETER_VALUE  
+		FROM
+		dbo.Data0038 d38
+		INNER JOIN dbo.Data0034 d34 ON d38.DEPT_PTR = d34.RKEY
+		INNER JOIN dbo.Data0025  d25 ON d25.RKEY = d38.SOURCE_PTR
+		INNER JOIN Data0494 d494 ON d38.SOURCE_PTR = d494.custpart_ptr AND d38.STEP_NUMBER = d494.step_number
+		INNER JOIN Data0278 d278 ON d494.PARAMETER_PTR = d278.RKEY
+		WHERE
+   d34.DEPT_CODE = 'PRR' and (d25.MANU_PART_NUMBER LIKE '%tkhb82533b0%' and (d278.PARAMETER_NAME ='RT_C' OR d278.PARAMETER_NAME ='RT_K' OR d278.PARAMETER_NAME = 'RT_SIZE'))
+</p>
+   
+
+<h1 id="toc_9">获取每次锣完后尺寸</h1>
+<p>
+SELECT      d25.MANU_PART_NUMBER,d34.DEPT_NAME,d34.DEPT_CODE,d278.PARAMETER_NAME,d278.PARAMETER_DESC , d494.PARAMETER_VALUE           
+FROM		Data0025 d25 INNER JOIN
+Data0038 d38 ON d25.RKEY = d38.SOURCE_PTR INNER JOIN
+Data0494 d494 ON d38.SOURCE_PTR = d494.custpart_ptr AND 
+d38.STEP_NUMBER = d494.step_number INNER JOIN
+Data0034 d34 ON d38.DEPT_PTR = d34.RKEY INNER JOIN
+Data0278 d278 ON d494.PARAMETER_PTR = d278.RKEY
+WHERE     (d25.MANU_PART_NUMBER LIKE '%tkhb100576e0%' and (d278.PARAMETER_NAME ='RT_C' OR d278.PARAMETER_NAME ='RT_K' OR d278.PARAMETER_NAME = 'RT_NUM' OR d278.PARAMETER_NAME = 'RT_SIZE'))
+</p>
+
+
+<h1 id="toc_10">有二次干膜的华硕在线板</h1>
+<p>
+SELECT DISTINCT
+dbo.Data0034.DEPT_NAME,
+dbo.Data0038.STEP_NUMBER,
+dbo.Data0034.DEPT_CODE,
+dbo.Data0025.MANU_PART_NUMBER,
+dbo.Data0025.ORIG_CUSTOMER
+FROM
+dbo.Data0038
+INNER JOIN dbo.Data0034  ON dbo.Data0038.DEPT_PTR = dbo.Data0034.RKEY
+INNER JOIN dbo.Data0025 ON dbo.Data0025.RKEY = dbo.Data0038.SOURCE_PTR
+INNER JOIN dbo.Data0010 ON dbo.Data0010.RKEY = dbo.Data0025.CUSTOMER_PTR
+inner join dbo.data0006  on dbo.Data0025.rkey = dbo.data0006.bom_ptr
+inner join dbo.data0056  on dbo.data0056.wo_ptr = dbo.data0006.rkey
+where DEPT_CODE = 'df2' and (dbo.Data0025.ORIG_CUSTOMER like '%ASUS%' or dbo.Data0010.CUST_CODE IN ('7347','7009','7325','7271','7346','7340'))
+</p>
+
+<h1 id="toc_11">在线板</h1>
+<p>
+ select distinct d25.MANU_PART_NUMBER,d34.DEPT_NAME,d34.DEPT_CODE,d38.STEP_NUMBER
+</p>
+<blockquote>
+from [dbo].[data0006] d06
+inner join [dbo].[data0056] d56 on d56.wo_ptr = d06.rkey
+inner join [dbo].[data0025] d25 on d25.rkey = d06.bom_ptr
+inner join [dbo].[data0034] d34 on d34.rkey = d56.dept_ptr
+inner join [dbo].[data0038] d38 on d25.rkey = d38.SOURCE_PTR AND d34.RKEY = d38.DEPT_PTR
+</blockquote>
+
+
+<h1 id="toc_12">更新数据靶标数据</h1>
+<p>
+			update 
+			d494
+			set d494.PARAMETER_VALUE = '563.8'
+			FROM
+			dbo.Data0494 AS d494
+			INNER JOIN dbo.Data0025 AS d25 ON d25.RKEY = d494.custpart_ptr
+			INNER JOIN dbo.Data0278 AS d278 ON d494.PARAMETER_PTR = d278.RKEY
+			WHERE
+			d25.MANU_PART_NUMBER = 'TE4A2484B0'
+</p>
+<blockquote>
+and d278.PARAMETER_NAME = 'TARLENA';
+</blockquote>
+<p>
+			};
+</p>
+
+<h1 id="toc_13">更新靶距</h1>
+<p>
+update dbo.DATA0033  set YAB = '\(AB',XFB = '\)FB', XFC = '\(FC', XFG = '\)FG', XEA = '\(EA', XED = '\)ED' where dbo.DATA0033.SOURCE_PTR = '\(matrix_ref-&gt;[0][0]' and dbo.DATA0033.layer_remark = '\)tmp-&gt;[5]'
+</p>
+
+<h2 id="toc_13.1">#查找刀径个数，大小</h2>
+<p>
+SELECT
+dbo.Data0029.SEQ_NO,
+dbo.Data0029.SEQ_NR,
+dbo.Data0029.PANEL_A,
+dbo.Data0029.DRILL_DIA
+</p>
+
+<p>
+FROM
+dbo.Data0029
+INNER JOIN dbo.Data0025 ON dbo.Data0025.RKEY = dbo.Data0029.SOURCE_PTR
+WHERE
+dbo.Data0025.MANU_PART_NUMBER = 'BKHB82292A0'
+</p>
+
+
+
+<h1 id="toc_14">查询WIP</h1>
+<p>
+通过for xml 写到xml
+</p>
+<h2 id="toc_14.1">后面加个逗号，删除最后一个逗号</h2>
+<p>
+SELECT B.jobName_,LEFT(deptName_,LEN(deptName_)-1) as deptName_ FROM (
+	SELECT jobName_,
+</p>
+<blockquote>
+(SELECT deptName_+',' FROM [EngSys].[dbo].T_ppe_ErpWip
+WHERE jobName_=A.jobName_ 
+FOR XML PATH('')) 
+</blockquote>
+<p>
+			AS deptName_
+	FROM [EngSys].[dbo].T_ppe_ErpWip A 
+</p>
+	
+<p>
+	GROUP BY jobName_
+)B
+</p>
+
+
+<h2 id="toc_14.2">前面加分号，删除最前面分好</h2>
+<p>
+SELECT 
+jobName_
+,jobName_=stuff(
+	(select ';'+jobName_ from [EngSys].[dbo].T_ppe_ErpWip t where jobName_ = 'BM65085A0-EN'for xml path(''))
+	, 1, 1, ''
+)
+FROM [EngSys].[dbo].T_ppe_ErpWip 
+</p>
+
+
+
+<h1 id="toc_15">梅州 </h1>
+<p>
+--查有卤无卤
+select d25.manu_part_number,d278.PARAMETER_NAME,d279.*
+  from data0279 d279
+INNER JOIN  data0025 d25 ON d279.source_ptr = d25.rkey 
+INNER JOIN  data0278 AS D278 ON D278.RKEY = D279.PARAMETER_PTR
+WHERE d25.MANU_PART_NUMBER='TE4A2563A0'
+AND d278.PARAMETER_NAME = 'LMT_H'
+</p>
+
+
+
+<p>
+--否
+--深蓝
+--浅蓝
+--棕色
+--红色
+--银色
+--亮黑
+--哑黑
+--白色
+--黄色
+--亚黑
+</p>
+
+<p>
+--黑字
+--灰字
+--黄字
+</p>
+
+<p>
+--MI信息
+--是否添加MI信息框
+</p>
+
+<p>
+--角度
+</p>
+
+<p>
+--镜像
+</p>
+
+
+<p>
+--查防焊油墨颜色
+</p>
+
+
+<p>
+select d278.PARAMETER_NAME,d494.* from data0494 d494
+INNER JOIN  data0278 AS D278 ON D278.RKEY = d494.PARAMETER_PTR
+INNER JOIN data0025 d25 ON d494.custpart_ptr = d25.rkey 
+WHERE  d25.manu_part_number = 'TE4A2563A0'
+AND d278.PARAMETER_NAME = 'SM_COLOR'
+AND D494.step_number=
+</p>
+
+<p>
+(
+select D38.STEP_NUMBER from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'SM_EXP'
+)
+</p>
+
+<p>
+--查文字颜色
+</p>
+
+<p>
+select d278.PARAMETER_NAME,d494.* from data0494 d494
+INNER JOIN  data0278 AS D278 ON D278.RKEY = d494.PARAMETER_PTR
+INNER JOIN data0025 d25 ON d494.custpart_ptr = d25.rkey 
+WHERE  d25.manu_part_number = 'TE4A2563A0'
+AND d278.PARAMETER_NAME = 'SO_COLOUR'
+</p>
+
+<p>
+--查沉银
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'GY'
+</p>
+
+
+<p>
+--查沉锡
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'Imsn'
+</p>
+
+<p>
+--查有铅
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'HAL(IPB)'
+</p>
+
+<p>
+--查无铅
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TEHB100360D0'
+AND D34.DEPT_CODE = 'HAL(EPB)'
+</p>
+
+<p>
+--查碳油
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'CIP'
+</p>
+
+<p>
+--查蓝胶
+</p>
+
+<p>
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'PSM'
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

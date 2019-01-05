@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>DataSet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+DataSet是数据表的集合，它可以包含任意多个数据表
+</p>
+
+<p>
+dataset所有数据都加载在内存上执行的,可以提高数据访问速度,提高硬盘数据的安全性。极大的改善了程序运行的速度和稳定性。
+</p>
+
+
+
+<p>
+在典型的多层实现中，用于创建和刷新 DataSet 并依次更新原始数据的步骤包括：
+通过 DataAdapter 使用数据源中的数据生成和填充 DataSet 中的每个 DataTable。
+通过添加、更新或删除 DataRow 对象更改单个 DataTable 对象中的数据。
+调用 GetChanges 方法以创建只反映对数据进行的更改的第二个 DataSet。
+调用 DataAdapter 的 Update 方法，并将第二个 DataSet 作为参数传递。
+调用 Merge 方法将第二个 DataSet 中的更改合并到第一个中。
+针对 DataSet 调用 AcceptChanges。或者，调用 RejectChanges 以取消更改。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

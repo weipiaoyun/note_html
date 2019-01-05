@@ -1,0 +1,1250 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>linux find</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<p>
+find ./ -type f
+</p>
+
+<p>
+查找目录
+find ./ -type d
+</p>
+
+<p>
+查找名字为test的文件或目录
+find ./ -name test
+</p>
+
+<p>
+查找名字符合正则表达式的文件,注意前面的‘.*’(查找到的文件带有目录)
+find ./ -regex .<strong>so.</strong>\.gz
+</p>
+
+<p>
+查找目录并列出目录下的文件(为找到的每一个目录单独执行ls命令，没有选项-print时文件列表前一行不会显示目录名称)
+find ./ -type d -print -exec ls {} \;
+</p>
+
+<p>
+查找目录并列出目录下的文件(为找到的每一个目录单独执行ls命令,执行命令前需要确认)
+find ./ -type d -ok ls {} \;
+</p>
+
+<p>
+查找目录并列出目录下的文件(将找到的目录添加到ls命令后一次执行，参数过长时会分多次执行)
+find ./ -type d -exec ls {} +
+</p>
+
+<p>
+查找文件名匹配*.c的文件
+find ./ -name \*.c
+</p>
+
+<p>
+打印test文件名后，打印test文件的内容
+find ./ -name test -print -exec cat {} \;
+</p>
+
+<p>
+不打印test文件名，只打印test文件的内容
+find ./ -name test -exec cat {} \;
+</p>
+
+<p>
+查找文件更新日时在距现在时刻二天以内的文件
+find ./ -mtime -2
+</p>
+
+<p>
+查找文件更新日时在距现在时刻二天以上的文件
+find ./ -mtime +2
+</p>
+
+<p>
+查找文件更新日时在距现在时刻一天以上二天以内的文件
+find ./ -mtime 2
+</p>
+
+<p>
+查找文件更新日时在距现在时刻二分以内的文件
+find ./ -mmin -2
+</p>
+
+<p>
+查找文件更新日时在距现在时刻二分以上的文件
+find ./ -mmin +2
+</p>
+
+<p>
+查找文件更新日时在距现在时刻一分以上二分以内的文件
+find ./ -mmin 2
+</p>
+
+<p>
+查找文件更新时间比文件abc的内容更新时间新的文件
+find ./ -newer abc
+</p>
+
+<p>
+查找文件访问时间比文件abc的内容更新时间新的文件
+find ./ -anewer abc
+</p>
+
+<p>
+查找空文件或空目录
+find ./ -empty
+</p>
+
+<p>
+查找空文件并删除
+find ./ -empty -type f -print -delete
+</p>
+
+<p>
+查找权限为644的文件或目录(需完全符合)
+find ./ -perm 664
+</p>
+
+<p>
+查找用户/组权限为读写，其他用户权限为读(其他权限不限)的文件或目录
+find ./ -perm -664
+</p>
+
+<p>
+查找用户有写权限或者组用户有写权限的文件或目录
+find ./ -perm /220
+find ./ -perm /u+w,g+w
+find ./ -perm /u=w,g=w
+</p>
+
+<p>
+找所有者权限有读权限的目录或文件
+find ./ -perm -u=r
+</p>
+
+<p>
+查找用户组权限有读权限的目录或文件
+find ./ -perm -g=r
+</p>
+
+<p>
+查找其它用户权限有读权限的目录或文件
+find ./ -perm -o=r
+</p>
+
+<p>
+查找所有者为lzj的文件或目录
+find ./ -user lzj
+</p>
+
+<p>
+查找组名为gname的文件或目录
+find ./ -group gname
+</p>
+
+<p>
+查找文件的用户ID不存在的文件
+find ./ -nouser
+</p>
+
+<p>
+查找文件的组ID不存在的文件
+find ./ -nogroup
+</p>
+
+<p>
+查找有执行权限但没有可读权限的文件
+find ./ -executable \! -readable
+</p>
+
+<p>
+查找文件size小于10个字节的文件或目录
+find ./ -size -10c
+</p>
+
+<p>
+查找文件size等于10个字节的文件或目录
+find ./ -size 10c
+</p>
+
+<p>
+查找文件size大于10个字节的文件或目录
+find ./ -size +10c
+</p>
+
+<p>
+查找文件size小于10k的文件或目录
+find ./ -size -10k
+</p>
+
+<p>
+查找文件size小于10M的文件或目录
+find ./ -size -10M
+</p>
+
+<p>
+查找文件size小于10G的文件或目录
+find ./ -size -10G
+</p>
+
+<p>
+find -exec -ok 的用法 -mtime  2011-01-12 17:01:06|  分类： 基本命令 |  标签：conf  命令  exec  文件  root   |举报 |字号大
+中
+小 订阅 
+-exec：  find命令对匹配的文件执行该参数所给出的s h e l l命令。相应命令的形式为' command' {} \;，注意{ }和\；之间的空格。
+</p>
+
+<p>
+-ok：       和- e x e c的作用相同，只不过以一种更为安全的模式来执行该参数所给出的s h e l l命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。
+</p>
+
+<p>
+使用exec或ok来执行shell命令
+使用find时，只要把想要的操作写在一个文件里，就可以用exec来配合find查找，很方便的
+</p>
+
+<p>
+（在有些操作系统中只允许- e x e c选项执行诸如l s或ls -l这样的命令）。大多数用户使用这一选项是为了查找旧文件并删除它们。建议在真正执行r m命令删除文件之前，最好先用l s命令看一下，确认它们是所要删除的文件。
+</p>
+
+<p>
+e x e c选项后面跟随着所要执行的命令或脚本，然后是一对儿{ }，一个空格和一个\，最后是一个分号。
+</p>
+
+<p>
+为了使用e x e c选项，必须要同时使用p r i n t选项。如果验证一下f i n d命令，会发现该命令只输出从当前路径起的相对路径及文件名。
+</p>
+
+<p>
+例如：为了用ls -l命令列出所匹配到的文件，可以把ls -l命令放在f i n d命令的- e x e c选项中
+</p>
+
+<ol>
+<li>
+find . -type f -exec ls -l {} \; 
+
+</ol>
+<p>
+-rw-r--r--    1 root     root        34928 2003-02-25  ./conf/httpd.conf 
+-rw-r--r--    1 root     root        12959 2003-02-25  ./conf/magic 
+-rw-r--r--    1 root     root          180 2003-02-25  ./conf.d/README 
+上面的例子中，f i n d命令匹配到了当前目录下的所有普通文件，并在- e x e c选项中使用ls -l命令将它们列出。
+</p>
+
+<p>
+在/ l o g s目录中查找更改时间在5日以前的文件并删除它们：
+$ find logs -type f -mtime +5 -exec rm {} \;
+</p>
+
+<p>
+记住，在s h e l l中用任何方式删除文件之前，应当先查看相应的文件，一定要小心！当使用诸如m v或r m命令时，可以使用- e x e c选项的安全模式。它将在对每个匹配到的文件进行操作之前提示你。
+</p>
+
+<p>
+在下面的例子中， f i n d命令在当前目录中查找所有文件名以. L O G结尾、更改时间在5日以上的文件，并删除它们，只不过在删除之前先给出提示。
+</p>
+
+<p>
+$ find . -name "*.conf"  -mtime +5 -ok rm {} \; 
+&lt; rm ... ./conf/httpd.conf &gt; ? n 
+按y键删除文件，按n键不删除。
+</p>
+
+
+<p>
+任何形式的命令都可以在- e x e c选项中使用。
+</p>
+
+<p>
+在下面的例子中我们使用g r e p命令。f i n d命令首先匹配所有文件名为“ passwd*”的文件，例如passwd、passwd.old、passwd.bak，然后执
+行grep命令看看在这些文件中是否存在一个sam用户
+</p>
+
+
+<p>
+为此要实现上面文件备份的需要，只需要使用命令
+</p>
+
+<p>
+　　find /home/oracle –mtime 1 –exec cp {} /backup/{}.backup \;即可。
+</p>
+
+
+
+
+<p>
+一、find 命令格式
+</p>
+
+
+
+<p>
+1、find命令的一般形式为；
+</p>
+
+<p>
+find pathname -options [-print -exec -ok ...]
+</p>
+
+<p>
+2、find命令的参数；
+</p>
+
+<p>
+pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。
+-print： find命令将匹配的文件输出到标准输出。
+-exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为'command' {  } \;，注意{   }和\；之间的空格。
+-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。
+</p>
+
+<p>
+3、find命令选项
+</p>
+
+
+<p>
+-name 
+</p>
+
+<p>
+按照文件名查找文件。
+</p>
+
+<p>
+-perm 
+按照文件权限来查找文件。
+</p>
+
+<p>
+-prune 
+使用这一选项可以使find命令不在当前指定的目录中查找，如果同时使用-depth选项，那么-prune将被find命令忽略。
+</p>
+
+<p>
+-user 
+按照文件属主来查找文件。
+</p>
+
+<p>
+-group 
+按照文件所属的组来查找文件。
+</p>
+
+<p>
+-mtime -n +n 
+按照文件的更改时间来查找文件， - n表示文件更改时间距现在n天以内，+ n表示文件更改时间距现在n天以前。find命令还有-atime和-ctime 选项，但它们都和-m time选项。
+</p>
+
+<p>
+-nogroup 
+查找无有效所属组的文件，即该文件所属的组在/etc/groups中不存在。
+</p>
+
+<p>
+-nouser 
+查找无有效属主的文件，即该文件的属主在/etc/passwd中不存在。
+-newer file1 ! file2 
+</p>
+
+<p>
+查找更改时间比文件file1新但比文件file2旧的文件。
+-type 
+</p>
+
+<p>
+查找某一类型的文件，诸如：
+</p>
+
+<p>
+b - 块设备文件。
+d - 目录。
+c - 字符设备文件。
+p - 管道文件。
+l - 符号链接文件。
+f - 普通文件。
+</p>
+
+<p>
+-size n：[c] 查找文件长度为n块的文件，带有c时表示文件长度以字节计。
+-depth：在查找文件时，首先查找当前目录中的文件，然后再在其子目录中查找。
+-fstype：查找位于某一类型文件系统中的文件，这些文件系统类型通常可以在配置文件/etc/fstab中找到，该配置文件中包含了本系统中有关文件系统的信息。
+</p>
+
+<p>
+-mount：在查找文件时不跨越文件系统mount点。
+-follow：如果find命令遇到符号链接文件，就跟踪至链接所指向的文件。
+-cpio：对匹配的文件使用cpio命令，将这些文件备份到磁带设备中。
+另外,下面三个的区别:
+</p>
+
+<p>
+   -amin n
+　　查找系统中最后N分钟访问的文件
+</p>
+
+<p>
+　　-atime n
+　　查找系统中最后n*24小时访问的文件
+</p>
+
+<p>
+　　-cmin n
+　　查找系统中最后N分钟被改变文件状态的文件
+</p>
+
+<p>
+　　-ctime n
+　　查找系统中最后n*24小时被改变文件状态的文件
+</p>
+
+<p>
+   　-mmin n
+　　查找系统中最后N分钟被改变文件数据的文件
+</p>
+
+<p>
+　　-mtime n
+　　查找系统中最后n*24小时被改变文件数据的文件
+</p>
+
+<p>
+4、使用exec或ok来执行shell命令
+</p>
+
+<p>
+使用find时，只要把想要的操作写在一个文件里，就可以用exec来配合find查找，很方便的
+在有些操作系统中只允许-exec选项执行诸如l s或ls -l这样的命令。大多数用户使用这一选项是为了查找旧文件并删除它们。建议在真正执行rm命令删除文件之前，最好先用ls命令看一下，确认它们是所要删除的文件。
+exec选项后面跟随着所要执行的命令或脚本，然后是一对儿{ }，一个空格和一个\，最后是一个分号。为了使用exec选项，必须要同时使用print选项。如果验证一下find命令，会发现该命令只输出从当前路径起的相对路径及文件名。
+例如：为了用ls -l命令列出所匹配到的文件，可以把ls -l命令放在find命令的-exec选项中
+</p>
+<ol>
+<li>
+find . -type f -exec ls -l {  } \;
+
+</ol>
+<p>
+-rw-r--r--    1 root     root        34928 2003-02-25  ./conf/httpd.conf
+-rw-r--r--    1 root     root        12959 2003-02-25  ./conf/magic
+-rw-r--r--    1 root     root          180 2003-02-25  ./conf.d/README
+上面的例子中，find命令匹配到了当前目录下的所有普通文件，并在-exec选项中使用ls -l命令将它们列出。
+在/logs目录中查找更改时间在5日以前的文件并删除它们：
+$ find logs -type f -mtime +5 -exec rm {  } \;
+记住：在shell中用任何方式删除文件之前，应当先查看相应的文件，一定要小心！当使用诸如mv或rm命令时，可以使用-exec选项的安全模式。它将在对每个匹配到的文件进行操作之前提示你。
+在下面的例子中， find命令在当前目录中查找所有文件名以.LOG结尾、更改时间在5日以上的文件，并删除它们，只不过在删除之前先给出提示。
+$ find . -name "*.conf"  -mtime +5 -ok rm {  } \;
+&lt; rm ... ./conf/httpd.conf &gt; ? n
+按y键删除文件，按n键不删除。
+任何形式的命令都可以在-exec选项中使用。
+在下面的例子中我们使用grep命令。find命令首先匹配所有文件名为“ passwd*”的文件，例如passwd、passwd.old、passwd.bak，然后执行grep命令看看在这些文件中是否存在一个sam用户。
+</p>
+<ol>
+<li>
+find /etc -name "passwd*" -exec grep "sam" {  } \;
+
+</ol>
+<p>
+sam:x:501:501::/usr/sam:/bin/bash
+</p>
+
+<p>
+二、find命令的例子；
+</p>
+
+
+<p>
+1、查找当前用户主目录下的所有文件：
+</p>
+
+<p>
+下面两种方法都可以使用
+\( find \)HOME -print
+$ find ~ -print
+</p>
+
+
+<p>
+2、让当前目录中文件属主具有读、写权限，并且文件所属组的用户和其他用户具有读权限的文件；
+</p>
+
+<p>
+$ find . -type f -perm 644 -exec ls -l {  } \;
+</p>
+
+<p>
+3、为了查找系统中所有文件长度为0的普通文件，并列出它们的完整路径；
+</p>
+
+<p>
+$ find / -type f -size 0 -exec ls -l {  } \;
+</p>
+
+<p>
+4、查找/var/logs目录中更改时间在7日以前的普通文件，并在删除之前询问它们；
+</p>
+
+<p>
+$ find /var/logs -type f -mtime +7 -ok rm {  } \;
+</p>
+
+<p>
+5、为了查找系统中所有属于root组的文件；
+</p>
+
+<p>
+$find . -group root -exec ls -l {  } \;
+-rw-r--r--    1 root     root          595 10月 31 01:09 ./fie1
+</p>
+
+<p>
+6、find命令将删除当目录中访问时间在7日以来、含有数字后缀的admin.log文件。
+</p>
+
+<p>
+该命令只检查三位数字，所以相应文件的后缀不要超过999。先建几个admin.log*的文件 ，才能使用下面这个命令
+$ find . -name "admin.log[0-9][0-9][0-9]" -atime -7  -ok
+rm {  } \;
+&lt; rm ... ./admin.log001 &gt; ? n
+&lt; rm ... ./admin.log002 &gt; ? n
+&lt; rm ... ./admin.log042 &gt; ? n
+&lt; rm ... ./admin.log942 &gt; ? n
+</p>
+
+<p>
+7、为了查找当前文件系统中的所有目录并排序；
+</p>
+
+<p>
+$ find . -type d | sort
+</p>
+
+<p>
+8、为了查找系统中所有的rmt磁带设备；
+</p>
+
+<p>
+$ find /dev/rmt -print
+</p>
+
+<p>
+三、xargs
+</p>
+
+<p>
+xargs - build and execute command lines from standard input
+在使用find命令的-exec选项处理匹配到的文件时， find命令将所有匹配到的文件一起传递给exec执行。但有些系统对能够传递给exec的命令长度有限制，这样在find命令运行几分钟之后，就会出现 溢出错误。错误信息通常是“参数列太长”或“参数列溢出”。这就是xargs命令的用处所在，特别是与find命令一起使用。
+find命令把匹配到的文件传递给xargs命令，而xargs命令每次只获取一部分文件而不是全部，不像-exec选项那样。这样它可以先处理最先获取的一部分文件，然后是下一批，并如此继续下去。
+在有些系统中，使用-exec选项会为处理每一个匹配到的文件而发起一个相应的进程，并非将匹配到的文件全部作为参数一次执行；这样在有些情况下就会出现进程过多，系统性能下降的问题，因而效率不高；
+而使用xargs命令则只有一个进程。另外，在使用xargs命令时，究竟是一次获取所有的参数，还是分批取得参数，以及每一次获取参数的数目都会根据该命令的选项及系统内核中相应的可调参数来确定。
+来看看xargs命令是如何同find命令一起使用的，并给出一些例子。
+下面的例子查找系统中的每一个普通文件，然后使用xargs命令来测试它们分别属于哪类文件
+#find . -type f -print | xargs file
+./.kde/Autostart/Autorun.desktop: UTF-8 Unicode English text
+./.kde/Autostart/.directory:      ISO-8859 text\
+......
+在整个系统中查找内存信息转储文件(core dump) ，然后把结果保存到/tmp/core.log 文件中：
+$ find / -name "core" -print | xargs echo "" &gt;/tmp/core.log
+上面这个执行太慢，我改成在当前目录下查找
+#find . -name "file*" -print | xargs echo "" &gt; /temp/core.log
+</p>
+<ol>
+<li>
+cat /temp/core.log
+
+</ol>
+<p>
+./file6
+在当前目录下查找所有用户具有读、写和执行权限的文件，并收回相应的写权限：
+</p>
+<ol>
+<li>
+ls -l
+
+</ol>
+<p>
+drwxrwxrwx    2 sam      adm          4096 10月 30 20:14 file6
+-rwxrwxrwx    2 sam      adm             0 10月 31 01:01 http3.conf
+-rwxrwxrwx    2 sam      adm             0 10月 31 01:01 httpd.conf
+</p>
+
+<ol>
+<li>
+find . -perm -7 -print | xargs chmod o-w
+
+<li>
+ls -l
+
+</ol>
+<p>
+drwxrwxr-x    2 sam      adm          4096 10月 30 20:14 file6
+-rwxrwxr-x    2 sam      adm             0 10月 31 01:01 http3.conf
+-rwxrwxr-x    2 sam      adm             0 10月 31 01:01 httpd.conf
+用grep命令在所有的普通文件中搜索hostname这个词：
+</p>
+<ol>
+<li>
+find . -type f -print | xargs grep "hostname"
+
+</ol>
+<p>
+./httpd1.conf:#     different IP addresses or hostnames and have them handled by the
+./httpd1.conf:# VirtualHost: If you want to maintain multiple domains/hostnames
+on your
+用grep命令在当前目录下的所有普通文件中搜索hostnames这个词：
+</p>
+<ol>
+<li>
+find . -name \* -type f -print | xargs grep "hostnames"
+
+</ol>
+<p>
+./httpd1.conf:#     different IP addresses or hostnames and have them handled by the
+./httpd1.conf:# VirtualHost: If you want to maintain multiple domains/hostnames
+on your
+注意，在上面的例子中， \用来取消find命令中的*在shell中的特殊含义。
+find命令配合使用exec和xargs可以使用户对所匹配到的文件执行几乎所有的命令。
+</p>
+
+<p>
+四、find 命令的参数
+</p>
+
+<p>
+下面是find一些常用参数的例子，有用到的时候查查就行了，像上面前几个贴子，都用到了其中的的一些参数，也可以用man或查看论坛里其它贴子有find的命令手册
+</p>
+
+<p>
+1、使用name选项
+</p>
+
+<p>
+文件名选项是find命令最常用的选项，要么单独使用该选项，要么和其他选项一起使用。
+可以使用某种文件名模式来匹配文件，记住要用引号将文件名模式引起来。
+不管当前路径是什么，如果想要在自己的根目录\(HOME中查找文件名符合*.txt的文件，使用~作为 'pathname'参数，波浪号~代表了你的\)HOME目录。
+$ find ~ -name "*.txt" -print
+想要在当前目录及子目录中查找所有的‘ *.txt’文件，可以用：
+$ find . -name "*.txt" -print
+想要的当前目录及子目录中查找文件名以一个大写字母开头的文件，可以用：
+$ find . -name "[A-Z]*" -print
+想要在/etc目录中查找文件名以host开头的文件，可以用：
+$ find /etc -name "host*" -print
+想要查找$HOME目录中的文件，可以用：
+$ find ~ -name "*" -print 或find . -print
+要想让系统高负荷运行，就从根目录开始查找所有的文件。
+$ find / -name "*" -print
+如果想在当前目录查找文件名以两个小写字母开头，跟着是两个数字，最后是.txt的文件，下面的命令就能够返回名为ax37.txt的文件：
+$find . -name "[a-z][a-z][0--9][0--9].txt" -print
+</p>
+
+<p>
+2、用perm选项
+</p>
+
+<p>
+按照文件权限模式用-perm选项,按文件权限模式来查找文件的话。最好使用八进制的权限表示法。
+如在当前目录下查找文件权限位为755的文件，即文件属主可以读、写、执行，其他用户可以读、执行的文件，可以用：
+$ find . -perm 755 -print
+还有一种表达方法：在八进制数字前面要加一个横杠-，表示都匹配，如-007就相当于777，-006相当于666
+</p>
+<ol>
+<li>
+ls -l
+
+</ol>
+<p>
+-rwxrwxr-x    2 sam      adm             0 10月 31 01:01 http3.conf
+-rw-rw-rw-    1 sam      adm         34890 10月 31 00:57 httpd1.conf
+-rwxrwxr-x    2 sam      adm             0 10月 31 01:01 httpd.conf
+drw-rw-rw-    2 gem      group        4096 10月 26 19:48 sam
+-rw-rw-rw-    1 root     root         2792 10月 31 20:19 temp
+</p>
+
+<ol>
+<li>
+find . -perm 006
+
+<li>
+find . -perm -006
+
+</ol>
+<p>
+./sam
+./httpd1.conf
+./temp
+-perm mode:文件许可正好符合mode
+-perm +mode:文件许可部分符合mode
+-perm -mode: 文件许可完全符合mode
+</p>
+
+<p>
+3、忽略某个目录
+</p>
+
+<p>
+如果在查找文件时希望忽略某个目录，因为你知道那个目录中没有你所要查找的文件，那么可以使用-prune选项来指出需要忽略的目录。在使用-prune选项时要当心，因为如果你同时使用了-depth选项，那么-prune选项就会被find命令忽略。
+如果希望在/apps目录下查找文件，但不希望在/apps/bin目录下查找，可以用：
+$ find /apps -path "/apps/bin" -prune -o -print
+</p>
+
+<p>
+4、使用find查找文件的时候怎么避开某个文件目录
+</p>
+
+<p>
+比如要在/usr/sam目录下查找不在dir1子目录之内的所有文件
+find /usr/sam -path "/usr/sam/dir1" -prune -o -print
+find [-path ..] [expression] 在路径列表的后面的是表达式
+-path "/usr/sam" -prune -o -print 是 -path "/usr/sam" -a -prune -o
+-print 的简写表达式按顺序求值, -a 和 -o 都是短路求值，与 shell 的 &amp;&amp; 和 || 类似如果 -path "/usr/sam" 为真，则求值 -prune , -prune 返回真，与逻辑表达式为真；否则不求值 -prune，与逻辑表达式为假。如果 -path "/usr/sam" -a -prune 为假，则求值 -print ，-print返回真，或逻辑表达式为真；否则不求值 -print，或逻辑表达式为真。
+这个表达式组合特例可以用伪码写为
+if -path "/usr/sam"  then
+</p>
+<blockquote>
+-prune
+</blockquote>
+<p>
+else
+</p>
+<blockquote>
+-print
+</blockquote>
+<p>
+避开多个文件夹
+find /usr/sam \( -path /usr/sam/dir1 -o -path /usr/sam/file1 \) -prune -o -print
+圆括号表示表达式的结合。
+</p>
+
+<p>
+\ 表示引用，即指示 shell 不对后面的字符作特殊解释，而留给 find 命令去解释其意义。
+查找某一确定文件，-name等选项加在-o 之后
+#find /usr/sam  \(-path /usr/sam/dir1 -o -path /usr/sam/file1 \) -prune -o -name "temp" -print
+</p>
+
+<p>
+5、使用user和nouser选项
+</p>
+
+<p>
+按文件属主查找文件，如在$HOME目录中查找文件属主为sam的文件，可以用：
+$ find ~ -user sam -print
+在/etc目录下查找文件属主为uucp的文件：
+$ find /etc -user uucp -print
+为了查找属主帐户已经被删除的文件，可以使用-nouser选项。这样就能够找到那些属主在/etc/passwd文件中没有有效帐户的文件。在使用-nouser选项时，不必给出用户名； find命令能够为你完成相应的工作。
+例如，希望在/home目录下查找所有的这类文件，可以用：
+</p>
+
+<p>
+$ find /home -nouser -print
+</p>
+
+<p>
+6、使用group和nogroup选项
+</p>
+
+<p>
+就像user和nouser选项一样，针对文件所属于的用户组， find命令也具有同样的选项，为了在/apps目录下查找属于gem用户组的文件，可以用：
+$ find /apps -group gem -print
+要查找没有有效所属用户组的所有文件，可以使用nogroup选项。下面的find命令从文件系统的根目录处查找这样的文件
+$ find / -nogroup-print
+</p>
+
+<p>
+7、按照更改时间或访问时间等查找文件
+</p>
+
+<p>
+如果希望按照更改时间来查找文件，可以使用mtime,atime或ctime选项。如果系统突然没有可用空间了，很有可能某一个文件的长度在此期间增长迅速，这时就可以用mtime选项来查找这样的文件。
+用减号-来限定更改时间在距今n日以内的文件，而用加号+来限定更改时间在距今n日以前的文件。
+希望在系统根目录下查找更改时间在5日以内的文件，可以用：
+$ find / -mtime -5 -print
+为了在/var/adm目录下查找更改时间在3日以前的文件，可以用：
+$ find /var/adm -mtime +3 -print
+</p>
+
+<p>
+8、查找比某个文件新或旧的文件
+</p>
+
+<p>
+如果希望查找更改时间比某个文件新但比另一个文件旧的所有文件，可以使用-newer选项。它的一般形式为：
+newest_file_name ! oldest_file_name
+其中，！是逻辑非符号。
+查找更改时间比文件sam新但比文件temp旧的文件：
+例：有两个文件
+-rw-r--r--    1 sam      adm             0 10月 31 01:07 fiel
+-rw-rw-rw-    1 sam      adm         34890 10月 31 00:57 httpd1.conf
+-rwxrwxr-x    2 sam      adm             0 10月 31 01:01 httpd.conf
+drw-rw-rw-    2 gem      group        4096 10月 26 19:48 sam
+-rw-rw-rw-    1 root     root         2792 10月 31 20:19 temp
+</p>
+
+<ol>
+<li>
+find -newer httpd1.conf  ! -newer temp -ls
+
+</ol>
+<p>
+1077669    0 -rwxrwxr-x   2 sam      adm             0 10月 31 01:01 ./httpd.conf
+1077671    4 -rw-rw-rw-   1 root     root         2792 10月 31 20:19 ./temp
+1077673    0 -rw-r--r--   1 sam      adm             0 10月 31 01:07 ./fiel
+查找更改时间在比temp文件新的文件：
+$ find . -newer temp -print
+</p>
+
+
+<p>
+9、使用type选项
+</p>
+
+<p>
+在/etc目录下查找所有的目录，可以用：
+$ find /etc -type d -print
+在当前目录下查找除目录以外的所有类型的文件，可以用：
+</p>
+
+<p>
+$ find . ! -type d -print
+在/etc目录下查找所有的符号链接文件，可以用
+</p>
+
+<p>
+$ find /etc -type l -print
+</p>
+
+<p>
+10、使用size选项
+</p>
+
+<p>
+可以按照文件长度来查找文件，这里所指的文件长度既可以用块（block）来计量，也可以用字节来计量。以字节计量文件长度的表达形式为N c；以块计量文件长度只用数字表示即可。
+在按照文件长度查找文件时，一般使用这种以字节表示的文件长度，在查看文件系统的大小，因为这时使用块来计量更容易转换。
+在当前目录下查找文件长度大于1 M字节的文件：
+</p>
+
+<p>
+$ find . -size +1000000c -print
+在/home/apache目录下查找文件长度恰好为100字节的文件：
+$ find /home/apache -size 100c -print
+在当前目录下查找长度超过10块的文件（一块等于512字节）：
+$ find . -size +10 -print
+</p>
+
+<p>
+11、使用depth选项
+</p>
+
+<p>
+在使用find命令时，可能希望先匹配所有的文件，再在子目录中查找。使用depth选项就可以使find命令这样做。这样做的一个原因就是，当在使用find命令向磁带上备份文件系统时，希望首先备份所有的文件，其次再备份子目录中的文件。
+在下面的例子中， find命令从文件系统的根目录开始，查找一个名为CON.FILE的文件。
+它将首先匹配所有的文件然后再进入子目录中查找。
+$ find / -name "CON.FILE" -depth -print
+</p>
+
+<p>
+12、使用mount选项
+</p>
+
+<p>
+在当前的文件系统中查找文件（不进入其他文件系统），可以使用find命令的mount选项。
+从当前目录开始查找位于本文件系统中文件名以XC结尾的文件：
+$ find . -name "*.XC" -mount -print
+</p>
+
+<p>
+find规定了源代码目录，并对文件名文件类型进行了限定。 
+由于我的代码是在svn管理下的，后面的grep需要将.svn目录过滤掉。 
+然后里面还用了一些开源项目log4cplus、zlib、gtest，也过滤掉。总之grep进行更加灵活的过滤。 
+接下来的xargs作用是把分行的输出用空格拼接起来，将结果传递给wc做输入。 
+wc -l便是统计文件的行数了。 
+</p>
+
+<p>
+例如 
+find ./src -type f| grep -v .svn | grep -v log4cplus-1.0.3-rc3 |grep -v zlib-1.2.3 |grep -v gtest |xargs wc -l 
+find . -name "<strong>.cc" -or -name "</strong>.h" -or -name "*.sh" | grep -v .svn|xargs wc -l 
+find .| grep -v CVS| xargs wc -l
+</p>
+
+
+
+
+<p>
+find . -name "*" | xargs -i cp {}  /home/users/
+</p>
+
+
+
+
+<p>
+-i 表示 find 传递给xargs的结果 由{}来代替 
+</p>
+
+<p>
+-I 必须指定替换字符　－i 是否指定替换字符-可选
+</p>
+
+
+<p>
+举例：
+find . | xargs -I {}    cp    {}     $D_PATH
+与
+find . | xargs -i cp    {}     $D_PATH
+</p>
+
+<p>
+两者效果相同
+</p>
+
+
+
+
+
+
+<p>
+{}代表cp这个命令的第一个参数
+</p>
+ 
+<p>
+[linux@/home]# pwd |xargs -i cp /etc/syslog.conf {}
+上面这条命令会复制etc目录下的syslog.conf到当前目录下 {}这对括号表示的是cp的第二个参数,他的值由前面的pwd命令取得,并由xargs命令传给cp
+</p>
+
+
+
+
+<p>
+在unix或linux环境中经常会用到find -mtime这样的写法来找某某时间点之前的文件，至于如何写find -mtime +N/-N/N，原来并不是很清楚，今天找了些资料看看，画下了这个图，以便理解和记忆：
+</p>
+
+
+
+  
+<p>
+从图上可以看出，以当前时间点开始算起，+表示往左，从该时间点开始再继续往更早推，可以称作xx以外；-表示往右，从该时间点算起往后的时间推，可以称作xx以内；没有加减号表示据此此前第N天。因此：
+我们来看下面这个例子：
+我当前的时间2011年3月1日22：31，我有如下的文件：
+</p>
+
+<p>
+E:\testpath&gt;ls -l
+total 0
+-rwxrwxrwa   1 Administrator   None                  0 Feb 25 22:37 111.txt
+-rwxrwxrwa   1 Administrator   None                  0 Feb 26 22:38 222.txt
+-rwxrwxrwa   1 Administrator   None                  0 Feb 27 22:38 333.txt
+-rwxrwxrwa   1 Administrator   None                  0 Feb 28 22:01 444.txt
+-rwxrwxrwa   1 Administrator   None                  0 Feb 28 22:30 555.txt
+-rwxrwxrwa   1 Administrator   None                  0 Mar  1 22:31 666.txt&lt;--当前时间的文件
+-rwxrwxrwa   1 Administrator   None                  0 Mar  2  2011 777.txt
+</p>
+ 
+<p>
+E:\testpath&gt;
+E:\testpath&gt;
+-mtime +2，表示2天以外的，即从距离当前时间（2011-03-01 22:31）的2天前开始算起，往更早的时间推移。因此，距离当前时间的2天为：2011-02-27 22:31，在此前的文件，会被选出来。
+</p>
+
+<p>
+E:\testpath&gt;find ./ -mtime +2
+./111.txt
+./222.txt
+-mtime +1，表示1天以外的，即从距当前时间的1天前算起，往更早的时间推移。因此2011-02-28 22:31前的文件属于该结果，2011-02-28 22:31后的文件不属于该结果：
+</p>
+
+<p>
+E:\testpath&gt;find ./ -mtime +1
+./111.txt
+./222.txt
+./333.txt
+./444.txt
+./555.txt
+-mtime 2， 距离当前时间第2天的文件，当前时间为2011-03-01 22：31，往前推2天为2011-02-27 22:31，因此以此为时间点，24小时之内的时间为2011-02-27 22:31～2011-02-28 22:31，因此这段时间内的文件会被选中出来：
+</p>
+
+<p>
+E:\testpath&gt;find ./ -mtime 2
+./333.txt
+./444.txt
+./555.txt
+-mtime 1， 距离当前时间第1天的文件，当前时间为2011-03-01 22：31，往前推1天为2011-02-28 22:31，因此以此为时间点，24小时之内的时间为2011-02-28 22:31～2011-03-01 22:31，因此这段时间内的文件会被选中出来：
+</p>
+
+<p>
+E:\testpath&gt;find ./ -mtime 1
+./666.txt
+-mtime -1 表示1天以内的，从距当前时间的1天为2011-02-28 22：31，往右推移：
+</p>
+
+<p>
+E:\testpath&gt;find ./ -mtime -1
+./
+./666.txt
+./777.txt
+-mtime -2 表示2天以内的，从距当前时间的2天为2011-02-27 22：31开始，往右推移：
+</p>
+
+<p>
+E:\testpath&gt;find ./ -mtime -2
+./
+./333.txt
+./444.txt
+./555.txt
+./666.txt
+./777.txt
+</p>
+
+
+
+
+
+<p>
+find ［起始目录］ 寻找条件 操作
+　　还有种表述方式：find PATH OPTION [-exec COMMAND { } \;]
+　　因为find命令会根据我们给的option,也就是寻找条件从我们给出的目录开始对其中文件及其下子目录中的文件进行递归搜索，所以我觉的这个地方说是“起始目录”是非常好的。
+　　该命令中的寻找条件可以是一个用逻辑运算符 not、and、or 组成的复合条件。逻辑运 算符 and、or、not 的含义为：
+　　
+(1) and：逻辑与，在命令中用“-a”表示，是系统缺省的选项，表示只有当所给的条 件都满足时，寻找条件才算满足。例如：
+　　find –name ’tmp’ –xtype c -user ’inin’
+　　% 该命令寻找三个给定条件都满足的所有文件
+　　
+(2) or：逻辑或，在命令中用“-o”表示。该运算符表示只要所给的条件中有一个满足 时，寻找条件就算满足。例如：
+　　find –name ’tmp’ –o –name ’mina*’
+　　% 该命令查询文件名为’tmp’或是匹配’mina*’的所有文件。
+　　
+(3) not：逻辑非，在命令中用“！”表示。该运算符表示查找不满足所给条件的文件 。例如：
+　　find ! –name ’tmp’
+　　% 该命令查询文件名不是’tmp’的所有文件。
+　　需要说明的是：当使用很多的逻辑选项时，可以用括号把这些选项括起来。为了避免Shell本身对括号引起误解，在话号前需要加转义字符“\”来去除括号的意义。例：
+　　find \（–name ’tmp’ –xtype c -user ’inin’ \）
+　　我觉的现在我应该说下出了查询条件，在find中的option的内容了：
+　　在option中，具体有参数：
+　　-name ’字串’ 查找文件名匹配所给字串的所有文件，字串内可用通配符 *、?、[ ]。
+　　-lname ’字串’ 查找文件名匹配所给字串的所有符号链接文件，字串内可用通配符 *、?、[ ]。
+　　-gid n 查找属于ID号为 n 的用户组的所有文件。
+　　-uid n 查找属于ID号为 n 的用户的所有文件。
+　　-group ’字串’ 查找属于用户组名为所给字串的所有的文件。
+　　-user ’字串’ 查找属于用户名为所给字串的所有的文件。
+　　-empty 查找大小为 0的目录或文件。
+　　-path ’字串’ 查找路径名匹配所给字串的所有文件，字串内可用通配符*、?、[ ]。
+　　-perm 权限 查找具有指定权限的文件和目录，权限的表示可以如711，644。
+　　-size n[bckw] 查找指定文件大小的文件，n 后面的字符表示单位，缺省为 b，代表512字节的块。
+　　-type x 查找类型为 x 的文件，x 为下列字符之一：
+　　b 块设备文件
+　　c 字符设备文件
+　　d 目录文件
+　　p 命名管道（FIFO）
+　　f 普通文件
+　　l 符号链接文件（symbolic links）
+　　s socket文件
+　　-xtype x 与 -type 基本相同，但只查找符号链接文件。
+　　以时间为条件查找
+　　-amin n 查找n分钟以前被访问过的所有文件。
+　　-atime n 查找n天以前被访问过的所有文件。
+　　-cmin n 查找n分钟以前文件状态被修改过的所有文件。
+　　-ctime n 查找n天以前文件状态被修改过的所有文件。
+　　-mmin n 查找n分钟以前文件内容被修改过的所有文件。
+　　-mtime n 查找n天以前文件内容被修改过的所有文件。
+　　-print：将搜索结果输出到标准输出。
+　　例子：在root以及子目录查找不包括目录/root/bin的，greek用户的，文件类型为普通文件的，3天之前的名为test-find.c的文件，并将结构输出，find命令如下：
+　　find / -name "test-find.c" -type f -mtime +3 -user greek -prune /root/bin -print
+　　当然在这其中，－print是一个默认选项，我们不必刻意去配置它。
+　　我们再看一下exec选项：
+　　-exec：对搜索的结构指令指定的shell命令。注意格式要正确："-exec 命令 {} \;"
+　　在}和\之间一定要有空格才行；
+　　{}表示命令的参数即为所找到的文件；命令的末尾必须以“ \；”结束。
+　　例子：对上述例子搜索出来的文件进行删除操作，命令如下：
+　　find / -name "test-find.c" -type f -mtime +3 -user greek -prune /root/bin -exec rm {} \;
+　　find命令指令实例：
+　　find . - name ‘main*’ - exec more {} \;
+　　% 查找当前目录中所有以main开头的文件，并显示这些文件的内容。
+　　find . \(- name a.out - o - name ‘*.o’\)&gt; - atime +7 - exec rm {} \;
+　　% 删除当前目录下所有一周之内没有被访问过的a .out或*.o文件。
+　　% 命令中的“.”表示当前目录，此时 find 将从当前目录开始，逐个在其子目录中查找满足后面指定条件的文件。
+　　% “\(” 和 “\)” 表示括号（），其中的 “\” 称为转义符。之所以这样写是由于对 Shell 而言，（和）另有不同的含义，而不是这里的用于组合条件的用途。
+　　% “-name a.out” 是指要查找名为a.out的文件；
+　　% “-name ‘*.o’” 是指要查找所有名字以 .o 结尾的文件。
+　　这两个 -name 之间的 -o 表示逻辑或（or），即查找名字为a.out或名字以 .o结尾的文件。
+　　% find命令在当前目录及其子目录下找到这佯的文件之后，再进行判断，看其最后访问时间 是否在7天以前（条件 -atime +7），若是，则对该文件执行命令 rm（-exec rm {} \;）。
+　　其中 {} 代表当前查到的符合条件的文件名，\；则是语法所要求的。
+　　% 上述命令中第一行的最后一个 \ 是续行符。当命令太长而在一行写不下时，可输入一个 \，之后系统将显示一个 &gt;，指示用户继续输入命令。
+</p>
+
+
+
+
+<p>
+在 Linux 平台下找檔案不外乎使用威力強大的 find 命令，威力強大的背後就是有一點點學習曲線，不過整體上來說還算簡單，因此想寫一篇文章留下備忘，讓自己日後可以快速查閱參考。
+</p>
+
+<p>
+【 基本語法 】
+</p>
+
+<p>
+查詢檔案名稱 ( 也可以查詢「目錄名稱」，其中 * 是萬用字元 )
+</p>
+
+<p>
+find $HOME -name '*.mp3'
+   註1: $HOME 是 Linux 下的一個環境變數，預設指向執行帳號的 HOME 目錄
+</p>
+
+<p>
+查詢檔案名稱 (不區分大小寫)
+</p>
+
+<p>
+find /etc -iname 'Network'
+指定只要搜尋「檔案」名稱
+</p>
+
+<p>
+find /var/log -iname '*.log' -type f
+指定只要搜尋「目錄」名稱
+</p>
+
+<p>
+find /etc -iname 'apache2' -type d
+   補充說明：可用的 –type 參數值如下
+</p>
+
+<p>
+b      block (buffered) special
+</p>
+
+<p>
+c      character (unbuffered) special
+</p>
+
+<p>
+d      directory ( 一般目錄 )
+</p>
+
+<p>
+p      named pipe (FIFO)
+</p>
+
+<p>
+f      regular file ( 一般檔案 )
+</p>
+
+<p>
+l      symbolic link
+</p>
+
+<p>
+s      socket
+</p>
+
+<p>
+D      door (Solaris)
+</p>
+
+<p>
+找尋所有檔案大小大於 50MB 的檔案
+</p>
+
+<p>
+find /var -type f -size +50M
+   註1: 不加上 –name 參數即代表搜尋所有檔案
+</p>
+
+<p>
+找尋所有檔案大小小於 50MB 的檔案
+</p>
+
+<p>
+find /var -type f -size -50M
+尋找超過 7 天沒有被存取或修改過的檔案 (判斷檔案存取時間)
+</p>
+
+<p>
+find $HOME -type f -atime +7
+尋找曾經在 7 天內被存取或修改過的檔案 (判斷檔案存取時間)
+</p>
+
+<p>
+find $HOME -type f -atime -7
+尋找超過 10 分鐘沒有被存取或修改過的檔案 (判斷檔案存取時間)
+</p>
+
+<p>
+find $HOME -type f -amin +10
+尋找曾經在 10 分鐘內被存取或修改過的檔案 (判斷檔案存取時間)
+</p>
+
+<p>
+find $HOME -type f -amin -10
+尋找檔案建立時間已超過 30 天的檔案
+</p>
+
+<p>
+find $HOME -type f -ctime +30
+尋找特定使用者的檔案 ( 以帳號名稱 tom 為例 )
+</p>
+
+<p>
+find $HOME -type f -user tom
+</p>
+
+<p>
+【 進階應用 】
+</p>
+
+<p>
+刪除 30 天以上未經存取過的暫存檔案 ( 注意: 以下指令最後一個分號(;)前一定要加上反斜線 )
+</p>
+
+<p>
+find /tmp -type f -atime +30 -print -exec rm -f '{}' \;
+   註1: 加上 –print 是為了讓被刪除的檔案檔名一併顯示在畫面上，這個參數可以省略 
+   註2: 使用 –exec 會讓查詢到的每一個檔案路徑代入 ‘{}’ 位置，一個檔案會執行一遍 rm 命令
+</p>
+
+<p>
+刪除 30 天以上未經存取過的暫存檔案 ( 使用 xargs 當成單一命令的參數 )
+</p>
+
+<p>
+find /tmp -type f -print0 | xargs -0 rm -v
+   註1: 加上 –print0 是為了讓輸出的結果不以「斷行字元」分隔，而改以 null 為結果的分隔字元 
+   註2: 使用 xargs 命令加上 –0 是為了讓傳入的資料以 null 字元當成參數的分隔 
+   註3: 使用 rm 命令加上 –v 是為了能顯示出被刪除的檔案名稱，這個參數可以省略 
+   註4: 使用 xargs 會將所有 find 命令查到的檔案轉換成 rm 的參數列，如果檔案過多可能會執行失敗! 
+   註5: 使用 xargs 可確保後面的程式 ( rm ) 只執行一次，所以理論上執行速度較快！
+</p>
+
+<p>
+相同參數需輸入多筆並且以「或」邏輯運算時要用 –o 參數串接起來
+</p>
+
+<p>
+例1：同時找兩種檔名樣式的檔案
+</p>
+
+<p>
+find $HOME -name '<strong>.mp3' -o -user '</strong>.ogg'
+例2：同時找兩個擁有者的檔案
+</p>
+
+<p>
+find /usr/local -user user1 -o -user user2
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

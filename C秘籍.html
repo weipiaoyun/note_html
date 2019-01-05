@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>C秘籍</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<p>
+写好C程序的秘籍(强!)时间：2011年12月07日 10:05:43 来源：中国it实验室 作者：Ben   神乎其技，惟C程序，功到自成，十大建议！
+</p>
+<blockquote>
+1、汝应频繁催动lint工具，据其语法声明修习内力，此事皆因lint之思虑决断实远在君上。
+</blockquote>
+<blockquote>
+2、不可依随NULL指针，如若不然，混沌痴颠必俟君于彼岸。
+</blockquote>
+<blockquote>
+3、纵有天赋大智慧，知晓其事无碍，汝亦当尽数强制挪移函数参数为原型所期之数据类型，以免一时疏忽，致使数据类型向汝讨还血债。
+</blockquote>
+<blockquote>
+4、若头文件未于函数原型之中声明返回值类型，汝当亲为此事，更须谨慎再三，以防不测降临汝身。
+</blockquote>
+<blockquote>
+5、汝须亲核字符串、数组操作之越界与否。古之圣人有言： 尝祈门人对答“然也”，不意门人答曰“吾了然于胸无须多虑尽请宽心他日趋庭必当重谢”——所期者短，所获者长，此于数组，实最险要处也。
+</blockquote>
+<blockquote>
+6、若函数声明内提及，于异常时将返回错误代码云云，汝当谨慎校核该返回值。或有校核语句使汝之代码增大数倍，令汝之手指因敲键而痛楚莫名之事，汝亦当如此。不然，汝固以为此异常之事难得一见，上苍亦必借此惩戒汝之傲慢。
+</blockquote>
+<blockquote>
+7、汝应研习库函数，不当亲笔重写之。如是，汝之代码必短小易读，汝之心境必清爽恬淡。
+</blockquote>
+<blockquote>
+8、纵汝不愿，汝亦应借括号、缩进之属，使汝之代码间架清晰，可为后者借鉴。汝之大智慧施于决疑解难则可，施于敷设谜团、淆乱文体则万万不可。
+</blockquote>
+<blockquote>
+9、外部标识符之前六字符当与众不同。此律法看似粗陋，和者寥寥，然其效用自能延续永远。汝若不从此言，他日，汝欲连接程序于旧作之上时，必抓耳挠腮、蓬头垢面，狼狈之相尽现矣。
+</blockquote>
+<blockquote>
+10、或有族类，大言炎炎，云“普天之下，莫非VAX”。于此等异端，汝当摒弃之、断绝之、远避之。更有异人，笃信魔道，以为纵汝所用电脑频繁换代，汝之程序亦能长久适用。汝亦不可与此类恶人来往，谨记谨记。
+</blockquote>
+<blockquote>
+如何编写最烂的C 语言程序
+</blockquote>
+<blockquote>
+1、重写标准库函数，把函数名改成你自己才懂得的晦涩的名字。
+</blockquote>
+<blockquote>
+2、使用晦涩的，个性化的，无法移植的函数库，这样你就永远也不会离开你喜欢的平台了。
+</blockquote>
+<blockquote>
+3、在所有函数调用前，使用最能精确描述函数功能的注释，比如 printf（"Hello world\n"）；
+</blockquote>
+<blockquote>
+4、记住：只有菜鸟才在代码中使用回车换行符； 只有菜鸟的徒弟才使用制表符； 高手会在代码中添加无数内嵌的汇编指令。
+</blockquote>
+<blockquote>
+5、“用户界面”是给低能儿准备的，“用户”是决不会通过界面与你的程序打交道的。
+</blockquote>
+<blockquote>
+6、如果你必须注释你的代码，那就从其他人的代码里随便抽几条注释，放到你的代码里吧。这是最快、最容易的办法，而且，当你看到其他人读你的代码时，脸上出现异样的表情时，该是一件多么快乐的事呀。
+</blockquote>
+<blockquote>
+7、尽量使用预编译选项，尽可能使用新的宏定义代替函数库中已有的宏定义。这叫做“尽其所用”。
+</blockquote>
+<blockquote>
+8、你不用关心代码的细节，编译器会帮你搞定一切的。
+</blockquote>
+<blockquote>
+如何测试最烂的C 语言程序
+</blockquote>
+<blockquote>
+1、只要你的代码通过了编译，问题就肯定都出在其他人的代码里。
+</blockquote>
+<blockquote>
+2、如果都是你写的代码，那问题肯定出在那些不可信的函数库里。
+</blockquote>
+<blockquote>
+3、向测试者宣告：错误报告是玷污我作为C语言程序员最纯洁名誉的卑鄙谎言！你们为什么要这样做？你们甚至都没办法顺利阅读我的代码，你们怎么知道里面有错误？
+</blockquote>
+<blockquote>
+4、如果测试员可以顺利阅读你的代码，那你编写烂代码的功夫还不到家。
+</blockquote>
+<blockquote>
+5、宣布： 如果那些小气的公司（或学校、老婆等）愿意为你买一套C++的编译器的话，程序就不会有任何错误了。
+</blockquote>
+<blockquote>
+6、在代码的任意位置插入或删除空行，重新编译，执行。
+</blockquote>
+<blockquote>
+7、如果还有问题的话，用汇编语言重写你的程序。这不会减少程序的错误，但这将确保没有人能找到错误的位置，没有人能借此贬低你的编程能力了。
+</blockquote>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

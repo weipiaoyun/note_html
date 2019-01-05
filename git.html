@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>git</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">git命令 </a>
+<li><a href="#toc_2">git克隆 </a>
+<li><a href="#toc_3">vs切换源代码管理插件，svn无法切换到git，点击是将关闭项目 </a>
+<li><a href="#toc_4">vs2015添加管理项目 </a>
+<li><a href="#toc_5">更改.gitignore 无效的方法 </a>
+<li><a href="#toc_6">清空工作区和暂存区 </a>
+<li><a href="#toc_7">Glossary </a>
+<ul>
+<li><a href="#toc_7.1">object </a>
+<li><a href="#toc_7.2">object database </a>
+<li><a href="#toc_7.3">object identifier = Synonym for object name. </a>
+<li><a href="#toc_7.4">commit object </a>
+</ul>
+<li><a href="#toc_8">.git目录 </a>
+<li><a href="#toc_9">git四个组件 </a>
+<li><a href="#toc_10">分支 </a>
+<li><a href="#toc_11">恢复被删除的分支 </a>
+</ul>
+</div>
+
+<h1 id="toc_1">git命令 </h1>
+
+<table>
+<tr>
+<th>
+命令
+</th>
+<th>
+参数
+</th>
+<th>
+备注
+</th>
+</tr>
+<tr>
+<td>
+config
+</td>
+<td>
+--global (user.name/user.email)
+</td>
+<td>
+配置
+</td>
+</tr>
+<tr>
+<td>
+config
+</td>
+<td>
+--list
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+clone
+</td>
+<td>
+地址
+</td>
+<td>
+克隆
+</td>
+</tr>
+<tr>
+<td>
+status
+</td>
+<td>
+-s
+</td>
+<td>
+状态
+</td>
+</tr>
+<tr>
+<td>
+init
+</td>
+<td>
+无
+</td>
+<td>
+初始化
+</td>
+</tr>
+<tr>
+<td>
+add
+</td>
+<td>
+*
+</td>
+<td>
+文件添加到索引中
+</td>
+</tr>
+<tr>
+<td>
+commint
+</td>
+<td>
+-m ‘'添加备注'
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+push
+</td>
+<td>
+地址(可省略)
+</td>
+<td>
+上传
+</td>
+</tr>
+</table>
+
+<h1 id="toc_2">git克隆 </h1>
+<p>
+git clone <a href="https://github.com/weipiaoyun/test.git">https://github.com/weipiaoyun/test.git</a><br>
+</p>
+
+<p>
+git clone <a href="https://github.com/weipiaoyun/myhtml.git">https://github.com/weipiaoyun/myhtml.git</a><br>
+</p>
+
+<ul>
+<li>
+索引是工作区的内容快照，和下一次需要commit的快照
+
+</ul>
+<p>
+git add 就是添加或修改新的索引
+git add -f  忽略的文件强制添加
+老版本的忽略掉了删除的文件。新版本不忽略，如果要忽略，用--no-all参数
+</p>
+
+
+<h1 id="toc_3">vs切换源代码管理插件，svn无法切换到git，点击是将关闭项目 </h1>
+
+<p>
+解决方案：
+</p>
+
+<p>
+找到项目中.sln 文件，使用编辑器打开，将Svn-Managed = true 设置为false
+</p>
+
+
+<h1 id="toc_4">vs2015添加管理项目 </h1>
+<p>
+将解决方案添加到代码管理
+</p>
+
+<h1 id="toc_5">更改.gitignore 无效的方法 </h1>
+<p>
+git rm -r --cached . （这里.可以换成你想忽视的文件，这样就能仅仅把想忽视的文件从本地缓存删除）
+git add . （这里.可以换成你想忽视的文件+gitignore文件）
+git commit -m 'update .gitignore'
+git 还提供了另一种 exclude 的方式来做同样的事情，不同的是 .gitignore 这个文件本身会提交到版本库中去。用来保存的是公共的需要排除的文件。而 .git/info/exclude 这里设置的则是你自己本地需要排除的文件。
+</p>
+
+<p>
+想要忽略掉 logs 文件夹下所有的日志文件，但是想保留 logs 文件夹以保持项目文件夹结构的完整性。可以在 logs 文件夹里新建 .gitignore 文件，文件内容如下：
+</p>
+<ol>
+<li>
+ignore all except .gitignore file
+
+</ol>
+<p>
+*
+!.gitignore
+</p>
+
+
+<h1 id="toc_6">清空工作区和暂存区 </h1>
+<p>
+git checkout . #清空已经修改的文件
+git clean -d
+git reset . #已经add .了。充值
+</p>
+
+
+<p>
+<a href="https://blog.csdn.net/redguardtoo/article/details/9076961">https://blog.csdn.net/redguardtoo/article/details/9076961</a><br>
+</p>
+
+<p>
+1，如果有更改，直接pull会失败。会让你先add进去。再pull出来，防止直接替换。所以pull之前，保证工作区是clean。
+2，如果有更改。必须要add和commit后才能pull
+</p>
+
+
+<h1 id="toc_7">Glossary </h1>
+<h2 id="toc_7.1">object </h2>
+<p>
+SHA-1标记存储单元，不可改变。
+</p>
+
+<h2 id="toc_7.2">object database </h2>
+<p>
+Stores a set of "objects" $GIT_DIR/objects/
+</p>
+
+<h2 id="toc_7.3">object identifier = Synonym for object name. </h2>
+<p>
+40 character 
+</p>
+
+<h2 id="toc_7.4">commit object </h2>
+<p>
+object,包含parents, committer, author, date and the tree object
+</p>
+
+<p>
+仓库
+</p>
+
+<p>
+工作目录
+</p>
+
+<p>
+暂存区域(索引)：一个保存下次将提交的文件列表信息。
+</p>
+
+<p>
+1.在工作目录中修改文件。 
+2.暂存文件，将文件的快照放入暂存区域。 
+3.提交更新，找到暂存区域的文件，将快照永久性存储到Git仓库目录。
+</p>
+
+
+<p>
+Git维护两个主要的数据结构：对象库(object store)和索引(index)。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。
+</p>
+
+<h1 id="toc_8">.git目录 </h1>
+<p>
+\.git\refs\heads\master   当前库的指针。指向.git/objects/ master前两个字母为文件夹名字。后面的作为文件名字放在文件夹下面
+</p>
+
+<p>
+每一个SHA-1都可以用git cat-file -p命令查看里面的内容。里面的内容不是信息就是本身的内容。
+</p>
+
+<p>
+ git cat-file -p f6422eb56dcc44b54c43b7924d1156586c9f5c43(master里面的内容)
+</p>
+ 
+<p>
+tree 2735cdc5615239e4ebd1be2b6dabb9825a21a06d	
+parent ed82d69847babb294a6c3c47b66bd62c21cce621 #上一次commit的指针
+author weipiaoyun &lt;525921240@qq.com&gt; 1546148738 +0800	作者
+committer weipiaoyun &lt;525921240@qq.com&gt; 1546148738 +0800 提交者
+</p>
+<blockquote>
+modified:   note/git.wiki #更改的内容
+modified:   note/test.wiki
+</blockquote>
+
+
+
+<h1 id="toc_9">git四个组件 </h1>
+<ul>
+<li>
+Tag
+
+<li>
+Commit 包括作者、提交者、提交日期和日志消息
+
+<li>
+Tree 相当于目录。
+
+<li>
+BLOB,文件的数据。文件名那些都没有
+
+<li>
+
+
+</ul>
+
+<p>
+我们可以通过命令git hash-object 文件名查询文件的hash码
+</p>
+
+<ol>
+<li>
+add后会创建1个SHA-1，改内容就是添加的内容。.git下面新增index文件
+
+<li>
+commit  (一次commit会产生两个以上SHA-1，commit和tree(有可能多个，因为多个文件夹)。后在.git/refs/heads/ 会增加master文件。master文件内容为SHA-1值。该值为commit组件信息。内容为tree组件的SHA-1。同时创建tree组件的SHA-1。内容为blob组件的SHA-1。查找blob组件的SHA-1。得到文件内容。
+
+<li>
+
+
+</ol>
+
+<p>
+tree里面包含各个blob的信息。blob里面记录了内容的SHA-1。每次commit，tree都会新增。因为tree包含blob的重新指向。
+</p>
+
+<p>
+其中一个commit会包含一个tree指向，也会包含一个parent指向，首个commit没有parent;一个tree包含一个或多个blob，同样也可能包含零个或多个tree的指向；blob里面保存一个文件的数据，仅仅是数据，不包含其它的内容，不同的文件名，只要内容相同，都指向同一个blob。
+</p>
+
+<h1 id="toc_10">分支 </h1>
+<p>
+ git checkout -b try001 #该命令在.git\refs\heads 里面新增加一个和master一模一样的分支。
+ git branch newbranch  #创建分支，但不切换过去。
+ git branch [-v] #查看本地分支
+ git branch -r #查看远程分支
+ git branch -a #显示所有分支
+git checkout master #切换回主分支。 会改变.git/HEAD的值
+git checkout try001 #切换回try001分支。
+git branch -d try001 #删除分支
+git branch -D branchname 删除本地分支 （D 强制）
+git branch -d -r branchname 删除远端分支
+</p>
+
+<h1 id="toc_11">恢复被删除的分支 </h1>
+<p>
+git branch &lt;branch_name&gt; &lt;hash_val&gt;
+git reflog 查找hash_val
+</p>
+
+<p>
+只要HEAD发生了变化， 就会在reflog里面看得到。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

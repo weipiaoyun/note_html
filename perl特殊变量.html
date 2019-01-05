@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>perl特殊变量</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<p>
+------------------------C. 常见特殊变量-----------------------
+1. $_
+$ARG，常常是一个默认变量
+</p>
+
+<p>
+2. @_
+@ARG，子例程参数表
+</p>
+
+<p>
+3. $0
+$PROGRAM_NAME，本程序的名字。路径名字
+</p>
+
+<p>
+4. @ARGV
+本程序的命令行参数表
+</p>
+
+<p>
+5. $"
+$LIST_SEPARATOR，数组内插到双引号字符串中时所用的分隔符，
+默认为空格
+</p>
+
+<p>
+6. $,
+\(OFS，或\)OUTPUT_FIELD_SEPARATOR，用于print的输出字段分隔符，
+即一个print语句中用逗号分隔的部分之间用什么分隔，默认为无
+</p>
+
+<p>
+7. $\
+\(ORS，或\)OUTPUT_RECORD_SEPARATOR，用于print的输出记录分隔符，
+即一个print语句结束时末尾添加什么，默认为无
+</p>
+
+<p>
+8. $/
+\(RS，或\)INPUT_RECORD_SEPARATOR，输入记录分隔符，改变了readline，
+&lt;FH&gt;和chomp对于“行”的看法，默认为换行符
+</p>
+
+<p>
+9. $.
+\(NR，或\)INPUT_LINE_NUMBER，最后读取的“行”号(注意行的概念可能
+被8所改变)
+</p>
+
+<p>
+10. $|
+\(AUTOFLUSH，或\)OUTPUT_AUTOFLUSH，输出缓冲区开关，默认为0，即关
+</p>
+
+<p>
+11. $$
+\(PID，或\)PROCESS_ID，本脚本的进程号(PID)
+</p>
+
+<p>
+12. $!
+\(ERRNO，或\)OS_ERROR，上一次系统调用错误值
+</p>
+
+<p>
+13. $@
+$EVAL_ERROR，上一次eval操作错误值
+</p>
+
+<p>
+14. $^I
+$INPLACE_EDIT，现场编辑的备份文件扩展名
+</p>
+
+<p>
+15. %ENV
+当前环境变量
+</p>
+
+<p>
+16. 与正则表达式相关的几个量
+<table>
+<tr>
+<td>
+&lt;-($`)-&gt;
+</td>
+<td>
+&lt;-($&amp;)-&gt;
+</td>
+<td>
+&lt;-($')-&gt;
+</td>
+</tr>
+</table>
+/ ------- mmmmmmmm ++++++++/ =&gt; 正则表达式(注意：空格不代表实际空格)
+<table class='center'>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+匹配部分
+</td>
+</tr>
+</table>
+ 0  (\(-[0])      (\)+[0])
+</p>
+
+<p>
+17. $^O
+操作系统名称。
+或者
+use English;
+print $OSNAME;
+或者
+use Config;
+print $Config{'osname'};
+</p>
+
+<p>
+#获取主机名
+use Sys::Hostname;
+my $hostName = hostname();
+</p>
+
+
+<p>
+$EVN{HOST}
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

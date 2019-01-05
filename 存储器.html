@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>存储器</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+存储器由寄存器组成。每个存储器单元相当于一个缓冲寄存器
+</p>
+
+<p>
+<code>二维地址译码</code>：以STM32为例，有2<sup><small>32=4G的寻址能力。但是需要2</small></sup>32个字线显然不合适。如果把32位改成16条，分两次送，第一次决定是哪行，第二次决定是哪列。
+</p>
+
+<p>
+16k * 1位表示16k的字线，需14位译码，有16k的<code>存储单元</code>，每个单元有1个<code>记忆单元</code>（1位记忆字）。每条数据线控制1位。64k * 8位，64k的存储单元，每个存储单元8个记忆单元。我们所说的<code>多少内存</code>，说的其实是<code>多少个存储单元</code>，也即<code>多少字长</code>
+</p>
+
+<p>
+虚拟地址：也叫逻辑地址。不存在，也可以理解为指向磁盘。
+</p>
+
+<p>
+<a href="半导体存储器.html">半导体存储器</a><br>
+</p>
+<h1 id="toc_1">主存储器</h1>
+<p>
+cpu可直接随意访问。随意在可以一个字节。也可以字（字长，通常8的倍数）
+</p>
+
+<h1 id="toc_2">各存储器</h1>
+<p>
+SRAM和DRAM是易失性的。而ROM是非易失性的。因为ROM内部的开关是开闭(靠的都是二极管有没有接地，字线接高电平)已经觉得那个了，一上电就知道是什么数据。每次都是一样。
+</p>
+
+<h1 id="toc_3">字线</h1>
+<p>
+每条字线决定一个单元。通过开关来确定数据（一般二极管）。
+</p>
+
+<h1 id="toc_4">注意：寻址空间，地址空间 访问地址</h1>
+<p>
+这不是真正的地址空间。是片选信号。每个地址选择一个设备。在总线上的数据对于没有选中的设备来说是没有用的，只有当先用地址选择了相应的设备，然后才能把数据送进去。
+</p>
+
+<p>
+如果是以字（也就是字长，多少看机器）进行编址，访问的是字。以字节进行变址，可以访问某个字节。
+</p>
+
+<h1 id="toc_5">页</h1>
+<p>
+一般都是二维地址译码，既要送行地址，又要送列地址。而对于页访问，顺序访问的时候，只需送入新的列地址就行了，减少再次输入行地址的时间，一行就是一页。这样可以减少时间。
+</p>
+
+<h1 id="toc_6">SDRAM</h1>
+<p>
+同步动态存储器。只需发出一个地址。CPU过一时钟读写数据（无需检查上一次），继续下一个地址的访问，不用重新发送地址了。实现整个块的操作。
+</p>
+
+<h1 id="toc_7">边界对齐</h1>
+<p>
+目的是用最少的访问次数读取一个多字节数据。
+</p>
+
+<p>
+<a href="51单片机存储器.html">51单片机存储器</a><br>
+<a href="电脑硬盘的分割.html">电脑硬盘的分割</a><br>
+</p>
+
+<p>
+问题
+	为什么没有电也能存储数据。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

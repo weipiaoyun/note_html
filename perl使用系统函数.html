@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>perl使用系统函数</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2 id="toc_0.1">读取有那些文件</h2>
+<p>
+通过句柄实现，首先打开路径opendir，然后读取该路径句柄readdir DIR
+opendir DIR,"$dir/jobs/";
+while (readdir DIR) {
+	push @JobList,\(_ if (\)_ !~ m/^\./ );
+}
+</p>
+
+<p>
+$ViewFilePath = "/genesis/sys/scripts/";
+@filename = ();
+opendir Dir,"$ViewFilePath";
+foreach my $file (readdir Dir) {
+	if ( ! -d $file ) {
+		push @filename , $file;
+	}
+}
+@filename = reverse(@filename);
+</p>
+
+<h2 id="toc_0.2">取随机数</h2>
+<p>
+my $answer = sprintf("%d", rand(100));
+</p>
+
+
+<h2 id="toc_0.3">算第几个字符</h2>
+<p>
+my \(IndexLayer = index (\)ChangeLayer , "&gt;");#算出&gt;所在的第几个字符，从第0个开始算起
+readpipe
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

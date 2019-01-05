@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>genesis line_hooks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+输出前output.pre判断匹配*flip Step 的.release_from，如果值不为空，说明包含阴阳拼板是蓝色，没有更新的。
+如果格式时Excellon2，则检测周期输出是否合法。
+</p>
+
+<p>
+输出后output.post主要写日志文件
+</p>
+
+<p>
+#获取料号名
+my \(jobName  = \)argv-&gt;{lnVAL}-&gt;[0];
+</p>
+
+<p>
+#获取STEP名
+my \(stepName = \)argv-&gt;{lnVAL}-&gt;[1];
+</p>
+
+<p>
+my \(format   = \)argv-&gt;{lnVAL}-&gt;[2];
+</p>
+
+<h2 id="toc_0.1">rename_entity.post</h2>
+<p>
+my \(type = \)argv-&gt;{lnVAL}-&gt;[2];
+#type为料号名等
+my \(name = \)argv-&gt;{lnVAL}-&gt;[4];
+my \(newName = \)argv-&gt;{lnVAL}-&gt;[5];
+</p>
+
+
+<h1 id="toc_1">打印</h1>
+<p>
+lp_prog
+PRINTERS_ON_COMP
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>钻孔</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+ 0452282
+ 0004797
+ 0003369 
+ 0002958
+</p>
+ 
+<p>
+ 3044538
+</p>
+<h1 id="toc_1" class="justcenter">获取料号名</h1>
+<p>
+ private EngSys.MODEL.Pub.Ppe.Job.Model_CurrentJob CurrentJob = EngSys.MODEL.MODEL_Main.CurrentJob;
+</p>
+ 
+<p>
+ Application.StartupPath
+</p>
+<h1 id="toc_2">功能</h1>
+<p>
+1，从genesis捞钻孔信息。
+2，自动设置公差
+3，自动计算钻嘴
+4，添加工具孔
+</p>
+	
+<p>
+5，排刀
+6，上传
+7，实现AB拼版
+8，导出钻孔
+</p>
+<h2 id="toc_2.1">如何实现</h2>
+
+<h1 id="toc_3">显示的数据</h1>
+<p>
+1, 基础数据
+	本厂编号
+	料号层数
+	最终客户
+	产品类型
+	成品板厚
+	流程类型
+	表面处理
+	产品阶数
+	Core张数
+	Coupon数
+	单端差分个数
+	PnlA留边X，pnlA留边Y
+	PnlA宽，pnlA长
+	PnlB留边X，pnlB留边Y
+	PnlA宽，pnlA长
+	PnlA/Set,PnlB/Set,
+	Set/Pcs
+	特殊流程需要的钻孔，如大板V-cut等	
+</p>
+
+<p>
+2，钻带信息
+3，钻孔信息
+</p>
+
+<h2 id="toc_3.1">如何展现</h2>
+
+<h1 id="toc_4">存数据</h1>
+<p>
+1，从genesis捞出来的数据 [T_Pub_DrillInfoOrg]
+	T_Pub_DrillLayerOrg 钻带信息表
+		[OrderGuid_] 料号的Guid_
+	[T_Pub_DrillInfoOrg] 原始钻孔信息
+		 [Guid4DrillOrg_] 钻带的GUId_
+2，基本信息数据
+	T_Pub_DrillBaseInfo
+	钻孔需要的基本信息，如set里面的pcs数
+3，需要显示的字段信息
+4，要显示的钻带信息表
+	[T_Pub_DrillInfo]
+		[Guid4DrillOrg_] 钻带的Guid_
+5，生产尺寸钻咀信息表
+6，成品尺寸钻咀信息表
+7, 厂内钻孔补偿规则表
+8，客户钻孔补偿规则表
+8，工具孔表
+</p>
+
+<h2 id="toc_4.1">如何存储</h2>
+
+
+<h2 id="toc_4.2">钻孔主表字段</h2>
+<p>
+钻带	刀序	类型	属性	成品孔径 孔径公差+ 孔径公差-	槽长	槽长公差+ 槽长公差- 角度 角度+	角度-	深度	深度+	深度-	钻刀咀	钻槽长	Pcs孔数	Set孔数	A板孔数	B板孔数	备注
+</p>
+<blockquote>
+,[Guid4DrillLayer_]
+,[Guid4DrillInfoOrg_]
+,[ToolLayer_]
+,[ToolCode_]
+,[ToolClass_]
+,[ToolAttr_]
+,[FinishSize_]
+,[FinishSizePosiTol_]
+,[FinishSizeMinusTol_]
+,[FinishSlotlLength_]
+,[SlotLenPosiTol_]
+,[SlotLenMinusTol_]
+,[Angle]
+,[AnglePosiTol_]
+,[AngleMinusTol_]
+,[Depth_]
+,[DepthPositTol_]
+,[DepthMinusTol_]
+,[ToolSize_]
+,[SlotlLength_]
+,[indate]
+,[Drill_IDCheck]
+,[PcsQty_]
+,[SetQty_]
+,[PnlAQty_]
+,[PnlBQty_]
+,[ShortSlot]
+,[Tools]
+,[Captions_]
+</blockquote>
+
+
+<h2 id="toc_4.3">钻孔信息CTL Guid_</h2>
+<p>
+753c7f7a-71f1-e511-8c4e-78acc03d06a8
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>引用变量 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+用途：用来做类和结构的形参（函数使用时用的是原始数据，而不是拷贝）
+</p>
+
+<p>
+int &amp;a = b；
+a和b同一变量，不同名字。除了名字不一样，其它什么都一样。
+</p>
+
+<p>
+注：（1）必须声明的引用时进行初始化。引用跟谁得看它的初始化时是跟谁的。一旦跟谁了就一直效忠于它。
+</p>
+
+<p>
+	（2）传递时参数必须是变量。因为常量不是地址。变量可以看作是const指针。也就是不变的地址。
+</p>
+
+<p>
+	（3）如果类型不匹配或者是const或者是左值，就只是和普通的传值函数一样，用临时变量保存它。
+</p>
+
+<p>
+	（4）返回的引用一般都是函数的某一参数。如果返回的是函数里的引用。则函数调用完了，局部变量就释放了。返回的引用效忠于谁？
+</p>
+	
+<p>
+问题：
+	为什么要返回引用。
+引用不需要内存地址，用引用比用指针在概念上更清晰。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

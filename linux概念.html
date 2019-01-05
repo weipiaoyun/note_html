@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>linux概念</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">增加登录消息</a>
+<li><a href="#toc_0.2">更改hostname</a>
+<li><a href="#toc_0.3">hostname与/etc/hosts</a>
+</ul>
+</ul>
+</div>
+<h2 id="toc_0.1">增加登录消息</h2>
+<p>
+编辑/etc/motd。只对非图形界面起作用
+</p>
+
+<h2 id="toc_0.2">更改hostname</h2>
+<p>
+hostname由开机的时候/etc/rc.d/rc.sysinit这个脚本读取/etc/sysconfig/network里面的HOSTNAME, 然后写到/proc/sys/kernel/hostname里面，然后这个hostname的内容就是hostname的名字(即使是超级用户也不能修改的文件)。
+</p>
+
+<p>
+临时更改：用命令hostname NewName 修改了hostname，同时修改了hostname，但是重启后重新写入
+永久更改：修改/etc/sysconfig/network的HOSTNAME
+</p>
+
+<h2 id="toc_0.3">hostname与/etc/hosts</h2>
+<p>
+hosts文件的作用相当如DNS，提供IP地址到hostname的对应，早期的DNS，域名解析
+linux系统向DNS服务器发出域名解析请求之前会查询/etc/hosts文件，如果里面有相应的记录，就会使用host里面的记录。
+</p>
+
+<p>
+如一台主机的ip为192.168.8.201。
+在192.168.8.98该机上的/etc/hosts文件上添加192.168.8.201	cam1111
+如果在没添加的情况下，ping 192.168.8.201是可以ping通，但不能ping通cam1111。
+如果添加，则ip和名字ping1111都可以ping通
+</p>
+
+<p>
+注意：如果hostname为localhost或者localhost.localdomain，/etc/rc.d/rc.sysinit会查找/etc/hosts文档是否有IP对应的名字，如果有，则将localhost或者localhost.localdomain替换为IP对应的名字，作为hostname
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>志浩ERP查询</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+--查有卤无卤
+select d25.manu_part_number,d278.PARAMETER_NAME,d279.*
+  from data0279 d279
+INNER JOIN  data0025 d25 ON d279.source_ptr = d25.rkey 
+INNER JOIN  data0278 AS D278 ON D278.RKEY = D279.PARAMETER_PTR
+WHERE d25.MANU_PART_NUMBER='TE4A2563A0'
+AND d278.PARAMETER_NAME = 'LMT_H'
+</p>
+
+
+
+<p>
+--否
+--深蓝
+--浅蓝
+--棕色
+--红色
+--银色
+--亮黑
+--哑黑
+--白色
+--黄色
+--亚黑
+</p>
+
+<p>
+--黑字
+--灰字
+--黄字
+</p>
+
+<p>
+--MI信息
+--是否添加MI信息框
+</p>
+
+<p>
+--角度
+</p>
+
+<p>
+--镜像
+</p>
+
+
+<p>
+--查防焊油墨颜色
+</p>
+
+
+<p>
+select d278.PARAMETER_NAME,d494.* from data0494 d494
+INNER JOIN  data0278 AS D278 ON D278.RKEY = d494.PARAMETER_PTR
+INNER JOIN data0025 d25 ON d494.custpart_ptr = d25.rkey 
+WHERE  d25.manu_part_number = 'TE4A2563A0'
+AND d278.PARAMETER_NAME = 'SM_COLOR'
+AND D494.step_number=
+</p>
+
+<p>
+(
+select D38.STEP_NUMBER from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'SM_EXP'
+)
+</p>
+
+<p>
+--查文字颜色
+</p>
+
+<p>
+select d278.PARAMETER_NAME,d494.* from data0494 d494
+INNER JOIN  data0278 AS D278 ON D278.RKEY = d494.PARAMETER_PTR
+INNER JOIN data0025 d25 ON d494.custpart_ptr = d25.rkey 
+WHERE  d25.manu_part_number = 'TE4A2563A0'
+AND d278.PARAMETER_NAME = 'SO_COLOUR'
+</p>
+
+<p>
+--查沉银
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'GY'
+</p>
+
+
+<p>
+--查沉锡
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'Imsn'
+</p>
+
+<p>
+--查有铅
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'HAL(IPB)'
+</p>
+
+<p>
+--查无铅
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TEHB100360D0'
+AND D34.DEPT_CODE = 'HAL(EPB)'
+</p>
+
+<p>
+--查碳油
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'CIP'
+</p>
+
+<p>
+--查蓝胶
+</p>
+
+<p>
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
+WHERE d25.manu_part_number = 'TE4A2563A0'
+AND D34.DEPT_CODE = 'PSM'
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>linux文件系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="linux目录结构.html">linux目录结构</a><br>
+<a href="linux文件权限.html">linux文件权限</a><br>
+目录是特殊的文件。
+硬件设备的驱动程序和分区也用文件表示
+文件系统的最小存储单位是块。
+</p>
+
+<h1 id="toc_1">云自行添加Swap分区的方法 </h1>
+<p>
+查看系统当前的分区情况free -m
+创建用于交换分区的文件dd if=/dev/zero of=/xxx/swap bs=4096 count=1572864
+设置交换分区文件mkswap /xxx/swap
+启用交换分区文件swapon /xxx/swap
+若要想使开机时自启用，则需修改文件/etc/fstab中的swap行
+</p>
+<blockquote>
+echo “LABEL=SWAP-sda /xxx/swap swap swap defaults 0 0” &gt;&gt; /etc/fstab
+</blockquote>
+<p>
+删除swapswapoff /xxx/swap ; rm -f /Application/swap
+</p>
+
+
+<p>
+/etc/fstab
+与mount配合工作，实现自动挂载工作。
+(all 分区和存储设备信息)， 挂在哪，怎么挂
+一行一个设备(fsck,mount,umount按照顺序进行)
+</p>
+
+<p>
+如果遇到一些 类似于无法挂载你的windows分区阿，无法使用你的光驱阿，无法对某个分区进行写入操作阿什么的，那么基本上可以断定，你的fstab内容有问题了。
+</p>
+
+<p>
+在讲解之前要说一下，每个人所使用的系统情况都是不同的，包括硬件种类，所用系统等，因此fstab文件肯定是有所差异的。但是其基本结构，如上所述，都不会变。所以我们先以一个fstab内容作为模板进行讲解。 
+</p>
+
+<p>
+首先请看下面这个例子： 
+/dev/hda2 / ext2 defaults 1 1 
+/dev/hdb1 /home ext2 defaults 1 2 
+/dev/cdrom /media/cdrom auto ro,noauto,user,exec 0 0 
+/dev/fd0 /media/floppy auto rw,noauto,user,sync 0 0 
+proc /proc proc defaults 0 0 
+/dev/hda1 swap swap pri=42 0 0 
+</p>
+
+<p>
+这 些看起来毫无意义的字符代表了什么？在对应相应分区或者存储设备信息的每一行中，每一列又是什么意思？先大体讲一下，第一列表示设备的名称，第二列表示该 设备的挂载点，第三列是文件系统，第四列是挂载选项，第五列是dump选项（用一个数字表示），第六列（接下来的数字）表示文件系统检查选项。好了，接下 来，就要详细介绍这些参数的具体含义了。 
+</p>
+
+<p>
+第一、二列：设备和默认挂载点
+</p>
+
+<p>
+按照我们给出的fstab示例，如果你敲入命令 
+</p>
+
+<p>
+$ mount /dev/fd0 
+</p>
+
+<p>
+除 了显示的使用设备名，你可以使用设备的UUID或设备的卷标签，例如，你可以在这个字段写成“LABAL=root”或“UUID= 3e6be9de-8139-11d1-9106-a43f08d823a6”，这将使系统更具伸缩性。例如，如果你的系统添加或移除了一个SCSI硬盘，这有可以改变你的 设备名，但它不会修改你的卷标签。 
+</p>
+
+<p>
+swap： Swap，即交换区，把它想象成虚拟内存就行了。 
+</p>
+
+
+<p>
+第四列：挂载选项 
+</p>
+
+<p>
+fstab 中的第四列表示设备或者分区所需要的挂载选项。这一列也是fstab中最复杂最容易出错的一列，当然，只要你能知道一些最常用的选项是什么意思，就可以让 你从头疼中解脱出来。如果要把可用的选项一项一项介绍……恩，我估计我会写到明天，所以，我还是只是分析最常用的一些选项，如果你想知道更多的东西，还是 求助于man吧。 
+</p>
+
+<p>
+auto 和 noauto： 这是控制设备是否自动挂载的选项。auto是默认选择的选项，这样，设备会在启动或者你使用mount -a命令时按照fstab的内容自动挂载。如果你不希望这样，就使用noauto选项，如果这样的话，你就只能明确地通过手工来挂载设备。 
+</p>
+
+<p>
+user 和 nouser：这是一个非常有用的选项，user选项允许普通用户也能挂载设备，而nouser则只允许root用户挂载。nouser是默认选项，这也 是让很多 Linux新手头疼的东西，因为他们发现没有办法正常挂载光驱，Windows分区等。如果你作为普通身份用户遇到类似问题，或者别的其他问题，就请把 user属性增加到fstab中。 
+</p>
+
+<p>
+exec 和 noexec： exec允许你执行对应分区中的可执行二进制程序，同理，noexec的作用刚好相反。如果你拥有一个分区，分区上有一些可执行程序，而恰好你又不愿意， 或者不能在你的系统中执行他们，就可以使用noexec属性。这种情况多发生于挂载Windows分区时。exec是默认选项，理由很简单，如果 noexec变成了你/根分区的默认选项的话…… 
+</p>
+
+<p>
+ro： 以只读来挂载文件系统。 
+</p>
+
+<p>
+rw： 以可读可写的属性来挂载系统。 
+</p>
+
+<p>
+sync 和 async：对于该文件系统的输入输出应该以什么方式完成。sync的意思就是同步完成，通俗点讲，就是当你拷贝一个东西到设备或者分区中时，所有的写入 变化将在你输入cp命令后立即生效，这个东西应该立马就开始往设备或者分区里面拷贝了。而如果是async，也就是输入输出异步完成的话，当你拷贝一个东 西到设备或者分区中时，可能在你敲击cp命令后很久，实际的写入操作才会执行，换句话说，就是进行了缓冲处理。 
+</p>
+
+<p>
+有 时候这种机制蛮不错的，因为sync会影响你系统的运行速度，但是这也会带来一些问题。想一想，当你希望将一个文件拷贝到u盘上时，你执行了cp 命令，却忘记执行umount命令（它会强行将缓冲区内容写入），那么你拷贝的文件实际上并没有在u盘上面。如果你是使用的mv命令，而你又很快将u盘拔 出……恭喜你，文件会从这个星球上消失的。因此，虽然async是默认属性，但是对于u盘，移动硬盘这种可移动存储设备，最好还是让他们使用sync选 项。 
+</p>
+
+<p>
+defaults： 所有选项全部使用默认配置，包括rw, suid, dev, exec, auto, nouser, 和 async。 
+</p>
+
+<p>
+一般用户没有特殊需求，直接使用defaults就可以了。看完介绍，我们再回过头去看看前面的示例内容，以光驱为例，主要关注挂载选项这里，可以看到，光驱和其他分区设备的不同是ro，因为普通光驱是只读的。而exec则让你可以从光驱上直接执行某些程序。 
+</p>
+
+<p>
+第五、六列：dump和fsck选项 
+</p>
+
+<p>
+Dump和fsck？这是什么东西？恩，dump是一个备份工具，而fsck是一个文件系统扫描检查工具。我不会在这里详细介绍它们，因为用man或者google都可以获得更加详细的信息。 
+</p>
+
+<p>
+fstab 的第五列是表示dump选项，dump工具通过这个选项位置上的数字来决定文件系统是否需要备份。如果是0，dump就会被忽略，事实上，大多数的 dump设置都是0。而第六列是fsck选项，fsck命令通过检测该字段来决定文件系统通过什么顺序来扫描检查，根文件系统/对应该字段的值应该为1， 其他文件系统应该为2。若文件系统无需在启动时扫描检查，则设置该字段为0
+</p>
+
+<p>
+挂载ntfs分区
+</p>
+<blockquote>
+安装NTFS-3G
+下载源码包：
+wget <a href="http://sourceforge.net/projects/linux-ntfs/files/">http://sourceforge.net/projects/linux-ntfs/files/</a><br>
+解压源码包：
+tar zxvf ntfs-3g-2.0.0.tgz
+配置编译环境：
+cd ntfs-3g-2.0.0
+./configure
+编译：
+make
+安装：
+make install
+cd ..
+</blockquote>
+<blockquote>
+用fdisk -l | grep NTFS命令查看本地所有NTFS分区
+</blockquote>
+<p>
+   [root@localhost Desktop]# /sbin/fdisk -l |grep NTFS
+/dev/sda1   *           2        2551    20482843+   7  HPFS/NTFS
+/dev/sda5            5102       11475    51199123+   7  HPFS/NTFS
+/dev/sda7           20400       29323    71681998+   7  HPFS/NTFS
+/dev/sda8           29324       38913    77031643+   7  HPFS/NTFS
+</p>
+<blockquote>
+临时装载NTFS分区
+可以使用下面的命令以读写方式临时装载一个NTFS分区到装载点
+mount  -t ntfs-3g &lt;NTFS Partition&gt;  &lt;Mount Point&gt; 
+其中：
+&lt;NTFS Partition&gt; ------ NTFS所在分区的设备名，如3.1中的/dev/sdb1
+&lt;Mount Point&gt;      ------ 装载点，如3.2中的/mnt/ntfs-p1
+例如：
+mount  -t ntfs-3g /dev/sdb1 /mnt/ntfs-p1
+系统启动时装载NTFS分区 编辑/etc/fstab vi /etc/fstab 
+</blockquote>
+<p>
+在文件最后增加如下格式的行 ntfs-3g defaults 0 0 其中： ------ NTFS所在分区的设备名，如3.1中的/dev/sdb1 ------ 装载点，如3.2中的/mnt/ntfs-p1 例如： /dev/sdb1 /mnt/ntfs-p1 ntfs-3g defaults 0 0 保存文件后重启系统或简单的执行下面的命令，即可装载NTFS分区到指定的装载点 mount -a
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

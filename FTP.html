@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>FTP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">什么是uri</a>
+</ul>
+<li><a href="#toc_1">安装ftp </a>
+<ul>
+<li><a href="#toc_1.1">启动 </a>
+</ul>
+<li><a href="#toc_2">禁止匿名登录 </a>
+<li><a href="#toc_3">设置开机启动 </a>
+<li><a href="#toc_4">创建用户名 </a>
+<li><a href="#toc_5">访问ftp的哪个目录 </a>
+</ul>
+</div>
+<h2 id="toc_0.1">什么是uri</h2>
+<p>
+Uniform Resource Identifier 统一资源标识符
+网络上的每种资源都通过url进行定位，由三部分组成，通过这三部分即可获取资源路径。
+</p>
+
+<p>
+URL是URI命名机制的一个子集
+</p>
+
+<p>
+一，主机名
+存放资源自身的名称，由路径表示。
+协议名称://域名.根域名/目录/文件名.后缀
+如:<a href="http://baike.so.com/doc/100.html">http://baike.so.com/doc/100.html</a><br>
+	这是可通过HTTP协议访问的资源，位于baike.so.com的主机上。在/doc文件夹，100.html的这个文件。
+</p>
+	
+<p>
+二，标识符
+协议://域名/目录/文件#片段标示符（例如：/a/b.php#a）
+</p>
+
+<p>
+三、相对URI
+</p>
+
+<h1 id="toc_1">安装ftp </h1>
+<p>
+yum install vsftpd* 
+</p>
+
+<h2 id="toc_1.1">启动 </h2>
+<p>
+/sbin/service vsftpd start
+</p>
+
+<h1 id="toc_2">禁止匿名登录 </h1>
+<p>
+vim /etc/vsftpd/vsftpd.conf
+anonymous_enable=NO
+</p>
+
+<h1 id="toc_3">设置开机启动 </h1>
+<p>
+chkconfig --level 35 vsftpd on
+</p>
+
+<h1 id="toc_4">创建用户名 </h1>
+<p>
+useradd zhPeServer
+</p>
+
+<p>
+ftp 127.0.0.1   登录本机ftp
+</p>
+
+<h1 id="toc_5">访问ftp的哪个目录 </h1>
+<p>
+ftp进去的目录需要查看登录的账号的目录的主目录。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

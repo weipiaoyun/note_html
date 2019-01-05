@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>TCL的Genesis操作函数</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="genesis功能函数.html">genesis功能函数</a><br>
+<a href="RB.html">RB</a><br>
+<a href="BQ.html">BQ</a><br>
+</p>
+<h1 id="toc_1">删除</h1>
+<h2 id="toc_1.1">删除料号</h2>
+<p>
+PROC_JOB_DELETE $pdf_job
+</p>
+
+<h1 id="toc_2">删除层名</h1>
+<p>
+PROC_LAY_DELETE "profile_layer, aa"
+</p>
+
+<h1 id="toc_3">添加</h1>
+<h2 id="toc_3.1">添加PAD</h2>
+<p>
+PROC_ADD_PAD_ATT \(x \)y \(ang \)mir r$hole_size positive
+</p>
+
+<h1 id="toc_4">创建料号</h1>
+<p>
+PROC_JOB_CREATE $pdf_job
+</p>
+
+<h1 id="toc_5">打开料号</h1>
+<p>
+PROC_JOB_OPEN $pdf_job
+</p>
+
+<h1 id="toc_6">拷贝</h1>
+<h2 id="toc_6.1">拷贝Step</h2>
+<p>
+PROC_STEP_COPY \(orgJOB \)StepName \(pdf_job \)pdf_step
+</p>
+
+<h2 id="toc_6.2">拷贝层</h2>
+<p>
+	PROC_LAY_COPYLAYER \(JOB \)workStep \(layName \){tmpLayer} replace no
+</p>
+	
+<p>
+	PROC_LAY_COPYOTHER "${routLayer}_inner" no 0 0 0 0 0 0 none
+</p>
+<h1 id="toc_7">打开Step</h1>
+<p>
+PROC_STEP_OPEN $pdf_step
+</p>
+
+
+<h1 id="toc_8">判断是否存在</h1>
+<p>
+PROC_CHK_EXISTS
+</p>
+<h2 id="toc_8.1">判断料号是否存在</h2>
+<p>
+DO_INFO -t job -e $JOB -d EXISTS
+if {$gEXISTS=="no"} {
+	Proc_Msg_Err "\u0047\u0065\u006e\u0065\u0073\u0069\u0073\u0032\u0030\u0030\u0030\u0020\u4e0d\u5b58\u5728\u6b64\u6599\u53f7\uff01"
+}
+</p>
+
+<h2 id="toc_8.2">层名是否存在</h2>
+<p>
+Proc_Lay_Exists
+if {[PROC_LAY_EXISTS \(JOB \)step_name $routLayer 0] == "yes"} {
+</p>
+<h2 id="toc_8.3">STEP是否存在</h2>
+<p>
+PROC_STEP_EXISTS
+</p>
+
+<h1 id="toc_9">获取第几层对应的层名</h1>
+<p>
+Proc_GetNo_Lay
+</p>
+
+<h1 id="toc_10">根据开始层和结束层的名字获取对应的第几层序号</h1>
+<p>
+Proc_GetLay_No
+</p>
+
+<h1 id="toc_11">获取层别列表</h1>
+<p>
+PROC_LAY_LIST "" 
+参数：SOL_NUM(获取防焊)
+		DRL_NUM(钻孔)
+获取的层数 $layer_num
+获取的层名列表  $list_lay
+</p>
+
+<h1 id="toc_12">替换字符串</h1>
+<p>
+set layer_num1 [string replace ${layer_num1} 0 0 ""]
+</p>
+
+<h1 id="toc_13">获取选择的个数</h1>
+<p>
+PROC_OBJECT_SELECTCOUNT
+</p>
+
+<h1 id="toc_14">清空所有影响层</h1>
+<p>
+PROC_LAY_AFFECTED "Clear" ""
+PROC_LAY_AFFECTED "CRA" "$layName"
+PROC_LAY_AFFECTED "C&amp;R" ""
+</p>
+
+<h1 id="toc_15">转铜</h1>
+<p>
+PROC_OBJECT_CONTOURIZE
+</p>
+
+
+<h1 id="toc_16">set curUnit [PROC_UNIT_GET]</h1>
+<p>
+获取当前单位
+</p>
+
+<h1 id="toc_17">设置单位</h1>
+<p>
+PROC_UNIT_SET mm
+</p>
+
+<h1 id="toc_18">字框放大</h1>
+<p>
+PROC_SK_HANDLE_SCALEROUT
+</p>
+
+<p>
+text_tmp 所选的文字框
+</p>
+
+<h1 id="toc_19">新建层</h1>
+<p>
+PROC_LAY_CREATE "\(workStep" "\)markLay" "misc" "drill" "positive"
+</p>
+
+<h1 id="toc_20">框选</h1>
+<p>
+MOUSE "r ${select_layer} Please choose the character frame"
+if {$COMANS == 0} {
+	set x1 [lindex $MOUSEANS 0]
+	set y1 [lindex $MOUSEANS 1]
+	set x2 [lindex $MOUSEANS 2]
+	set y2 [lindex $MOUSEANS 3]
+</p>
+  
+<p>
+}
+</p>
+
+<h1 id="toc_21">依次选择物件</h1>
+<p>
+COM "sel_layer_feat,operation=select,layer=\({routLayer}_inner,index=[expr \)i + 1]"
+</p>
+
+<h1 id="toc_22">检测</h1>
+<p>
+检测槽孔是否为by_length
+PROC_DRL_CHKBYLENGTH
+</p>
+
+<h1 id="toc_23">网络比对</h1>
+<p>
+PROC_NET_COMPARE \(JOB \)JOB \(net_name \)cam_name
+PROC_LAY_LIST
+</p>
+
+<p>
+获取bar message
+</p>
+
+
+<p>
+PAUSE "[lindex $gATTRval 1] haha"
+PAUSE [llength $gATTRval]
+PAUSE "DO_INFO -t layer -e \(JOB/\)step_name/$lay_name -d ATTR  -p val   "
+</p>
+		
+<h1 id="toc_24">获取pnl_name里面的所有Step</h1>
+<p>
+set stepArr [lindex [split [PROC_STEP_SREXT $pnl_name] "|"] 0]
+</p>
+
+<h1 id="toc_25">分析获取结果</h1>
+<p>
+set checkListName setmissingclearance
+set analysis_type  sm
+set pp_layer ".type=solder_mask&amp;context=board"
+COM chklist_reread_all_erfs
+VOF
+COM chklist_delete,chklist=$checkListName
+VON
+COM chklist_create,chklist=$checkListName					
+COM "chklist_single,action=valor_analysis_${analysis_type},show=no"
+COM chklist_pclear
+#COM chklist_cupd,chklist=valor_analysis_\({analysis_type},nact=1,params=((pp_layers=\)pp_layer)(pp_spacing=76.2)(pp_r2c=76.2)(pp_d2c=14.2)(pp_sliver=10)(pp_min_pad_overlap=5)(pp_tests=Spacing)(pp_selected=All)(pp_check_missing_pads_for_drills=No)(pp_use_compensated_rout=No)(pp_sm_spacing=No)),mode=regular
+COM "chklist_cupd,chklist=valor_analysis_${analysis_type},nact=1,params=((pp_layers=.type=solder_mask&amp;context=board)(pp_ar=76.2)(pp_coverage=76.2)(pp_sm2r=0)(pp_sliver=203.2)(pp_spacing=228.6)(pp_bridge=101.6)(pp_min_clear_overlap=127)(pp_tests=Missing)(pp_selected=All)(pp_use_compensated_rout=No)),mode=regular"
+</p>
+
+<p>
+COM "chklist_pcopy,chklist=valor_analysis_${analysis_type},nact=1"
+COM "chklist_ppaste,chklist=$checkListName,row=0"
+COM "chklist_run,chklist=$checkListName,nact=1,area=profile"
+</p>
+
+<p>
+#Info出CheckList的结果
+COM "info,args=-t check -e \(JOB/\)set_name/\(checkListName -m display -d MEAS -o action=1,out_file=\)CAM_TMP/$JOB.[pid],write_mode=replace,units=inch"
+</p>
+
+<p>
+set checkType [exec awk95 "{print \\(1}" \)CAM_TMP/$JOB.[pid]]
+set checkArr [concat pth_miss npth_miss ndrl_miss pth_miss]
+</p>
+
+<p>
+set checkInfoIndex 0
+while {\(checkInfoIndex &lt;= [llength \)checkType]} {
+</p>
+
+
+<h1 id="toc_26">INFO</h1>
+<p>
+set out_file  "$CAM_TMP/info.[pid]"
+COM "info, out_file=\(out_file,args=  -t layer -e \)JOB/\(pnl_name/\)tmpLayer -d FEATURES  -o select, units = mm"
+</p>
+<blockquote>
+exec grep "^#P" \(out_file &gt; \)out_file1
+</blockquote>
+<p>
+set xC [exec awk95 "{print \\(2}" \)out_file]
+set yC [exec awk95 "{print \\(3}" \)out_file]
+</p>
+
+
+
+<p>
+set out_file  "$CAM_TMP/info.[pid]"
+COM "info, out_file=\(out_file,args=  -t layer -e \)JOB/\(cad_name/\)lay_name -d FEATURES, units = mm"
+</p>
+
+
+<h1 id="toc_27">检查层里面是否有PAD或线</h1>
+<p>
+set haveFeature 0
+set fi [open $out_file r]
+while {[eof $fi] != 1} {
+	set dat [gets $fi]
+	if [string match "<strong>#P</strong>" $dat] {set haveFeature 1;break}
+	if [string match "<strong>#L</strong>" $dat] {set haveFeature 1;break}
+}
+close $fi
+file delete -force $out_file
+</p>
+
+<p>
+if {$haveFeature != 1} {
+	continue
+}
+</p>
+
+<h1 id="toc_28">检测层属性</h1>
+<p>
+DO_INFO -t layer -e \(JOB/\)cad_name/$lay_name -d TYPE
+if {$gTYPE != "drill"} {
+	continue
+}
+</p>
+
+
+<h1 id="toc_29">根据两点画框</h1>
+<p>
+PROC_ADD_POLY
+</p>
+
+
+<h1 id="toc_30">转铜</h1>
+<p>
+COM sel_contourize,accuracy=6.35,break_to_islands=yes,clean_hole_size=76.2,clean_hole_mode=x_and_y
+</p>
+
+<h1 id="toc_31">取列表里面的最小值</h1>
+<p>
+PROC_CALC_DATAARR
+</p>
+
+
+<h1 id="toc_32">VCUT</h1>
+<p>
+PROC_MARK_VCUT
+</p>
+
+<h1 id="toc_33">添加Vcut标注</h1>
+<p>
+QD PROC_PNL_VCUT
+</p>
+
+<h1 id="toc_34">自动VCUT线</h1>
+<p>
+PROC_AUTO_VCUT
+</p>
+
+<h1 id="toc_35">过滤选择</h1>
+<p>
+PROC_FILTER_OPTION
+</p>
+
+<h1 id="toc_36">获取所有的SR</h1>
+<p>
+set all_sr [lindex [split [PROC_STEP_SREXT $pnl_name] "|"] 0]
+set mir_sr [lindex [split [PROC_STEP_SREXT $pnl_name] "|"] 1]
+</p>
+
+<p>
+<a href="http://localhost:49663/TestService.asmx">http://localhost:49663/TestService.asmx</a><br>
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

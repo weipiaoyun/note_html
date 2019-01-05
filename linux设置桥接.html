@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>linux设置桥接</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+cd /etc/sysconfig/network-scripts/
+cp ifcfg-eth0 ifcfg-br0
+vim ifcfg-br0
+vim ifcfg-eth1
+/sbin/service network restart
+详细命令参考2.67install，参数详细参考2.67配置文件
+</p>
+
+<p>
+172.17.2.67
+</p>
+
+<p>
+硬件：两个网卡
+上面：eth0，和大部分电脑相同得ip设置，可以连接vnc
+下面：eth1，当作是桥接器，插上后可以连接虚拟机。如果没有插上，则虚拟机和172.17.2.67无法接通。因为桥没有和外面的网络连接，eth0和eth1是隔离的，连接后通过交换机连接
+eth0和eth1是真实网卡
+</p>
+
+<p>
+测试双网卡是否连通
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

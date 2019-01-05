@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>erf</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">文件路径</a>
+<li><a href="#toc_2">smcc </a>
+<ul>
+<li><a href="#toc_2.1">自动补铜桥 </a>
+<li><a href="#toc_2.2">盖线是否削相同网络 </a>
+</ul>
+<li><a href="#toc_3">sigopt </a>
+<ul>
+<li><a href="#toc_3.1">多边形涨pad </a>
+<li><a href="#toc_3.2">有些pad无法掏 </a>
+<li><a href="#toc_3.3">控制削pad大小线 </a>
+</ul>
+<li><a href="#toc_4">分析线路 </a>
+<ul>
+<li><a href="#toc_4.1">短线线宽无法分析 </a>
+</ul>
+</ul>
+</div>
+<h1 id="toc_1">文件路径</h1>
+<p>
+d:\genesis\e97\prog\dfm\
+d:\genesis\sys\valor_prog\dfm\
+</p>
+
+<h1 id="toc_2">smcc </h1>
+
+<h2 id="toc_2.1">自动补铜桥 </h2>
+<p>
+v_min_neg_bridge_size     = 3 将这个设为间距的
+</p>
+
+<h2 id="toc_2.2">盖线是否削相同网络 </h2>
+<p>
+v_shave_same_net
+</p>
+
+
+<p>
+补
+</p>
+
+<h1 id="toc_3">sigopt </h1>
+<h2 id="toc_3.1">多边形涨pad </h2>
+<p>
+sigopt.erf v_handle_non_standard_pads
+</p>
+
+<h2 id="toc_3.2">有些pad无法掏 </h2>
+<p>
+do_poly_shave           = yes   可以用多边行掏
+max_pad_shaves          = 6		削pad可以允许削多少次
+</p>
+
+<h2 id="toc_3.3">控制削pad大小线 </h2>
+<p>
+min_brush
+</p>
+
+<h1 id="toc_4">分析线路 </h1>
+<p>
+文件：analysis/signal.erf
+classify_c2c 对c2c进行分类
+</p>
+
+<h2 id="toc_4.1">短线线宽无法分析 </h2>
+<ul>
+<li>
+修改min_line_line = 0
+
+<li>
+修改len2width_ratio = 1
+
+</ul>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

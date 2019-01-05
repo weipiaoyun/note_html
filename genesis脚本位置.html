@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>genesis脚本位置</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2 id="toc_0.1">软板脚本位置</h2>
+<p>
+程序位置：genflex04:/frontline/app_gfx -ixelFm
+lib库位置：hcsystem:/odb
+</p>
+
+<p>
+输出资料位置：/gen_db/genflex/sys/scripts/topcb/output
+输出资料主程序：/gen_db/genflex/sys/scripts/topcb/output/auto_output
+主程序存在位置：/gen_db/genflex/sys/scripts/main
+主程序界面位置：/gen_db/genflex/sys/scripts/ftp_main
+钻孔输出位置： /genesis/sys/scripts/wxs/drills1
+自动输出锣带：/genesis/sys/scripts/main-&gt;/genesis/sys/scripts/topcb/output/auto_output-&gt;/genesis/sys/scripts/topcb/output/auto_rout
+板边所在位置：/genesis/sys/scripts/panel/fpc-panel然后调用ten
+文字喷墨所在位置：/genesis/sys/scripts/hc/bin/addHiPrintMark.pl
+</p>
+
+<h2 id="toc_0.2">硬板脚本位置</h2>
+<p>
+板边主程序：/scripts/greate/topcb/danpin
+附：
+1，	在哪里添加属性
+D:/genesis/fw/lib/misc/userattr
+</p>
+
+<p>
+2，	跑板边存放目录
+/genesis/fw/jobs/.bd63689a0/.symbols/.main/.new
+</p>
+
+<p>
+3，	自动输出钻孔。
+/genesis/sys/scripts/greate/drill/newdrilloutput.csh
+</p>
+
+<p>
+4，	编辑工具入口
+/genesis/sys/script/greate/misc/.add_mainwindow
+</p>
+
+<p>
+5, 自动制作信号层
+/genesis/sys/script/greate/.copy_forms
+/gen_db/odb1/lib/forms/main/def/cb/E11
+</p>
+
+<p>
+6, 自动掏铜
+/genesis/sys/scripts/greate/outer/select_cu
+</p>
+
+<p>
+5，panel板边程序主菜单
+/gen_db/cam101/app_gen/fw/jobs/.bd63689a0/.symbols/.main/.panel
+</p>
+
+<p>
+6,输出打靶数据(输出的靶距数据)
+/greate/misc/exportData.pl
+</p>
+
+<p>
+7,自动输出网房CTS-Gerber274x
+/gen_db/genesis/sys/scripts/great/misc/output/autoExportAOI.pl
+</p>
+
+<p>
+8，测线图
+/genesis/sys/scripts/hc/bin/createCXT.pl
+</p>
+
+<p>
+9,文字喷墨位置：/scripts/wxs/outputgo
+</p>
+
+<p>
+10，增加小野十字架
+/genesis/sys/scripts/greate/panel/ChoiceLayer.pl
+</p>
+
+<p>
+11，alias存在位置
+/genesis/sys/.script_all.csh
+</p>
+
+<p>
+12，自动制作防焊位置
+/genesis/sys/scripts/greate/mask/
+</p>
+
+<p>
+13，自动制作锣带
+/genesis/sys/scripts/rout/pan
+</p>
+
+<p>
+14, 外层LDI资料
+/genesis/sys/scripts/greate/misc/output/autoExportAOI.pl
+</p>
+
+<p>
+15，LDI自动外层
+/genesis/sys/scripts/greate/panel/LDI_panel.pl
+</p>
+
+<p>
+16, 3:3夹线位置
+/gen_db/genesis/sys/scripts/greate/outer
+</p>
+
+<p>
+17, 环境变量alias位置
+/scripts/greate/misc/.env_script
+</p>
+
+<p>
+18, 自动制作锣带
+/genesis/sys/scripts/greate/panel/auto.rout.pl
+</p>
+
+
+<h2 id="toc_0.3">梅双脚本位置</h2>
+<p>
+1，lib库
+172.17.0.66/odb/.lib
+</p>
+
+<p>
+2,scripts
+172.17.0.66/space/app_gen
+</p>
+
+
+<h2 id="toc_0.4">自动备份料号脚本</h2>
+<p>
+cam04
+</p>
+
+<h2 id="toc_0.5">文件服务器</h2>
+<p>
+workfile存在路径：172.18.3.113/pesvr/11.cam/workfile/outfile
+public所在目录：/gen_db/pesvr/public
+F2编辑工具存在的地方：/scripts/greate/misc/.add_mainwindow
+F2编辑工具各图片存在地址：
+/genesis/sys/scripts/wxs/photo/update
+文件服务器自动删除，自动移动资料脚本位置/usr/local/pesvr(梅双，东莞)
+自动更新EQ状态：pesvr：/home/dgeq/parsermail.pl
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

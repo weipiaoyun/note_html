@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>QD</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">板边</h1>
+<p>
+gko改成rout，和board试一下
+</p>
+
+<p>
+vcutmap根据gko层基础上添加
+</p>
+
+
+<p>
+如果最后一次锣边锣完后，留边小于15
+</p>
+
+
+
+
+<h1 id="toc_2" class="justcenter">PE冲孔</h1>
+<p>
+ 1   2  3 4 5   6 7 8
+ 4	 2 	1 6 10  9 7	11
+</p>
+<h2 id="toc_2.1">待确认</h2>
+<p>
+网络分析找不到net
+</p>
+
+<p>
+留边问题
+	决定物件是以SR算还是以prof算
+	以极限值计算
+</p>
+	
+<p>
+	哪些symbol的位置有特殊要求的
+	哪些symbol的位置没有特殊要求，只要不重叠即可
+</p>
+	
+
+
+<h2 id="toc_2.2">待做</h2>
+<p>
+PROC_PNL_PRE	板边前检查
+COM sel_delete 清空原来的板边 (PROC_PNL_UI 和RUN都需清空)
+外层后已退出
+</p>
+<h2 id="toc_2.3">变量名</h2>
+<p>
+film_mode 	正负片
+outCu		铺铜
+t_or_b_x	菲林对位
+</p>
+
+<h2 id="toc_2.4">强电pad</h2>
+<p>
+COM sr_fill,polarity=positive,step_margin_x=27,step_margin_y=57,step_max_dist_x=2540,step_max_dist_y=2540,sr_margin_x=5,sr_margin_y=5,sr_max_dist_x=0,sr_max_dist_y=0,nest_sr=no,consider_feat=yes,feat_margin=2,consider_drill=no,consider_rout=no,dest=affected_layers,attributes=no
+COM sr_fill,polarity=positive,step_margin_x=27,step_margin_y=57,step_max_dist_x=2540,step_max_dist_y=2540,sr_margin_x=2,sr_margin_y=2,sr_max_dist_x=0,sr_max_dist_y=0,nest_sr=no,consider_feat=yes,feat_margin=2,consider_drill=no,consider_rout=no,dest=affected_layers,attributes=no
+COM zoom_home
+COM zoom_area,x1=-36.8451875,y1=477.4035575,x2=176.6411875,y2=384.696935
+</p>
+
+
+
+
+<h1 id="toc_3">判断几次钻带</h1>
+<p>
+28
+27
+26
+29
+19
+</p>
+
+<p>
+24
+</p>
+
+<p>
+58
+end - start = 1 开料钻
+1，找一次，假设一次，end - start是否最小，最小的为一次
+2，找其他一次，如果一次的end 和start不在该钻带中间，且相减最小，为一次
+3，如果2有，重复2。直到无法找到一次
+4，找二次，在一次和
+</p>
+
+
+
+
+<h1 id="toc_4">待处理</h1>
+<p>
+1，更换T_GS_DFM4CAMGuide 数据库表
+2，
+</p>
+
+<h1 id="toc_5">输出</h1>
+<p>
+PROC_OUT_FILTER_PE  PE冲孔不涨缩
+</p>
+
+
+<h1 id="toc_6">变量</h1>
+<p>
+$wcfp 外层负片
+</p>
+
+
+<h1 id="toc_7">塞孔</h1>
+<p>
+via1111111
+viats00000
+via3333333
+via444444
+via888888
+via999999
+via6666666
+via000000		所有via孔
+</p>
+
+<p>
+所有的via孔，拷贝到via000000
+在via000000碰到ts的移动到via1111111，剩下的移动到via6666666
+ts拷贝到viats00000， viats00000 转铜
+via1111111拷贝到via3333333
+via1111111 选择250的孔，移动到via444444
+viats00000 加大250
+via444444 (250的孔) 参考viats00000(阻焊)，cover到的移动到via888888，剩下的移动到via999999
+viats00000 减小250
+viats00000 加大300
+300的孔和250的孔一样处理
+</p>
+
+<p>
+350
+via888888，加大100，移动到ts
+via999999   加到100，掏ts
+via6666666   
+</p>
+
+
+
+<h1 id="toc_8">fw</h1>
+<p>
+1,选择所有via，拷贝到viatpid
+2，viatpid拷贝到viabpid
+3，viatpid 减小250，cover   ts，减小单边2mil，作挡点拷贝到ts。删掉cover到ts的
+4，viatpid 减小300，cover ts，减小单边2mil，作挡点拷贝到ts。删掉cover到ts的。
+5，viatpid 剩下的加大单边2mil，掏到ts。
+</p>
+
+
+<h1 id="toc_9">塞孔</h1>
+<p>
+塞孔：
+1，钻孔层VIA属性的孔拷贝出来生产成一层辅助层；
+2，一面不开窗，另一面大于二分之一开窗的，开窗面用钻孔加单边大于2mil的开窗；
+   一面不开窗，另一面小于二分之一开窗时，开窗面用钻孔加大单边2mil负量掏阻焊窗；
+3，筛选辅助层的0.6以上，0.2以下的VIA去除；（0.2mm-0.6mm之间的保留做塞孔）
+4，拷贝阻焊临时层，分别将阻焊临时层转化为铜皮，去除负量，同时和辅助层进行参考比对（全覆盖），双面开窗的VIA孔去除；
+5，0.2-0.35的VIA孔变成0.35mm拷贝到via层；0.4-0.60的VIA孔变成0.50mm拷贝到via层；
+6，via层分别与阻焊层参考，接触孔径数量多的一面命名，在via后面加T/B；
+7，删除辅助层；
+盖油
+1，钻孔层VIA属性的孔拷贝出来生产成一层辅助层；
+1，如有VIA层，则参考VIA层做选择，碰到VIA的，删掉辅助层中的钻孔，没有VIA层直接进行下一步；
+2，筛选辅助层中大于0.4的孔单边缩小4mil复制拷贝到阻焊层做挡点；
+3，筛选小于等于0.4的孔，与阻焊层参考比对，
+   如果一半以上在阻焊开窗里面，则在阻焊层对应的位置加比孔单边大2mil的开窗；
+   如果一半以下在开窗里面，则在阻焊层对应的位置加比孔单边大2mil的负量掏阻焊开窗；
+4，删除辅助层；
+</p>
+
+
+<p>
+塞孔：
+1，将drl孔含有via属性，并且孔径在0.2mm-0.6mm的孔拷贝出来，via_t，via_b
+2，via_t参考优化后的gts，如果cover到的删除，touch的拷贝到via_t_touch。
+3，在via_t_touch里面转换成0mil的孔，碰gts，如果碰到，移动到到via_t_kc（开窗）
+4，via_t碰到via_t_kc，加大单边2mil拷贝到gts层，做顶层开窗；via_t碰到via_t_kc，顶层开窗的删除。剩下的是顶层塞孔。
+5，via_t碰到via_t_touch加大单边2mil掏gts层，做塞孔。
+6，底层和顶层同样操作，剩下底层塞孔。
+7，顶层塞孔碰底层塞孔，碰到的删除。剩下的拷贝到底层塞孔。变成要么顶层塞，要么底层塞孔层via。删除viat和viab。
+8，via层碰gts和gbs。如果gts碰到的少，则不动，否则via更改为viab层。
+9，0.2-0.35的变成0.35.0.4-0.6的编程0.5。
+10，删除辅助层。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>51单片机</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">单片机的基本结构</h1>
+<p>
+基本结构：
+	(1)cpu系统:
+		包括cpu（运算器和控制器），时钟系统（振荡器、外接谐振单元、可关闭振荡器或cpu时钟），总线控制逻辑三部分
+</p>
+
+<p>
+	(2)外围功能单元
+		RAM,ROM,I/O端口，SFR
+</p>
+
+<p>
+	(3)归一化I/O端口(基本逻辑单元，串口并口，)
+</p>
+	
+<p>
+	程序执行的顺序：
+		在ROM中读取指令，送到IR里面，经过译码后到定时控制逻辑，产生控制字。(要用微观的角度思考，放慢，一条指令，经过循环计数器，产生多个控制字。移位一个就产生一个。也就选择了一组部件。数据经过部件就会处理。
+		(一个指令，译码，变成控制字，循环开关，打开交流部件)
+</p>
+		
+<p>
+		地址多少位就决定了寻址空间多大。
+<a href="51单片机存储器.html">51单片机存储器</a><br>
+<a href="算术逻辑单元.html">算术逻辑单元</a><br>
+<a href="定时控制部件.html">定时控制部件</a><br>
+<a href="指令系统.html">指令系统</a><br>
+<a href="并行输入输出端口.html">并行输入输出端口</a><br>
+<a href="中断系统.html">中断系统</a><br> 
+<a href="单片机接口技术.html">单片机接口技术</a><br>
+<a href="51单片机问题.html">51单片机问题</a><br>
+<a href="8位ADC0809与单片机接口.html">8位ADC0809与单片机接口</a><br>
+<a href="汇编编程.html">汇编编程</a><br>
+<a href="c语言编程.html">c语言编程</a><br>
+<a href="常用器件.html">常用器件</a><br>
+<a href="总线.html">总线</a><br>
+<a href="微型计算机控制技术.html">微型计算机控制技术</a><br>
+<a href="电平.html">电平</a><br>
+<a href="串行扩展技术.html">串行扩展技术</a><br>
+<a href="8051内存类型.html">8051内存类型</a><br>
+<a href="spi.html">spi</a><br>
+<a href="密码锁.html">密码锁</a><br>
+<a href="I2C总线.html">I2C总线</a><br>
+<a href="异步通信.html">异步通信</a><br>
+<a href="密码锁.html">密码锁</a><br>
+<a href="89S52standard features.html">89S52standard features</a><br>
+</p>
+
+
+<p>
+ALE:	地址锁存信号，它有一个特点，如果不是MOVX或MOVC指令。每隔1/6时钟震荡频率就输出正脉冲。由硬件置1，延时一段时间后又由硬件清零。
+		ALE是外设的控制线(外设的L门用其打开)，
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

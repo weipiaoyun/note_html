@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>odbc安装</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2 id="toc_0.1">安装DBI，</h2>
+<p>
+修改IP，包括有192的和172(连接ERP)的
+1,配置yum源<a href="yum源.html">yum源</a><br>
+搜索DBI进行安装
+	A database access API for perl
+	Easy-to-use OO interface to DBI
+</p>
+	
+<p>
+搜Makemaker
+	安装create a module makefile
+</p>
+	
+
+<p>
+搜crypto/libgcrypt
+	安装Development files for libgcrypt package
+</p>
+	
+<p>
+2,拷贝odbc.tgz，installODBC.csh，connectSql-linux.pl到/opt
+</p>
+
+<p>
+3,安装odbc
+</p>
+
+<p>
+4,修改配置文件/etc/odbc.ini 注意172.18.0.8，东莞的是18
+</p>
+
+<p>
+Server=172.18.0.8
+</p>
+
+<p>
+perl -e "use DBD::ODBC"
+</p>
+
+<p>
+more odbc.ini   /usr/local/etc/odbc.ini   /etc/odbc.ini
+more odbcinst.ini
+ln -s /usr/local/lib/libodbc.so.1.0.0 /lib64/libodbc.so.1.0.0
+ln -s /usr/local/lib/libodbcinst.so.1.0.0 /lib64/libodbcinst.so.1.0.0
+</p>
+
+<p>
+####安装缺少的依赖包, ldd以后，对not found的包进行安装
+问题已解决
+原因是libsqora.so.11.1依赖的包没有，
+使用如下命令查看依赖关系
+</p>
+<ol>
+<li>
+ldd /usr/lib/oracle/11.2/client64/lib/libsqora.so.11.1
+
+</ol>
+<p>
+linux-vdso.so.1 =&gt;  (0x00007fff99b1d000)
+libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007fbcb52f1000)
+libm.so.6 =&gt; /lib64/libm.so.6 (0x00007fbcb506c000)
+libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x00007fbcb4e4f000)
+libnsl.so.1 =&gt; /lib64/libnsl.so.1 (0x00007fbcb4c36000)
+libclntsh.so.11.1 =&gt; /usr/lib/oracle/11.2/client64/lib/libclntsh.so.11.1 (0x00007fbcb22c6000)
+libodbcinst.so.1 =&gt; not found (0x00007fbcb20b5000)
+libc.so.6 =&gt; /lib64/libc.so.6 (0x00007fbcb1d23000)
+/lib64/ld-linux-x86-64.so.2 (0x000000393aa00000)
+libnnz11.so =&gt; /usr/lib/oracle/11.2/client64/lib/libnnz11.so (0x00007fbcb1955000)
+libaio.so.1 =&gt; /lib64/libaio.so.1 (0x00007fbcb1754000)
+libltdl.so.7 =&gt; /usr/lib64/libltdl.so.7 (0x00007fbcb154b000)
+使用如下命令查找libodbcinst.so.1的位置
+#find / -name libodbcinst*
+/usr/lib64/libodbcinst.so
+/usr/lib64/libodbcinst.so.2
+/usr/lib64/libodbcinst.so.2.0.0
+/usr/lib/libodbcinst.so
+/usr/lib/libodbcinst.so.2
+/usr/lib/libodbcinst.so.2.0.0
+确实没有libodbcinst.so.1
+将/usr/lib64/libodbcinst.so.2、/usr/lib/libodbcinst.so.2分别复制
+#cp /usr/lib/libodbcinst.so.2 /usr/lib/libodbcinst.so.1
+#cp/usr/lib64/libodbcinst.so.2 /usr/lib64/libodbcinst.so.1
+重新运行验证命令即可
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

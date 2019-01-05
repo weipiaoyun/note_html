@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>perl文件操作</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">拖文件夹到perl </h1>
+<p>
+#!c:/perl/bin/perl -w
+use warnings;
+use Encode;
+use Win32::PerfLib;
+use Win32::GUI();
+use Win32::GUI::DropFiles();
+</p>
+
+
+
+<p>
+my $mw = Win32::GUI::Window-&gt;new(
+	-title =&gt; "Win32::GUI拖放",
+	-pos   =&gt; [100,100],
+	-size  =&gt; [400,300],
+	-onResize =&gt; \&amp;mwResize,
+);
+</p>
+
+<p>
+$mw-&gt;AddLabel(
+	-pos  =&gt; [10,10],
+	-text =&gt; "把文件拖人列表中",
+);
+</p>
+
+<p>
+$mw-&gt;AddListbox(
+	-name =&gt; 'list1',
+	-pos =&gt; [10,30],
+	-vscroll =&gt; 1,
+	-acceptfiles =&gt; 1,
+	-onDropFiles =&gt; \&amp;gotDrop,
+);
+</p>
+
+<p>
+$mw-&gt;Show();
+Win32::GUI::Dialog();
+$mw-&gt;Hide();
+exit(0);
+</p>
+
+<p>
+sub gotDrop {
+	my (\(self, \)dropObj) = @_;
+my @rr = $dropObj-&gt;GetDroppedFiles();
+my \(path = Encode::encode('gbk',\)rr[0]);
+Win32::GUI::MessageBox(0,"$path","提示",0x0003|0x0030);
+}
+</p>
+
+<p>
+sub mwResize {
+	my $self = shift;
+</p>
+
+<p>
+	$self-&gt;list1-&gt;Resize(
+		$self-&gt;ScaleWidth()-20,
+		$self-&gt;ScaleHeight()-40,
+	);
+</p>
+
+<p>
+	return 1;
+}
+</p>
+
+<h1 id="toc_2">TK拖动文件 </h1>
+<p>
+#!/usr/bin/perl -w
+use Tk;
+use Tk::DropSite;
+</p>
+
+<p>
+$mw = MainWindow-&gt;new();
+my \(txt = \)mw-&gt;Text()-&gt;pack();
+my \(drop = \)txt-&gt;DropSite(-droptypes,'Win32', -dropcommand, [\&amp;dropCmd, $txt]);
+</p>
+
+<p>
+MainLoop;
+</p>
+
+
+<p>
+sub dropCmd {
+  my (\(txt, \)s) = @_;
+  my \(filename = \)txt-&gt;SelectionGet(-selection =&gt; $s,'STRING');
+  \(txt-&gt;insert('end', \)filename."\n");
+}
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>函数列表ctags</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2 id="toc_0.1">如何安装</h2>
+<p>
+1，下载配置文件
+taglist_46.zip，将配置拷贝的相应的文件夹
+</p>
+
+<p>
+2，下载ctags.exe执行文件
+</p>
+
+<p>
+3，把ctags.exe设置环境变量
+</p>
+
+<p>
+4，在vimrc里面设置ctags路径及配置，注意，位置不要调换
+set tags=tags;
+set tags+=D:/tags
+let Tlist_Ctags_Cmd='D:\vim\vim73\ctags.exe'
+let Tlist_Auto_Open = 1
+set autochdir
+</p>
+
+<p>
+5，在D:下面建立tags文件夹
+</p>
+
+<h2 id="toc_0.2">命令</h2>
+<p>
+u 刷新函数
+s 更改排序方式
+x             taglist窗口放大和缩小，方便查看较长的tag
++             打开一个折叠，同zo
+</p>
+<ul>
+<li>
+            将tag折叠起来，同zc
+
+<li>
+            打开所有的折叠，同zR
+
+</ul>
+<p>
+=             将所有tag折叠起来，同zM
+[[            跳到前一个文件
+]]            跳到后一个文件
+q             关闭taglist窗口
+</p>
+
+
+<h2 id="toc_0.3">注意</h2>
+<p>
+ctags执行后会在tags目录下面形成一个tags文件
+要把模块加进去才能把函数写入tags里面，找的时候才能找得到
+</p>
+
+
+
+<p>
+ctrl+鼠标左键/鼠标右键
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

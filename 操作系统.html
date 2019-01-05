@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>操作系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="操作系统概念.html">操作系统概念</a><br>
+</p>
+
+<p>
+<a href="ucos操作系统.html">ucos操作系统</a><br>
+</p>
+
+<p>
+<a href="linux.html">linux</a><br>
+</p>
+
+<p>
+<a href="windows.html">windows</a><br>
+<code>临界区</code>：访问<code>共享资源</code>的那段程序
+</p>
+<h2 id="toc_0.1">内核</h2>
+<p>
+内核分配cpu为谁的占有权。负责任务之间的通信。首先，我们把代码看作是人，内核是一个人，管理其它人的人。cpu是一个工具和内存，某人对应某任务。该谁做某任务了由内核分配。
+</p>
+
+<h1 id="toc_1">可剥夺和不可剥夺</h1>
+<p>
+不可：内核不可剥夺应用程序的cpu控制权，得它完成以后自己释放cpu的使用权。
+</p>
+
+<p>
+可：只要高优先级的任务进入就绪状态。内核就剥夺原来正在控制cpu的任务。cpu的控制权就被内核分配给了高优先级的任务。
+</p>
+
+<h1 id="toc_2">测试和置位</h1>
+<p>
+要使用共享资源，而又不是实时系统。则需要测试和置位，在这期间要先关中断，不允许中断。
+</p>
+
+<h1 id="toc_3">死锁</h1>
+
+<p>
+你要我的资源，我要你的资源。这样谁都不给谁，最后就死锁了。谁都运行不了。
+</p>
+<h2 id="toc_3.1">不能理解的</h2>
+
+<h1 id="toc_4">做任务切换所需要的时间取决于CPU有多少寄存器要入栈。实时内核的性能不应该以每秒钟能做多少次任务切换来评价。</h1>
+
+<h1 id="toc_5">宏调用</h1>
+
+<h1 id="toc_6">函数名称：</h1>
+
+<p>
+TASK CONTROL BLOCKS 任务控制块
+</p>
+
+<p>
+5个资源管理：
+	(1)处理器管理，也叫进程管理
+</p>
+	
+<p>
+	(2)存储器管理
+		(1)内存分配
+		(2)地址映射
+		(3)内存保护
+		(4)内存扩展
+</p>
+	
+<p>
+	(3)设备管理	
+	(4)文件管理
+	(5)作业管理
+</p>
+
+<h1 id="toc_7">ucos</h1>
+<p>
+OSUnMapTbl[OSRdyGrp] 确定已就绪的最高级别组
+OSUnMapTbl[OSRdyTbl] 确定已确定的最高级别位
+OSPrioHighRdy 最高优先级就绪状态的任务级别
+</p>
+
+<h1 id="toc_8">各个标识符</h1>
+<p>
+OSTCBPrioTbl	任务控制块(其实就是任务)优先级表，按优先级顺序排列的一个表，里面装的是指向任务控制块的指针
+</p>
+
+<h1 id="toc_9">进程之间的关系</h1>
+<p>
+任务分为系统任务和用户任务，系统任务分别挂在空闲链表和就绪链表上。其中系统任务最少有两个任务一个是空闲任务，一个是统计任务，统计任务每秒计算一次CPU在单位时间被使用的时间。
+</p>
+
+<p>
+任务控制块相当于任务的身份证。
+</p>
+
+<p>
+任务控制块是一个结构类型数据。驻留在RAM中
+</p>
+
+<p>
+任务调度的依据是任务的就绪表。
+</p>
+
+<p>
+RAM中有个记录表，记录哪些任务已经就绪。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

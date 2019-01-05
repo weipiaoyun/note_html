@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>samba</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+Samba的工作流程：
+	客户端请求访问samba服务器上的共享目录。
+	Samba服务器接收到请求后查询主配置文件smb.conf。看是否共享了请求的目录。如果有该目录，查询时候该客户有请求的权限。如果有权限，则客户端进行访问。
+</p>
+
+
+<p>
+Samba核心有两守护进程：
+smbd:监听139端口，实现主机之间的文件和打印机的共享。
+nmbd:监听137，138端口，实现主机之间可以利用NetBios名互相访问。
+</p>
+
+<p>
+system-config-samba
+</p>
+<h2 id="toc_0.1">设置samba服务器步骤</h2>
+<p>
+1，关闭防火墙，selinux
+service iptables stop
+chkconfig iptables off
+</p>
+
+<p>
+临时关闭:setenforce 0
+		/usr/sbin/setenforce 0
+修改配置文件：vim /etc/selinux/config
+</p>
+
+<p>
+2，安装samba服务器
+</p>
+
+<p>
+3，查看samba服务器的配置文件
+rpm -qc samba
+rpm -qc samba-common
+rpm -qc samba-client
+没有输出
+</p>
+
+<p>
+4，配置samba服务器
+cd /etc/samba
+cp /etc/smb.conf smb.conf.origin
+	a, 将所有原来的信息删掉
+	b，将整个文件用如下配置替换
+</p>
+
+	
+<p>
+5, 测试配置的参数
+</p>
+<ol>
+<li>
+testparm
+
+</ol>
+ 
+<ol>
+<li>
+service smb restart
+
+</ol>
+
+<p>
+6，设置客户端，并检测是否有效 
+</p>
+<ol>
+<li>
+smbclient -L localhost  #要在特定的用户上使用
+
+</ol>
+
+<p>
+7，在windows下面进入samba共享
+</p>
+
+<p>
+8，为指定的单一用户配置共享
+创建用户
+useradd user2
+passwd user2
+创建共享目录
+mkdir –p /var/samba/user2
+修改共享目录所有者和所属组
+Chown user2:user2 /var/samba/user2
+修改配置文件
+Vim / etc/samba/smb.conf
+拷贝 user1 到user2
+重设use2的登录密码
+Smbpasswd  –a user2 #新添加的用户要加-a参数
+重启samba服务器
+Service smb restart
+</p>
+
+<p>
+9,为指定多用户指定共享
+创建多个本地用户
+Useradd user10
+Passwd user10
+</p>
+
+<p>
+Useradd user20
+Passwd user20
+</p>
+
+<p>
+创建samba用户
+Smbpasswd –a user10
+Smbpasswd –a user20
+</p>
+
+<p>
+创建共享目录
+Mkdir –p /var/samba/user10
+</p>
+
+<p>
+修改共享目录所有者和所属组
+Chown 707 /var/samba/user10
+</p>
+
+<p>
+修改配置文件
+Vim / etc/samba/smb.conf
+拷贝 user2
+</p>
+
+<p>
+重启samba服务器
+Service smb restart
+Ok
+</p>
+
+<p>
+试验的smb.conf配置文件如下：
+<a href="smb.conf.html">smb.conf</a><br>
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

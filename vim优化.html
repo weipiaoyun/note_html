@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>vim优化</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2 id="toc_0.1">a.vim里面的已经注释</h2>
+<p>
+""imap &lt;Leader&gt;ih &lt;ESC&gt;:IHS&lt;CR&gt;
+""nmap &lt;Leader&gt;ih :IHS&lt;CR&gt;
+""imap &lt;Leader&gt;is &lt;ESC&gt;:IHS&lt;CR&gt;:A&lt;CR&gt;
+""nmap &lt;Leader&gt;is :IHS&lt;CR&gt;:A&lt;CR&gt;
+</p>
+
+<h2 id="toc_0.2">vimrc</h2>
+<p>
+窗口设置最大化把条件已删
+</p>
+
+<p>
+""set backspace=2              " 设置退格键可用
+</p>
+
+<p>
+重复
+""set incsearch                " 开启实时搜索功能
+</p>
+
+<p>
+""set hidden                   " 允许在有未保存的修改时切换缓冲区
+</p>
+
+    
+<p>
+	" TxtBrowser          高亮TXT文本文件
+""au BufRead,BufNewFile *.txt setlocal ft=tx
+</p>
+
+<p>
+""let g:winManagerWindowLayout='FileExplorer|TagList'
+""nmap wm :WMToggle&lt;cr&gt;
+</p>
+
+<p>
+""let g:snippets_dir='$VIMRUNTIME/snippets'
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>DNS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">志浩DNS </h1>
+<p>
+配置/var/named/chroot/var/named/zh.db
+</p>
+
+<h1 id="toc_2">安装配置DNS </h1>
+<h2 id="toc_2.1">安装 </h2>
+<p>
+yum install bind
+yum install bind-chroot
+</p>
+
+<h2 id="toc_2.2">修改DNS主配置文件 </h2>
+<p>
+vi /etc/named.conf  和/var/named/chroot/etc/named.conf  是相同的文件
+</p>
+
+<p>
+修改  listen-on port 53 {127.0.0.1;}; 为 listen-on port 53 {any;};
+</p>
+
+<p>
+注释掉 //listen-on-v6 port 53 {::1;};
+</p>
+
+<p>
+修改 /etc/named.rfc1912.zones文件
+</p>
+
+<p>
+		增加 
+		zone "zh." IN {
+			allow-update {192.168.0.0/16;};
+			type master;
+			file "zh.db";
+		}
+</p>
+
+<p>
+cp /var/named/chroot/var/named.localhost /var/named/chroot/var/zh.db
+</p>
+
+<h2 id="toc_2.3">注意更改权限 </h2>
+<p>
+chmod 777 /var/named/chroot/var/zh.db
+</p>
+
+<p>
+修改 /var/named/chroot/var/zh.db
+</p>
+
+<p>
+修改
+	rname.invalid.为ns.cbf.com.
+</p>
+
+<p>
+后面增加
+cam10	IN	A	192.168.6.10
+cam06	IN	A	192.168.6.6
+cam04	IN	A	192.168.6.4
+</p>
+
+<p>
+什么是正向解析文件和反向解析文件
+</p>
+
+
+<p>
+禁用防火墙
+重启 /sbin/service named restart
+</p>
+
+
+<h1 id="toc_3">客户端 </h1>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

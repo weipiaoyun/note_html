@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>计算机</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">快捷键 </a>
+<ul>
+<li><a href="#toc_1.1">添加快捷方式 </a>
+<ul>
+<li><a href="#toc_1.1.1">添加右键 </a>
+</ul>
+</ul>
+<li><a href="#toc_2">计算机名词 </a>
+<li><a href="#toc_3">还原系统 </a>
+<ul>
+<li><a href="#toc_3.1">win10还原 </a>
+</ul>
+<li><a href="#toc_4">genesis共享 </a>
+<li><a href="#toc_5">问题解决 </a>
+<ul>
+<li><a href="#toc_5.1">win10 </a>
+<ul>
+<li><a href="#toc_5.1.1">win10安装dotnetFrameWork3.5 </a>
+</ul>
+<li><a href="#toc_5.2">win7 </a>
+<ul>
+<li><a href="#toc_5.2.1">电脑桌面的图标删除以后必须手动刷新才看不到已经删除的图标，这是怎么回事啊？</a>
+</ul>
+</ul>
+<li><a href="#toc_6">远程windows按键出现windows功能键 </a>
+<li><a href="#toc_7">计算机原理 </a>
+<li><a href="#toc_8">计算机存储 </a>
+</ul>
+</div>
+
+<h1 id="toc_1">快捷键 </h1>
+<p>
+win+space  空白
+win+D	最小化
+win+E  资源管理器
+win++ 放大
+win+L锁定计算机
+c+D删除
+s+D直接删除
+alt+enter 属性
+ctrl+shift+esc打开任务管理器
+ctrl+W关闭窗口
+ctrl+shilf+N新建文件夹
+Shift+ 鼠标右键 – 增强版右键发送到
+Shift + 右键 – 在当前文件夹用命令行打开。
+在任务栏中快速切换程序
+所谓分区，就是形成地址映射。分为多少块。
+</p>
+
+<h2 id="toc_1.1">添加快捷方式 </h2>
+<h3 id="toc_1.1.1">添加右键 </h3>
+<ol>
+<li>
+HKEY_LOCAL_MACHINE-&gt;SOFTWARE-&gt;CLASSES-&gt;shell-&gt;新建项vim-&gt;新建项command-&gt;修改值
+
+<li>
+修改注册表
+
+</ol>
+<p>
+Windows Registry Editor Version 5.00
+</p>
+
+<p>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\vim\command]
+@="D:\\vim\\gvim.bat \"%1\""
+</p>
+
+
+<h1 id="toc_2">计算机名词 </h1>
+<p>
+格式化：就是对磁盘的某些<a href="扇区.html">扇区</a><br>进行清除，对这些扇区进行编址，地址映射(所谓编址，是把硬件地址用软件的形式映射出来)
+分区： 所谓分区，就是形成地址映射。分为多少块。
+</p>
+
+<h1 id="toc_3">还原系统 </h1>
+<h2 id="toc_3.1">win10还原 </h2>
+<p>
+在c:/tmp建立文件夹。genesis使用
+</p>
+
+<h1 id="toc_4">genesis共享 </h1>
+<p>
+<a href="计算机共享.html">计算机共享</a><br>
+</p>
+
+<h1 id="toc_5">问题解决 </h1>
+<h2 id="toc_5.1">win10 </h2>
+<h3 id="toc_5.1.1">win10安装dotnetFrameWork3.5 </h3>
+<p>
+1、下载 NET Framework 3.5的安装包：链接：<a href="https://pan.baidu.com/s/1snibXpj">https://pan.baidu.com/s/1snibXpj</a><br>  密码：jbmk
+</p>
+
+<p>
+2、将下载下来的 .cab 放进  C:\Windows 目录下
+</p>
+
+<p>
+3、打开控制面板 -&gt; 程序 -&gt; 启动或关闭Windows功能 -&gt; 关闭其他.NET Framework服务
+</p>
+
+<p>
+4、之后 右击开始 -&gt; 点击命令提示符（管理员）
+</p>
+
+<p>
+5、输入 dism /online /Enable-Feature /all /FeatureName:NetFx3 /Source:"%windir%" /LimitAccess
+</p>
+
+<p>
+6、安装成功！
+</p>
+
+<p>
+7、之后再开启其他.NET Framework服务
+</p>
+
+<h2 id="toc_5.2">win7 </h2>
+<h3 id="toc_5.2.1">电脑桌面的图标删除以后必须手动刷新才看不到已经删除的图标，这是怎么回事啊？</h3>
+<p>
+一.这是因为系统的图标缓存文件被破坏了.解决的方法是恢复这个文件即可,在任意文件夹中打开文件夹选项窗口,切换到"查看"选项卡,选中"显示所有文件",然后返回并在windows系统文件夹下找到ShellconCache的文件将其删除.这样重新启动电脑系统将自动重新建立该文件
+</p>
+
+<p>
+二.是因为在升级系统或移动文件夹时把不同用户下的“桌面”文件夹重叠到一起了，解决办法：点 开始－运行－输regedit打开注册表，然后在 HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders 右边窗口找到Desktop键，点右键删除，或者修改成D:\\桌面（或者D:\\desktop或者 E:\\Love You 等等，选在哪个盘下叫什么，你自己根据情况自己定，只要不冲突就行）然后重启动
+</p>
+
+
+<h1 id="toc_6">远程windows按键出现windows功能键 </h1>
+<p>
+osk，点击软键盘上的win键即可.
+</p>
+
+<h1 id="toc_7">计算机原理 </h1>
+<p>
+<a href="计算机原理.html">计算机原理</a><br>
+</p>
+
+<h1 id="toc_8">计算机存储 </h1>
+<p>
+<a href="计算机存储.html">计算机存储</a><br>
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

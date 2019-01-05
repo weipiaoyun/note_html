@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>define和typedefine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+define	对字符串替换处理, define a b。用a来代替b,有了define之后就只需改一处就把全部都改了，而不需要每个地方都该。浪费时间，容易出错。
+typedef	建立新的数据类型的名字,后面跟变量定义一样。定义了新类型
+</p>
+
+<p>
+Typedef用的做多的地方就是为了可移植性把unsigned char定义为uint8，不要被8迷惑了，这只是一般情况。以后看到uint8代表就是unsigned char。至于多少位要看你的处理器。这只是为了可移植性和方便性。因为unsigned char太长了
+</p>
+
+<p>
+这个一般实在H文件中的。
+#ifdef   OS_GLOBALS
+#define  OS_EXT
+#else
+#define  OS_EXT extern
+#endif
+</p>
+
+<p>
+OS_EXT  INT32U       OSIdleCtr;
+OS_EXT  INT32U       OSIdleCtrRun;
+OS_EXT  INT32U       OSIdleCtrMax;
+</p>
+
+<p>
+我们编辑文件一般是c文件中，H文件是为了简单，可能大家都要用到，所以就干脆定义在那里，要用的时候包含它就行了。为了不重复，如果我c里面已经定义了一个全局变量，一般c里面我们用GLOBAL这样比较好记。而那么头文件如果再定义就不好了。重复定义很容易导致错误。所以在头文件里（不是主要的）就有了个判断，如果定义了，那么我就为空，我就不定义了。
+</p>
+
+<p>
+extern是说明改变量外部文件已经定义了。这里只是声明了。
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

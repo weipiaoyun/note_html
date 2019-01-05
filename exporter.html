@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>exporter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+1:#!/usr/local/bin/perl  
+3:packageMymodule;  
+4:requireExporter;  
+5:@ISA=qw(Exporter);  
+6:@EXPORT=qw(myfunc1myfunc2);  
+7:@EXPORT_OK=qw(\(myvar1\)myvar2);  
+8:  
+9:submyfunc1{  
+10:$myvar1+=1;  
+11:}  
+12:  
+13:sub
+myfunc2{  
+14:$myvar2+=2;  
+15:}  第3~7行是标准的PerlPerl模块定义方式。第3行定义包，第4行包含内置PerlPerl模块Exporter，6、7行进行子程序和变量的输出以与外界联系。第6行创建名为@EXPORT的特殊数组，该数组中的子程序可以被其它程序调用，这里，myfunc1和myfunc2可以被访问。其它任何在Perl模块中定义但没有赋给数组@EXPORT的子程序都是私有的，只能在Perl模块内部调用。第7行创建另一个名为@EXPORT_OK的特殊数组，其中含有可被外部程序访问的变量，这里含有\(myvar1和\)myvar2。
+</p>
+
+
+<p>
+exporter模块的使用：其作用是使本模块的名字空间放在main里同样适用。一般require Exporter和@ISA = qw(EXporter); @EXPORT = qw();同时使用
+</p>
+
+<p>
+ISA是当本模块找不到的时候在ISA数组里面的模块找方法
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

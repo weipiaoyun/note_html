@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>志浩板边</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">HDI板类型 </h1>
+<p>
+iatype{bd_type} eq 'multi' 多层板
+iatype{bd_type}  eq 'hdi' hdi板
+iatype{bd_type} eq 'double' 双面板 
+</p>
+
+
+<h1 id="toc_2">HDI阶数 </h1>
+<p>
+$iatype{hdi_step}
+</p>
+
+<h1 id="toc_3">锣边尺寸 </h1>
+<p>
+ia_routx1 第一次锣边
+ia_routx2 第二次锣边
+</p>
+
+<p>
+最后一次锣边Calc The Last luo  @rouX
+</p>
+
+<p>
+1，左边两个固定靶孔
+2，
+</p>
+
+<h1 id="toc_4">增加靶孔 </h1>
+<p>
+ia_add_xray
+</p>
+
+<p>
+gba x fangdai
+1725：g靶得参数x_g
+1917: push @{\(iadd{x}},\)ia_sr_xmax - $iadd{x_dg1} + 5.5 - 5; g靶第一次压合得，现在二次元的那个靶
+1487：ia_add_laser_sym 添加镭射symbol
+1580：ia_add_laser_back 添加镭射避铜
+$iatype{mk_layer} 埋孔层
+1767:冲孔靶，y方向的距离
+</p>
+
+<p>
+177:ia_add_tdrl 添加打靶定位孔
+</p>
+
+<p>
+镭射：ia_add_laser_sym ia_add_laser_back
+</p>
+
+<p>
+方向孔：右下角埋孔往右挪，如果留边较小，提示！
+	埋孔的加个判断在外围和通孔脱离开	
+</p>
+	
+
+<p>
+	加环：如果x第一次留边&gt;11,则加在左右
+</p>
+
+<p>
+ia_add_cb_mark 添加外围孔
+</p>
+
+
+<h1 id="toc_5">铺铜</h1>
+<p>
+圆形
+/genesis/sys/scripts/alex/bin/Applet/app_panel_zlk
+</p>
+
+
+<h1 id="toc_6">新板边 </h1>
+<p>
+计算叠构由层别的结构计算(包括第几次压合。压合次数，是否core，是次外层还是内层)
+</p>
+
+<h2 id="toc_6.1">次外层和内层以孔层区分 </h2>
+
+<p>
+如果相邻两层的tb不同，则上一层和该层为内层。
+	my $top_bot_t = 't';
+	my $layer_bak = 'gtl';
+	\(h-&gt;{layerNum} = \)#{ $h-&gt;{signalBoard} } + 1;
+	$h-&gt;{yhcs} = 0;
+	foreach my \(layer (@{\)h-&gt;{signalBoard}}) {
+		my \(top_bot  = \)layer;
+		\(top_bot =~ s/^in\d-([tb])/\)1/;
+		\(top_bot =~ s/^g([tb])l/\)1/;
+		#<code>如果内层，只有内层无法区分core还是压合，计算的是上一层，通过相邻层的底层，推算上一层</code>
+		if (\(layer_bak =~ /^in\d-[tb]/ and \)h-&gt;{$layer_bak}{inn_sec} !~ /sec|inn/) {
+			#相邻两层顶底层不一样, 则为内层。如果一样，则为次外层
+			if (\(top_bot ne \)top_bot_t) {
+</p>
+<blockquote>
+#上面一层
+\(h-&gt;{\)layer_bak}{inn_sec} = 'inn';
+\(h-&gt;{\)layer}{inn_sec} = 'inn';
+\(h-&gt;{\)layer}{isCore}  = 'yes';
+\(h-&gt;{\)layer_bak}{isCore}  = 'yes';
+</blockquote>
+<p>
+			} else {
+</p>
+<blockquote>
+\(h-&gt;{\)layer_bak}{inn_sec} = 'sec';
+\(h-&gt;{\)layer_bak}{isCore}  = 'no';
+<code>每增加一次次外层，压合次数增加1</code>
+$h-&gt;{yhcs} += 1;
+</blockquote>
+<p>
+			}
+		}
+</p>
+
+<p>
+		\(top_bot_t = \)top_bot;
+		\(layer_bak = \)layer;
+	}
+</p>
+
+<p>
+内层和次外层先用core区分，中间两层肯定是core。然后中间两层寻找孔层
+</p>
+
+<h1 id="toc_7">任意层互联，走次外层流程 </h1>
+<p>
+循环孔层，看能否找出最中间两层的钻孔层，不管是中间两层的钻孔是镭射还是通孔层。都需要走电镀流程。都需要是走次外层流程。
+</p>
+
+
+<h1 id="toc_8">计算第几次压合</h1>
+<blockquote>
+<code>压合次数/2。次外层分上下层</code>
+</blockquote>
+<p>
+	\(h-&gt;{yhcs} = \)h-&gt;{yhcs}/2 + 1;
+</p>
+	
+<p>
+	计算第几次压合顶层逐渐减小，底层逐渐增加
+	my \(topyhIndex = \)h-&gt;{yhcs};
+	my $botyhIndex = 1;
+	foreach my \(layer (@{\)h-&gt;{signalBoard}}) {
+		if (\(h-&gt;{\)layer}{isCore} eq 'yes') {
+			\(h-&gt;{\)layer}{yhIndex} = 0;
+		} elsif (\(layer eq 'gtl' or \)layer =~ /^in\d-[t]/) {
+			\(h-&gt;{\)layer}{yhIndex} = $topyhIndex;
+			$topyhIndex -= 1;
+		} elsif(\(layer =~ /^in\d-[b]/ or \)layer eq 'gbl') {
+			\(h-&gt;{\)layer}{yhIndex} = $botyhIndex;
+			$botyhIndex += 1;
+		}
+	}
+</p>
+
+<p>
+tehb100306d0
+tehb100359b0
+</p>
+
+<h1 id="toc_9">镭射 </h1>
+<p>
+镭射次数：顶底层镭射次数多的为镭射次数。
+</p>
+
+<h1 id="toc_10">计算第几次镭射 </h1>
+<p>
+第一次镭射：最里面的目标层为第一次镭射。     gtl和gbl为最后一次镭射+1
+</p>
+
+<p>
+线路第几次镭射: 
+  如果顶层(第几层 &lt;= 镭射阶数 + 1)
+</p>
+<blockquote>
+第几次镭射 = 镭射阶数 - 第几层 + 1 +1
+</blockquote>
+
+<p>
+内层的第几次压合为0
+</p>
+
+<p>
+顶层镭射钻孔的第几次
+</p>
+
+<p>
+目前必须镭射钻孔顺序正确才能正确跑板边
+</p>
+
+<p>
+锣边距离孔边缘3mm
+第二次靶孔到第一次锣边45mm
+G靶 E靶20mm
+C靶到E靶3mm
+</p>
+
+<h1 id="toc_11">变量</h1>
+<p>
+$h-&gt;{laserJS} 镭射阶数，镭射次数，以最大镭射层为准
+\(h-&gt;{\)ia_layer}{yhIndex} 第几次压合
+</p>
+
+<p>
+\(iattr{polarity}} \)iattr{n} 正负极性
+\(h-&gt;{\)layer}{inn_sec} 值为'inn'则为内层，值为'sec' 则为次外层
+\(h-&gt;{\)layer}{isCore} 该层是否为core，(任意层互联core可能是次外层)
+@{$h-&gt;{laserTop}} 顶层镭射
+@{$h-&gt;{laserBot}} 顶层镭射
+$h-&gt;{babiaoLength} 靶标长度
+</p>
+
+<p>
+$h-&gt;{ccd_xLast_1} 最后一个ccd x坐标
+$h-&gt;{ccd_yLast_1} 最后一个ccd y坐标
+</p>
+
+<h1 id="toc_12">打靶和ccd </h1>
+<p>
+<code>右下角ccd距离最后一次锣边要45mm以上</code>
+</p>
+
+<h1 id="toc_13">打靶y方向条件 </h1>
+<p>
+1，打靶尽量靠外面。
+	最后一次锣完后，如果锣完后大小大于16.2。
+	rou_size既是最后一次锣边大小。也是下边或左边锣边的x或者y坐标
+</p>
+
+
+<p>
+\(BC_max = \)h-&gt;{ccd_x1_4} - \(h-&gt;{babiaoLength} - 20 - \)x0 - 3; 最后一个ccd，到右上ccd大于20，右上ccd到C靶大于3mm，减去B靶值。没有考虑镭射夹在中间
+从图形可以看出，ccd和打靶之间有两个babiaoLength，laser长度 6.5为靶标大小，大于预留靶标和laser后重新赋值
+if (\(BC_max &gt; \)h-&gt;{ccd_x1_4} - \(h-&gt;{daba_x1_1} - 2*  \)h-&gt;{babiaoLength}  - 6.5 - 13*$h-&gt;{laserJS}) {
+		\(BC_max = \)h-&gt;{ccd_x1_4} - \(h-&gt;{daba_x1_1} - 2*  \)h-&gt;{babiaoLength}  - 6.5 - 13*$h-&gt;{laserJS};
+	}
+</p>
+
+<p>
+打靶，打靶优先保证孔边沿到锣边5mm
+如果最后一次锣边后 &gt;= 11.2(5(到外面)+3.2(孔)+3(到里面))   孔边沿到锣边5mm
+如果最后一次落边后 &lt; 11.2    孔边沿到锣边4.5mm
+</p>
+
+
+<p>
+丝印孔每次移动1.6
+</p>
+
+<p>
+luVaqrk
+yhIndex 第几次压合
+$h-&gt;{lastDingWei}	最后一次定位孔
+</p>
+
+<h1 id="toc_14">判断酸碱蚀 </h1>
+<p>
+$ia_flow  eq 'jian'  'suan'
+</p>
+
+
+<h1 id="toc_15">板类型 </h1>
+<p>
+$h-&gt;{hdiType}  = '4h';   #4层hdi
+$h-&gt;{hdiType}  = 'tk';  #通孔
+</p>
+
+<p>
+如果有镭射但没有埋孔层。叠构是按通孔层算的。所以按通孔层算。
+</p>
+
+
+<h1 id="toc_16">添加切片孔 </h1>
+<p>
+添加的通孔，埋孔，盲孔的切片孔在同一个方法里面。
+</p>
+
+<p>
+ia_add_qie_drl
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

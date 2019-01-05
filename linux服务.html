@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>linux服务</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">关闭开机服务</a>
+<li><a href="#toc_2">关闭防火墙和selinux服务</a>
+<li><a href="#toc_3">查看哪些服务正在运行</a>
+</ul>
+</div>
+<h1 id="toc_1">关闭开机服务</h1>
+<p>
+/sbin/chkconfig iptables off
+/usr/sbin/setenforce 0
+</p>
+
+<h1 id="toc_2">关闭防火墙和selinux服务</h1>
+<p>
+service iptables stop
+chkconfig iptables off
+</p>
+
+<h1 id="toc_3">查看哪些服务正在运行</h1>
+<p>
+/系统/管理/服务器设置/服务
+</p>
+
+<p>
+<a href="NFS.html">NFS</a><br>
+<a href="NIS.html">NIS</a><br>
+<a href="DNS.html">DNS</a><br>
+<a href="ftp.html">ftp</a><br>
+<a href="samba.html">samba</a><br>
+<a href="Apache.html">Apache</a><br>
+<a href="DHCP.html">DHCP</a><br>
+<a href="远程联机服务器.html">远程联机服务器</a><br>
+</p>
+
+<p>
+linux 实现路由功能
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

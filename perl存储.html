@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>perl存储</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<blockquote>
+程序保存和读取复杂的数据结构(2010-07-07 16:37:10)转载▼标签： perl保存和读取数据结构storable杂谈 分类： Perl  
+</blockquote>
+<p>
+#!/usr/local/bin/perl -w
+</p>
+
+<p>
+use strict;
+</p>
+
+<p>
+use FileHandle;
+</p>
+
+<p>
+use utf8;
+</p>
+
+<p>
+use 5.010;
+</p>
+
+<p>
+use storable qw(store retrieve); # 表明用到了模块中的两个函数。
+</p>
+
+<ol>
+<li>
+store       用途: 在一个二进制文件中保存数据结构
+
+</ol>
+
+<ol>
+<li>
+retrieve 用途: 从一个二进制文件中读出数据结构
+
+</ol>
+
+ 
+
+<ol>
+<li>
+数组结构
+
+</ol>
+
+<p>
+my $myArray = ['a','b','b','d','f'];
+</p>
+
+<ol>
+<li>
+散列结构
+
+</ol>
+
+<p>
+my $myHash = {a =&gt; 1,b =&gt; 2,c =&gt; 3,d =&gt; 4,e =&gt; 5,};
+</p>
+
+ 
+
+<ol>
+<li>
+保存数组结构
+
+</ol>
+
+<p>
+my \(statusArray = store \)myArray, "TestArray.dat"; # 如果成功返回true，不成功返回未定义。
+</p>
+
+<ol>
+<li>
+保存数组结构
+
+</ol>
+
+<p>
+my \(statusHash = store \)myHash, "TestHash.dat"; # 如果成功返回true，不成功返回未定义。
+</p>
+
+ 
+
+<ol>
+<li>
+读取数组结构
+
+</ol>
+
+<p>
+my $testArray = retrieve("TestArray.dat");
+</p>
+
+<ol>
+<li>
+读取散列结构
+
+</ol>
+
+<p>
+my $testHash = retrieve("TestHash.dat");
+</p>
+
+ 
+
+<p>
+say 'array=&gt;',Dumper($testArray);
+</p>
+
+<p>
+say 'hash=&gt;',Dumper($testHash);
+</p>
+
+<h2 id="toc_0.1">实例</h2>
+<blockquote>
+#cxt hash路径
+my \(storeDB = "\)cxt_data/$layer";
+</blockquote>
+<blockquote>
+if (-e $storeDB){
+</blockquote>
+<blockquote>
+#读取hash数据
+my \(cxtRef = retrieve(\)storeDB);
+</blockquote>
+<blockquote>
+%cxt = ();
+%cxt = %$cxtRef;
+}
+else{
+$checkMsg .="  ＠ 系统中无该层别测线图数据！\n";
+$tk_on = 'yes';
+}
+</blockquote>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>
