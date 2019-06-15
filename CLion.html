@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>CLion</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">快捷键 </a>
+<li><a href="#toc_2">添加Qt Designer插件 </a>
+<li><a href="#toc_3">Clion+git </a>
+<ul>
+<li><a href="#toc_3.1">cmake-build-debug可以忽略 </a>
+</ul>
+</ul>
+</div>
+
+<h1 id="toc_1">快捷键 </h1>
+
+<p>
+Ctrl+空格 补全
+ctrl+shift+空格
+Ctrl+N
+Alt+F7进入定义
+Alt+Ctrl+F7
+Ctrl+B
+</p>
+
+
+<p>
+Ctrl+Alt+向左箭头
+Ctrl+Shift+Backspace
+</p>
+
+
+<h1 id="toc_2">添加Qt Designer插件 </h1>
+<p>
+File-&gt;Settings-&gt;Tools-&gt;External Tools-&gt;点击加号。参数如下
+Name: Qt Designer
+Tool settings:
+</p>
+<blockquote>
+Program:           C:\Qt\4.8.7\bin\designer.exe
+Parameters:        \(FileName\) (前后加$)
+Working directory: \(ProjectFileDir\) (前后加$)
+</blockquote>
+
+
+<h1 id="toc_3">Clion+git </h1>
+<h2 id="toc_3.1">cmake-build-debug可以忽略 </h2>
+<p>
+忽略后重新可生成。
+File-&gt;Setings-&gt;Build,Excution,Deployment-&gt;CMake。重新更新即可。先把debug改为release，然后release改为debug。
+</p>
+
+<p>
+<a href="QT+Clion+C++.html">QT+Clion+C++</a><br>
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

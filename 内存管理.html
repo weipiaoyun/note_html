@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>内存管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">为什么分页 </a>
+<li><a href="#toc_2">多级分页表 </a>
+</ul>
+</div>
+<p>
+用户程序总是加载到同一个内存地址上，即用户程序永远从同一个地方开始执行。
+</p>
+
+<p>
+由于每个进程会有一套虚拟内存地址，那么每个进程都会有一个分页表
+</p>
+
+<h1 id="toc_1">为什么分页 </h1>
+<p>
+如果不分页，一个字节就需要一个记录。则占用空间大。搜索对应关系时间长。
+</p>
+
+<p>
+地址=页地址+偏移量
+虚拟地址和物理地址偏移量相同。只是页地址不同。
+通过逻辑页地址，找到对应的表位置，有一个物理页的地址。
+</p>
+
+<p>
+如上，一页一页存储。空间小。搜索时间快。
+</p>
+
+<p>
+因为每页4k，大小为2^12，所以地址预留12位，作为偏移量。32位系统还剩20位作为页地址。
+</p>
+
+<h1 id="toc_2">多级分页表 </h1>
+<p>
+同理，为了节省空间。可以再进行分割压缩。
+</p>
+
+<p>
+前面8位表示第一级编号。里面有对应的二级表的地址。二级表的前面8位都是相同的。
+多级分页其实是分页再分页。这样如果二级表对应为空的话。一级表里面为空值。二级表可以不存在。从而节省了空间。
+如：
+</p>
+
+<table>
+<tr>
+<th>
+页
+</th>
+<th>
+虚拟
+</th>
+<th>
+物理
+</th>
+</tr>
+<tr>
+<td>
+0x00
+</td>
+<td>
+0x01a
+</td>
+<td>
+0x00006
+</td>
+</tr>
+<tr>
+<td>
+0x00
+</td>
+<td>
+0x02a
+</td>
+<td>
+0x00007
+</td>
+</tr>
+<tr>
+<td>
+0x01
+</td>
+<td>
+0x01a
+</td>
+<td>
+未分配
+</td>
+</tr>
+<tr>
+<td>
+0x01
+</td>
+<td>
+0x02a
+</td>
+<td>
+未分配
+</td>
+</tr>
+<tr>
+<td>
+0x00
+</td>
+<td>
+0x01a
+</td>
+<td>
+0x00006
+</td>
+</tr>
+</table>
+
+<p>
+多级前2^20 = 1048576
+多级后2<sup><small>8+2</small></sup>12 = 4352
+大大减小了空间(拿出一部分来存组。)
+</p>
+
+
+		
+<p>
+0754	8342671 没分配
+		8342672	没分配
+		8342673 没分配
+		……
+		8342670
+</p>
+		
+<p>
+十张页地址
+</p>
+
+<p>
+总共20张
+</p>
+
+<p>
+如果分级
+0753  0x0753
+0754  空
+共两张
+</p>
+
+
+<p>
+0753的表
+8342671
+8342672
+……
+8342670
+共10张
+</p>
+
+<p>
+0754的表
+不用
+</p>
+
+<p>
+但是0754没有分配，则
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

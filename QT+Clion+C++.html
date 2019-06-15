@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>QT+Clion+C++</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">创建Project </a>
+<li><a href="#toc_2">修改main.cpp如下 </a>
+<li><a href="#toc_3">右击项目，新建File，名字为mainwindow.ui </a>
+<li><a href="#toc_4">更改CMakeLists.txt文件 </a>
+<li><a href="#toc_5">右击项目，新建c++库 </a>
+<ul>
+<li><a href="#toc_5.1">mainwindow.cpp.cpp内容如下： </a>
+<li><a href="#toc_5.2">mainwindow.h内容如下： </a>
+</ul>
+<li><a href="#toc_6">如果报找不到头文件 </a>
+</ul>
+</div>
+
+<h1 id="toc_1">创建Project </h1>
+<p>
+Language standard选择C++98.按98标准。名字为myTest
+</p>
+
+
+<h1 id="toc_2">修改main.cpp如下 </h1>
+<p>
+#include "mainwindow.h"
+#include &lt;QApplication&gt;
+</p>
+
+<p>
+int main(int argc, char *argv[])
+{
+</p>
+<blockquote>
+QApplication a(argc, argv);
+MainWindow w;
+w.show();
+</blockquote>
+<blockquote>
+return a.exec();
+</blockquote>
+<p>
+}
+</p>
+
+<h1 id="toc_3">右击项目，新建File，名字为mainwindow.ui </h1>
+<p>
+用qt designer打开。添加后保存。Build-&gt;Build Project
+</p>
+
+
+<h1 id="toc_4">更改CMakeLists.txt文件 </h1>
+<p>
+cmake_minimum_required(VERSION 3.13)
+project(myTest)
+</p>
+
+<p>
+set(CMAKE_CXX_STANDARD 98)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+</p>
+
+<p>
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+</p>
+
+<p>
+#设置路径
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+#QT
+set(CMAKE_PREFIX_PATH C:/Qt/4.8.7)
+find_package(Qt4 REQUIRED QtCore QtGui QtNetwork)
+include_directories(Qt4_INCLUDE_DIRECTORIES)
+include(${QT_USE_FILE})
+</p>
+
+<p>
+add_executable(myTest WIN32 main.cpp mainwindow.cpp mainwindow.h)
+TARGET_LINK_LIBRARIES(myTest ${QT_LIBRARIES})
+</p>
+
+<h1 id="toc_5">右击项目，新建c++库 </h1>
+<p>
+名字为：mainwindow。生成两个文档，一个为mainwindow.cpp。另一个为：mainwindow.h
+</p>
+<h2 id="toc_5.1">mainwindow.cpp.cpp内容如下： </h2>
+<p>
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+</p>
+
+<p>
+MainWindow::MainWindow(QWidget *parent) :
+</p>
+<blockquote>
+QMainWindow(parent),
+ui(new Ui::MainWindow)
+</blockquote>
+<p>
+{
+</p>
+<blockquote>
+ui-&gt;setupUi(this);
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+MainWindow::~MainWindow()
+{
+</p>
+<blockquote>
+delete ui;
+</blockquote>
+<p>
+}
+</p>
+
+<h2 id="toc_5.2">mainwindow.h内容如下： </h2>
+<p>
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+</p>
+
+<p>
+#include &lt;QMainWindow&gt;
+</p>
+
+<p>
+namespace Ui {
+</p>
+<blockquote>
+class MainWindow;
+</blockquote>
+<p>
+}
+</p>
+
+<p>
+class MainWindow : public QMainWindow
+{
+</p>
+<blockquote>
+Q_OBJECT
+</blockquote>
+
+<p>
+public:
+</p>
+<blockquote>
+explicit MainWindow(QWidget *parent = 0);
+~MainWindow();
+</blockquote>
+
+<p>
+private:
+</p>
+<blockquote>
+Ui::MainWindow *ui;
+</blockquote>
+<p>
+};
+</p>
+
+<p>
+#endif // MAINWINDOW_H
+</p>
+
+<h1 id="toc_6">如果报找不到头文件 </h1>
+<p>
+Build不会报错。CMakeLists.txt  Reload一下，然后重新Build
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

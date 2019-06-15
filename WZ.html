@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>WZ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">VPN </a>
+<li><a href="#toc_2">绘片 </a>
+<li><a href="#toc_3">改资料误删除 </a>
+<li><a href="#toc_4">CXT </a>
+<li><a href="#toc_5">自动更新阴阳旋转拼版 </a>
+</ul>
+</div>
+<p>
+<a href="东莞.html">东莞</a><br>
+<a href="梅州.html">梅州</a><br>
+<a href="深圳.html">深圳</a><br>
+<a href="软板.html">软板</a><br>
+</p>
+
+<h1 id="toc_1">VPN </h1>
+<p>
+hongjun
+dgwz8899
+</p>
+
+
+<h1 id="toc_2">绘片 </h1>
+<p>
+有问题，则改组设置为待审核。备注更新。
+</p>
+
+<p>
+十分钟杀一次程序。防止程序卡死。输出加个锁。
+	执行程序前判断程序是否有锁。如果有锁。退出。没锁，检测到程序运行了半个小时以上。则杀掉绘片程序。
+</p>
+
+<p>
+如果该层OrderOfFilm_超过110,说明多次无法输出报错。则自动设置为可以手动F2输出。
+</p>
+
+<p>
+绘片时，对同一组进行加锁。加完锁后的同组无法自动绘片。加个状态，绘片中。
+如果光绘完，改变状态。
+</p>
+
+<p>
+绘片中的菲林解锁：1，十分钟自动杀程序的时候。2，处理完自动绘片的时候。
+</p>
+
+<h1 id="toc_3">改资料误删除 </h1>
+<ol>
+<li>
+所有输出之前必须保存。(绘片，输钻锣，输ldi)
+
+<li>
+输出之前检测checklist。没有签名，不允许输出。
+
+<li>
+保存之前检测board的checklist，有签名不能保存。
+
+</ol>
+
+<p>
+<a href="自动Input.html">自动Input</a><br>
+</p>
+
+<h1 id="toc_4">CXT </h1>
+<p>
+比例 = 比较长的prof/2/60(cxt的大约宽度)
+</p>
+
+<p>
+最小间距 = 5 * 比例
+symbol高度 = 45*比例
+</p>
+
+<p>
+if prof &gt; (个数)*高度 + (个数-1)*最小间距
+	间距 = (prof - 高度*个数)/(个数-1)
+	包括symbol的间距 = 间距+高度。
+else 
+	间距 = 最小间距 + symbol高度
+</p>
+
+
+<h1 id="toc_5">自动更新阴阳旋转拼版 </h1>
+<p>
+	1,获取当前输出step	GetAllStep
+	2，获取当前step拥有的所有step
+	3，判断这些step的属性，是否是阴阳或者是旋转step
+	4，对所有的transformstep进行更新操作
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>

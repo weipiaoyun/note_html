@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>CIMOM</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">数据库 </a>
+<ul>
+<li><a href="#toc_1.1">中间件数据库配置 </a>
+</ul>
+<li><a href="#toc_2">启动程序 </a>
+<li><a href="#toc_3">更新文件 </a>
+<ul>
+<li><a href="#toc_3.1">生成的路径在如下配置 </a>
+</ul>
+<li><a href="#toc_4">上传代码 </a>
+<li><a href="#toc_5">上传插件 </a>
+<ul>
+<li><a href="#toc_5.1">上传到服务器端，中间件 </a>
+<li><a href="#toc_5.2">上传客户端 </a>
+</ul>
+</ul>
+</div>
+
+<p>
+<a href="WPF.html">WPF</a><br>
+</p>
+
+
+<h1 id="toc_1">数据库 </h1>
+<p>
+172.18.120.254
+developer
+mes123456
+</p>
+
+<p>
+172.19.9.1
+MOM
+csfoti@160721
+</p>
+
+
+<h2 id="toc_1.1">中间件数据库配置 </h2>
+<p>
+e:\CIMOM\05.Server\Release Assemblies\Config\
+</p>
+
+<h1 id="toc_2">启动程序 </h1>
+<p>
+客户端：E:\CIMOM\10.Client\bin\Debug\Startup.exe
+服务器：E:\CIMOM\05.Server\Release Assemblies\Startup.exe
+</p>
+
+<p>
+客户端：解压Debug
+服务器，解压Release Assemblies.rar
+</p>
+<h1 id="toc_3">更新文件 </h1>
+<p>
+更新文件：E:\CIMOM\10.Client\bin\Debug
+</p>
+
+<p>
+系统配置-&gt;表对象管理-&gt;新增-&gt;右边填写表名称-&gt;导入字段-&gt;从oneNote中复制。-&gt;点击保存-&gt;创建插件程序集， 如下：
+</p>
+
+<p>
+模块类别：APS
+模块名称：ProductionPlan
+模块名称：产品计划
+模块描述：
+主表名称：TBL_APS_TEST
+</p>
+
+<p>
+自动生成=&gt;CI.Client.Plugins.[模块类别(APS)].[模块名称(ProductionPlan)]
+</p>
+
+
+<h2 id="toc_3.1">生成的路径在如下配置 </h2>
+<p>
+e:\CIMOM\10.Client\bin\Debug\WorkBench.config 
+</p>
+
+<p>
+右击-&gt;添加-&gt;现有项目
+</p>
+
+
+<p>
+e:\CIMOM\10.Client\Plugins\
+</p>
+
+
+
+<p>
+APS	高级计划排产
+BD 基础数据
+EAM 设备资产管理
+SYS	系统管理
+IFS 接口管理(Interface specification)
+SRM 供应商协同系统
+</p>
+
+
+<h1 id="toc_4">上传代码 </h1>
+<p>
+1，团队资源管理器-&gt;主页-&gt;源代码管理器-&gt;选择05.server, Plugins-&gt;右击-&gt;将项增加到文件夹-&gt;选择要增加的文件夹。
+</p>
+
+<h1 id="toc_5">上传插件 </h1>
+<h2 id="toc_5.1">上传到服务器端，中间件 </h2>
+<p>
+系统配置-&gt;服务器插件管理
+</p>
+
+<h2 id="toc_5.2">上传客户端 </h2>
+<p>
+e:\CIMOM\10.Client\bin\Debug\Upload.exe
+注意选项选择：E:\CIMOM\10.Client\bin\Debug
+</p>
+
+<button class="back_to_top">返回顶部</button>
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+</p>
+</body>
+</body>
+</html>
