@@ -1,0 +1,843 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>自动Input</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">T_ppe_PreFileMainInfo 文件Guid_信息</a>
+<ul>
+<li><a href="#toc_1.0.1">T_GS_LyrRuleRegExp 层文件信息</a>
+</ul>
+</ul>
+<li><a href="#toc_2">IBLL_RarRule 接口</a>
+<li><a href="#toc_3">文档归类</a>
+<li><a href="#toc_4">获取文件分类</a>
+</ul>
+</div>
+<p>
+drop table #kkkk
+select * into #kkkk FROM [WZ_DATABASE].[dbo].[T_GS_LyrRuleRegExp] where Guid_ = '28822DB1-81C0-11E4-87AD-005056C00008'
+</p>
+
+<p>
+alter table #kkkk add layer_ varchar(100)
+</p>
+
+<p>
+update #kkkk set layer_ = 'pastmaskbot.pho'
+select  * from  #kkkk where dbo.RegexIsMatch(layer_, regexp_)  = 1
+</p>
+
+
+
+<p>
+获取每一层线路的所有pad位置的最大值和最小值，就是大小
+</p>
+
+<p>
+加入变成0mil，有%90以上可以cover到pad，则使用。
+</p>
+
+<p>
+根据Input进去的钻孔，测试大小是否匹配(x和y最少有一个需要匹配)(可能会出现钻孔个数少的情况)
+</p>
+
+<p>
+如果上面的都不匹配，则使用分析出来的格式。
+</p>
+
+
+
+<p>
+		SELECT  top 1 @LnGuid=b.Guid_,@PnFileGuid_=CONVERT(VARCHAR(50), d.PGuid_)  
+		FROM T_ppe_MakeModuleNo a 
+		INNER JOIN T_ppe_PreFileMainInfo b ON a.Guid4PreFile_=b.Guid_
+		INNER  JOIN T_ppe_PreFileName c ON b.Guid_=c.PGuid_
+		LEFT  JOIN T_GS_LyrRuleRegExp d ON c.Guid4Rule_=d.Guid_
+		WHERE PdctNo_=@PnPdctno AND FacKey_=@PnFacID AND d.PGuid_ IS NOT NULL
+</p>
+		
+
+
+
+<h1 id="toc_1">T_ppe_PreFileMainInfo 文件Guid_信息</h1>
+<p>
+T_ppe_PreFileMainInfo Guid_ = T_ppe_MakeModuleNo Guid4PreFile_ 导入文件名
+</p>
+
+<p>
+T_ppe_PreFileName  PGuid_ = T_ppe_PreFileMainInfo Guid_  文件详细信息
+</p>
+
+
+
+
+<h3 id="toc_1.0.1">T_GS_LyrRuleRegExp 层文件信息</h3>
+<p>
+T_ppe_PreFileMainInfo  Guid4Rule_ = T_GS_LyrRuleRegExp Guid_
+</p>
+
+<p>
+T_ppe_PreFileMainInfo的Guid4Rule_就是重命名规则。在BLL_RarRule4Pre里面的SaveFileName函数写进去。
+</p>
+
+
+<p>
+GetPreWjYsGsRule
+</p>
+
+
+<h1 id="toc_2">IBLL_RarRule 接口</h1>
+<p>
+SaveFileName-&gt;
+</p>
+
+
+<p>
+btn_InSight-》SetPreFileAutoDealWith    自动处理文件-》
+先解压：BLL_Rar.RecursiveDecompression(strNewFilePath, strTmpPath, strKey)
+后分类：BLL_Rar.DocClassification(strGuid_, strTmpPath, "WjysPath-Input", strKey, strTargetPath)
+</p>
+
+
+<p>
+Run4Genesis(strPdctno, "_Pre_Auto", 3)
+</p>
+
+
+
+
+
+
+
+<p>
+找到[T_GS_LyrRuleMain] 的guid 找[T_GS_LyrRuleRegExp]
+</p>
+
+<p>
+RecursiveDecompression(递归解压)-&gt;DocClassification-&gt;GetDocClassification
+</p>
+<h1 id="toc_3">文档归类</h1>
+<p>
+DocClassification
+</p>
+
+<h1 id="toc_4">获取文件分类</h1>
+<p>
+GetDocClassification
+</p>
+
+
+
+ 
+<p>
+ declare @layer varchar(max) = 'cb01_mb_p0-7-8.drl#cb01_mb_p0-6-8.drl#cb01_mb_p0-6-7.drl#sm2.art#sm1.art#silk2.art#silk1.art#pm2.art#pm1.art#drill_7_8.art#drill_1_2.art#l8.art#l7.art#l4.art#l3.art'
+ declare @layerNum int,@layerIndex int,@layerName varchar(100)
+</p>
+
+<p>
+ set @layerNum = len(@layer)-len(replace(@layer,'#',''))
+ set @layerNum = @layerNum + 1
+ set @layerIndex = 1
+ while (@layerIndex &lt;= @layerNum) 
+ begin
+	set @layerName = dbo.SplitString(@layer,'#',@layerIndex) 
+	print @layerName
+</p>
+	
+<p>
+	 drop table #kkkkkk
+	  declare @sqlCmd varchar(max)
+</p>
+	  
+<p>
+	  create table #kkkkkk (
+		[Format_] [varchar](50) NULL,
+		[regexp_] [varchar](80) NULL,
+		[lay_name_] [varchar](50) NULL,
+		[board_type_] [varchar](50) NULL,
+		[lay_type_] [varchar](50) NULL,
+		[pos_] [varchar](50) NULL,
+		[TB_] [varchar](50) NULL,
+		[num_] [varchar](50) NULL,
+		[num2_] [varchar](50) NULL,
+		[num3_] [varchar](50) NULL,
+		[Guid_] [uniqueidentifier] NOT NULL,
+		[No_] [varchar](5) NOT NULL
+		--layer_ [varchar](100) null
+		)
+</p>
+		
+<p>
+		set @sqlCmd = 'select *  FROM [WZ_DATABASE].[dbo].[T_GS_LyrRuleRegExp]'
+		insert into  #kkkkkk exec(@sqlCmd)
+		ALTER TABLE #kkkkkk ADD layer_ NVARCHAR (100) NULL
+</p>
+		
+<p>
+		update #kkkkkk set layer_ = @layerName
+</p>
+		
+<p>
+		select * from #kkkkkk
+		where  dbo.RegexIsMatch(layer_, regexp_)  = 1 
+</p>
+	
+	
+<p>
+			select Guid_ from #kkkkkk
+		where  dbo.RegexIsMatch(layer_, regexp_)  = 1  group by Guid_ having count(Guid_) = 2
+</p>
+		
+<p>
+		select * from #kkkkkk
+		where  dbo.RegexIsMatch(layer_, regexp_)  = 1  and Guid_ = '28822DB4-81C0-11E4-87AD-005056C00008' 
+</p>
+	
+<p>
+	set @layerIndex = @layerIndex + 1
+ end 
+</p>
+ 
+
+
+
+
+
+
+
+
+
+
+<p>
+   declare @guid_ varchar(50), @no int
+   drop table #JJJJJJJ
+   create table #JJJJJJJ (
+		[Format_] [varchar](50) NULL,
+		[regexp_] [varchar](80) NULL,
+		[lay_name_] [varchar](50) NULL,
+		[board_type_] [varchar](50) NULL,
+		[lay_type_] [varchar](50) NULL,
+		[pos_] [varchar](50) NULL,
+		[TB_] [varchar](50) NULL,
+		[num_] [varchar](50) NULL,
+		[num2_] [varchar](50) NULL,
+		[num3_] [varchar](50) NULL,
+		[Guid_] [uniqueidentifier] NOT NULL,
+		[No_] [varchar](5) NOT NULL,
+		layer_ [varchar](100) null
+		)
+</p>
+ 
+ 
+ 
+ 
+<p>
+ declare @layer varchar(max) = 'cb01_mb_p0-7-8.drl#cb01_mb_p0-6-8.drl#cb01_mb_p0-6-7.drl#sm2.art#sm1.art#silk2.art#silk1.art#pm2.art#pm1.art#drill_7_8.art#drill_1_2.art#l8.art#l7.art#l4.art#l3.art'
+ declare @layerNum int,@layerIndex int,@layerName varchar(100)
+</p>
+
+<p>
+ set @layerNum = len(@layer)-len(replace(@layer,'#',''))
+ set @layerNum = @layerNum + 1
+ set @layerIndex = 1
+ while (@layerIndex &lt;= @layerNum) 
+ begin
+	set @layerName = dbo.SplitString(@layer,'#',@layerIndex) 
+	print @layerName
+</p>
+	
+<p>
+	 drop table #kkkkkk
+	  declare @sqlCmd varchar(max)
+</p>
+	  
+<p>
+	  create table #kkkkkk (
+		[Format_] [varchar](50) NULL,
+		[regexp_] [varchar](80) NULL,
+		[lay_name_] [varchar](50) NULL,
+		[board_type_] [varchar](50) NULL,
+		[lay_type_] [varchar](50) NULL,
+		[pos_] [varchar](50) NULL,
+		[TB_] [varchar](50) NULL,
+		[num_] [varchar](50) NULL,
+		[num2_] [varchar](50) NULL,
+		[num3_] [varchar](50) NULL,
+		[Guid_] [uniqueidentifier] NOT NULL,
+		[No_] [varchar](5) NOT NULL
+		--layer_ [varchar](100) null
+		)
+</p>
+		
+<p>
+		set @sqlCmd = 'select *  FROM [WZ_DATABASE].[dbo].[T_GS_LyrRuleRegExp]'
+		insert into  #kkkkkk exec(@sqlCmd)
+		ALTER TABLE #kkkkkk ADD layer_ NVARCHAR (100) NULL
+</p>
+		
+<p>
+		update #kkkkkk set layer_ = @layerName
+</p>
+		
+<p>
+		select * from #kkkkkk
+		where  dbo.RegexIsMatch(layer_, regexp_)  = 1 
+</p>
+	
+	
+<p>
+			select Guid_ from #kkkkkk
+		where  dbo.RegexIsMatch(layer_, regexp_)  = 1  group by Guid_ having count(Guid_) = 2
+</p>
+		
+<p>
+		select * from #kkkkkk
+		where  dbo.RegexIsMatch(layer_, regexp_)  = 1  and Guid_ = '28822DB4-81C0-11E4-87AD-005056C00008' 
+</p>
+		
+<p>
+		while exists (select top 1 * from #kkkkkk) 
+		begin
+</p>
+<blockquote>
+select top 1 @guid_ = Guid_, @no = No_ from #kkkkkk
+insert into #JJJJJJJ 
+</blockquote>
+<blockquote>
+(Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+layer_)  select top 1 Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+layer_ from #kkkkkk
+</blockquote>
+<blockquote>
+delete from #kkkkkk where  Guid_= @guid_ and  No_ = @no
+</blockquote>
+<blockquote>
+select * from #JJJJJJJ
+</blockquote>
+		
+		
+<p>
+		end
+</p>
+		
+	
+<p>
+	set @layerIndex = @layerIndex + 1
+ end 
+</p>
+ 
+<p>
+ select * from #JJJJJJJ
+</p>
+
+ 
+ 
+
+<p>
+#####################
+</p>
+<blockquote>
+declare @guid_ varchar(50), @no int
+</blockquote>
+<p>
+   drop table #JJJJJJJ
+   create table #JJJJJJJ (
+		[Format_] [varchar](50) NULL,
+		[regexp_] [varchar](80) NULL,
+		[lay_name_] [varchar](50) NULL,
+		[board_type_] [varchar](50) NULL,
+		[lay_type_] [varchar](50) NULL,
+		[pos_] [varchar](50) NULL,
+		[TB_] [varchar](50) NULL,
+		[num_] [varchar](50) NULL,
+		[num2_] [varchar](50) NULL,
+		[num3_] [varchar](50) NULL,
+		[Guid_] [uniqueidentifier] NOT NULL,
+		[No_] [varchar](5) NOT NULL,
+		layer_ [varchar](100) null
+		)
+</p>
+ 
+<p>
+ declare @layer varchar(max) = 'cb01_mb_p0-7-8.drl#cb01_mb_p0-6-8.drl#cb01_mb_p0-6-7.drl#sm2.art#sm1.art#silk2.art#silk1.art#pm2.art#pm1.art#drill_7_8.art#drill_1_2.art#l8.art#l7.art#l4.art#l3.art'
+ --set @layer  = 'silk2.art#silk1.art'
+ declare @layerNum int,@layerIndex int,@layerName varchar(100)
+</p>
+
+<p>
+ set @layerNum = len(@layer)-len(replace(@layer,'#',''))
+ set @layerNum = @layerNum + 1
+ set @layerIndex = 1
+</p>
+ 
+<p>
+ 	 drop table #kkkkkk
+</p>
+<blockquote>
+create table #kkkkkk (
+</blockquote>
+<p>
+		[Format_] [varchar](50) NULL,
+		[regexp_] [varchar](80) NULL,
+		[lay_name_] [varchar](50) NULL,
+		[board_type_] [varchar](50) NULL,
+		[lay_type_] [varchar](50) NULL,
+		[pos_] [varchar](50) NULL,
+		[TB_] [varchar](50) NULL,
+		[num_] [varchar](50) NULL,
+		[num2_] [varchar](50) NULL,
+		[num3_] [varchar](50) NULL,
+		[Guid_] [uniqueidentifier] NOT NULL,
+		[No_] [varchar](5) NOT NULL,
+		layer_ [varchar](100) null
+		)
+</p>
+		
+<p>
+		declare @sqlCmd varchar(max)
+ while (@layerIndex &lt;= @layerNum) 
+ begin
+	set @layerName = dbo.SplitString(@layer,'#',@layerIndex) 
+	--print @layerName
+</p>
+		
+<p>
+		--set @sqlCmd = 'select *  FROM [WZ_DATABASE].[dbo].[T_GS_LyrRuleRegExp]'
+		--insert into  #kkkkkk exec(@sqlCmd)
+</p>
+<blockquote>
+insert into #kkkkkk	
+(Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+layer_
+)  select Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+@layerName
+from [WZ_DATABASE].[dbo].[T_GS_LyrRuleRegExp] 
+</blockquote>
+		
+<p>
+		--update #kkkkkk set layer_ = @layerName
+</p>
+		
+<p>
+		delete from #kkkkkk where dbo.RegexIsMatch(layer_, regexp_)  = 0
+		while exists (select top 1 * from #kkkkkk) 
+		begin
+</p>
+<blockquote>
+select top 1 @guid_ = Guid_, @no = No_ from #kkkkkk
+insert into #JJJJJJJ 
+(Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+layer_)  select top 1 Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+layer_ from #kkkkkk  
+</blockquote>
+<blockquote>
+delete from #kkkkkk where  Guid_= @guid_ and  No_ = @no
+</blockquote>
+<blockquote>
+--select * from #JJJJJJJ
+</blockquote>
+		
+		
+<p>
+		end
+</p>
+		
+	
+<p>
+	set @layerIndex = @layerIndex + 1
+ end 
+</p>
+  
+ 
+<p>
+ drop table #guid
+ select Guid_ into #guid from #JJJJJJJ group by Guid_
+</p>
+ 
+<p>
+ declare @ruleGuid varchar(50),@ruleGuidCount int = 0,@tmpCount int = 0, @get@Guid_ varchar(50)
+ while exists (select top 1  * from #guid) 
+ begin
+	select top 1 @get@Guid_ = Guid_ from #guid
+	select  @tmpCount = count(*)  from  (select Guid_, layer_ from #JJJJJJJ  where Guid_ = @get@Guid_ group by Guid_, layer_) as aa 
+</p>
+	
+<p>
+	if (@tmpCount &gt; @ruleGuidCount) 
+	begin
+		set @ruleGuidCount = @tmpCount
+		set @ruleGuid = @get@Guid_
+	end
+</p>
+	
+<p>
+	delete from #guid where Guid_ = @get@Guid_
+ end
+</p>
+ 
+<p>
+ select @ruleGuid
+--select * from [WZ_DATABASE].[dbo].[T_GS_LyrRuleRegExp] where regexp_ like '%silk%'
+</p>
+ 
+ 
+ 
+
+<p>
+#####################################################################################################
+</p>
+
+<p>
+   declare @guid_ varchar(50), @no int
+   drop table #JJJJJJJ
+   create table #JJJJJJJ (
+		[Format_] [varchar](50) NULL,
+		[regexp_] [varchar](80) NULL,
+		[lay_name_] [varchar](50) NULL,
+		[board_type_] [varchar](50) NULL,
+		[lay_type_] [varchar](50) NULL,
+		[pos_] [varchar](50) NULL,
+		[TB_] [varchar](50) NULL,
+		[num_] [varchar](50) NULL,
+		[num2_] [varchar](50) NULL,
+		[num3_] [varchar](50) NULL,
+		[Guid_] [uniqueidentifier] NOT NULL,
+		[No_] [varchar](5) NOT NULL,
+		layer_ [varchar](100) null
+		)
+</p>
+ 
+<p>
+ declare @layer varchar(max) = 'cb01_mb_p0-7-8.drl#cb01_mb_p0-6-8.drl#cb01_mb_p0-6-7.drl#sm2.art#sm1.art#silk2.art#silk1.art#pm2.art#pm1.art#drill_7_8.art#drill_1_2.art#l8.art#l7.art#l4.art#l3.art'
+ declare @layerNum int,@layerIndex int,@layerName varchar(100)
+</p>
+
+<p>
+ set @layerNum = len(@layer)-len(replace(@layer,'#',''))
+ set @layerNum = @layerNum + 1
+ set @layerIndex = 1
+</p>
+ 
+<p>
+ 	 drop table #kkkkkk
+</p>
+<blockquote>
+create table #kkkkkk (
+</blockquote>
+<p>
+		[Format_] [varchar](50) NULL,
+		[regexp_] [varchar](80) NULL,
+		[lay_name_] [varchar](50) NULL,
+		[board_type_] [varchar](50) NULL,
+		[lay_type_] [varchar](50) NULL,
+		[pos_] [varchar](50) NULL,
+		[TB_] [varchar](50) NULL,
+		[num_] [varchar](50) NULL,
+		[num2_] [varchar](50) NULL,
+		[num3_] [varchar](50) NULL,
+		[Guid_] [uniqueidentifier] NOT NULL,
+		[No_] [varchar](5) NOT NULL,
+		layer_ [varchar](100) null
+		)
+</p>
+		
+<p>
+		declare @sqlCmd varchar(max)
+ while (@layerIndex &lt;= @layerNum) 
+ begin
+	set @layerName = dbo.SplitString(@layer,'#',@layerIndex) 
+</p>
+<blockquote>
+insert into #kkkkkk	
+(Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+layer_
+)  select Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+@layerName
+from [WZ_DATABASE].[dbo].[T_GS_LyrRuleRegExp] 
+</blockquote>
+		
+<p>
+		--update #kkkkkk set layer_ = @layerName
+</p>
+		
+<p>
+		delete from #kkkkkk where dbo.RegexIsMatch(layer_, regexp_)  = 0
+		while exists (select top 1 * from #kkkkkk) 
+		begin
+</p>
+<blockquote>
+select top 1 @guid_ = Guid_, @no = No_ from #kkkkkk
+insert into #JJJJJJJ 
+</blockquote>
+<blockquote>
+(Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+layer_)  select top 1 Format_,
+regexp_,
+lay_name_,
+board_type_,
+lay_type_,
+pos_,
+TB_,
+num_,
+num2_,
+num3_,
+Guid_,
+No_,
+layer_ from #kkkkkk  
+</blockquote>
+<blockquote>
+delete from #kkkkkk where  Guid_= @guid_ and  No_ = @no
+</blockquote>
+<blockquote>
+--select * from #JJJJJJJ
+</blockquote>
+		
+		
+<p>
+		end
+</p>
+		
+	
+<p>
+	set @layerIndex = @layerIndex + 1
+ end 
+</p>
+  
+ 
+<p>
+ drop table #guid
+ select Guid_ into #guid from #JJJJJJJ group by Guid_
+</p>
+ 
+<p>
+ declare @ruleGuid varchar(50),@ruleGuidCount int = 0,@tmpCount int = 0, @get@Guid_ varchar(50)
+ while exists (select top 1  * from #guid) 
+ begin
+	select top 1 @get@Guid_ = Guid_ from #guid
+	select  @tmpCount = count(*)  from  (select Guid_, layer_,lay_name_ from #JJJJJJJ  where Guid_ = @get@Guid_ group by Guid_, layer_,lay_name_) as aa 
+</p>
+	
+<p>
+	if (@tmpCount &gt; @ruleGuidCount) 
+	begin
+		set @ruleGuidCount = @tmpCount
+		set @ruleGuid = @get@Guid_
+	end
+</p>
+	
+<p>
+	delete from #guid where Guid_ = @get@Guid_
+ end
+</p>
+ 
+<p>
+ --select @ruleGuid
+--select * from [WZ_DATABASE].[dbo].[T_GS_LyrRuleRegExp] where regexp_ like '%silk%'
+</p>
+ 
+<p>
+drop table #RegexpTableEnd
+</p>
+
+<p>
+select * into #RegexpTableEnd from #JJJJJJJ where Guid_ = @ruleGuid
+</p>
+
+ 
+<p>
+--select * from #RegexpTableEnd
+</p>
+
+<p>
+set @layerIndex = 1
+</p>
+
+		
+<p>
+declare @endRegexp_ varchar(max)
+ while (@layerIndex &lt;= @layerNum) 
+ begin
+	set @layerName = dbo.SplitString(@layer,'#',@layerIndex) 
+	if exists (select Guid_,layer_  from #RegexpTableEnd where  layer_ = @layerName group by Guid_, layer_ having count(*) &gt;= 2)
+	begin
+		select top 1 @endRegexp_ = regexp_ from #RegexpTableEnd  where  layer_ = @layerName order by len(regexp_) desc
+		delete from #RegexpTableEnd where  layer_ = @layerName and regexp_ &lt;&gt; @endRegexp_
+	end 
+</p>
+	
+<p>
+	set @layerIndex =  @layerIndex + 1
+ end
+</p>
+
+<p>
+ while (@layerIndex &lt;= @layerNum) 
+ begin
+	set @layerName = dbo.SplitString(@layer,'#',@layerIndex) 
+	if exists (select Guid_,layer_  from #RegexpTableEnd where  layer_ = @layerName group by Guid_, layer_ having count(*) &gt;= 2)
+	begin
+		select top 1 @endRegexp_ = regexp_ from #RegexpTableEnd  where  layer_ = @layerName order by len(regexp_) desc
+		delete from #RegexpTableEnd where  layer_ = @layerName and regexp_ &lt;&gt; @endRegexp_
+	end 
+</p>
+	
+	
+	
+	
+<p>
+	set @layerIndex =  @layerIndex + 1
+ end
+</p>
+ 
+<p>
+ --不同input名字，相同重命名名字，无法识别。删除
+ declare @lay_name_ varchar (100), @lay_type_ varchar(100)
+ drop table #diffLayer_same_lay_name_
+</p>
+  
+<p>
+ select   lay_name_,lay_type_ into #diffLayer_same_lay_name_ from #RegexpTableEnd  where lay_name_ not like '%\%' group by lay_name_,lay_type_  
+</p>
+ 
+<p>
+ if exists (select top 1 * from #diffLayer_same_lay_name_)
+	begin
+</p>
+	
+<p>
+	select top 1 @lay_name_ = lay_name_,@lay_type_ = lay_type_ from #diffLayer_same_lay_name_
+	delete from #RegexpTableEnd where lay_name_ = @lay_name_ and lay_type_ = @lay_type_
+</p>
+
+	
+<p>
+end 
+</p>
+	
+<p>
+select * from #RegexpTableEnd
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+</body>
+</body>
+</html>

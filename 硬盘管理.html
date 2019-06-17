@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>硬盘管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2 id="toc_0.1">添加硬盘</h2>
+<p>
+虚拟机添加硬盘
+右击-&gt;设置 点击硬盘，点击添加
+</p>
+
+<p>
+分区和格式化：
+	首先，用fdisk -l查看磁盘设备的大小
+	对某块分区进行操作：
+		fdisk /dev/sdb 进入b硬盘
+		p 打印分区情况
+		n 新建分区 p 表主分区，e表扩展分区
+		数字表示第几分区
+		w 写入
+	分完区后，对该分区进行格式化
+		mkfs.ext3 /dev/sdb1
+</p>
+
+<h2 id="toc_0.2">查看硬盘空间</h2>
+<p>
+df -h
+哪个设备，大小，已使用大小，剩余值，使用百分比，从什么地方mount过来的 挂载到哪个目录
+</p>
+
+<p>
+df -h 查看所有mount
+</p>
+
+<h2 id="toc_0.3">查看某个文件夹占用空间大小</h2>
+<p>
+du -sh fileName
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+</body>
+</body>
+</html>

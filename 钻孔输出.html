@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>钻孔输出</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+1，程序入口.newdrill, 拉伸程序
+2, 如果时镭射孔，执行newdrill_lass
+3, 如果时1:1, 则调用newdrilloutpue.csh
+</p>
+
+
+<h2 id="toc_0.1">set_table</h2>
+<p>
+nibble drill 扩钻孔
+	&gt; 6.5 用3.2扩
+</p>
+	
+<p>
+3.175首刀
+正常圆孔
+正常扩孔
+锣刀钻圆孔+6(相交孔，正常孔钻完第一个以后，第二个受力不均，易断刀，所以用锣刀或槽刀，有锣刀用锣刀，无锣刀用槽刀)
+槽刀钻圆孔+2
+正常槽孔
+毛刺孔
+0.404机台号，尾孔
+</p>
+	
+<h2 id="toc_0.2">待处理</h2>
+<p>
+板边加尾孔：尾数为6的不需要尾孔(引导孔或毛刺孔)
+板边加机台号和料号
+在背钻层加机台号(不需要料号)
+塞孔加料号(不加机台号)，(需要镜像)
+3，毛刺孔和引导孔是否做到独立一层
+备用靶定位孔
+</p>
+
+
+<h2 id="toc_0.3">输出</h2>
+<p>
+1，通孔不镜像
+2，背钻通过抓名字自动镜像
+3，镭射通过抓钻带自动镜像
+4，埋孔不镜像
+5，二钻有时镜像，塞孔有时镜像
+</p>
+
+<p>
+输出之前产生定位孔层
+通孔，最后一次打靶作为定位孔， 3.15
+镭射孔，l12，第二层的镭射靶作为定位孔。第二层的打靶作为定位孔.l78层第七层的镭射靶作为定位孔，第七层的打靶作为定位孔。3.15+0.5
+埋孔，最后一次打靶作为定位孔，3.15
+二钻定位孔，2nt， 3.175
+塞孔：埋孔全塞，跟埋孔定位孔一样。通孔塞孔 3.15
+锣带定位孔：set里面的定位孔按工具孔大小-50确定，panel里面的定位孔1950
+锣边定位孔：第几次锣边，第几次的打靶3.20
+</p>
+
+
+
+
+
+<h2 id="toc_0.4">程序需求</h2>
+<p>
+1，确保钻带拉对
+1，通孔层加字唛，料号名BK21240A0X0.0Y0.0和*，(0.404的孔径，MI指示孔数，和正常刀一起排序？涨缩系数不同可能孔个数不同)。镭射层加机台号(MI指示要加孔数，要不要放最后)。
+2，所有定位层设置钻孔属性
+	rt层，锣带定位层孔，set里面的定位孔由PG做，做完后拷到rt层，然后把rt层定义为钻孔属性。阻抗定位孔和板边定位孔由脚本跑出并输出。
+	sd38层，树脂塞孔层，除板边外的孔由PG做出，脚本跑板边定位孔，并输出。
+	锣板定位孔，全部由程序跑出，并输出。PG不用做任何动作。并且执行之前存在锣板定位孔，跑之前会删掉。
+	其他定位孔，包括通孔，埋孔，镭射孔，塞孔，都可以由脚本跑出。允许之前存在定位孔，程序跑之前会删掉。备用定位孔暂时没加。
+</p>
+	
+<p>
+输出如果时正常，则全部一起输出，包括锣带。
+如果是拉伸，只能输出同一个涨缩系数的钻带。锣带不支持。
+二钻定位孔？
+</p>
+
+<h1 id="toc_1">埋孔系数要求</h1>
+<p>
+开料钻m23(层数只有两层)，由工艺提供参数
+非开料钻，除二阶一次塞系数为x4y4外，其它都是X2Y2
+</p>
+
+
+<h1 id="toc_2">程序流程图</h1>
+<p>
+	图形界面
+	获取输出层和镜像层
+		镭射镜像抓取钻带
+		通孔镜像抓取bzb，如果有背钻b，则镜像
+		毛刺孔镜像和通孔镜像一样
+		埋孔无需镜像
+		二钻和塞孔，正常情况不镜像，拉伸可以选择是否镜像
+	计算涨缩系数 1+输入值/10000
+	输出
+	回读
+</p>
+	
+
+<p>
+规范
+锣边定位孔坐标由打靶位置确定
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+</body>
+</body>
+</html>

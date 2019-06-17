@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>脚本过程</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+#初始化计算，主要计算Tk需要的参数
+$h-&gt;PreCalculate();
+</p>
+
+<p>
+#Tk界面
+	1，Tk参数获取
+	2，tk主界面产生
+	3，tk参数初始化
+	4，主窗口设置
+		a，基本信息框架$mw
+		b，料号信息框架$mw
+		c，主体内容框架$mw
+			1，输入参数框架
+			2，参数选择框架
+		d，尾部信息及按钮$mw
+</p>
+
+<p>
+#Tk界面的处理
+doRun
+	dorun包括，
+		1，输入参数检测。
+			a，参数是否符合条件
+			b，参数是否正确
+		2，执行前处理，写日志等。
+			a，参数写入文件
+			b, 写日志
+			c，主程序执行前的必要计算
+		3，执行主程序。
+			a，程序的主要操作
+		4，主程序执行后操作
+			a，删除临时文件或层别
+			b，结束提醒
+			c，写日志
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+</body>
+</body>
+</html>

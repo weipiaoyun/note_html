@@ -1,0 +1,453 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>类</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">常用类 </a>
+<li><a href="#toc_2">EXCEL </a>
+<ul>
+<li><a href="#toc_2.1">数据类型</a>
+<li><a href="#toc_2.2">泛型</a>
+<ul>
+<li><a href="#toc_2.2.1">泛型类</a>
+</ul>
+</ul>
+<li><a href="#toc_3">类的修饰符有abstract、internal、new、private、protected、public或sealed关键字</a>
+<ul>
+<li><a href="#toc_3.0.1">Byte数组</a>
+<li><a href="#toc_3.0.2">装箱和拆箱</a>
+</ul>
+<li><a href="#toc_3.1">DataRow</a>
+<li><a href="#toc_3.2">DataTable</a>
+<li><a href="#toc_3.3">Dictionary</a>
+<li><a href="#toc_3.4">StringBuider</a>
+</ul>
+<li><a href="#toc_4">函数的继承 </a>
+<li><a href="#toc_5">泛型</a>
+<ul>
+<li><a href="#toc_5.1">泛型修饰符in和out</a>
+</ul>
+<li><a href="#toc_6">类型</a>
+<li><a href="#toc_7">多进程进行 </a>
+<ul>
+<li><a href="#toc_7.1">类型转换</a>
+</ul>
+<li><a href="#toc_8">引用</a>
+</ul>
+</div>
+<h1 id="toc_1">常用类 </h1>
+<p>
+<a href="加解密.html">加解密</a><br>
+<a href="文件操作.html">文件操作</a><br>
+<a href="添加xml步骤.html">添加xml步骤</a><br>
+<a href="DataTable.html">DataTable</a><br>
+<a href="backGroundWok.html">backGroundWok</a><br>
+<a href="NPOI.html">NPOI</a><br>
+</p>
+
+<h1 id="toc_2">EXCEL </h1>
+<p>
+epplus
+</p>
+
+
+<p>
+值
+</p>
+<blockquote>
+简单类
+</blockquote>
+<p>
+	枚举类
+	结构类
+	可为null类
+引用
+</p>
+<blockquote>
+类类型
+</blockquote>
+<p>
+	接口类型
+	数组类型
+	委托类型(方法的引用)
+</p>
+
+<p>
+有五类是用户可自定义的：类类型，接口类型，接口类型，枚举类型，委托类型。
+</p>
+
+
+<p>
+类是一种数据结构
+</p>
+<h2 id="toc_2.1">数据类型</h2>
+<p>
+sbyte
+byte
+int uint
+short ushort
+long ulong
+char 
+float
+double
+decimal(精度更高)
+bool
+</p>
+
+<p>
+在C#使用的数据类型中，按引用的存储有：
+	类
+	字符串
+	接口
+	数组
+	代表
+</p>
+	
+
+<h2 id="toc_2.2">泛型</h2>
+<h3 id="toc_2.2.1">泛型类</h3>
+<p>
+在创建对象或者调用方法的时候，临时传递过去的类型
+</p>
+
+<p>
+泛型类，
+在定义类的时候的占位符
+</p>
+
+
+
+<p>
+类是面向对象的程序设计的基本构成模块
+类是一种数据结构
+</p>
+
+<p>
+类是一种数据结构(数据类型)，这种数据结构可以包含数据成员、函数成员等类型。其中数据成员类型有常量和事件；函数成员类型有方法、属性和索引器等。
+</p>
+
+	
+<p>
+基本封装结构: 类和结构
+</p>
+
+<p>
+类(抽象的数据类型：桌子) 对象就是实例
+</p>
+<h1 id="toc_3">类的修饰符有abstract、internal、new、private、protected、public或sealed关键字</h1>
+<p>
+private&lt;protected/internal&lt;public   
+</p>
+    
+<p>
+  这个很明显了。   
+</p>
+    
+<p>
+  关键是protected和internal的问题。   
+</p>
+    
+<p>
+  protected限定的是只有在继承的子类中才可以访问，可以跨程序集   
+</p>
+    
+<p>
+  internal限定的是只有在同一个程序集中才可以访问，可以跨类   
+</p>
+    
+<p>
+  所以它们是有点交叉的。   
+</p>
+    
+<p>
+  当一个CLASS是ITERNAL的时候，要求其所有的成员的限定范围不能大于internal。   
+</p>
+    
+<p>
+  所以，当一个INTERNAL的CLASS写PROTECTED的时候，就需要两个限定符了：   
+</p>
+    
+<p>
+  internal   protected   
+</p>
+    
+<p>
+  这样，限定了访问范围是：本程序集、继承的子类。   
+</p>
+    
+<p>
+  因此，关系是：   
+</p>
+    
+<p>
+  private&lt;internal   protected&lt;internal/protected&lt;public   
+</p>
+    
+<p>
+  internal和protected的具体范围大小就不能准确的界顶了。
+</p>
+  
+
+<p>
+不能对多行注释进行嵌套
+</p>
+
+<p>
+C#组成：空白，C#关键字，字面值，标识符；
+</p>
+
+<p>
+using关键字，用于导入名称空间
+</p>
+
+<p>
+C#的应用程序入口是Main();
+</p>
+
+<p>
+组合不是继承。组合是指一个对象使用另一个对象
+</p>
+
+<p>
+常量全部大写
+</p>
+
+
+<h3 id="toc_3.0.1">Byte数组</h3>
+<p>
+MD5的转换，传递的是Byte类型的。而不是字符串类型。一个字节一个字节传递。一个自符串可能由多个字节组成。
+</p>
+
+<p>
++号有表示连接字符串的意思
+</p>
+
+
+<p>
+把.net framework分为common language runtime(CLR) 和类库
+MSDN 微软的文档库
+数据结构：结构体、枚举
+</p>
+
+<p>
+所以常量和变量都必须先声明类型
+</p>
+
+<p>
+两种类型
+	值类型：值为固定长度的数据，存储在堆栈中。包括简单类型、枚举类型和结构类型等。
+</p>
+	
+<p>
+		简单类型：整数类型
+</p>
+<blockquote>
+布尔类型
+实数类型
+</blockquote>
+					
+<p>
+		常量申明:modifiers const type  
+		modifiers:new、public、protected、internal、private
+		type:sbyte、byte、short、ushort、int、uint、long、ulong、char、float、double、decimal、bool、string
+	引用类型：值存储在堆中。包括类类型、数组类型和接口类型等。
+</p>
+	
+
+<p>
+类型转换：
+	隐式转换。实际上就是从低精度的数值类型向高精度的数值类型转换
+		第一是两种类型彼此兼容，第二是目标类型的取值范围要大于源类型。
+	显式转换(强制类型转换，即隐式转换不行时)。
+	使用命令的显示转换。
+</p>
+	
+<p>
+	所有的类型都能够转换成string类型，调用ToString()。
+</p>
+	
+<p>
+隐式转换的类型有隐式数值转换、隐式枚举转换和隐式引用转换；其发生的场合也包括函数调用、表达式计算和分配等。
+</p>
+	
+<p>
+结构体和枚举
+结构：可以帮助我们一次性声明多个不同类型的变量。结构里面的不叫变量，而是叫字段，变量只装一个值，字段可以装多个值
+</p>
+
+<p>
+枚举类型的变量跟int类型和string类型互相转换。
+当转换一个枚举中没有的值的时候，不会抛异常，而是直接将数字显示出来。
+枚举对值可控，作为参数更安全
+枚举其实左边是枚举，右边是int。
+</p>
+
+<h3 id="toc_3.0.2">装箱和拆箱</h3>
+<p>
+object
+object是所有类型的父类。所有类型都可以转换成object，转换的过程称为装箱。object再转换成强类型，称为拆箱。
+</p>
+
+<p>
+每一个对象有一个空间。存储变量和成员。同一类的所有对象的方法只有一个副本，所有类共享那个方法，不会为每一个对象创建空间存储方法。
+</p>
+
+<p>
+对象：对象可以作为参数和返回值。相似的类对象之间进行自动类型转换。
+</p>
+
+<h2 id="toc_3.1">DataRow</h2>
+<p>
+System.Data.DataTable中一行的数据，存的是每个字段的值
+1，字段(列)：Columns.非公共成员._list
+2，值(行)：Rows.非公共成员._list
+</p>
+
+<h2 id="toc_3.2">DataTable</h2>
+<p>
+System.Data 表示内存中数据的一个表。
+</p>
+
+<h2 id="toc_3.3">Dictionary</h2>
+<p>
+健值对
+</p>
+
+<h2 id="toc_3.4">StringBuider</h2>
+<p>
+可变字符字符串，本质就是一个字符串，里面的@变量是一个不定的变量，可以根据情况赋值。
+</p>
+
+
+<p>
+<a href="字段和属性.html">字段和属性</a><br>
+</p>
+
+<p>
+<a href="抽象类.html">抽象类</a><br>
+<a href="特殊类.html">特殊类</a><br>
+<a href="常用类.html">常用类</a><br>
+</p>
+
+<h1 id="toc_4">函数的继承 </h1>
+
+<p>
+<a href="继承类.html">继承类</a><br>
+<a href="密封类.html">密封类</a><br>
+</p>
+
+<h1 id="toc_5">泛型</h1>
+
+<p>
+泛型方法，泛型委托。
+CLR允许引用类型、值类型、或接口中定义泛型方法。不支持泛型枚举类型
+</p>
+
+<p>
+Func&lt;Int32,Int32,String&gt; f7 = (n1, n2) =&gt; {Int32 sum = n1 + n2, return sum.Tostring();}
+</p>
+
+<h2 id="toc_5.1">泛型修饰符in和out</h2>
+<p>
+使用在泛型委托或者是接口中
+in逆变，父传子，out协变，子传父
+</p>
+
+<p>
+1，OO世界里，可以安全地把子类的应用赋值给父类的引用。
+2，
+public delegate T MyFuncA&lt;T&gt;();//不支持逆变与协变
+public delegate T MyFuncB&lt;out T&gt;();//支持协变
+</p>
+
+<p>
+3，委托和接口也是类型，如果传递的泛型不同，则表示不同的类型。如果不支持协变和逆变，则两个类型对象是不可以赋值的，也就是不可变。
+</p>
+
+<p>
+4，当前仅支持接口和委托的逆变与协变 ，不支持类和方法。但数组也有协变性。
+</p>
+
+<p>
+5，值类型不参与逆变与协变。
+</p>
+
+<p>
+6，协变和逆变指的是参数和返回值的赋值。不管协变还是逆变，都是子类引用赋值给父类引用。
+	协变：out，返回值，泛型子类对象赋值给父类对象。执行父类对象，实际执行子类对象的方法。返回参数由执行子类对象方法后返回。
+	逆变：in，参数，泛型父类对象赋值给子类对象。执行子类对象，实际执行父类对象的方法。参数由子类对象向父类传递。
+</p>
+
+<p>
+原理：在泛型上添加in关键字作为修饰符，那么这个反省参数就只能作为方法的输入参数。只写，只入不出，out反之。
+</p>
+
+<p>
+父类里面的是原式，子类里面的是变式。
+in逆变，只写，只传递参数过去，不返回值。
+out ，只读，只返回值，不传递参数过去。
+</p>
+
+<h1 id="toc_6">类型</h1>
+<p>
+引用类型(类)
+值类型(引用)
+接口类型
+委托类型
+</p>
+
+<p>
+CLR禁止开放类型(具有泛型类型参数的类型)的任何实例。
+CLR禁止构造接口类型的实例
+</p>
+
+
+<p>
+所有类继承了system.object类，包含四个实例方法：ToString，Equals, GetHashCode，GetType
+</p>
+
+
+<h1 id="toc_7">多进程进行 </h1>
+<p>
+c# backgroundworker类
+</p>
+
+<h2 id="toc_7.1">类型转换</h2>
+<p>
+convert类型转换
+1、类型如果相兼容的两个变量，可以使用自动类型转换或者强制类型转换，
+但是，如果两个类型的变量不兼容，比如 string与int或者string 与double，
+这个时候我们可以使用一个叫做Convert的转换工厂进行转换。
+注意：使用Convert进行类型转换，也需要满足一个条件：
+面儿上必须要过的去。前提是这两个类型要兼容，当string类型转换成枚举类型的时候报语法错误。
+</p>
+
+<h1 id="toc_8">引用</h1>
+<p>
+引用必定有类型，不然其只是一个地址，无法知道值域。
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+</body>
+</body>
+</html>

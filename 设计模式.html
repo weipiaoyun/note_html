@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>设计模式</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">三层架构 </h1>
+<h2 id="toc_1.1">界面层(UL)</h2>
+<p>
+和BLL层传输
+</p>
+<h2 id="toc_1.2">业务逻辑层(BLL)</h2>
+<p>
+对传送数据进行逻辑判断分析，并进行传送正确的值
+</p>
+
+<h2 id="toc_1.3">数据访问层(DAL)</h2>
+<p>
+对数据库类的访问，如添加、删除、修改、更新等
+</p>
+
+<p>
+与数据源操作有关的代码，就应该放在数据访问层中，属于数据访问层 
+</p>
+<h2 id="toc_1.4">实体类库(model)</h2>
+<p>
+存放数据库表中的字段，可有可无，其实就是一个类
+Model在各层参数传递
+用user这个Model囊括username, password, email等模式。
+</p>
+
+<h2 id="toc_1.5">IUserDAL</h2>
+<p>
+数据访问层接口：可有可无
+</p>
+
+<p>
+<a href="单例模式.html">单例模式</a><br>
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+</body>
+</body>
+</html>

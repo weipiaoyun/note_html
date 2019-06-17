@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>锁存器和缓冲器的区别</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+锁存器：具有锁存数据，也就是临时存放数据的功能，外部不会影响数据的
+锁存器在protues里面是74HC573
+</p>
+
+
+<p>
+缓冲器：只是一个三态门，当那个有效时，数据可以过去，没效时过不去，仅此而已。外部可以改变数据。
+</p>
+
+<p>
+MOVX的时候，P2口先送地址，然后是低电平，一直维持到这条指令结束.P0口先是地址，然后是数据。完了以后是开漏状态。
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+</body>
+</body>
+</html>

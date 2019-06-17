@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>运算符</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+只有相邻的两个运算符才由优先级决定
+</p>
+
+<p>
+%取余，两操作数必须整型。
+</p>
+
+<p>
+左移不管怎么都一样。而右移时负值不一样。若使用有符号右移就不可移植。（两操作数必须整型）
+</p>
+
+<p>
+a &lt;&lt; -5编译器决定，不可移植，应避免。
+</p>
+
+<p>
+赋值运算符要特别注意类型。看一不一样。强制类型转换很危险。
+</p>
+
+<p>
+sizeof(a = b + 1).这是sizeof函数，不会对a进行赋值。
+</p>
+
+<p>
+++a = 10；这是不对的。++这操作符的结果不是变量，而是变量值的拷贝。它是一个值，不管是前++还是后的。但我们不管这个是一个值，它a一定是一个左值，而且a肯定会自加1.所以总结：a的值肯定会加1。要不要用a的自加，前的话就要，后就不用。
+</p>
+
+<p>
+比较运算符不能比较字符串，两边类型要相同，不然会出现其他情况。
+<a href="计算.html">计算</a><br>
+</p>
+
+
+<h2 id="toc_0.1">C# 运算符优先级</h2>
+<p>
+对于向加加或者减减这样只需要一个操作数就能完成的运算，我们称之为一元运算符。
++ - * / % 对于这些需要两个或以上才能完成运算的操作符，我们称之为二元运算符。
+一元运算符的优先级要高于而元运算符。
+</p>
+
+<h2 id="toc_0.2">Lambda表达式</h2>
+<p>
+1，使用运算符=&gt; 右结合
+2，语法  输入参数 ()=&gt;{};
+lambda表达式和匿名函数不同，lambda表达式更简洁。
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
+<script src="my.js"></script>
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+</body>
+</body>
+</html>
