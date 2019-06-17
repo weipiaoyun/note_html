@@ -75,7 +75,7 @@ for(i=0;i<img.length;i++){
 	var imgPath = img[i].src;
 	if(matchResult.length >0 ){
 		//alert(matchResult[1]);
-		imgPath = "https://github.com/weipiaoyun/note_html/tree/master/images/" + matchResult[1];
+		imgPath = "https://weipiaoyun.github.io/note_html/images/" + matchResult[1];
 	}
 	
 	//alert("aaaa");
