@@ -9,7 +9,39 @@
 </head>
 <body>
 
-<h1 id="toc_1">全局参数 </h1>
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">HX </a>
+<ul>
+<li><a href="#toc_1.1">规范 </a>
+<li><a href="#toc_1.2">大孔规范 </a>
+</ul>
+<li><a href="#toc_2">全局参数 </a>
+<ul>
+<li><a href="#toc_2.1">孔铜 </a>
+</ul>
+<li><a href="#toc_3">流程参数 </a>
+<ul>
+<li><a href="#toc_3.1">获取蓝胶面数的Rkey </a>
+</ul>
+</ul>
+</div>
+<h1 id="toc_1">HX </h1>
+<h2 id="toc_1.1">规范 </h2>
+<h2 id="toc_1.2">大孔规范 </h2>
+<p>
+PTH：
+都要加4.0的预钻是吧？然后5.5-6.35的是钻出，大于6.35是锣出，放pth和jxt层。
+</p>
+
+<p>
+NPTH
+当NPTH孔选用钻咀大于5.3mm时，直接把原稿NPTH孔转为outline放到GKO即可，不用补偿，5.3以下的钻出，不用加预钻孔
+</p>
+
+
+<h1 id="toc_2">全局参数 </h1>
 <p>
 select d279.*,d278.PARAMETER_DESC
 	  FROM     sj_v20_live.dbo.Data0279 as d279
@@ -21,7 +53,16 @@ where d25.MANU_PART_NUMBER like 's08i001815' and d278.PARAMETER_DESC like '%孔%
 </blockquote>
          
 
-<h1 id="toc_2">流程参数 </h1>
+
+<h2 id="toc_2.1">孔铜 </h2>
+<p>
+update sj_v20_live.dbo.Data0279 set PARAMETER_VALUE = '0.23'
+where RKEY = (select RKEY  from sj_v20_live.dbo.Data0279 where PARAMETER_PTR = '2346'
+and SOURCE_PTR  = (select RKEY from sj_v20_live.dbo.Data0025 where MANU_PART_NUMBER = 'S06I003750')
+)
+</p>
+
+<h1 id="toc_3">流程参数 </h1>
 <p>
 update Data0494 SET PARAMETER_VALUE = '0.13' WHERE  rkey = (
 		select d494.RKEY
@@ -64,13 +105,26 @@ INNER JOIN  dbo.Data0038 AS D38 ON d25.RKEY = D38.SOURCE_PTR
 		where d50.CUSTOMER_PART_NUMBER like '%s08i001815%'
 		order by d38.STEP_NUMBER
 </p>
+		
 
-<button class="back_to_top">返回顶部</button>
+<h2 id="toc_3.1">获取蓝胶面数的Rkey </h2>
+
+<p>
+SELECT *
+  FROM [sj_v20_live].[dbo].[Data0278] where PARAMETER_DESC like '%蓝胶面数%'
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>

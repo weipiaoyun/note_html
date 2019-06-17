@@ -31,12 +31,17 @@ BISO工作：
 启动的时候，运行init程序，由init启动后面的任务。包括多用户环境，网络等。运行的任务会根据运行的级别调用执行任务。级别由1-6。分别对应启动/etc/rc.d/rcn.d(其中n从1-6)里面的程序。这些程序都是从/etc/rc.d/init.d里面的程序链接过来的。所以真正的程序在/etc/rc.d/init.d里面。rcn.d里面的名字S80*，s，start表示该服务是启动服务的意思，80表示的是第80个启动。启动有先后顺序，比如autofs必须要network先启动后它才能启动，所以它放在后面。k，kill，比如运行级别由5降到2，则会init会杀掉一些进程
 </p>
 
-<button class="back_to_top">返回顶部</button>
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>

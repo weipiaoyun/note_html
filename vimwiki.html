@@ -13,31 +13,42 @@
 <div class="toc">
 <ul>
 <li><a href="#toc_1">vimwiki配置 </a>
-<li><a href="#toc_2">链接 </a>
-<li><a href="#toc_3">函数 </a>
-<li><a href="#toc_4">插件配置位置 </a>
-<li><a href="#toc_5">修改隐藏字符 </a>
-<li><a href="#toc_6">快捷键及命令 </a>
+<li><a href="#toc_2">html </a>
+<li><a href="#toc_3">链接 </a>
+<li><a href="#toc_4">函数 </a>
+<li><a href="#toc_5">插件配置位置 </a>
+<li><a href="#toc_6">修改隐藏字符 </a>
+<li><a href="#toc_7">快捷键及命令 </a>
 <ul>
-<li><a href="#toc_6.1">查找 </a>
-<li><a href="#toc_6.2">修改快捷键 </a>
-<li><a href="#toc_6.3">双击取消左边目录添加命令 </a>
+<li><a href="#toc_7.1">查找 </a>
+<li><a href="#toc_7.2">修改快捷键 </a>
+<ul>
+<li><a href="#toc_7.2.1">连接本地图片 </a>
 </ul>
-<li><a href="#toc_7">vimwiki的snippet(自动补全功能)被占用 </a>
-<li><a href="#toc_8">vimwiki转html </a>
-<li><a href="#toc_9">表格</a>
+<li><a href="#toc_7.3">双击取消左边目录添加命令 </a>
+</ul>
+<li><a href="#toc_8">vimwiki的snippet(自动补全功能)被占用 </a>
+<li><a href="#toc_9">vimwiki转html </a>
+<li><a href="#toc_10">表格</a>
 <ul>
-<li><a href="#toc_9.1">修改生成html的标题和结尾 </a>
-<li><a href="#toc_9.2">替换掉标题生成的大括号 </a>
+<li><a href="#toc_10.1">修改生成html的标题和结尾 </a>
+<li><a href="#toc_10.2">替换掉标题生成的大括号 </a>
 </ul>
 </ul>
 </div>
+
 <h1 id="toc_1">vimwiki配置 </h1>
 <p>
 	c:/bin/mygvim.exe
 </p>
 	
-<h1 id="toc_2">链接 </h1>
+<h1 id="toc_2">html </h1>
+<p>
+主页：我的主页.html
+笔记：我的笔记.html，需要从笔记整理里面复制更新。
+</p>
+	
+<h1 id="toc_3">链接 </h1>
 <ul>
 <li>
 <a href="This is a link.html">This is a link</a><br>
@@ -68,13 +79,13 @@
 
 </ul>
   
-<h1 id="toc_3">函数 </h1>
+<h1 id="toc_4">函数 </h1>
 <p>
 vimwiki#RemoveHeaderLevel 下降标题级别<br>
 vimwiki#AddHeaderLevel 增加标题级别
 </p>
   
-<h1 id="toc_4">插件配置位置 </h1>
+<h1 id="toc_5">插件配置位置 </h1>
 <p>
   D:\Vim\vimfiles\autoload\vimwiki.vim 
   D:\Vim\vimfiles\ftplugin\vimwiki.vim 
@@ -82,12 +93,12 @@ vimwiki#AddHeaderLevel 增加标题级别
 各级标题的颜色在 after/syntax/vimwiki里面修改。
 </p>
   
-<h1 id="toc_5">修改隐藏字符 </h1>
+<h1 id="toc_6">修改隐藏字符 </h1>
 <p>
 syn match VimwikiHeaderChar contained /\%(^\s*=\+\)\|\%(\s*{{{\d}}}\s*=\+\s*$\)/
 </p>
  
-<h1 id="toc_6">快捷键及命令 </h1>
+<h1 id="toc_7">快捷键及命令 </h1>
 
 <ul>
 <li>
@@ -147,10 +158,13 @@ gll
 <li>
 gl#
 
+<li>
+&lt;ctrl+up&gt; 上一个具有内容的笔记&lt;ctrl+down&gt;,下一个具有内容的笔记
+
 </ul>
 
 
-<h2 id="toc_6.1">查找 </h2>
+<h2 id="toc_7.1">查找 </h2>
 <ul>
 <li>
 :VimwikiSearch /pattern/
@@ -166,7 +180,7 @@ gl#
 
 </ul>
 
-<h2 id="toc_6.2">修改快捷键 </h2>
+<h2 id="toc_7.2">修改快捷键 </h2>
 
 <p>
 在 d:\Vim\vimfiles\autoload\vimwiki\base.vim	注销掉vimwiki#base#follow_link函数下面的 call vimwiki#base#normalize_link(0) 防止回车建link
@@ -177,21 +191,25 @@ gl#
 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a><br>&lt;CR&gt;
 </p>
 
+<h3 id="toc_7.2.1">连接本地图片 </h3>
+<p>
+vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;S-CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/{{local:images\/&lt;C-r&gt;p}}&lt;CR&gt;
+</p>
 
-<h2 id="toc_6.3">双击取消左边目录添加命令 </h2>
+<h2 id="toc_7.3">双击取消左边目录添加命令 </h2>
 <p>
 修改d:\Vim\vimfiles\ftplugin\vimwiki.vim
 nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;2-LeftMouse&gt; :call vimwiki#base#follow_link("nosplit", "\&lt;lt&gt;2-LeftMouse&gt;")&lt;CR&gt; :call voom#DeleteOutlines()&lt;CR&gt;
 </p>
 
-<h1 id="toc_7">vimwiki的snippet(自动补全功能)被占用 </h1>
+<h1 id="toc_8">vimwiki的snippet(自动补全功能)被占用 </h1>
 <p>
 	修改d:\Vim\vimfiles\ftplugin\vimwiki.vim
 	将inoremap &lt;expr&gt; &lt;buffer&gt; &lt;Tab&gt; vimwiki#tbl#kbd_tab()行，更改为inoremap &lt;expr&gt; &lt;buffer&gt; &lt;C-Tab&gt; vimwiki#tbl#kbd_tab()
 </p>
 
 
-<h1 id="toc_8">vimwiki转html </h1>
+<h1 id="toc_9">vimwiki转html </h1>
 <p>
 <strong>粗体</strong>  <em>斜体</em>  <del>删除线</del>   <code>Some Code 代码</code>   <sup><small>上</small></sup>标  <sub><small>下</small></sub>标
 </p>
@@ -247,29 +265,34 @@ nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;2-LeftMouse&gt; :call vimwiki#base#fol
 <p>
 g:vimwiki_valid_html_tags 的默认值是'b,i,s,u,sub,sup,kbd,br,hr'
 </p>
-<h1 id="toc_9">表格</h1>
+<h1 id="toc_10">表格</h1>
 <p>
 创建表格
 </p>
 
 
-<h2 id="toc_9.1">修改生成html的标题和结尾 </h2>
+<h2 id="toc_10.1">修改生成html的标题和结尾 </h2>
 <p>
 修改路径：d:\Vim\vimfiles\autoload\vimwiki\default.tpl
 链接标签后面自动回车 ：路径：d:\Vim\vimfiles\autoload\html.vim  383行 vimwiki#html#linkify_link 函数，添加\<br>
 </p>
 
-<h2 id="toc_9.2">替换掉标题生成的大括号 </h2>
+<h2 id="toc_10.2">替换掉标题生成的大括号 </h2>
 <p>
 d:\Vim\vimfiles\autoload\html.vim let h_text = substitute(h_text,'{{{\d}}}',"","g")
 </p>
 
-<button class="back_to_top">返回顶部</button>
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>

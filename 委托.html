@@ -9,13 +9,42 @@
 </head>
 <body>
 
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">these 3 most important delegates </a>
+<ul>
+<li><a href="#toc_1.1">委托</a>
+<li><a href="#toc_1.2">委托的作用</a>
+</ul>
+</ul>
+</div>
 
-<h2 id="toc_0.1">委托</h2>
+<h1 id="toc_1">these 3 most important delegates </h1>
+<p>
+Predicate
+Action
+Func
+</p>
+
+<p>
+Predicate: essentially Func&lt;T, bool&gt;; asks the question "does the specified argument satisfy the condition represented by the delegate?" Used in things like List.FindAll.
+Action: Perform an action given the arguments. Very general purpose. Not used much in LINQ as it implies side-effects, basically.
+Func: Used extensively in LINQ, usually to transform the argument, e.g. by projecting a complex structure to one property.
+</p>
+
+
+<p>
+EventHandler/EventHandler&lt;T&gt;: Used all over WinForms
+Comparison&lt;T&gt;: Like IComparer&lt;T&gt; but in delegate form.
+</p>
+
+<h2 id="toc_1.1">委托</h2>
 <p>
 委托是一个类，它定义了方法的类型，使得可以将方法当作另一个方法的参数来进行传递，这种将方法动态地赋给参数的做法，可以避免在程序中大量使用If-Else(Switch)语句，同时使得程序具有更好的可扩展性。
 </p>
 
-<h2 id="toc_0.2">委托的作用</h2>
+<h2 id="toc_1.2">委托的作用</h2>
 <p>
 1，易维护，当需要判断，然后执行某个函数的时候，可以直接传递一个参数过去。种将方法动态地赋给参数的做法，可以避免在程序中大量使用If-Else(Switch)语句，同时使得程序具有更好的可扩展性。
 2，
@@ -101,12 +130,17 @@ Func&lt;参数1, 参数2, 返回值&gt; 委托名= ((参数1，参数2) =&gt; {�
 2，用委托类型定义一个对象。该对象是要委托的对象。
 </p>
 
-<button class="back_to_top">返回顶部</button>
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>

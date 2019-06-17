@@ -9,6 +9,15 @@
 </head>
 <body>
 
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">用错机器 </a>
+<li><a href="#toc_0.2">过数管控 </a>
+<li><a href="#toc_0.3">避免流程走错 </a>
+</ul>
+</ul>
+</div>
 <p>
 步骤
 1，画原理图库
@@ -29,12 +38,50 @@
 <a href="gerber274格式.html">gerber274格式</a><br>
 </p>
 
-<button class="back_to_top">返回顶部</button>
+
+<p>
+老板考虑的问题
+1，开料的时候避免用错机器。等到后面才发现到磨损导致板面积少了。
+2，在过数时候，没有管控。有些是直接签了。导致后面发现少了。无法查找是哪个工序少了。
+3，流程管控。有些特殊流程，产线看都没有看。直接按常规流程走。导致报废板。
+</p>
+
+<h2 id="toc_0.1">用错机器 </h2>
+<p>
+扫码，扫机，比对。
+</p>
+
+<h2 id="toc_0.2">过数管控 </h2>
+<p>
+每个板过了就有数，没过就没，二维码扫码管控
+</p>
+
+
+<h2 id="toc_0.3">避免流程走错 </h2>
+<ol>
+<li>
+扫流程卡/扫板里面的二维码，然后就知道这个板在哪个工序已经完成，先一个工序在哪。给到mes系统。
+
+<li>
+扫机台，机台去找mes系统。mes系统发现这个机器和这个流程不匹配。不让机器工作。
+
+</ol>
+
+<p>
+在流水线前面加一个线。有个扫码器。一个plc。如果扫出来对不上，停掉加的流水线。但不停里面的设备。
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>

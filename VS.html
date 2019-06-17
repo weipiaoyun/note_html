@@ -9,11 +9,43 @@
 </head>
 <body>
 
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1">插件 </a>
+<ul>
+<li><a href="#toc_1.1">Resharp </a>
+</ul>
+<li><a href="#toc_2">File Structure</a>
+<ul>
+<li><a href="#toc_2.1">添加应用程序配置文件App.config</a>
+</ul>
+<li><a href="#toc_3">显示行号</a>
+<li><a href="#toc_4">vs快捷键</a>
+<li><a href="#toc_5">设置自动换行 </a>
+<ul>
+<li><a href="#toc_5.1">在调试里面也可以打开输出</a>
+</ul>
+<li><a href="#toc_6">注册dll </a>
+<li><a href="#toc_7">插件 </a>
+<ul>
+<li><a href="#toc_7.1">JetBrains.ReSharperUltimate.2018 </a>
+</ul>
+</ul>
+</div>
+<h1 id="toc_1">插件 </h1>
+<h2 id="toc_1.1">Resharp </h2>
+<p>
+打开Crack文件夹-&gt;用管理员的身份运行AutoPatch 2018.1.cmd-&gt;打开ReSharper输入licens界面-&gt;按下右上角的按钮。
+</p>
+
+
 <p>
 ReSharper-&gt;window
 </p>
-<h1 id="toc_1">File Structure</h1>
 
+
+<h1 id="toc_2">File Structure</h1>
 
 <p>
 在项目进行编译后，在 bin/Debuge 文件下，将出现两个配置文件 ( 以本项目为例 ) ，一个名为“JxcManagement.EXE.config ”，另一个名为“ JxcManagement.vshost.exe.config ”。第一个文件为项目实际使用的配置文件，在程序运行中所做的更改都将被保存于此；第二个文件为原代码“ app.config ”的同步文件，在程序运行中不会发生更改。
@@ -25,7 +57,7 @@ ReSharper-&gt;window
 &lt;? xml version = "1.0 "encoding = "utf-8 " ?&gt;
 选择“添加”→“添加新建项”，在出现的“添加新项”对话框中，选择“添加应用程序配置文件”；如果项目以前没有配置文件，则默认的文件名称为“ app.config ”，单击“确定”。出现在设计器视图中的app.config 文件为：
 </p>
-<h2 id="toc_1.1">添加应用程序配置文件App.config</h2>
+<h2 id="toc_2.1">添加应用程序配置文件App.config</h2>
 
 <p>
 ctrl+M，Ctrl+M 折叠取反
@@ -39,11 +71,11 @@ ctrl+M,Ctrl+l 不折叠
 ctrl+M Ctrl+o，折叠
 </p>
 
-<h1 id="toc_2">显示行号</h1>
+<h1 id="toc_3">显示行号</h1>
 <p>
 tool-》option-&gt;文本编辑器
 </p>
-<h1 id="toc_3">vs快捷键</h1>
+<h1 id="toc_4">vs快捷键</h1>
 
 <p>
 窗口.关闭文档窗口  Ctrk+w
@@ -59,28 +91,45 @@ VS的各个组成部分：1，解决方案.sln；2，项目.csproj；3，类.cs
 </p>
 
 
-<h1 id="toc_4">设置自动换行 </h1>
+<h1 id="toc_5">设置自动换行 </h1>
 <p>
 工具-》选项-&gt;文本编辑器-》C#-&gt;自动换行
 </p>
 
 
-<h2 id="toc_4.1">在调试里面也可以打开输出</h2>
+<h2 id="toc_5.1">在调试里面也可以打开输出</h2>
 <p>
 调试-》窗口-》输出
 </p>
 
-<h1 id="toc_5">注册dll </h1>
+<h1 id="toc_6">注册dll </h1>
 <p>
 gacutil.exe -i
 </p>
 
-<button class="back_to_top">返回顶部</button>
+<h1 id="toc_7">插件 </h1>
+<p>
+Productivity
+</p>
+
+
+<h2 id="toc_7.1">JetBrains.ReSharperUltimate.2018 </h2>
+<p>
+选择F12到函数体。更改默认
+Resharper-&gt;Build-&gt;External Sources
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>

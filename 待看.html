@@ -17,6 +17,84 @@
 </div>
 
 <p>
+vm网桥和NAT
+<a href="https://blog.csdn.net/xxb249/article/details/78790680">https://blog.csdn.net/xxb249/article/details/78790680</a><br>
+</p>
+
+<p>
+网桥自动启动
+</p>
+
+<p>
+<a href="http://www.h3c.com/cn/d_200809/615974_30005_0.htm#_Toc205176941">http://www.h3c.com/cn/d_200809/615974_30005_0.htm#_Toc205176941</a><br>
+</p>
+
+<p>
+<a href="https://product.pconline.com.cn/itbk/wlbg/network/1107/2474493.html">https://product.pconline.com.cn/itbk/wlbg/network/1107/2474493.html</a><br>
+</p>
+
+<p>
+<a href="https://www.cnblogs.com/justart/p/7944256.html">https://www.cnblogs.com/justart/p/7944256.html</a><br>
+</p>
+
+<p>
+<a href="https://blog.csdn.net/tantexian/article/details/46707175">https://blog.csdn.net/tantexian/article/details/46707175</a><br>
+</p>
+
+<p>
+DNAT和SNAT
+</p>
+
+<p>
+linux NAT 转换
+</p>
+
+<p>
+openvswitch
+</p>
+
+<p>
+1、通过代理访问121.8.210.236的转向访问192.168.191.236
+</p>
+
+<p>
+sudo iptables -t nat -A OUTPUT -d 121.8.210.236 -j DNAT --to-destination 192.168.191.236 
+sudo iptables -t nat -A OUTPUT -d 10.0.0.2 -p tcp --dport 11211 -j DNAT --to-destination 192.168.1.33:11211
+</p>
+
+<p>
+2、反过来，访问192.168.191.236的转向访问121.8.210.236
+sudo iptables -t nat -A OUTPUT -d 192.168.191.236 -j DNAT --to-destination 121.8.210.236
+</p>
+
+<p>
+网桥
+<a href="https://blog.csdn.net/Stephen_Curry11/article/details/78647076">https://blog.csdn.net/Stephen_Curry11/article/details/78647076</a><br>
+</p>
+
+<p>
+<a href="https://blog.csdn.net/u014027051/article/details/53908878">https://blog.csdn.net/u014027051/article/details/53908878</a><br>
+</p>
+
+
+
+<p>
+<a href="待查.html">待查</a><br>
+语言：C/C++;数据结构，算法，计算机网络。
+计算机原理，操作系统，代码工程化，Socket编程。
+</p>
+
+<p>
+1.98的ip可以ping通东莞的。
+</p>
+
+<p>
+微积分，线代，随机，离散，组合，自动机，编译原理，操作系统，计算机组成原理。数据库，网络，软件工程，计算机图形学。
+</p>
+
+<p>
+SQL Server 2008完全学习手册
+SQL.Server.2008中文版从入门到精通[jb51.net]
 通过iptables 访问172的ip
 genesis 安装包
 查找网卡驱动
@@ -211,7 +289,6 @@ vim /etc/cron.hourly/ntpd.cron
 zh cam12：/sbin/chkconfig mysql on
 </p>
 
-
 <p>
 zh cam09:/opt/JSON-2.61
 </p>
@@ -228,12 +305,32 @@ zh cam14 whereis iRead  /usr/bin/iRead
 志浩的genesis环境变量
 </p>
 
-<button class="back_to_top">返回顶部</button>
+<p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<a href="https://www.cnblogs.com/findumars/p/5385420.html">https://www.cnblogs.com/findumars/p/5385420.html</a><br>
+=======
+</p>
+
+<p>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 71c5baebe1443b9a125d9fa92a7ba989fc6f4ea8
+</p>
+
+
+<p>
+CID如何自动生成
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>

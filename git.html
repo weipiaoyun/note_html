@@ -12,27 +12,64 @@
 <h1>目录：</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1">git命令 </a>
-<li><a href="#toc_2">git克隆 </a>
-<li><a href="#toc_3">vs切换源代码管理插件，svn无法切换到git，点击是将关闭项目 </a>
-<li><a href="#toc_4">vs2015添加管理项目 </a>
-<li><a href="#toc_5">更改.gitignore 无效的方法 </a>
-<li><a href="#toc_6">清空工作区和暂存区 </a>
-<li><a href="#toc_7">Glossary </a>
+<li><a href="#toc_1">pycharm添加git控制 </a>
+<li><a href="#toc_2">vim设置 </a>
+<li><a href="#toc_3">git命令 </a>
+<li><a href="#toc_4">git克隆 </a>
+<li><a href="#toc_5">vs切换源代码管理插件，svn无法切换到git，点击是将关闭项目 </a>
+<li><a href="#toc_6">vs2015添加管理项目 </a>
+<li><a href="#toc_7">更改.gitignore 无效的方法 </a>
+<li><a href="#toc_8">清空工作区和暂存区 </a>
+<li><a href="#toc_9">Glossary </a>
 <ul>
-<li><a href="#toc_7.1">object </a>
-<li><a href="#toc_7.2">object database </a>
-<li><a href="#toc_7.3">object identifier = Synonym for object name. </a>
-<li><a href="#toc_7.4">commit object </a>
+<li><a href="#toc_9.1">object </a>
+<li><a href="#toc_9.2">object database </a>
+<li><a href="#toc_9.3">object identifier = Synonym for object name. </a>
+<li><a href="#toc_9.4">commit object </a>
 </ul>
-<li><a href="#toc_8">.git目录 </a>
-<li><a href="#toc_9">git四个组件 </a>
-<li><a href="#toc_10">分支 </a>
-<li><a href="#toc_11">恢复被删除的分支 </a>
+<li><a href="#toc_10">.git目录 </a>
+<li><a href="#toc_11">git四个组件 </a>
+<li><a href="#toc_12">分支 </a>
+<li><a href="#toc_13">恢复被删除的分支 </a>
+<li><a href="#toc_14">维护检查仓库 </a>
+<li><a href="#toc_15">git 配置 </a>
+<ul>
+<li><a href="#toc_15.1">更改.git的路径 </a>
+</ul>
+<li><a href="#toc_16">比较文件 </a>
+<li><a href="#toc_17">怎么从暂存区里面恢复 </a>
+<li><a href="#toc_18">从库恢复到工作区 </a>
+<li><a href="#toc_19">笔记 </a>
 </ul>
 </div>
 
-<h1 id="toc_1">git命令 </h1>
+<p>
+git命令图解
+<img src="file://D:\vim\vim\mysite\note/images/git.jpg" />
+</p>
+
+<h1 id="toc_1">pycharm添加git控制 </h1>
+<p>
+VCS-&gt;Import Version Control-&gt;Share Project on GitHub
+File-Settings-&gt;Version Control-&gt;Git
+</p>
+
+
+<h1 id="toc_2">vim设置 </h1>
+<ul>
+<li>
+d:\Vim\vim\    vim的配置
+
+<li>
+d:\Vim\vim\mysite\note_html  html文件
+
+<li>
+thinkWrite
+
+</ul>
+
+
+<h1 id="toc_3">git命令 </h1>
 
 <table>
 <tr>
@@ -136,7 +173,7 @@ push
 </tr>
 </table>
 
-<h1 id="toc_2">git克隆 </h1>
+<h1 id="toc_4">git克隆 </h1>
 <p>
 git clone <a href="https://github.com/weipiaoyun/test.git">https://github.com/weipiaoyun/test.git</a><br>
 </p>
@@ -157,7 +194,7 @@ git add -f  忽略的文件强制添加
 </p>
 
 
-<h1 id="toc_3">vs切换源代码管理插件，svn无法切换到git，点击是将关闭项目 </h1>
+<h1 id="toc_5">vs切换源代码管理插件，svn无法切换到git，点击是将关闭项目 </h1>
 
 <p>
 解决方案：
@@ -168,12 +205,12 @@ git add -f  忽略的文件强制添加
 </p>
 
 
-<h1 id="toc_4">vs2015添加管理项目 </h1>
+<h1 id="toc_6">vs2015添加管理项目 </h1>
 <p>
 将解决方案添加到代码管理
 </p>
 
-<h1 id="toc_5">更改.gitignore 无效的方法 </h1>
+<h1 id="toc_7">更改.gitignore 无效的方法 </h1>
 <p>
 git rm -r --cached . （这里.可以换成你想忽视的文件，这样就能仅仅把想忽视的文件从本地缓存删除）
 git add . （这里.可以换成你想忽视的文件+gitignore文件）
@@ -195,7 +232,7 @@ ignore all except .gitignore file
 </p>
 
 
-<h1 id="toc_6">清空工作区和暂存区 </h1>
+<h1 id="toc_8">清空工作区和暂存区 </h1>
 <p>
 git checkout . #清空已经修改的文件
 git clean -d
@@ -213,23 +250,23 @@ git reset . #已经add .了。充值
 </p>
 
 
-<h1 id="toc_7">Glossary </h1>
-<h2 id="toc_7.1">object </h2>
+<h1 id="toc_9">Glossary </h1>
+<h2 id="toc_9.1">object </h2>
 <p>
 SHA-1标记存储单元，不可改变。
 </p>
 
-<h2 id="toc_7.2">object database </h2>
+<h2 id="toc_9.2">object database </h2>
 <p>
 Stores a set of "objects" $GIT_DIR/objects/
 </p>
 
-<h2 id="toc_7.3">object identifier = Synonym for object name. </h2>
+<h2 id="toc_9.3">object identifier = Synonym for object name. </h2>
 <p>
 40 character 
 </p>
 
-<h2 id="toc_7.4">commit object </h2>
+<h2 id="toc_9.4">commit object </h2>
 <p>
 object,包含parents, committer, author, date and the tree object
 </p>
@@ -257,7 +294,7 @@ object,包含parents, committer, author, date and the tree object
 Git维护两个主要的数据结构：对象库(object store)和索引(index)。所有这些版本库数据存放在工作目录下一个名为.git的隐藏子目录中。
 </p>
 
-<h1 id="toc_8">.git目录 </h1>
+<h1 id="toc_10">.git目录 </h1>
 <p>
 \.git\refs\heads\master   当前库的指针。指向.git/objects/ master前两个字母为文件夹名字。后面的作为文件名字放在文件夹下面
 </p>
@@ -267,7 +304,7 @@ Git维护两个主要的数据结构：对象库(object store)和索引(index)�
 </p>
 
 <p>
- git cat-file -p f6422eb56dcc44b54c43b7924d1156586c9f5c43(master里面的内容)
+git cat-file -p f6422eb56dcc44b54c43b7924d1156586c9f5c43(master里面的内容)
 </p>
  
 <p>
@@ -283,7 +320,7 @@ modified:   note/test.wiki
 
 
 
-<h1 id="toc_9">git四个组件 </h1>
+<h1 id="toc_11">git四个组件 </h1>
 <ul>
 <li>
 Tag
@@ -308,10 +345,10 @@ BLOB,文件的数据。文件名那些都没有
 
 <ol>
 <li>
-add后会创建1个SHA-1，改内容就是添加的内容。.git下面新增index文件
+add后会创建1个SHA-1，该内容就是添加的内容。.git下面新增index文件
 
 <li>
-commit  (一次commit会产生两个以上SHA-1，commit和tree(有可能多个，因为多个文件夹)。后在.git/refs/heads/ 会增加master文件。master文件内容为SHA-1值。该值为commit组件信息。内容为tree组件的SHA-1。同时创建tree组件的SHA-1。内容为blob组件的SHA-1。查找blob组件的SHA-1。得到文件内容。
+commit  (一次commit会产生两个以上SHA-1，commit和tree(有可能多个，因为多个文件夹)。后在.git/refs/heads/ 会增加master文件。master文件内容为SHA-1值。该值为commit组件信息(对应的文件包含主tree组件的有父commit组件的SHA-1)。内容为tree组件的SHA-1。同时创建tree组件的SHA-1。内容为blob组件的SHA-1。查找blob组件的SHA-1。得到文件内容。
 
 <li>
 
@@ -326,13 +363,14 @@ tree里面包含各个blob的信息。blob里面记录了内容的SHA-1。每次
 其中一个commit会包含一个tree指向，也会包含一个parent指向，首个commit没有parent;一个tree包含一个或多个blob，同样也可能包含零个或多个tree的指向；blob里面保存一个文件的数据，仅仅是数据，不包含其它的内容，不同的文件名，只要内容相同，都指向同一个blob。
 </p>
 
-<h1 id="toc_10">分支 </h1>
+<h1 id="toc_12">分支 </h1>
 <p>
- git checkout -b try001 #该命令在.git\refs\heads 里面新增加一个和master一模一样的分支。
- git branch newbranch  #创建分支，但不切换过去。
- git branch [-v] #查看本地分支
- git branch -r #查看远程分支
- git branch -a #显示所有分支
+切换分支命令：checkout
+git checkout -b try001 #该命令在.git\refs\heads 里面新增加一个和master一模一样的分支。
+git branch newbranch  #创建分支，但不切换过去。
+git branch [-v] #查看本地分支
+git branch -r #查看远程分支
+git branch -a #显示所有分支
 git checkout master #切换回主分支。 会改变.git/HEAD的值
 git checkout try001 #切换回try001分支。
 git branch -d try001 #删除分支
@@ -340,7 +378,7 @@ git branch -D branchname 删除本地分支 （D 强制）
 git branch -d -r branchname 删除远端分支
 </p>
 
-<h1 id="toc_11">恢复被删除的分支 </h1>
+<h1 id="toc_13">恢复被删除的分支 </h1>
 <p>
 git branch &lt;branch_name&gt; &lt;hash_val&gt;
 git reflog 查找hash_val
@@ -350,12 +388,499 @@ git reflog 查找hash_val
 只要HEAD发生了变化， 就会在reflog里面看得到。
 </p>
 
-<button class="back_to_top">返回顶部</button>
+
+<h1 id="toc_14">维护检查仓库 </h1>
+<p>
+自己备份的内容要经常维护检查。看仓库是否完整。
+</p>
+
+<ol>
+<li>
+使用命令： git fsck --full。
+
+<li>
+如果sha1文件有问题。则把文件删了。删后执行git fsck --full，可以看到tree。
+
+<li>
+根据tree。 git ls-tree sha1 查看对应的有问题的sha1的文件名字。(注意要删掉sha1，才有tree出来)。
+
+<li>
+找到文件名后，git hash-object -w fileName。将改文件的sha1，写进去。如果对应名字一样。该问题已经解决。
+
+<li>
+如果名字不一样。说明文件有更改。则只能从其它库里面复制过来。如果没有其它库。则该文件丢失。无法找回。但有其它版本。
+
+<li>
+git log --raw --all --full-history -- my-error-file这里可以找到该文件的所有版本信息。
+
+<li>
+马上对该文件进行备份，并重新处理。一般有其它版本，不然，git hash-object -w出来的sha1值是一样的。
+
+</ol>
+
+<p>
+如果本身存在该SHA-1值。则需要先删除该SHA-1值。然后重新执行命令  git hash-object -w fileName
+</p>
+
+<p>
+当git push时,发生missing tree 或者 missing blob问题时,可以尝试通过
+git gc --aggressive --prune=now
+解决,在命令运行中会找出一堆垃圾,对所有的回答选项都选n即可
+</p>
+
+<p>
+Switch to another branch (e.g. develop).
+Pull from the remote repository
+Switch back to your new branch and push.
+</p>
+
+<h1 id="toc_15">git 配置 </h1>
+<h2 id="toc_15.1">更改.git的路径 </h2>
+<p>
+git init --separate-git-dir=h:/test
+</p>
+
+<p>
+git ls-tree HEAD  查看sha-1对应的文件名字
+</p>
+
+<h1 id="toc_16">比较文件 </h1>
+<p>
+git diff  (工作区和暂存区比较)
+git diff HEAD (工作区和库里面的比较)
+</p>
+
+<h1 id="toc_17">怎么从暂存区里面恢复 </h1>
+<p>
+git checkout -- fileName
+</p>
+
+<h1 id="toc_18">从库恢复到工作区 </h1>
+<p>
+git reset --hard  
+</p>
+
+
+
+<h1 id="toc_19">笔记 </h1>
+<p>
+记住这三个概念，工作区(Working Area)，暂存区(Stage)，版本库，通过add，工作区的变化到暂存区，通过commit暂存区的变化到本地版本库，通过push本地版本库的变化到远程版本库。下面是常用的命令。
+</p>
+
+
+
+<p>
+保存进度恢复工作进度
+</p>
+
+<p>
+#把工作区和暂存区的内容保存到进度列表里
+</p>
+
+<p>
+git stash save “description”
+</p>
+
+<p>
+#把工作区和暂存区的所有内容都保存到进度列表里，包括untracked的文件。
+</p>
+
+<p>
+git stash save -u 'description'
+</p>
+
+<p>
+#列出stash里的所有项
+</p>
+
+<p>
+git stash list
+</p>
+
+<p>
+#把进度恢复出来并删除进度列表中的项
+</p>
+
+<p>
+git stash pop stash@{2}
+</p>
+
+<p>
+#只把进度恢复出来，不删除进度列表中的项
+</p>
+
+<p>
+git stash apply stash@{1}
+</p>
+
+<p>
+#丢弃进度列表中的相关项
+</p>
+
+<p>
+git stash drop stash@{3}
+</p>
+
+<p>
+查看变化
+</p>
+
+<p>
+#暂存区与工作区相比较的变化
+</p>
+
+<p>
+git diff
+</p>
+
+<p>
+#版本库和工作区相比较的变化
+</p>
+
+<p>
+git diff head
+</p>
+
+<p>
+#版本库和暂存区相比较的变化
+</p>
+
+<p>
+git diff -cached
+</p>
+
+<p>
+#将工作区与stash对比
+</p>
+
+<p>
+git stash show -p stash@{0}
+</p>
+
+
+
+<p>
+提交变化
+</p>
+
+<p>
+#把工作区中文件fielname的变化提交到暂存区
+</p>
+
+<p>
+git add filename
+</p>
+
+<p>
+#把本地文件的变更（修改，删除）保存到暂存区
+</p>
+
+<p>
+git add -u
+</p>
+
+<p>
+#把本地文件的变更（修改，删除，新增）保存到暂存区
+</p>
+
+<p>
+git add -A
+</p>
+
+<p>
+#交互式命令
+</p>
+
+<p>
+git add -i
+</p>
+
+<p>
+#把暂存区的变化提交到版本库
+</p>
+
+<p>
+git commit
+</p>
+
+<p>
+#把版本库提交到远程仓库
+</p>
+
+<p>
+git push
+</p>
+
+
+
+<p>
+恢复内容从版本库或暂存区到暂存区或工作区
+</p>
+
+<p>
+#把暂存区的内容覆盖到当前工作区
+</p>
+
+<p>
+git checkout -- filename
+</p>
+
+<p>
+#切换分支
+</p>
+
+<p>
+git checkout hongchangfirst/vice
+</p>
+
+
+
+
+
+<p>
+查看日志
+</p>
+
+<p>
+git log --graph --oneline --decorate
+</p>
+
+
+
+<p>
+查看当前状态
+</p>
+
+<p>
+git status
+</p>
+
+
+
+<p>
+重置已有提交
+</p>
+
+<p>
+#改变master的指向，也替换暂存区和工作区
+</p>
+
+<p>
+git reset --hard
+</p>
+
+<p>
+#只改变master的指向
+</p>
+
+<p>
+git reset --soft
+</p>
+
+<p>
+#只改变master的指向和暂存区的内容，但不改变工作区的内容
+</p>
+
+<p>
+git reset
+</p>
+
+<p>
+git reset --mixed
+</p>
+
+
+
+<p>
+里程碑
+</p>
+
+<p>
+#对某一次提交建立一个标签
+</p>
+
+<p>
+git tag -m “description” old_milestone
+</p>
+
+
+
+<p>
+删除文件
+</p>
+
+<p>
+#只在工作区中删除
+</p>
+
+<p>
+rm filename
+</p>
+
+
+
+<p>
+版本克隆与同步
+</p>
+
+<p>
+git clone repository workingdirectory
+</p>
+
+<p>
+git pull=git fetch + git merge
+</p>
+
+<p>
+git push
+</p>
+
+
+
+<p>
+清理（无引用的）悬挂的松散对象
+</p>
+
+<p>
+#查看悬挂松散对象
+</p>
+
+<p>
+git fsck
+</p>
+
+<p>
+#清理悬挂松散对象
+</p>
+
+<p>
+git prune
+</p>
+
+
+
+<p>
+创建分支，切换到分支上
+</p>
+
+<p>
+#创建分支
+</p>
+
+<p>
+git branch branchone
+</p>
+
+<p>
+#切换到分支上
+</p>
+
+<p>
+git checkout branchone
+</p>
+
+<p>
+#创建分支branchone并切换到其上
+</p>
+
+<p>
+git checkout -b branchone
+</p>
+
+<p>
+#推送到远程分支
+</p>
+
+<p>
+git push origin branchone
+</p>
+
+<p>
+#设置上游分支
+</p>
+
+<p>
+git branch --set-upstream-to=origin/branchone
+</p>
+
+<p>
+#删除本地分支
+</p>
+
+<p>
+git branch -d branchone
+</p>
+
+<p>
+＃删除远程分支，注意冒号前边有一个空格，代表推送空分支到远程分支，等同于删除。
+</p>
+
+<p>
+git push origin :to_be_deteled_branch
+</p>
+
+
+
+<p>
+查看哪些提交领先于远程版本
+</p>
+
+<p>
+git cherry
+</p>
+
+<p>
+复制commit
+</p>
+
+<p>
+git cherry-piek COMMIT_ID
+</p>
+
+<p>
+复制另一个分支的顶部commit
+</p>
+
+<p>
+git cherry-pick zhc-branch
+</p>
+
+<p>
+复制另一个分支的第二个commit
+</p>
+
+<p>
+git cherry-pick zhc-branch~2
+</p>
+
+<p>
+git的文件忽略（.gitignore）只对未入库的文件起作用。
+</p>
+
+<p>
+git对象库的四类对象：commit，blob，tag，tree
+</p>
+
+
+<p>
+--------------------- 
+作者：白杨树 
+来源：CSDN 
+原文：<a href="https://blog.csdn.net/hongchangfirst/article/details/8276502">https://blog.csdn.net/hongchangfirst/article/details/8276502</a><br> 
+版权声明：本文为博主原创文章，转载请附上博文链接！
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>

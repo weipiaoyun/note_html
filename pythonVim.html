@@ -9,16 +9,42 @@
 </head>
 <body>
 
+<h1>目录：</h1>
 <p>
 执行vim命令： py vim.command("%s/aaa/bbb/g")
+py  print "Hello World"
 </p>
 
-<button class="back_to_top">返回顶部</button>
+
+<p>
+D:/vim/vim/vimfiles/MyPlugin 新建demo
+vim中执行命令 source d:\Vim\vim\vimfiles\MyPlugin\script_demo.vim
+:call Foo()
+</p>
+
+<p>
+:py b = vim.buffers[i]    # Indexing (read-only)
+:py b in vim.buffers      # Membership test
+:py n = len(vim.buffers)  # Number of elements
+:py for b in vim.buffers: # Iterating over buffer list
+vim.current.line
+vim.current.buffer
+vim.current.window
+vim.current.tabpage
+vim.current.range
+</p>
+
+<button class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a href="https://weipiaoyun.github.io/note_html/">
+<button class="back_to_index" style='background-color:red'>返回首页</button>
+</a>
+
 <script src="my.js"></script>
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
-© <span id="year">2018</span> 惟飘云-不忘初心!砥砺前行
+© <span id="year">2018</span> 
 </p>
 </body>
 </body>
