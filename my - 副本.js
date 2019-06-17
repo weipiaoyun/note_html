@@ -1,10 +1,9 @@
-﻿var h1=document.getElementsByTagName("h1");
+var h1=document.getElementsByTagName("h1");
 var h2=document.getElementsByTagName("h2");
 var h3=document.getElementsByTagName("h3");
 var h4=document.getElementsByTagName("h4");
 var h5=document.getElementsByTagName("h5");
 var h6=document.getElementsByTagName("h6");
-var img=document.getElementsByTagName("img");
 var a=document.getElementsByTagName("a");
 var index = {
         1: "一：",
@@ -63,25 +62,6 @@ for(i=0;i<a.length;i++){
 		}
 	}
 }
-
-for(i=0;i<img.length;i++){
-	//var id_value=img[i].getAttribute("id").replace("toc_","");
-	//
-	var backgroundImageRegex=/file\:\/\/\/D\:\\vim\\vim\\mysite\\note\/images\/(.*)/;
-	var backgroundImageRegex=/.*images\/(.*)/;
-	////var backgroundImageRegex=/file/;
-	//var backgroundImageRegex=/http:\/\/weipiaoyun.gitee.io\/note_html\/images\/(.*)/;
-	var matchResult=img[i].src.match(backgroundImageRegex);
-	var imgPath = img[i].src;
-	if(matchResult.length >0 ){
-		//alert(matchResult[1]);
-		imgPath = "http://weipiaoyun.gitee.io/note_html/images/" + matchResult[1];
-	}
-	
-	//alert("aaaa");
-	img[i].src=imgPath;
-}
-
 
 var backButton=$('.back_to_top');
     function backToTop() {
