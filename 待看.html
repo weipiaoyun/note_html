@@ -15,6 +15,43 @@
 <li><a href="#toc_1">DataView </a>
 </ul>
 </div>
+<blockquote>
++-------------------------+
++-----------+      |  +-------------+        |
+<table class='center'>
+<tr>
+<td>
+IDT table
+</td>
+<td>
+&lt;---+--
+</td>
+<td>
+IDTR Register
+</td>
+<td>
+C
+</td>
+</tr>
+</table>
++-----------+      |  +-------------+   P    |
+^|           |         |          U    |
+||           |  +-------------+        |
+||           |  |  Local APIC |        |
+||           |  +------+------+        |
+||           +---------+---------------+
+||                     |
+|v              +-------------+
+interrupt ------&gt;  |  IO APIC    |
++-------------+
+</blockquote>
+<p>
+--------------------- 
+作者：defeattroy 
+来源：CSDN 
+原文：<a href="https://blog.csdn.net/defeattroy/article/details/8834825">https://blog.csdn.net/defeattroy/article/details/8834825</a><br> 
+版权声明：本文为博主原创文章，转载请附上博文链接！
+</p>
 
 <p>
 vm网桥和NAT
