@@ -17,6 +17,8 @@
 <li><a href="#toc_3">Recipe and trace ability </a>
 <ul>
 <li><a href="#toc_3.1">Drill Machine </a>
+<li><a href="#toc_3.2">Lay-Up Error proofing </a>
+<li><a href="#toc_3.3">LDImachine </a>
 </ul>
 </ul>
 </div>
@@ -25,7 +27,6 @@
 主界面 HslCommunicationDemo.FormLoad
 三菱  FormMelsecBinary
 </p>
-
 
 
 <h1 id="toc_2">MES系统架构 </h1>
@@ -45,10 +46,50 @@ after scan the LOT, select the parameters automatically
 PDA scan the machine, LOT, staff information. import the drill tool into the machine's directory automatically
 
 <li>
-display the imformation which include the 管位孔 deep， 叠板数，and the drill tool’s parameters
+Display the imformation which include the 管位孔 deep， 叠板数，and the drill tool’s parameters
 
 <li>
-staff operate and confirm including the PDA instructions.
+Staff operate and confirm the information accroding to the PDA instructions.
+
+<li>
+
+
+</ol>
+
+
+
+<h2 id="toc_3.2">Lay-Up Error proofing </h2>
+<ul>
+<li>
+create a task code
+
+<li>
+create second or outer LOTNO
+
+<li>
+binding second or outer item num. bkh85445a0.IN27
+
+<li>
+
+
+</ul>
+
+
+<h2 id="toc_3.3">LDImachine </h2>
+<p>
+First， the board will be exposured  top size, then the board will be reversed by the VeryGood machine.Second, it will be exposured bottom side.
+</p>
+
+<p>
+In the front  of machine, we will add a barcode gun.the barcode gun can retrieve data which contain jobname and layer name information.Second, the LDI machine tacks out  files   which have been translated by the work computer  automatically  according the information .
+</p>
+
+<ol>
+<li>
+Does the LDI machine support  odb++ format.
+
+<li>
+Does the LDI machine can identify the fixed，QRcode, and some information attribute. if it can,  we can give the ldi machine only tgz.otherwise, we shoule give the gerber and the other information.
 
 </ol>
 
