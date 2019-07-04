@@ -16,17 +16,17 @@
 <li><a href="#toc_2">获取设备信息 </a>
 <ul>
 <li><a href="#toc_2.1">获取所有设备名称集合 </a>
-<li><a href="#toc_2.2">当前所有设备的状态集合 </a>
-<li><a href="#toc_2.3">所有设备状态 </a>
-<li><a href="#toc_2.4">指定设备的状态 </a>
+<li><a href="#toc_2.2">获取当前所有设备的状态集合 </a>
+<li><a href="#toc_2.3">获取指定设备的状态 </a>
 </ul>
 <li><a href="#toc_3">获取点(地址)信息 </a>
 <ul>
-<li><a href="#toc_3.1">所有设备的地址及对应值 </a>
-<li><a href="#toc_3.2">获取指定设备点列表 </a>
-<li><a href="#toc_3.3">设备数点数的使用情况 </a>
+<li><a href="#toc_3.1">获取所有设备的点(地址)及对应值 </a>
+<li><a href="#toc_3.2">获取指定设备点(地址)列表 </a>
+<li><a href="#toc_3.3">获取设备数点数的使用情况 </a>
+<li><a href="#toc_3.4">获取指定设备每个点(地址)的详细信息 </a>
+<li><a href="#toc_3.5">获取指定设备点(地址)的值 </a>
 </ul>
-<li><a href="#toc_4">获取指定设备每个点(地址)的详细信息 </a>
 </ul>
 </div>
 
@@ -41,42 +41,42 @@
 {"Reason": "OK",  "ResultCode": "1",  "Result": [    "设备0",    "设备1"  ]}
 </p>
 
-
-<h2 id="toc_2.2">当前所有设备的状态集合 </h2>
+<h2 id="toc_2.2">获取当前所有设备的状态集合 </h2>
 <p>
 "{  "Reason": "OK",  "ResultCode": "1",  "Result": [{ "Key": "设备0", "Value": 0 }, {  "Key": "设备1", "Value": 0 } ]}"
 </p>
 
-<h2 id="toc_2.3">所有设备状态 </h2>
-<p>
-"{ "Reason": "OK",  "ResultCode": "1",  "Result": [    {      "Name": "内层棕化",      "Status": 0,      "DeviceConnectLastTime": "2019/07/03 20:16:59",      "DeviceDisconnectLastTime": "2019/07/03 06:45:32",      "SpendTime": "0:00:00:38.8944448",      "DriverName": "Mitsubishi Q EtherNet",      "DeviceConnectPara": "ip:172.19.23.2,port:1300"    },    {      "Name": "设备0",      "Status": 0,      "DeviceConnectLastTime": "2019/06/27 03:05:43",      "DeviceDisconnectLastTime": "2019/06/27 03:05:43",      "SpendTime": "0:00:00:00.0000000",      "DriverName": "Simulator",      "DeviceConnectPara": "GUID:934fd0a6-c007-45ba-843f-757f3fb3ba9d"    }  ]}"
-</p>
 
-<h2 id="toc_2.4">指定设备的状态 </h2>
+<h2 id="toc_2.3">获取指定设备的状态 </h2>
 <p>
 "{"Reason": "OK",  "ResultCode": "1",  "Result": {    "Name": "内层棕化",    "Status": 0  }}"
 </p>
 
 <h1 id="toc_3">获取点(地址)信息 </h1>
-<h2 id="toc_3.1">所有设备的地址及对应值 </h2>
+<h2 id="toc_3.1">获取所有设备的点(地址)及对应值 </h2>
 <p>
 "{"Reason": "OK",  "ResultCode": "1",  "Result": [{ "DeviceName": "内层棕化",      "listAddressValue": [        {          "AddressName": "生产当前状态",          "AddressValue": 3        },        {          "AddressName": "停机时间",          "AddressValue": 20        },        {          "AddressName": "出板数量统计",          "AddressValue": 5565        },        {          "AddressName": "入板数量统计",          "AddressValue": 5726        },        {          "AddressName": "长mm",          "AddressValue": 0        },        {          "AddressName": "宽mm",          "AddressValue": 0        },        {          "AddressName": "面积inch2",          "AddressValue": 33        },        {          "AddressName": "今天已耗电量",          "AddressValue": 9920        },        {          "AddressName": "月平均耗电量",          "AddressValue": 0        },        {          "AddressName": "总耗电量",          "AddressValue": 12800        },        {          "AddressName": "今天已耗市水量",          "AddressValue": 0        },        {          "AddressName": "月平均耗市水量",          "AddressValue": 0        },        {          "AddressName": "总耗市水量",          "AddressValue": 0        },        {          "AddressName": "酸洗面积添加PV",          "AddressValue": 12765        },        {          "AddressName": "除油面积添加SV",          "AddressValue": 0        },        {          "AddressName": "除油间隔面积PV",          "AddressValue": 3663        },        {          "AddressName": "预浸面积添加SV",          "AddressValue": 0        },        {          "AddressName": "预浸面积添加PV",          "AddressValue": 3663        },        {          "AddressName": "棕化面积添加SV",          "AddressValue": 0        },        {          "AddressName": "棕化面积添加PV",          "AddressValue": 3663        },        {          "AddressName": "酸洗SV",          "AddressValue": 351        },        {          "AddressName": "除油PV",          "AddressValue": 493        },        {          "AddressName": "当前传送速度",          "AddressValue": 0        },        {          "AddressName": "除油SV",          "AddressValue": 501        },        {          "AddressName": "预浸PV",          "AddressValue": 352        },        {          "AddressName": "预浸SV",          "AddressValue": 354        },        {          "AddressName": "棕化1PV",          "AddressValue": 358        },        {          "AddressName": "棕化1SV",          "AddressValue": 359        },        {          "AddressName": "棕化2PV",          "AddressValue": 354        },        {          "AddressName": "棕化2SV",          "AddressValue": 355        },        {          "AddressName": "热风1PV",          "AddressValue": 849        },        {          "AddressName": "热风1SV",          "AddressValue": 850        },        {          "AddressName": "热风2PV",          "AddressValue": 851        },        {          "AddressName": "热风2SV",          "AddressValue": 850        },        {          "AddressName": "热风3PV",          "AddressValue": 852        },        {          "AddressName": "热风3SV",          "AddressValue": 0        }      ]    },    {      "DeviceName": "设备0",      "listAddressValue": [        {          "AddressName": "地址",          "AddressValue": 96        },        {          "AddressName": "地址1",          "AddressValue": 96        },        {          "AddressName": "地址2",          "AddressValue": 96        },        {          "AddressName": "地址3",          "AddressValue": 96        }      ]    }  ]}"
 </p>
 
-<h2 id="toc_3.2">获取指定设备点列表 </h2>
+<h2 id="toc_3.2">获取指定设备点(地址)列表 </h2>
 <p>
 "{ "Reason": "OK",  "ResultCode": "1",  "Result": [    "点名",    "点名1",    "点名2",    "点名3"  ]}"
 </p>
 
 
-<h2 id="toc_3.3">设备数点数的使用情况 </h2>
+<h2 id="toc_3.3">获取设备数点数的使用情况 </h2>
 <p>
 "{ "Reason": "OK",  "ResultCode": "1",  "Result": {    "DeviceUsedCount": 2,    "DeviceMaxCount": 50,    "AddressUsedCount": 40,    "AddressMaxCount": 2000  }}"
 </p>
 
-<h1 id="toc_4">获取指定设备每个点(地址)的详细信息 </h1>
+<h2 id="toc_3.4">获取指定设备每个点(地址)的详细信息 </h2>
 <p>
 "{g  "Reason": "OK",  "ResultCode": "1",  "Result": [    {      "Address": "Increase:0/DWORD",      "ReadWriteType": 0,      "Description": null    },    {      "Address": "Increase:1/DWORD",      "ReadWriteType": 0,      "Description": null    },    {      "Address": "Increase:2/DWORD",      "ReadWriteType": 0,      "Description": null    },    {      "Address": "Increase:3/DWORD",      "ReadWriteType": 0,      "Description": null    }  ]}"
+</p>
+
+<h2 id="toc_3.5">获取指定设备点(地址)的值 </h2>
+<p>
+"{ "Reason": "OK",  "ResultCode": "1",  "Result":"10"}"
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
