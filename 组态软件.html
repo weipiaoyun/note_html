@@ -19,6 +19,22 @@
 <ul>
 <li><a href="#toc_4.1">修改变量 </a>
 </ul>
+<li><a href="#toc_5">数据库操作 </a>
+<ul>
+<li><a href="#toc_5.1">打开数据库，查询数据 </a>
+</ul>
+<li><a href="#toc_6">添加点 </a>
+<li><a href="#toc_7">实时数据库 </a>
+<ul>
+<li><a href="#toc_7.1">通信不上显示？？ </a>
+</ul>
+<li><a href="#toc_8">ADO组建 </a>
+<li><a href="#toc_9">变量选择 </a>
+<li><a href="#toc_10">后台组建 </a>
+<ul>
+<li><a href="#toc_10.1">EMAIL组建 </a>
+<li><a href="#toc_10.2">ADO组建-同步数据库 </a>
+</ul>
 </ul>
 </div>
 
@@ -48,6 +64,83 @@
 <h2 id="toc_4.1">修改变量 </h2>
 <p>
 双击图元-&gt;数据输入-&gt;点模拟-&gt;变量选择。
+</p>
+
+<h1 id="toc_5">数据库操作 </h1>
+<p>
+后台组件-&gt;通用控件-&gt;双击ADO组建-&gt;设置-&gt;添加-&gt;定义数据源名称-&gt;点击...(*)-&gt;选择sql server-&gt;输入sql链接
+</p>
+
+<p>
+报表-&gt;专家报表-&gt;报表向导-&gt;关系数据库报表向导。-&gt;在报表向导第三步选择数据源名称。-&gt;第四步选择数据表和字段。
+</p>
+
+
+<h2 id="toc_5.1">打开数据库，查询数据 </h2>
+<p>
+全局脚本-&gt;动作-&gt;应用程序动作-&gt;进入程序
+#ADOModule.OpenDataBase();
+#ADOModule.ExcuteSQL("select top 1 Name from AutoCam_ChildFlowList");
+区域1\job.desc  = #ADOModule.GetValueByFieldStr("Name");
+</p>
+
+<ol>
+<li>
+如上操作数据库的函数在"脚本编辑器-&gt;对象-&gt;全局对象-&gt;ADOModule"里面查找。
+
+</ol>
+
+<h1 id="toc_6">添加点 </h1>
+<p>
+数据库组态-&gt;
+</p>
+
+
+
+<h1 id="toc_7">实时数据库 </h1>
+<h2 id="toc_7.1">通信不上显示？？ </h2>
+<p>
+工程-&gt;数据库参数-&gt;通信故障时显示值为：？？？？
+</p>
+
+<p>
+可以选保存数据
+</p>
+
+
+<p>
+可以导入导出。
+</p>
+
+
+<h1 id="toc_8">ADO组建 </h1>
+<p>
+SQL数据表模板
+数据表绑定(字段和参数类型和模板表要对应)
+</p>
+
+
+<h1 id="toc_9">变量选择 </h1>
+<p>
+在全局中可以找到系统时间。
+</p>
+
+
+<h1 id="toc_10">后台组建 </h1>
+<h2 id="toc_10.1">EMAIL组建 </h2>
+<p>
+<img src="file://D:\vim\vim\mysite\note/images/组态Email.jpg" />
+</p>
+
+
+<h2 id="toc_10.2">ADO组建-同步数据库 </h2>
+<p>
+基本属性注意表名的位置。放到链接里面。
+<img src="file://D:\vim\vim\mysite\note/images/组态ADO基本属性.jpg" />
+</p>
+
+<p>
+<img src="file://D:\vim\vim\mysite\note/images/组态ADO数据表管理.jpg" />
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
