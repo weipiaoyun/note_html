@@ -9,6 +9,93 @@
 </head>
 <body>
 
+<h1>目录：</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">Compiling Source code into Managed Modules </a>
+</ul>
+<li><a href="#toc_1">CLR 基础</a>
+<ul>
+<li><a href="#toc_1.1">CLR执行模型</a>
+<ul>
+<li><a href="#toc_1.1.1">应用程序如何执行。</a>
+</ul>
+</ul>
+<li><a href="#toc_2">Framework类库</a>
+<li><a href="#toc_3">通用类型系统(CTS)</a>
+<li><a href="#toc_4">生成，打包，部署和管理应用程序及类型</a>
+<li><a href="#toc_5">运行时的相互关系</a>
+<ul>
+<li><a href="#toc_5.1">CLR如何创建类型对象，对象，以及阐述这些对象里面静态方法 实例方法 虚方法的调用区别</a>
+</ul>
+<li><a href="#toc_6">基元类型,值类型,引用类型</a>
+<li><a href="#toc_7">public private protect internal</a>
+<li><a href="#toc_8">FCL 类型</a>
+<li><a href="#toc_9">sealed</a>
+<li><a href="#toc_10">构造器(new,初始化字段)</a>
+<li><a href="#toc_11">事件</a>
+<li><a href="#toc_12">实现.NET跨平台的三个关键</a>
+<li><a href="#toc_13">readonly</a>
+</ul>
+</div>
+
+<h2 id="toc_0.1">Compiling Source code into Managed Modules </h2>
+<ol>
+<li>
+memory management
+
+<li>
+assembly loading
+
+<li>
+security
+
+<li>
+exception handling
+
+<li>
+thread synchronization
+
+<li>
+
+
+</ol>
+
+<p>
+CLR
+Managed Module
+</p>
+<ol>
+<li>
+PE32 or PE32+ header
+
+<li>
+CLR header
+
+<li>
+metadata
+
+<ul>
+<li>
+It's a set of data tables that describe what is defined in the module,such as thpes and their members.
+
+<li>
+It has tables indicateing what the managed Module references.(imported types and members.)
+
+<li>
+ COM’s Type Libraries
+
+<li>
+Interface Defnition Language (IDL) 
+
+</ul>
+<li>
+IL code
+  <code>metadata is associated with the file that contains the IL code. metadata and IL code are always in the same EXE/DLL file,  that making it impossible to separate them</code>
+
+</ol>
+
+
 <h1 id="toc_1">CLR 基础</h1>
 
 <h2 id="toc_1.1">CLR执行模型</h2>

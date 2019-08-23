@@ -35,6 +35,13 @@
 <li><a href="#toc_10.1">EMAIL组建 </a>
 <li><a href="#toc_10.2">ADO组建-同步数据库 </a>
 </ul>
+<li><a href="#toc_11">报表 </a>
+<ul>
+<li><a href="#toc_11.1">设置关系型数据库报表值 </a>
+<li><a href="#toc_11.2">可以定时刷新数据库值 </a>
+<li><a href="#toc_11.3">也可以定时更新数据值 </a>
+<li><a href="#toc_11.4">设置条件颜色 </a>
+</ul>
 </ul>
 </div>
 
@@ -141,6 +148,33 @@ SQL数据表模板
 
 <p>
 <img src="file://D:\vim\vim\mysite\note/images/组态ADO数据表管理.jpg" />
+</p>
+
+<p>
+#DRAW1.#Report4.UpdateRecord(0);
+</p>
+
+
+<h1 id="toc_11">报表 </h1>
+<h2 id="toc_11.1">设置关系型数据库报表值 </h2>
+<p>
+#DRAW1.#Report4.SetCellString(-1, 1,1,"set" ,0);
+#DRAW1.#Report4.SetCellTextColor(-1, 1,1 ,1);
+</p>
+
+<h2 id="toc_11.2">可以定时刷新数据库值 </h2>
+<p>
+#DRAW1.#Report4.RefreshSheet(-1);
+</p>
+
+<h2 id="toc_11.3">也可以定时更新数据值 </h2>
+<p>
+#Report4.UpdateRecord(0);
+</p>
+
+<h2 id="toc_11.4">设置条件颜色 </h2>
+<p>
+右击单元格-&gt;单元格属性-&gt;其它-&gt;单元前景色使用颜色值公式。
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>

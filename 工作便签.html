@@ -23,7 +23,6 @@
 <li><a href="#toc_4">常用密码 </a>
 <ul>
 <li><a href="#toc_4.1">h-soft </a>
-<li><a href="#toc_4.2">MES库 </a>
 </ul>
 <li><a href="#toc_5">文件夹位置 </a>
 <li><a href="#toc_6">规范 </a>
@@ -49,6 +48,12 @@
 <li><a href="#toc_9">还原系统 </a>
 </ul>
 </div>
+<p>
+获取 Recipe 参数
+<a href="http://172.19.99.1:6688/api/EAP/RecipeCollection//GetCJOBAllParms?number=test">http://172.19.99.1:6688/api/EAP/RecipeCollection//GetCJOBAllParms?number=test</a><br>
+</p>
+
+
 
 <p>
 Do you think it 's cold in the room.
@@ -108,26 +113,37 @@ s/\/&gt;/Binding="{Binding CP_CODE}" Width="60"\/&gt;/g
 
 <h1 id="toc_3">工作清单 </h1>
 <h2 id="toc_3.1">待处理 </h2>
+<ol>
+<li>
+UPdate 当前REcipe
+
+<li>
+打开流程限制Recipe。防止下发到其他机器。 【RecipeCollecitonDomation 228行】
+
+</ol>
 <p>
-存储过程添加一个自动和手动过滤
-报废菲林
-保护菲林放在了选化层。
+//.Where(m=&gt;m.CFLOW == flow)
 </p>
+<ol>
+<li>
+添加如果已经下发了Recipe，该Recipe无法删除，更改，等操作。
 
+<li>
+添加锁住某些参数，只下发某些参数。
 
-
-<p>
-菲林：错误信息处理没有选择，添加提醒功能
-志浩Cam14周期
-</p>
+</ol>
 
 <h2 id="toc_3.2">处理中 </h2>
 
 
 <h2 id="toc_3.3">已处理 </h2>
 <p>
-菲林新料号名无法提示有旧版本在线
+添加下发Recipe日志查询导出功能。
+已完成沉铜的下发Recipe界面开发。
 </p>
+
+
+
 	
 	
 <p>
@@ -149,10 +165,6 @@ cxt改单位
 mu159357
 </p>
 
-<h2 id="toc_4.2">MES库 </h2>
-<p>
-mes123$
-</p>
 
 
 <h1 id="toc_5">文件夹位置 </h1>
@@ -465,6 +477,36 @@ every id has it's recipe
 <p>
 B = #ADOModule.OpenRecordSet("select * from SQL")
 #ADOModule.AddNew();#ADOModule.GetData("bind");#ADOModule.Update()
+</p>
+
+
+<p>
+标注的  1，两线段；2，槽形，3，圆弧
+板边的  跑到外面去了
+输出的。添加格式
+输出pdf的。另加一个小程序打印。
+</p>
+
+
+<p>
+top_sm_color
+week_layer
+bot_sm_color
+du_cu_mode
+cb_bmcl
+</p>
+
+
+<p>
+BtnAddMachineClick
+</p>
+
+<p>
+BtnAddMachineClick
+</p>
+
+<p>
+Update   Middleware.Plugins.EAP.RecipeTemplate
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
