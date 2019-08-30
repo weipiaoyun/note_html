@@ -12,39 +12,65 @@
 <h1>目录：</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1">HslCommunication </a>
-<li><a href="#toc_2">MES系统架构 </a>
-<li><a href="#toc_3">Recipe and trace ability </a>
+<li><a href="#toc_1">traceability  of the all technological process </a>
+<li><a href="#toc_2">HslCommunication </a>
+<li><a href="#toc_3">MES系统架构 </a>
+<li><a href="#toc_4">Recipe and trace ability </a>
 <ul>
-<li><a href="#toc_3.1">Drill Machine </a>
-<li><a href="#toc_3.2">Lay-Up Error proofing </a>
+<li><a href="#toc_4.1">Drill Machine </a>
+<li><a href="#toc_4.2">Lay-Up Error proofing </a>
+</ul>
+<li><a href="#toc_5">Recipe下发 </a>
+<ul>
+<li><a href="#toc_5.1">内层DES复制棕化Recipe </a>
 </ul>
 </ul>
 </div>
+
+<h1 id="toc_1">traceability  of the all technological process </h1>
+<p>
+	we use the scan machine to get the parameters, which include temperature, speed, pressure etc.
+</p>
+	
+<p>
+	Data source：PLC(register)、 sensing element 、IPC
+</p>
 
 <p>
 <a href="CIMOM.html">CIMOM</a><br>
 </p>
 
-<h1 id="toc_1">HslCommunication </h1>
+<h1 id="toc_2">HslCommunication </h1>
 <p>
 主界面 HslCommunicationDemo.FormLoad
-三菱  FormMelsecBinary
+三菱  FormMelsecBinary  
+</p>
+
+<p>
+西门子  DB206.226  DB205.16速度
 </p>
 
 
-<h1 id="toc_2">MES系统架构 </h1>
+
+<p>
+1，添加引用。
+2，减DemoUtils类。
+3，
+</p>
+
+
+<h1 id="toc_3">MES系统架构 </h1>
 <p>
 <img src="file://D:\vim\vim\mysite\note/images/mes系统架构.jfif" />
 </p>
 
 
-<h1 id="toc_3">Recipe and trace ability </h1>
+<h1 id="toc_4">Recipe and trace ability </h1>
 <p>
 after scan the LOT, select the parameters automatically
 </p>
 
-<h2 id="toc_3.1">Drill Machine </h2>
+<h2 id="toc_4.1">Drill Machine </h2>
 <ol>
 <li>
 PDA scan the machine, LOT, staff information. import the drill tool into the machine's directory automatically
@@ -62,7 +88,7 @@ Staff operate and confirm the information accroding to the PDA instructions.
 
 
 
-<h2 id="toc_3.2">Lay-Up Error proofing </h2>
+<h2 id="toc_4.2">Lay-Up Error proofing </h2>
 <ul>
 <li>
 create a task code
@@ -77,6 +103,23 @@ binding second or outer item num. bkh85445a0.IN27
 
 
 </ul>
+
+<h1 id="toc_5">Recipe下发 </h1>
+<p>
+1，添加记录。
+2，下发前添加判断当前料号和扫描料号是否为同一个料号。如果是同一个料号，时间超过一天，重新下发配方。如果是不同料号，重新下发配方(防止配方下发后HDM下更改。)
+3， 记录当前机台号的当前料号，当前recipe
+</p>
+
+
+<h2 id="toc_5.1">内层DES复制棕化Recipe </h2>
+<p>
+1，复制项目文件夹。
+2，添加现有项目。
+3，修改所有命名空间(卸载其它的)
+4，修改csproj里面的生成的dll名字。
+5，修改service
+</p>
 
 
 <p>

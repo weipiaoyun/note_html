@@ -128,12 +128,14 @@ UPdate 当前REcipe
 <li>
 添加如果已经下发了Recipe，该Recipe无法删除，更改，等操作。
 
+</ol>
+
+<h2 id="toc_3.2">处理中 </h2>
+<ol>
 <li>
 添加锁住某些参数，只下发某些参数。
 
 </ol>
-
-<h2 id="toc_3.2">处理中 </h2>
 
 
 <h2 id="toc_3.3">已处理 </h2>
@@ -502,11 +504,90 @@ BtnAddMachineClick
 </p>
 
 <p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+1168 724
+1946 1726
+</p>
+
+
+
+
+
+<p>
+生产管理-&gt;包装管理-&gt;入库提交
+</p>
+
+<p>
+   ImageSource="/CI.Controls;component/Images/ToolBar/Copy_32x32.png" VerticalAlignment="Center" HorizontalAlignment="Left" /&gt;
+</p>
+<blockquote>
+&lt;controls:IconButton  BorderThickness="0" 
+Margin="0,0,10,0"  PermissionID="DeletePart"
+Content="{DynamicResource CN_GL_DEL}"  CommandTag="A" 
+Command="{Binding ActionCommand}"  CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
+ImageSource ="/CI.Controls;component/Images/ToolBar/Clear_32x32.png" VerticalAlignment="Center" HorizontalAlignment="Left" /&gt;
+&lt;/StackPanel&gt;
+&lt;StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  Name="TopRightStackPanel" 
+</blockquote>
+<p>
+			Grid.Row="0" Grid.Column="1"
+=======
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8c7220a360c7198c0ad8c0c2159a99d2bb924dcb
+=======
 BtnAddMachineClick
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; e0e6160bf9ed59f00a9c784f967ef75d6f675f06
+</p>
+
+
+
+
+
+
+
+
+
+
+<p>
+CPARAMETER_NAME, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
+</p>
+<blockquote>
+&lt;Label Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Right" VerticalAlignment="Center" Content="机器参数名称"/&gt;
+&lt;TextBox Grid.Row="3"    Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_MACHINE_NAME, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
+&lt;Label Grid.Row="4" Grid.Column="0"  HorizontalAlignment="Right" VerticalAlignment="Center" Content="地 址"/&gt;
+&lt;TextBox Grid.Row="4"    Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_Address, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
+&lt;Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="参数单位"/&gt;
+&lt;TextBox Grid.Row="5"   Grid.Column="1"  Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_UNIT, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
+&lt;Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="数据类型"/&gt;
+&lt;TextBox Grid.Row="6"   Grid.Column="1"  Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_DATATYPE, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
+&lt;Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="倍 数"/&gt;
+&lt;TextBox Grid.Row="7"   Grid.Column="1"  Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_MULTIPLE, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
+</blockquote>
+<blockquote>
+&lt;Label Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="下限"/&gt;
+&lt;TextBox Grid.Row="8"  Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CMIN_VALUE, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
+&lt;Label Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="中值"/&gt;
+&lt;TextBox Grid.Row="9"  Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CVALUE, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
+&lt;Label Grid.Row="10" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="上限"/&gt;
+&lt;TextBox Grid.Row="10"  Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CMAX_VALUE, 
+</blockquote>
+                    
+
+
+
+
+<p>
+GetCJOBAllParms 
+=======
 </p>
 
 <p>
 Update   Middleware.Plugins.EAP.RecipeTemplate
+</p>
+
+<p>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 65008b73d79d917d8cf9f35bcacf868da9863977
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>

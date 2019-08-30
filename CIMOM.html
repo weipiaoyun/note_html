@@ -12,24 +12,30 @@
 <h1>目录：</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1">数据库 </a>
+<li><a href="#toc_1">添加用户 </a>
+<li><a href="#toc_2">数据库 </a>
 <ul>
-<li><a href="#toc_1.1">中间件数据库配置 </a>
+<li><a href="#toc_2.1">中间件数据库配置 </a>
 </ul>
-<li><a href="#toc_2">启动程序 </a>
-<li><a href="#toc_3">更新文件 </a>
+<li><a href="#toc_3">启动程序 </a>
+<li><a href="#toc_4">更新文件 </a>
 <ul>
-<li><a href="#toc_3.1">生成的路径在如下配置 </a>
+<li><a href="#toc_4.1">生成的路径在如下配置 </a>
 </ul>
-<li><a href="#toc_4">上传代码 </a>
-<li><a href="#toc_5">上传插件 </a>
+<li><a href="#toc_5">功能模块 </a>
 <ul>
-<li><a href="#toc_5.1">上传到服务器端，中间件 </a>
-<li><a href="#toc_5.2">上传客户端 </a>
+<li><a href="#toc_5.1">EAP </a>
 </ul>
-<li><a href="#toc_6">program </a>
+<li><a href="#toc_6">上传代码 </a>
+<li><a href="#toc_7">上传插件 </a>
 <ul>
-<li><a href="#toc_6.1">EAP </a>
+<li><a href="#toc_7.1">上传到服务器端，中间件 </a>
+<li><a href="#toc_7.2">上传客户端 </a>
+</ul>
+<li><a href="#toc_8">异常 </a>
+<li><a href="#toc_9">program </a>
+<ul>
+<li><a href="#toc_9.1">EAP </a>
 </ul>
 </ul>
 </div>
@@ -38,8 +44,17 @@
 <a href="WPF.html">WPF</a><br>
 </p>
 
+<h1 id="toc_1">添加用户 </h1>
+<p>
+用户管理-&gt;新增-&gt;输入基本属性-&gt;关联运营组织
+</p>
 
-<h1 id="toc_1">数据库 </h1>
+<p>
+角色管理-&gt;如果无-&gt;新增-&gt;角色成员-&gt;新加人。
+</p>
+
+
+<h1 id="toc_2">数据库 </h1>
 <p>
 172.18.120.254
 developer
@@ -53,12 +68,12 @@ csfoti@160721
 </p>
 
 
-<h2 id="toc_1.1">中间件数据库配置 </h2>
+<h2 id="toc_2.1">中间件数据库配置 </h2>
 <p>
 e:\CIMOM\05.Server\Release Assemblies\Config\
 </p>
 
-<h1 id="toc_2">启动程序 </h1>
+<h1 id="toc_3">启动程序 </h1>
 <p>
 客户端：E:\CIMOM\10.Client\bin\Debug\Startup.exe
 服务器：E:\CIMOM\05.Server\Release Assemblies\Startup.exe
@@ -68,7 +83,7 @@ e:\CIMOM\05.Server\Release Assemblies\Config\
 客户端：解压Debug
 服务器，解压Release Assemblies.rar
 </p>
-<h1 id="toc_3">更新文件 </h1>
+<h1 id="toc_4">更新文件 </h1>
 <p>
 更新文件：E:\CIMOM\10.Client\bin\Debug
 </p>
@@ -90,7 +105,7 @@ e:\CIMOM\05.Server\Release Assemblies\Config\
 </p>
 
 
-<h2 id="toc_3.1">生成的路径在如下配置 </h2>
+<h2 id="toc_4.1">生成的路径在如下配置 </h2>
 <p>
 e:\CIMOM\10.Client\bin\Debug\WorkBench.config 
 </p>
@@ -104,7 +119,7 @@ e:\CIMOM\10.Client\bin\Debug\WorkBench.config
 e:\CIMOM\10.Client\Plugins\
 </p>
 
-
+<h1 id="toc_5">功能模块 </h1>
 
 <p>
 APS	高级计划排产
@@ -113,30 +128,55 @@ EAM 设备资产管理
 SYS	系统管理
 IFS 接口管理(Interface specification)
 SRM 供应商协同系统
+EAP 设备联机
+</p>
+
+<h2 id="toc_5.1">EAP </h2>
+<p>
+RecipeTemplate		配方模板
+RecipeJob			料号配方参数
+RecipeCollection	配方列表
+</p>
+
+<p>
+配方名称和参数列表在同一个表。配方名称的其它参数为空。
 </p>
 
 
-<h1 id="toc_4">上传代码 </h1>
+<h1 id="toc_6">上传代码 </h1>
 <p>
 1，团队资源管理器-&gt;主页-&gt;源代码管理器-&gt;选择05.server, Plugins-&gt;右击-&gt;将项增加到文件夹-&gt;选择要增加的文件夹。
 </p>
 
-<h1 id="toc_5">上传插件 </h1>
-<h2 id="toc_5.1">上传到服务器端，中间件 </h2>
+<h1 id="toc_7">上传插件 </h1>
+<h2 id="toc_7.1">上传到服务器端，中间件 </h2>
 <p>
 系统配置-&gt;服务器插件管理
 </p>
 
-<h2 id="toc_5.2">上传客户端 </h2>
+<h2 id="toc_7.2">上传客户端 </h2>
 <p>
 e:\CIMOM\10.Client\bin\Debug\Upload.exe
 注意选项选择：E:\CIMOM\10.Client\bin\Debug
 </p>
 
-<h1 id="toc_6">program </h1>
-<h2 id="toc_6.1">EAP </h2>
+<p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+</p>
+
+<h1 id="toc_8">异常 </h1>
+<p>
+CI.Common 的引用异常。
+=======
+</p>
+<h1 id="toc_9">program </h1>
+<h2 id="toc_9.1">EAP </h2>
 <p>
 具体参数列表=&gt;RecipeCollection
+</p>
+
+<p>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 65008b73d79d917d8cf9f35bcacf868da9863977
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>

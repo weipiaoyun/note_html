@@ -18,6 +18,11 @@
 <li><a href="#toc_4">开发软件 </a>
 <li><a href="#toc_5">数据库 </a>
 <li><a href="#toc_6">设计模式 </a>
+<li><a href="#toc_7">测试项目 </a>
+<ul>
+<li><a href="#toc_7.1">报错 </a>
+</ul>
+<li><a href="#toc_8">.NET Core vs .NET Framework - What's difference </a>
 </ul>
 </div>
 <h1 id="toc_1">概念 </h1>
@@ -52,6 +57,104 @@
 <p>
 <a href="设计模式.html">设计模式</a><br>
 </p>
+
+
+<h1 id="toc_7">测试项目 </h1>
+<p>
+安装  Microsoft.EntityFrameworkCore
+</p>
+
+
+<p>
+执行命令  Add-Migration "InitialCreate"
+</p>
+
+<p>
+更新数据库 PM&gt; update-database   执行这个命令后，数据库会增加一个Database。会自动建表。
+</p>
+
+
+<p>
+右击Controllers-&gt;添加-&gt;控制器-&gt;选择【视图使用 Entity Framework 的MVC控制器】-&gt;模型类选择Employee-&gt;数据上下文类选择EmployeeContext-&gt;自动产生下面的EmployeeController 控制器名称-&gt;点击添加。
+</p>
+
+
+<p>
+<a href="https://localhost:5001/Employees">https://localhost:5001/Employees</a><br>
+</p>
+
+
+<p>
+将Create方法改为AddOrEdit方法
+</p>
+
+<h2 id="toc_7.1">报错 </h2>
+<ol>
+<li>
+未能使用“Csc”任务的输入参数初始化该任务。
+	“Csc”任务不支持“SharedCompilationId”参数。请确认该参数存在于此任务中，并且是可设置的公共实例属性。
+
+</ol>
+	
+<p>
+解决办法：安装 Microsoft.Net.Compilers 
+</p>
+
+<p>
+An error occurred while accessing the IWebHost on class 'Program'. Continuing without the application service provider. Error: Could not parse the JSON file. Error on line number '12': ''.
+Unable to create an object of type 'EmployeeContext'. For the different patterns supported at design time, see <a href="https://go.microsoft.com/fwlink/?linkid=851728">https://go.microsoft.com/fwlink/?linkid=851728</a><br>
+</p>
+
+
+<p>
+错误原因：JSON有问题
+</p>
+
+
+
+<p>
+table-hover
+</p>
+
+
+<h1 id="toc_8">.NET Core vs .NET Framework - What's difference </h1>
+
+
+
+<table>
+<tr>
+<th>
+.NET Framework
+</th>
+<th>
+.NET Core
+</th>
+</tr>
+<tr>
+<td>
+References
+</td>
+<td>
+dependencies
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
 
