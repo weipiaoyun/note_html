@@ -12,39 +12,71 @@
 <h1>目录：</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1">添加用户 </a>
-<li><a href="#toc_2">数据库 </a>
+<li><a href="#toc_1">添加字典 </a>
+<li><a href="#toc_2">添加用户 </a>
+<li><a href="#toc_3">数据库 </a>
 <ul>
-<li><a href="#toc_2.1">中间件数据库配置 </a>
+<li><a href="#toc_3.1">中间件数据库配置 </a>
 </ul>
-<li><a href="#toc_3">启动程序 </a>
-<li><a href="#toc_4">更新文件 </a>
+<li><a href="#toc_4">启动程序 </a>
+<li><a href="#toc_5">更新文件 </a>
 <ul>
-<li><a href="#toc_4.1">生成的路径在如下配置 </a>
+<li><a href="#toc_5.1">生成的路径在如下配置 </a>
 </ul>
-<li><a href="#toc_5">功能模块 </a>
+<li><a href="#toc_6">功能模块 </a>
 <ul>
-<li><a href="#toc_5.1">EAP </a>
+<li><a href="#toc_6.1">EAP </a>
 </ul>
-<li><a href="#toc_6">上传代码 </a>
-<li><a href="#toc_7">上传插件 </a>
+<li><a href="#toc_7">上传代码 </a>
+<li><a href="#toc_8">上传插件 </a>
 <ul>
-<li><a href="#toc_7.1">上传到服务器端，中间件 </a>
-<li><a href="#toc_7.2">上传客户端 </a>
+<li><a href="#toc_8.1">上传到服务器端，中间件 </a>
+<li><a href="#toc_8.2">上传客户端 </a>
 </ul>
-<li><a href="#toc_8">异常 </a>
-<li><a href="#toc_9">program </a>
+<li><a href="#toc_9">异常 </a>
+<li><a href="#toc_10">program </a>
 <ul>
-<li><a href="#toc_9.1">EAP </a>
+<li><a href="#toc_10.1">EAP </a>
 </ul>
+<li><a href="#toc_11">连接PLC </a>
 </ul>
 </div>
+
+<h1 id="toc_1">添加字典 </h1>
+<p>
+Infrastructure.TBL_SYS_DICTIONARY dic = GetDictionaryByCode("DLINK_IP");
+if (dic == null || string.IsNullOrEmpty(dic.CDIC_VALUE))
+{
+</p>
+
+<p>
+	MessageBox.Show("请先到数据字典维护ERP接口地址");
+	return null;
+}
+</p>
+            
+
+
+<p>
+TBL_SYS_DICTIONARY dicDalLinkIp = GetDictionaryByCode("DIALink");
+if (dicDalLinkIp == null || string.IsNullOrEmpty(dicDalLinkIp.CDIC_VALUE))
+{
+	functionResult.Success = false;
+	functionResult.Content = model.CRESULT = "请先到数据字典维护DalLinkIp接口地址";
+	InsertLog(model);
+	return functionResult;
+}
+</p>
+
+<p>
+<a href="CIMOMJXZH.html">CIMOMJXZH</a><br>
+</p>
 
 <p>
 <a href="WPF.html">WPF</a><br>
 </p>
 
-<h1 id="toc_1">添加用户 </h1>
+<h1 id="toc_2">添加用户 </h1>
 <p>
 用户管理-&gt;新增-&gt;输入基本属性-&gt;关联运营组织
 </p>
@@ -54,7 +86,7 @@
 </p>
 
 
-<h1 id="toc_2">数据库 </h1>
+<h1 id="toc_3">数据库 </h1>
 <p>
 172.18.120.254
 developer
@@ -68,12 +100,12 @@ csfoti@160721
 </p>
 
 
-<h2 id="toc_2.1">中间件数据库配置 </h2>
+<h2 id="toc_3.1">中间件数据库配置 </h2>
 <p>
 e:\CIMOM\05.Server\Release Assemblies\Config\
 </p>
 
-<h1 id="toc_3">启动程序 </h1>
+<h1 id="toc_4">启动程序 </h1>
 <p>
 客户端：E:\CIMOM\10.Client\bin\Debug\Startup.exe
 服务器：E:\CIMOM\05.Server\Release Assemblies\Startup.exe
@@ -83,7 +115,7 @@ e:\CIMOM\05.Server\Release Assemblies\Config\
 客户端：解压Debug
 服务器，解压Release Assemblies.rar
 </p>
-<h1 id="toc_4">更新文件 </h1>
+<h1 id="toc_5">更新文件 </h1>
 <p>
 更新文件：E:\CIMOM\10.Client\bin\Debug
 </p>
@@ -105,7 +137,7 @@ e:\CIMOM\05.Server\Release Assemblies\Config\
 </p>
 
 
-<h2 id="toc_4.1">生成的路径在如下配置 </h2>
+<h2 id="toc_5.1">生成的路径在如下配置 </h2>
 <p>
 e:\CIMOM\10.Client\bin\Debug\WorkBench.config 
 </p>
@@ -119,7 +151,7 @@ e:\CIMOM\10.Client\bin\Debug\WorkBench.config
 e:\CIMOM\10.Client\Plugins\
 </p>
 
-<h1 id="toc_5">功能模块 </h1>
+<h1 id="toc_6">功能模块 </h1>
 
 <p>
 APS	高级计划排产
@@ -131,7 +163,7 @@ SRM 供应商协同系统
 EAP 设备联机
 </p>
 
-<h2 id="toc_5.1">EAP </h2>
+<h2 id="toc_6.1">EAP </h2>
 <p>
 RecipeTemplate		配方模板
 RecipeJob			料号配方参数
@@ -143,18 +175,18 @@ RecipeCollection	配方列表
 </p>
 
 
-<h1 id="toc_6">上传代码 </h1>
+<h1 id="toc_7">上传代码 </h1>
 <p>
 1，团队资源管理器-&gt;主页-&gt;源代码管理器-&gt;选择05.server, Plugins-&gt;右击-&gt;将项增加到文件夹-&gt;选择要增加的文件夹。
 </p>
 
-<h1 id="toc_7">上传插件 </h1>
-<h2 id="toc_7.1">上传到服务器端，中间件 </h2>
+<h1 id="toc_8">上传插件 </h1>
+<h2 id="toc_8.1">上传到服务器端，中间件 </h2>
 <p>
 系统配置-&gt;服务器插件管理
 </p>
 
-<h2 id="toc_7.2">上传客户端 </h2>
+<h2 id="toc_8.2">上传客户端 </h2>
 <p>
 e:\CIMOM\10.Client\bin\Debug\Upload.exe
 注意选项选择：E:\CIMOM\10.Client\bin\Debug
@@ -164,13 +196,13 @@ e:\CIMOM\10.Client\bin\Debug\Upload.exe
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 </p>
 
-<h1 id="toc_8">异常 </h1>
+<h1 id="toc_9">异常 </h1>
 <p>
 CI.Common 的引用异常。
 =======
 </p>
-<h1 id="toc_9">program </h1>
-<h2 id="toc_9.1">EAP </h2>
+<h1 id="toc_10">program </h1>
+<h2 id="toc_10.1">EAP </h2>
 <p>
 具体参数列表=&gt;RecipeCollection
 </p>
@@ -178,6 +210,9 @@ CI.Common 的引用异常。
 <p>
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 65008b73d79d917d8cf9f35bcacf868da9863977
 </p>
+
+
+<h1 id="toc_11">连接PLC </h1>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
 
