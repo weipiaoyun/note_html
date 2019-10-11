@@ -17,31 +17,32 @@
 <li><a href="#toc_3">产能 </a>
 <li><a href="#toc_4">排产 </a>
 <li><a href="#toc_5">AGV </a>
-<li><a href="#toc_6">环球镭射 </a>
+<li><a href="#toc_6">流程 </a>
+<li><a href="#toc_7">环球镭射 </a>
 <ul>
-<li><a href="#toc_6.1">关心的问题 </a>
+<li><a href="#toc_7.1">关心的问题 </a>
 </ul>
-<li><a href="#toc_7">LDI </a>
-<li><a href="#toc_8">看板和报表 </a>
-<li><a href="#toc_9">traceability  of the all technological process </a>
-<li><a href="#toc_10">HslCommunication </a>
-<li><a href="#toc_11">MES系统架构 </a>
-<li><a href="#toc_12">Recipe and trace ability </a>
+<li><a href="#toc_8">LDI </a>
+<li><a href="#toc_9">看板和报表 </a>
+<li><a href="#toc_10">traceability  of the all technological process </a>
+<li><a href="#toc_11">HslCommunication </a>
+<li><a href="#toc_12">MES系统架构 </a>
+<li><a href="#toc_13">Recipe and trace ability </a>
 <ul>
-<li><a href="#toc_12.1">Drill Machine </a>
+<li><a href="#toc_13.1">Drill Machine </a>
 <ul>
-<li><a href="#toc_12.1.1">压机Recipe </a>
+<li><a href="#toc_13.1.1">压机Recipe </a>
 </ul>
-<li><a href="#toc_12.2">Lay-Up Error proofing </a>
+<li><a href="#toc_13.2">Lay-Up Error proofing </a>
 </ul>
-<li><a href="#toc_13">Recipe下发 </a>
+<li><a href="#toc_14">Recipe下发 </a>
 <ul>
-<li><a href="#toc_13.1">内层DES复制棕化Recipe </a>
+<li><a href="#toc_14.1">内层DES复制棕化Recipe </a>
 </ul>
-<li><a href="#toc_14">打电话系统 pjsip4net </a>
-<li><a href="#toc_15">三化一稳 </a>
+<li><a href="#toc_15">打电话系统 pjsip4net </a>
+<li><a href="#toc_16">三化一稳 </a>
 <ul>
-<li><a href="#toc_15.1">怎么找到某个产品使用的物料批次？ </a>
+<li><a href="#toc_16.1">怎么找到某个产品使用的物料批次？ </a>
 </ul>
 </ul>
 </div>
@@ -50,11 +51,16 @@
 CIMOM
 </p>
 
+<p>
+<a href="MES功能模块.html">MES功能模块</a><br>
+</p>
+
 <h1 id="toc_1">术语 </h1>
 <p>
 配料单，
 流程卡
 </p>
+
 
 <h1 id="toc_2">重点优先 </h1>
 <p>
@@ -84,7 +90,13 @@ racipe and tracebility
 </p>
 
 
-<h1 id="toc_6">环球镭射 </h1>
+<h1 id="toc_6">流程 </h1>
+<p>
+工段(钻孔)-&gt;工序(钻孔工段分为机械钻，镭射钻等工序)-&gt;工艺流程(机械钻孔1是工艺流程)
+</p>
+
+
+<h1 id="toc_7">环球镭射 </h1>
 <p>
 1，计划排程
 2，钻带和参数下发
@@ -100,7 +112,7 @@ racipe and tracebility
 	需要知道当前设备的状态等信息。
 </p>
 	
-<h2 id="toc_6.1">关心的问题 </h2>
+<h2 id="toc_7.1">关心的问题 </h2>
 <ol>
 <li>
 服务器部署到云，不安全。
@@ -113,10 +125,10 @@ racipe and tracebility
 
 </ol>
 
-<h1 id="toc_7">LDI </h1>
+<h1 id="toc_8">LDI </h1>
 
 
-<h1 id="toc_8">看板和报表 </h1>
+<h1 id="toc_9">看板和报表 </h1>
 <p>
 应用场景
 </p>
@@ -128,7 +140,7 @@ racipe and tracebility
 </p>
 
 
-<h1 id="toc_9">traceability  of the all technological process </h1>
+<h1 id="toc_10">traceability  of the all technological process </h1>
 <p>
 	we use the scan machine to get the parameters, which include temperature, speed, pressure etc.
 </p>
@@ -141,7 +153,7 @@ racipe and tracebility
 <a href="CIMOM.html">CIMOM</a><br>
 </p>
 
-<h1 id="toc_10">HslCommunication </h1>
+<h1 id="toc_11">HslCommunication </h1>
 <p>
 主界面 HslCommunicationDemo.FormLoad
 三菱  FormMelsecBinary  
@@ -160,18 +172,18 @@ racipe and tracebility
 </p>
 
 
-<h1 id="toc_11">MES系统架构 </h1>
+<h1 id="toc_12">MES系统架构 </h1>
 <p>
 <img src="file://D:\vim\vim\mysite\note/images/mes系统架构.jfif" />
 </p>
 
 
-<h1 id="toc_12">Recipe and trace ability </h1>
+<h1 id="toc_13">Recipe and trace ability </h1>
 <p>
 after scan the LOT, select the parameters automatically
 </p>
 
-<h2 id="toc_12.1">Drill Machine </h2>
+<h2 id="toc_13.1">Drill Machine </h2>
 <ol>
 <li>
 PDA scan the machine, LOT, staff information. import the drill tool into the machine's directory automatically
@@ -188,7 +200,7 @@ Staff operate and confirm the information accroding to the PDA instructions.
 </ol>
 
 
-<h3 id="toc_12.1.1">压机Recipe </h3>
+<h3 id="toc_13.1.1">压机Recipe </h3>
 <p>
 先绑定LOT卡和载盘标签。(知道载盘里面的对应的什么料号)
 载盘在进去的之前扫标签。查找该料号用的是什么Recipe。然后调用存储过程[SP_SFC_LAM_LOT_BARCODE]，往压机供应商提供的数据库表里面写数据。
@@ -197,7 +209,7 @@ Staff operate and confirm the information accroding to the PDA instructions.
 
 
 
-<h2 id="toc_12.2">Lay-Up Error proofing </h2>
+<h2 id="toc_13.2">Lay-Up Error proofing </h2>
 <ul>
 <li>
 create a task code
@@ -213,7 +225,7 @@ binding second or outer item num. bkh85445a0.IN27
 
 </ul>
 
-<h1 id="toc_13">Recipe下发 </h1>
+<h1 id="toc_14">Recipe下发 </h1>
 <p>
 1，添加记录。
 2，下发前添加判断当前料号和扫描料号是否为同一个料号。如果是同一个料号，时间超过一天，重新下发配方。如果是不同料号，重新下发配方(防止配方下发后HDM下更改。)
@@ -221,7 +233,7 @@ binding second or outer item num. bkh85445a0.IN27
 </p>
 
 
-<h2 id="toc_13.1">内层DES复制棕化Recipe </h2>
+<h2 id="toc_14.1">内层DES复制棕化Recipe </h2>
 <p>
 1，复制项目文件夹。
 2，添加现有项目。
@@ -245,11 +257,11 @@ BOM数据
 一岗一表(点检表，五确认)
 </p>
 
-<h1 id="toc_14">打电话系统 pjsip4net </h1>
+<h1 id="toc_15">打电话系统 pjsip4net </h1>
 
 
-<h1 id="toc_15">三化一稳 </h1>
-<h2 id="toc_15.1">怎么找到某个产品使用的物料批次？ </h2>
+<h1 id="toc_16">三化一稳 </h1>
+<h2 id="toc_16.1">怎么找到某个产品使用的物料批次？ </h2>
 <p>
 	MES增加追溯功能。可以根据
 </p>
