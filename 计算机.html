@@ -36,12 +36,17 @@
 <li><a href="#toc_5.2.1">电脑桌面的图标删除以后必须手动刷新才看不到已经删除的图标，这是怎么回事啊？</a>
 </ul>
 </ul>
-<li><a href="#toc_6">远程windows按键出现windows功能键 </a>
-<li><a href="#toc_7">计算机原理 </a>
-<li><a href="#toc_8">计算机存储 </a>
-<li><a href="#toc_9">编译原理 </a>
+<li><a href="#toc_6">服务 </a>
 <ul>
-<li><a href="#toc_9.1">链接器的作用 </a>
+<li><a href="#toc_6.1">安装服务 </a>
+<li><a href="#toc_6.2">卸载服务 </a>
+</ul>
+<li><a href="#toc_7">远程windows按键出现windows功能键 </a>
+<li><a href="#toc_8">计算机原理 </a>
+<li><a href="#toc_9">计算机存储 </a>
+<li><a href="#toc_10">编译原理 </a>
+<ul>
+<li><a href="#toc_10.1">链接器的作用 </a>
 </ul>
 </ul>
 </div>
@@ -144,17 +149,29 @@ Windows Registry Editor Version 5.00
 </p>
 
 
-<h1 id="toc_6">远程windows按键出现windows功能键 </h1>
+<h1 id="toc_6">服务 </h1>
+<h2 id="toc_6.1">安装服务 </h2>
+<p>
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\installutil.exe  /i  E:\code\ConnectPLC\ConnectPLC\bin\Debug\ConnectPLC.exe
+</p>
+
+<h2 id="toc_6.2">卸载服务 </h2>
+<p>
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\installutil.exe  /u  E:\code\ConnectPLC\ConnectPLC\bin\Debug\ConnectPLC.exe
+</p>
+
+
+<h1 id="toc_7">远程windows按键出现windows功能键 </h1>
 <p>
 osk，点击软键盘上的win键即可.
 </p>
 
-<h1 id="toc_7">计算机原理 </h1>
+<h1 id="toc_8">计算机原理 </h1>
 <p>
 <a href="计算机原理.html">计算机原理</a><br>
 </p>
 
-<h1 id="toc_8">计算机存储 </h1>
+<h1 id="toc_9">计算机存储 </h1>
 <p>
 <a href="计算机存储.html">计算机存储</a><br>
 </p>
@@ -164,8 +181,8 @@ osk，点击软键盘上的win键即可.
 </p>
 
 
-<h1 id="toc_9">编译原理 </h1>
-<h2 id="toc_9.1">链接器的作用 </h2>
+<h1 id="toc_10">编译原理 </h1>
+<h2 id="toc_10.1">链接器的作用 </h2>
 <p>
 一是修改目标文件中的信息，对地址做重定位
 二是把多个目标文件合并成一个可执行文件

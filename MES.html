@@ -17,6 +17,9 @@
 <li><a href="#toc_3">产能 </a>
 <li><a href="#toc_4">排产 </a>
 <li><a href="#toc_5">AGV </a>
+<ul>
+<li><a href="#toc_5.1">AGV解决方案 </a>
+</ul>
 <li><a href="#toc_6">流程 </a>
 <li><a href="#toc_7">环球镭射 </a>
 <ul>
@@ -44,6 +47,7 @@
 <ul>
 <li><a href="#toc_16.1">怎么找到某个产品使用的物料批次？ </a>
 </ul>
+<li><a href="#toc_17">上下板机 </a>
 </ul>
 </div>
 
@@ -87,6 +91,26 @@ racipe and tracebility
 <h1 id="toc_5">AGV </h1>
 <p>
 上料，下料，转运空盘
+</p>
+
+<p>
+待料中
+配料中
+</p>
+
+<p>
+异常存储区
+空盘存储区
+物料存储区
+</p>
+
+<h2 id="toc_5.1">AGV解决方案 </h2>
+<p>
+如果是待料状态，则一直呼叫，如果返回的是0，则表示待料。返回的是1，则表示正在配料中。
+</p>
+
+<p>
+如果使用队列模式，则需要添加一个服务，查询队列后调用AGV，等于队列+服务+中间件三个程序在跑。
 </p>
 
 
@@ -277,6 +301,39 @@ BOM数据
 	进行追溯。直接查用了哪些物料，用的是哪个批次的物料。
 
 </ol>
+	
+
+<h1 id="toc_17">上下板机 </h1>
+<p>
+如果扫描的扫到lot卡和目前使用的Recipe不是同一个绑定的Recipe，停掉上下板机。
+</p>
+<ol>
+<li>
+记录当前Recipe
+
+<li>
+扫描线路板
+
+<li>
+比对
+
+<li>
+
+
+</ol>
+
+<p>
+读取地址
+	控制模式：
+</p>
+<ul>
+<li>
+人工模式
+
+<li>
+AGV
+
+</ul>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
 

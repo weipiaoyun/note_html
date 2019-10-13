@@ -22,6 +22,10 @@
 <li><a href="#toc_5">工作清单 </a>
 <ul>
 <li><a href="#toc_5.1">待处理 </a>
+<ul>
+<li><a href="#toc_5.1.1">棕化线下发问题 </a>
+<li><a href="#toc_5.1.2">上下板机 </a>
+</ul>
 <li><a href="#toc_5.2">处理中 </a>
 <li><a href="#toc_5.3">已处理 </a>
 </ul>
@@ -53,6 +57,13 @@
 <li><a href="#toc_11">还原系统 </a>
 </ul>
 </div>
+
+<p>
+物料编码从ERP来
+板材
+PP
+</p>
+
 <h1 id="toc_1">question </h1>
 
 <p>
@@ -163,9 +174,44 @@ s/\/&gt;/Binding="{Binding CP_CODE}" Width="60"\/&gt;/g
 PLC添加更新地址，自动更新读取
 
 <li>
+检查下看板时候还有-1的数据。
+
+<li>
+检查是否还占用内存，是否还有很多的线程
+
+<li>
+检查Redis是否会自动清空
+
+<li>
 
 
 </ol>
+
+<h3 id="toc_5.1.1">棕化线下发问题 </h3>
+<ol>
+<li>
+温度的数据类型不是int，而不是short
+
+<li>
+棕化线复制的时候没有复制到flow
+
+<li>
+G02配方的地址不对。
+
+</ol>
+ 
+<ul>
+<li>
+检查当前Recipe为什么无数据
+
+</ul>
+
+
+
+<h3 id="toc_5.1.2">上下板机 </h3>
+<p>
+更改设备编码
+</p>
 
 <h2 id="toc_5.2">处理中 </h2>
 
