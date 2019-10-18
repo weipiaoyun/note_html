@@ -16,6 +16,9 @@
 <li><a href="#toc_2">重点优先 </a>
 <li><a href="#toc_3">产能 </a>
 <li><a href="#toc_4">排产 </a>
+<ul>
+<li><a href="#toc_4.1">工作中心 </a>
+</ul>
 <li><a href="#toc_5">AGV </a>
 <ul>
 <li><a href="#toc_5.1">AGV解决方案 </a>
@@ -32,24 +35,40 @@
 <li><a href="#toc_12">MES系统架构 </a>
 <li><a href="#toc_13">Recipe and trace ability </a>
 <ul>
-<li><a href="#toc_13.1">Drill Machine </a>
+<li><a href="#toc_13.1">Recipe下发 </a>
 <ul>
-<li><a href="#toc_13.1.1">压机Recipe </a>
+<li><a href="#toc_13.1.1">Drill Machine </a>
+<li><a href="#toc_13.1.2">压机Recipe </a>
+<li><a href="#toc_13.1.3">Lay-Up Error proofing </a>
+<li><a href="#toc_13.1.4">内层DES复制棕化Recipe </a>
 </ul>
-<li><a href="#toc_13.2">Lay-Up Error proofing </a>
-</ul>
-<li><a href="#toc_14">Recipe下发 </a>
+<li><a href="#toc_13.2">trace ability </a>
 <ul>
-<li><a href="#toc_14.1">内层DES复制棕化Recipe </a>
-</ul>
-<li><a href="#toc_15">打电话系统 pjsip4net </a>
-<li><a href="#toc_16">三化一稳 </a>
+<li><a href="#toc_13.2.1">解决方案 </a>
 <ul>
-<li><a href="#toc_16.1">怎么找到某个产品使用的物料批次？ </a>
+<li><a href="#toc_13.2.1.1">内层二维码 </a>
+<li><a href="#toc_13.2.1.2">次外层或外层二维码 </a>
 </ul>
-<li><a href="#toc_17">上下板机 </a>
+</ul>
+</ul>
+<li><a href="#toc_14">打电话系统 pjsip4net </a>
+<li><a href="#toc_15">三化一稳 </a>
+<ul>
+<li><a href="#toc_15.1">怎么找到某个产品使用的物料批次？ </a>
+</ul>
+<li><a href="#toc_16">上下板机 </a>
+<li><a href="#toc_17">采集服务 </a>
+<ul>
+<li><a href="#toc_17.1">定时器没有定时执行了 </a>
+</ul>
 </ul>
 </div>
+
+
+
+<p>
+<a href="CIMOM_TABLE.html">CIMOM_TABLE</a><br>
+</p>
 
 <p>
 CIMOM
@@ -81,11 +100,19 @@ racipe and tracebility
 
 
 <h1 id="toc_4">排产 </h1>
+<h2 id="toc_4.1">工作中心 </h2>
 <p>
-工作中心
+工作中心可以是车间，可以是一条线。排机的时候可以排到
 生产排机
 物料接收
 </p>
+
+
+<p>
+主计划
+线计划
+</p>
+
 
 
 <h1 id="toc_5">AGV </h1>
@@ -203,11 +230,12 @@ racipe and tracebility
 
 
 <h1 id="toc_13">Recipe and trace ability </h1>
+<h2 id="toc_13.1">Recipe下发 </h2>
 <p>
 after scan the LOT, select the parameters automatically
 </p>
 
-<h2 id="toc_13.1">Drill Machine </h2>
+<h3 id="toc_13.1.1">Drill Machine </h3>
 <ol>
 <li>
 PDA scan the machine, LOT, staff information. import the drill tool into the machine's directory automatically
@@ -224,16 +252,16 @@ Staff operate and confirm the information accroding to the PDA instructions.
 </ol>
 
 
-<h3 id="toc_13.1.1">压机Recipe </h3>
+<h3 id="toc_13.1.2">压机Recipe </h3>
 <p>
 先绑定LOT卡和载盘标签。(知道载盘里面的对应的什么料号)
-载盘在进去的之前扫标签。查找该料号用的是什么Recipe。然后调用存储过程[SP_SFC_LAM_LOT_BARCODE]，往压机供应商提供的数据库表里面写数据。
+载盘在进去的之前自动扫标签。查找该料号用的是什么Recipe。然后调用存储过程[SP_SFC_LAM_LOT_BARCODE]，往压机供应商提供的数据库表里面写数据。
 压机根据数据库表LAUFFER_RECIPE.dbo.Load_Data  自动更改程式。
 </p>
 
 
 
-<h2 id="toc_13.2">Lay-Up Error proofing </h2>
+<h3 id="toc_13.1.3">Lay-Up Error proofing </h3>
 <ul>
 <li>
 create a task code
@@ -249,7 +277,6 @@ binding second or outer item num. bkh85445a0.IN27
 
 </ul>
 
-<h1 id="toc_14">Recipe下发 </h1>
 <p>
 1，添加记录。
 2，下发前添加判断当前料号和扫描料号是否为同一个料号。如果是同一个料号，时间超过一天，重新下发配方。如果是不同料号，重新下发配方(防止配方下发后HDM下更改。)
@@ -257,7 +284,8 @@ binding second or outer item num. bkh85445a0.IN27
 </p>
 
 
-<h2 id="toc_14.1">内层DES复制棕化Recipe </h2>
+
+<h3 id="toc_13.1.4">内层DES复制棕化Recipe </h3>
 <p>
 1，复制项目文件夹。
 2，添加现有项目。
@@ -267,25 +295,53 @@ binding second or outer item num. bkh85445a0.IN27
 </p>
 
 
+<h2 id="toc_13.2">trace ability </h2>
+<p>
+条码规则
+</p>
+
+<p>
+机台号，相当于分配了一个IP段。
+每年自动从0开始
+</p>
+
+<p>
+物料，叠构，工艺参数都可以追溯。
+</p>
+
+
+<h3 id="toc_13.2.1">解决方案 </h3>
+<h4 id="toc_13.2.1.1">内层二维码 </h4>
+<ol>
+<li>
+在开料水洗添加吴德和设备，打通孔或者是盲孔二维码。
+
+<li>
+在内层LDI，通过设备生成二维码
+
+</ol>
+
+<h4 id="toc_13.2.1.2">次外层或外层二维码 </h4>
+<ol>
+<li>
+在XRAY的时候通过读取内层二维码，用针式在板边钻个二维码，转到次外层或外层二维码。
+
+</ol>
+<p>
+次外层和外层二维码和最上面的内层二维码相同。
+</p>
+
+
 <p>
 <a href="LDI machine.html">LDI machine</a><br>
+<a href="奥宝LDI机.html">奥宝LDI机</a><br>
 </p>
 
-
-<p>
-生产产出查询
-LOT卡
-产值核算
-BOM数据
-派工排产
-一岗一表(点检表，五确认)
-</p>
-
-<h1 id="toc_15">打电话系统 pjsip4net </h1>
+<h1 id="toc_14">打电话系统 pjsip4net </h1>
 
 
-<h1 id="toc_16">三化一稳 </h1>
-<h2 id="toc_16.1">怎么找到某个产品使用的物料批次？ </h2>
+<h1 id="toc_15">三化一稳 </h1>
+<h2 id="toc_15.1">怎么找到某个产品使用的物料批次？ </h2>
 <p>
 	MES增加追溯功能。可以根据
 </p>
@@ -303,7 +359,7 @@ BOM数据
 </ol>
 	
 
-<h1 id="toc_17">上下板机 </h1>
+<h1 id="toc_16">上下板机 </h1>
 <p>
 如果扫描的扫到lot卡和目前使用的Recipe不是同一个绑定的Recipe，停掉上下板机。
 </p>
@@ -332,8 +388,37 @@ BOM数据
 
 <li>
 AGV
+		*
 
 </ul>
+		
+<h1 id="toc_17">采集服务 </h1>
+<p>
+一开始就添加死循环，会造成服务无法启动。
+</p>
+
+<p>
+经常有-1的情况，可能是线程太多，PLC访问的资源被占用
+</p>
+
+<p>
+onTimer定时器0.5s增加一个线程，0.5s执行不完一个线程。导致增加的比执行的快，线程越来越多，占用的内存越来越大。
+</p>
+
+<p>
+采集的有时候十分钟才采集一次，中间有一次报错没有重新获取。
+</p>
+
+<p>
+如果要使同一条线是多线程，则需要考虑线程同步。否则会出现抢用资源问题。所以要添加锁。
+</p>
+
+<p>
+一开始用的定时器，定时器会莫名其妙地不工作。后面改为线程去执行，线程里面添加循环，等待。
+</p>
+
+
+<h2 id="toc_17.1">定时器没有定时执行了 </h2>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
 

@@ -78,8 +78,6 @@ CINSTANCE_ID ?
 </p>
 
 
-
-
 <p>
 /****** Script for SelectTopNRows command from SSMS  ******/
 SELECT a.CDATETIME_CREATED, b.CADDRESS_NAME, b.CADDRESS_CODE, b.CDATA_TYPE, a.CDATA_VALUE
@@ -95,11 +93,6 @@ SELECT a.CDATETIME_CREATED, b.CADDRESS_NAME, b.CADDRESS_CODE, b.CDATA_TYPE, a.CD
   order by a.CDATETIME_CREATED desc
 </p>
 
-
-<p>
-获取 Recipe 参数
-<a href="http://172.19.99.1:6688/api/EAP/RecipeCollection//GetCJOBAllParms?number=test">http://172.19.99.1:6688/api/EAP/RecipeCollection//GetCJOBAllParms?number=test</a><br>
-</p>
 
 
 <p>
@@ -140,23 +133,6 @@ xmanage的配置
 s/\/&gt;/Binding="{Binding CP_CODE}" Width="60"\/&gt;/g
 </p>
 
-<p>
-<a href="http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeltaPCBaseFormat?deviceNames=设备0">http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeltaPCBaseFormat?deviceNames=设备0</a><br>
-</p>
-
-<p>
-<a href="http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeviceNames?deviceNames=%E8%AE%BE%E5%A4%870">http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeviceNames?deviceNames=%E8%AE%BE%E5%A4%870</a><br>
-<a href="http://192.168.0.1:9000//api/DataExchange/GetDeviceName">http://192.168.0.1:9000//api/DataExchange/GetDeviceName</a><br>
-<a href="http://192.168.0.1:9000//api/DataExchange/GetDevicesName">http://192.168.0.1:9000//api/DataExchange/GetDevicesName</a><br>
-</p>
-
-<p>
-<a href="http://192.168.0.1:9000//api/DataExchange/GetAddressValuesByDeviceName?deviceNames=设备0,设备1">http://192.168.0.1:9000//api/DataExchange/GetAddressValuesByDeviceName?deviceNames=设备0,设备1</a><br>
-</p>
-
-<p>
-<a href="http://192.168.0.1:9000//api/DataExchange/GetAllDeviceStatusSet">http://192.168.0.1:9000//api/DataExchange/GetAllDeviceStatusSet</a><br>
-</p>
 
 <h1 id="toc_5">工作清单 </h1>
 <h2 id="toc_5.1">待处理 </h2>
@@ -185,6 +161,12 @@ PLC添加更新地址，自动更新读取
 <li>
 
 
+<li>
+添加设备编码和上下板机绑定。绑定后可以通过设备编码找到上下板机，从而停止上下板机。
+
+<li>
+PLC连接数据库改为配置文档
+
 </ol>
 
 <h3 id="toc_5.1.1">棕化线下发问题 </h3>
@@ -197,6 +179,9 @@ PLC添加更新地址，自动更新读取
 
 <li>
 G02配方的地址不对。
+
+<li>
+当前料号没有写进去
 
 </ol>
  
@@ -215,11 +200,15 @@ G02配方的地址不对。
 
 <h2 id="toc_5.2">处理中 </h2>
 
-
 <h2 id="toc_5.3">已处理 </h2>
 <p>
 连接热熔机
 </p>
+<ol>
+<li>
+添加Recipe检查，自动停上下板机
+
+</ol>
 
 
 	
@@ -676,20 +665,20 @@ Update   Middleware.Plugins.EAP.RecipeTemplate
 
 
 
-
 <p>
 {
 </p>
 <blockquote>
 "CEQUIPMENT_CODE": "GME-PRE-001",
 "CEQUIPMENT_NAME": "测试棕化",
-"CEQUIPMENT_TYPE": "MelsecQ",
+"CPLC_MODEL": "MelsecQ",
 "CIP":"172.19.23.2",
-"CPORT":1300
+"CPORT":6000
 </blockquote>
 <p>
 }	
 </p>
+
 
 
 
