@@ -12,29 +12,32 @@
 <h1>目录：</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1">question </a>
+<li><a href="#toc_1">工作清单 </a>
+<ul>
+<li><a href="#toc_1.1">待处理 </a>
+<ul>
+<li><a href="#toc_1.1.1">棕化线下发问题 </a>
+<li><a href="#toc_1.1.2">上下板机 </a>
+</ul>
+<li><a href="#toc_1.2">处理中 </a>
+<li><a href="#toc_1.3">已处理 </a>
+</ul>
 <li><a href="#toc_2">常用 </a>
 <ul>
-<li><a href="#toc_2.1">江西99.2Radmin </a>
-</ul>
-<li><a href="#toc_3">custom url </a>
-<li><a href="#toc_4">临时 </a>
-<li><a href="#toc_5">工作清单 </a>
+<li><a href="#toc_2.1">账号密码 </a>
 <ul>
-<li><a href="#toc_5.1">待处理 </a>
+<li><a href="#toc_2.1.1">江西99.2Radmin </a>
+</ul>
+</ul>
+<li><a href="#toc_3">规范 </a>
+<li><a href="#toc_4">查看是否有采集 </a>
+<li><a href="#toc_5">临时 </a>
+<li><a href="#toc_6">custom url </a>
+<li><a href="#toc_7">常用密码 </a>
 <ul>
-<li><a href="#toc_5.1.1">棕化线下发问题 </a>
-<li><a href="#toc_5.1.2">上下板机 </a>
+<li><a href="#toc_7.1">h-soft </a>
 </ul>
-<li><a href="#toc_5.2">处理中 </a>
-<li><a href="#toc_5.3">已处理 </a>
-</ul>
-<li><a href="#toc_6">常用密码 </a>
-<ul>
-<li><a href="#toc_6.1">h-soft </a>
-</ul>
-<li><a href="#toc_7">文件夹位置 </a>
-<li><a href="#toc_8">规范 </a>
+<li><a href="#toc_8">文件夹位置 </a>
 <li><a href="#toc_9">连接字符串 </a>
 <ul>
 <li><a href="#toc_9.1">HX </a>
@@ -58,84 +61,8 @@
 </ul>
 </div>
 
-<p>
-物料编码从ERP来
-板材
-PP
-</p>
-
-<h1 id="toc_1">question </h1>
-
-<p>
-CINSTANCE_ID ?
-</p>
-
-<h1 id="toc_2">常用 </h1>
-<h2 id="toc_2.1">江西99.2Radmin </h2>
-<p>
-账号 mes
-密码 C&amp;kE54JD
-</p>
-
-
-<p>
-/****** Script for SelectTopNRows command from SSMS  ******/
-SELECT a.CDATETIME_CREATED, b.CADDRESS_NAME, b.CADDRESS_CODE, b.CDATA_TYPE, a.CDATA_VALUE
-  FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
-</p>
-  
-<p>
-  left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.CID
-</p>
-  
-<p>
-  --where b.CADDRESS_CODE in ('D2035','D2835', 'D2052', 'D300')
-  order by a.CDATETIME_CREATED desc
-</p>
-
-
-
-<p>
-Do you think it 's cold in the room.
-Is it a little cold in the room.
-<a href="组态接口.html">组态接口</a><br>
-</p>
-
-<p>
-<a href="棕化点表.html">棕化点表</a><br>
-</p>
-
-<h1 id="toc_3">custom url </h1>
-<p>
-<a href="https://www.merriam-webster.com/dictionary/belt">https://www.merriam-webster.com/dictionary/belt</a><br>
-</p>
-
-<p>
-<a href="https://github.com/vimwiki/vimwiki/releases">https://github.com/vimwiki/vimwiki/releases</a><br>
-</p>
-
-<p>
-xmanage的配置
-更改按钮图片
-<a href="https://msdn.microsoft.com/en-us/magazine/gg598924.aspx">https://msdn.microsoft.com/en-us/magazine/gg598924.aspx</a><br>
-</p>
-
-<h1 id="toc_4">临时 </h1>
-<p>
-<a href="workTmp.html">workTmp</a><br>
-</p>
-
-<p>
-更改按钮图片
-</p>
-
-<p>
-s/\/&gt;/Binding="{Binding CP_CODE}" Width="60"\/&gt;/g
-</p>
-
-
-<h1 id="toc_5">工作清单 </h1>
-<h2 id="toc_5.1">待处理 </h2>
+<h1 id="toc_1">工作清单 </h1>
+<h2 id="toc_1.1">待处理 </h2>
 <ol>
 <li>
 添加如果已经下发了Recipe，该Recipe无法删除，更改，等操作。
@@ -169,7 +96,7 @@ PLC连接数据库改为配置文档
 
 </ol>
 
-<h3 id="toc_5.1.1">棕化线下发问题 </h3>
+<h3 id="toc_1.1.1">棕化线下发问题 </h3>
 <ol>
 <li>
 温度的数据类型不是int，而不是short
@@ -192,15 +119,14 @@ G02配方的地址不对。
 </ul>
 
 
-
-<h3 id="toc_5.1.2">上下板机 </h3>
+<h3 id="toc_1.1.2">上下板机 </h3>
 <p>
 更改设备编码
 </p>
 
-<h2 id="toc_5.2">处理中 </h2>
+<h2 id="toc_1.2">处理中 </h2>
 
-<h2 id="toc_5.3">已处理 </h2>
+<h2 id="toc_1.3">已处理 </h2>
 <p>
 连接热熔机
 </p>
@@ -209,6 +135,52 @@ G02配方的地址不对。
 添加Recipe检查，自动停上下板机
 
 </ol>
+
+<h1 id="toc_2">常用 </h1>
+<h2 id="toc_2.1">账号密码 </h2>
+<h3 id="toc_2.1.1">江西99.2Radmin </h3>
+<p>
+账号 mes
+密码 C&amp;kE54JD
+</p>
+
+<h1 id="toc_3">规范 </h1>
+<p>
+<a href="WZ.html">WZ</a><br>
+<a href="OTHER.html">OTHER</a><br>
+<a href="提供规范.html">提供规范</a><br>
+<a href="程序规范.html">程序规范</a><br>
+</p>
+
+
+
+<h1 id="toc_4">查看是否有采集 </h1>
+<p>
+SELECT a.CDATETIME_CREATED, b.CADDRESS_NAME, b.CADDRESS_CODE, b.CDATA_TYPE, a.CDATA_VALUE
+  FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
+  left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.CID
+  --where b.CADDRESS_CODE in ('D2035','D2835', 'D2052', 'D300')
+  order by a.CDATETIME_CREATED desc
+</p>
+
+<p>
+<a href="组态接口.html">组态接口</a><br>
+</p>
+
+<h1 id="toc_5">临时 </h1>
+<p>
+<a href="workTmp.html">workTmp</a><br>
+</p>
+
+<p>
+更改按钮图片
+</p>
+
+<p>
+s/\/&gt;/Binding="{Binding CP_CODE}" Width="60"\/&gt;/g
+</p>
+
+
 
 
 	
@@ -226,15 +198,30 @@ cxt改单位
 
 
 
-<h1 id="toc_6">常用密码 </h1>
-<h2 id="toc_6.1">h-soft </h2>
+<h1 id="toc_6">custom url </h1>
+<p>
+<a href="https://www.merriam-webster.com/dictionary/belt">https://www.merriam-webster.com/dictionary/belt</a><br>
+</p>
+
+<p>
+<a href="https://github.com/vimwiki/vimwiki/releases">https://github.com/vimwiki/vimwiki/releases</a><br>
+</p>
+
+<p>
+xmanage的配置
+更改按钮图片
+<a href="https://msdn.microsoft.com/en-us/magazine/gg598924.aspx">https://msdn.microsoft.com/en-us/magazine/gg598924.aspx</a><br>
+</p>
+
+<h1 id="toc_7">常用密码 </h1>
+<h2 id="toc_7.1">h-soft </h2>
 <p>
 mu159357
 </p>
 
 
 
-<h1 id="toc_7">文件夹位置 </h1>
+<h1 id="toc_8">文件夹位置 </h1>
 <p>
 D:\install\totalcmd
 D:\code\vnc\vnc\bin\Debug\vnc.exe
@@ -254,13 +241,6 @@ qq接收文件的位置
 	C:\Users\Administrator\Documents\Tencent Files\525921240\FileRecv
 </p>
 
-<h1 id="toc_8">规范 </h1>
-<p>
-<a href="WZ.html">WZ</a><br>
-<a href="OTHER.html">OTHER</a><br>
-<a href="提供规范.html">提供规范</a><br>
-<a href="程序规范.html">程序规范</a><br>
-</p>
 
 
 <h1 id="toc_9">连接字符串 </h1>
@@ -322,83 +302,9 @@ h:/Ghost
 
 
 <p>
-服务器IP
-3.113
-100.1
-100.100
-gen-linux 100.2
-2.240
-</p>
-
-<p>
 <a href="http://tool.oschina.net/hexconvert/">http://tool.oschina.net/hexconvert/</a><br>
 </p>
 
-
-
-<p>
-40页
-</p>
-
-
-<p>
-设备名称集合
-当前所有设备的状态集合
-获取指定设备的属性集合及其值
-指定设备的状态
-所有设备的状态
-//6
-所有设备地址值
-指定设备的数据项名称集合
-设备数点数的使用情况
-获取单个地址值
-根据设备名称获取数据值
-//11
-获取指定设备每个地址的详细信息
-获取多个变量值
-获取计算机信息
-获取某个数据项
-获取所有设备扫描设备所花时间
-//16
-获取通讯设备参数
-获取设备扫描一次所花时间
-获取设备最后连接时间
-获取最后断开时间
-获取设备信息
-//21
-获取指定设备每个地址项的详细信息
-获取版本
-</p>
-
-
-<p>
-GetDevicesName
-GetAllDeviceStatusSet
-GetPropertiesSetByDeviceName | deviceName
-GetDeviceStatusByDeviceName | deviceName
-GetAllDevicesInfomation
-//6
-GetAllDeviceValueByDeviceNames
-GetDeviceAddressName
-GetEquipmentPoints
-GetSingleDeviceAddressValueInfor
-GetAddressValuesByDeviceName
-//11
-GetAddressInformationByDeviceName
-GetMultiValues
-GetHardwareConfigurationInfoValues
-GetIODataItemInfor
-GetScanDevicesSpendTimeList
-//16
-GetDeviceConnectParas
-GetScanSingleDeviceSpendTime
-GetSingleDeviceConnectLastTime
-GetDeviceDisconnectLastTimeInfor
-GetDeviceInfor
-//21
-GetIODataItemsInforByDeviceName
-GetCurrentVersion
-</p>
 
 
 <p>
@@ -409,14 +315,6 @@ GetCurrentVersion
 {"Reason":"OK","Result":[{"DeviceName":"设备1","listAddressValue":[{"AddressName":"地址","AddressValue":null}]}],"ResultCode":"1"}
 </p>
 
-
-
-
-
-<p>
-18688640535
-13129860256
-</p>
 
 <p>
 生成时间什么时候都可以运行，但是写入到里面的时间固定。比较写入的时间和现在的时间。
@@ -444,281 +342,11 @@ GetCurrentVersion
 </p>
 
 <p>
-W81ARPToBF/wNxLcvTcP7XldaR/vNMh9hXt3ynHXKof+WpwT2mI1v8L5CWFHNziRyH6CxQIqrdbazfRR5W8R+AjsUX9PxpHB+U+HIZa9amvzxc7FG+F8/nm3ZY+CCI/2bLk+YFXcJV98ynA7Re1EK8RFI3XLFLYaIaF8RzRuKOQAa/op833bAaCGAQBmb2M0aDbYZV94zQKxNREPr64bZUINK4Z3OeKlZ2oQ/w==
-</p>
-
-
-<p>
 生产管理-&gt;暂存区管理
-</p>
-
-
-
-<p>
-&lt;Window.Resources&gt;
-</p>
-
-<p>
-&lt;SolidColorBrush x:Key="buttonBackground"&gt;Yellow&lt;/SolidColorBrush&gt;
-</p>
-
-<p>
-&lt;SolidColorBrush x:Key="borderBrush"&gt;Red&lt;/SolidColorBrush&gt;
-</p>
-
-<p>
-&lt;LinearGradientBrush x:Key="backgroundBrush" StartPoint="0,0" EndPoint="1,1"&gt;
-</p>
-
-<p>
-&lt;GradientStop Color="Blue" Offset="0"&gt;&lt;/GradientStop&gt;
-</p>
-
-<p>
-&lt;GradientStop Color="White" Offset="0.5"&gt;&lt;/GradientStop&gt;
-</p>
-
-<p>
-&lt;GradientStop Color="Red" Offset="1"&gt;&lt;/GradientStop&gt;
-</p>
-
-<p>
-&lt;/LinearGradientBrush&gt;
-</p>
-
-
-
-<p>
-&lt;/Window.Resources&gt;
 </p>
 
 <p>
 <a href="https://www.codeproject.com/Articles/1052346/ICommand-Interface-in-WPF">https://www.codeproject.com/Articles/1052346/ICommand-Interface-in-WPF</a><br>
-</p>
-
-<p>
-接收
-开工
-完工
-</p>
-
-
-<p>
-The purpose of INotefyPropertyChanged is to notify if any changes happen to a property to all of its references
-</p>
-
-<p>
-parameters and parameters value
-</p>
-
-<p>
-first model
-</p>
-
-<p>
-recipe does't bind the address
-</p>
-
-
-<p>
-the product number and the machine bind the recipe
-</p>
-
-<p>
-recipe give the plc zutai. they set the plc value by the recipe
-</p>
-
-<p>
-machine has the id
-every id has it's recipe
-</p>
-
-
-
-
-
-
-
-
-
-<p>
-B = #ADOModule.OpenRecordSet("select * from SQL")
-#ADOModule.AddNew();#ADOModule.GetData("bind");#ADOModule.Update()
-</p>
-
-
-<p>
-标注的  1，两线段；2，槽形，3，圆弧
-板边的  跑到外面去了
-输出的。添加格式
-输出pdf的。另加一个小程序打印。
-</p>
-
-
-<p>
-top_sm_color
-week_layer
-bot_sm_color
-du_cu_mode
-cb_bmcl
-</p>
-
-
-<p>
-BtnAddMachineClick
-</p>
-
-<p>
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-1168 724
-1946 1726
-</p>
-
-
-
-
-
-<p>
-生产管理-&gt;包装管理-&gt;入库提交
-</p>
-
-<p>
-   ImageSource="/CI.Controls;component/Images/ToolBar/Copy_32x32.png" VerticalAlignment="Center" HorizontalAlignment="Left" /&gt;
-</p>
-<blockquote>
-&lt;controls:IconButton  BorderThickness="0" 
-Margin="0,0,10,0"  PermissionID="DeletePart"
-Content="{DynamicResource CN_GL_DEL}"  CommandTag="A" 
-Command="{Binding ActionCommand}"  CommandParameter="{Binding RelativeSource={x:Static RelativeSource.Self}}"
-ImageSource ="/CI.Controls;component/Images/ToolBar/Clear_32x32.png" VerticalAlignment="Center" HorizontalAlignment="Left" /&gt;
-&lt;/StackPanel&gt;
-&lt;StackPanel Orientation="Horizontal" HorizontalAlignment="Left"  Name="TopRightStackPanel" 
-</blockquote>
-<p>
-			Grid.Row="0" Grid.Column="1"
-=======
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8c7220a360c7198c0ad8c0c2159a99d2bb924dcb
-=======
-BtnAddMachineClick
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; e0e6160bf9ed59f00a9c784f967ef75d6f675f06
-</p>
-
-
-
-
-
-
-
-
-
-
-<p>
-CPARAMETER_NAME, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
-</p>
-<blockquote>
-&lt;Label Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Right" VerticalAlignment="Center" Content="机器参数名称"/&gt;
-&lt;TextBox Grid.Row="3"    Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_MACHINE_NAME, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
-&lt;Label Grid.Row="4" Grid.Column="0"  HorizontalAlignment="Right" VerticalAlignment="Center" Content="地 址"/&gt;
-&lt;TextBox Grid.Row="4"    Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_Address, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
-&lt;Label Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="参数单位"/&gt;
-&lt;TextBox Grid.Row="5"   Grid.Column="1"  Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_UNIT, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
-&lt;Label Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="数据类型"/&gt;
-&lt;TextBox Grid.Row="6"   Grid.Column="1"  Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_DATATYPE, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
-&lt;Label Grid.Row="7" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="倍 数"/&gt;
-&lt;TextBox Grid.Row="7"   Grid.Column="1"  Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CPARAMETER_MULTIPLE, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
-</blockquote>
-<blockquote>
-&lt;Label Grid.Row="8" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="下限"/&gt;
-&lt;TextBox Grid.Row="8"  Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CMIN_VALUE, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
-&lt;Label Grid.Row="9" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="中值"/&gt;
-&lt;TextBox Grid.Row="9"  Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CVALUE, NotifyOnValidationError = True, UpdateSourceTrigger = PropertyChanged, ValidatesOnDataErrors = True}"/&gt;
-&lt;Label Grid.Row="10" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Content="上限"/&gt;
-&lt;TextBox Grid.Row="10"  Grid.Column="1" Margin="10 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="280" Text="{ Binding CMAX_VALUE, 
-</blockquote>
-                    
-
-
-
-
-<p>
-GetCJOBAllParms 
-=======
-</p>
-
-<p>
-Update   Middleware.Plugins.EAP.RecipeTemplate
-</p>
-
-<p>
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; 65008b73d79d917d8cf9f35bcacf868da9863977
-</p>
-
-
-
-<p>
-621 4391 8800 3018 2771
-</p>
-
-
-
-
-
-<p>
-{
-</p>
-<blockquote>
-"CEQUIPMENT_CODE": "GME-PRE-001",
-"CEQUIPMENT_NAME": "测试棕化",
-"CPLC_MODEL": "MelsecQ",
-"CIP":"172.19.23.2",
-"CPORT":6000
-</blockquote>
-<p>
-}	
-</p>
-
-
-
-
-<p>
-{
-</p>
-<blockquote>
-"CEQUIPMENT_CODE": "TEST",
-"CEQUIPMENT_NAME": "测试棕化",
-"CEQUIPMENT_TYPE": "MelsecFx3U",
-"CIP":"10.30.2.241",
-"CPORT":1301
-</blockquote>
-<p>
-}
-</p>
-
-
-<p>
-1534
-1530
-1212
-514
-2024
-1538
-1542
-522
-450
-570
-530
-590
-538
-352
-360
-380
-3800
-2200
-2520
-2170
-368
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
