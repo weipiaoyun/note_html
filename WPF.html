@@ -12,22 +12,28 @@
 <h1>目录：</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1">ICommand </a>
+<li><a href="#toc_1">插件 </a>
+<li><a href="#toc_2">ICommand </a>
 <ul>
-<li><a href="#toc_1.1">INotifyPropertyChanged </a>
+<li><a href="#toc_2.1">INotifyPropertyChanged </a>
 </ul>
-<li><a href="#toc_2">TreeView </a>
-<li><a href="#toc_3">TabControl </a>
-<li><a href="#toc_4">Grid </a>
-<li><a href="#toc_5">Resources </a>
-<li><a href="#toc_6">触发器 </a>
+<li><a href="#toc_3">TreeView </a>
+<li><a href="#toc_4">TabControl </a>
+<li><a href="#toc_5">Grid </a>
+<li><a href="#toc_6">Resources </a>
+<li><a href="#toc_7">触发器 </a>
 <ul>
-<li><a href="#toc_6.1">background </a>
+<li><a href="#toc_7.1">background </a>
 </ul>
 </ul>
 </div>
 
-<h1 id="toc_1">ICommand </h1>
+<h1 id="toc_1">插件 </h1>
+<p>
+PropertyChanged.Fody.3.0.1 省去绑定属性
+</p>
+
+<h1 id="toc_2">ICommand </h1>
 <p>
 ICommand is an Interface which has three members as shown in below table:
 </p>
@@ -74,7 +80,7 @@ It takes an object as an argument and we generally pass a delegate into this met
 	
 
 
-<h2 id="toc_1.1">INotifyPropertyChanged </h2>
+<h2 id="toc_2.1">INotifyPropertyChanged </h2>
 <p>
 The purpose of INotefyPropertyChanged is to <code>notify</code> if any changes happen to a property to all of its references
 </p>
@@ -100,7 +106,7 @@ this.DataContext = testMessage;
 </p>
 
 
-<h1 id="toc_2">TreeView </h1>
+<h1 id="toc_3">TreeView </h1>
 <p>
 namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
 </p>
@@ -111,7 +117,7 @@ namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
 
 
 
-<h1 id="toc_3">TabControl </h1>
+<h1 id="toc_4">TabControl </h1>
 <p>
 &lt;TabControl Name="TabControl" Grid.Row="2" Grid.Column="0"&gt;
 		&lt;TabItem Header="大料拼板"&gt;
@@ -128,13 +134,13 @@ namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
 
 
 
-<h1 id="toc_4">Grid </h1>
+<h1 id="toc_5">Grid </h1>
 <p>
 &lt;ColumnDefinition Width="Auto"&gt;&lt;/ColumnDefinition&gt;
 </p>
 
 
-<h1 id="toc_5">Resources </h1>
+<h1 id="toc_6">Resources </h1>
 <p>
   &lt;Plugin:WindowPlugin.Resources&gt;
 </p>
@@ -151,7 +157,7 @@ namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
     
 
 
-<h1 id="toc_6">触发器 </h1>
+<h1 id="toc_7">触发器 </h1>
 <p>
 &lt;i:Interaction.Triggers&gt;
 	&lt;i:EventTrigger EventName="MouseDown"&gt;
@@ -181,7 +187,7 @@ namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
 	
 
 
-<h2 id="toc_6.1">background </h2>
+<h2 id="toc_7.1">background </h2>
 <p>
  &lt;Border Grid.Row="0" Grid.ColumnSpan="3" Background="{StaticResource MenuModuleBackground}" BorderBrush="#cdcdcd" BorderThickness="0,0,0,1"   &gt;
 </p>

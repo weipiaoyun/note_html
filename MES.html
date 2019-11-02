@@ -42,9 +42,17 @@
 <li><a href="#toc_14.1">Recipe下发 </a>
 <ul>
 <li><a href="#toc_14.1.1">Drill Machine </a>
-<li><a href="#toc_14.1.2">压机Recipe </a>
-<li><a href="#toc_14.1.3">Lay-Up Error proofing </a>
-<li><a href="#toc_14.1.4">内层DES复制棕化Recipe </a>
+<li><a href="#toc_14.1.2">奥宝LDI </a>
+<ul>
+<li><a href="#toc_14.1.2.1">路径 </a>
+<li><a href="#toc_14.1.2.2">需要的参数 </a>
+<li><a href="#toc_14.1.2.3">下发Recipe </a>
+<li><a href="#toc_14.1.2.4">参数采集 </a>
+<li><a href="#toc_14.1.2.5">问题点 </a>
+</ul>
+<li><a href="#toc_14.1.3">压机Recipe </a>
+<li><a href="#toc_14.1.4">Lay-Up Error proofing </a>
+<li><a href="#toc_14.1.5">内层DES复制棕化Recipe </a>
 </ul>
 <li><a href="#toc_14.2">trace ability </a>
 <ul>
@@ -62,10 +70,14 @@
 </ul>
 <li><a href="#toc_17">上下板机 </a>
 <li><a href="#toc_18">WMS System </a>
+<ul>
+<li><a href="#toc_18.1">WCS系统 </a>
+</ul>
 <li><a href="#toc_19">AGV </a>
 <li><a href="#toc_20">采集服务 </a>
+<li><a href="#toc_21">看板 </a>
 <ul>
-<li><a href="#toc_20.1">定时器没有定时执行了 </a>
+<li><a href="#toc_21.1">定时器没有定时执行了 </a>
 </ul>
 </ul>
 </div>
@@ -282,7 +294,63 @@ Staff operate and confirm the information accroding to the PDA instructions.
 </ol>
 
 
-<h3 id="toc_14.1.2">压机Recipe </h3>
+<h3 id="toc_14.1.2">奥宝LDI </h3>
+<p>
+干膜不通，曝光能量不同，
+</p>
+
+<ul>
+<li>
+涨缩
+
+</ul>
+<p>
+LDI机有固定涨缩和自动涨缩，固定涨缩是工艺测量后输入涨缩值。自动涨缩是LDI机自动测量涨缩值，然后进行涨缩。
+</p>
+
+<h4 id="toc_14.1.2.1">路径 </h4>
+<p>
+\\10.80.13.52\dp\dpconfig\setpuf
+\\10.80.13.52\dp\cam\dp100-jobs
+</p>
+
+<h4 id="toc_14.1.2.2">需要的参数 </h4>
+<p>
+工程输出的文件
+IMAGE-SETUP-FILE-NAME=设定的文件名
+INITIAL-SERIAL-NUMBER=
+IMAGE-SETUP-FILE-NAME=
+LINE-NUM= *这行添加了行后必须更改。
+</p>
+
+<h4 id="toc_14.1.2.3">下发Recipe </h4>
+<p>
+解决方案1，扫描工单后，下载资料和参数，DI机进行做资料处理。
+解决方案2，MES自动排产，自动放资料和参数，DI机进行资料处理。
+</p>
+
+<p>
+资料处理完后板进行曝光的时候，员工扫工单，LDI调取相对应的资料。做板。
+</p>
+
+<h4 id="toc_14.1.2.4">参数采集 </h4>
+<p>
+通过批次号和初始序列号绑定，通过初始序列号查出参数。
+希望奥宝能把我们的pnl条码读取，然后绑定序列号。(可通过条码，或pnl追溯)，或者通过扫工单后，工单和序列号绑定(可通过Lot卡追溯，不能追溯具体到板，但是Lot卡和pnl条码能否在开料打码的地方绑定？)。
+</p>
+
+<h4 id="toc_14.1.2.5">问题点 </h4>
+<ol>
+<li>
+流程能否优化，把扫描工单的做成自动根据计划排产调用。
+
+<li>
+资料回收，有ECN或发现资料错误，需要更改的时候，能通过接口自动删除资料。
+
+</ol>
+
+
+<h3 id="toc_14.1.3">压机Recipe </h3>
 <p>
 先绑定LOT卡和载盘标签。(知道载盘里面的对应的什么料号)
 载盘在进去的之前自动扫标签。查找该料号用的是什么Recipe。然后调用存储过程[SP_SFC_LAM_LOT_BARCODE]，往压机供应商提供的数据库表里面写数据。
@@ -291,7 +359,7 @@ Staff operate and confirm the information accroding to the PDA instructions.
 
 
 
-<h3 id="toc_14.1.3">Lay-Up Error proofing </h3>
+<h3 id="toc_14.1.4">Lay-Up Error proofing </h3>
 <ul>
 <li>
 create a task code
@@ -315,7 +383,7 @@ binding second or outer item num. bkh85445a0.IN27
 
 
 
-<h3 id="toc_14.1.4">内层DES复制棕化Recipe </h3>
+<h3 id="toc_14.1.5">内层DES复制棕化Recipe </h3>
 <p>
 1，复制项目文件夹。
 2，添加现有项目。
@@ -440,6 +508,16 @@ AGV
 <p>
 WMS&lt;=&gt;WCS&lt;=&gt;MES
 </p>
+
+<h2 id="toc_18.1">WCS系统 </h2>
+<p>
+用于调度传送带和堆垛机
+</p>
+
+<p>
+MES 通过WCS系统下发指令(存货，取货，运货)
+</p>
+
  
 <h1 id="toc_19">AGV </h1>
 <p>
@@ -472,8 +550,37 @@ onTimer定时器0.5s增加一个线程，0.5s执行不完一个线程。导致�
 一开始用的定时器，定时器会莫名其妙地不工作。后面改为线程去执行，线程里面添加循环，等待。
 </p>
 
+<p>
+ThreadPool.QueueUserWorkItem  有可能一直都不会执行，因为线程一直都是满了。
+</p>
 
-<h2 id="toc_20.1">定时器没有定时执行了 </h2>
+
+<p>
+配置如果放文档，则多台服务器管理麻烦，无法保证两台服务器的IP不冲突。
+</p>
+
+<p>
+redis+服务器文档+中间件
+只读redis。更新比较麻烦，每次需要到服务器更改配置文档
+</p>
+
+<p>
+redis+服务器文档+中间件+本地文档 本地文档只是调试使用。
+</p>
+
+
+<h1 id="toc_21">看板 </h1>
+<p>
+html + svg
+图扑科技
+</p>
+
+<h2 id="toc_21.1">定时器没有定时执行了 </h2>
+
+
+<p>
+<a href="camstar.html">camstar</a><br>
+</p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
 

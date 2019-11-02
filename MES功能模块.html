@@ -45,9 +45,28 @@
 <ul>
 <li><a href="#toc_6.1">生产信息中心 </a>
 </ul>
-<li><a href="#toc_7">包装入库 </a>
-<li><a href="#toc_8">信息中心 </a>
-<li><a href="#toc_9">生产类型 </a>
+<li><a href="#toc_7">设备管理 </a>
+<ul>
+<li><a href="#toc_7.1">代码注释 </a>
+<li><a href="#toc_7.2">参数采集 </a>
+<ul>
+<li><a href="#toc_7.2.1">AOI </a>
+<li><a href="#toc_7.2.2">裁磨线 </a>
+<li><a href="#toc_7.2.3">XRAY </a>
+<li><a href="#toc_7.2.4">Q? </a>
+</ul>
+<li><a href="#toc_7.3">配方下发 </a>
+<ul>
+<li><a href="#toc_7.3.1">电镀 </a>
+</ul>
+</ul>
+<li><a href="#toc_8">包装入库 </a>
+<li><a href="#toc_9">信息中心 </a>
+<li><a href="#toc_10">生产类型 </a>
+<li><a href="#toc_11">看板管理 </a>
+<ul>
+<li><a href="#toc_11.1">Redis </a>
+</ul>
 </ul>
 </div>
 
@@ -157,14 +176,87 @@ Inplan上传同步MI信息数据。
 </p>
 
 
-<h1 id="toc_7">包装入库 </h1>
+<h1 id="toc_7">设备管理 </h1>
+<h2 id="toc_7.1">代码注释 </h2>
+<p>
+IPLCConnect 暂时没什么用。
+IPLCOperate 在PLCConnect的里面使用。每个不同类型的PLC都继承该接口。PLCConnect在使用的时候可以对不同类型的PLC进行操作。
+</p>
+
+<h2 id="toc_7.2">参数采集 </h2>
+<ol>
+<li>
+OPC 协议
+
+<li>
+采集上来的数据进行数据发布，通知其它的系统。
+
+</ol>
+
+<h3 id="toc_7.2.1">AOI </h3>
+<p>
+AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件。AOI扫描会加上喷印码。
+</p>
+<ol>
+<li>
+可以在AOI里面加上扫描器，扫描到条码后和喷印码绑定。采集的时候可以根据喷印码找到条码。
+
+<li>
+也可以在VRS里面添加扫描器。
+
+<li>
+
+
+</ol>
+
+<h3 id="toc_7.2.2">裁磨线 </h3>
+
+<h3 id="toc_7.2.3">XRAY </h3>
+<ol>
+<li>
+怎么采集涨缩值
+
+<li>
+采集上来的是条码多少，涨缩值多少。
+
+</ol>
+
+
+<h3 id="toc_7.2.4">Q? </h3>
+<p>
+#OPC 协议的UA和DA (UA不需要设置DCOM)
+</p>
+
+<h2 id="toc_7.3">配方下发 </h2>
+
+<h3 id="toc_7.3.1">电镀 </h3>
+<ol>
+<li>
+电镀面积
+
+<li>
+电镀前多少，电镀后多少？
+
+<li>
+电镀时间
+
+<li>
+电镀密度
+
+<li>
+输入一部分的数据。其它的数据根据公式自动算出来，谁算？
+
+</ol>
+
+<h1 id="toc_8">包装入库 </h1>
 <p>
 每块板包装之前都要有二维码。
 大包装绑定小包装，小包装绑定里面的每块板。
 </p>
 
 
-<h1 id="toc_8">信息中心 </h1>
+
+<h1 id="toc_9">信息中心 </h1>
 <p>
 条码采集器
 	绑定设备编码。采集到条码后，把最新的EAP采集的数据ID绑定。
@@ -185,7 +277,7 @@ Inplan上传同步MI信息数据。
 EAP
 </p>
 
-<h1 id="toc_9">生产类型 </h1>
+<h1 id="toc_10">生产类型 </h1>
 
 
 <p>
@@ -196,6 +288,18 @@ BOM数据
 派工排产
 一岗一表(点检表，五确认)
 </p>
+
+<h1 id="toc_11">看板管理 </h1>
+<p>
+产量，质量，稼动率，人员情况，设备的保养时间
+WIP，趋势图，库存，
+</p>
+<h2 id="toc_11.1">Redis </h2>
+<ol>
+<li>
+降低带宽和减少浪费数据库服务器资源
+
+</ol>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
 
