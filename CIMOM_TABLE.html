@@ -21,6 +21,10 @@
 <li><a href="#toc_2.1">AOI </a>
 </ul>
 <li><a href="#toc_3">SFC 生产管理 </a>
+<li><a href="#toc_4">Sys 系统 </a>
+<ul>
+<li><a href="#toc_4.1">删除菜单 </a>
+</ul>
 </ul>
 </div>
 
@@ -48,6 +52,16 @@ TBL_EAP_AOI_DATA
 <h1 id="toc_3">SFC 生产管理 </h1>
 <p>
 [TBL_SFC_PROCESS_PARAMS] 工艺参数表，采集器扫描到二维码后绑定二维码和工艺参数。
+</p>
+
+
+<h1 id="toc_4">Sys 系统 </h1>
+<h2 id="toc_4.1">删除菜单 </h2>
+<p>
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) *
+  FROM [CIMOMJXZH].[dbo].[TBL_SYS_MODULE]  WHERE CMODULE_NAME LIKE '%模板%'
+DELETE FROM [CIMOMJXZH].[dbo].[TBL_SYS_MODULE]  WHERE CID = '994830BE587C400F99F9F3FB2833321F'
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>

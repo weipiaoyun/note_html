@@ -12,29 +12,44 @@
 <h1>目录：</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1">拼板序列号 </a>
-<li><a href="#toc_2">保护菲林 </a>
-<li><a href="#toc_3">硬板 </a>
-<ul>
-<li><a href="#toc_3.1">genesis料号 </a>
-<li><a href="#toc_3.2">问题 </a>
-</ul>
-<li><a href="#toc_4">软板 </a>
+<li><a href="#toc_1">IP地址 </a>
+<li><a href="#toc_2">拼板序列号 </a>
+<li><a href="#toc_3">保护菲林 </a>
+<li><a href="#toc_4">硬板 </a>
 <ul>
 <li><a href="#toc_4.1">genesis料号 </a>
-<li><a href="#toc_4.2">虚拟机</a>
-<li><a href="#toc_4.3">华硕客户(7271,7325,7009,7347,7346,7340)</a>
+<li><a href="#toc_4.2">问题 </a>
 </ul>
-<li><a href="#toc_5">通过socket更新周期 </a>
+<li><a href="#toc_5">软板 </a>
+<ul>
+<li><a href="#toc_5.1">genesis料号 </a>
+<li><a href="#toc_5.2">虚拟机</a>
+<li><a href="#toc_5.3">华硕客户(7271,7325,7009,7347,7346,7340)</a>
+</ul>
+<li><a href="#toc_6">通过socket更新周期 </a>
 </ul>
 </div>
-<h1 id="toc_1">拼板序列号 </h1>
+
+<h1 id="toc_1">IP地址 </h1>
+<p>
+172.18.3.231
+255.255.0.0
+172.18.0.1
+</p>
+
+<p>
+DNS服务器 202.96.128.86
+备用DNS 202.96.128.166
+</p>
+
+
+<h1 id="toc_2">拼板序列号 </h1>
 <p>
 所有的排序转化为按x排序。
 如果x相同，则y从小到大的x往右移动一点。从而实现所有按x排序。
 </p>
 
-<h1 id="toc_2">保护菲林 </h1>
+<h1 id="toc_3">保护菲林 </h1>
 <ol>
 <li>
 删除层。在in2b上面建bh_gtl,在gbl上面建bh_gbl。
@@ -53,14 +68,14 @@
 
 </ol>
 
-<h1 id="toc_3">硬板 </h1>
+<h1 id="toc_4">硬板 </h1>
 <p>
 <a href="genesis脚本位置.html">genesis脚本位置</a><br>
 <a href="genesis脚本整理.html">genesis脚本整理</a><br>
 <a href="后补参数.html">后补参数</a><br>
 </p>
 
-<h2 id="toc_3.1">genesis料号 </h2>
+<h2 id="toc_4.1">genesis料号 </h2>
 <ul>
 <li>
 vcut 62606
@@ -73,15 +88,15 @@ ab板：bm100633a2
 
 </ul>
 
-<h2 id="toc_3.2">问题 </h2>
+<h2 id="toc_4.2">问题 </h2>
 <p>
 su dgeq
 cd ~
 perl parserMail.pl
 </p>
 
-<h1 id="toc_4">软板 </h1>
-<h2 id="toc_4.1">genesis料号 </h2>
+<h1 id="toc_5">软板 </h1>
+<h2 id="toc_5.1">genesis料号 </h2>
 <p>
 set2里面有set1，set1里面有pcs
 21557
@@ -96,7 +111,7 @@ set2里面有set1，set1里面有pcs
 东莞linux的服务器的超级用户密码：-DGsystem-
 </p>
 
-<h2 id="toc_4.2">虚拟机</h2>
+<h2 id="toc_5.2">虚拟机</h2>
 <p>
 windows Server2003账号密码：Administrator，WZinformation
 数据库账号密码：ems， 112233
@@ -106,10 +121,10 @@ windows Server2003账号密码：Administrator，WZinformation
 gen100 -frontlime
 </p>
 
-<h2 id="toc_4.3">华硕客户(7271,7325,7009,7347,7346,7340)</h2>
+<h2 id="toc_5.3">华硕客户(7271,7325,7009,7347,7346,7340)</h2>
 
 
-<h1 id="toc_5">通过socket更新周期 </h1>
+<h1 id="toc_6">通过socket更新周期 </h1>
 <ul>
 <li>
  /genesis/sys/scripts/.hj/server/config.ini里面添加一行 updateWeek=updateWeek.pl

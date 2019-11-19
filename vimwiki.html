@@ -23,7 +23,8 @@
 <li><a href="#toc_7.1">查找 </a>
 <li><a href="#toc_7.2">修改快捷键 </a>
 <ul>
-<li><a href="#toc_7.2.1">连接本地图片 </a>
+<li><a href="#toc_7.2.1">加链接 </a>
+<li><a href="#toc_7.2.2">连接本地图片 </a>
 </ul>
 <li><a href="#toc_7.3">双击取消左边目录添加命令 </a>
 </ul>
@@ -73,6 +74,9 @@
 
 <li>
 <img src="file://D:\vim\vim\mysite\note/vimfiles.zip" /> vim里面双击可以解压。
+
+<li>
+<img src="file://D:\%Temp%\images/ipClassify.JPEG" /> 文件路径，加环境变量
 
 </ul>
   
@@ -183,12 +187,29 @@ gl#
 在 d:\Vim\vimfiles\autoload\vimwiki\base.vim	注销掉vimwiki#base#follow_link函数下面的 call vimwiki#base#normalize_link(0) 防止回车建link
 </p>
  
+ 
 <p>
 在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加
 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a><br>&lt;CR&gt;
 </p>
 
-<h3 id="toc_7.2.1">连接本地图片 </h3>
+<h3 id="toc_7.2.1">加链接 </h3>
+<p>
+在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加
+</p>
+<ol>
+<li>
+回车加链接 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a><br>&lt;CR&gt;
+
+<li>
+shift加回车加链接 nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;S-CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/{{local:images\/&lt;C-r&gt;p}}&lt;CR&gt;
+
+<li>
+ctrl加回车加链接  nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;C-CR&gt; 0v$"py&lt;C-v&gt;:s/&lt;C-r&gt;p/{{local:Doc\/&lt;C-r&gt;p}}&lt;CR&gt;
+
+</ol>
+
+<h3 id="toc_7.2.2">连接本地图片 </h3>
 <p>
 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;S-CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/{{local:images\/&lt;C-r&gt;p}}&lt;CR&gt;
 </p>

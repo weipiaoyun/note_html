@@ -12,27 +12,85 @@
 <h1>目录：</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1">概念 </a>
-<li><a href="#toc_2">异常处理 </a>
-<li><a href="#toc_3">编程语言 </a>
-<li><a href="#toc_4">组件 </a>
-<li><a href="#toc_5">开发软件 </a>
-<li><a href="#toc_6">数据库 </a>
-<li><a href="#toc_7">设计模式 </a>
-<li><a href="#toc_8">测试项目 </a>
+<li><a href="#toc_1">.NET Glossary </a>
 <ul>
-<li><a href="#toc_8.1">报错 </a>
+<li><a href="#toc_1.1">AOT </a>
+<li><a href="#toc_1.2">ASP.NET </a>
+<li><a href="#toc_1.3">ASP.NET Core </a>
+<li><a href="#toc_1.4">Assembly </a>
+<li><a href="#toc_1.5">CLR </a>
+<li><a href="#toc_1.6">CoreCLR </a>
+<li><a href="#toc_1.7">CoreFX </a>
+<li><a href="#toc_1.8">CoreRT </a>
 </ul>
-<li><a href="#toc_9">.NET Core vs .NET Framework - What's difference </a>
+<li><a href="#toc_2">概念 </a>
+<li><a href="#toc_3">异常处理 </a>
+<li><a href="#toc_4">编程语言 </a>
+<li><a href="#toc_5">组件 </a>
+<li><a href="#toc_6">开发软件 </a>
+<li><a href="#toc_7">数据库 </a>
+<li><a href="#toc_8">设计模式 </a>
+<li><a href="#toc_9">测试项目 </a>
+<ul>
+<li><a href="#toc_9.1">报错 </a>
+</ul>
+<li><a href="#toc_10">.NET Core vs .NET Framework - What's difference </a>
 </ul>
 </div>
-<h1 id="toc_1">概念 </h1>
+<h1 id="toc_1">.NET Glossary </h1>
+<h2 id="toc_1.1">AOT </h2>
+
+<h2 id="toc_1.2">ASP.NET </h2>
+<p>
+和.NET Framework 一起发行的原始的ASP.NET实现
+ASP.NET 包括了ASP.NET implementation 和 ASP.NET Core
+</p>
+
+<h2 id="toc_1.3">ASP.NET Core </h2>
+<p>
+跨平台，高性能，开源的ASP.NET。其生成与.NET Core
+</p>
+
+<h2 id="toc_1.4">Assembly </h2>
+<p>
+A .dll/.exe file
+</p>
+
+<h2 id="toc_1.5">CLR </h2>
+<p>
+Common Language Runtime
+真正的意义取决于上下文。通常指.NET Framework runtime.
+内存分配和管理
+不仅执行apps，而且用JIT编译器即时生成和编译代码。
+微软的CLR 只适用于windows。
+</p>
+
+<h2 id="toc_1.6">CoreCLR </h2>
+<p>
+.NET Core CLR
+CoreCLR is also a virtual machine with JIT and code execution capabilities.
+</p>
+
+<h2 id="toc_1.7">CoreFX </h2>
+<p>
+.NET Core Base Class Library(BCL )
+</p>
+
+<h2 id="toc_1.8">CoreRT </h2>
+<p>
+In constrast to the CLR/CoreCLR, CoreRT is not a virtual machine. It doesn't include the JIT.
+However, include the GC and the ability for runtime type identification.(RTTI)
+</p>
+
+
+
+<h1 id="toc_2">概念 </h1>
 <p>
 <a href="面向对象.html">面向对象</a><br>
 <a href="托管和非托管.html">托管和非托管</a><br>
 </p>
 
-<h1 id="toc_2">异常处理 </h1>
+<h1 id="toc_3">异常处理 </h1>
 <ol>
 <li>
 调用的dll版本是否为同一个版本。
@@ -42,35 +100,35 @@
 
 </ol>
  
-<h1 id="toc_3">编程语言 </h1>
+<h1 id="toc_4">编程语言 </h1>
 <p>
 <a href="csharp.html">csharp</a><br>
 <a href="vb.net.html">vb.net</a><br>
 <a href="ASP.NET.html">ASP.NET</a><br>
 </p>
 
-<h1 id="toc_4">组件 </h1>
+<h1 id="toc_5">组件 </h1>
 <p>
 <a href="dev.html">dev</a><br>
 </p>
 
-<h1 id="toc_5">开发软件 </h1>
+<h1 id="toc_6">开发软件 </h1>
 <p>
 <a href="VS.html">VS</a><br>
 </p>
 
-<h1 id="toc_6">数据库 </h1>
+<h1 id="toc_7">数据库 </h1>
 <p>
 <a href="数据库操作.html">数据库操作</a><br>
 </p>
 
-<h1 id="toc_7">设计模式 </h1>
+<h1 id="toc_8">设计模式 </h1>
 <p>
 <a href="设计模式.html">设计模式</a><br>
 </p>
 
 
-<h1 id="toc_8">测试项目 </h1>
+<h1 id="toc_9">测试项目 </h1>
 <p>
 安装  Microsoft.EntityFrameworkCore
 </p>
@@ -99,7 +157,7 @@
 将Create方法改为AddOrEdit方法
 </p>
 
-<h2 id="toc_8.1">报错 </h2>
+<h2 id="toc_9.1">报错 </h2>
 <ol>
 <li>
 未能使用“Csc”任务的输入参数初始化该任务。
@@ -128,7 +186,7 @@ table-hover
 </p>
 
 
-<h1 id="toc_9">.NET Core vs .NET Framework - What's difference </h1>
+<h1 id="toc_10">.NET Core vs .NET Framework - What's difference </h1>
 
 
 
