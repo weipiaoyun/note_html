@@ -76,11 +76,15 @@ for(i=0;i<img.length;i++){
 	//
 	var backgroundImageRegex=/file\:\/\/\/D\:\\vim\\vim\\mysite\\note\/images\/(.*)/;
 	var backgroundImageRegex=/.*images\/(.*)/;
+	var backgroundFileRegex=/.*Doc\/(.*)/;
+	var nD = img[i].src.search(/Doc\//i);
+	var nI = img[i].src.search(/images\//i);
 	////var backgroundImageRegex=/file/;
 	//var backgroundImageRegex=/http:\/\/weipiaoyun.gitee.io\/note_html\/images\/(.*)/;
 	var matchResult=img[i].src.match(backgroundImageRegex);
 	var imgPath = img[i].src;
-	if(matchResult.length >0 ){
+	console.log(imgPath);
+	if(nI > 0 && matchResult.length >0 ){
 		//alert(matchResult[1]);
 		imgPath = "https://weipiaoyun.github.io/note_html/images/" + matchResult[1];
 	}
