@@ -77,7 +77,6 @@ for(i=0;i<img.length;i++){
 	var backgroundImageRegex=/file\:\/\/\/D\:\\vim\\vim\\mysite\\note\/images\/(.*)/;
 	var backgroundImageRegex=/.*images\/(.*)/;
 	var backgroundFileRegex=/.*Doc\/(.*)/;
-	var nD = img[i].src.search(/Doc\//i);
 	var nI = img[i].src.search(/images\//i);
 	////var backgroundImageRegex=/file/;
 	//var backgroundImageRegex=/http:\/\/weipiaoyun.gitee.io\/note_html\/images\/(.*)/;
