@@ -80,11 +80,15 @@
 <li><a href="#toc_20.3.2.4">二维码信息规则 </a>
 </ul>
 </ul>
-<li><a href="#toc_20.4">压合到镭射 </a>
-<li><a href="#toc_20.5">机械钻孔 </a>
-<li><a href="#toc_20.6">镭射 </a>
-<li><a href="#toc_20.7">待入库 </a>
-<li><a href="#toc_20.8">成品仓 </a>
+<li><a href="#toc_20.4">AOI </a>
+<li><a href="#toc_20.5">压合到镭射 </a>
+<li><a href="#toc_20.6">机械钻孔 </a>
+<li><a href="#toc_20.7">镭射 </a>
+<ul>
+<li><a href="#toc_20.7.1">对接文档 </a>
+</ul>
+<li><a href="#toc_20.8">待入库 </a>
+<li><a href="#toc_20.9">成品仓 </a>
 </ul>
 <li><a href="#toc_21">打电话系统 pjsip4net </a>
 <li><a href="#toc_22">三化一稳 </a>
@@ -284,7 +288,8 @@ lot卡只做过数功能。
 <h1 id="toc_8">术语 </h1>
 <p>
 配料单，
-流程卡
+流程卡、Lot卡，工单。
+物料批次号。
 </p>
 
 <p>
@@ -460,7 +465,9 @@ racipe and tracebility
 <img src="file://D:\vim\vim\mysite\note/images/mes系统架构.jfif" />
 </p>
 
-
+<p>
+d:\Vim\vim\mysite\note
+</p>
 <h1 id="toc_20">Recipe and trace ability </h1>
 <h2 id="toc_20.1">全流程追溯方案 </h2>
 <p>
@@ -490,6 +497,14 @@ Staff operate and confirm the information accroding to the PDA instructions.
 
 
 <h3 id="toc_20.2.2">奥宝LDI </h3>
+<ul>
+<li>
+<img src="file://f:/backup/hardDiskBak/工作文档/MES/志浩MES项目总结190618.pptx" />
+
+<li>
+{{file:d:\Vim\vim\mysite\note\工作便签.wiki}}
+
+</ul>
 <p>
 干膜不通，曝光能量不同，
 </p>
@@ -517,6 +532,7 @@ LDI机有固定涨缩和自动涨缩，固定涨缩是工艺测量后输入涨�
 \\10.80.13.52\dp\dpconfig\setpuf
 \\10.80.13.52\dp\cam\dp100-jobs
 </p>
+
 
 <h4 id="toc_20.2.2.2">需要的参数 </h4>
 <p>
@@ -658,16 +674,25 @@ binding second or outer item num. bkh85445a0.IN27
 <li>
 CAM 输出坐标和类型(明码，二维码，lot卡号) [WZDGERP].[wisdompcb].[dbo].[Print2D_CAM]
 
-<li>
-
-
 </ol>
+
 
 <h4 id="toc_20.3.2.1">二维码类型 </h4>
 <p>
 明码
 二维码
 </p>
+
+<p>
+	打码机实际的二维码类型就两种，要么二维码，要么明码。
+	二维码的内容会根据二维码的类型不同而不同。所以CAM资料导出来的时候要指定类型。MES根据类型生成二维码类型。二维码内容生成后MES更改二维码类型是明码还是二维码。
+</p>
+
+<ol>
+<li>
+
+
+</ol>
 
 <h4 id="toc_20.3.2.2">二维码尺寸，点数 </h4>
 <p>
@@ -730,7 +755,12 @@ CAM输出到表[Print2D_CAM]
 <a href="奥宝LDI机.html">奥宝LDI机</a><br>
 </p>
 
-<h2 id="toc_20.4">压合到镭射 </h2>
+<h2 id="toc_20.4">AOI </h2>
+<p>
+<img src="file://D:\vim\vim\mysite\note/Doc/AOI数据采集说明+自动解析料号+二维码位置需求.rar" />
+</p>
+
+<h2 id="toc_20.5">压合到镭射 </h2>
 <p>
 浩硕机有三台，放到两条线，有一条线1台(老机器，直接打出七个孔，靶孔+ccd孔)，另一条线有两台(一台打3个孔，一台打四个孔，为得是提高效率)。
 </p>
@@ -765,7 +795,7 @@ CAM输出到表[Print2D_CAM]
 #
 </p>
 
-<h2 id="toc_20.5">机械钻孔 </h2>
+<h2 id="toc_20.6">机械钻孔 </h2>
 
 <p>
 下发到路径
@@ -799,7 +829,7 @@ lot卡号	找到对应的钻带
 
 
 
-<h2 id="toc_20.6">镭射 </h2>
+<h2 id="toc_20.7">镭射 </h2>
 <p>
 配方包括两个
 </p>
@@ -816,13 +846,18 @@ lot卡号	找到对应的钻带
 钻带型号和RFID绑定。
 </p>
 
-<h2 id="toc_20.7">待入库 </h2>
+<h3 id="toc_20.7.1">对接文档 </h3>
+<p>
+<img src="file://D:\vim\vim\mysite\note/Doc/江西志浩项目生产资料下发接口对接文档V1.2.pdf" />
+</p>
+
+<h2 id="toc_20.8">待入库 </h2>
 
 <p>
 待入库到成品仓有多少之前老板不清楚。
 </p>
 
-<h2 id="toc_20.8">成品仓 </h2>
+<h2 id="toc_20.9">成品仓 </h2>
 
 
 <h1 id="toc_21">打电话系统 pjsip4net </h1>
