@@ -43,6 +43,8 @@
 </ul>
 <li><a href="#toc_3">棕化 </a>
 <li><a href="#toc_4">添加采集的机器到Redis </a>
+<li><a href="#toc_5">查询采集数据 </a>
+<li><a href="#toc_6">查询MI叠构 </a>
 </ul>
 </div>
 <h1 id="toc_1">料号及条码 </h1>
@@ -214,6 +216,26 @@ C&amp;kE54JD
 <p>
 172.19.23.5  HDI棕化线
 172.19.23.8  高多层内层前处理
+</p>
+
+
+
+<h1 id="toc_5">查询采集数据 </h1>
+<p>
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b.CADDRESS_NAME,a.CGET_ID, a.CDATA_VALUE
+  FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
+  left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.cid
+  left join TBL_EAP_EQUIPMENT c on b.CEQUIPMENT_ID = c.CID
+  --WHERE c.CEQUIPMENT_CODE = 'GME-PRE-002'
+   order by a.CDATETIME_CREATED desc
+</p>
+   
+
+
+<h1 id="toc_6">查询MI叠构 </h1>
+<p>
+SELECT * FROM dbo.TBL_MI_STACK_INFO WHERE CMANU_PART_NUMBER = 'BFK0E0600042A0' AND CSTATE = 'A' ORDER BY CNUM 
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
