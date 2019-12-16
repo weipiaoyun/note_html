@@ -14,8 +14,8 @@ dt {font-weight: bold;}
 img {border: none;}
 pre {border-left: 1px solid #ccc; margin-left: 20em; padding-left: 0.5em;}
 blockquote {padding: 0.4em; background-color: #f6f5eb;}
-th, td {border: 1px solid #ccc; padding: 0.3em;}
-th {background-color: #f0f0f0;}
+/*th, td {border: 1px solid #ccc; padding: 0.3em;}
+th {background-color: #f0f0f0;}*/
 hr {border: none; border-top: 1px solid #ccc; width: 100%;}
 del {text-decoration: line-through; color: #777777;}
 a { margin-top: 0em; margin-bottom: 1em;  padding-left: 0.5em;}
@@ -93,4 +93,34 @@ code {
     bottom:60px;
     right: 20px;
     border:1px solid #888;
+}
+
+ol {
+  background: #ff9999;
+  padding: 20px;
+}
+
+ul {
+  background: #3399ff;
+  padding: 20px;
+}
+
+th,tr,td {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+td,  th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  width: 50%;
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
 }
