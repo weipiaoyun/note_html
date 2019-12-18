@@ -78,11 +78,17 @@ for(i=0;i<img.length;i++){
 	var backgroundImageRegex=/.*images\/(.*)/;
 	var backgroundFileRegex=/.*Doc\/(.*)/;
 	var nI = img[i].src.search(/images\//i);
+	var doc = img[i].src.search(/Doc\//i);
 	////var backgroundImageRegex=/file/;
 	//var backgroundImageRegex=/http:\/\/weipiaoyun.gitee.io\/note_html\/images\/(.*)/;
 	var matchResult=img[i].src.match(backgroundImageRegex);
 	var imgPath = img[i].src;
 	console.log(imgPath);
+	if(nI > 0 && matchResult.length >0 ){
+		//alert(matchResult[1]);
+		imgPath = "https://weipiaoyun.github.io/note_html/images/" + matchResult[1];
+	}
+
 	if(nI > 0 && matchResult.length >0 ){
 		//alert(matchResult[1]);
 		imgPath = "https://weipiaoyun.github.io/note_html/images/" + matchResult[1];
@@ -94,6 +100,12 @@ for(i=0;i<img.length;i++){
 
 
 var backButton=$('.back_to_top');
+
+        function win_run() {
+            var cmd = new ActiveXObject("WScript.Shell");
+            cmd.run("start d:\Vim\vim\.gitignore");
+        }
+
     function backToTop() {
         $('html,body').animate({
             scrollTop: 0
@@ -107,4 +119,7 @@ var backButton=$('.back_to_top');
         else
             backButton.fadeOut();
     });
+
+
+
 
