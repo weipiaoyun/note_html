@@ -198,6 +198,14 @@ li a:hover:not(.active) {
   color: white;
 }
 
+@media screen and (max-width:800px) {
+	.content, .toc>ul {
+		margin-left:0;
+  height: 15%;
+		width:100%;
+	}
+}
+
 
 /**/
 /*ul {margin-left: 2em; padding-left: 0.5em;}*/
