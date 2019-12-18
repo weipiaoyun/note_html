@@ -18,14 +18,7 @@
 </ul>
 <li><a href="#toc_2">地址账号和路径 </a>
 <ul>
-<li><a href="#toc_2.1">IP </a>
-<ul>
-<li><a href="#toc_2.1.1">工控机IP </a>
-<li><a href="#toc_2.1.2">内层前处理 </a>
-<li><a href="#toc_2.1.3">内层DES 高多层IP </a>
-<li><a href="#toc_2.1.4">内层棕化 </a>
-<li><a href="#toc_2.1.5">热熔机 </a>
-</ul>
+<li><a href="#toc_2.1">IP地址表 </a>
 <li><a href="#toc_2.2">网址 </a>
 <ul>
 <li><a href="#toc_2.2.1">172.18.120.254 MES库 </a>
@@ -35,6 +28,7 @@
 <li><a href="#toc_2.3">账号 </a>
 <ul>
 <li><a href="#toc_2.3.1">Radmin </a>
+<li><a href="#toc_2.3.2">数据库 </a>
 </ul>
 <li><a href="#toc_2.4">路径 </a>
 <ul>
@@ -45,8 +39,10 @@
 <li><a href="#toc_4">添加采集的机器到Redis </a>
 <li><a href="#toc_5">查询采集数据 </a>
 <li><a href="#toc_6">查询MI叠构 </a>
+<li><a href="#toc_7">岗位资格认证 </a>
 </ul>
 </div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 <h1 id="toc_1">料号及条码 </h1>
 <h2 id="toc_1.1">查找工作中心信息 </h2>
 <p>
@@ -54,86 +50,169 @@
 </p>
 
 <h1 id="toc_2">地址账号和路径 </h1>
-<h2 id="toc_2.1">IP </h2>
-<h3 id="toc_2.1.1">工控机IP </h3>
-<p>
-10.30.2.241
-255.255.255.0
-10.30.2.1
-</p>
-
-<h3 id="toc_2.1.2">内层前处理 </h3>
+<h2 id="toc_2.1">IP地址表 </h2>
 <table>
 <tr>
 <th>
-设备
+流程
+</th>
+<th>
+工厂
+</th>
+<th>
+类型
 </th>
 <th>
 IP
 </th>
+<th>
+账号
+</th>
+<th>
+密码
+</th>
 </tr>
 <tr>
 <td>
-上下板机左
+工控机
 </td>
 <td>
-10.80.13.55
+高多层1#
+</td>
+<td>
+上下板机
+</td>
+<td>
+10.30.2.241/255.255.255.0/10.30.2.1
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
 <td>
-上下板机右
+前处理
+</td>
+<td>
+高多层1#
+</td>
+<td>
+上下板机
 </td>
 <td>
 10.80.13.56
 </td>
-</tr>
-</table>
-
-
-<h3 id="toc_2.1.3">内层DES 高多层IP </h3>
-<p>
-192.168.88.35
-255.255.255.0
-gateway 192.168.88.1
-</p>
-
-<p>
-IP  10.80.13.28 端口：102
-</p>
-
-<p>
-读取：DB206.226
-写入：DB205.16
-</p>
-
-
-<h3 id="toc_2.1.4">内层棕化 </h3>
-<table>
-<tr>
-<th>
-设备
-</th>
-<th>
-IP
-</th>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
+<td>
+前处理
+</td>
+<td>
+HDI1#
+</td>
+<td>
+上下板机
+</td>
+<td>
+10.80.13.55
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+aoi机
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+10.80.13.32
+</td>
+<td>
+ls
+</td>
+<td>
+123
+</td>
+</tr>
+<tr>
+<td>
+棕化
+</td>
+<td>
+高多层1#
+</td>
 <td>
 上下板机
 </td>
 <td>
 10.80.13.54
 </td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+棕化
+</td>
+<td>
+HDI1#
+</td>
+<td>
+水平线
+</td>
+<td>
+172.19.23.5
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+热熔机
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+上下板机
+</td>
+<td>
+10.80.13.1
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
 </tr>
 </table>
-
-<h3 id="toc_2.1.5">热熔机 </h3>
-<p>
-10.80.13.1 ：1301
-10.30.1.38
-</p>
-
 
 <h2 id="toc_2.2">网址 </h2>
 <h3 id="toc_2.2.1">172.18.120.254 MES库 </h3>
@@ -162,6 +241,15 @@ mes123$
 <p>
 C&amp;kE54JD
 </p>
+
+<h3 id="toc_2.3.2">数据库 </h3>
+<p>
+172.19.9.1
+MOM
+csfoti@160721
+database=CIMOMJXZH
+</p>
+
 
 <h2 id="toc_2.4">路径 </h2>
 <h3 id="toc_2.4.1">Ipplan输出XML文档路径 </h3>
@@ -213,10 +301,7 @@ C&amp;kE54JD
 </p>
 
 
-<p>
-172.19.23.5  HDI棕化线
-172.19.23.8  高多层内层前处理
-</p>
+
 
 
 
@@ -238,6 +323,29 @@ SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b
 SELECT * FROM dbo.TBL_MI_STACK_INFO WHERE CMANU_PART_NUMBER = 'BFK0E0600042A0' AND CSTATE = 'A' ORDER BY CNUM 
 </p>
 
+
+<h1 id="toc_7">岗位资格认证 </h1>
+<p>
+select c.CCERTIFICATION_CODE from TBL_BD_QUALIFIED_AUZ a 
+inner join TBL_SYS_USER b
+on  a.CUSER_ID=b.CID
+inner join TBL_BD_QUALIFIED_CERTIFICATE c on
+a.CCERTIFICATION_ID=c.CID 
+inner join TBL_SYS_DICTIONARY d on  c.CCERTIFICATION_ATTR=d.CID 
+where b.CUSER_NAME = 'J300572'
+</p>
+
+
+<p>
+select count(*)
+ from TBL_BD_QUALIFIED_JOBS a
+inner join TBL_EAM_EQUIPMENT b on a.CEQUIPMENT_ID=b.CID
+inner join TBL_BD_QUALIFIED_CERTIFICATE c on  a.CCERTIFICATION_ID=c.CID
+inner join TBL_SYS_DICTIONARY d on  c.CCERTIFICATION_ATTR=d.CID
+where CCERTIFICATION_CODE = 'FQC-005'
+and CEQUIPMENT_CODE = 'FAE-DRL-003'
+</p>
+
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
 
 <a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
@@ -250,6 +358,6 @@ SELECT * FROM dbo.TBL_MI_STACK_INFO WHERE CMANU_PART_NUMBER = 'BFK0E0600042A0' A
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-</body>
+</div>
 </body>
 </html>

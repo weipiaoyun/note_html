@@ -14,8 +14,13 @@ dt {font-weight: bold;}
 img {border: none;}
 pre {border-left: 1px solid #ccc; margin-left: 20em; padding-left: 0.5em;}
 blockquote {padding: 0.4em; background-color: #f6f5eb;}
+<<<<<<< HEAD
 /*th, td {border: 1px solid #ccc; padding: 0.3em;}*/
 th {background-color: #f0f0f0;}
+=======
+/*th, td {border: 1px solid #ccc; padding: 0.3em;}
+th {background-color: #f0f0f0;}*/
+>>>>>>> 8b1b1803a02d15cb98a2f1e6b9214f7dc91aa4a9
 hr {border: none; border-top: 1px solid #ccc; width: 100%;}
 del {text-decoration: line-through; color: #777777;}
 a { margin-top: 0em; margin-bottom: 1em;  padding-left: 0.5em;}
@@ -95,7 +100,19 @@ code {
     border:1px solid #888;
 }
 
+<<<<<<< HEAD
 
+=======
+ol {
+  background: #ff9999;
+  padding: 20px;
+}
+
+ul {
+  background: #3399ff;
+  padding: 20px;
+}
+>>>>>>> 8b1b1803a02d15cb98a2f1e6b9214f7dc91aa4a9
 
 th,tr,td {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -116,6 +133,7 @@ th {
   background-color: #4CAF50;
   color: white;
 }
+<<<<<<< HEAD
 
 ol {
   background: #ff9999;
@@ -149,3 +167,5 @@ p {
 
 
 
+=======
+>>>>>>> 8b1b1803a02d15cb98a2f1e6b9214f7dc91aa4a9

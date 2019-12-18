@@ -14,8 +14,27 @@
 <ul>
 <li><a href="#toc_1">直接写入 HTML 输出流 </a>
 <li><a href="#toc_2">代码测试 </a>
+<li><a href="#toc_3">Number Methods </a>
+<ul>
+<li><a href="#toc_3.1">Fixed Number </a>
+</ul>
 </ul>
 </div>
+
+<p>
+The typeof operator returns "object" for arrays because in JavaScript arrays are objects.
+The typeof operator does not return "object" for functions, it returns 'funtion' for funtions..
+</p>
+
+<p>
+undefined and null are equal in value but different in type:
+</p>
+
+<p>
+An empty string has both a legal value and a type. Its value is '', its type is 'string'
+</p>
+
+
 <p>
 document.getElementById("demo").innerHTML = "Hello JavaScript!";
 document.getElementById("demo").style.fontSize = "25px";
@@ -39,6 +58,32 @@ document.write("&lt;p&gt;这是一个段落。&lt;/p&gt;");
 <h1 id="toc_2">代码测试 </h1>
 <p>
 &lt;button type="button" onclick="alert('欢迎!')"&gt;点我!&lt;/button&gt;
+</p>
+
+
+<h1 id="toc_3">Number Methods </h1>
+<h2 id="toc_3.1">Fixed Number </h2>
+<p>
+var x = 9.656;
+x.toFixed(0);           // returns 10
+x.toFixed(2);           // returns 9.66
+x.toFixed(4);           // returns 9.6560
+x.toFixed(6);           // returns 9.656000
+</p>
+
+<p>
+var x = 9.656;
+x.toPrecision();        // returns 9.656
+x.toPrecision(2);       // returns 9.7
+x.toPrecision(4);       // returns 9.656
+x.toPrecision(6);       // returns 9.65600
+</p>
+
+<p>
+Method	Description
+Number()	Returns a number, converted from its argument.
+parseFloat()	Parses its argument and returns a floating point number
+parseInt()	Parses its argument and returns an integer
 </p>
 
 <button class="back_to_top" style='background-color:red'>返回顶部</button>
