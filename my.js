@@ -101,10 +101,7 @@ for(i=0;i<img.length;i++){
 
 var backButton=$('.back_to_top');
 
-        function win_run() {
-            var cmd = new ActiveXObject("WScript.Shell");
-            cmd.run("start d:\Vim\vim\.gitignore");
-        }
+    
 
     function backToTop() {
         $('html,body').animate({
@@ -121,5 +118,10 @@ var backButton=$('.back_to_top');
     });
 
 
-
-
+ function fun_a() {
+	 var url = window.location.href;
+	 var nI = url.src.search(/weipiaoyun\//i);
+	 if(nI > 0){
+		 location.href="https://weipiaoyun.github.io/note_html/笔记整理.html";
+	 }
+ }

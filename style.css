@@ -175,7 +175,7 @@ p {
 
 a {
   display: block;
-  padding: 8px 10px;
+  padding: 8px 1px;
   background-color:lightblue;
   text-decoration: none;
 }
@@ -233,6 +233,14 @@ li a:hover:not(.active) {
 }
 
 
+/*返回首页*/
+#returnIndex {
+	left:0;
+	top:0;
+	height:30px;
+	background:lightgreen;
+	position:absolute;
+}
 
 /**/
 /*ul {margin-left: 2em; padding-left: 0.5em;}*/
