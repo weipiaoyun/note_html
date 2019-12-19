@@ -118,12 +118,15 @@ var backButton=$('.back_to_top');
     });
 
 
- function fun_a() {
+var div=document.getElementById('returnIndexA');
 	 var url = window.location.href;
-	 var nI = url.search(/weipiaoyun\//i);
-	 if(nI > 0){
-		 location.href="https://weipiaoyun.github.io/note_html/笔记整理.html";
+	 var nnn = url.search(/weipiaoyun/);
+	 if(nnn > 0){
+		 div.href="https://weipiaoyun.github.io/note_html/笔记整理.html";
+	 } else {
+		 div.href="d:/vim/vim/mysite/note_html/笔记整理.html";
 	 }
- }
+
+
 
 
