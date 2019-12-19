@@ -1,0 +1,771 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>中断</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">概念</h1>
+<p>
+ARM7中断原理2011-12-23 22:17ARM7中断原理的最基本部分与单片机是一样的，如果对单片机中断原理比较熟悉，再来理解ARM的中断原理是顺理成章的事情。
+　　5.1 中断向量表
+　　下面以Philips的lpc2136为例进行比较深入的分析：
+　　我们在用ads1.2调试开发板时，有一个startup.s的汇编程序，这个程序就是lpc2136得以运行的启动代码，是及其重要的一部分，蕴含着ARM7的精髓。
+　　其中，有这样一段代码：
+　　AREA    vectors,CODE,READONLY
+　　ENTRY
+　　;interrupt vectors
+　　;中断向量表
+　　Vector_Init_Block
+　　LDR     PC, Reset_Addr
+　　LDR     PC, Undefined_Addr
+　　LDR     PC, SWI_Addr
+　　LDR     PC, Prefetch_Addr
+　　LDR     PC, Abort_Addr
+　　DCD     0xb9205f80
+　　LDR     PC, [PC, #-0xff0]
+　　LDR     PC, FIQ_Addr
+　　Reset_Addr          DCD    Start_Boot
+　　Undefined_Addr      DCD    Undefined_Handler
+　　SWI_Addr            DCD     SWI_Handler
+　　Prefetch_Addr       DCD     Prefetch_Handler
+　　Abort_Addr          DCD     Abort_Handler
+　　Nouse               DCD     0
+　　IRQ_Addr            DCD     0
+　　FIQ_Addr            DCD     FIQ_Handler
+　　;未定义指令
+　　Undefined_Handler
+　　B       Undefined_Handler
+　　;软中断
+　　SWI_Handler   
+　　B       SWI_Handler 
+　　;取指令中止
+　　Prefetch_Handler
+　　B       Prefetch_Handler
+　　;取数据中止
+　　Abort_Handler
+　　B       Abort_Handler
+　　;快速中断
+　　FIQ_Handler
+　　STMFD   SP!, {R0-R3, LR}
+　　BL      FIQ_Exception
+　　LDMFD   SP!, {R0-R3, LR}
+　　SUBS    PC,  LR,  #4
+　　下面的这个截图来自ads1.2安装后的"online book"里面（这里面有很多非常重要的知识，你不懂的任何疑问都可以在此找到答案，可惜很多人不知道这个好地方）
+</p>
+
+
+
+<p>
+　　ARM体系设计有八种异常，并把所有现象用异常来表达，我们的代码任何时刻都在这八种异常中运行。
+　　我们给开发板上电，这就是一种"异常"，这种异常用"Reset"来表示。
+　　这八种异常对应八个地址：
+　　Reset(复位)=========0x00000000（当上电，或按下开发板的复位键时，程序跳到该地址运行）
+　　Undef(未定义指令)=========0x00000004（当程序指针访问地址出现未定义指令，程序跳到该地址运行）
+　　SWI(软件中断)=========0x00000008（当发生软件中断，程序跳到该地址运行）
+　　Prefetch  Abort(预取指中止)=========0x0000000C（当预取值失败，程序跳到该地址运行）
+　　Data Abort(数据中止)=========0x00000010（当访问数据区失败，程序跳到该地址运行）
+　　Reserved（保留）===========0x00000014
+　　IRQ===========0x00000018（当发生IRQ中断时，程序跳到该地址运行）
+　　FIQ(快速中断)========0x0000001C(当发生快速中断时，程序跳到该地址运行)
+　　5.2 FIQ中断，向量IRQ，非向量IRQ区别
+　　FIQ是指快速中断请求(Fast Interrupt reQuest)，具有最高优先级，一般只声明一个中断源为FIQ，这样可以得到最快的相应速度，如果非要申请多个中断源为FIQ，那么当中断发生时，FIQ中断线程通过读取FIQ状态寄存器来判断当前发生的是那个中断。
+</p>
+
+
+
+<p>
+　　向量IRQ(Vector IRQ)是指向量中断请求(Vector Interrupt ReQuest)。具有次高优先级。
+　　非向量IRQ(NO_Vector IRQ)是指非向量中断请求。具有最低优先级。
+　　5.2.1 向量中断与非向量中断的区别
+　　向量，即指有方向的量。这里所说的方向就是向量地址。
+　　向量中断--由硬件提供中断服务程序入口地址；
+　　非向量中断--由软件件提供中断服务程序入口地址。
+　　上面提到的中断向量表：
+　　Reset中断向量地址是0x00000000，那么当复位中断发生时，程序自动跳到0x00000000开始的地址执行。这一过程由硬件实现。
+　　当定时器中断发生时，程序自动跳到0x00000018开始的位置执行。因为该地址是IRQ地址，IRQ不同于Reset，Reset只有一个，但IRQ有很多个。所以，程序跳到0x00000018时还要进行分支选择，那么怎么选择呢？
+　　最开始，0x00000018是从VICVectAddr寄存器中找到当前中断服务程序地址执行的，那么向量中断和非向量中断，该选哪个呢？
+　　ARM中断核(PrimeCell)规定所有"非向量中断"共用到"默认向量地址寄存器"中
+</p>
+
+
+
+<p>
+　　同时规定，"向量中断"地址保存在"向量地址寄存器0-15"中
+</p>
+
+
+
+<p>
+　　所以，当IRQ中断发生时，ARM中断核(PrimeCell)会到16个IRQ solt中查找，如果没有找到则装载"默认向量地址寄存器"中的地址到"向量地址寄存器"中。
+</p>
+
+
+
+<p>
+　　其实，可以把非向量中断理解成优先级最低的向量中断，因为在ARM中断核(PrimeCell)从"向量地址寄存器"读取地址时，是先扫描(Scan)整个IRQ slot，如果没有找到则无条件的装载"默认向量地址寄存器"的值。这个值就是非向量IRQ中断服务程序入口地址。
+　　可以这么理解，向量IRQ有16个地址，而非向量IRQ只有一个地址。
+　　疑问：可以设置多个非向量IRQ吗，怎么设置，中断发生后怎么处理？
+　　答案：可以同时设置两个(两个以上)的非向量IRQ，但是这些非向量IRQ共用一个中断服务程序入口地址，但中断发生后，由软件通过IRQ状态寄存器判断当前发生的哪个IRQ中断。（IRQ状态寄存器不区分是向量IRQ还是非向量IRQ）
+　　5.3 IRQ中断实例分析
+　　5.3.1 向量IRQ实例程序
+　　我们再来分析之前的定时器中断程序
+　　/****************************************************************************
+　　* 文件名：main.c
+　　* 功   能：使用定时器实现秒定时,控制蜂鸣器蜂鸣。(中断方式)
+　　* 说   明：JP4跳线短接，JP7跳线断开。 
+　　****************************************************************************/
+　　#include  "config.h"
+　　#define   BEEPCON  1&lt;&lt;22   // P0.22引脚控制B1，低电平蜂鸣
+　　/****************************************************************************
+　　* 名   称：IRQ_Time0()
+　　* 功   能：定时器中断服务程序，取反BEEPCON控制口。
+　　* 入口参数：无
+　　* 出口参数：无
+　　****************************************************************************/
+　　void __irq  IRQ_Time0(void)
+　　{  
+　　if( (IO0SET&amp;BEEPCON) == 0 ) 
+　　{
+　　IO0SET = BEEPCON; 
+　　}
+　　else  
+　　{
+　　IO0CLR = BEEPCON;    
+　　}                    
+　　T0IR = 0x01;     // 清除中断标志
+　　VICVectAddr = 0x00;   // 通知VIC中断处理结束
+　　}
+　　/****************************************************************************
+　　* 名   称：Time0Init()
+　　* 功   能：初始化定时器，定时时间为S，并使能中断。
+　　* 入口参数：无
+　　* 出口参数：无
+　　****************************************************************************/
+　　void  Time0Init(void)
+　　{   /* Fcclk = Fosc*4 = 11.0592MHz*4 = 44.2368MHz
+　　Fpclk = Fcclk/4 = 44.2368MHz/4 = 11.0592MHz
+　　*/
+　　T0PR = 99;              // 设置定时器分频为分频，得Hz
+　　T0MCR = 0x03;          // 匹配通道匹配中断并复位T0TC
+　　T0MR0 = 110592;          // 比较值(1S定时值)
+　　T0TCR = 0x03;          // 启动并复位T0TC
+　　T0TCR = 0x01; 
+　　/* 设置定时器中断IRQ */
+　　VICIntSelect = 0x00;     // 所有中断通道设置为IRQ中断
+　　VICVectCntl0 = 0x24;     // 定时器中断通道分配最高优先级(向量控制器)
+　　VICVectAddr0 = (uint32)IRQ_Time0;   // 设置中断服务程序地址向量
+　　VICIntEnable = 0x00000010;    // 使能定时器中断
+　　}
+　　/****************************************************************************
+　　* 名  称：main()
+　　* 功  能：初始化I/O及定时器，然后等待中断。
+　　* 说  明：在STARTUP.S文件中使能IRQ中断(清零CPSR中的I位)。
+　　****************************************************************************/
+　　int  main(void)
+　　{  
+　　PINSEL0 = 0x00000000;     // 设置管脚连接GPIO   
+　　IO0DIR = BEEPCON;       // 设置I/O为输出
+　　Time0Init();       // 初始化定时器及使能中断
+　　while(1);        // 等待定时器中断或定时器匹配输出   
+　　return(0);
+　　}
+　　5.3.2非向量IRQ实例程序
+　　/****************************************************************************
+　　* 文件名：main.c
+　　* 功   能：使用外部中断进行B1的控制，每当有一次中断时，即取反B1控制口，以便指示中断输入。
+　　*           使用非向量中断方式。
+　　* 说   明：将跳线器JP2 JP4短接，JP7断开，然后反复按下与释放KEY1。
+　　****************************************************************************/
+　　#include  "config.h"  
+　　#define   BEEPCON 1&lt;&lt;22    // P0.2引脚控制B1，低电平蜂鸣
+　　/****************************************************************************
+　　* 名   称：IRQ_Eint3()
+　　* 功   能：外部中断EINT3服务函数，取反B1控制口。
+　　* 入口参数：无
+　　* 出口参数：无
+　　****************************************************************************/
+　　void   __irq IRQ_Eint3(void)
+　　{  
+　　uint32  i;   
+　　i = IO0SET;                     // 读取当前B1控制值
+　　if( (i&amp;BEEPCON)==0 )    // 控制B1输出取反
+　　{  
+　　IO0SET = BEEPCON;
+　　}
+　　else
+　　{  
+　　IO0CLR = BEEPCON;
+　　}   
+　　/* 等待外部中断信号恢复为高电平(若信号保持为低电平，中断标志会一直置位) */
+　　while( (EXTINT&amp;1&lt;&lt;3)!=0 ) 
+　　{  
+　　EXTINT = 1&lt;&lt;3;     // 清除EINT3中断标志，&lt;&lt;3 等价于0x08
+　　}   
+　　VICVectAddr = 0;     // 向量中断结束
+　　}  
+　　/****************************************************************************
+　　* 名   称：main()
+　　* 功   能：初始化外部中断(EINT3)为非向量中断，并设置为电平触发模式，然后等待外部中断。
+　　* 说   明：在STARTUP.S文件中使能IRQ中断(清零CPSR中的I位)。
+　　****************************************************************************/
+　　int  main(void)
+　　{  
+　　PINSEL1 = 3&lt;&lt;8;            // 设置管脚连接，P0.20设置为EINT3                        
+　　IO0DIR = BEEPCON;     // 设置B1控制口为输出，其它I/O为输入   
+　　EXTMODE = 0x00;      // 设置EINT3中断为电平触发模式                                    
+　　/* 打开EINT3中断(使用非向量IRQ) */
+　　VICIntSelect = 0x00000000;   // 设置所有中断分配为IRQ中断
+　　VICDefVectAddr = (int)IRQ_Eint3;  // 设置中断服务程序地址
+　　EXTINT = 1&lt;&lt;3;      // 清除EINT3中断标志
+　　VICIntEnable = 1&lt;&lt;17;       // 使能EINT3中断，EINT3在Bit17上   
+　　while(1);       // 等待中断
+　　return(0);
+　　}
+　　5.3.3向量&amp;非向量IRQ实例程序
+　　/****************************************************************************
+　　* 文件名：main.c
+　　* 功   能：有四个中断，UART0，UART1，I2C，SPI0，其中
+　　*          UART0，SPI0分配为向量IRQ
+　　*          UART1，I2C分配为非向量IRQ
+　　* 说   明： 
+　　****************************************************************************/
+　　#include  "config.h"
+　　#define UART1_IRQ 1 &lt;&lt; 7
+　　#define I2C_IRQ   1 &lt;&lt; 9
+　　/****************************************************************************
+　　* 功   能：中断服务程序。
+　　****************************************************************************/
+　　void __irq  IRQ_SPI0(void)
+　　{  
+　　代码略
+　　}
+　　void __irq  IRQ_UART0(void)
+　　{  
+　　代码略
+　　}
+　　void __irq  NoVector_ISR(void)
+　　{  
+　　volatile uint32 tmp;
+　　tmp = VICIRQStatus;
+　　if( tmp &amp; UART1_IRQ)
+　　{
+　　UART1中断处理代码略
+　　}
+　　if( tmp &amp; I2C_IRQ)
+　　{
+　　I2C中断处理代码略
+　　}
+　　VICVectAddr = 0;     // 向量中断结束
+　　}
+　　/****************************************************************************
+　　* 名  称：main()
+　　* 功  能：向量与非向量IRQ实验代码
+　　* 说  明：在STARTUP.S文件中使能IRQ中断(清零CPSR中的I位)。
+　　****************************************************************************/
+　　int  main(void)
+　　{  
+　　PINSEL0 = 0x55555555;     // 配置管脚功能  
+　　/*I2C,SPI0,UART0,UART1相关初始化代码部分略 */
+　　/* 中断部分设置*/
+　　VICIntSelect = 0x00000000;     // 所有中断通道设置为IRQ中断
+　　VICDefVectAddr = (uint32)NoVector_ISR; // 设置非向量中断服务程序地址向量
+　　VICVectAddr0 = (uint32)IRQ_UART0;   // 设置uart0中断服务程序地址向量
+　　VICVectAddr1 = (uint32)IRQ_SPI0;   // 设置spi0中断服务程序地址向量
+　　VICVectCntl0 = 0x00000026; // 6号中断源使能为向量IRQ并设置为最高优先级
+　　VICVectCntl1 = 0x0000002A; // 10号中断源使能为向量IRQ并设置为次高优先级
+　　VICIntEnable = 0x000006C0;//使能UART0,UART1,I2C,SPI0=&gt;bit10,bit9,bit7和bit6=1
+　　while(1)       // 等待中断发生
+　　{
+　　代码略
+　　}
+　　return(0);
+　　}
+　　5.4. ARM中断原理后记
+　　今天终于把ARM7的中断部分整理完整，这份文档算是国内研究比较深入的文档！写完，有种如释重负的感觉。
+　　本文的一些截图来自philips lpc2136英文datasheet.
+</p>
+ 
+
+<p>
+向量地址
+就是中断向量的入口地址，向量地址的空间是指从该地址开始到下一个向量地址所占的空间，在这空间里一般是放跳转指令的，跳转到中断函数。要区分 
+<em>向量中断</em> 还是 <em>非向量中断</em> 。看要不要经过中断解析程序，如果向量空间里放的是跳转到中断解析程序的就是非向量中断，它还要解析是那个中断源，然后在跳转到对应的中断服务程序。
+</p>
+
+<p>
+向量中断和非向量中断的区别。
+关于向量中断和非向量中断arm中断向量表中，只有一个IRQ向量地址，占4字节（另外还有一个FIQ向量地址），可是arm支持多个外部中断源，一个中断发生后，arm如何根据这一个向量地址找到相应的中断服务程序？这里要区分中断是向量中断还是非向量中断。
+</p>
+
+<p>
+一个中断源对应一个中断号，对于不同的外部中断源根据处理方式不同分为向量中断和非向量中断。
+</p>
+
+<p>
+向量中断：当中断为向量中断时，arm直接跳转到预先提供的中断服务程序执行，这种处理方式响应速度快。
+</p>
+
+<p>
+非向量中断：当中断为非向量中断时，无论是什么外部中断源发出的中断，arm将跳到指定的一段程序执行（称为中断解析程序），在解析程序里，通过判断相应的中断状态寄存器找到对应的中断源，跳转到相应的中断执行程序。有点类似软件中断的处理方式，但是软中断（SWI）与非向量中断不同，它的入口是0x0000,0008。进入软中断后，系统变为管理模式。而非向量中断入口是0x0000,0018。它引导系统进入fiq/irq模式。这种处理方式简单，但是要通过软件查询来判断具体的中断服务程序，所有延迟时间较长。
+</p>
+
+<p>
+如何设置：
+</p>
+
+<p>
+系统在初始化的时候需要进行中断初始化，设置中断源是向量中断还是非向量中断。设置方式举例如下：
+</p>
+
+<p>
+VICIntSelect = 0x00000000;    //所有中断都是IRQ
+</p>
+<blockquote>
+VICVectCntl0 = 0x20 | 15;    //将15号中断EINT1设置为向量中断，并且使用优先级0
+VICVectAddr0 =(uint32)EINT1_Exception;    //EINT1中断服务程序地址
+VICDefVectAddr =(uint32)Default_Entry;    //其他的非向量中断默认的处理地址，其他非向量中断都会进入Default_Entry进行处理，在Default_Entry中获得具体的中断号再进行具体处理
+VICIntEnable = 0x00018000;    //使能EINT1和EINT2
+由于在管理向量中断的VICVectCntl0~15和VICVectAddr0~15中只设置了EINT1，故EINT2中断发生时，要进入非向量中断处理程序Default_Entry。
+</blockquote>
+
+<p>
+系统处理过程
+</p>
+
+<p>
+arm接收到中断信号后，IRQ系统根据预先设置的寄存器的值判别是向量中断还是非向量中断，如果是向量中断，则把对应的VICVectAddrN中的地址复制到VICVectAddr，如果是非向量中断，则把VICDefVectAddr 中的值复制到VICVectAddr，接着PC指针跳转到向量表中的IRQ向量地址0x18处，此处放置了一个跳转指令，跳到VICVectAddr中的地址处进行处理。中断返回时，必须将VICVectAddr赋值为0；
+</p>
+
+ 
+
+<p>
+FIQ没有向量和非向量之分，所以如果系统只有一个FIQ，则这个中断处理速度会很快，如果有多个FIQ则需要象IRQ的非向量中断一样，在处理程序中查询FIQ的状态寄存器。
+</p>
+	
+<h2 id="toc_1.1">设置向量中断的中断过程</h2>
+<p>
+1，设置是IRQ中断还是FIQ中断
+2，设置中断的优先级
+3，设置向量的地址
+4，使能中断类型（IRQ中断使能或者是FIQ中断使能）。
+5，使能特定的中断（通过设VICINTEnable来使能中断。每一个值都设置不同的中断。一般是使能中断号，比如定时器的通道号是4，所以要把第四个通道打开）。
+	IRQEnable();					// 使能IRQ中断							
+	VICIntSelect = 0x00000000;			// 设置所有的通道为IRQ中断
+	VICVectCntl0 = 0x20 | 0x06;			// UART0分配到IRQ slot0，即最高优先级。VICVectCntl0中的0表示的是slot0，0x20表示第五位是1，即开中断。0x06是UART0的通道号。
+	VICVectAddr0 = (uint32)IRQ_UART0;	// 设置UART0向量地址
+	VICIntEnable = 1 &lt;&lt; 0x06;			// 使能UART0中断
+</p>
+
+<h2 id="toc_1.2">设置非向量中断的中断过程</h2>
+<p>
+1,使能IRQ中断
+2,设置中断类型为IRQ中断
+3，设置中断服务程序的地址，在设置中断服务程序地址的时候，它是放到默认向量地址寄存器里面的。所以没有优先级。但要先清楚中断标志
+4，清楚中断标志。
+5，使能中断。
+	IRQEnable();					// 使能IRQ中断							
+	/* 打开EINT0中断(使用非向量中断) */
+	//VICIntSelect   = 0x00000000;	/* 设置所有中断分配为IRQ中断	*/
+	VICDefVectAddr = (int)IRQ_Eint0;/* 设置中断服务程序地址			*/
+	EXTINT         = 0x01;			/* 清除EINT0中断标志			*/
+	VICIntEnable   = 1 &lt;&lt; 0x0e;		/* 使能EINT0中断				*/	
+</p>
+	
+<h3 id="toc_1.2.1">寄存器</h3>
+
+<table>
+<tr>
+<td>
+寄存器
+</td>
+<td>
+功能
+</td>
+</tr>
+<tr>
+<td>
+--------------+-----------------------------------------------------------------------------------------------------------------------
+</td>
+</tr>
+<tr>
+<td>
+EXTINT
+</td>
+<td>
+寄存器只是用来清空标志位的，当为1时有效。
+</td>
+</tr>
+<tr>
+<td>
+IO0SET
+</td>
+<td>
+它里面的值是最近一次写的时候放在寄存器的值。外面的状态对它没有影响。请注意IOSET只有单逻辑1的值，而0不会改变寄存器的值
+</td>
+</tr>
+<tr>
+<td>
+U0LCR
+</td>
+<td>
+line control register 保存的是收发数据的字符的格式。
+</td>
+</tr>
+<tr>
+<td>
+U0IIR
+</td>
+<td>
+interrupt identification register 中断标志寄存器。里面反应的是现在数据处于什么情况。有没有中断挂起。
+</td>
+</tr>
+<tr>
+<td>
+VICINTEnable
+</td>
+<td>
+向量中断寄存器。打开中断开关的。
+</td>
+</tr>
+<tr>
+<td>
+VICVectCntl
+</td>
+<td>
+中断控制寄存器，使能中断。分配中断（从通道来体现），分配优先级，比如说0表示的是slot0，最高优先级
+</td>
+</tr>
+<tr>
+<td>
+VICVectAddr
+</td>
+<td>
+中断向量地址寄存器，存的是要执行的ISR的地址，当=0保证下次中断能更新VICVectAddr的值（？）
+</td>
+</tr>
+<tr>
+<td>
+VICIntSelect
+</td>
+<td>
+选择的是IRQ中断还是FIQ中断
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.3">通道号</h2>
+
+<table>
+<tr>
+<td>
+外部中断
+</td>
+<td>
+通道号
+</td>
+<td>
+通道号
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+----------+--------+--------+---+---
+</td>
+</tr>
+<tr>
+<td>
+UART0
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+EINT0
+</td>
+<td>
+14
+</td>
+<td>
+e
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+EONT1
+</td>
+<td>
+15
+</td>
+<td>
+F
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+<p>
+__irq使用问题
+现场保护是由编译器来完成的，所以不用写现场保护。但是不能使用中断嵌套。如果要中断嵌套，就得自己写现场保护，但是不能使用———irq做中断标记
+</p>
+<h2 id="toc_1.4">随想</h2>
+<p>
+	要把中断开关打开需要打开IIR和IER这两个中断接口。
+</p>
+
+
+<h1 id="toc_2">问题</h1>
+<h2 id="toc_2.1">怎么实现8个字符后中断的。</h2>
+	
+<p>
+	例子中发送用的是查询方式，接收用的是中断方式。通过设置触发点来控制接收到8个字符以后触发中断，cpu处理中断接收字符。进入中断以后搞了一个标志，等中断结束后，因为已经接收了字符，所以标志有效，进入发送子函数。
+</p>
+<h2 id="toc_2.2" class="justcenter">暂存</h2>
+<p>
+	今天学习DMA，需要传递地址，我想从串口传到寄存器来点亮led灯，只是学习一下DMA的原理，首先说明一点的是程序还很烂，没有做成功。其中发现了一个问题，就是寄存器的地址#define rGPBCON    (*(volatile unsigned *)0x56000010)我看了这个的时候，到底这是定义的一个什么呢？上网搜了一下，总结一下。
+</p>
+
+<p>
+1.首先这是定义的一个变量，这一点要非常明白，因为rGPBCON就是一个寄存器变量，我们可以给他赋值对他读写操作，这是一个变量，而不是一个指针或者地址。
+</p>
+
+<p>
+2.这是一个地址固定的变量，以前分配的变量地址是随机的，但这里的地址是固定的，就是0x56000010。
+</p>
+
+<p>
+3.#define rGPBCON    (*(volatile unsigned *)0x56000010)宏定义的过程，首先把0x56000010这个物理地址强制转换为指针变量
+</p>
+
+<p>
+(volatile unsigned *)0x56000010 这就是一个指针变量。然后再用*符号对指针变量操作相当于*p是一个变量。其中因为这里是寄存器映射到内存是虚地址，所以需要用关键字volatile写回，而不是读缓冲器中的值。
+</p>
+
+<p>
+2011-04-17  15:46:54
+</p>
+
+<p>
+4. 关于rGPBCON这个特殊寄存器到底有没有这样一个寄存器？
+</p>
+
+<p>
+  这个我一直很迷惑，直到今天，我才明白，其实没有这样一个寄存器，这个寄存器是0x56000010开始的四个字节的内存地址的别名，rGPBCON是占用内存的，而不存在IO空间或者说IO寄存器。因为ARM根本久没有IO空间，直接映射到内存空间。
+</p>
+
+
+<p>
+使能：开关打开
+</p>
+
+<h1 id="toc_3">外部中断</h1>
+<p>
+EXT0是管脚，也是寄存器，按照门电路，如果1，就把中断标志位清除了，如果为0，就可能引发中断标志位有效。这样如果为1，把中断标志位清零了，那么就必须复位，因为复位后EXT0变为0，有效。如果不复位，就应该软件清零。
+。
+</p>
+
+<h2 id="toc_3.1" class="justcenter">问题</h2>
+<p>
+外部中断能唤醒掉电模式，唤醒以后是到原来进入掉电模式前开始向下执行，那么外部中断程序并没有响应吗？
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

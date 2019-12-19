@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>控制系统的数学模型</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+每一个状态不仅与输入有关，而且与上一个状态和反馈回来的转台有关。状态空间表达式描述的是转台的导数和状态和输入之间的关系（状态的倒数有可能还是状态），一级输出与输入之间的关系。输出量可以看作是特殊的状态变量。
+</p>
+
+<p>
+x1的一阶导和x2相等。与x1没有直接的关系。x的一阶导数在状态里只有x2移相，而最后的一阶导数，是最前输入部分的，它有其他状态的反馈，故都有关系。
+最后的输出只与x1和输入有关。
+</p>
+
+<p>
+	输入和输出的微分方程其实就是刚积分（第一个进入积分的）以前的那个值是怎么来的。它含有各个状态反馈回来的。在图中都是负的，所以一刀左边回来变为都是正的，
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

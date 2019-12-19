@@ -1,0 +1,983 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>梅州</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">工作内容 </a>
+<li><a href="#toc_2">远程 </a>
+<ul>
+<li><a href="#toc_2.1">Radmin </a>
+</ul>
+<li><a href="#toc_3">梅双 </a>
+<ul>
+<li><a href="#toc_3.1">梅双新装电脑 </a>
+<ul>
+<li><a href="#toc_3.1.1">linux genesis </a>
+</ul>
+<li><a href="#toc_3.2">密码 </a>
+<li><a href="#toc_3.3">数据库 </a>
+<ul>
+<li><a href="#toc_3.3.1">mysql数据库 </a>
+<li><a href="#toc_3.3.2">ERP数据库 </a>
+<li><a href="#toc_3.3.3">公共盘账号密码 </a>
+</ul>
+<li><a href="#toc_3.4">文件路径 </a>
+<ul>
+<li><a href="#toc_3.4.1">rpm 包文件地址 </a>
+<li><a href="#toc_3.4.2">料号自动备份路径 </a>
+<li><a href="#toc_3.4.3">删除料号自动备份路径 </a>
+<li><a href="#toc_3.4.4">数据库备份路径 </a>
+<li><a href="#toc_3.4.5">genesis脚本路径 </a>
+</ul>
+<li><a href="#toc_3.5">计划任务 </a>
+<ul>
+<li><a href="#toc_3.5.1">删除时间久的料号 </a>
+<li><a href="#toc_3.5.2">删除老料号 </a>
+<li><a href="#toc_3.5.3">临时钻锣ERP一建档自动删除 </a>
+<li><a href="#toc_3.5.4">自动邮件eq备份 </a>
+</ul>
+</ul>
+<li><a href="#toc_4">资料扫描</a>
+<li><a href="#toc_5">临时钻锣自动移动到过期</a>
+<li><a href="#toc_6">自动删除前版本钻锣</a>
+<ul>
+<li><a href="#toc_6.1">后补程序</a>
+<li><a href="#toc_6.2">工艺边铺铜</a>
+<li><a href="#toc_6.3">脚本笔记 </a>
+</ul>
+<li><a href="#toc_7">深圳转梅双</a>
+<li><a href="#toc_8">志浩 </a>
+<ul>
+<li><a href="#toc_8.1">密码 </a>
+<li><a href="#toc_8.2">志浩装机 </a>
+<li><a href="#toc_8.3">志浩安装新电脑 </a>
+<ul>
+<li><a href="#toc_8.3.1">GENESIS_DIR </a>
+<li><a href="#toc_8.3.2">MI genesis路径 </a>
+</ul>
+</ul>
+<li><a href="#toc_9">VNC</a>
+<li><a href="#toc_10">gnd位置</a>
+<li><a href="#toc_11">脚本</a>
+<ul>
+<li><a href="#toc_11.1">m3009</a>
+<li><a href="#toc_11.2">志浩服务器</a>
+<li><a href="#toc_11.3">2014年之前的文件 </a>
+<li><a href="#toc_11.4">文件服务器密码 </a>
+<ul>
+<li><a href="#toc_11.4.1">rout，钻锣带 </a>
+</ul>
+<li><a href="#toc_11.5">Ftp服务器密码 </a>
+<li><a href="#toc_11.6">测线图无法查看 </a>
+<li><a href="#toc_11.7">志浩vnc </a>
+<li><a href="#toc_11.8">文件服务器 </a>
+<ul>
+<li><a href="#toc_11.8.1">自动删除log </a>
+</ul>
+<li><a href="#toc_11.9">脚本 </a>
+<ul>
+<li><a href="#toc_11.9.1">aoi_tmp自动移动到aoi文件夹 </a>
+<li><a href="#toc_11.9.2">脚本功能笔记 </a>
+<ul>
+<li><a href="#toc_11.9.2.1">板边 </a>
+<li><a href="#toc_11.9.2.2">方法 </a>
+<li><a href="#toc_11.9.2.3">钻孔输出 </a>
+<ul>
+<li><a href="#toc_11.9.2.3.1">输出钻带 </a>
+<li><a href="#toc_11.9.2.3.2">如果选择二钻，自动选择二钻定位 </a>
+<li><a href="#toc_11.9.2.3.3">自动建立涨缩文件夹 </a>
+<li><a href="#toc_11.9.2.3.4">后缀加上.c+c </a>
+<li><a href="#toc_11.9.2.3.5">镭射添加定位孔 </a>
+</ul>
+<li><a href="#toc_11.9.2.4">checklist </a>
+<li><a href="#toc_11.9.2.5">后补靶距 </a>
+<li><a href="#toc_11.9.2.6">绘片 </a>
+</ul>
+</ul>
+<li><a href="#toc_11.10">计划任务 </a>
+<ul>
+<li><a href="#toc_11.10.1">备份料号 </a>
+<li><a href="#toc_11.10.2">备份表格 </a>
+<li><a href="#toc_11.10.3">回收资料 </a>
+<li><a href="#toc_11.10.4">删除文字喷墨 </a>
+<li><a href="#toc_11.10.5">odb满删除料号 </a>
+</ul>
+<li><a href="#toc_11.11">数据库 </a>
+<li><a href="#toc_11.12">备份数据库</a>
+<ul>
+<li><a href="#toc_11.12.1">ERP数据库</a>
+</ul>
+</ul>
+<li><a href="#toc_12">输出的资料</a>
+<ul>
+<li><a href="#toc_12.1">删除</a>
+<li><a href="#toc_12.2">模块</a>
+<li><a href="#toc_12.3">通孔后补</a>
+</ul>
+<li><a href="#toc_13">panel菜单</a>
+<ul>
+<li><a href="#toc_13.1">输出</a>
+<li><a href="#toc_13.2">备份路径 </a>
+<li><a href="#toc_13.3">脚本权限管理 </a>
+</ul>
+<li><a href="#toc_14">处理加密过的excel </a>
+<li><a href="#toc_15">清除垃圾 </a>
+<li><a href="#toc_16">Inplan </a>
+</ul>
+</div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<p>
+mcn01349
+</p>
+<h1 id="toc_1">工作内容 </h1>
+
+<p>
+每个月自动重启机器
+安装genesis客户端
+mi的genesis gnd服务和料号网络版
+linux LVM 硬盘
+备份windows加密解密软件
+</p>
+
+
+<p>
+自动识别料号名
+</p>
+
+<p>
+临时资料加上一栏 文件夹备注
+</p>
+
+
+<p>
+自动删除料号不删除rule料号
+</p>
+
+<h1 id="toc_2">远程 </h1>
+<p>
+m3009
+-zhcam-
+</p>
+
+<p>
+m017001126
+1126
+</p>
+
+<h2 id="toc_2.1">Radmin </h2>
+<p>
+admin_eg	
+E.0769-G11
+</p>
+
+<h1 id="toc_3">梅双 </h1>
+
+<h2 id="toc_3.1">梅双新装电脑 </h2>
+<p>
+GENESIS_DIR  \\172.17.0.66\gen_w2k
+GENESIS_SHAREDIR \\172.17.0.66\gen_w2k\share
+</p>
+
+<h3 id="toc_3.1.1">linux genesis </h3>
+<p>
+2.90 scp  -r /usr/lib/perl5/vendor_perl/5.5.5/LW* root@172.1.0.180:/usr/local/share/perl5
+软件包里面搜索Request，把带perl的全部装上
+软件包搜索perl-JSON，安装
+</p>
+
+
+<h2 id="toc_3.2">密码 </h2>
+<p>
+172.18.0.66	-Information
+172.17.2.67	lwTest
+</p>
+
+<h2 id="toc_3.3">数据库 </h2>
+
+<h3 id="toc_3.3.1">mysql数据库 </h3>
+<p>
+host：172.17.0.66
+user：iasystem
+passwd：-IaSystem-
+Database：iasystem
+</p>
+<h3 id="toc_3.3.2">ERP数据库 </h3>
+<p>
+1，志浩和梅双用的是同一个主机，不同的数据库
+host：172.17.0.187
+database：wisdompcb/wisdompcb_mzwz
+user：InPlan
+sqlpwd：BFF48F5AE684E
+</p>
+
+<h3 id="toc_3.3.3">公共盘账号密码 </h3>
+
+<table>
+<tr>
+<th>
+账号
+</th>
+<th>
+密码
+</th>
+</tr>
+<tr>
+<td>
+drill
+</td>
+<td>
+mzdrill
+</td>
+</tr>
+<tr>
+<td>
+outer
+</td>
+<td>
+mzouter
+</td>
+</tr>
+<tr>
+<td>
+outer
+</td>
+<td>
+mzouter
+</td>
+</tr>
+</table>
+ 
+ 
+<p>
+m0174 iasystem
+虚拟机cam公共账号：zhcam
+</p>
+
+<p>
+虚拟机账号：zh
+密码：-zhcam-
+</p>
+
+<h2 id="toc_3.4">文件路径 </h2>
+<h3 id="toc_3.4.1">rpm 包文件地址 </h3>
+
+<p>
+64位：
+iasystem:/netins/pack/x86_64/Server
+</p>
+
+<h3 id="toc_3.4.2">料号自动备份路径 </h3>
+<p>
+自动备份脚本:172.17.2.90(m17002090):/usr/local/backup/iasystem.pl
+备份的路径：/gen_db/workfile/odb.bk/ mount 172.17.0.66(pesvr):/pesvr/workfile/odb.bk
+			172.17.1.189:/eng/ms.odb.bak mount到/mnt/189/ms.odb.bak
+</p>
+			
+
+<h3 id="toc_3.4.3">删除料号自动备份路径 </h3>
+<p>
+备份到/genesis/backup/hour/bakjobs
+链接到/gen_db/gen_w2k/backup/hour/bakjobs mount到 172.17.0.66/space/gen_w2k/backup/hour/bakjobs
+日志/genesis/backup/hour/meishuang_deljob.txt
+</p>
+
+
+<h3 id="toc_3.4.4">数据库备份路径 </h3>
+<p>
+备份脚本pesvr-mz:/etc/cron.daily/AutoBackupMysql.sh
+备份路径pesvr-mz:/pesvr/backup/msqlBackup/
+		172.17.1.189:/eng/ mount到/mnt/189
+</p>
+
+<h3 id="toc_3.4.5">genesis脚本路径 </h3>
+<p>
+genesis主脚本位置:/genesis/sys/scripts/alex/IaSystemMain.csh -&gt; pesvr-mz:/space/app_gen/sys/scripts/alex/IaSystemMain.csh
+程序大部分地址：/genesis/sys/scripts/alex/bin
+lib库的地址：pesvr -&gt;/odb/.lib/
+</p>
+
+<h2 id="toc_3.5">计划任务 </h2>
+
+<h3 id="toc_3.5.1">删除时间久的料号 </h3>
+<p>
+m17002082/172.17.2.82:/delJob/autoExportJob.pl
+移动至咨询部：pesvr：/etc/cron.daily/movJob
+</p>
+
+<h3 id="toc_3.5.2">删除老料号 </h3>
+<p>
+/home/genesis/workfile/input/lw/deleteOld.pl
+</p>
+
+
+<h3 id="toc_3.5.3">临时钻锣ERP一建档自动删除 </h3>
+<p>
+/etc/cron.minutely/deleOldVer.sh  -&gt;  /etc/rc3.d/S99deleteOldVer -&gt; /usr/local/pesvr/AutoMoveFileFolowErp.pl
+</p>
+
+<h3 id="toc_3.5.4">自动邮件eq备份 </h3>
+<p>
+/usr/local/pesvr/eq…….pl
+</p>
+
+<h1 id="toc_4">资料扫描</h1>
+<p>
+/usr/local/pesvr/pesvr.pl
+</p>
+
+<h1 id="toc_5">临时钻锣自动移动到过期</h1>
+<p>
+/usr/local/pesvr/pg_
+/etc/cron.daily/rmspace
+</p>
+
+<h1 id="toc_6">自动删除前版本钻锣</h1>
+<p>
+/usr/local/pesvr/delete_drill.cron
+</p>
+
+
+
+<h2 id="toc_6.1">后补程序</h2>
+<p>
+update.pl计算
+SQL.pm后补
+</p>
+
+<p>
+如果判断为四靶的通孔，则用另外函数计算
+</p>
+
+<h2 id="toc_6.2">工艺边铺铜</h2>
+<p>
+ia_out
+</p>
+
+<p>
+out tao tong 外形线掏铜
+</p>
+
+
+<h2 id="toc_6.3">脚本笔记 </h2>
+
+<h1 id="toc_7">深圳转梅双</h1>
+<p>
+把料号下面的idb下面的所有料号的拥有者改为genesis
+</p>
+
+<h1 id="toc_8">志浩 </h1>
+<h2 id="toc_8.1">密码 </h2>
+<p>
+光绘房aoi机：sirob
+</p>
+
+<h2 id="toc_8.2">志浩装机 </h2>
+<ol>
+<li>
+安装显卡驱动。
+
+<li>
+新建genesis用户。
+
+<li>
+修改挂载
+
+<li>
+修改了netins/pack/.lib/IaCfg.pm文件
+	#cfg{host} = '192.168.6.254'
+	#cfg{host} = '172.17.1.98'
+
+<li>
+设置环境变量dbutil
+
+<li>
+把/etc/profile.d/ia.sh 复制过去
+
+<li>
+/usr/local/bin/com复制过去
+
+<li>
+com命令缺少libperl.so。从/usr/lib64/libperl.so复制。(查看关联ldd /usr/bin/com)
+
+</ol>
+<p>
+其他电脑复制
+</p>
+<ol>
+<li>
+组合件用不了 System-&gt;Preferences-&gt;keyboard-&gt;Layouts-&gt;Add-&gt;By language-&gt;选择chinese-&gt;删除掉原来的。重启电脑。
+
+<li>
+缺少Archive/Zip, System-Application-&gt;Add/Remove Software-&gt;搜索Archive-Zip
+
+<li>
+安装win7系统(关防火墙)，远程桌面：rdesktop -f -a 24 -x 0x80 -u zh -p "-zhcam-" -g 1440x800 192.168.122.88
+
+<li>
+System-&gt;Preference-&gt;Window-&gt;Select Window when mouse moves over them
+
+<li>
+scp /usr/bin/iReader root@cam98:/usr/bin/iReader
+
+</ol>
+
+<p>
+双面板输出字麦在外面
+2a3715
+</p>
+
+<h2 id="toc_8.3">志浩安装新电脑 </h2>
+<p>
+172.17.1.98
+</p>
+
+<p>
+g2k iasystem
+genesis -zhcam-
+</p>
+
+<p>
+172.17.3.72
+g2k
+iasystem
+</p>
+
+<h3 id="toc_8.3.1">GENESIS_DIR </h3>
+<p>
+172.17.3.18
+改环境变量：
+\\172.17.3.18\app_w2k\app_gen
+</p>
+
+<p>
+新建环境变量
+GENESIS_SHAREDIR
+\\172.17.3.72\g2k
+</p>
+<h3 id="toc_8.3.2">MI genesis路径 </h3>
+<p>
+脚本路径：\\172.17.3.18\app_w2k\app_gen\sys\hook
+</p>
+
+<h1 id="toc_9">VNC</h1>
+<p>
+172.17.1.98:2	iasystem	iasystem
+</p>
+
+<h1 id="toc_10">gnd位置</h1>
+
+<p>
+192.168.6.6		cam06
+</p>
+
+<h1 id="toc_11">脚本</h1>
+<p>
+iacheck	签名
+</p>
+
+<h2 id="toc_11.1">m3009</h2>
+<p>
+-zhcam-
+</p>
+
+<h2 id="toc_11.2">志浩服务器</h2>
+<p>
+cam1
+iasystem
+pesvr-zh
+pesvr-mz
+172.17.3.67(inplan)
+</p>
+
+<h2 id="toc_11.3">2014年之前的文件 </h2>
+<p>
+172.17.3.67
+	mount /dev/sda /zh_pesvr_bak/
+	/sbin/service nfs restart
+</p>
+
+<p>
+172.17.3.18
+	mount -t nfs 172.17.3.67:/zh_pesvr_bak /mnt/zh_pesvr_bak
+</p>
+
+<h2 id="toc_11.4">文件服务器密码 </h2>
+<p>
+fly.conf
+账号:fly	密码：zhfly
+</p>
+
+<p>
+账号:m1197  密码：zhme_sm(me_sm为组)
+m0174   组drlgerber 密码：iasystem
+</p>
+
+<p>
+aoi.conf
+账号：aoi 	密码:iasystem
+</p>
+
+<p>
+ss.conf
+ss	密码：ss
+</p>
+
+<p>
+drill
+zhdrill
+iasystem
+</p>
+
+<p>
+m017001197
+	m1063
+	iasystem
+</p>
+	
+<p>
+虚拟机共享的账号和密码
+zhcam
+iasystem
+</p>
+
+<h3 id="toc_11.4.1">rout，钻锣带 </h3>
+<p>
+m61227	
+iasystem
+</p>
+
+<h2 id="toc_11.5">Ftp服务器密码 </h2>
+<p>
+帐号：zhFtpServer
+密码：iasystem
+</p>
+
+<p>
+pesvr:/odb/app_gen
+</p>
+
+
+<h2 id="toc_11.6">测线图无法查看 </h2>
+<p>
+\\172.17.3.18\pesvr\3.MI文件备份\3.测线图\2.样板测线图
+</p>
+
+<h2 id="toc_11.7">志浩vnc </h2>
+<p>
+-zhcam-	iasystem
+</p>
+
+
+
+<h2 id="toc_11.8">文件服务器 </h2>
+<p>
+df -h  
+根目录已满 
+	1，查看/var/log/pesvr
+	2, 查看/space/Recycle
+</p>
+
+<p>
+	pesvr pesvr_archive.pl
+	root	delete_drill.cron
+	pesvr	eq_archive.pl
+	pesvr	pg_ver_control.pl
+	root	mi_archive
+	root	cxt_archive
+</p>
+	
+<h3 id="toc_11.8.1">自动删除log </h3>
+<p>
+/etc/cron.daily/rmCxtLog
+</p>
+
+<h2 id="toc_11.9">脚本 </h2>
+<p>
+172.17.1.98:/netins/pack/.lib
+F6:	cam1/172.17.3.72:/genesis/sys/scripts/alex/.IaSystemMain
+主要脚本：iasystem/172.18.1.98:/netins/pack/x86_64/VT/.report/bin
+</p>
+
+<p>
+.IaSystemMain-&gt;y:\sys\scripts\alex\bin\ia_box_* -&gt; bin/bin-lw
+</p>
+
+<h3 id="toc_11.9.1">aoi_tmp自动移动到aoi文件夹 </h3>
+<p>
+/etc/cron.iasystem/SetFilePermission.sh
+</p>
+
+<h3 id="toc_11.9.2">脚本功能笔记 </h3>
+<p>
+<a href="测线图.html">测线图</a>
+</p>
+
+<h4 id="toc_11.9.2.1">板边 </h4>
+<p>
+<a href="志浩板边.html">志浩板边</a>
+</p>
+
+<h4 id="toc_11.9.2.2">方法 </h4>
+
+<table>
+<tr>
+<th>
+功能
+</th>
+<th>
+方法
+</th>
+</tr>
+<tr>
+<td>
+检测是否含有周期
+</td>
+<td>
+CheckLayerHaveWeek
+</td>
+</tr>
+<tr>
+<td>
+添加无埋孔的镭射字麦
+</td>
+<td>
+addLaserZiMai
+</td>
+</tr>
+<tr>
+<td>
+添加埋孔树脂塞孔
+</td>
+<td>
+ia_mk_plug
+</td>
+</tr>
+</table>
+
+
+<h4 id="toc_11.9.2.3">钻孔输出 </h4>
+<h5 id="toc_11.9.2.3.1">输出钻带 </h5>
+<p>
+	更改字麦和输出文件名
+	\(out{x}	 \)out{word_type} $out{sword_type}
+	$list-&gt;bind()  选择层触发事件。
+</p>
+
+<p>
+	2444行：添加字麦  ia_manual_value 添加字麦
+	2886行：检测字麦
+	2844行：字麦的坐标
+	2508行：添加尾孔
+	2748行：ia_get_end_drill 获取尾孔的坐标 
+	2477：镭射字麦坐标
+	添加镭射定位孔  ia_output_laser_tr
+	ia_get_select_value 获取镭射定位孔坐标
+</p>
+	
+<p>
+	set machine name
+</p>
+
+<p>
+通孔双面板的字麦为3.175的孔
+	用T01的刀取钻字麦，如果为双面板T01为3.175。多层板为0.5
+	双面板多加一个0.5的刀，放在最后面。
+</p>
+	
+<h5 id="toc_11.9.2.3.2">如果选择二钻，自动选择二钻定位 </h5>
+<p>
+   if (\(select =~ /^(\dd)(-tr)?\)/) {
+		my \(d2 = \)1;
+		my @elements = $list-&gt;get(0, 'end');
+		for(my \(i = 0;\)i &lt; @elements;$i++)
+		{
+			if (\(elements[\)i] =~ /^\Q$d2\E/i)
+			{
+</p>
+<blockquote>
+\(list-&gt;selectionSet(\)i);
+</blockquote>
+<p>
+			}
+		}	
+</p>
+		
+<h5 id="toc_11.9.2.3.3">自动建立涨缩文件夹 </h5>
+<p>
+1,根据名字判断是否执行ia_mkdir函数。
+2,ia_mkdir  定位孔重命名和钻孔一样的文件夹$layer_tmp。
+</p>
+
+
+
+<h5 id="toc_11.9.2.3.4">后缀加上.c+c </h5>
+<p>
+镭射的目标层是内层。能量大可能会击穿。
+判断是否有电镀流程:GetIfDianDu();
+	获取到钻孔的目标层。如果目标层是内层板边。则没有电镀流程(次外层板边有电镀流程)。否则有电镀流程。
+	如果没电镀流程，后缀加上.c+c作为区分。
+</p>
+	
+
+<h5 id="toc_11.9.2.3.5">镭射添加定位孔 </h5>
+<p>
+ia_output_laser_tr
+之前先计算xray：ia_count_layer_xray
+</p>
+
+<p>
+<a href="ZHERP.html">ZHERP</a>
+</p>
+<h4 id="toc_11.9.2.4">checklist </h4>
+<p>
+iacheck-&gt;CheckLists.pm-&gt;IaSQL.pm
+</p>
+
+<p>
+@layers 获取检测层别
+</p>
+
+<p>
+checkItems  进入检测具体的项目
+</p>
+
+<p>
+1，在172.17.1.98里面添加检测项
+2，根据Sub新建函数
+</p>
+
+<h4 id="toc_11.9.2.5">后补靶距 </h4>
+<p>
+count_target.pl
+count_targetNew.pl
+后补到ERP靶距表  write_xray_7h()-&gt;writeERP()
+</p>
+
+<h4 id="toc_11.9.2.6">绘片 </h4>
+<p>
+Iasystemmain
+-&gt;perl /gen_db/netins/pack/x86_64/VT/.report/bin-lw/iChangeScale.pl
+-&gt;sys/scripts/lw/bin/ia_plot_main -&gt;bin-lw/plot.pl
+</p>
+
+<h2 id="toc_11.10">计划任务 </h2>
+<h3 id="toc_11.10.1">备份料号 </h3>
+<p>
+备份到cam1脚本:cam1:/usr/local/ibackup/iasystem.pl
+备份到cam1的路径:cam1://backup/odbback/odbbackup/odb/
+自动删除的料号的路径：cam1:/backup/odbback/DelJobBackup
+所有料号地址:172.17.3.72(cam1):/backup/odbback/odbbackup/odb/
+备份脚本:172.17.3.72(cam1):/etc/cron.daily/bakUpOdb_zh.csh
+备份的路径:172.17.1.189:/eng/zh.odb.bak mount到/mnt/189/zh.odb.bak
+备份的log:1, 172.17.3.72(cam1)/backup/odbback/odbbackup/odb/odbbackup_zh.log
+</p>
+<blockquote>
+2, 172.17.1.189:/eng/zh.odb.bak
+</blockquote>
+<p>
+每天删除超过一定时间的料号：cam06:/etc/cron.daily/delJob -&gt;/delJob/autoExportJob.pl
+</p>
+
+<p>
+备份到ERP
+	zh.odb.bak的自动备份
+</p>
+		  
+<h3 id="toc_11.10.2">备份表格 </h3>
+<p>
+每个小时自动备份工程项目状态表(工程精度表，塞孔铝片表， 订单失效表等) /etc/cron.hourly/ibackup
+</p>
+		  
+<h3 id="toc_11.10.3">回收资料 </h3>
+<p>
+自动删除LDI，网房资料，回收资料：/etc/cron.daily/DeleteDateNDaysAgo.pl | /etc/cron.daily/rmspace
+ERP新建料号自动回收旧版本：/etc/cron.iasystem/deleteOldVer.sh
+输出的时候自动回收旧版本：/etc/cron.iasystem/AutoMoveFileFolowErpWhenOutput.pl
+</p>
+
+<p>
+文件输出删除不合法料号：pesvr:/usr/local/pesvr/pesvr_archive.pl
+:659行，删除文件
+</p>
+
+<p>
+针对生产做旧版本型号时对次/外层LDI/喷墨机夹子内的文件时间延长15分钟后自动回收 /etc/crontab:
+	*/15 * * * * /usr/bin/perl /etc/cron.iasystem/AutoMoveFileFolowErpWhenoutPut.pl &gt;&amp; /dev/null
+删除相同版本的AOI资料: /etc/cron.hourly/delete_aoi.cron
+</p>
+
+<h3 id="toc_11.10.4">删除文字喷墨 </h3>
+<p>
+inkjet，样品：一个星期后自动删除，量产：二个星期后自动删除。三十天后
+pesvr:/etc/cron.daily/delete_silk.cron
+文字喷墨从/pesvr/workfile/inkjet里面删除到/pesvr/workfile/delete/gerber。一个月后删除。
+</p>
+		  
+<h3 id="toc_11.10.5">odb满删除料号 </h3>
+<p>
+自动删除料号：cam06/172.17.3.70:/etc/cron.daily/delJob
+自动移动料号(移动到咨询部) pesvr:/etc/cron.daily/movJob
+</p>
+
+<h2 id="toc_11.11">数据库 </h2>
+<p>
+志浩：172.17.1.98
+用户名：iasys
+密码：iasystem
+</p>
+
+<p>
+host：172.17.1.98
+端口：3306
+user：iasys
+passwd：iasystem
+</p>
+
+<p>
+host：172.17.3.68
+电脑账号：Administrator
+密码：-Information
+用户名：sa
+密码：M017003068
+</p>
+
+<p>
+数据库连接字符串 Data Source=172.17.3.68;Initial Catalog=ZH_DB;Persist Security Info=True;User ID=sa;Password=M017003068
+</p>
+		  
+<h2 id="toc_11.12">备份数据库</h2>
+<p>
+备份脚本:172.17.1.98(iasystem):/etc/cron.daily/AutoBackupMysql.sh
+备份路径：172.17.1.98(iasystem)：/backup/dataBase.bak
+		172.17.1.189:/eng/189/dataBase.zh.bak/
+备份log:
+</p>
+
+
+<h3 id="toc_11.12.1">ERP数据库</h3>
+<p>
+1，志浩和梅双用的是同一个主机，不同的数据库
+host：172.17.0.187
+database：wisdompcb/wisdompcb_mzwz
+user：InPlan
+sqlpwd：BFF48F5AE684E
+</p>
+
+<h1 id="toc_12">输出的资料</h1>
+<h2 id="toc_12.1">删除</h2>
+<p>
+文字喷墨每天清除样品大于一个星期，量产大于两个星期的料号
+删除的路径：172.17.3.18:/pesvr/workfile/delete/gerber
+每天删除172.17.3.18:/pesvr/workfile/delete/gerber大于一个月的料号
+</p>
+
+<h2 id="toc_12.2">模块</h2>
+<p>
+IaSQL：数据库的操作，mysql
+</p>
+
+<h2 id="toc_12.3">通孔后补</h2>
+<p>
+1，算左下，左上，右上，右下坐标
+2，算长方向，短方向等靶距
+3，后补靶距
+4，后补长方向，短方向，距离左边的距离
+</p>
+
+
+<p>
+/.report/bin/count_target.pl
+/.report/bin-lw/coungTongBaJu.pl
+</p>
+
+
+<h1 id="toc_13">panel菜单</h1>
+<p>
+/gen_db/genesis/sys/scripts/lw/bin/ia_box_panel
+</p>
+<h2 id="toc_13.1">输出</h2>
+
+
+<h2 id="toc_13.2">备份路径 </h2>
+
+
+
+<h2 id="toc_13.3">脚本权限管理 </h2>
+<ul>
+<li>
+板边：iPanel
+
+<li>
+绘片：iScale iChangeScale
+
+<li>
+后补靶距：iCountTarget
+
+<li>
+后补面积：iArea
+
+<li>
+输出LDI： outputWorkFile， outputAOI(输出LDI会自动带出AOI)
+
+<li>
+Checklist: iCheck   Soperator(签名)
+
+<li>
+锣带审核签名权限 sChecker sClear
+
+<li>
+设置检查人权限
+
+</ul>
+
+
+<h1 id="toc_14">处理加密过的excel </h1>
+<p>
+NAT 加上172.17.8.85
+</p>
+
+<p>
+把软件安装，设置地址信息为172.17.8.85/86,看服务器转数据包
+</p>
+
+
+
+<h1 id="toc_15">清除垃圾 </h1>
+<p>
+C:\WINDOWS\system32\config\systemprofile\Local Settings\Application Data\ESET\ESET NOD32 Antivirus\Quarantine
+</p>
+
+
+<h1 id="toc_16">Inplan </h1>
+<p>
+Ctrl+U 转换单位
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

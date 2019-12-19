@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>自动补铜桥</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+s107531t03a0
+通过削桥命令补铜桥，cover到原稿的就是需要补的铜桥
+</p>
+
+
+<p>
+DFM-&gt;Optimization-&gt;Solder Mask Opt   能削桥的条件，必须保证不开窗漏铜,pad大一点，补出来的铜桥长一点
+</p>
+
+<p>
+当前层删掉原来的铜桥
+在备份层选择
+1，选择铜皮拷贝到butong-cu
+3，没有碰到铜皮的pad(会掏铜皮的PAD),拷贝到butong-pad
+*4，孔层碰butong-all(剩余会掏铜皮的pad)，碰到的是需要补铜皮的孔(用孔去做铜桥，如果用pad，可能出现一个pad大，一个pad小，出现补的桥不再两个孔的正中间)
+5，pad加大掏铜大小，改变属性作为线路层
+6，加大30um，作为防焊放在线路层上面。butong-sm
+7，butong-pad 防焊优化，做出桥
+8，butong-sm 删除除了不是负片的东西，留下桥，转正极性，去除重复线
+9，除了cover到butong-cu的(原稿有铜皮的)，其余删除
+touch pad掏铜的大小，孔掏铜的大小(保证只有间距较小的才拷贝过去)，touch到的拷贝到对应的层
+10，把桥拷贝到对应的层
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

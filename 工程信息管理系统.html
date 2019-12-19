@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>工程信息管理系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">获取userID</a>
+</ul>
+<li><a href="#toc_1">NavBarItem</a>
+<ul>
+<li><a href="#toc_1.1">自定义控件Ctl.Pub.SqlTreeView.cs</a>
+<li><a href="#toc_1.2">lookUpEdit</a>
+<ul>
+<li><a href="#toc_1.2.1">表</a>
+</ul>
+<li><a href="#toc_1.3">配置sqlAutoPanel</a>
+<li><a href="#toc_1.4">配置sqlGridContorl</a>
+<ul>
+<li><a href="#toc_1.4.1">配置sqlGridContorl的com(Combobox)，LookUpEdit</a>
+<ul>
+<li><a href="#toc_1.4.1.1">设置datagridview</a>
+<li><a href="#toc_1.4.1.2">设置combobox</a>
+</ul>
+</ul>
+</ul>
+<li><a href="#toc_2">配置RibbonControl</a>
+<ul>
+<li><a href="#toc_2.0.1">如果字段的列名不对</a>
+</ul>
+<li><a href="#toc_2.1">导航父 [T_sys_FrmMsP] child</a>
+<li><a href="#toc_2.2">导航子Item [T_sys_FrmMsC] child</a>
+<li><a href="#toc_2.3">[T_sys_FrmUiGroupMod]</a>
+<li><a href="#toc_2.4">T_sys_UserListDepartment</a>
+<li><a href="#toc_2.5">用户控件</a>
+<li><a href="#toc_2.6">系统窗体-权限</a>
+</ul>
+<li><a href="#toc_3">问题 </a>
+<ul>
+<li><a href="#toc_3.1">找不到水晶报表 </a>
+</ul>
+</ul>
+</div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+
+<p>
+基本信息：
+	1，捞取genesis的数据同步。
+	2，结构确认。
+	3，填写基本参数(ERP同步)：全局参数，产品信息。
+</p>
+
+
+<h2 id="toc_0.1">获取userID</h2>
+<p>
+string userId = Config.GetConfigStr("UserNo");
+<a href="钻孔.html">钻孔</a>
+<a href="菲林.html">菲林</a>
+<a href="流程.html">流程</a>
+<a href="叠构.html">叠构</a>
+<a href="解压.html">解压</a>
+<a href="权限.html">权限</a>
+<a href="工具管理.html">工具管理</a>
+</p>
+
+<p>
+新建DevExpress v13.1 Template Gallery-&gt;选择Simple Ribbon UI Application 名字为UI
+</p>
+
+<p>
+在UI下面添加-&gt;新建项-》DevExpress v13.1 Template Gallery-&gt;选择xtraForm 创建一个login
+	把FormBorderStyle设为None
+</p>
+
+
+<p>
+在解决方案
+</p>
+
+<h1 id="toc_1">NavBarItem</h1>
+<p>
+动态添加NavBarItem
+Main-&gt;AutoLoad-&gt;Init-&gt;TreeviewInvoke
+</p>
+
+<p>
+在TreeviewInvoke点击项目后，调用另外一个窗口
+</p>
+
+<h2 id="toc_1.1">自定义控件Ctl.Pub.SqlTreeView.cs</h2>
+<p>
+1，右击，添加，新建项。用户控件。
+2，在工具箱里面拖一个TreeView
+3,把OptionsView设置成ShowColumns=False   不显示列名
+4，在TreeList小三角，单击TreeView，也就是TreeList任务里面，Run Designer可以添加列和设置属性，在小三角Nodes Editor里面可以编辑节点。
+5,自定义属性和方法等
+</p>
+
+<h2 id="toc_1.2">lookUpEdit</h2>
+<p>
+EditValue = 1001	Text = 集团
+</p>
+<blockquote>
+lookupedit.properties.valuemember = 实际要用的字段;   //相当于editvalue
+lookupedit.properties.displaymember =要显示的字段;    //相当于text
+lookupedit.properties.datasource = 数据源;
+</blockquote>
+
+
+
+<h3 id="toc_1.2.1">表</h3>
+<p>
+图形界面
+通过进来后T_sys_FrmMsP有父的Guid_, 通过父的Guid_，点击后T_sys_FrmMsC可以找到有哪些子的Guid_, 通过点击子的Guid_后可以通过[T_sys_FrmUiFormConfig]图形界面的配置找到对应的配置信息。从而找到UI(ui有另外的Guid_)的Guid_, 通过UI的Guid_获取其它控件或其它的Guid_
+</p>
+
+<p>
+T_sys_FrmMsP-&gt;T_sys_FrmMsC-&gt;[T_sys_FrmUi]-&gt;[T_sys_FrmUiFormConfig]
+</p>
+	
+<p>
+通过T_sys_FrmUiFormConfig(Guid_为[T_sys_FrmMsC]的Guid_,UIGuid_为[T_sys_FrmUi]的Guid_)把ui和Ms连接起来
+</p>
+
+<p>
+[T_sys_FrmUi] -&gt; [T_sys_FrmUiCTL] 容器表 -&gt;[T_sys_FrmUiCTL] 该容器里面的组表 -&gt;[T_sys_FrmUiGroupConfig]-&gt; [T_sys_FrmUiGroupMod] 组里面的modle
+</p>
+
+<p>
+T_sys_FrmUiCTL-&gt;T_sys_FrmUiGroupConfig
+</p>
+
+<p>
+[T_sys_FrmUiGroupMod]的guid_为 T_sys_FrmUiCTL的 CtlGuid
+</p>
+
+<p>
+[T_sys_FrmUiCmbConfig] 的Guid_为T_sys_FrmUiCTL的 CtlGuid
+</p>
+
+
+<h2 id="toc_1.3">配置sqlAutoPanel</h2>
+<p>
+[T_sys_FrmUiCTL]产生一个控件的Guid_(CTL的Guid_)(也就是sqlAutoPanel的Guid_),该表主要作用是把UI和sqlAutoPanel的guid连接起来
+-&gt;T_sys_FrmUiGroupConfig	sqlAutoPanel的参数设置
+-&gt;T_sys_FrmUiGroupMod	小控件(text combox等)
+</p>
+
+<h2 id="toc_1.4">配置sqlGridContorl</h2>
+<p>
+1，[T_sys_FrmUiCTL] 添加个容器Guid_(界面里面的Guid_),
+2,添加Guid_到 T_sys_FrmUiDgvConfig
+3，[T_sys_FrmUiDgvConfig] 在datagridview里面把上面的容器Guid_添加上去
+4，添加列(字段)[T_sys_FrmUiDgvColumnConfig]
+5，要自动加载
+6, 如果要可编辑，this.sqlGridControl1.View_.OptionsBehavior.Editable = true;
+</p>
+
+<h3 id="toc_1.4.1">配置sqlGridContorl的com(Combobox)，LookUpEdit</h3>
+<h4 id="toc_1.4.1.1" class="justcenter">设置datagridview</h4>
+<p>
+	1，[T_sys_FrmUiDgvColumnConfig]的ColumnType字段改为LookUpEdit
+	2，[T_sys_FrmUiDgvColumnConfig]的IsReadOnly改为False
+</p>
+<h4 id="toc_1.4.1.2" class="justcenter">设置combobox</h4>
+<p>
+	3，T_sys_FrmUiDgvCmbConfig 查出列表和combox显示的属性
+</p>
+	
+<h1 id="toc_2">配置RibbonControl</h1>
+<p>
+[T_sys_FrmUiPageConfig]
+</p>
+
+<p>
+SqlRibbonControl.Load-&gt;获取GetRibbonPageList
+SqlRibbonPageControl.Load-&gt;获取GetRibbonPageGroupList
+SqlRibbonPageGroupControl.Load-&gt;获取GetRibbonPageItemList(ItemList 里面有btn txt dateEdot checkEdit cboEdit等)
+</p>
+
+<p>
+界面里面通过SqlRibbonControl，类里面SqlRibbonPageControl-&gt;SqlRibbonPageGroupControl-&gt;Items(button, text)
+</p>
+
+<p>
+SqlRibbonControl里面有SqlRibbonPageControl对象的方法
+SqlRibbonPageControl里面有SqlRibbonPageGroupControl对象的方法(里面获取ItemList)
+</p>
+
+
+<h3 id="toc_2.0.1">如果字段的列名不对</h3>
+<p>
+1，是否调用Auto.load
+2,	数据库里面是否配置好字段名、
+3，是否Guid_和数据库里面的匹配
+</p>
+<h2 id="toc_2.1">导航父 [T_sys_FrmMsP] child</h2>
+<p>
+有订单管理模块，系统管理模块，工具管理模块，公用模块
+</p>
+<h2 id="toc_2.2">导航子Item [T_sys_FrmMsC] child</h2>
+<p>
+在系统管理等里面的子模块，包括权限管理等
+</p>
+
+<h2 id="toc_2.3">[T_sys_FrmUiGroupMod]</h2>
+<p>
+图形界面组的模式的项目 系统管理，权限管理
+</p>
+
+<h2 id="toc_2.4">T_sys_UserListDepartment</h2>
+<p>
+部门/小组列表
+</p>
+
+<p>
+[T_sys_FrmUi] UI主配置文件
+</p>
+
+<p>
+[T_sys_FrmUiCTL] UI 自配置文件	
+	通过CTL的Guid_获取DgvColumnConfig
+</p>
+
+<p>
+[T_sys_FrmUiDgvColumnConfig] dataGridView 的列配置
+</p>
+
+
+<p>
+[T_ppe_MakeModuleNo]料号表
+</p>
+
+
+
+<h2 id="toc_2.5">用户控件</h2>
+<p>
+SqlAutoPanel：负责获取需要添加的用户控件，添加控件
+</p>
+
+<h2 id="toc_2.6">系统窗体-权限</h2>
+<p>
+在权限窗体加载时候执行初始化窗体(包括SqlAutoPanel等窗体的加载)
+</p>
+
+
+<p>
+	84031
+	49732 
+</p>
+	
+<h1 id="toc_3">问题 </h1>
+<h2 id="toc_3.1">找不到水晶报表 </h2>
+<p>
+找不到水晶报表。可以在工具-&gt;NuGet包管理器-》管理解决方案的NuGet程序包里面搜索
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>工程系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+172.16.0.8
+</p>
+<h2 id="toc_0.1">框架</h2>
+<p>
+1，处理程序更新
+2，在配置文件里面获取所有的语言
+	对语言进行拆分
+	清除combobox项目
+	添加配置里面的语言到combobox里面
+3，
+</p>
+
+<p>
+工程设计
+报价信息
+</p>
+
+<p>
+保存到config
+</p>
+
+
+
+<p>
+订单流
+<a href="901.html">901</a>
+<a href="派单.html">派单</a>
+</p>
+
+
+<p>
+[V_Sys_User]
+CID
+2
+</p>
+
+
+
+<p>
+T_WF_OrderMainInfo   workflow流程主要信息Guid4Order_ 的外键 T_ppe_MakeModuleNo的列Guid_
+</p>
+
+
+<p>
+[T_sys_UserListDepartment] 
+集团
+东莞五株
+东莞FPC
+深圳五株
+梅州五株
+梅州志浩
+无部门
+</p>
+
+<p>
+T_sys_UserListPost
+系统管理员
+主管
+经理
+MI
+CAM
+技术
+销售
+QAE
+工程全套
+用户权限分配
+</p>
+
+
+<p>
+GroupC          GroupP			GroupS  post
+系统开发       	集团工程		4G组
+MI				HDI工程部		系统组
+MI				深圳工程部		外单组
+MI				梅州工程部
+MI
+MI
+CAM
+CAM
+CAM
+CAM
+CAM
+FILM
+FILM
+FILM
+FILM
+FILM
+PG
+PG
+PG
+PG
+PG
+</p>
+
+
+<p>
+显示必须字段对应[T_sys_FrmUiDgvColumnConfig]
+</p>
+
+
+<h1 id="toc_1">表</h1>
+<p>
+T_sys_User	用户表
+T_ppe_MakeModuleNo	料号信息表
+T_WF_OrderMainInfo MI派单的主要信息
+[T_sys_FrmBtn] 查询等按钮表
+[T_sys_FrmMsP] 主界面左上：工程设计，公用模块，系统管理
+[T_Pub_StackInfo] 料号信息，完成铜厚等
+[T_ppe_MakeTechDrillParameter] 钻孔流程参数，MI从genesis导入钻带信息
+[T_ppe_MakeTechDrillToolDiameter] 钻孔的刀T01等  Guid为T_ppe_MakeTechDrillParameter的guid
+</p>
+
+<h2 id="toc_1.1">钻孔</h2>
+<p>
+[T_ppe_MakeTechDrill4PNLInfo]	 钻孔基本信息表
+[T_ppe_MakeTechDrill4PNLParameter]	钻孔钻带信息表(从genesis中捞出来的钻带)
+[T_ppe_MakeTechDrill4PNLToolDiameter]	生产尺寸的钻咀信息表(相同的钻咀已经合并)
+[T_ppe_MakeTechDrill4PNLToolDiameterComb] 这个是补偿以后还没合并的钻孔
+[T_ppe_MakeTechDrill4PNLParameter]	钻带信息表，包括了最小孔铜，平均孔铜等(界面中显示的)
+[T_ppe_MakeTechDrillToolDiameter] 成品尺寸钻带信息表
+[T_mtr_DrillTol]	客户公差表
+[T_mtr_DrillCompensationModel]	钻孔补偿表
+[T_mtr_DrillBoardSideTool] 工艺边及板边工具孔表
+</p>
+
+
+
+
+
+<p>
+FrmUi 大块
+FrmUiCTL	小块
+FrmUiGroupMod	
+</p>
+
+<p>
+T_sys_FrmUiGroupMod  最小单元 ，公用模块-&gt;叠层阻抗-&gt;基本参数信息-&gt;产品编号
+T_sys_FrmUiGroupConfig  小框架，公用模块-&gt;叠层阻抗-&gt;基本参数信息
+T_sys_FrmUiFormConfig，框架配置，公用模块-&gt;叠层阻抗
+</p>
+
+<p>
+T_sys_FrmUi		工程模块-MI派单 (UI主模块)，的Guid
+T_sys_FrmUiCTL	 工程模块-MI派单-订单信息表  工程模块-MI派单-制作人员信息表
+[T_sys_FrmUiGroupMod] 一个个控件
+[T_sys_FrmUiDgvColumnConfig]  MI设计-&gt;MI制作-&gt;左上的本厂编码和客户型号等信息和Guid_和配置等。把IsFroZen改成false(是否扩展)
+</p>
+
+
+<p>
+[T_sys_FrmUiCmbConfig]   Combobox的配置
+[T_ppe_TechFlowItemList]  流程项目
+[T_Pub_DataClassType]  数据类型
+[T_Pub_DataClassList]   数据类型值列表  阻焊油墨颜色白色
+</p>
+
+<p>
+[T_ppe_MakeCheckList]   指示检查表
+[T_ppe_MakeCheckMarkID] 指示检查结果
+</p>
+
+<p>
+工具回收
+[T_pub_ppeEcnToolMain] ECN工具回收主表
+[T_Pub_ppeEcnToolContentMod] ECN工具回收内容MOd
+[T_Pub_ppeEcnToolDepMod] ECN工具部门Mod
+</p>
+
+<p>
+视图
+V_WF4Order 	MI订单状态，一次EQ，由表T_ppe_MakeModuleNo和表T_WF_OrderMainInfo组成
+V_Ppe_MiOrderInfo4ERP ERP的MI订单信息
+</p>
+
+
+
+
+<p>
+存储过程
+P_WF_MIDispatchGetCheckMsg	派单检查
+</p>
+
+<p>
+变量
+@PnPdctno
+@PnGuid 工号ID(传递过去的ID) 与Guid4Order_匹配
+@PnUsNo 用户
+@Pdctno_  料号名
+</p>
+
+
+<h2 id="toc_1.2">[P_GS_PpeMakeGetDrillInfo]</h2>
+<p>
+PnGuid_ 料号信息表的guid
+</p>
+
+<h2 id="toc_1.3">执行genesis脚本</h2>
+<p>
+#钻孔导入
+D:/Codes/EMS/UI/bin/Release/EMS.dll,env1=Auto_flows=DrillInput,env2=AreaID=1,env3=JOB=tm46631a0,env4=PAR=801044
+</p>
+
+<h2 id="toc_1.4">图形界面</h2>
+<p>
+UI-&gt;Forms
+</p>
+
+<p>
+钻孔编辑
+	FrmPub-&gt;Frm_Pub_Drill.vb
+</p>
+	
+<p>
+主界面
+	Frm_Main.vb		
+		Frm_main_Load,
+			mode.cstminame = "tsmi_ppeMakeInfo"
+			mode.gui4tsmi=864b19bd-a720-4860-93af-7371a730372f}
+</p>
+
+<p>
+config = appUpdate.exe
+config = appUpdate.dll
+</p>
+
+<h2 id="toc_1.5">函数</h2>
+<p>
+获取能看见的主模块(上面)：工程设计，公用模块，系统管理
+</p>
+
+<p>
+GetUsMsPAccess
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

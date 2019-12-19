@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>组态接口</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">访问方式 WebAPI </a>
+<li><a href="#toc_2">获取设备信息 </a>
+<ul>
+<li><a href="#toc_2.1">获取所有设备名称集合 </a>
+<li><a href="#toc_2.2">获取当前所有设备的状态集合 </a>
+<li><a href="#toc_2.3">获取指定设备的状态 </a>
+</ul>
+<li><a href="#toc_3">获取点(地址)信息 </a>
+<ul>
+<li><a href="#toc_3.1">获取所有设备的点(地址)及对应值 </a>
+<li><a href="#toc_3.2">获取指定设备点(地址)列表 </a>
+<li><a href="#toc_3.3">获取设备数点数的使用情况 </a>
+<li><a href="#toc_3.4">获取指定设备每个点(地址)的详细信息 </a>
+<li><a href="#toc_3.5">获取指定设备点(地址)的值 </a>
+</ul>
+</ul>
+</div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+
+<h1 id="toc_1">访问方式 WebAPI </h1>
+<p>
+如获取设备名：<a href="http://192.168.0.1:9000//api/DataExchange/GetDeviceName">http://192.168.0.1:9000//api/DataExchange/GetDeviceName</a>
+</p>
+
+<h1 id="toc_2">获取设备信息 </h1>
+<h2 id="toc_2.1">获取所有设备名称集合 </h2>
+<p>
+{"Reason": "OK",  "ResultCode": "1",  "Result": [    "设备0",    "设备1"  ]}
+</p>
+
+<h2 id="toc_2.2">获取当前所有设备的状态集合 </h2>
+<p>
+"{  "Reason": "OK",  "ResultCode": "1",  "Result": [{ "Key": "设备0", "Value": 0 }, {  "Key": "设备1", "Value": 0 } ]}"
+</p>
+
+
+<h2 id="toc_2.3">获取指定设备的状态 </h2>
+<p>
+"{"Reason": "OK",  "ResultCode": "1",  "Result": {    "Name": "内层棕化",    "Status": 0  }}"
+</p>
+
+<h1 id="toc_3">获取点(地址)信息 </h1>
+<h2 id="toc_3.1">获取所有设备的点(地址)及对应值 </h2>
+<p>
+"{"Reason": "OK",  "ResultCode": "1",  "Result": [{ "DeviceName": "内层棕化",      "listAddressValue": [        {          "AddressName": "生产当前状态",          "AddressValue": 3        },        {          "AddressName": "停机时间",          "AddressValue": 20        },        {          "AddressName": "出板数量统计",          "AddressValue": 5565        },        {          "AddressName": "入板数量统计",          "AddressValue": 5726        },        {          "AddressName": "长mm",          "AddressValue": 0        },        {          "AddressName": "宽mm",          "AddressValue": 0        },        {          "AddressName": "面积inch2",          "AddressValue": 33        },        {          "AddressName": "今天已耗电量",          "AddressValue": 9920        },        {          "AddressName": "月平均耗电量",          "AddressValue": 0        },        {          "AddressName": "总耗电量",          "AddressValue": 12800        },        {          "AddressName": "今天已耗市水量",          "AddressValue": 0        },        {          "AddressName": "月平均耗市水量",          "AddressValue": 0        },        {          "AddressName": "总耗市水量",          "AddressValue": 0        },        {          "AddressName": "酸洗面积添加PV",          "AddressValue": 12765        },        {          "AddressName": "除油面积添加SV",          "AddressValue": 0        },        {          "AddressName": "除油间隔面积PV",          "AddressValue": 3663        },        {          "AddressName": "预浸面积添加SV",          "AddressValue": 0        },        {          "AddressName": "预浸面积添加PV",          "AddressValue": 3663        },        {          "AddressName": "棕化面积添加SV",          "AddressValue": 0        },        {          "AddressName": "棕化面积添加PV",          "AddressValue": 3663        },        {          "AddressName": "酸洗SV",          "AddressValue": 351        },        {          "AddressName": "除油PV",          "AddressValue": 493        },        {          "AddressName": "当前传送速度",          "AddressValue": 0        },        {          "AddressName": "除油SV",          "AddressValue": 501        },        {          "AddressName": "预浸PV",          "AddressValue": 352        },        {          "AddressName": "预浸SV",          "AddressValue": 354        },        {          "AddressName": "棕化1PV",          "AddressValue": 358        },        {          "AddressName": "棕化1SV",          "AddressValue": 359        },        {          "AddressName": "棕化2PV",          "AddressValue": 354        },        {          "AddressName": "棕化2SV",          "AddressValue": 355        },        {          "AddressName": "热风1PV",          "AddressValue": 849        },        {          "AddressName": "热风1SV",          "AddressValue": 850        },        {          "AddressName": "热风2PV",          "AddressValue": 851        },        {          "AddressName": "热风2SV",          "AddressValue": 850        },        {          "AddressName": "热风3PV",          "AddressValue": 852        },        {          "AddressName": "热风3SV",          "AddressValue": 0        }      ]    },    {      "DeviceName": "设备0",      "listAddressValue": [        {          "AddressName": "地址",          "AddressValue": 96        },        {          "AddressName": "地址1",          "AddressValue": 96        },        {          "AddressName": "地址2",          "AddressValue": 96        },        {          "AddressName": "地址3",          "AddressValue": 96        }      ]    }  ]}"
+</p>
+
+<h2 id="toc_3.2">获取指定设备点(地址)列表 </h2>
+<p>
+"{ "Reason": "OK",  "ResultCode": "1",  "Result": [    "点名",    "点名1",    "点名2",    "点名3"  ]}"
+</p>
+
+
+<h2 id="toc_3.3">获取设备数点数的使用情况 </h2>
+<p>
+"{ "Reason": "OK",  "ResultCode": "1",  "Result": {    "DeviceUsedCount": 2,    "DeviceMaxCount": 50,    "AddressUsedCount": 40,    "AddressMaxCount": 2000  }}"
+</p>
+
+<h2 id="toc_3.4">获取指定设备每个点(地址)的详细信息 </h2>
+<p>
+"{g  "Reason": "OK",  "ResultCode": "1",  "Result": [    {      "Address": "Increase:0/DWORD",      "ReadWriteType": 0,      "Description": null    },    {      "Address": "Increase:1/DWORD",      "ReadWriteType": 0,      "Description": null    },    {      "Address": "Increase:2/DWORD",      "ReadWriteType": 0,      "Description": null    },    {      "Address": "Increase:3/DWORD",      "ReadWriteType": 0,      "Description": null    }  ]}"
+</p>
+
+<h2 id="toc_3.5">获取指定设备点(地址)的值 </h2>
+<p>
+"{ "Reason": "OK",  "ResultCode": "1",  "Result":"10"}"
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

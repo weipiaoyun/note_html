@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>var</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<p>
+/usr文件系统 
+　　/usr 文件系统经常很大，因为所有程序安装在这里. /usr 里的所有文件一般来自Linux distribution；本地安装的程序和其他东西在/usr/local 下.这样可能在升级新版系统或新distribution时无须重新安装全部程序. 
+</p>
+
+<p>
+/usr/X11R6   
+　　X Window系统的所有文件.为简化X的开发和安装，X的文件没有集成到系统中. X自己在/usr/X11R6 下类似/usr .  
+</p>
+
+<p>
+/usr/X386   
+　　类似/usr/X11R6 ，但是给X11 Release 5的.  
+</p>
+
+<p>
+/usr/bin   
+　　几乎所有用户命令.有些命令在/bin 或/usr/local/bin 中. 
+</p>
+
+<p>
+/usr/sbin   
+　　根文件系统不必要的系统管理命令，例如多数服务程序.  
+</p>
+
+<p>
+/usr/man , /usr/info , /usr/doc   
+　　手册页、GNU信息文档和各种其他文档文件.  
+</p>
+
+<p>
+/usr/include   
+　　C编程语言的头文件.为了一致性这实际上应该在/usr/lib 下，但传统上支持这个名字. 
+</p>
+
+<p>
+/usr/lib   
+　　程序或子系统的不变的数据文件，包括一些site-wide配置文件.名字lib来源于库(library); 编程的原始库存在/usr/lib 里.  
+</p>
+
+<p>
+/usr/local   
+　　本地安装的软件和其他文件放在这里.  
+</p>
+
+<p>
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+</p>
+
+<p>
+/var文件系统 
+　　/var 包括系统一般运行时要改变的数据.每个系统是特定的，即不通过网络与其他计算机共享.  
+</p>
+
+<p>
+/var/catman   
+　　当要求格式化时的man页的cache.man页的源文件一般存在/usr/man/man* 中；有些man页可能有预格式化的版本，存在/usr/man/cat* 中.而其他的man页在第一次看时需要格式化，格式化完的版本存在/var/man 中，这样其他人再看相同的页时就无须等待格式化了. (/var/catman 经常被清除，就象清除临时目录一样.)  
+</p>
+
+<p>
+/var/lib   
+　　系统正常运行时要改变的文件.  
+</p>
+
+<p>
+/var/local   
+　　/usr/local 中安装的程序的可变数据(即系统管理员安装的程序).注意，如果必要，即使本地安装的程序也会使用其他/var 目录，例如/var/lock .  
+</p>
+
+<p>
+/var/lock   
+　　锁定文件.许多程序遵循在/var/lock 中产生一个锁定文件的约定，以支持他们正在使用某个特定的设备或文件.其他程序注意到这个锁定文件，将不试图使用这个设备或文件.  
+</p>
+
+<p>
+/var/log   
+　　各种程序的Log文件，特别是login  (/var/log/wtmp log所有到系统的登录和注销) 和syslog (/var/log/messages 里存储所有核心和系统程序信息. /var/log 里的文件经常不确定地增长，应该定期清除.  
+</p>
+
+<p>
+/var/run   
+　　保存到下次引导前有效的关于系统的信息文件.例如， /var/run/utmp 包含当前登录的用户的信息. 
+</p>
+
+<p>
+/var/spool   
+　　mail, news, 打印队列和其他队列工作的目录.每个不同的spool在/var/spool 下有自己的子目录，例如，用户的邮箱在/var/spool/mail 中.  
+</p>
+
+<p>
+/var/tmp   
+　　比/tmp 允许的大或需要存在较长时间的临时文件. (虽然系统管理员可能不允许/var/tmp 有很旧的文件.)  
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

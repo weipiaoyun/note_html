@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>七层模型and网络数据包</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">解释七层模型 </a>
+</ul>
+</div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+
+<h1 id="toc_1">解释七层模型 </h1>
+<p>
+<a href="https://www.zhihu.com/question/24002080/answer/150830722">https://www.zhihu.com/question/24002080/answer/150830722</a>
+</p>
+
+<p>
+网络体系结构分为七层
+</p>
+
+<p>
+ |
+ |			应用层
+ |			表示层
+ |			会话层
+ |			传输层
+ |			网络层
+ |			数据链路曾
+ |			物理层：
+</p>
+
+
+<table>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+---+---+---+---+---
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+
+<table>
+<tr>
+<td>
+层高
+</td>
+<td>
+作用
+</td>
+<td>
+具体
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+------------+----------------------------+-----------------------------------------------------------------------------------------------------------------------+---+---
+</td>
+</tr>
+<tr>
+<td>
+应用层
+</td>
+<td>
+为应用程序提供服务
+</td>
+<td>
+提供应用软件使用的各种网络协议，如http，ftp，邮箱的pop3协议
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+表示层
+</td>
+<td>
+数据格式转化，数据加密
+</td>
+<td>
+决定数据的展现（编码）形式，如同一部电影可以采样、量化、编码为RMVB、AVI，一张图片能够是JPEG、BMP、PNG等。(供多种功能用于应用层数据编码和转化,以确保以一个系统应用层发送的信息 可以被另一个系统应用层识别;可以理解为：解决不同系统之间的通信，eg：Linux下的QQ和Windows下的QQ可以通信；规定数据的传输协议；)
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+会话层
+</td>
+<td>
+建立，管理和维护会话(管理会话开始，会话暂停确认，会话终止)
+</td>
+<td>
+为两端通信实体建立连接（会话），中间有认证鉴权以及检查点记录（供会话意外中断的时候可以继续，类似断点续传）。
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+传输层
+</td>
+<td>
+建立，管理和维护端到端连接
+</td>
+<td>
+数据/文件分成小段，标记顺序，标记应用程序使用的端口号及提供QOS（同样的应用程序需要使用一样的端口号才能正常通信）
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+网络层
+</td>
+<td>
+IP地址及路由选择(TCP/IP协议)
+</td>
+<td>
+路由选路，选择本次通信使用的协议（http、ftp等），网络层(IP)负责两个主机间的通信，用IP地址区分主机。（IP地址在这一层）
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+数据链路曾
+</td>
+<td>
+提供介质访问和路由管理(决定如何分包)
+</td>
+<td>
+决定如何分包
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+物理层
+</td>
+<td>
+物理层
+</td>
+<td>
+0和1电流脉冲信号或者是其他传输信号
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+<p>
+传输层(TCP和UDP)处理两个进程间(可以是在同一台机器中的两个进程，也可以是不同主机中的两个进程）的通信，用端口号区分进程。两者合起来就是，
+用 IP地址+传输层协议(TCP或IP)+端口号 来区分与谁进行通信。
+</p>
+
+<p>
+<a href="套接字.html">套接字</a>
+</p>
+
+
+<p>
+  从上图中可以看出，应用程序在应用层运行，在传输层，在数据前加上了TCP头，在
+</p>
+
+<p>
+网络层加上的IP头，在数据链路层加上了帧。
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

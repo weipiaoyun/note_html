@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>硬件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+主存(内存)不足用swap(磁盘里的内存置换空间)，
+</p>
+
+<p>
+硬盘第一分区是麻痹啊(MBR)和分割表，占用空间分别是446和64
+MBR开机管理程序，bootloader的地方，存储器。
+64空间分割表，里面16乘4 64，16两字节，分为开始和结尾，所以只能记4个。
+最多四个主分区，
+一磁盘，64分割区间存在分割表，可以指向主空间和另一延伸分割表，延伸分割表(注意只有一个)再指向其它逻辑空间(可以多个，多少看操作系统)。
+前四个被主分区所占用，就算没有也要用，若有逻辑必从5起(从5开始是逻辑分区)
+能是格式化的只能是主分割和逻辑分割，延伸分割只是表，不格式。
+</p>
+
+<p>
+若硬盘的第一扇区坏了，想想，表都放不了了，开机怎么查。报废了。
+</p>
+
+<p>
+都说操作系统管理资源，怎么管理，呵呵，优先级。资源分配。
+</p>
+
+<p>
+硬件怎么管理，用信号，用中断。
+</p>
+
+<p>
+两陀屎，CMOS(硬屎)空间，BIOS(软屎)检查员
+CMOS是存储器，嵌在主板上，存的是硬件参数。
+BIOS是韧体，也就是一个程序，计算机一启动就是执行BIOS。
+</p>
+
+<p>
+开机后BIOS会寻找硬盘。读取硬盘的第一个分区的麻痹啊空间。麻痹啊里面有最基本的开机管理程序boot loader和磁盘分区表(所谓的硬盘分区就是指磁盘分区表的修改)。寻到麻痹啊后，BIOS结束任务。
+MBR的任务是加载核心档案。
+</p>
+
+<p>
+bootloader的任务：1，提供选单，多重引导功能。2，载入哪个操作系统。3，转给其它bootloader(除了MBR能存外，每个分割槽都分配了启动扇区)
+	loader只会认识本分割槽的核心档案和其他loader。
+核心档案就是操作系统软件
+</p>
+
+<p>
+为什么先装window再装linux，因为windows流氓，会覆盖原来的MBR，然后没有选择。linux可以把bootloader放在其他地方，而不是MBR，linux的bootloader又可多重引导。
+</p>
+
+
+<p>
+一条树，根目录，挂载点是目录
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

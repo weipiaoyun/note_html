@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>别人的笔记</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<blockquote>
+NVIC例程程序
+</blockquote>
+
+<p>
+/* Includes ------------------------------------------------------------------*/
+#include "stm32f10x_lib.h"
+</p>
+
+<p>
+NVIC_InitTypeDef NVIC_InitStructure;
+GPIO_InitTypeDef GPIO_InitStructure;
+EXTI_InitTypeDef EXTI_InitStructure;
+bool PreemptionOccured = FALSE; 
+u8 PreemptionPriorityValue = 0; 
+ErrorStatus HSEStartUpStatus;
+</p>
+  
+<p>
+/* Private function prototypes -----------------------------------------------*/
+void RCC_Configuration(void);
+void GPIO_Configuration(void);
+void EXTI_Configuration(void);
+void Delay(vu32 nCount);
+</p>
+  
+<p>
+/* Private functions ---------------------------------------------------------*/
+</p>
+
+<p>
+int main(void)
+{
+#ifdef DEBUG
+  debug();
+#endif
+</p>
+  
+<p>
+  /* Configure the system clocks */
+  RCC_Configuration();
+</p>
+
+<p>
+  /* Configure GPIOs */
+  GPIO_Configuration();
+</p>
+
+<p>
+  /* Configures the EXTI Lines */
+  EXTI_Configuration();
+</p>
+       
+<p>
+#ifdef  VECT_TAB_RAM  
+  /* Set the Vector Table base location at 0x20000000 */ 
+  NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x0); 
+#else  /* VECT_TAB_FLASH  */
+  /* Set the Vector Table base location at 0x08000000 */ 
+  NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x0);   
+#endif
+</p>
+
+<p>
+  /* Configure one bit for preemption priority */
+  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);  //先占优先级分组为1
+</p>
+  
+<p>
+  /* Enable the EXTI0 Interrupt */
+  NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQChannel;// 外部中断线0中断
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = PreemptionPriorityValue;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&amp;NVIC_InitStructure);
+</p>
+  
+<p>
+  /* Enable the EXTI9_5 Interrupt */
+  NVIC_InitStructure.NVIC_IRQChannel = EXTI9_5_IRQChannel;
+  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_Init(&amp;NVIC_InitStructure);
+</p>
+  
+<p>
+  /* Configure the SysTick Handler Priority: Preemption priority and subpriority */
+  NVIC_SystemHandlerPriorityConfig(SystemHandler_SysTick, !PreemptionPriorityValue, 0);
+</p>
+  
+<p>
+  while (1)
+  {
+</p>
+<blockquote>
+if(PreemptionOccured != FALSE)
+{
+GPIO_WriteBit(GPIOC, GPIO_Pin_6, (BitAction)(1 - GPIO_ReadOutputDataBit(GPIOC, GPIO_Pin_6)));
+Delay(0x5FFFF);
+GPIO_WriteBit(GPIOC, GPIO_Pin_7, (BitAction)(1 - GPIO_ReadOutputDataBit(GPIOC, GPIO_Pin_7)));
+Delay(0x5FFFF);
+GPIO_WriteBit(GPIOC, GPIO_Pin_8, (BitAction)(1 - GPIO_ReadOutputDataBit(GPIOC, GPIO_Pin_8)));
+Delay(0x5FFFF);
+GPIO_WriteBit(GPIOC, GPIO_Pin_9, (BitAction)(1 - GPIO_ReadOutputDataBit(GPIOC, GPIO_Pin_9)));
+Delay(0x5FFFF); 
+}
+</blockquote>
+<p>
+  }	 //GPIO_WriteBit(GPIO_TypeDef* GPIOx, u16 GPIO_Pin, BitAction BitVal)设置或者清除指定的数据端口位
+}
+</p>
+
+<p>
+void RCC_Configuration(void)
+{
+  /* RCC system reset(for debug purpose) */
+  RCC_DeInit();
+</p>
+
+<p>
+  /* Enable HSE */
+  RCC_HSEConfig(RCC_HSE_ON);
+</p>
+
+<p>
+  /* Wait till HSE is ready */
+  HSEStartUpStatus = RCC_WaitForHSEStartUp();
+</p>
+
+<p>
+  if(HSEStartUpStatus == SUCCESS)
+  {
+</p>
+<blockquote>
+/* HCLK = SYSCLK */
+RCC_HCLKConfig(RCC_SYSCLK_Div1); 
+</blockquote>
+<blockquote>
+/* PCLK2 = HCLK */
+RCC_PCLK2Config(RCC_HCLK_Div1); 
+</blockquote>
+<blockquote>
+/* PCLK1 = HCLK/2 */
+RCC_PCLK1Config(RCC_HCLK_Div2);
+</blockquote>
+<blockquote>
+/* Flash 2 wait state */
+FLASH_SetLatency(FLASH_Latency_2);	//FLASH_Latency用来设置FLASH存储器延时时钟周期数2
+/* Enable Prefetch Buffer */
+FLASH_PrefetchBufferCmd(FLASH_PrefetchBuffer_Enable); //使能或者失能预取指缓存
+</blockquote>
+<blockquote>
+/* PLLCLK = 8MHz * 9 = 72 MHz */   //PLL的输入时钟 = HSE时钟频率,
+RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul_9);
+</blockquote>
+<blockquote>
+/* Enable PLL */ 
+RCC_PLLCmd(ENABLE);
+</blockquote>
+<blockquote>
+/* Wait till PLL is ready */
+while(RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
+{
+} //当设置完成时，RCC_FLAG_PLLRDY返回SET(1)
+</blockquote>
+<blockquote>
+/* Select PLL as system clock source */
+RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+</blockquote>
+<blockquote>
+/* Wait till PLL is used as system clock source */
+while(RCC_GetSYSCLKSource() != 0x08)
+{
+}
+</blockquote>
+<p>
+  }
+</p>
+  
+<p>
+  /* Enable GPIOA, GPIOB, GPIOC and AFIO Clocks */
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB | 
+</p>
+<blockquote>
+RCC_APB2Periph_GPIOC | RCC_APB2Periph_AFIO, ENABLE);
+</blockquote>
+<p>
+}
+</p>
+
+
+<p>
+void GPIO_Configuration(void)
+{
+  /* Configure PC6, PC7, PC8 and PC9 as output push-pull */
+  GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_6 | GPIO_Pin_7 | GPIO_Pin_8 | GPIO_Pin_9;  
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  GPIO_Init(GPIOC, &amp;GPIO_InitStructure);
+</p>
+  
+<p>
+  /* Configure GPIOA Pin0 as input floating */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(GPIOA, &amp;GPIO_InitStructure);
+</p>
+  
+<p>
+  /* Configure GPIOB Pin9 as input floating */
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  GPIO_Init(GPIOB, &amp;GPIO_InitStructure);
+}
+</p>
+
+<p>
+void EXTI_Configuration(void)
+{
+  /* Connect EXTI Line0 to PA.00 */
+  GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource0);
+</p>
+
+<p>
+  /* Configure EXTI Line0 to generate an interrupt on falling edge */  
+  EXTI_InitStructure.EXTI_Line = EXTI_Line0;  
+  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+  EXTI_Init(&amp;EXTI_InitStructure);
+</p>
+  
+<p>
+  /* Connect EXTI Line9 to PB.09 */
+  GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource9);
+</p>
+
+<p>
+  /* Configure EXTI Line9 to generate an interrupt on falling edge */    
+  EXTI_InitStructure.EXTI_Line = EXTI_Line9;
+  EXTI_Init(&amp;EXTI_InitStructure);
+}
+</p>
+
+<p>
+void Delay(vu32 nCount)
+{
+  for(; nCount != 0; nCount--);
+}
+</p>
+
+<p>
+#ifdef  DEBUG
+void assert_failed(u8* file, u32 line)
+{ 
+  /* User can add his own implementation to report the file name and line number,
+</p>
+<blockquote>
+ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+</blockquote>
+
+<p>
+  /* Infinite loop */
+  while (1)
+  {
+  }
+}
+#endif
+</p>
+
+<p>
+1设计要求
+</p>
+<blockquote>
+设计一个中断优先级抢占的实例。设置三个中断：EXTI0、EXTI9和SysTick，在EXTI9的中断服务之程序
+</blockquote>
+<p>
+	中实现EXTI1和SysTick的优先级别的转换，使之分别出现：在EXTI1中断时可以被SysTick抢占和不可以
+	被SysTick抢占这两种状态。
+2 硬件电路设计
+   在评估板上按键Key与PB.9相连作为EXTI9，按键Wakeup与PA.0相连作为EXTI1；LED1、LED2、LED3、LED4
+   分别与PC6、PC7、PC8、PC9相连，用于显示不同的优先级抢占状态。
+3 软件程序设计
+   根据设计任务要求，软件程序主要内容包括：
+  (1)	配置两根EXTI 外部中断线（Line0 和 Line9），在下降沿产生中断，并配置SysTick中断。其中：
+</p>
+<blockquote>
+EXTI0: 优先级= PreemptionPriorityValue，子优先级=0；
+EXTI9: 优先级= 0，子优先级= 1；
+SysTick Handler:优先级= !PreemptionPriorityValue，子优先级 SubPriority = 0；
+</blockquote>
+<p>
+  (2)	刚开始设置PreemptionPriorityValue=0，即EXTI0优先级比SysTick优先级高；在EXTI9中断服务子
+  程序中，EXTI Line0和SysTick 的优先级对换；
+  (3)	在EXTI0中断服务子程序中，SysTick中断挂起位被置1，若SysTick优先级比EXTI Line0 优先级高，
+  则EXTI 0中断被抢占，转而去执行SysTick中断服务子程序；否则继续执行EXTI Line0中断服务子程序。
+  (4)	如果EXTI1被SysTick抢占则LED1、LED2、LED3、LED4循环闪烁，如果EXTI1抢占SysTick则LED1、
+  LED2、LED3、LED4常亮。
+4 运行过程
+  (1)	使用Keil uVision3 通过ULINK仿真器连接实验板，打开实验例程NVIC_test子目录下的NVIC.Uv2
+  例程，编译链接工程；
+  (2)	点击MDK 的Debug菜单，选择Start/Stop Debug Session项或Ctrl+F5键，远程连接目标板并下载
+  调试代码到目标系统的RAM中；
+  (3)	程序正常启动运行后，会有以下结果： 
+</p>
+<blockquote>
+当第一次发生EXTI9 中断后（按下STM32板上Key按钮），SysTick中断的优先级比EXTI0中断
+</blockquote>
+<p>
+			优先级高。因此当EXTI0中断发生时（按下Wakeup按钮），将先执行SysTick中断服务子程序，
+			发生抢占，变量PreemptionOccured 为真，LED1-LED4开始闪烁；
+</p>
+<blockquote>
+当第二次发生EXTI9中断后，SysTick中断的占优先级比EXTI0优先级低，因此当EXTI0中断发
+</blockquote>
+<p>
+			生时SysTick无法抢占，变量PreemptionOccured 为假，LED1-LED4停止闪烁；
+</p>
+<blockquote>
+每次EXTI9发生后，SysTick和EXTI0就会发生优先级转换，出现前面2步的状态。
+</blockquote>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

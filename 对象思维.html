@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>对象思维</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+我们把一个类当成是一个工厂。工厂的作用就是生产所需的产品。而这个产品就是对象。我们只需要把需要产品的形状，大小，重量等通过类(工厂)里面的共有成员传递给类。不用考虑产品是怎么做的。类里面的私有成员你外面不能直接访问。
+</p>
+
+<p>
+类是抽象出来的。比如，桌子，椅子，电脑，书。任何东西都一个笼统的说法。桌子可以分为圆桌，方桌。圆桌又可以分为用混合金属做到的和用木头做的。这些都只是概念，不是具体的东西。如果我用这个概念去定义具体的东西，那么这个具体的东西就是对象。对象的一切属性是确定的(不是固定的)。
+</p>
+
+<p>
+桌子都有属性，比如名字，长宽高，颜色等等。在结构里面是char型，int型，char型，声明那些和结构是一样的，不同的是类里面的数据它分了属性，大部分的数据是不能够公开的，也就是受保护的，声明为private。有些呢是只有子类(派生类)可以访问的。声明为protect。这就是面向对象，也就是我们不用考虑内部怎么样的，我们只需面向具体的对象。但是怎么把这个类跟外面的联系起来呢，这就有一个接口，这个接口一般是公有成员函数。比如我们要改变桌子的长度。
+</p>
+
+<p>
+抽象出来有什么用呢？比如我们把这个桌子给抽象出来，桌子在我们脑子里面有个概念，什么样的就是桌子，然后就定义桌子具有的属性。然后呢我们对圆的桌子也有一个概念，它比桌子更具体了点。同样方形桌子也是这样。我们定义方形桌子和圆形桌子属性的时候，可以直接继承桌子的属性。只需要加上圆形桌子所具有的独特的属性。而不必全部定义。这样用起来就比较容易。这就是c++里面的继承。
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>异步电动机</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1 id="toc_1">异步机基本理论</h1>
+<ul>
+<li>
+工作原理：各种电机的工作原理主要按磁场的产生方式和形态。
+
+<li>
+定子电压产生定子电流从而产生旋转磁场。转子和旋转磁场有相对运动就会切割磁感线产生感应电动势，感动电动势形成电流，有力（由电磁力形成的转矩成为电磁转矩），然后就回转了。因为要有相对运动才能切割磁感线，才能运动，所以不可能是同步的，称异步。因为有感应，所以又称感应电动机。转差率就是看同步转速和转子的相差大还是小。理想空载时s = 0，其实是不可能的。堵转时s = 1，转子转速为0.转差率越大，说明相差的速度越大。要有原动机拖动转子(转子的转速比同步转速还快)，转子处于发电机状态，才能使得s &lt; 0。当利用外力使得转子的方向反向，电磁转矩成了阻碍转子转动的制动转矩，(同步转速和转子转速反向，唯一情况是转子的转速不是电磁力矩产生，而是外力减去电磁力矩产生)n &lt; 0,S&gt;1。
+
+</ul>
+
+
+<p>
+旋转磁场：有uvw三项电压，相差120度，电压方向改变了，磁场的方向也就改变了。形成了旋转的磁场。
+</p>
+
+<p>
+电机中存在两种角度，一种是电流变化的角度，成为电磁角度，简称电角度。一种是磁场在空间中转过的角度，称为机械角度。
+</p>
+
+<p>
+旋转磁场的速度就是同步转速，也就是机械角速度的速度。电角度和机械角度算的都是<code>每分钟</code>所转的圈数，而频率是按<code>每秒</code>所转的圈数，所以，每分钟所转的电角度圈数为60f1。而电角度会等于机械角度乘以磁极对数。故，同步转速 = 60f1/p。<code>注意p是磁极的对数，而不是电的相数</code>，三相的有一对磁极。所以三相的话同步转速就是60f1.
+</p>
+
+<p>
+	注意：转速和线速度角速度是不同。转速是每分转多少，相当于频率。
+</p>
+
+<h2 id="toc_1.1">异步机电力拖动</h2>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

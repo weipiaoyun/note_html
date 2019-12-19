@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>控制矩阵</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+	1，控制矩阵是一个硬件，是固定不变的。
+	2，要有输出就必须有相应的操作码经过译码后与循环移位寄存器相与。循环移位寄存器要快。然后就会与操作码对应的控制字产生。
+	3，控制字的实质就是数据哪里流通到哪里。
+</p>
+	
+<p>
+	数据的处理得经过<code>功能部件</code>(比如加法器，计数器等)，触发相应的动作，使得数据得到处理。而选择哪个功能部件就是依靠控制字，控制字的产生是由指令中的操作码经过译码，然后经过控制矩阵产生的。
+</p>
+	
+<p>
+	一个指令不是只有一个部件和另一个部件之间的流通，而是多个部件与多个部件的流通，也就是要经过多次的处理。这样就需要一个循环计数器。按照一定的顺序执行。而这个顺序是确定的。比如，MAR &lt;- PC(取指), IR &lt;- ROM(把指令放到指令寄存器)，MAR &lt;- IR, A &lt;- ROM.
+</p>
+	
+<p>
+	反正操作码过去以后就会有一个顺序操作的控制字产生(循环计数器)，循环这些连起来就是一个指令的工作。中间流通了不止一个的功能部件。
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

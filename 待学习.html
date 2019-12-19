@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>待学习</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+dmake
+</p>
+
+<p>
+表的依赖关系建立
+</p>
+
+<p>
+邮件自动备份
+</p>
+
+<p>
+开机自动以某个用户执行脚本
+</p>
+
+<p>
+删除前一版本的料号
+</p>
+
+<p>
+linux yum源配置
+</p>
+
+<p>
+计划任务
+一厂访问两个文件夹，钻孔gerber和钻孔资料
+</p>
+
+<p>
+DataTable的操作
+</p>
+
+<p>
+dockPanel
+</p>
+
+<p>
+注意配置文件添加
+</p>
+
+<p>
+二厂测线图文件夹无法写入。
+</p>
+
+
+
+<p>
+导工作稿，fill=2
+</p>
+
+
+<p>
+property关键字
+字典
+CtlSql是从Ctl中得来的
+toolTip是干什么的
+CTL
+	CTL.Pub.AutoPanel.cs
+</p>
+
+<p>
+获取genesis的PID号
+C#  DevExpress
+		FormBorderStyle
+</p>
+		
+<p>
+志浩samba共享，m1097账号保存后后面不带+, m3009保存后，后面带加
+</p>
+
+<p>
+ftp资料库
+NIS服务器 ypbinding
+DNS服务器
+硬盘矩阵
+</p>
+
+<p>
+数据库视图权限的控制
+</p>
+
+<p>
+dd命令
+</p>
+
+<p>
+代码生成器
+数据同步
+自动ECN
+</p>
+
+<p>
+DHCP
+</p>
+
+<p>
+报表
+</p>
+
+<p>
+cam08不用ypbind，同样可以ping通cam09
+</p>
+
+
+<h2 id="toc_0.1">C#</h2>
+
+<p>
+2.&lt;appSettings&gt;的使用
+</p>
+
+<p>
+[c-sharp] view plaincopy
+&lt;add key="connectionstringName" value="data source=服务器名或IP;initial catalog=数据库名;persist security info=False;user id=用户;password=密码;packet size=4096"&gt;   
+&lt;/add&gt;   
+</p>
+ 
+
+<p>
+3.区别
+</p>
+
+<p>
+1)AppSettings 是在2003中常用的，ConnectionStrins是2005中常用的. 
+2)使用ConnectionString的好处： 
+第一：可将连接字符串加密，使用MS的一个加密工具即可。 
+第二：可直接邦定的数据源控件，而不必写代码读出来再赋值给控件。 
+第三：可方便的更换数据库平台，如换为Oracle数据库，只需修改providerName。 
+3)写在 &lt;appSettings &gt;中用System.Configuration.ConfigurationManager.AppSettings["name"]检索值。 
+写在 &lt;ConnectionStrings&gt;中用System.Configuration.ConfigurationManager.ConnectionStrings["name"]检索值。
+</p>
+
+ 
+
+<p>
+4.测试
+</p>
+
+<p>
+在VS2005中新建一个网站，然后再defaul页面中加入如下代码
+</p>
+
+<p>
+[c-sharp] view plaincopy
+using System.Web;  
+using System.Web.Security;  
+using System.Web.UI;  
+using System.Web.UI.WebControls;  
+using System.Web.UI.WebControls.WebParts;  
+using System.Web.UI.HtmlControls;  
+</p>
+  
+<p>
+public partial class _Default : System.Web.UI.Page   
+{  
+</p>
+<blockquote>
+protected void Page_Load(object sender, EventArgs e)  
+{  
+labConn.Text = ConfigurationManager.ConnectionStrings["SiteSqlServer"].ToString();  
+labApp.Text = ConfigurationManager.AppSettings["SiteSqlServer"].ToString();  
+}  
+</blockquote>
+<p>
+}  
+而web.config的代码如下：
+</p>
+
+<p>
+[c-sharp] view plaincopy
+&lt;?xml version="1.0"?&gt;  
+&lt;!--   
+</p>
+<blockquote>
+注意: 除了手动编辑此文件以外，您还可以使用   
+Web 管理工具来配置应用程序的设置。可以使用 Visual Studio 中的  
+“网站”-&gt;“Asp.Net 配置”选项。  
+设置和注释的完整列表在   
+machine.config.comments 中，该文件通常位于   
+/Windows/Microsoft.Net/Framework/v2.x/Config 中  
+</blockquote>
+<p>
+--&gt;  
+&lt;configuration&gt;  
+  &lt;connectionStrings&gt;  
+</p>
+<blockquote>
+&lt;add name="SiteSqlServer" connectionString="Data Source=XUWEI/SQLEXPRESS;Initial Catalog=store;User ID=dnndemo;Password=dnndemo" providerName="System.Data.SqlClient" /&gt;  
+</blockquote>
+<p>
+  &lt;/connectionStrings&gt;  
+</p>
+    
+<p>
+  &lt;appSettings&gt;  
+</p>
+<blockquote>
+&lt;add key="SiteSqlServer" value="Data Source=XUWEI/SQLEXPRESS;Initial Catalog=store;User ID=dnndemo;Password=dnndemo" /&gt;  
+&lt;/appSettings&gt;  
+</blockquote>
+<blockquote>
+&lt;system.web&gt;  
+&lt;!--   
+设置 compilation debug="true" 将调试符号插入  
+已编译的页面中。但由于这会   
+影响性能，因此只在开发过程中将此值   
+设置为 true。  
+--&gt;  
+&lt;compilation debug="true"/&gt;  
+&lt;!--  
+通过 &lt;authentication&gt; 节可以配置 ASP.NET 使用的   
+安全身份验证模式，  
+以标识传入的用户。   
+--&gt;  
+&lt;authentication mode="Windows"/&gt;  
+&lt;!--  
+如果在执行请求的过程中出现未处理的错误，  
+则通过 &lt;customErrors&gt; 节可以配置相应的处理步骤。具体说来，  
+开发人员通过该节可以配置  
+要显示的 html 错误页  
+以代替错误堆栈跟踪。  
+</blockquote>
+<blockquote>
+&lt;customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm"&gt;  
+&lt;error statusCode="403" redirect="NoAccess.htm" /&gt;  
+&lt;error statusCode="404" redirect="FileNotFound.htm" /&gt;  
+&lt;/customErrors&gt;  
+--&gt;  
+&lt;/system.web&gt;  
+</blockquote>
+<p>
+&lt;/configuration&gt;  
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

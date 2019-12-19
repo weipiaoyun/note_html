@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>深入浅出学MFC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+<a href="系统专业术语.html">系统专业术语</a>
+</p>
+
+
+<p>
+SDK在第一章
+</p>
+
+<p>
+InitApplication是注册窗口类别的<code>场所</code>
+InitInstance产生窗口并显示窗口的<code>场所</code>
+Run是获取消息并分派消息的<code>场所</code>
+</p>
+
+<p>
+AfxWinMain的主要动作
+</p>
+
+<p>
+WinMain一开始就调用AfxWinInit注册四个窗口类别(但不是其中注册的)
+</p>
+
+<p>
+	pApp指向CMyWinApp的对象
+</p>
+
+<p>
+	pApp-&gt;InitApplication() —— CmyWinApp：：InitApplication ——CWinApp：：InitApplication
+</p>
+
+<p>
+	一般而言，CmyWinApp只改写Instance(而且是一定要修改)，而不改变Application和run
+</p>
+
+<p>
+	Instance里面呢new了一个MyFramWnd对象，用作主框窗口的C++对象。会create一个窗口
+</p>
+
+<p>
+	CFramwnd从CWnd继承下来的。
+</p>
+
+<p>
+函数中调用的PreCreateWindow 是虚拟函数，CWnd  和CFrameWnd 之中都有定义。由
+<dl>
+<dt>于this  指针所指对象的缘故，这里应该调用的是CFrameWnd</dt>
+<dd>PreCreateWindow（</dd>
+</dl>
+</p>
+
+<p>
+窗口函数由MFC提供(获得的消息交个适当的例程处理)
+</p>
+
+<p>
+	CDocument就是处理Document的对象
+</p>
+	
+<p>
+	CDocument和Cview搭配，有关文件的读写动作在CDocument和Serialize。有关画面的显示动作在Cview的OnDraw或OnPain中进行。
+</p>
+	
+<p>
+	三个窗口：MDI/SDI/OLE Dcument Frame
+</p>
+	
+<p>
+	打开一个对象产生对应的三对象：Document，view，MDIChildWnd都由Document Template来管理
+</p>
+
+<p>
+	CRuntimeClass是什么对象呢。
+</p>
+	
+<p>
+	窗口都是通过窗口句柄(HWND)来标识的。
+</p>
+
+<p>
+	在windows程序中，有各种各样的资源(窗口，图标，光标等)，系统在创建它们的时候，会为它们分配内存，并返回标识这些标识的标识号，即句柄。
+</p>
+
+<p>
+	SDK的全称是Software Development Kit，SDK实际上就是开发所需资源的一个集合
+</p>
+
+<p>
+	所谓“发送消息”，实际上是操作系统调用程序中一个专门负责处理消息的函数，这个函数称为窗口过程。
+</p>
+
+<p>
+	这种消息机制，就是Windows程序运行的机制
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

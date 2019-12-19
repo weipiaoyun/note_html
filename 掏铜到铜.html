@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>掏铜到铜</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+1，选铜，拷贝到copy.$$层
+2，copy.$$层获取个数，循环所有选择
+3，选择一个，移动到另外一层move.$$
+4，工作层掏铜(cover copy.$\(去参考copy.\)\(掏铜)，掏完后move.\)\(的移回copy.\)$
+</p>
+
+
+
+
+<p>
+###########################################
+1,没有优化的拷贝到另外一层
+2，用独立pad去掏没有优化的层，没有优化的层转铜
+3，没有优化的层加大1mil去掏优化了的层
+4,优化层cover到padtmp的删除，转铜
+5，优化层拷贝出一层铜桥
+6，优化层fill150
+7，铜桥层碰到优化层
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

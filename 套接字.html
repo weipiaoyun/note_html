@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>套接字</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+套接字：源IP地址和目的IP地址以及源端口号和目的端口号的组合称为套接字 
+	包含：进行网络通信的五种信息：连接使用的协议，本地主机的IP地址，本地进程的协议端口。远地主机的IP地址，远地进程的协议端口。(协议，IP，端口)
+</p>
+
+<p>
+TCP协议来说, SOCKET, 你就把它当作是一个接待处. 首先接待处得要有个位置, 通过bind, 把这个接待处定好了位置, 接待处的人也得要上班才能够接待, 所以要listen, 客户现在就可connect到接待处, 任何客户要进入, 都首先得要被接待处Accept, 得到一个临时通行证, 才能够在公司里面走, 而被接待后, 有什么事, 得要拿临时通行证来识别每一个客户, 而轮到服务某个客户的时间, 也是通过这个临时通行证呼叫客户才能够通信. 
+</p>
+
+<p>
+UDP协议来说, SOCKET就像是一个操股手, 一个操股手可以同时服务N个股人, 只要股人电话过来了, 就可以跟股人说话, 而且这个操股手的身旁是有无限多个电话, 任何股人电话过来, 这个操股手依旧游刃有余的跟所有股人交流. 但是, 只要股人不来说话, 操股手就没什么必要主动联系. 
+</p>
+
+<p>
+所以 TCP 的服务器, 创建SOCKET, bind, listen, accept, 然后再用accept回来的客户专用临时通行证进行交流. 客户走的时候也必须把临时通行证回收, 也就是关闭accept回来的socket.
+</p>
+
+<p>
+UDP的服务器, 只要bind以后就可以直接等待recvfrom, 有人sendto东西过来, 就立即做事, 没有sendto过来, 也没什么必要做事. 虽然不排除服务器隔开一段时间后主动向客户发送东西, 但这个客户到底还在不在, 已经不知道了. 所以一般服务器是懒得动的.
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>WPF</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">插件 </a>
+<li><a href="#toc_2">ICommand </a>
+<ul>
+<li><a href="#toc_2.1">INotifyPropertyChanged </a>
+</ul>
+<li><a href="#toc_3">TreeView </a>
+<li><a href="#toc_4">TabControl </a>
+<li><a href="#toc_5">Grid </a>
+<li><a href="#toc_6">Resources </a>
+<li><a href="#toc_7">触发器 </a>
+<ul>
+<li><a href="#toc_7.1">background </a>
+</ul>
+</ul>
+</div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+
+<h1 id="toc_1">插件 </h1>
+<p>
+PropertyChanged.Fody.3.0.1 省去绑定属性
+</p>
+
+<h1 id="toc_2">ICommand </h1>
+<p>
+ICommand is an Interface which has three members as shown in below table:
+</p>
+
+
+<table>
+<tr>
+<th>
+Method
+</th>
+<th>
+Remark
+</th>
+</tr>
+<tr>
+<td>
+CanExecute Method:
+</td>
+<td>
+Often we pass a delegate to this method as an object which returns a bool
+</td>
+</tr>
+<tr>
+<td>
+event EventHandler CanExecuteChanged:
+</td>
+<td>
+While "CanExecute" method executes and if there is a change in method's output (true/false) then this event is fired.
+</td>
+</tr>
+<tr>
+<td>
+void Execute(object parameter):
+</td>
+<td>
+It takes an object as an argument and we generally pass a delegate into this method. The delegate holds a method reference which is supposed to execute when Command is fired.
+</td>
+</tr>
+</table>
+
+<p>
+	First The UI Controls will Create an  ICommand object  which receives  an object that was bound  in the XAML file.Then, if the button is clicked,the XAML will execute a function that can execute an event  which  was defined in "event EventHandler CanExecuteChanged". The event will be registered by the XAML with the above method "void Execute(object parameter)".
+</p>
+	
+
+
+<h2 id="toc_2.1">INotifyPropertyChanged </h2>
+<p>
+The purpose of INotefyPropertyChanged is to <code>notify</code> if any changes happen to a property to all of its references
+</p>
+
+
+<p>
+we need to implement this interface for ViewModels too so that if any change occurs in ViewModel side, it can be notified/reflected to UI.
+</p>
+
+
+<p>
+Whenever any change will occur in properties either from UI or ViewModel, OnPropertyChanged method will be called
+</p>
+
+
+<p>
+in this method, It will provide  subscribers to your event named <code>PropertyChanged</code>.
+this.DataContext = testMessage;
+</p>
+
+<p>
+	so, DataContex must give it a class object which Inherit an interface named INotefyPropertyChanged which must have an event named "PropertyChanged". and when you change your value.you should call PropertyChanged method which will notify the UI what you have change in parameters.
+</p>
+
+
+<h1 id="toc_3">TreeView </h1>
+<p>
+namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
+</p>
+
+
+
+
+
+
+
+<h1 id="toc_4">TabControl </h1>
+<p>
+&lt;TabControl Name="TabControl" Grid.Row="2" Grid.Column="0"&gt;
+		&lt;TabItem Header="大料拼板"&gt;
+			&lt;Image Name="ImageSheet" Source="{Binding Path=SheetImg}"&gt;&lt;/Image&gt;
+		&lt;/TabItem&gt;
+		&lt;TabItem Header="PNLA拼板"&gt;
+			&lt;Image Name="ImagePanela" Source="{Binding Path=PnlaImg}" &gt;&lt;/Image&gt;
+		&lt;/TabItem&gt;
+		&lt;TabItem Header="PNLB拼板"&gt;
+			&lt;Image Name="ImagePanelb" Source="{Binding Path=PnlbImg}"&gt;&lt;/Image&gt;
+		&lt;/TabItem&gt;
+&lt;/TabControl&gt;
+</p>
+
+
+
+<h1 id="toc_5">Grid </h1>
+<p>
+&lt;ColumnDefinition Width="Auto"&gt;&lt;/ColumnDefinition&gt;
+</p>
+
+
+<h1 id="toc_6">Resources </h1>
+<p>
+  &lt;Plugin:WindowPlugin.Resources&gt;
+</p>
+<blockquote>
+&lt;ResourceDictionary&gt;
+&lt;ResourceDictionary.MergedDictionaries&gt;
+&lt;ResourceDictionary Source="../Resources/Strings.zh-cn.xaml" /&gt;
+&lt;ResourceDictionary Source="pack://application:,,,/CI.Controls;component/Themes/Generic.xaml" /&gt;
+&lt;ResourceDictionary Source="pack://application:,,,/CI.Controls;component/Themes/Buttons/Button.xaml" /&gt;
+&lt;/ResourceDictionary.MergedDictionaries&gt;
+&lt;/ResourceDictionary&gt;
+&lt;/Plugin:WindowPlugin.Resources&gt;
+</blockquote>
+    
+
+
+<h1 id="toc_7">触发器 </h1>
+<p>
+&lt;i:Interaction.Triggers&gt;
+	&lt;i:EventTrigger EventName="MouseDown"&gt;
+		&lt;i:InvokeCommandAction Command="{Binding ClickCommand}" CommandParameter="MOUSEDOWN"/&gt;
+	&lt;/i:EventTrigger&gt;
+&lt;/i:Interaction.Triggers&gt;
+</p>
+
+
+
+<p>
+&lt;controls:IconButton BorderThickness="0" ToolTip="最小化"       CommandParameter="BTNMIN"
+	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"
+	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"
+	ImageSource="/CI.Controls;component/Images/Logo/Min5.png"
+	/&gt;
+&lt;controls:IconButton BorderThickness="0" ToolTip="最大化"  CommandParameter="BTNMAX"
+	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"
+	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"
+	ImageSource="/CI.Controls;component/Images/Logo/Max5.png"
+	/&gt;
+&lt;controls:IconButton BorderThickness="0" ToolTip="关闭" CommandParameter="BTNCLOSE"
+	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"
+	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"
+	ImageSource="/CI.Controls;component/Images/Logo/Close5.png"
+</p>
+	
+
+
+<h2 id="toc_7.1">background </h2>
+<p>
+ &lt;Border Grid.Row="0" Grid.ColumnSpan="3" Background="{StaticResource MenuModuleBackground}" BorderBrush="#cdcdcd" BorderThickness="0,0,0,1"   &gt;
+</p>
+ 
+
+
+<p>
+&lt;views:SelectItemPage Grid.Row="1" Grid.Column="0" x:Name="SelectItemPage"
+</p>
+<blockquote>
+HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"
+Height="Auto" Width="Auto"&gt;
+</blockquote>
+<p>
+	&lt;i:Interaction.Triggers&gt;
+		&lt;i:EventTrigger EventName="DrillInfoSelectChanged" /&gt;
+	&lt;/i:Interaction.Triggers&gt;
+&lt;/views:SelectItemPage&gt;
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>自动加邮票孔</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">添加邮票孔 </a>
+</ul>
+</div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+
+<h1 id="toc_1">添加邮票孔 </h1>
+<p>
+AF=[(x-x0)<sup><small>2+(kx+b-y0)</small></sup>2]<sup><small>1/2=2/5*(5)</small></sup>1/2
+</p>
+
+<p>
+假定直线上的两个点a和b，以及一个空间点c
+则c在ab直线上垂足d可以这样算：
+</p>
+
+<p>
+float abx = b.x - a.x;
+float aby = b.y - a.y;
+float acx = c.x - a.x;
+float acy = c.y - a.y;
+float f = (abx*acx+aby*acy )/(abx*abx+aby*aby);  // 注意ab必须是直线上的两个不同点
+d.x = a.x + f*abx;
+d.y = a.y + f*aby;
+</p>
+
+
+<p>
+y=-(1/k)(x-a)+b
+</p>
+
+<p>
+(x-x0)<sup><small>2+(kx+b-y0)</small></sup>2 - s^2 = 0;
+</p>
+
+<p>
+int S1 = b - y0;
+(x-x0)<sup><small>2+(kx+S1)</small></sup>2 - s^2 = 0;
+</p>
+
+<p>
+(x<sup><small>2-2*x0*x+x0</small></sup>2)+(k<sup><small>2*x</small></sup>2 + 2kS1x + S1<sup><small>2) - s</small></sup>2 = 0;
+</p>
+
+<p>
+(k<sup><small>2 + 1)*x</small></sup>2 + (-2*x0 + 2kS1)x + x0<sup><small>2 + S1</small></sup>2 - s^2 = 0;
+</p>
+
+<p>
+求出x1，y1
+</p>
+
+
+<p>
+直线率为k
+y=-(1/k)(x-a)+b
+AF=[(x+1)<sup><small>2+(2x+2)</small></sup>2]<sup><small>1/2=2/5*(5)</small></sup>1/2
+</p>
+
+<p>
+lot卡只是过数用。
+单件，1000
+报数不报到lot卡
+订单1000
+</p>
+
+
+<p>
+10.80.13.55
+10.30.1.135
+</p>
+
+<p>
+5 * x^2 + 
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

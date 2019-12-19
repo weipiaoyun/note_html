@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>信号与系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<ol>
+<li>
+描述一个系统，可以不管系统内部的结构如何，将系统看成一个黑盒子，只描述或研究系统输出和输入的关系，这种方法称为输入输出描述法。对于连续时间线性时不变系统的输入和输出关系，常用线性常系数微分方程表示；而离散时间线性移不变系统的输入和输出关系则是用线性常系数差分方程来表示的
+
+<li>
+
+
+<li>
+什么是信号
+
+<li>
+信号就是一个函数，一个随自变量（信息的提取）而改变的函数。
+
+<li>
+信号中带有信息
+
+<li>
+提取信号的方法（自变量）决定了信号的类型和信息的性质。
+
+<li>
+信号的表示有多种，可以由自变量原始域中的基本函数表示，也可以是变换域中的基本函数表示。
+
+<li>
+由一个源产生的信号为标量信号，有多个源产生的信号为向量信号，或者多通道信号
+
+<li>
+语音信号是声音随着时间的改变而改变的信号，是一维信号。图像信号是随着xy位置改变而显示的图像不同的信号，是二维信号；黑白视频是图像加上随时间变化而产生的信号，是三维信号。
+
+</ol>
+
+
+<ol>
+<li>
+几个概念
+
+<li>
+振幅：信号值就是振幅。
+
+<li>
+波形：以自变量为函数的振幅就是波形。
+
+</ol>
+
+<ol>
+<li>
+如果所取的自变量是连续的，那么就是连续时间信号（通常时间为自变量）（通常称模拟信号），如果自变量是离散的，那么就是离散时间信号（通常称数字信号）。
+
+</ol>
+<p>
+#
+</p>
+<ol>
+<li>
+可以由一个完全定义的过程来确定的信号为确定性信号，否则为随机信号。
+
+<li>
+信号的处理：
+
+<li>
+时域，三个基本运算，标乘，延时，相加。标乘是放大或衰减，延时是平移，相加是各个信号相叠加或者相乘。
+
+</ol>
+
+<ul>
+<li>
+<a href="滤波.html">滤波</a>滤波是处理信号的一种运算。模拟信号的滤波运算是线性的。可以通过卷积分来描述。  y（t）是滤波器的输出，x（t）是输入信号，h（t）是冲激响应。
+
+</ul>
+<p>
+-
+</p>
+<ul>
+<li>
+复数信号的产生，所有自然产生的信号都是实值的。用实质信号来构成复数信号。
+
+</ul>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>

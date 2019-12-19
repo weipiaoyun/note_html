@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>可视模式</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<p>
+	说vim是神器一点都不假，今天又学到了新的命令，感觉超级好用。
+	以前觉得vim的visual模式根本就没什么用。那是因为我根本就没用过。随着使用vim的时间越来越长，产生了很多想法，很多想用命令实现的都实现不了。下面结合块使用，可以使编辑变得简单很多。
+	今天发现的vim visual模式功能如下：
+	1，可以快速搜寻你需要的词或句子。（下面会解释）
+	2，可以在块里面插入字符。当然块不能是无规则的，可以说长方形块
+	3，可以替换块的内容。
+	4，可以快速合并行。
+	5，如果你是编程者，别人那里拷贝过来的代码很不规范，读起来不方便。按规范代码键也不能用手标直接选择。
+</p>
+
+<p>
+	暂时学到这些。
+</p>
+
+<p>
+	先看第一个功能。以前都是用/string来搜寻的，但是如果长了就慢了。而且经常要中英文切换，有点不爽。以可以作为例子。先切换到第一个可以，然后按v进入可视模式，按l进行向右移动。这时已经选好可以两个字了。按shift+*。奇迹出现了，所有的可以都变亮了。然后可以按n或N进行上下跳转了。
+</p>
+
+<p>
+	第二个功能，在块里插入字符。编程的时候很明显。看下面的图片中你想在while加个for循环，里面的四条语句都放在里面，那么要是代码风格规范就得每条语句都加个tab键缩进去。四条还好，如果很多呢？这是块就有用了，你只需要ctrl+Q，我的是在windows下面。如果linux里面用ctrl+v。然后3j选择块，I插入，ESC进入normal模式结果就出来了。
+</p>
+	
+<p>
+	第三个功能，替换块的内容。也是在可视里面处理。I命令改为c
+</p>
+
+<p>
+	第四个功能合并，按块选择，选择需要合并的块，选好后按J，它会自动合并。有个缺点就是它会留一个空格替代换行或空白。
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>
