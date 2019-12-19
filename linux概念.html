@@ -50,18 +50,23 @@ linux系统向DNS服务器发出域名解析请求之前会查询/etc/hosts文�
 注意：如果hostname为localhost或者localhost.localdomain，/etc/rc.d/rc.sysinit会查找/etc/hosts文档是否有IP对应的名字，如果有，则将localhost或者localhost.localdomain替换为IP对应的名字，作为hostname
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

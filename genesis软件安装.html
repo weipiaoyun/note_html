@@ -18,7 +18,7 @@ PStillV1.72.8
 </p>
 
 <p>
-<a href="genesisWindows板网络板.html">genesisWindows板网络板</a><br>
+<a href="genesisWindows板网络板.html">genesisWindows板网络板</a>
 vi inittab
 reboot
 ./NVIDIA_Linux~.run
@@ -65,10 +65,10 @@ createrepo -g ~/comps-rh
 		cd hcinstall
 		cd nvidia
 		./NVIDIA-Linux-x86_64-319.17.run
-	1，安装好后先把libXp和libstdc++装好<a href="yum源.html">yum源</a><br>
-	2，设置好网络 <a href="linux网络与共享.html">linux网络与共享</a><br>
-	3，配置好hostname(/etc/sysconfig/network)<a href="hostname.html">hostname</a><br>和/etc/hosts<a href="hosts.html">hosts</a><br>
-	4, 配置genesis帐号 <a href="linux用户管理.html">linux用户管理</a><br>
+	1，安装好后先把libXp和libstdc++装好<a href="yum源.html">yum源</a>
+	2，设置好网络 <a href="linux网络与共享.html">linux网络与共享</a>
+	3，配置好hostname(/etc/sysconfig/network)<a href="hostname.html">hostname</a>和/etc/hosts<a href="hosts.html">hosts</a>
+	4, 配置genesis帐号 <a href="linux用户管理.html">linux用户管理</a>
 	5，安装软件
 		1,Name:app_gen
 		2,Version:v100
@@ -76,8 +76,8 @@ createrepo -g ~/comps-rh
 		4,安装服务器版本
 	5, 拷贝license,get,gnd
 	7, 拷贝
-	8, 安装odbc，在安装之前需要安装DBI <a href="DBD和DBI的安装.html">DBD和DBI的安装</a><br> <a href="odbc安装.html">odbc安装</a><br>
-<a href="odbc安装.html">odbc安装</a><br>
+	8, 安装odbc，在安装之前需要安装DBI <a href="DBD和DBI的安装.html">DBD和DBI的安装</a> <a href="odbc安装.html">odbc安装</a>
+<a href="odbc安装.html">odbc安装</a>
 2，安装完后把app_gen考过去，重新启动，登录genesis，帐号为sys。
 </p>
 
@@ -173,18 +173,23 @@ yum_updatesd
 tclConfig的路径，在/usr/lib
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

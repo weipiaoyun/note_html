@@ -72,7 +72,7 @@ DBI          --  1.633
 Perl         --  5.10.1
 说明DBI已经安装好了。
 3. 下载并安装相关oracle软件包
-下载地址：<a href="http://www.oracle.com/technetwork/topics/linuxsoft-082809.html">http://www.oracle.com/technetwork/topics/linuxsoft-082809.html</a><br>
+下载地址：<a href="http://www.oracle.com/technetwork/topics/linuxsoft-082809.html">http://www.oracle.com/technetwork/topics/linuxsoft-082809.html</a>
 因为我的Oracle版本是10.2.0.5，所以下载10205的客户端软件包
 -rw-r--r--   1 oracle  oinstall    745257 Apr  9 05:39 oracle-instantclient-sqlplus-10.2.0.5-1.i386.rpm
 -rw-r--r--   1 oracle  oinstall  32883472 Apr  9 05:40 oracle-instantclient-basic-10.2.0.5-1.i386.rpm
@@ -189,7 +189,7 @@ Oracle11g下安装DBD
 <blockquote>
 DBI和DBD-mysql模块的安装
 一、DBI的安装
-wget <a href="http://www.cpan.org/modules/by-module/DBD/DBI-1.604.tar.gz">http://www.cpan.org/modules/by-module/DBD/DBI-1.604.tar.gz</a><br>
+wget <a href="http://www.cpan.org/modules/by-module/DBD/DBI-1.604.tar.gz">http://www.cpan.org/modules/by-module/DBD/DBI-1.604.tar.gz</a>
 tar -zxvf DBI-1.604.tar.gz
 cd DBI-1.604
 perl Makefile.PL
@@ -201,7 +201,7 @@ yum -y intall mysql-devel
 注意mysql的环境变量，若没有则用 添加/usr/binl/mysql到环境变量PATH中
 PATH/usr/binl/mysql:$PATH;
 export PATH (mysql的安装路径根据实际情况填写)
-wget <a href="http://www.cpan.org/modules/by-module/DBD/DBD-mysql-4.006.tar.gz">http://www.cpan.org/modules/by-module/DBD/DBD-mysql-4.006.tar.gz</a><br>
+wget <a href="http://www.cpan.org/modules/by-module/DBD/DBD-mysql-4.006.tar.gz">http://www.cpan.org/modules/by-module/DBD/DBD-mysql-4.006.tar.gz</a>
 tar -zxvf DBD-mysql-4.006.tar.gz
 cd DBD-mysql-4.006
 perl Makefile.PL --mysql_config=/usr/bin/mysql_config
@@ -224,18 +224,23 @@ print \(recs[0].":".\)recs[1].":".$recs[2]."\n";
 $dbh-&gt;disconnect;
 </blockquote>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>
