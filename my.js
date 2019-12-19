@@ -120,7 +120,7 @@ var backButton=$('.back_to_top');
 
  function fun_a() {
 	 var url = window.location.href;
-	 var nI = url.src.search(/weipiaoyun\//i);
+	 var nI = url.search(/weipiaoyun\//i);
 	 if(nI > 0){
 		 location.href="https://weipiaoyun.github.io/note_html/笔记整理.html";
 	 }
