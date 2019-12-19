@@ -232,15 +232,24 @@ li a:hover:not(.active) {
 
 }
 
-
 /*返回首页*/
 #returnIndex {
 	left:0;
 	top:0;
 	height:30px;
 	background:lightgreen;
-	position:absolute;
+	position:none;
+  position: fixed;
 }
 
 /**/
 /*ul {margin-left: 2em; padding-left: 0.5em;}*/
+
+/*foot的a标签取消属性。返回首页的链接*/
+.foot a {
+	display:inline;
+  padding: none;
+  background:none;
+  text-decoration: none;
+}
+

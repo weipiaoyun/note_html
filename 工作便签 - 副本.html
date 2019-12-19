@@ -59,6 +59,30 @@
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<p>
+
+
+
+直线率为k
+y=-(1/k)(x-a)+b
+AF=[(x+1)<sup><small>2+(2x+2)</small></sup>2]<sup><small>1/2=2/5*(5)</small></sup>1/2
+</p>
+
+<p>
+lot卡只是过数用。
+单件，1000
+报数不报到lot卡
+订单1000
+</p>
+
+
+
+
+<p>
+10.80.13.55
+10.30.1.135
+</p>
+
 <h1 id="toc_1">工作清单 </h1>
 <h2 id="toc_1.1">待处理 </h2>
 <ol>
@@ -138,10 +162,10 @@ vim增加打开文件夹功能
 </p>
 <h1 id="toc_3">规范 </h1>
 <p>
-<a href="WZ.html">WZ</a><br>
-<a href="OTHER.html">OTHER</a><br>
-<a href="提供规范.html">提供规范</a><br>
-<a href="程序规范.html">程序规范</a><br>
+<a href="WZ.html">WZ</a>
+<a href="OTHER.html">OTHER</a>
+<a href="提供规范.html">提供规范</a>
+<a href="程序规范.html">程序规范</a>
 </p>
 
 <p>
@@ -273,11 +297,169 @@ h:/Ghost
 
 
 
+<p>
+"{  "Reason": "OK",  "ResultCode": "1",  "Result": [    {      "DeviceName": "设备1",      "listAddressValue": [        {          "AddressName": "地址",          "AddressValue": null        }      ]    }  ]}"
+</p>
+
+<p>
+{"Reason":"OK","Result":[{"DeviceName":"设备1","listAddressValue":[{"AddressName":"地址","AddressValue":null}]}],"ResultCode":"1"}
+</p>
+
+
+<p>
+生成时间什么时候都可以运行，但是写入到里面的时间固定。比较写入的时间和现在的时间。
+	没有，就生成。有就判断。生成的时间永远是固定的时间，无法改动。
+</p>
+
+<p>
+生成时间写入。
+</p>
+
+<p>
+如果有注册码，比较注册码。如果对得上
+	执行合拼
+对不上
+</p>
+
+<p>
+读取日期，比较日期。
+	ok，则继续执行合拼
+超过日期。退出。
+</p>
+
+<p>
+如果删了，还可以重新写。但是重新写的日期还是有限定的日期。
+</p>
+
+<p>
+生产管理-&gt;暂存区管理
+</p>
 
 <p>
 <a href="https://www.codeproject.com/Articles/1052346/ICommand-Interface-in-WPF">https://www.codeproject.com/Articles/1052346/ICommand-Interface-in-WPF</a><br>
 </p>
 
+<p>
+AF=[(x-x0)<sup><small>2+(kx+b-y0)</small></sup>2]<sup><small>1/2=2/5*(5)</small></sup>1/2
+</p>
+
+
+
+<p>
+假定直线上的两个点a和b，以及一个空间点c
+则c在ab直线上垂足d可以这样算：
+</p>
+
+<p>
+float abx = b.x - a.x;
+float aby = b.y - a.y;
+float acx = c.x - a.x;
+float acy = c.y - a.y;
+float f = (abx*acx+aby*acy )/(abx*abx+aby*aby);  // 注意ab必须是直线上的两个不同点
+d.x = a.x + f*abx;
+d.y = a.y + f*aby;
+</p>
+
+
+
+<p>
+y=-(1/k)(x-a)+b
+</p>
+
+<p>
+(x-x0)<sup><small>2+(kx+b-y0)</small></sup>2 - s^2 = 0;
+</p>
+
+<p>
+int S1 = b - y0;
+(x-x0)<sup><small>2+(kx+S1)</small></sup>2 - s^2 = 0;
+</p>
+
+<p>
+(x<sup><small>2-2*x0*x+x0</small></sup>2)+(k<sup><small>2*x</small></sup>2 + 2kS1x + S1<sup><small>2) - s</small></sup>2 = 0;
+</p>
+
+<p>
+(k<sup><small>2 + 1)*x</small></sup>2 + (-2*x0 + 2kS1)x + x0<sup><small>2 + S1</small></sup>2 - s^2 = 0;
+</p>
+
+<p>
+求出x1，y1
+</p>
+
+
+<p>
+5 * x^2 + 
+</p>
+
+
+<p>
+static void Main(string[] args)
+{
+Double A;
+Double B;
+Double C;
+Double T;
+Double X1;
+Double X2;
+Console.WriteLine("请输入3个数");
+try
+{
+A = Double.Parse(Console.ReadLine());
+B = Double.Parse(Console.ReadLine());
+C = Double.Parse(Console.ReadLine());
+if (A == 0)
+{
+Console.WriteLine("不是一元二次方程");
+Console.ReadLine();
+}
+else
+{
+T = B * B - (4 * A * C);
+if (T &gt; 0)
+{
+X1 = ((-B) + Math.Sqrt(T)) / (2 * A);
+X2 = ((-B) - Math.Sqrt(T)) / (2 * A);
+Console.WriteLine(X1);
+Console.WriteLine(X2);
+Console.ReadLine();
+}
+if (T &lt; 0)
+{
+X1 = (-B) / (2 * A);
+X2 = Math.Sqrt((-T)) / (2 * A);
+Console.WriteLine("X1 = {0} + {1}i", X1, X2);
+Console.WriteLine("X2 = {0} - {1}i", X1, X2);
+Console.ReadLine();
+}
+if (T == 0)
+{
+X1 = X2 = (-B) / (2 * A);
+Console.WriteLine(X1);
+Console.WriteLine(X2);
+Console.ReadLine();
+}
+}
+}
+catch (Exception ex)
+{
+Console.WriteLine(ex.Message);
+Console.ReadLine();
+}
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+}
+</p>
+
+<p>
+测试 
+=======
+}ldfksdf;sdlkfsd 
+</p>
+
+<p>
+sldfj
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 95c9a66ab05eb928ff4d83b5989b94cdb78b6799
+</p>
 
 <div class="foot">
 <button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
