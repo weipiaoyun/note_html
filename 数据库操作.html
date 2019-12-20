@@ -14,10 +14,10 @@
 2，建立sqlcommand对象，负责SQL语句的执行和存储过程的调用(执行SQL语句)
 	如果只需执行SQL语句或者SP，没有必要用到DataAdapter，直接用sqlCommand的Execute。
 3，对SQL或存储过程执行后返回的结果进行操作(处理返回结果)
-	a，用sqlDataReader一行一行读取数据集。(时刻和远程保持连接，将远程的数据通过'流'的形式传输给客户端，它是只读的。效率高，但使用起来不方便)<a href="sqlDataReader.html">sqlDataReader</a><br>
+	a，用sqlDataReader一行一行读取数据集。(时刻和远程保持连接，将远程的数据通过'流'的形式传输给客户端，它是只读的。效率高，但使用起来不方便)<a href="sqlDataReader.html">sqlDataReader</a>
 	b，dataset联合sqldataAdapter (使用方便，性能稍差)
-		DataSet：(数据集合)，内存中的数据库。<a href="DataSet.html">DataSet</a><br>
-		SqlDataAdapter (sql数据适配器) DataSet和SQL Server之间的桥接器<a href="SqlDataAdapter.html">SqlDataAdapter</a><br>
+		DataSet：(数据集合)，内存中的数据库。<a href="DataSet.html">DataSet</a>
+		SqlDataAdapter (sql数据适配器) DataSet和SQL Server之间的桥接器<a href="SqlDataAdapter.html">SqlDataAdapter</a>
 </p>
 		
 <p>
@@ -25,7 +25,7 @@
 </p>
 		
 <p>
-<a href="DataTable.html">DataTable</a><br>
+<a href="DataTable.html">DataTable</a>
 </p>
 
 
@@ -37,22 +37,27 @@ sqlCommand.ExecuteNonQuery();
 
 
 <p>
-<a href="判断用户密码是否正确.html">判断用户密码是否正确</a><br>
-<a href="mysql操作.html">mysql操作</a><br>
+<a href="判断用户密码是否正确.html">判断用户密码是否正确</a>
+<a href="mysql操作.html">mysql操作</a>
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

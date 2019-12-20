@@ -66,7 +66,7 @@ TCON:
 设置外部中断的步骤：1，开中断开关，一个是源开关EX0或EX1，一个是总开关EA;2,设置中断优先级 3,设置触发方式IT0，1为边沿触发。（比起定时器少了两步，一步是工作方式，一步是设置初值）
 </p>
 
-<h2 id="toc_0.1">* <a href="51定时计数器.html">51定时计数器</a><br></h2>
+<h2 id="toc_0.1">* <a href="51定时计数器.html">51定时计数器</a></h2>
 <p>
  	两个16位的定时计数器，核心部分是一个加一计数器（每隔一个机器周期加1）。定时和计数器没有本质的区别，只是脉冲来源不同。每个定时器部分都是由两个寄存器组成。这两个寄存器用来存放初值。
 </p>
@@ -94,23 +94,28 @@ TMOD:
 <p>
 模式2：
 	模式2可以自动重载。高8位用来保存初始值，低8位用来计数，当计数满了，就产生中断，并触发高8位，使初始值装入低8位。
-<a href="51单片机问题.html">51单片机问题</a><br>：
+<a href="51单片机问题.html">51单片机问题</a>：
 	剩下的两个为TR0和TR1是干什么的。
 	答：如果一切都已经准备好，由逻辑电路图可知TR0或TR1一开就可以开始计数。
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

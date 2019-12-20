@@ -10,8 +10,8 @@
 <body>
 
 <p>
-<a href="linux目录结构.html">linux目录结构</a><br>
-<a href="linux文件权限.html">linux文件权限</a><br>
+<a href="linux目录结构.html">linux目录结构</a>
+<a href="linux文件权限.html">linux文件权限</a>
 目录是特殊的文件。
 硬件设备的驱动程序和分区也用文件表示
 文件系统的最小存储单位是块。
@@ -145,7 +145,7 @@ fstab 的第五列是表示dump选项，dump工具通过这个选项位置上的
 <blockquote>
 安装NTFS-3G
 下载源码包：
-wget <a href="http://sourceforge.net/projects/linux-ntfs/files/">http://sourceforge.net/projects/linux-ntfs/files/</a><br>
+wget <a href="http://sourceforge.net/projects/linux-ntfs/files/">http://sourceforge.net/projects/linux-ntfs/files/</a>
 解压源码包：
 tar zxvf ntfs-3g-2.0.0.tgz
 配置编译环境：
@@ -182,18 +182,23 @@ mount  -t ntfs-3g /dev/sdb1 /mnt/ntfs-p1
 在文件最后增加如下格式的行 ntfs-3g defaults 0 0 其中： ------ NTFS所在分区的设备名，如3.1中的/dev/sdb1 ------ 装载点，如3.2中的/mnt/ntfs-p1 例如： /dev/sdb1 /mnt/ntfs-p1 ntfs-3g defaults 0 0 保存文件后重启系统或简单的执行下面的命令，即可装载NTFS分区到指定的装载点 mount -a
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

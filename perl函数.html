@@ -24,7 +24,7 @@ splice @bb, 2, 6, @cc。@cc为插入的数组，2为插入的地点，6为替换
 </p>
 
 <p>
-<a href="perl使用系统函数.html">perl使用系统函数</a><br>
+<a href="perl使用系统函数.html">perl使用系统函数</a>
 </p>
 
 
@@ -38,7 +38,7 @@ use HTTP::Request::Common;
   
 <p>
 $agent=new LWP::UserAgent;  
-$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a><br>  
+$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a>  
 $request-&gt;header('User-Agent'=&gt;'Mozilla/5.0 (Windows NT 5.1; rv:10.0.1) Gecko/20100101 Firefox/10.0.1');  
 $request-&gt;header('Accept-Encoding'=&gt;'gzip, deflate');  
 </p>
@@ -63,7 +63,7 @@ $agent = LWP::UserAgent-&gt;new;
 </p>
 
 <p>
-\(response = \)agent-&gt;post("<a href="http://localhost:8080/springtest/fileupload",'Content_Type'">http://localhost:8080/springtest/fileupload",'Content_Type'</a><br> =&gt; 'multipart/form-data; boundary=----------------------', Content =&gt; [
+\(response = \)agent-&gt;post("<a href="http://localhost:8080/springtest/fileupload",'Content_Type'">http://localhost:8080/springtest/fileupload",'Content_Type'</a> =&gt; 'multipart/form-data; boundary=----------------------', Content =&gt; [
 "user_id"=&gt;"05C30167EA3B4F76AE0D8A4ADB984679",
 'pic' =&gt; ["dir"]
 #]);
@@ -80,7 +80,7 @@ post
 use LWP
 require HTTP::Headers;
 $agent = LWP::UserAgent-&gt;new;
-\(response = \)agent-&gt;post("<a href="http://localhost:8080/service/store/storeSend",">http://localhost:8080/service/store/storeSend",</a><br> [ "user_id" =&gt; "05C30167EA3B4F76AE0D8A4ADB984679" , "bno" =&gt; "bnotest001"]);
+\(response = \)agent-&gt;post("<a href="http://localhost:8080/service/store/storeSend",">http://localhost:8080/service/store/storeSend",</a> [ "user_id" =&gt; "05C30167EA3B4F76AE0D8A4ADB984679" , "bno" =&gt; "bnotest001"]);
 get
 </p>
 
@@ -92,7 +92,7 @@ use LWP;
 
 <p>
 $agent = LWP::UserAgent-&gt;new;
-\(response = \)agent-&gt;get("<a href="http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");">http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");</a><br>
+\(response = \)agent-&gt;get("<a href="http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");">http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");</a>
 </p>
 
 <p>
@@ -117,7 +117,7 @@ my $cookies = HTTP::Cookies-&gt;new();
 $cookies-&gt;set_cookie(0,'JSESSIONID', 'A9D5B373B86ACDB04914DEC83E3DA40E','/','store.sf-express.com',80,0,0,86400,0);
 \(agent-&gt;cookie_jar(\)cookies);
 $agent-&gt;cookie_jar({ 'STORE'=&gt;'STORE_POOL_CNSZ01_49_130_8080', 'JSESSIONID'=&gt; '84BCF81B536D5CB13AFA48E31ACAA6B6' });
-\(response = \)agent-&gt;get("<a href="http://store.sf-xxxxx.com/html/admin/user_list.html");">http://store.sf-xxxxx.com/html/admin/user_list.html");</a><br>
+\(response = \)agent-&gt;get("<a href="http://store.sf-xxxxx.com/html/admin/user_list.html");">http://store.sf-xxxxx.com/html/admin/user_list.html");</a>
 </p>
 
 <p>
@@ -145,7 +145,7 @@ my @netscape_like_headers = (
 'Accept-Encoding' =&gt; 'gzip',
 'Accept' =&gt;
 "image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, <strong>/</strong>",);
-\(response = \)agent-&gt;get("<a href="http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);">http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);</a><br>
+\(response = \)agent-&gt;get("<a href="http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);">http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);</a>
 </p>
 
 <p>
@@ -168,7 +168,7 @@ use HTTP::Request::Common;
   
 <p>
 $agent=new LWP::UserAgent;  
-$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a><br>  
+$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a>  
 $request-&gt;header('User-Agent'=&gt;'Mozilla/5.0 (Windows NT 5.1; rv:10.0.1) Gecko/20100101 Firefox/10.0.1');  
 $request-&gt;header('Accept-Encoding'=&gt;'gzip, deflate');  
 </p>
@@ -180,18 +180,23 @@ print $response-&gt;content;
 复制代码
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

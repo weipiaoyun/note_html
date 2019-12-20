@@ -10,8 +10,8 @@
 <body>
 
 <p>
-<a href="bless.html">bless</a><br>
-<a href="exporter.html">exporter</a><br>
+<a href="bless.html">bless</a>
+<a href="exporter.html">exporter</a>
 </p>
 
 <h2 id="toc_0.1">使用包</h2>
@@ -529,18 +529,23 @@ sub initialize {
 相比于基于匿名哈希表的方法，基于数组的方法对存取属性的访问提供了更好的控制和保护并且实现了对于对象的封装，同时也提高了存储空间的利用效率。但是基于匿名哈希表的方法也有着简单易学，逻辑上较为直观而且无需要第三方模块支持的优点。具体使用哪种方式实现面向对象的设计，还要在工作中根据实际情况进行考虑才对。
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

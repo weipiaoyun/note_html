@@ -10,30 +10,35 @@
 <body>
 
 <p>
-FLASH	-&gt;	SRAM	-&gt;	BOOTBLOCK	-&gt;	外部存储器	-&gt;	<a href="VPB.html">VPB</a><br>(低速外设地址，如GPIO,UART)
+FLASH	-&gt;	SRAM	-&gt;	BOOTBLOCK	-&gt;	外部存储器	-&gt;	<a href="VPB.html">VPB</a>(低速外设地址，如GPIO,UART)
 0x00000000	-&gt;	0x40000000	-&gt;	0x80000000	-&gt;0XE0000000
 </p>
 
 <p>
-AHB(高性能总线：向量中断控制器，外部存储控制器只占2M)  所以中间有很大部分是空白区域，用户若使用这些空白趋于，或者定义野指针，就可能出现<a href="取指令中止.html">取指令中止</a><br>或者<a href="<code>取数据中止.html"&gt;</code>取数据中止</a><br>
+AHB(高性能总线：向量中断控制器，外部存储控制器只占2M)  所以中间有很大部分是空白区域，用户若使用这些空白趋于，或者定义野指针，就可能出现<a href="取指令中止.html">取指令中止</a>或者<a href="<code>取数据中止.html"&gt;</code>取数据中止</a>
 </p>
 
 <p>
 AHB与vpb有一个桥相连
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

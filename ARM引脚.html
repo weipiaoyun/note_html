@@ -13,18 +13,23 @@
 	首先应该注意的是引脚的读写状态和51单片机是不同的。它的IOPIN寄存器只能读，写不建议。你要写引脚就得对两个寄存器进行写，分别为IOSET和IOCLR。如果全部要改变，那么在写数据的时候一般为先全部清零，然后把数据给IOSET。如果部分要清零，可以对应的IOCLR为1。如果部分要置一，对应的IOSET为1。只有单逻辑1有效，其它0的无效，不用管。
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

@@ -19,7 +19,7 @@
 
 <ul>
 <li>
-<a href="51单片机寻址方式.html">51碌楼片禄煤寻址路陆式</a><br>
+<a href="51单片机寻址方式.html">51碌楼片禄煤寻址路陆式</a>
 
 </ul>
 <p>
@@ -152,18 +152,23 @@ XCH 注意不能直接寻址。XCHD A,@Ri（0~3）表示的是A的低四位和Ri的低四位互换。
 访问外部RAM(反正是存储空间的是后)，MOVX A， @DPTR。把外部RAM地址为DPTR里面的内容送到A里面。就是传送数据，传送数据之前先传送地址，地址是DPTR的值，其实就是选择某个芯片，送片选信号过去而已。有时一个地址可以片选很多东西(但不管怎样都是片选)，例如，8155H芯片的#7F00H 7F是芯片的，00是芯片内部的控制字寄存器。
 </p>
 
-<button class="back_to_top" style='background-color:red'>杩斿洖椤堕儴</button>
 
-<a href="https://weipiaoyun.github.io/note_html/绗旇鏁寸悊.html">
-<button class="back_to_index" style='background-color:red'>杩斿洖棣栭〉</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>杩斿洖椤堕儴</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\绗旇鏁寸悊.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">杩斿洖棣栭〉</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 漏 <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

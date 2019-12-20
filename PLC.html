@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<h1>目录：</h1>
 <div class="toc">
 <ul>
 <li><a href="#toc_1">PLC连接 </a>
@@ -22,24 +21,25 @@
 </ul>
 </ul>
 </div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
 <h1 id="toc_1">PLC连接 </h1>
 <h2 id="toc_1.1">台达PLC </h2>
 <p>
-<a href="http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeltaPCBaseFormat?deviceNames=设备0">http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeltaPCBaseFormat?deviceNames=设备0</a><br>
-<a href="http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeviceNames?deviceNames=%E8%AE%BE%E5%A4%870">http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeviceNames?deviceNames=%E8%AE%BE%E5%A4%870</a><br>
-<a href="http://192.168.0.1:9000//api/DataExchange/GetDeviceName">http://192.168.0.1:9000//api/DataExchange/GetDeviceName</a><br>
-<a href="http://192.168.0.1:9000//api/DataExchange/GetDevicesName">http://192.168.0.1:9000//api/DataExchange/GetDevicesName</a><br>
-<a href="http://192.168.0.1:9000//api/DataExchange/GetAddressValuesByDeviceName?deviceNames=设备0,设备1">http://192.168.0.1:9000//api/DataExchange/GetAddressValuesByDeviceName?deviceNames=设备0,设备1</a><br>
-<a href="http://192.168.0.1:9000//api/DataExchange/GetAllDeviceStatusSet">http://192.168.0.1:9000//api/DataExchange/GetAllDeviceStatusSet</a><br>
+<a href="http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeltaPCBaseFormat?deviceNames=设备0">http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeltaPCBaseFormat?deviceNames=设备0</a>
+<a href="http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeviceNames?deviceNames=%E8%AE%BE%E5%A4%870">http://192.168.0.1:9000/api/DataExchange/GetAllDeviceValueByDeviceNames?deviceNames=%E8%AE%BE%E5%A4%870</a>
+<a href="http://192.168.0.1:9000//api/DataExchange/GetDeviceName">http://192.168.0.1:9000//api/DataExchange/GetDeviceName</a>
+<a href="http://192.168.0.1:9000//api/DataExchange/GetDevicesName">http://192.168.0.1:9000//api/DataExchange/GetDevicesName</a>
+<a href="http://192.168.0.1:9000//api/DataExchange/GetAddressValuesByDeviceName?deviceNames=设备0,设备1">http://192.168.0.1:9000//api/DataExchange/GetAddressValuesByDeviceName?deviceNames=设备0,设备1</a>
+<a href="http://192.168.0.1:9000//api/DataExchange/GetAllDeviceStatusSet">http://192.168.0.1:9000//api/DataExchange/GetAllDeviceStatusSet</a>
 </p>
 
 
 <p>
-<a href="PLC指令表.html">PLC指令表</a><br>
-<a href="PLC总结.html">PLC总结</a><br>
-<a href="设计电路.html">设计电路</a><br>
-<a href="继电器和接触器的不同.html">继电器和接触器的不同</a><br>
+<a href="PLC指令表.html">PLC指令表</a>
+<a href="PLC总结.html">PLC总结</a>
+<a href="设计电路.html">设计电路</a>
+<a href="继电器和接触器的不同.html">继电器和接触器的不同</a>
 自锁的作用：自锁可以实现连续运行，可以实现欠压保护(比如说主控制线路放在同一个线路中，当欠压的时候会是继电器断开)，还可以消除由于线路恢复自动启动而产生安全隐患。
 </p>
 
@@ -70,18 +70,23 @@ PLC and pc connect with internet. the port't setting must set survival comfirm�
 sdlkfj
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

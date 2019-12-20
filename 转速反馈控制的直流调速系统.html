@@ -13,13 +13,13 @@
 	系统的硬件结构分为两部分：(1)电源部分
 </p>
 <blockquote>
-电源部分分为两类，一个是直接通过<a href="相控整流器.html">相控整流器</a><br>，把交流电源直接转换成可控直流电。一类是直流脉宽变换器，它是先用不可控整流把交流电变成直流电，然后通过PWM脉宽调制调压。
+电源部分分为两类，一个是直接通过<a href="相控整流器.html">相控整流器</a>，把交流电源直接转换成可控直流电。一类是直流脉宽变换器，它是先用不可控整流把交流电变成直流电，然后通过PWM脉宽调制调压。
 </blockquote>
 
 <p>
 &lt;1&gt;可控直流电源
 			（1）晶闸管整流器
-			（2）直流PWM变换器  <a href="PWM控制技术.html">PWM控制技术</a><br>
+			（2）直流PWM变换器  <a href="PWM控制技术.html">PWM控制技术</a>
 </p>
 <blockquote>
 不可逆PWM变换器-直流电动机系统：电流反向不了，一对IGBT和续流二极管，再增加一个IGBT和续流二极管就可以实现制动状态。
@@ -70,18 +70,23 @@
 </ul>
 </ol>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

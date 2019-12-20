@@ -90,18 +90,23 @@ return 0;
 原来有符号数和无符号数进行比较运算时（==，&lt;,&gt;,&lt;=,&gt;=）,有符号数隐式转换成了无符号数（即底层的补码不变，但是此数从有符号数变成了无符号数），比如上面 (a+b)&gt;6这个比较运算，a+b=-14，-14的补码为1111111111110010。此数进行比较运算时，被当成了无符号数，它远远大于6，所以得到上述结果。
 </p>
 
-<button class="back_to_top" style='background-color:red'>杩斿洖椤堕儴</button>
 
-<a href="https://weipiaoyun.github.io/note_html/绗旇鏁寸悊.html">
-<button class="back_to_index" style='background-color:red'>杩斿洖棣栭〉</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>杩斿洖椤堕儴</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\绗旇鏁寸悊.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">杩斿洖棣栭〉</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 漏 <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

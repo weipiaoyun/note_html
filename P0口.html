@@ -26,7 +26,7 @@ P0口作一般IO口使用，cpu发出控制电平，v1开通，v2截止，
 </p>
 
 <p>
-P0口有两个<a href="三态门.html">三态门</a><br>，上面一个结了锁存器，下面的没有，上面的主要是用于读-》修改——》写时用的。
+P0口有两个<a href="三态门.html">三态门</a>，上面一个结了锁存器，下面的没有，上面的主要是用于读-》修改——》写时用的。
 </p>
 
 <p>
@@ -47,18 +47,23 @@ P0口由四部分组成。
 输出的多路开关看指令，如果指令是MOV，说明是通用的IO口，上面的场效应管关闭。然后可以锁存数据，但是数据为1的时候是关闭的。上面下面的场效应管都关闭了。但这时本来是应该输出1的。所以必须加个上拉。如果是MOVX那么，上面下面的场效应管都是开着的，是推挽方式的。既可以输出低电平，也可以输出高电平。但是是先送地址，然后送数据。送完以后又是开关打在通用上。
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

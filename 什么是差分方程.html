@@ -156,8 +156,8 @@ xn=( )(1+ i)n+(－ )(1－ i)n
 Clear[x1,x2,c1,c2,l1,l2,solution]; 
 x1=1;x2=3; 
 solution=Solve[1^2-2l+4==0,1]; 
-l1=l/.solution<a href="1,1.html">1,1</a><br>; 
-l2=l/.solution<a href="2,1.html">2,1</a><br>; 
+l1=l/.solution<a href="1,1.html">1,1</a>; 
+l2=l/.solution<a href="2,1.html">2,1</a>; 
 c=Solve[{c1*l1+c2*l2==x1,c1*l1<sup><small>2+c2*l2</small></sup>2==x2},{c1,c2}]; 
 c1=Simplify[Re[c1]]+Simplify[Im[c1]]*I; 
 c2=Simplify[Re[c2]]+Simplify[Im[c2]]*I; 
@@ -297,28 +297,33 @@ B 1 2 3 1/2 1/2 3 3
 练习26 若 ，国民收入在什么条件下会稳定发展？ 
 本实验涉及的Mathematica软件语句说明 
 1. solution=Solve[1^2-2l+4==0,1]; 
-l1=1/.solution<a href="1,1.html">1,1</a><br>; 
-l2=l/.solution<a href="2,1.html">2,1</a><br>; 
+l1=1/.solution<a href="1,1.html">1,1</a>; 
+l2=l/.solution<a href="2,1.html">2,1</a>; 
 将方程l^2-2l+4==0的两根分别赋值给l1及l2. 
 2. c=Solve[{c1*l1+c2*l2==x1,c1*l1<sup><small>2+c2*l2</small></sup>2==x2},{c1,c2}]; 
-{c1,c2}={c1,c2}/.c<a href="1.html">1</a><br>; 
+{c1,c2}={c1,c2}/.c<a href="1.html">1</a>; 
 将方程组{c1*l1+c2*l2==x1,c1*l1<sup><small>2+c2*l2</small></sup>2==x2}的解赋值给c1及c2. 
 3. c1=Simplify[Re[c1]]+Simplify[Im[c1]]*I 
 将复数c1化简.
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

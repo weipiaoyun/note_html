@@ -82,18 +82,23 @@ CRC
 　　另外，由于ASCII协议有开始标志和结束标志，所以一个数据包之间的各字节间的传输间隔时间可以大于1秒，而MODBUS RTU方式下，由于没有规定开始和结束标记，所以协议规定每两个字节之间发送或者接收的时间间隔不能超过3.5倍字符传输时间。如果两个字符时间间隔超过了3.5倍的字符传输时间，就认为一帧数据已经接收，新的一帧数据传输开始，所以RTU方式下两个字节间传输间隔有时间要求。MODBUS 的ASCII和RTU两种协议的这一区别可能决定某些应用场合只能选用其中一种协议。
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

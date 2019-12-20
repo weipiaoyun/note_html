@@ -82,21 +82,21 @@
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 <p>
-<a href="linux概念.html">linux概念</a><br>
-<a href="linux服务.html">linux服务</a><br>
-<a href="启动过程.html">启动过程</a><br>
-<a href="linux命令大全.html">linux命令大全</a><br>
-<a href="ubuntu操作系统.html">ubuntu操作系统</a><br>
-<a href="脚本编程.html">脚本编程</a><br>
-<a href="鸟哥.html">鸟哥</a><br>
-<a href="第三课.html">第三课</a><br>
-<a href="linux文件系统.html">linux文件系统</a><br>
-<a href="linux标准输入输出.html">linux标准输入输出</a><br>
-<a href="linux用户管理.html">linux用户管理</a><br>
-<a href="linux文件系统权限.html">linux文件系统权限</a><br>
-<a href="硬盘管理.html">硬盘管理</a><br>
-<a href="ssh.html">ssh</a><br>
-<a href="linux history.html">linux history</a><br>
+<a href="linux概念.html">linux概念</a>
+<a href="linux服务.html">linux服务</a>
+<a href="启动过程.html">启动过程</a>
+<a href="linux命令大全.html">linux命令大全</a>
+<a href="ubuntu操作系统.html">ubuntu操作系统</a>
+<a href="脚本编程.html">脚本编程</a>
+<a href="鸟哥.html">鸟哥</a>
+<a href="第三课.html">第三课</a>
+<a href="linux文件系统.html">linux文件系统</a>
+<a href="linux标准输入输出.html">linux标准输入输出</a>
+<a href="linux用户管理.html">linux用户管理</a>
+<a href="linux文件系统权限.html">linux文件系统权限</a>
+<a href="硬盘管理.html">硬盘管理</a>
+<a href="ssh.html">ssh</a>
+<a href="linux history.html">linux history</a>
 </p>
 
 <h1 id="toc_1">系统及安装 </h1>
@@ -140,7 +140,7 @@ Kickstart自动批量安装Linux
 </p>
 
 <p>
-<a href="yum源.html">yum源</a><br>
+<a href="yum源.html">yum源</a>
 </p>
 
 
@@ -159,7 +159,7 @@ sudo libvirtd -d
 <p>
 网络
 	ovs-vsctl
-	<a href="https://pkgs.org/download/openvswitch">https://pkgs.org/download/openvswitch</a><br>   下载，安装
+	<a href="https://pkgs.org/download/openvswitch">https://pkgs.org/download/openvswitch</a>   下载，安装
 </p>
 
 <p>
@@ -240,7 +240,7 @@ ln -s /etc/libvirt/qemu/instance-00000002.xml /etc/libvirt/qemu/autostart/
 <h3 id="toc_1.2.3">C# in linux </h3>
 <h4 id="toc_1.2.3.1">更新gtk2 </h4>
 <p>
-<a href="update-gtk2.csh.html">update-gtk2.csh</a><br>
+<a href="update-gtk2.csh.html">update-gtk2.csh</a>
 </p>
 
 
@@ -440,7 +440,7 @@ service network restart
 
 <h4 id="toc_5.6.1.5">其他局域网电脑连接自己电脑上的虚拟机 </h4>
 <p>
-1，把VM的网络适配器由NAT模式改为桥接模式，详情看<a href="计算机网络.html">计算机网络</a><br>
+1，把VM的网络适配器由NAT模式改为桥接模式，详情看<a href="计算机网络.html">计算机网络</a>
 2，修改配置文件/etc/sysconfig/network-scripts。改为如下：
 </p>
 <ol>
@@ -565,7 +565,7 @@ system-&gt;Administration-&gt;server settings-&gt;services 把vncservear勾选�
 
 <h3 id="toc_7.1.6">linux中英文，中文输入法问题 </h3>
 <p>
-	<a href="https://blog.csdn.net/lzjsqn/article/details/54377604">https://blog.csdn.net/lzjsqn/article/details/54377604</a><br>
+	<a href="https://blog.csdn.net/lzjsqn/article/details/54377604">https://blog.csdn.net/lzjsqn/article/details/54377604</a>
 </p>
 
 <h3 id="toc_7.1.7">linux非超级用户不能保存 </h3>
@@ -609,18 +609,23 @@ Environment.SetEnvironmentVariable("LANG","C",EnvirontVariableTartet.Process)
 Environment.SetEnvironmentVariable("LC_CTYPT","zh_CN.UTF-8",EnvirontVariableTartet.Process)
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

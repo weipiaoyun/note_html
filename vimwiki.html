@@ -34,6 +34,7 @@
 <ul>
 <li><a href="#toc_10.1">修改生成html的标题和结尾 </a>
 <li><a href="#toc_10.2">替换掉标题生成的大括号 </a>
+<li><a href="#toc_10.3">更改生成的html </a>
 </ul>
 </ul>
 </div>
@@ -53,16 +54,16 @@
 <h1 id="toc_3">链接 </h1>
 <ul>
 <li>
-<a href="This is a link.html">This is a link</a><br>
+<a href="This is a link.html">This is a link</a>
 
 <li>
-<a href="链接源地址.html">链接描述</a><br>
+<a href="链接源地址.html">链接描述</a>
 
 <li>
-<a href="http://www.baike.com/wiki/%E7%BB%B4%E5%9F%BA ">Ktmud</a><br>  带文字的外链
+<a href="http://www.baike.com/wiki/%E7%BB%B4%E5%9F%BA ">Ktmud</a>  带文字的外链
 
 <li>
-<a href="http://ktmud.com/">http://ktmud.com/</a><br>  外部URL会被自动转换成链接
+<a href="http://ktmud.com/">http://ktmud.com/</a>  外部URL会被自动转换成链接
 
 <li>
 <img src="images/xxpabloymoira.png" />  同上
@@ -74,14 +75,18 @@
 <img src="file://D:\vim\vim\mysite\note/images/ipClassify.JPEG" /> vim里面双击可以打开本地图片 注意大小写，否则html可能显示不出来
 
 <li>
-<a href="d:\Vim\vim\mysite\note\Doc\制作大板vcut步骤.docx" download=\"文件名.txt\">点击下载</a/> vim里面双击可以解压。
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/vimfiles.zip"download=\"文件名.txt\">点击下载:【<a href="file://D:\vim\vim\mysite\note/vimfiles.zip】</a></div>">file://D:\vim\vim\mysite\note/vimfiles.zip】</a></div></a> vim里面双击可以解压。
 
 <li>
 <img src="file://D:\%Temp%\images/ipClassify.JPEG" /> 文件路径，加环境变量
 
 </ul>
 <p>
+<<<<<<< HEAD
 制作大板vcut步骤.docx
+=======
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/制作大板vcut步骤.docx"download=\"文件名.txt\">点击下载:【制作大板vcut步骤.docx】</a></div>
+>>>>>>> 9182c525c6ff8471688b6c2f78a233b3094939e9
 </p>
   
   
@@ -196,7 +201,7 @@ gl#
  
 <p>
 在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加
-vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a><br>&lt;CR&gt;
+vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a>&lt;CR&gt;
 </p>
 
 <h3 id="toc_7.2.1">加链接 </h3>
@@ -205,7 +210,7 @@ vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<
 </p>
 <ol>
 <li>
-回车加链接 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a><br>&lt;CR&gt;
+回车加链接 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a>&lt;CR&gt;
 
 <li>
 shift加回车加链接 nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;S-CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/{{local:images\/&lt;C-r&gt;p}}&lt;CR&gt;
@@ -298,7 +303,6 @@ g:vimwiki_valid_html_tags 的默认值是'b,i,s,u,sub,sup,kbd,br,hr'
 <h2 id="toc_10.1">修改生成html的标题和结尾 </h2>
 <p>
 修改路径：d:\Vim\vimfiles\autoload\vimwiki\default.tpl
-链接标签后面自动回车 ：路径：d:\Vim\vimfiles\autoload\html.vim  383行 vimwiki#html#linkify_link 函数，添加\<br>
 </p>
 
 <h2 id="toc_10.2">替换掉标题生成的大括号 </h2>
@@ -306,18 +310,40 @@ g:vimwiki_valid_html_tags 的默认值是'b,i,s,u,sub,sup,kbd,br,hr'
 d:\Vim\vimfiles\autoload\html.vim let h_text = substitute(h_text,'{{{\d}}}',"","g")
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<h2 id="toc_10.3">更改生成的html </h2>
+<p>
+d:\vim\vim\vimfiles\autoload\vimwiki\html.vim
+</p>
+<ol>
+<li>
+链接标签后面自动回车 ：路径：d:\Vim\vimfiles\autoload\html.vim  383行 vimwiki#html#linkify_link 函数，添加\<br>
+
+<li>
+自动生成标题后加个回车：vimwiki#html#linkify_link
+
+<li>
+生成图片和路径：vimwiki#html#linkify_image
+
+</ol>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

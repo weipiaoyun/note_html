@@ -42,7 +42,7 @@ UTF8－－Unicode－－GBK、GB2312
 
 <p>
 问题一： 
-使用Windows记事本的“另存为”，可以在GBK、Unicode、Unicode big endian和UTF-8这几种编码方式间相互转换。或者可以直接到 <a href="http://www.knowsky.com/tools/utf8.asp">http://www.knowsky.com/tools/utf8.asp</a><br> 进行在线转换。
+使用Windows记事本的“另存为”，可以在GBK、Unicode、Unicode big endian和UTF-8这几种编码方式间相互转换。或者可以直接到 <a href="http://www.knowsky.com/tools/utf8.asp">http://www.knowsky.com/tools/utf8.asp</a> 进行在线转换。
 </p>
 
 <p>
@@ -170,7 +170,7 @@ Windows就是使用BOM来标记文本文件的编码方式的。
 
 <p>
 6、进一步的参考资料
-本文主要参考的资料是 "Short overview of ISO-IEC 10646 and Unicode" (<a href="http://www.nada.kth.se/i18n/ucs/unicode-iso10646-oview.html)。">http://www.nada.kth.se/i18n/ucs/unicode-iso10646-oview.html)。</a><br>
+本文主要参考的资料是 "Short overview of ISO-IEC 10646 and Unicode" (<a href="http://www.nada.kth.se/i18n/ucs/unicode-iso10646-oview.html)。">http://www.nada.kth.se/i18n/ucs/unicode-iso10646-oview.html)。</a>
 </p>
 
 
@@ -179,9 +179,9 @@ Windows就是使用BOM来标记文本文件的编码方式的。
 </p>
 
 <p>
-"Understanding Unicode A general introduction to the Unicode Standard" (<a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;item_id=IWS-Chapter04a)">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;item_id=IWS-Chapter04a)</a><br> 
-"Character set encoding basics Understanding character set encodings and legacy encodings" (<a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;item_id=IWS-Chapter03)">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;item_id=IWS-Chapter03)</a><br> 
-我写过UTF-8、UCS-2、GBK相互转换的软件包，包括使用Windows API和不使用Windows API的版本。以后有时间的话，我会整理一下放到我的个人主页上(<a href="http://fmddlmyy.home4u.china.com)。">http://fmddlmyy.home4u.china.com)。</a><br>
+"Understanding Unicode A general introduction to the Unicode Standard" (<a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;item_id=IWS-Chapter04a)">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;item_id=IWS-Chapter04a)</a> 
+"Character set encoding basics Understanding character set encodings and legacy encodings" (<a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;item_id=IWS-Chapter03)">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;item_id=IWS-Chapter03)</a> 
+我写过UTF-8、UCS-2、GBK相互转换的软件包，包括使用Windows API和不使用Windows API的版本。以后有时间的话，我会整理一下放到我的个人主页上(<a href="http://fmddlmyy.home4u.china.com)。">http://fmddlmyy.home4u.china.com)。</a>
 </p>
 
 <p>
@@ -240,18 +240,23 @@ Windows的内码是Unicode，它在技术上可以同时支持多个代码页。
 再说区位码，啊的区位码是1601，写成16进制是0x10,0x01。这和计算机广泛使用的ASCII编码冲突。为了兼容00-7f的ASCII编码，我们在区位码的高、低字节上分别加上A0。这样“啊”的编码就成为B0A1。我们将加过两个A0的编码也称为GB2312编码，虽然GB2312的原文根本没提到这一点。
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

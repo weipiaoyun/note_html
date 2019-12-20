@@ -35,7 +35,7 @@ cp rhel-source.repo-- server.repo
 vim server.repo
 [server]
 name = 
-baseurl=<a href="file:///opt/Packages">file:///opt/Packages</a><br>
+baseurl=<a href="file:///opt/Packages">file:///opt/Packages</a>
 </p>
 
 <h2 id="toc_0.1">yum命令</h2>
@@ -52,7 +52,7 @@ yum clean all
 2，修改/etc/yum.repos.d/mylocal.repo为如下：
 	[local_resource]
 	name=my_local_resource
-	baseurl=<a href="file:///opt/Server">file:///opt/Server</a><br>
+	baseurl=<a href="file:///opt/Server">file:///opt/Server</a>
 	enable=1
 	gpgcheck=0
 3,vim  /usr/lib/python2.6/site-packages/yum/yumRepo.py``
@@ -87,18 +87,23 @@ yum clean all
 	yum install libXp
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

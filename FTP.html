@@ -38,7 +38,7 @@ URL是URI命名机制的一个子集
 一，主机名
 存放资源自身的名称，由路径表示。
 协议名称://域名.根域名/目录/文件名.后缀
-如:<a href="http://baike.so.com/doc/100.html">http://baike.so.com/doc/100.html</a><br>
+如:<a href="http://baike.so.com/doc/100.html">http://baike.so.com/doc/100.html</a>
 	这是可通过HTTP协议访问的资源，位于baike.so.com的主机上。在/doc文件夹，100.html的这个文件。
 </p>
 	
@@ -86,18 +86,23 @@ ftp 127.0.0.1   登录本机ftp
 ftp进去的目录需要查看登录的账号的目录的主目录。
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

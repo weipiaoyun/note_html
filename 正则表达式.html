@@ -152,7 +152,7 @@ abc|efg表示的是abc或者efg。|的优先级比较低。
 　　验证是否含有^%&amp;'',;=?\("等字符：“[^%&amp;'',;=?\)x22]+” 
 　　只能输入汉字：“^[u4e00-u9fa5],{0,}$” 
 　　验证Email地址：“^w+[-+.]w+)<strong>@w+([-.]w+)</strong>.w+([-.]w+)*$” 
-　　验证InternetURL：“^<a href="http://([w-]+.)+[w-]+(/[w-./?%&amp;=]*)?\(”">http://([w-]+.)+[w-]+(/[w-./?%&amp;=]*)?\)”</a><br> 
+　　验证InternetURL：“^<a href="http://([w-]+.)+[w-]+(/[w-./?%&amp;=]*)?\(”">http://([w-]+.)+[w-]+(/[w-./?%&amp;=]*)?\)”</a> 
 　　验证电话号码：“^((d{3,4})|d{3,4}-)?d{7,8}$” 
 　　正确格式为：“XXXX-XXXXXXX”，“XXXX-XXXXXXXX”，“XXX-XXXXXXX”， 
 　　“XXX-XXXXXXXX”，“XXXXXXX”，“XXXXXXXX”。 
@@ -166,7 +166,7 @@ abc|efg表示的是abc或者efg。|的优先级比较低。
 　　匹配HTML标记的正则表达式：/&lt;(.<strong>)&gt;.</strong>|&lt;(.*) /&gt;/ 
 　　匹配首尾空格的正则表达式：(^s*)|(s*$) 
 　　匹配Email地址的正则表达式：w+([-+.]w+)<strong>@w+([-.]w+)</strong>.w+([-.]w+)* 
-　　匹配网址URL的正则表达式：<a href="http://([w-]+.)+[w-]+(/[w-">http://([w-]+.)+[w-]+(/[w-</a><br> ./?%&amp;=]*)? 
+　　匹配网址URL的正则表达式：<a href="http://([w-]+.)+[w-]+(/[w-">http://([w-]+.)+[w-]+(/[w-</a> ./?%&amp;=]*)? 
 　　(1)应用：计算字符串的长度（一个双字节字符长度计2，ASCII字符计1） 
 　　String.prototype.len=function(){return this.replace([^x00-xff]/g,"aa").length;} 
 　　(2)应用：javascript中没有像vbscript那样的trim函数，我们就可以利用这个表达式来实现 
@@ -188,7 +188,7 @@ abc|efg表示的是abc或者efg。|的优先级比较低。
 　　} 
 　　} 
 　　(4)应用：从URL地址中提取文件名的javascript程序 
-　　s="<a href="http://www.9499.net/page1.htm";">http://www.9499.net/page1.htm";</a><br> 
+　　s="<a href="http://www.9499.net/page1.htm";">http://www.9499.net/page1.htm";</a> 
 　　s=s.replace(/(.<strong>/){0,}([^.]+).</strong>/ig,"$2") ;//Page1.htm 
 　　(5)应用：利用正则表达式限制网页表单里的文本框输入内容 
 　　用正则表达式限制只能输入中文：onkeyup="value=value.replace(/[<sup><small>u4E00-u9FA5]/g,'') "onbeforepaste="clipboardData.setData(''text'',clipboardData.getData(''text'').replace(/[</small></sup>u4E00-u9FA5]/g,''))" 
@@ -841,18 +841,23 @@ Global
 本 Web 版工具为免费使用，不受 Regex Match Tracer 主程序的试用期限制。
 </blockquote>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

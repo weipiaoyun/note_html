@@ -10,7 +10,7 @@
 <body>
 
 <p>
-<a href="别人的笔记.html">别人的笔记</a><br>
+<a href="别人的笔记.html">别人的笔记</a>
 具体执行过程：
 	1，选择组，组选好了才能分配抢占和响应优先寄存器的空间，只有4位。因为只有4位，每一位代表两个优先级，所以4位就有2^4 = 16种优先级。其实是一个数字代表一个优先级（抢占+响应）
 	2，分配空间，向空间里面输入优先级。
@@ -210,18 +210,23 @@ IRQ CHANAEL 6 通道 = 0xA0  中断优先级    EXTI0 EXTI线0中断
  STM32_Nvic_Regs-&gt;Enable[0].bit.INT10=1; // 开INT10 中断  IRQ10
 </p>
 
-<button class="back_to_top" style='background-color:red'>返回顶部</button>
 
-<a href="https://weipiaoyun.github.io/note_html/笔记整理.html">
-<button class="back_to_index" style='background-color:red'>返回首页</button>
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
 </a>
 
-<script src="my.js"></script>
+
+
 <HR SIZE=5>
 <p class="left">
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
+<script src="my.js"></script>
+</div>
 </div>
 </body>
 </html>

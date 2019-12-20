@@ -101,10 +101,7 @@ for(i=0;i<img.length;i++){
 
 var backButton=$('.back_to_top');
 
-        function win_run() {
-            var cmd = new ActiveXObject("WScript.Shell");
-            cmd.run("start d:\Vim\vim\.gitignore");
-        }
+    
 
     function backToTop() {
         $('html,body').animate({
@@ -113,13 +110,42 @@ var backButton=$('.back_to_top');
     }
     backButton.on('click', backToTop);
  
+var div1=document.getElementById('back_to_topA');
     $(window).on('scroll', function () {/*当滚动条的垂直位置大于浏览器所能看到的页面的那部分的高度时，回到顶部按钮就显示 */
+		//滚动的时候检测，如果电脑端，直接返回
+		var nnn = url.search(/mysite/);
+		if(nnn > 0){
+			div1.style.display = "none";
+			return;
+		} else {
+		} 
+		alert("aaaa");
+
         if ($(window).scrollTop() > $(window).height())
             backButton.fadeIn();
         else
             backButton.fadeOut();
+
+
     });
 
 
+/*返回首页根据地址不同返回不同*/
+var div=document.getElementById('returnIndexA');
+	 var url = window.location.href;
+	 var nnn = url.search(/weipiaoyun/);
+	 if(nnn > 0){
+		 div.href="https://weipiaoyun.github.io/note_html/笔记整理.html";
+	 } else {
+		 div.href="d:/vim/vim/mysite/note_html/笔记整理.html";
+	 }
 
+
+
+/*隐藏返回顶部， 手机用的*/
+var nnnn = url.search(/mysite/);
+if(nnnn > 0){
+	backButton.fadeOut();
+	div1.style.display = "none";
+} 
 
