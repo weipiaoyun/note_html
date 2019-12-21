@@ -76,7 +76,7 @@ IP
 工控机
 </td>
 <td>
-高多层1#
+高多层1
 </td>
 <td>
 上下板机
@@ -96,7 +96,7 @@ IP
 前处理
 </td>
 <td>
-高多层1#
+高多层1
 </td>
 <td>
 上下板机
@@ -156,7 +156,7 @@ ls
 棕化
 </td>
 <td>
-高多层1#
+高多层1
 </td>
 <td>
 上下板机
@@ -308,11 +308,8 @@ database=CIMOMJXZH
 
 
 
-
-
-
 <h1 id="toc_5">查询采集数据 </h1>
-<p>
+<pre>
 /****** Script for SelectTopNRows command from SSMS  ******/
 SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b.CADDRESS_NAME,a.CGET_ID, a.CDATA_VALUE
   FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
@@ -320,18 +317,18 @@ SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b
   left join TBL_EAP_EQUIPMENT c on b.CEQUIPMENT_ID = c.CID
   --WHERE c.CEQUIPMENT_CODE = 'GME-PRE-002'
    order by a.CDATETIME_CREATED desc
-</p>
-   
+</pre>
+
 
 
 <h1 id="toc_6">查询MI叠构 </h1>
-<p>
+<pre>
 SELECT * FROM dbo.TBL_MI_STACK_INFO WHERE CMANU_PART_NUMBER = 'BFK0E0600042A0' AND CSTATE = 'A' ORDER BY CNUM 
-</p>
+</pre>
 
 
 <h1 id="toc_7">岗位资格认证 </h1>
-<p>
+<pre>
 select c.CCERTIFICATION_CODE from TBL_BD_QUALIFIED_AUZ a 
 inner join TBL_SYS_USER b
 on  a.CUSER_ID=b.CID
@@ -339,10 +336,9 @@ inner join TBL_BD_QUALIFIED_CERTIFICATE c on
 a.CCERTIFICATION_ID=c.CID 
 inner join TBL_SYS_DICTIONARY d on  c.CCERTIFICATION_ATTR=d.CID 
 where b.CUSER_NAME = 'J300572'
-</p>
+</pre>
 
-
-<p>
+<pre>
 select count(*)
  from TBL_BD_QUALIFIED_JOBS a
 inner join TBL_EAM_EQUIPMENT b on a.CEQUIPMENT_ID=b.CID
@@ -350,7 +346,7 @@ inner join TBL_BD_QUALIFIED_CERTIFICATE c on  a.CCERTIFICATION_ID=c.CID
 inner join TBL_SYS_DICTIONARY d on  c.CCERTIFICATION_ATTR=d.CID
 where CCERTIFICATION_CODE = 'FQC-005'
 and CEQUIPMENT_CODE = 'FAE-DRL-003'
-</p>
+</pre>
 
 
 <div class="foot">
