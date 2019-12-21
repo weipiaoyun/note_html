@@ -59,9 +59,6 @@
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
-<p>
-测试aaaaa
-</p>
 <h1 id="toc_1">工作清单 </h1>
 <h2 id="toc_1.1">待处理 </h2>
 <ol>
@@ -152,13 +149,20 @@ vim增加打开文件夹功能
 </p>
 
 <h1 id="toc_4">查看是否有采集 </h1>
-<p>
-SELECT a.CDATETIME_CREATED, b.CADDRESS_NAME, b.CADDRESS_CODE, b.CDATA_TYPE, a.CDATA_VALUE
+<pre>
+	SELECT a.CDATETIME_CREATED, b.CADDRESS_NAME, b.CADDRESS_CODE, b.CDATA_TYPE, a.CDATA_VALUE
   FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
   left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.CID
   --where b.CADDRESS_CODE in ('D2035','D2835', 'D2052', 'D300')
   order by a.CDATETIME_CREATED desc
-</p>
+  
+</pre>
+
+<pre>
+sdlfjs
+sdlfjs
+sldf
+</pre>
 
 <p>
 <a href="组态接口.html">组态接口</a>
