@@ -29,7 +29,7 @@ var index = {
         20: "二十:",
     };
 
-for(i=1;i<h1.length;i++){
+for(i=0;i<h1.length;i++){
 	var id_value=h1[i].getAttribute("id").replace("toc_","");
 	h1[i].innerHTML=index[id_value]+" "+h1[i].innerHTML;
 }

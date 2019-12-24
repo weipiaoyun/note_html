@@ -1,0 +1,571 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>RecipeAndTraceAbility</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">全流程追溯方案 </a>
+<li><a href="#toc_2">Recipe下发 </a>
+<ul>
+<li><a href="#toc_2.1">Drill Machine </a>
+<li><a href="#toc_2.2">奥宝LDI </a>
+<ul>
+<li><a href="#toc_2.2.1">路径 </a>
+<li><a href="#toc_2.2.2">需要的参数 </a>
+<li><a href="#toc_2.2.3">下发Recipe </a>
+<li><a href="#toc_2.2.4">参数采集 </a>
+<li><a href="#toc_2.2.5">问题点 </a>
+</ul>
+<li><a href="#toc_2.3">压机Recipe </a>
+<li><a href="#toc_2.4">Lay-Up Error proofing </a>
+<li><a href="#toc_2.5">内层DES复制棕化Recipe </a>
+</ul>
+<li><a href="#toc_3">trace ability </a>
+<ul>
+<li><a href="#toc_3.1">解决方案 </a>
+<ul>
+<li><a href="#toc_3.1.1">内层二维码 </a>
+<li><a href="#toc_3.1.2">次外层或外层二维码 </a>
+</ul>
+<li><a href="#toc_3.2">文字二维码 </a>
+<ul>
+<li><a href="#toc_3.2.1">二维码类型 </a>
+<li><a href="#toc_3.2.2">二维码尺寸，点数 </a>
+<li><a href="#toc_3.2.3">打码数据类型 </a>
+<li><a href="#toc_3.2.4">二维码信息规则 </a>
+</ul>
+</ul>
+<li><a href="#toc_4">AOI </a>
+<li><a href="#toc_5">压合到镭射 </a>
+<li><a href="#toc_6">机械钻孔 </a>
+<li><a href="#toc_7">镭射 </a>
+<li><a href="#toc_8">对接文档 </a>
+<li><a href="#toc_9">VCUT </a>
+<ul>
+<li><a href="#toc_9.1">vcut格式，自动传入vcut机器 </a>
+</ul>
+<li><a href="#toc_10">待入库 </a>
+<li><a href="#toc_11">成品仓 </a>
+<li><a href="#toc_12">打电话系统 pjsip4net </a>
+<li><a href="#toc_13">三化一稳 </a>
+<ul>
+<li><a href="#toc_13.1">怎么找到某个产品使用的物料批次？ </a>
+</ul>
+<li><a href="#toc_14">上下板机 </a>
+</ul>
+</div>
+<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+
+<h1 id="toc_1">全流程追溯方案 </h1>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩全流程品质追溯方案20190801.ppt"download=\"文件名.txt\">点击下载:【江西志浩全流程品质追溯方案20190801.ppt】</a></div>
+</p>
+
+<h1 id="toc_2">Recipe下发 </h1>
+<p>
+after scan the LOT, select the parameters automatically
+</p>
+
+<h2 id="toc_2.1">Drill Machine </h2>
+<ol>
+<li>
+PDA scan the machine, LOT, staff information. import the drill tool into the machine's directory automatically
+
+<li>
+Display the imformation which include the 管位孔 deep， 叠板数，and the drill tool’s parameters
+
+<li>
+Staff operate and confirm the information accroding to the PDA instructions.
+
+</ol>
+
+
+<h2 id="toc_2.2">奥宝LDI </h2>
+<ul>
+<li>
+<div class="Doc"><a  href="file:\/f:/backup/hardDiskBak/工作文档/MES/志浩MES项目总结190618.pptx"download=\"文件名.txt\">点击下载:【<a href="file://f:/backup/hardDiskBak/工作文档/MES/志浩MES项目总结190618.pptx】</a></div>">file://f:/backup/hardDiskBak/工作文档/MES/志浩MES项目总结190618.pptx】</a></div></a>
+
+</ul>
+<p>
+制作大板vcut步骤.docx
+</p>
+<ul>
+<li>
+{{file:d:\Vim\vim\mysite\note\工作便签.wiki}}
+
+</ul>
+<p>
+干膜不通，曝光能量不同，
+</p>
+
+<ul>
+<li>
+涨缩
+
+</ul>
+<p>
+LDI机有固定涨缩和自动涨缩，固定涨缩是工艺测量后输入涨缩值。自动涨缩是LDI机自动测量涨缩值，然后进行涨缩。
+</p>
+
+<ol>
+<li>
+是否能够扫描条码，自动防呆。
+
+<li>
+是否曝光前可以执行脚本调用配方，曝光后执行脚本上传参数。
+
+</ol>
+
+<h3 id="toc_2.2.1">路径 </h3>
+<p>
+\\10.80.13.52\dp\dpconfig\setpuf
+\\10.80.13.52\dp\cam\dp100-jobs
+</p>
+
+
+<h3 id="toc_2.2.2">需要的参数 </h3>
+<p>
+工程输出的文件
+IMAGE-SETUP-FILE-NAME=设定的文件名
+INITIAL-SERIAL-NUMBER=
+IMAGE-SETUP-FILE-NAME=
+LINE-NUM= *这行添加了行后必须更改。
+</p>
+
+<h3 id="toc_2.2.3">下发Recipe </h3>
+<p>
+解决方案1，扫描工单后，下载资料和参数，DI机进行做资料处理。
+解决方案2，MES自动排产，自动放资料和参数，DI机进行资料处理。
+</p>
+
+<p>
+资料处理完后板进行曝光的时候，员工扫工单，LDI调取相对应的资料。做板。
+</p>
+
+<h3 id="toc_2.2.4">参数采集 </h3>
+<p>
+通过批次号和初始序列号绑定，通过初始序列号查出参数。
+希望奥宝能把我们的pnl条码读取，然后绑定序列号。(可通过条码，或pnl追溯)，或者通过扫工单后，工单和序列号绑定(可通过Lot卡追溯，不能追溯具体到板，但是Lot卡和pnl条码能否在开料打码的地方绑定？)。
+</p>
+
+<h3 id="toc_2.2.5">问题点 </h3>
+<ol>
+<li>
+流程能否优化，把扫描工单的做成自动根据计划排产调用。
+
+<li>
+资料回收，有ECN或发现资料错误，需要更改的时候，能通过接口自动删除资料。(自动删(过期删，做完删)，指定删)
+
+</ol>
+
+
+<h2 id="toc_2.3">压机Recipe </h2>
+<p>
+先绑定LOT卡和载盘标签。(知道载盘里面的对应的什么料号)
+载盘在进去的之前自动扫标签。查找该料号用的是什么Recipe。然后调用存储过程[SP_SFC_LAM_LOT_BARCODE]，往压机供应商提供的数据库表里面写数据。
+压机根据数据库表LAUFFER_RECIPE.dbo.Load_Data  自动更改程式。
+</p>
+
+
+
+<h2 id="toc_2.4">Lay-Up Error proofing </h2>
+<ul>
+<li>
+create a task code
+
+<li>
+create second or outer LOTNO
+
+<li>
+binding second or outer item num. bkh85445a0.IN27
+
+<li>
+
+
+</ul>
+
+<p>
+1，添加记录。
+2，下发前添加判断当前料号和扫描料号是否为同一个料号。如果是同一个料号，时间超过一天，重新下发配方。如果是不同料号，重新下发配方(防止配方下发后HDM下更改。)
+3， 记录当前机台号的当前料号，当前recipe
+</p>
+
+
+
+<h2 id="toc_2.5">内层DES复制棕化Recipe </h2>
+<p>
+1，复制项目文件夹。
+2，添加现有项目。
+3，修改所有命名空间(卸载其它的)
+4，修改csproj里面的生成的dll名字。
+5，修改service
+</p>
+
+
+<h1 id="toc_3">trace ability </h1>
+<p>
+条码规则
+</p>
+
+<p>
+机台号，相当于分配了一个IP段。
+每年自动从0开始
+</p>
+
+<p>
+物料，叠构，工艺参数都可以追溯。
+</p>
+
+
+<h2 id="toc_3.1">解决方案 </h2>
+<h3 id="toc_3.1.1">内层二维码 </h3>
+<p>
+漏码率多少？
+12x12(点阵)	10位数
+</p>
+<ol>
+<li>
+在开料水洗添加吴德和设备，打通孔或者是盲孔二维码。
+
+<li>
+在内层LDI，通过设备生成二维码(备选方案)
+
+</ol>
+	
+<ol>
+<li>
+如果是通孔二维码，打的时间久，效率低。
+
+<li>
+如果是盲孔二维码，效率高。但是ldi干膜盖住后需要通孔加背光读取好点。盲孔读取失败率高。
+
+<li>
+二维码如果不怎么损坏，只需要打一个即可。否则需要两个，一个短边，一个长边二维码。
+
+<li>
+明码=lot+料号+层名。
+
+</ol>
+
+<h3 id="toc_3.1.2">次外层或外层二维码 </h3>
+<ol>
+<li>
+在XRAY的时候通过读取内层二维码，用针式在板边钻个二维码，转到次外层或外层二维码。
+
+</ol>
+<p>
+次外层和外层二维码和最上面的内层二维码相同。
+</p>
+
+
+<h2 id="toc_3.2">文字二维码 </h2>
+<ol>
+<li>
+CAM 输出坐标和类型(明码，二维码，lot卡号) [WZDGERP].[wisdompcb].[dbo].[Print2D_CAM]
+
+</ol>
+
+
+<h3 id="toc_3.2.1">二维码类型 </h3>
+<p>
+明码
+二维码
+</p>
+
+<p>
+	打码机实际的二维码类型就两种，要么二维码，要么明码。
+	二维码的内容会根据二维码的类型不同而不同。所以CAM资料导出来的时候要指定类型。MES根据类型生成二维码类型。二维码内容生成后MES更改二维码类型是明码还是二维码。
+</p>
+
+<ol>
+<li>
+
+
+</ol>
+
+<h3 id="toc_3.2.2">二维码尺寸，点数 </h3>
+<p>
+3.5	14x14
+4	16x16
+4.5	18x18
+6	26x26(华为)
+</p>
+
+<p>
+明码字符 1mm高
+</p>
+
+<h3 id="toc_3.2.3">打码数据类型 </h3>
+<ol>
+<li>
+对应的表[WZDGERP].[wisdompcb].[dbo].[Print2D_BarDef_Detail] 
+
+<li>
+ERP市场下单后会录入打码类型[Print2D_BarDef]，
+
+<li>
+CAM输出到表[Print2D_CAM]
+
+<li>
+读取CAM的每一行，通过第2步的IDKey和第三步cam输出的文字类型，在[Print2D_BarDef_Detail]里面找到对应的[Parent_IDKey]和printType条件。找出，从而找到拼接打印的字符[pnl条码+set号+edit号]。
+
+<li>
+修改CAM输出的，printType改为0或1(二维码，或明码)，增加打印的内容。
+
+</ol>
+
+<p>
+二维码数据6*6 4*4
+明码数据10*10
+阻抗LOT号1*1.5
+</p>
+
+<h3 id="toc_3.2.4">二维码信息规则 </h3>
+<p>
+长宽，尺寸，板厚，文字或绿油
+光点(参考点)四个。
+</p>
+	
+<p>
+坐标(x，y，ang)，类型()，set号，edit号，打码值
+</p>
+
+<p>
+码：pnl码(10位)+set号(3位)+edit号(3位)
+</p>
+<ul>
+<li>
+后续可能会添加lot卡号等，如果知道lot卡，自动包装机可以快速区分。
+
+</ul>
+
+<p>
+--------二维码----------------
+W
+厂内编号（料号）取7位
+版本（A0,B0）
+lot号（取后4位）
+PNAEL 3位
+SET   3位 
+PCS   3位
+</p>
+
+<p>
+25字节 18X18  4MM*4MM
+</p>
+
+<p>
+--------明码-------------------
+</p>
+
+<p>
+lot号（取后4位）
+PNAEL 3位
+SET   3位 
+PCS   3位
+</p>
+
+<p>
+华勤二维码规则：工厂+lot卡+流水号+set号+pcs号
+通用二维码规则：pnl条码1921234567 + set号+ pcs号
+</p>
+
+
+<p>
+<a href="LDI machine.html">LDI machine</a>
+<a href="奥宝LDI机.html">奥宝LDI机</a>
+</p>
+
+<h1 id="toc_4">AOI </h1>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/AOI数据采集说明+自动解析料号+二维码位置需求.rar"download=\"文件名.txt\">点击下载:【AOI数据采集说明+自动解析料号+二维码位置需求.rar】</a></div>
+</p>
+
+<h1 id="toc_5">压合到镭射 </h1>
+<p>
+浩硕机有三台，放到两条线，有一条线1台(老机器，直接打出七个孔，靶孔+ccd孔)，另一条线有两台(一台打3个孔，一台打四个孔，为得是提高效率)。
+</p>
+
+
+<p>
+压合-&gt;XRAY靶孔(浩硕)-&gt;镭射二维码-&gt;裁磨线-&gt;XRAY ccd孔(测涨缩)-&gt;分板
+压合-&gt;XRAY靶孔-&gt;裁磨线-&gt;XRAY ccd孔(测涨缩)-&gt;镭射二维码-&gt;分板
+</p>
+
+<ol>
+<li>
+读取二维码问题：二维码的位置不合适，导致读取需要大幅度移动摄像头，效率低。通过更换到四孔打靶读取。
+
+<li>
+清线问题，目前设备和设备没有交流，xray不知道最后一块板是否已经走完，只能靠员工规范作业，等清完线后再扫lot卡下发工单。更新资料和参数。
+
+<li>
+在分板前需要二维码和涨缩进行绑定传给MES系统。可以通过二维码找到涨缩值。
+
+<li>
+浩硕机的保存格式是以csv格式存储的。
+
+<li>
+只有在XRAY采集到涨缩值，钻孔车间才能根据涨缩值自动涨缩。
+
+<li>
+
+
+</ol>
+<p>
+#
+</p>
+
+<h1 id="toc_6">机械钻孔 </h1>
+
+<p>
+下发到路径
+\\172.19.10.1\mechdrill
+</p>
+
+<ol>
+<li>
+员工工号
+
+<li>
+机台编号  找到对应放过去的目录
+
+<li>
+lot卡号	找到对应的钻带
+
+</ol>
+
+<ol>
+<li>
+自动下发钻带(根据lot卡对应料号)
+
+<li>
+自动下发参数(根据lot对应料号，对应的产品参数，如铜厚，tg值，hdi板，根据机台编号获取获取机器类型，从而得出参数)
+
+</ol>
+
+<p>
+机械钻孔可以钻机台号和轴号，验孔机安装扫描头，同时扫二维码和机台号，二维码和机台号绑定，可以追溯到哪个机台钻的。
+</p>
+
+
+
+<h1 id="toc_7">镭射 </h1>
+<p>
+配方包括两个
+</p>
+<ol>
+<li>
+参数
+
+<li>
+钻带
+
+</ol>
+
+<p>
+钻带型号和RFID绑定。
+</p>
+
+<h1 id="toc_8">对接文档 </h1>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩项目生产资料下发接口对接文档V1.2.pdf"download=\"文件名.txt\">点击下载:【江西志浩项目生产资料下发接口对接文档V1.2.pdf】</a></div>
+</p>
+
+<h1 id="toc_9">VCUT </h1>
+<h2 id="toc_9.1">vcut格式，自动传入vcut机器 </h2>
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/e076be5914481649d13f3e4796e4c16.png" /></div>
+</p>
+
+<h1 id="toc_10">待入库 </h1>
+
+<p>
+待入库到成品仓有多少之前老板不清楚。
+</p>
+
+<h1 id="toc_11">成品仓 </h1>
+
+
+<h1 id="toc_12">打电话系统 pjsip4net </h1>
+
+
+<h1 id="toc_13">三化一稳 </h1>
+<h2 id="toc_13.1">怎么找到某个产品使用的物料批次？ </h2>
+<p>
+	MES增加追溯功能。可以根据
+</p>
+<ol>
+<li>
+客户料号
+
+<li>
+客户订单号
+
+<li>
+本厂编号
+	进行追溯。直接查用了哪些物料，用的是哪个批次的物料。
+
+</ol>
+	
+
+<h1 id="toc_14">上下板机 </h1>
+<p>
+如果扫描的扫到lot卡和目前使用的Recipe不是同一个绑定的Recipe，停掉上下板机。
+</p>
+<ol>
+<li>
+记录当前Recipe
+
+<li>
+扫描线路板
+
+<li>
+比对
+
+<li>
+
+
+</ol>
+
+<p>
+读取地址
+	控制模式：
+</p>
+<ul>
+<li>
+人工模式
+
+<li>
+AGV
+		*
+
+</ul>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="my.js"></script>
+</div>
+</div>
+</body>
+</html>
