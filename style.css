@@ -123,6 +123,8 @@ th {
 ol {
   background: #ff9999;
   padding: 20px;
+  /*list超过10会超出范围*/
+  list-style-position: inside;
 }
 
 ul {
