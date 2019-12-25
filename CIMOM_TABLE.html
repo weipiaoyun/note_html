@@ -24,6 +24,10 @@
 <ul>
 <li><a href="#toc_4.1">删除菜单 </a>
 </ul>
+<li><a href="#toc_5">Tracibility </a>
+<ul>
+<li><a href="#toc_5.1">前处理读码查询 </a>
+</ul>
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
@@ -35,6 +39,8 @@
 <p>
 [TBL_EAP_COGNEX] 康耐视主表。绑定IP地址，设备编码，工艺流程等。
 </p>
+
+
 
 <h2 id="toc_2.1">AOI </h2>
 <p>
@@ -84,6 +90,18 @@ SELECT TOP (1000) [CID]
       ,[CEQUIPMENT_CODE]
       ,[CSNAPSHOTID]
   FROM [CIMOMJXZH].[dbo].[TBL_SFC_PROCESS_PARAMS]
+</pre>
+
+<h1 id="toc_5">Tracibility </h1>
+<h2 id="toc_5.1">前处理读码查询 </h2>
+
+<pre>
+	
+select distinct CSFC from TBL_SFC_ACTIVITY_LOG 
+where 
+COPERATION='IPD1' and 
+CSFC in 
+(select distinct CPANEL_SERIAL from TBL_SFC_LOT_PANEL where CITEM_CODE='BFR0Z0600131A0.I23' and CDATETIME_CREATED&gt;'2019-12-24')
 </pre>
 
 
