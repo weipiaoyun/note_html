@@ -19,53 +19,25 @@
 <ul>
 <li><a href="#toc_5.1">账号管理 </a>
 </ul>
-<li><a href="#toc_6">华为要求 </a>
-<li><a href="#toc_7">板的信息 </a>
-<li><a href="#toc_8">过数 </a>
-<li><a href="#toc_9">术语 </a>
+<li><a href="#toc_6">志浩MES功能模块 </a>
+<li><a href="#toc_7">术语 </a>
 <ul>
-<li><a href="#toc_9.1">Q </a>
-<li><a href="#toc_9.2">系统 </a>
+<li><a href="#toc_7.1">Q </a>
+<li><a href="#toc_7.2">系统 </a>
 </ul>
-<li><a href="#toc_10">重点优先 </a>
-<li><a href="#toc_11">产能 </a>
-<li><a href="#toc_12">排产 </a>
+<li><a href="#toc_8">重点优先 </a>
+<li><a href="#toc_9">AGV </a>
 <ul>
-<li><a href="#toc_12.1">工作中心 </a>
+<li><a href="#toc_9.1">AGV解决方案 </a>
 </ul>
-<li><a href="#toc_13">AGV </a>
+<li><a href="#toc_10">流程 </a>
 <ul>
-<li><a href="#toc_13.1">AGV解决方案 </a>
+<li><a href="#toc_10.1">关心的问题 </a>
 </ul>
-<li><a href="#toc_14">流程 </a>
-<li><a href="#toc_15">环球镭射 </a>
-<ul>
-<li><a href="#toc_15.1">关心的问题 </a>
-</ul>
-<li><a href="#toc_16">LDI </a>
-<li><a href="#toc_17">看板和报表 </a>
-<li><a href="#toc_18">traceability  of the all technological process </a>
-<li><a href="#toc_19">HslCommunication </a>
-<li><a href="#toc_20">MES系统架构 </a>
-<li><a href="#toc_21">Recipe and trace ability </a>
-<li><a href="#toc_22">WMS System </a>
-<ul>
-<li><a href="#toc_22.1">WCS系统 </a>
-</ul>
-<li><a href="#toc_23">AGV </a>
-<li><a href="#toc_24">采集服务 </a>
-<ul>
-<li><a href="#toc_24.1">服务无法启动 </a>
-<li><a href="#toc_24.2">AOI </a>
-<li><a href="#toc_24.3">采集更新 </a>
-<li><a href="#toc_24.4">设备连接更新 </a>
-<li><a href="#toc_24.5">客户端 </a>
-<li><a href="#toc_24.6">服务端 </a>
-</ul>
-<li><a href="#toc_25">看板 </a>
-<ul>
-<li><a href="#toc_25.1">定时器没有定时执行了 </a>
-</ul>
+<li><a href="#toc_11">traceability  of the all technological process </a>
+<li><a href="#toc_12">HslCommunication </a>
+<li><a href="#toc_13">MES系统架构 </a>
+<li><a href="#toc_14">西门子camstar </a>
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
@@ -170,13 +142,9 @@ agv调度系统
 完工
 </p>
 
-
 <h1 id="toc_4">框架 </h1>
 <p>
 车间服务器
-</p>
-
-<p>
 开发员
 系统管理级别
 现场管理
@@ -199,52 +167,12 @@ agv调度系统
 </ol>
 
 
-
-<h1 id="toc_6">华为要求 </h1>
-<ol>
-<li>
-物料先进先出
-
-<li>
-产品全流程追溯
-
-<li>
-物料防错功能
-
-</ol>
-
-<h1 id="toc_7">板的信息 </h1>
+<h1 id="toc_6">志浩MES功能模块 </h1>
 <p>
-叠构信息，品质管理，包装信息，返修信息
+<a href="志浩MES功能模块.html">志浩MES功能模块</a>
 </p>
 
-
-<h1 id="toc_8">过数 </h1>
-<p>
-lot卡只做过数功能。
-打报废要扫lot卡
-五珠存在只要够数，这个lot就往下走，可能会从其它lot里面拿过来凑数。所以，会出现一个lot里面混有几个lot的板。所以lot卡报废不能具体绑定到pnl条码。
-建议，不扫lot卡报废，扫pnl条码报废。
-</p>
-<ol>
-<li>
-在电镀和钻孔，混板比较常见。
-
-</ol>
-
-<p>
-合卡拆卡在ERP里面做
-</p>
-
-<p>
-<a href="CIMOM_TABLE.html">CIMOM_TABLE</a>
-</p>
-
-<p>
-<a href="MES功能模块.html">MES功能模块</a>
-</p>
-
-<h1 id="toc_9">术语 </h1>
+<h1 id="toc_7">术语 </h1>
 <p>
 配料单，
 流程卡、Lot卡，工单。
@@ -252,66 +180,29 @@ lot卡只做过数功能。
 </p>
 
 <p>
-批次号，作业单号，lot卡，流程卡，工单
+批次号，作业单号，lot卡，流程卡，工单是同一个概念，不通称呼。
 </p>
-<h2 id="toc_9.1">Q </h2>
+<h2 id="toc_7.1">Q </h2>
 <p>
 是否可以根据工单，获取批次号
 流程卡，lot卡，工单分别指什么？
 </p>
 
-<h2 id="toc_9.2">系统 </h2>
+<h2 id="toc_7.2">系统 </h2>
 <p>
 FAQ 常见的系统问题处理。
 </p>
 
 
-<h1 id="toc_10">重点优先 </h1>
+<h1 id="toc_8">重点优先 </h1>
 <p>
 racipe and tracebility
 高级计划排程
 </p>
 
 
-<h1 id="toc_11">产能 </h1>
-<p>
-标准产能
-单机产能
-</p>
 
-
-<h1 id="toc_12">排产 </h1>
-<h2 id="toc_12.1">工作中心 </h2>
-<p>
-工作中心可以是车间，可以是一条线。排机的时候可以排到
-生产排机
-物料接收
-</p>
-
-
-<p>
-主计划
-线计划
-</p>
-
-<ol>
-<li>
-按Lot排产还是按料号排产?
-
-<li>
-上面是设备排产情况。
-
-<li>
-下面主计划
-
-<li>
-实际排了多少，待排多少
-
-</ol>
-
-
-
-<h1 id="toc_13">AGV </h1>
+<h1 id="toc_9">AGV </h1>
 <p>
 上料，下料，转运空盘
 </p>
@@ -327,7 +218,7 @@ racipe and tracebility
 物料存储区
 </p>
 
-<h2 id="toc_13.1">AGV解决方案 </h2>
+<h2 id="toc_9.1">AGV解决方案 </h2>
 <p>
 如果是待料状态，则一直呼叫，如果返回的是0，则表示待料。返回的是1，则表示正在配料中。
 </p>
@@ -337,30 +228,13 @@ racipe and tracebility
 </p>
 
 
-<h1 id="toc_14">流程 </h1>
+<h1 id="toc_10">流程 </h1>
 <p>
 工段(钻孔)-&gt;工序(钻孔工段分为机械钻，镭射钻等工序)-&gt;工艺流程(机械钻孔1是工艺流程)
 </p>
 
-
-<h1 id="toc_15">环球镭射 </h1>
-<p>
-1，计划排程
-2，钻带和参数下发
-3，
-	棕化减铜下料后，写入信息到RFID。RFID绑定锣卡信息等。
-</p>
-
-<p>
-	环球的MES更具计划排程，自动从立体仓取出加工。
-</p>
-
-<p>
-	需要知道当前设备的状态等信息。
-</p>
 	
-	
-<h2 id="toc_15.1">关心的问题 </h2>
+<h2 id="toc_10.1">关心的问题 </h2>
 <ol>
 <li>
 服务器部署到云，不安全。
@@ -371,22 +245,7 @@ racipe and tracebility
 </ol>
  
 
-<h1 id="toc_16">LDI </h1>
-
-
-<h1 id="toc_17">看板和报表 </h1>
-<p>
-应用场景
-</p>
-
-<p>
-领导，领班，员工
-包括：设备，人员，计划，品质
-稼动率多少
-</p>
-
-
-<h1 id="toc_18">traceability  of the all technological process </h1>
+<h1 id="toc_11">traceability  of the all technological process </h1>
 <p>
 	we use the scan machine to get the parameters, which include temperature, speed, pressure etc.
 </p>
@@ -395,11 +254,7 @@ racipe and tracebility
 	Data source：PLC(register)、 sensing element 、IPC
 </p>
 
-<p>
-<a href="CIMOM.html">CIMOM</a>
-</p>
-
-<h1 id="toc_19">HslCommunication </h1>
+<h1 id="toc_12">HslCommunication </h1>
 <p>
 主界面 HslCommunicationDemo.FormLoad
 三菱  FormMelsecBinary  
@@ -409,197 +264,19 @@ racipe and tracebility
 西门子  DB206.226  DB205.16速度
 </p>
 
-
-
 <p>
 1，添加引用。
 2，减DemoUtils类。
-3，
 </p>
 
 
-<h1 id="toc_20">MES系统架构 </h1>
+<h1 id="toc_13">MES系统架构 </h1>
 <p>
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/mes系统架构.jfif" /></div>
 </p>
 
-<p>
-d:\Vim\vim\mysite\note
-</p>
-<h1 id="toc_21">Recipe and trace ability </h1>
-<p>
-<a href="RecipeAndTraceAbility.html">RecipeAndTraceAbility</a>
-</p>
-		
-<h1 id="toc_22">WMS System </h1>
-<p>
-时间节点 ：交付时间，实施时间
-三楼成品库，二楼材料库。
-材料+成品
- 最小包装
- 最小条码
- 跑箱
- 堆垛机
- 码垛机
- 出库，入库，发料，配料。
- 五垛+五箱()
- agv调度系统
-</p>
- 
-<p>
-WMS&lt;=&gt;WCS&lt;=&gt;MES
-</p>
 
-<h2 id="toc_22.1">WCS系统 </h2>
-<ol>
-<li>
-原物料仓
-
-<li>
-成品仓
-
-</ol>
-
-<p>
-堆垛机拣货
-</p>
-
-<p>
-用于调度传送带和堆垛机
-</p>
-
-<p>
-MES 通过WCS系统下发指令(存货，取货，运货)
-</p>
-
- 
-<h1 id="toc_23">AGV </h1>
-<p>
-站点
-到了站点，发信息给系统
-</p>
-
-<h1 id="toc_24">采集服务 </h1>
-<p>
-一开始就添加死循环，会造成服务无法启动。
-</p>
-
-<p>
-经常有-1的情况，可能是线程太多，PLC访问的资源被占用
-</p>
-
-<p>
-onTimer定时器0.5s增加一个线程，0.5s执行不完一个线程。导致增加的比执行的快，线程越来越多，占用的内存越来越大。
-</p>
-
-<p>
-采集的有时候十分钟才采集一次，中间有一次报错没有重新获取。
-</p>
-
-<p>
-如果要使同一条线是多线程，则需要考虑线程同步。否则会出现抢用资源问题。所以要添加锁。
-</p>
-
-<p>
-一开始用的定时器，定时器会莫名其妙地不工作。后面改为线程去执行，线程里面添加循环，等待。
-</p>
-
-<p>
-ThreadPool.QueueUserWorkItem  有可能一直都不会执行，因为线程一直都是满了。
-</p>
-
-
-<p>
-配置如果放文档，则多台服务器管理麻烦，无法保证两台服务器的IP不冲突。
-</p>
-
-<p>
-redis+服务器文档+中间件
-只读redis。更新比较麻烦，每次需要到服务器更改配置文档
-</p>
-
-<p>
-redis+服务器文档+中间件+本地文档 本地文档只是调试使用。
-</p>
-
-
-<p>
-如果lock中遇到异常，可能造成死锁。后面一直无法执行调试。
-</p>
-
-<p>
-如果PLC一直连接不上。MitsubishiPLCFx3u模块可能出现死锁。
-</p>
-
-<h2 id="toc_24.1">服务无法启动 </h2>
-<p>
-有可能是配置文档有问题。刚执行就报错。
-循环不能直接加在启动事件里面。
-</p>
-
-
-<h2 id="toc_24.2">AOI </h2>
-<ol>
-<li>
-缺陷地图 缺陷坐标生成。1，由供应商提供。2，供应商提供数据，展示由我们做
-
-<li>
-AOI扫描pnl条码，绑定喷印明码，输出
-
-<li>
-VRS输出，和AOI机比对，生成误报率
-
-<li>
-打叉板位置。修板位置。
-
-</ol>
-
-
-<h2 id="toc_24.3">采集更新 </h2>
-<p>
-更新设备，在中间件服务器更新，更新地址，在ConnectPLCServer里面更新。因为中间件里面报错。
-</p>
-
-<h2 id="toc_24.4">设备连接更新 </h2>
-<p>
-通过中间件更新Redis，服务端定时查找是否有更新。
-</p>
-
-<h2 id="toc_24.5">客户端 </h2>
-<p>
-先获取是哪台电脑。然后根据哪台电脑去Redis对应的对象，对象包括IP，上下板机列表，水平线列表等。
-</p>
-
-<h2 id="toc_24.6">服务端 </h2>
-<p>
-根据配置文档，把哪台设备对应的是哪个对象放入Redis，更新某台设备的时候就同时更新该配置。
-</p>
-
-
-<ol>
-<li>
-是否需要专门写个服务，更新服务器的采集分布情况。
-
-<li>
-更新采集是单独更新某个设备，因为地址会重新更新。所有更新
-
-</ol>
-
-
-<h1 id="toc_25">看板 </h1>
-<p>
-展示品质数据，工艺数据
-计划做多少，实际做多少。
-</p>
-
-<p>
-html + svg
-图扑科技
-</p>
-
-<h2 id="toc_25.1">定时器没有定时执行了 </h2>
-
-
+<h1 id="toc_14">西门子camstar </h1>
 <p>
 <a href="camstar.html">camstar</a>
 </p>

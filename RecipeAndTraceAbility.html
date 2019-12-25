@@ -14,18 +14,22 @@
 <li><a href="#toc_1">全流程追溯方案 </a>
 <li><a href="#toc_2">Recipe下发 </a>
 <ul>
-<li><a href="#toc_2.1">Drill Machine </a>
-<li><a href="#toc_2.2">奥宝LDI </a>
+<li><a href="#toc_2.1">水平线(前处理，棕化等) </a>
+<li><a href="#toc_2.2">Drill Machine </a>
+<li><a href="#toc_2.3">LDI </a>
 <ul>
-<li><a href="#toc_2.2.1">路径 </a>
-<li><a href="#toc_2.2.2">需要的参数 </a>
-<li><a href="#toc_2.2.3">下发Recipe </a>
-<li><a href="#toc_2.2.4">参数采集 </a>
-<li><a href="#toc_2.2.5">问题点 </a>
+<li><a href="#toc_2.3.1">奥宝LDI </a>
+<ul>
+<li><a href="#toc_2.3.1.1">路径 </a>
+<li><a href="#toc_2.3.1.2">需要的参数 </a>
+<li><a href="#toc_2.3.1.3">下发Recipe </a>
+<li><a href="#toc_2.3.1.4">参数采集 </a>
+<li><a href="#toc_2.3.1.5">问题点 </a>
 </ul>
-<li><a href="#toc_2.3">压机Recipe </a>
-<li><a href="#toc_2.4">Lay-Up Error proofing </a>
-<li><a href="#toc_2.5">内层DES复制棕化Recipe </a>
+</ul>
+<li><a href="#toc_2.4">压机Recipe </a>
+<li><a href="#toc_2.5">Lay-Up Error proofing </a>
+<li><a href="#toc_2.6">内层DES复制棕化Recipe </a>
 </ul>
 <li><a href="#toc_3">trace ability </a>
 <ul>
@@ -40,25 +44,30 @@
 <li><a href="#toc_3.2.2">二维码尺寸，点数 </a>
 <li><a href="#toc_3.2.3">打码数据类型 </a>
 <li><a href="#toc_3.2.4">二维码信息规则 </a>
+<li><a href="#toc_3.2.5">华为二维码规则 </a>
 </ul>
 </ul>
 <li><a href="#toc_4">AOI </a>
 <li><a href="#toc_5">压合到镭射 </a>
-<li><a href="#toc_6">机械钻孔 </a>
-<li><a href="#toc_7">镭射 </a>
-<li><a href="#toc_8">对接文档 </a>
-<li><a href="#toc_9">VCUT </a>
+<li><a href="#toc_6">环球镭射 </a>
+<li><a href="#toc_7">机械钻孔 </a>
 <ul>
-<li><a href="#toc_9.1">vcut格式，自动传入vcut机器 </a>
+<li><a href="#toc_7.1">奥宝钻锣自动化解决方案 </a>
 </ul>
-<li><a href="#toc_10">待入库 </a>
-<li><a href="#toc_11">成品仓 </a>
-<li><a href="#toc_12">打电话系统 pjsip4net </a>
-<li><a href="#toc_13">三化一稳 </a>
+<li><a href="#toc_8">镭射 </a>
+<li><a href="#toc_9">对接文档 </a>
+<li><a href="#toc_10">VCUT </a>
 <ul>
-<li><a href="#toc_13.1">怎么找到某个产品使用的物料批次？ </a>
+<li><a href="#toc_10.1">vcut格式，自动传入vcut机器 </a>
 </ul>
-<li><a href="#toc_14">上下板机 </a>
+<li><a href="#toc_11">待入库 </a>
+<li><a href="#toc_12">成品仓 </a>
+<li><a href="#toc_13">打电话系统 pjsip4net </a>
+<li><a href="#toc_14">三化一稳 </a>
+<ul>
+<li><a href="#toc_14.1">怎么找到某个产品使用的物料批次？ </a>
+</ul>
+<li><a href="#toc_15">上下板机 </a>
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
@@ -73,7 +82,14 @@
 after scan the LOT, select the parameters automatically
 </p>
 
-<h2 id="toc_2.1">Drill Machine </h2>
+<h2 id="toc_2.1">水平线(前处理，棕化等) </h2>
+<p>
+RecipeTemplate		配方模板(已取消，配方列表为模板)
+RecipeJob			料号配方参数
+RecipeCollection	配方列表
+</p>
+
+<h2 id="toc_2.2">Drill Machine </h2>
 <ol>
 <li>
 PDA scan the machine, LOT, staff information. import the drill tool into the machine's directory automatically
@@ -86,25 +102,20 @@ Staff operate and confirm the information accroding to the PDA instructions.
 
 </ol>
 
+<h2 id="toc_2.3">LDI </h2>
 
-<h2 id="toc_2.2">奥宝LDI </h2>
-<ul>
-<li>
-<div class="Doc"><a  href="file:\/f:/backup/hardDiskBak/工作文档/MES/志浩MES项目总结190618.pptx"download=\"文件名.txt\">点击下载:【<a href="file://f:/backup/hardDiskBak/工作文档/MES/志浩MES项目总结190618.pptx】</a></div>">file://f:/backup/hardDiskBak/工作文档/MES/志浩MES项目总结190618.pptx】</a></div></a>
-
-</ul>
 <p>
-制作大板vcut步骤.docx
-</p>
-<ul>
-<li>
-{{file:d:\Vim\vim\mysite\note\工作便签.wiki}}
-
-</ul>
-<p>
-干膜不通，曝光能量不同，
+<a href="LDI machine.html">LDI machine</a>
 </p>
 
+<h3 id="toc_2.3.1">奥宝LDI </h3>
+<p>
+<a href="奥宝LDI机.html">奥宝LDI机</a>
+</p>
+
+<p>
+干膜不同，曝光能量不同，
+</p>
 <ul>
 <li>
 涨缩
@@ -123,14 +134,14 @@ LDI机有固定涨缩和自动涨缩，固定涨缩是工艺测量后输入涨�
 
 </ol>
 
-<h3 id="toc_2.2.1">路径 </h3>
+<h4 id="toc_2.3.1.1">路径 </h4>
 <p>
 \\10.80.13.52\dp\dpconfig\setpuf
 \\10.80.13.52\dp\cam\dp100-jobs
 </p>
 
 
-<h3 id="toc_2.2.2">需要的参数 </h3>
+<h4 id="toc_2.3.1.2">需要的参数 </h4>
 <p>
 工程输出的文件
 IMAGE-SETUP-FILE-NAME=设定的文件名
@@ -139,7 +150,7 @@ IMAGE-SETUP-FILE-NAME=
 LINE-NUM= *这行添加了行后必须更改。
 </p>
 
-<h3 id="toc_2.2.3">下发Recipe </h3>
+<h4 id="toc_2.3.1.3">下发Recipe </h4>
 <p>
 解决方案1，扫描工单后，下载资料和参数，DI机进行做资料处理。
 解决方案2，MES自动排产，自动放资料和参数，DI机进行资料处理。
@@ -149,13 +160,13 @@ LINE-NUM= *这行添加了行后必须更改。
 资料处理完后板进行曝光的时候，员工扫工单，LDI调取相对应的资料。做板。
 </p>
 
-<h3 id="toc_2.2.4">参数采集 </h3>
+<h4 id="toc_2.3.1.4">参数采集 </h4>
 <p>
 通过批次号和初始序列号绑定，通过初始序列号查出参数。
 希望奥宝能把我们的pnl条码读取，然后绑定序列号。(可通过条码，或pnl追溯)，或者通过扫工单后，工单和序列号绑定(可通过Lot卡追溯，不能追溯具体到板，但是Lot卡和pnl条码能否在开料打码的地方绑定？)。
 </p>
 
-<h3 id="toc_2.2.5">问题点 </h3>
+<h4 id="toc_2.3.1.5">问题点 </h4>
 <ol>
 <li>
 流程能否优化，把扫描工单的做成自动根据计划排产调用。
@@ -166,7 +177,7 @@ LINE-NUM= *这行添加了行后必须更改。
 </ol>
 
 
-<h2 id="toc_2.3">压机Recipe </h2>
+<h2 id="toc_2.4">压机Recipe </h2>
 <p>
 先绑定LOT卡和载盘标签。(知道载盘里面的对应的什么料号)
 载盘在进去的之前自动扫标签。查找该料号用的是什么Recipe。然后调用存储过程[SP_SFC_LAM_LOT_BARCODE]，往压机供应商提供的数据库表里面写数据。
@@ -175,7 +186,7 @@ LINE-NUM= *这行添加了行后必须更改。
 
 
 
-<h2 id="toc_2.4">Lay-Up Error proofing </h2>
+<h2 id="toc_2.5">Lay-Up Error proofing </h2>
 <ul>
 <li>
 create a task code
@@ -199,7 +210,7 @@ binding second or outer item num. bkh85445a0.IN27
 
 
 
-<h2 id="toc_2.5">内层DES复制棕化Recipe </h2>
+<h2 id="toc_2.6">内层DES复制棕化Recipe </h2>
 <p>
 1，复制项目文件夹。
 2，添加现有项目。
@@ -378,10 +389,12 @@ PCS   3位
 </p>
 
 
+<h3 id="toc_3.2.5">华为二维码规则 </h3>
 <p>
-<a href="LDI machine.html">LDI machine</a>
-<a href="奥宝LDI机.html">奥宝LDI机</a>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/华为技术PCB二维码试运行操作指导书V3-0.doc"download=\"文件名.txt\">点击下载:【华为技术PCB二维码试运行操作指导书V3-0.doc】</a></div>
 </p>
+
+
 
 <h1 id="toc_4">AOI </h1>
 <p>
@@ -423,7 +436,27 @@ PCS   3位
 #
 </p>
 
-<h1 id="toc_6">机械钻孔 </h1>
+<h1 id="toc_6">环球镭射 </h1>
+<p>
+1，计划排程
+2，钻带和参数下发
+3，
+	棕化减铜下料后，写入信息到RFID。RFID绑定锣卡信息等。
+</p>
+
+<p>
+	环球的MES更具计划排程，自动从立体仓取出加工。
+</p>
+
+<p>
+	需要知道当前设备的状态等信息。
+</p>
+	
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西志浩项目生产资料下发接口对接文档V1.2江西志浩项目生产资料下发接口对接文档V1-2.pdf"download=\"文件名.txt\">点击下载:【江西志浩项目生产资料下发接口对接文档V1.2江西志浩项目生产资料下发接口对接文档V1-2.pdf】</a></div>
+</p>
+
+<h1 id="toc_7">机械钻孔 </h1>
 
 <p>
 下发到路径
@@ -456,8 +489,12 @@ lot卡号	找到对应的钻带
 </p>
 
 
+<h2 id="toc_7.1">奥宝钻锣自动化解决方案 </h2>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/Fastec_brochure_Rev1_CN_4.pdf"download=\"文件名.txt\">点击下载:【Fastec_brochure_Rev1_CN_4.pdf】</a></div>
+</p>
 
-<h1 id="toc_7">镭射 </h1>
+<h1 id="toc_8">镭射 </h1>
 <p>
 配方包括两个
 </p>
@@ -474,31 +511,31 @@ lot卡号	找到对应的钻带
 钻带型号和RFID绑定。
 </p>
 
-<h1 id="toc_8">对接文档 </h1>
+<h1 id="toc_9">对接文档 </h1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩项目生产资料下发接口对接文档V1.2.pdf"download=\"文件名.txt\">点击下载:【江西志浩项目生产资料下发接口对接文档V1.2.pdf】</a></div>
 </p>
 
-<h1 id="toc_9">VCUT </h1>
-<h2 id="toc_9.1">vcut格式，自动传入vcut机器 </h2>
+<h1 id="toc_10">VCUT </h1>
+<h2 id="toc_10.1">vcut格式，自动传入vcut机器 </h2>
 <p>
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/e076be5914481649d13f3e4796e4c16.png" /></div>
 </p>
 
-<h1 id="toc_10">待入库 </h1>
+<h1 id="toc_11">待入库 </h1>
 
 <p>
 待入库到成品仓有多少之前老板不清楚。
 </p>
 
-<h1 id="toc_11">成品仓 </h1>
+<h1 id="toc_12">成品仓 </h1>
 
 
-<h1 id="toc_12">打电话系统 pjsip4net </h1>
+<h1 id="toc_13">打电话系统 pjsip4net </h1>
 
 
-<h1 id="toc_13">三化一稳 </h1>
-<h2 id="toc_13.1">怎么找到某个产品使用的物料批次？ </h2>
+<h1 id="toc_14">三化一稳 </h1>
+<h2 id="toc_14.1">怎么找到某个产品使用的物料批次？ </h2>
 <p>
 	MES增加追溯功能。可以根据
 </p>
@@ -516,7 +553,7 @@ lot卡号	找到对应的钻带
 </ol>
 	
 
-<h1 id="toc_14">上下板机 </h1>
+<h1 id="toc_15">上下板机 </h1>
 <p>
 如果扫描的扫到lot卡和目前使用的Recipe不是同一个绑定的Recipe，停掉上下板机。
 </p>
