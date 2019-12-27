@@ -224,6 +224,21 @@ vim增加打开文件夹功能
 </pre>
 
 
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b.CADDRESS_NAME,a.CGET_ID, a.CDATA_VALUE
+  FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
+  left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.cid
+  left join TBL_EAP_EQUIPMENT c on b.CEQUIPMENT_ID = c.CID
+  --WHERE c.CEQUIPMENT_CODE = 'GAE-IDF-001'
+  --WHERE c.CEQUIPMENT_CODE = 'VCP-1'
+ -- WHERE c.CEQUIPMENT_CODE = 'GAE-IDF-001'
+    --WHERE c.CEQUIPMENT_CODE = 'TTTT'
+  order by a.CDATETIME_CREATED DESC
+	  
+</pre>
+
+
 <p>
 <a href="组态接口.html">组态接口</a>
 </p>
