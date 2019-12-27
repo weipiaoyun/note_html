@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>CIMOM_TABLE</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -28,14 +34,18 @@
 <ul>
 <li><a href="#toc_5.1">前处理读码查询 </a>
 </ul>
+<li><a href="#toc_6">Recipe </a>
+<ul>
+<li><a href="#toc_6.1">压机Recipe </a>
+</ul>
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">BD 基础数据 </h1>
+<h1 id="toc_1">BD 基础数据 </h1><HR SIZE=1>
 <h2 id="toc_1.1">BIZ(Business业务) </h2>
 
-<h1 id="toc_2">EAP </h1>
+<h1 id="toc_2">EAP </h1><HR SIZE=1>
 <p>
 [TBL_EAP_COGNEX] 康耐视主表。绑定IP地址，设备编码，工艺流程等。
 </p>
@@ -55,15 +65,15 @@ TBL_EAP_AOI_DATA
 喷印码，料号名，机器名，条码。
 </p>
 
-<h1 id="toc_3">SFC 生产管理 </h1>
+<h1 id="toc_3">SFC 生产管理 </h1><HR SIZE=1>
 <p>
 [TBL_SFC_PROCESS_PARAMS] 工艺参数表，采集器扫描到二维码后绑定二维码和工艺参数。
 </p>
 
 
-<h1 id="toc_4">Sys 系统 </h1>
+<h1 id="toc_4">Sys 系统 </h1><HR SIZE=1>
 <h2 id="toc_4.1">删除菜单 </h2>
-<pre>
+<pre  name="code" class="brush: sql">
 
 /****** Script for SelectTopNRows command from SSMS  ******/
 SELECT TOP (1000) *
@@ -72,7 +82,7 @@ DELETE FROM [CIMOMJXZH].[dbo].[TBL_SYS_MODULE]  WHERE CID = '994830BE587C400F99F
 </pre>
 
 
-<pre>
+<pre  name="code" class="brush: sql">
 
 /****** Script for SelectTopNRows command from SSMS  ******/
 SELECT TOP (1000) [CID]
@@ -92,17 +102,24 @@ SELECT TOP (1000) [CID]
   FROM [CIMOMJXZH].[dbo].[TBL_SFC_PROCESS_PARAMS]
 </pre>
 
-<h1 id="toc_5">Tracibility </h1>
+<h1 id="toc_5">Tracibility </h1><HR SIZE=1>
 <h2 id="toc_5.1">前处理读码查询 </h2>
 
 <pre>
-	
 select distinct CSFC from TBL_SFC_ACTIVITY_LOG 
 where 
 COPERATION='IPD1' and 
 CSFC in 
 (select distinct CPANEL_SERIAL from TBL_SFC_LOT_PANEL where CITEM_CODE='BFR0Z0600131A0.I23' and CDATETIME_CREATED&gt;'2019-12-24')
 </pre>
+
+
+<h1 id="toc_6">Recipe </h1><HR SIZE=1>
+<h2 id="toc_6.1">压机Recipe </h2>
+<p>
+[LAUFFER_RECIPE].[dbo].[Load_Data] 压机的配方表
+[TBL_SFC_LAM_LOT_BARCODE]	压合的锣卡二维码表
+</p>
 
 
 <div class="foot">
@@ -120,6 +137,14 @@ CSFC in
 © <span id="year">2018</span> 
 </p>
 <script src="my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>
