@@ -119,7 +119,6 @@ var div1=document.getElementById('back_to_topA');
 			return;
 		} else {
 		} 
-		alert("aaaa");
 
         if ($(window).scrollTop() > $(window).height())
             backButton.fadeIn();
