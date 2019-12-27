@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>志浩MES功能模块</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -49,6 +55,7 @@
 <ul>
 <li><a href="#toc_7.1">IQC(Incoming Quality Control) 来料质量控制 </a>
 <li><a href="#toc_7.2">出库 </a>
+<li><a href="#toc_7.3">WCS系统 </a>
 </ul>
 <li><a href="#toc_8">计划管理 </a>
 <ul>
@@ -68,31 +75,33 @@
 <ul>
 <li><a href="#toc_10.1">代码注释 </a>
 <li><a href="#toc_10.2">参数采集 </a>
+</ul>
+<li><a href="#toc_11">江西志浩参数采集服务 </a>
 <ul>
-<li><a href="#toc_10.2.1">AOI </a>
-<li><a href="#toc_10.2.2">裁磨线 </a>
-<li><a href="#toc_10.2.3">XRAY </a>
-<li><a href="#toc_10.2.4">Q? </a>
+<li><a href="#toc_11.0.1">AOI </a>
+<li><a href="#toc_11.0.2">裁磨线 </a>
+<li><a href="#toc_11.0.3">XRAY </a>
+<li><a href="#toc_11.0.4">Q? </a>
 </ul>
-<li><a href="#toc_10.3">配方下发 </a>
+<li><a href="#toc_11.1">配方下发 </a>
 <ul>
-<li><a href="#toc_10.3.1">电镀 </a>
+<li><a href="#toc_11.1.1">电镀 </a>
 </ul>
-<li><a href="#toc_10.4">设备统计 </a>
+<li><a href="#toc_11.2">设备统计 </a>
 </ul>
-<li><a href="#toc_11">包装入库 </a>
-<li><a href="#toc_12">信息中心 </a>
-<li><a href="#toc_13">生产类型 </a>
-<li><a href="#toc_14">看板管理 </a>
+<li><a href="#toc_12">包装入库 </a>
+<li><a href="#toc_13">信息中心 </a>
+<li><a href="#toc_14">生产类型 </a>
+<li><a href="#toc_15">看板管理 </a>
 <ul>
-<li><a href="#toc_14.1">Redis </a>
+<li><a href="#toc_15.1">Redis </a>
 </ul>
-<li><a href="#toc_15">华为要求 </a>
+<li><a href="#toc_16">华为要求 </a>
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">CIMOM </h1>
+<h1 id="toc_1">CIMOM </h1><HR SIZE=1>
 <h2 id="toc_1.1">CIMON的配置和框架笔记 </h2>
 
 <p>
@@ -104,7 +113,7 @@
 <a href="CIMOM_TABLE.html">CIMOM_TABLE</a>
 </p>
 
-<h1 id="toc_2">主模块 </h1>
+<h1 id="toc_2">主模块 </h1><HR SIZE=1>
 <p>
 基础建模(BD base data) =&gt;
 WMS(智能物流，智能仓储) =&gt;
@@ -122,7 +131,7 @@ WMS(智能物流，智能仓储) =&gt;
 系统管理(SYS)
 </p>
 
-<h1 id="toc_3">追溯和过数 </h1>
+<h1 id="toc_3">追溯和过数 </h1><HR SIZE=1>
 <p>
 过数是通过Lot来过数
 追溯是通过单件追溯
@@ -150,12 +159,12 @@ lot卡只做过数功能。
 <a href="RecipeAndTraceAbility.html">RecipeAndTraceAbility</a>
 </p>
 
-<h1 id="toc_4">系统配置 </h1>
+<h1 id="toc_4">系统配置 </h1><HR SIZE=1>
 <p>
 按钮权限和记录
 </p>
 
-<h1 id="toc_5">基础数据 </h1>
+<h1 id="toc_5">基础数据 </h1><HR SIZE=1>
 <ul>
 <li>
 自动从ERP同步物料和产品档案。
@@ -223,13 +232,17 @@ Inplan上传同步MI信息数据。
 </p>
 
 
-<h1 id="toc_6">智能物流 </h1>
+<h1 id="toc_6">智能物流 </h1><HR SIZE=1>
+<p>
+agv站点
+agv到了站点，发信息给系统
+</p>
 <h2 id="toc_6.1">AGV到前处理胜宏解决方案 </h2>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/裁磨—前处理AGV操作流程.pptx"download=\"文件名.txt\">点击下载:【裁磨—前处理AGV操作流程.pptx】</a></div>
 </p>
 
-<h1 id="toc_7">智能仓储 </h1>
+<h1 id="toc_7">智能仓储 </h1><HR SIZE=1>
 <p>
 收料-&gt;IQC-&gt;入库
 发料-&gt;调拨-&gt;盘点
@@ -240,7 +253,47 @@ Inplan上传同步MI信息数据。
 备料
 </p>
 
-<h1 id="toc_8">计划管理 </h1>
+<p>
+时间节点 ：交付时间，实施时间
+三楼成品库，二楼材料库。
+材料+成品
+ 最小包装
+ 最小条码
+ 跑箱
+ 堆垛机
+ 码垛机
+ 出库，入库，发料，配料。
+ 五垛+五箱()
+ agv调度系统
+</p>
+ 
+<p>
+WMS&lt;=&gt;WCS&lt;=&gt;MES
+</p>
+
+<h2 id="toc_7.3">WCS系统 </h2>
+<ol>
+<li>
+原物料仓
+
+<li>
+成品仓
+
+</ol>
+
+<p>
+堆垛机拣货
+</p>
+
+<p>
+用于调度传送带和堆垛机
+</p>
+
+<p>
+MES 通过WCS系统下发指令(存货，取货，运货)
+</p>
+
+<h1 id="toc_8">计划管理 </h1><HR SIZE=1>
 
 <h2 id="toc_8.1">生产计划 </h2>
 <p>
@@ -281,7 +334,7 @@ Inplan上传同步MI信息数据。
 单机产能
 </p>
 
-<h1 id="toc_9">生产管理 </h1>
+<h1 id="toc_9">生产管理 </h1><HR SIZE=1>
 <h2 id="toc_9.1">生产信息中心 </h2>
 <p>
 内层：直接扫码后即可查询
@@ -294,7 +347,7 @@ Inplan上传同步MI信息数据。
 
 
 
-<h1 id="toc_10">设备管理 </h1>
+<h1 id="toc_10">设备管理 </h1><HR SIZE=1>
 <h2 id="toc_10.1">代码注释 </h2>
 <p>
 IPLCConnect 暂时没什么用。
@@ -311,7 +364,12 @@ OPC 协议
 
 </ol>
 
-<h3 id="toc_10.2.1">AOI </h3>
+<h1 id="toc_11">江西志浩参数采集服务 </h1><HR SIZE=1>
+<p>
+<a href="江西志浩参数采集服务.html">江西志浩参数采集服务</a>
+</p>
+
+<h3 id="toc_11.0.1">AOI </h3>
 <p>
 AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件。AOI扫描会加上喷印码。
 </p>
@@ -323,13 +381,22 @@ AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件�
 也可以在VRS里面添加扫描器。
 
 <li>
+缺陷地图 缺陷坐标生成。1，由供应商提供。2，供应商提供数据，展示由我们做
 
+<li>
+AOI扫描pnl条码，绑定喷印明码，输出
+
+<li>
+VRS输出，和AOI机比对，生成误报率
+
+<li>
+打叉板位置。修板位置。
 
 </ol>
 
-<h3 id="toc_10.2.2">裁磨线 </h3>
+<h3 id="toc_11.0.2">裁磨线 </h3>
 
-<h3 id="toc_10.2.3">XRAY </h3>
+<h3 id="toc_11.0.3">XRAY </h3>
 <ol>
 <li>
 怎么采集涨缩值
@@ -340,14 +407,14 @@ AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件�
 </ol>
 
 
-<h3 id="toc_10.2.4">Q? </h3>
+<h3 id="toc_11.0.4">Q? </h3>
 <p>
 #OPC 协议的UA和DA (UA不需要设置DCOM)
 </p>
 
-<h2 id="toc_10.3">配方下发 </h2>
+<h2 id="toc_11.1">配方下发 </h2>
 
-<h3 id="toc_10.3.1">电镀 </h3>
+<h3 id="toc_11.1.1">电镀 </h3>
 <ol>
 <li>
 电镀面积
@@ -366,12 +433,12 @@ AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件�
 
 </ol>
 
-<h2 id="toc_10.4">设备统计 </h2>
+<h2 id="toc_11.2">设备统计 </h2>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/设备统计.xlsx"download=\"文件名.txt\">点击下载:【设备统计.xlsx】</a></div>
 </p>
 
-<h1 id="toc_11">包装入库 </h1>
+<h1 id="toc_12">包装入库 </h1><HR SIZE=1>
 <p>
 每块板包装之前都要有二维码。
 大包装绑定小包装，小包装绑定里面的每块板。
@@ -379,7 +446,7 @@ AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件�
 
 
 
-<h1 id="toc_12">信息中心 </h1>
+<h1 id="toc_13">信息中心 </h1><HR SIZE=1>
 <p>
 条码采集器
 	绑定设备编码。采集到条码后，把最新的EAP采集的数据ID绑定。
@@ -400,7 +467,7 @@ AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件�
 EAP
 </p>
 
-<h1 id="toc_13">生产类型 </h1>
+<h1 id="toc_14">生产类型 </h1><HR SIZE=1>
 
 
 <p>
@@ -412,7 +479,7 @@ BOM数据
 一岗一表(点检表，五确认)
 </p>
 
-<h1 id="toc_14">看板管理 </h1>
+<h1 id="toc_15">看板管理 </h1><HR SIZE=1>
 <p>
 产量，质量，稼动率，人员情况，设备的保养时间
 WIP，趋势图，库存，
@@ -430,7 +497,13 @@ WIP，趋势图，库存，
 </p>
 
 
-<h2 id="toc_14.1">Redis </h2>
+<p>
+展示品质数据，工艺数据
+计划做多少，实际做多少。
+</p>
+
+
+<h2 id="toc_15.1">Redis </h2>
 <ol>
 <li>
 降低带宽和减少浪费数据库服务器资源
@@ -438,7 +511,7 @@ WIP，趋势图，库存，
 </ol>
  
  
-<h1 id="toc_15">华为要求 </h1>
+<h1 id="toc_16">华为要求 </h1><HR SIZE=1>
 <ol>
 <li>
 物料先进先出
@@ -467,6 +540,19 @@ WIP，趋势图，库存，
 © <span id="year">2018</span> 
 </p>
 <script src="my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

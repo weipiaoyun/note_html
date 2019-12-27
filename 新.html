@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>新</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -37,7 +43,7 @@
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
-<h1 id="toc_1">12. 命令行中的 Vi 模式 </h1>
+<h1 id="toc_1">12. 命令行中的 Vi 模式 </h1><HR SIZE=1>
 <p>
 :set noma(non modifiable)
 ：set ro(Read Only)
@@ -106,9 +112,9 @@ undo 2
 <p>
 gn gN  选择查找到的字符串
 </p>
-<h1 id="toc_2">normal 执行普通命令(它是一个命令行命令)</h1>
+<h1 id="toc_2">normal 执行普通命令(它是一个命令行命令)</h1><HR SIZE=1>
 
-<h1 id="toc_3">execute 执行命令行命令</h1>
+<h1 id="toc_3">execute 执行命令行命令</h1><HR SIZE=1>
 <p>
 :execute "normal! gg"  
 </p>
@@ -133,7 +139,7 @@ v/return 选择到return
 <p>
 :sort 排序
 </p>
-<h1 id="toc_4">选择</h1>
+<h1 id="toc_4">选择</h1><HR SIZE=1>
 <p>
 vi{
 vi[
@@ -144,7 +150,7 @@ vi(
 pagaraph 段落{}
 sentence	句子 ()
 </p>
-<h1 id="toc_5">normal</h1>
+<h1 id="toc_5">normal</h1><HR SIZE=1>
 <p>
 :execute "normal! gg/foo\&lt;cr&gt;dd"  删除foo的行
 </p>
@@ -165,7 +171,7 @@ takes us out of insert mode.
 </p>
 
 
-<h1 id="toc_6">执行当前文件脚本</h1>
+<h1 id="toc_6">执行当前文件脚本</h1><HR SIZE=1>
 <p>
 :source %.
 </p>
@@ -179,7 +185,7 @@ b:move back to the beginning of the word
 默认的情况下是直接在新的Tab中打开，如果需要和其他窗口的合并，则先将该文件退出，再进入合并窗口，打开缓存即可
 </p>
 
-<h1 id="toc_7">10. 重复操作</h1>
+<h1 id="toc_7">10. 重复操作</h1><HR SIZE=1>
 <p>
 普通模式下按. （小数点）可重复上一次的修改操作 
 &amp; - 重复上一次的:s替换命令 
@@ -192,7 +198,7 @@ b:move back to the beginning of the word
 ;重复查找 , 上一个(accidentally)
 </p>
 
-<h1 id="toc_8">Select mode change Visual mode</h1>
+<h1 id="toc_8">Select mode change Visual mode</h1><HR SIZE=1>
 <p>
 &lt;C-g&gt;
 </p>
@@ -213,7 +219,7 @@ vim的回车是\r
 gd = *
 </p>
 
-<h1 id="toc_9">合并</h1>
+<h1 id="toc_9">合并</h1><HR SIZE=1>
 <p>
 J合并一行
 :join 合并多行
@@ -221,7 +227,7 @@ J合并一行
 合并所选行：先选择，然后按:,然后输入join
 </p>
 
-<h1 id="toc_10">善用寄存器</h1>
+<h1 id="toc_10">善用寄存器</h1><HR SIZE=1>
 <p>
 如下寄存器
 1.无名（unnamed）寄存器：""，缓存最后一次操作内容；
@@ -292,13 +298,13 @@ Ctrl-r是开启插入模式下register的引用
 </ol>
 <hr />
 
-<h1 id="toc_11">命令行翻阅历史</h1>
+<h1 id="toc_11">命令行翻阅历史</h1><HR SIZE=1>
 <p>
 ctrl+p
 ctrl+n
 <hr />
 </p>
-<h1 id="toc_12">查找记录</h1>
+<h1 id="toc_12">查找记录</h1><HR SIZE=1>
 <p>
 最近打开的文档
 marks
@@ -342,7 +348,7 @@ gv,可以重选上次的选择区域
 添加高亮 &lt;leader&gt;r &lt;leader&gt;m 取消高亮&lt;leader&gt;n
 </p>
 
-<h1 id="toc_13">复制，粘贴</h1>
+<h1 id="toc_13">复制，粘贴</h1><HR SIZE=1>
 <p>
 ~，大写变小写，小变大
 </p>
@@ -1057,7 +1063,7 @@ yy: 复制一行
 
 </ol>
 <hr />
-<h1 id="toc_14">########################################################################################################################</h1>
+<h1 id="toc_14">########################################################################################################################</h1><HR SIZE=1>
 <ol>
 <li>
 从其他程序获取输出 (需要外部程序)
@@ -8011,6 +8017,19 @@ Vim编辑器可以记录上几次的错误以及在屏幕最后一行显示的�
 © <span id="year">2018</span> 
 </p>
 <script src="my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>
