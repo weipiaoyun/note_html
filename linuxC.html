@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>linuxC</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -19,7 +25,7 @@
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">头文件的作用 </h1>
+<h1 id="toc_1">头文件的作用 </h1><HR SIZE=1>
 <p>
 使用其它库里面的函数，需要声明。如果多文档使用，则多文档声明。故统一声明。
 对 于用角括号包含的头文件， gcc 首先查找-I 选项指定的目录，然后查找系统的头 文件目录
@@ -225,7 +231,7 @@ Integer Promotion 整数提升
 </p>
  
 
-<h1 id="toc_2" class="justcenter">ELF文件格式 </h1>
+<h1 id="toc_2" class="justcenter">ELF文件格式 </h1><HR SIZE=1>
 <p>
 ELF其实就是机器语言代码
 分为：
@@ -247,7 +253,7 @@ ELF是字节序列，由一个节块一个节块组合在一起。
 分为
 </p>
 
-<h1 id="toc_3" class="justcenter">链接器过程 </h1>
+<h1 id="toc_3" class="justcenter">链接器过程 </h1><HR SIZE=1>
 <p>
  节块：
 </p>
@@ -262,7 +268,7 @@ ELF是字节序列，由一个节块一个节块组合在一起。
 </p>
  	
 
-<h1 id="toc_4">栈 </h1>
+<h1 id="toc_4">栈 </h1><HR SIZE=1>
 <p>
 %esp 栈顶指针
 %ebp 栈底指针
@@ -290,7 +296,20 @@ lea 取地址，放到寄存器
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

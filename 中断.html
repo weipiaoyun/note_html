@@ -1,15 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>中断</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">概念</h1>
+<h1 id="toc_1">概念</h1><HR SIZE=1>
 <p>
 ARM7中断原理2011-12-23 22:17ARM7中断原理的最基本部分与单片机是一样的，如果对单片机中断原理比较熟悉，再来理解ARM的中断原理是顺理成章的事情。
 　　5.1 中断向量表
@@ -694,7 +700,7 @@ __irq使用问题
 </p>
 
 
-<h1 id="toc_2">问题</h1>
+<h1 id="toc_2">问题</h1><HR SIZE=1>
 <h2 id="toc_2.1">怎么实现8个字符后中断的。</h2>
 	
 <p>
@@ -738,7 +744,7 @@ __irq使用问题
 使能：开关打开
 </p>
 
-<h1 id="toc_3">外部中断</h1>
+<h1 id="toc_3">外部中断</h1><HR SIZE=1>
 <p>
 EXT0是管脚，也是寄存器，按照门电路，如果1，就把中断标志位清除了，如果为0，就可能引发中断标志位有效。这样如果为1，把中断标志位清零了，那么就必须复位，因为复位后EXT0变为0，有效。如果不复位，就应该软件清零。
 。
@@ -764,7 +770,20 @@ EXT0是管脚，也是寄存器，按照门电路，如果1，就把中断标志
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

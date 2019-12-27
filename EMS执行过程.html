@@ -1,15 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>EMS执行过程</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">CTL_Button的执行过程</h1>
+<h1 id="toc_1">CTL_Button的执行过程</h1><HR SIZE=1>
 <p>
 加载模块的时候自动将模块的Guid赋值。
 在自动加载按钮的时候，自动根据模块的Guid获取有哪些按钮，在加载的时候自动配置按钮。
@@ -38,13 +44,13 @@ Frm_main.vb 里面的 ButtonX_Click函数 调用CreateForm(model_Fm, Me)
 
 
 
-<h1 id="toc_2">获取MI派单数据信息</h1>
+<h1 id="toc_2">获取MI派单数据信息</h1><HR SIZE=1>
 <p>
 GetWFMIDispatchDataInfo
 </p>
 
 
-<h1 id="toc_3">PHelp_NetWork.vb</h1>
+<h1 id="toc_3">PHelp_NetWork.vb</h1><HR SIZE=1>
 <p>
 WebServerPost
 </p>
@@ -64,7 +70,20 @@ WebServerPost
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

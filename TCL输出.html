@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>TCL输出</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -28,9 +34,9 @@
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
-<h1 id="toc_1">PROC_EXPORT_FILE_RUN 输出执行</h1>
+<h1 id="toc_1">PROC_EXPORT_FILE_RUN 输出执行</h1><HR SIZE=1>
 
-<h1 id="toc_2">输出检测</h1>
+<h1 id="toc_2">输出检测</h1><HR SIZE=1>
 <p>
 PROC_EXPORT_FILE_PRE "EXPORT"
 </p>
@@ -48,7 +54,7 @@ PROC_OUT_DRL  输出钻孔
 </p>
 
 
-<h1 id="toc_3">后补</h1>
+<h1 id="toc_3">后补</h1><HR SIZE=1>
 <h2 id="toc_3.1">存储过程</h2>
 <p>
 P_GS_PpeMakeGetPNLDrillInfo
@@ -62,14 +68,14 @@ T_ppe_MakeTechDrill4PNLToolDiameter4GS 钻孔表
 </p>
 
 
-<h1 id="toc_4">输出txt</h1>
+<h1 id="toc_4">输出txt</h1><HR SIZE=1>
 <p>
 exec echo \({Out_tool_txt}\nTotal = \)aa &gt; \(txtPath/\){JOB}.${LayName}.txt
 </p>
 
 
 
-<h1 id="toc_5">输出Excel</h1>
+<h1 id="toc_5">输出Excel</h1><HR SIZE=1>
 <p>
 Out_con 最后的连接
 </p>
@@ -78,7 +84,7 @@ Out_con 最后的连接
 ps_num 表示同一个钻咀，不一样的成品孔径，或者是不一样的槽长的个数
 </p>
 
-<h1 id="toc_6">输出变量</h1>
+<h1 id="toc_6">输出变量</h1><HR SIZE=1>
 <p>
 IsTmp  是否临时输出
 </p>
@@ -88,7 +94,7 @@ IsTmp  是否临时输出
 <a href="QD.html">QD</a>
 </p>
 
-<h1 id="toc_7">过程</h1>
+<h1 id="toc_7">过程</h1><HR SIZE=1>
 <p>
 1，含有b的或者是size在bottom的，镜像
 </p>
@@ -108,7 +114,20 @@ IsTmp  是否临时输出
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

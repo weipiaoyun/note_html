@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>tmp</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -36,26 +42,26 @@
 上下文切换：进程的切换。并发进程。
 </p>
 
-<h1 id="toc_1">进程 </h1>
+<h1 id="toc_1">进程 </h1><HR SIZE=1>
 <p>
 正在运行的程序的抽象。
 状态也叫上下文。由操作系统保存。里面有PC和寄存器的信息等
 </p>
 
-<h1 id="toc_2">抽象 </h1>
+<h1 id="toc_2">抽象 </h1><HR SIZE=1>
 <p>
 文件：I/O
 虚拟内存：主存、I/O
 进程：处理器、主存、I/O
 </p>
 
-<h1 id="toc_3">什么是操作系统：</h1>
+<h1 id="toc_3">什么是操作系统：</h1><HR SIZE=1>
 <p>
 	操作系统是系统软件。
 		是一个平台，一个接口。应用程序的。操作系统是应用程序可以不考虑硬件，而直接应用接口函数。实现应用程序和硬件之间的交流纽带，桥梁。
 </p>
 
-<h1 id="toc_4">什么是实时操作系统</h1>
+<h1 id="toc_4">什么是实时操作系统</h1><HR SIZE=1>
 <p>
 	实时就是及时，在规定时间内完成。与任务的多少无关，这个任务必须在规定时间内完成就是实时。比如：新闻报纸，如果你一个星期后才出来，根本就没用了。不叫新闻，叫历史了，大家都知道了，已经没用了。
 	实时的特点：及时性，可靠性，
@@ -64,7 +70,7 @@
 <p>
 	分时：时间片，我给你时间。不管你完成了没有，只要时间片一到，CPU就分配给另外一个任务。
 </p>
-<h1 id="toc_5">前后台系统</h1>
+<h1 id="toc_5">前后台系统</h1><HR SIZE=1>
 <p>
 	又称超循环系统，应用程序（后台）无线循环，循环中调用函数（中断）（前台）来完成。
 前台：中断级
@@ -74,7 +80,7 @@
 后台：任务级
 </p>
 
-<h1 id="toc_6">虚拟内存 </h1>
+<h1 id="toc_6">虚拟内存 </h1><HR SIZE=1>
 <p>
 分页管理-&gt;虚拟地址到物理地址的转换。
 nm gfx  可以查看程序中的变量和地址。该地址是逻辑地址，不是物理地址。逻辑地址是固定的。
@@ -93,7 +99,7 @@ nm gfx  可以查看程序中的变量和地址。该地址是逻辑地址，不
 <code>计算机主要面向的是对操作系统等计算机知识几乎没有了解的普通大众，他们大多是不了解什么主存外存的，所以为了方便用户的使用，就有必要使得程序不管是位于内存架构的哪个层次，对于用户来说都是一样的。虚拟内存就是让内存管理实现媒介透明的手段</code>
 </p>
 
-<h1 id="toc_7">内存 </h1>
+<h1 id="toc_7">内存 </h1><HR SIZE=1>
 <p>
 工作集/工作设置（内存）/Working Set/Total WS： 私有工作集物理内存+共享物理内存
 私有/专用工作集：独占的物理内存(最重要)
@@ -122,7 +128,20 @@ nm gfx  可以查看程序中的变量和地址。该地址是逻辑地址，不
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

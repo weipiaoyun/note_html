@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>方法</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -85,7 +91,7 @@ C#不允许方法有默认值
 </p>
 
 
-<h1 id="toc_1">参数传递 </h1>
+<h1 id="toc_1">参数传递 </h1><HR SIZE=1>
 <h2 id="toc_1.1">out和ref 传递引用</h2>
 <p>
 简单来说，out和ref传递的都是引用而不是值(都是按地址传递的)，out侧重于输出使用之前不需赋值，而ref在使用之前需要赋值，另外这两个关键字可以变相实现使一个方法输出多个值 ，ref侧重修改，out侧重输出。
@@ -107,7 +113,7 @@ params可变参数必须是形参列表中的最后一个元素。
 
 
 
-<h1 id="toc_2">扩展方法 </h1>
+<h1 id="toc_2">扩展方法 </h1><HR SIZE=1>
 <p>
 类中没有此方法。为此类添加一个方法。
 public static class StringExtension
@@ -173,7 +179,20 @@ params可变参数必须是形参列表中的最后一个元素。
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

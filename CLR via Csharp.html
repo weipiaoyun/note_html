@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>CLR via Csharp</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -96,7 +102,7 @@ IL code
 </ol>
 
 
-<h1 id="toc_1">CLR 基础</h1>
+<h1 id="toc_1">CLR 基础</h1><HR SIZE=1>
 
 <h2 id="toc_1.1">CLR执行模型</h2>
 
@@ -139,13 +145,13 @@ C#源代码
  	Main方法执行之前，CLR先检查Main方法里面的所有类型，如果没有该类型，则先创建并分配该类型对象。
 </p>
 	
-<h1 id="toc_2">Framework类库</h1>
+<h1 id="toc_2">Framework类库</h1><HR SIZE=1>
 <p>
 system 命名空间
 可以派生出自己的类型
 </p>
 								 
-<h1 id="toc_3">通用类型系统(CTS)</h1>
+<h1 id="toc_3">通用类型系统(CTS)</h1><HR SIZE=1>
 <p>
 common type system
 字段:对象状态
@@ -154,7 +160,7 @@ common type system
 事件:其它类中添加方法,触发运行其它类里面的程序.
 </p>
 
-<h1 id="toc_4">生成，打包，部署和管理应用程序及类型</h1>
+<h1 id="toc_4">生成，打包，部署和管理应用程序及类型</h1><HR SIZE=1>
 <p>
 动态链接库(Dynamic-Link Library)
 </p>
@@ -165,7 +171,7 @@ common type system
 </p>
 
 
-<h1 id="toc_5">运行时的相互关系</h1>
+<h1 id="toc_5">运行时的相互关系</h1><HR SIZE=1>
 <p>
 <a href="堆栈.html">堆栈</a>
 类型 对象 线程栈  托管堆在运行时的关系
@@ -189,28 +195,28 @@ CLR将某个方法转的IL转换成CPU指令的时候，会检查确定方法里
 堆上所有对象包含两个额外成员:类型对象指针和同步块索引
 </p>
 
-<h1 id="toc_6">基元类型,值类型,引用类型</h1>
+<h1 id="toc_6">基元类型,值类型,引用类型</h1><HR SIZE=1>
 <p>
 基元类型:编译器直接支持的类型(不用指定什么命名空间，默认的类型)
 </p>
 
 
-<h1 id="toc_7">public private protect internal</h1>
+<h1 id="toc_7">public private protect internal</h1><HR SIZE=1>
 
 
-<h1 id="toc_8">FCL 类型</h1>
+<h1 id="toc_8">FCL 类型</h1><HR SIZE=1>
 <p>
 FCL:Framewrok class library: framework 类库
 </p>
 
-<h1 id="toc_9" class="justcenter">sealed</h1>
+<h1 id="toc_9" class="justcenter">sealed</h1><HR SIZE=1>
 <p>
  当对一个类应用 sealed 修饰符时，此修饰符会阻止其他类从该类继承。类似于Java中final关键字。
  由于密封类永远不会有任何派生类
 密封类不能同时又是抽象类，因为抽象总是希望被继承的。 
 </p>
 
-<h1 id="toc_10">构造器(new,初始化字段)</h1>
+<h1 id="toc_10">构造器(new,初始化字段)</h1><HR SIZE=1>
 <p>
 默认为无参构造器
 </p>
@@ -220,18 +226,18 @@ c#构造函数后面的base
 先执行父类的对应的构造函数(创建基类类型的对象)，再执行当前的构造函数。
 </p>
 
-<h1 id="toc_11">事件</h1>
+<h1 id="toc_11">事件</h1><HR SIZE=1>
 <p>
 定义了事件的类型对应的类或对象可以通知其它的对象发生了某些事情,从而执行某些操作。
 一个对象发生了某些情况，通知其它对象执行某些操作。
 </p>
 
-<h1 id="toc_12">实现.NET跨平台的三个关键</h1>
+<h1 id="toc_12">实现.NET跨平台的三个关键</h1><HR SIZE=1>
 <p>
 编译器，CLR，和基本类库
 </p>
 
-<h1 id="toc_13">readonly</h1>
+<h1 id="toc_13">readonly</h1><HR SIZE=1>
 <p>
 综上所述，可以得出结论：readonly修饰的字段，其初始化仅是固定了其引用（地址不能修改），但它引用的对象的属性是可以更改的。
 </p>
@@ -282,7 +288,20 @@ const只能在初期就使用常量初始化好。对于每一次编译后的结
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

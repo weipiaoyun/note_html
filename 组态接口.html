@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>组态接口</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -30,12 +36,12 @@
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">访问方式 WebAPI </h1>
+<h1 id="toc_1">访问方式 WebAPI </h1><HR SIZE=1>
 <p>
 如获取设备名：<a href="http://192.168.0.1:9000//api/DataExchange/GetDeviceName">http://192.168.0.1:9000//api/DataExchange/GetDeviceName</a>
 </p>
 
-<h1 id="toc_2">获取设备信息 </h1>
+<h1 id="toc_2">获取设备信息 </h1><HR SIZE=1>
 <h2 id="toc_2.1">获取所有设备名称集合 </h2>
 <p>
 {"Reason": "OK",  "ResultCode": "1",  "Result": [    "设备0",    "设备1"  ]}
@@ -52,7 +58,7 @@
 "{"Reason": "OK",  "ResultCode": "1",  "Result": {    "Name": "内层棕化",    "Status": 0  }}"
 </p>
 
-<h1 id="toc_3">获取点(地址)信息 </h1>
+<h1 id="toc_3">获取点(地址)信息 </h1><HR SIZE=1>
 <h2 id="toc_3.1">获取所有设备的点(地址)及对应值 </h2>
 <p>
 "{"Reason": "OK",  "ResultCode": "1",  "Result": [{ "DeviceName": "内层棕化",      "listAddressValue": [        {          "AddressName": "生产当前状态",          "AddressValue": 3        },        {          "AddressName": "停机时间",          "AddressValue": 20        },        {          "AddressName": "出板数量统计",          "AddressValue": 5565        },        {          "AddressName": "入板数量统计",          "AddressValue": 5726        },        {          "AddressName": "长mm",          "AddressValue": 0        },        {          "AddressName": "宽mm",          "AddressValue": 0        },        {          "AddressName": "面积inch2",          "AddressValue": 33        },        {          "AddressName": "今天已耗电量",          "AddressValue": 9920        },        {          "AddressName": "月平均耗电量",          "AddressValue": 0        },        {          "AddressName": "总耗电量",          "AddressValue": 12800        },        {          "AddressName": "今天已耗市水量",          "AddressValue": 0        },        {          "AddressName": "月平均耗市水量",          "AddressValue": 0        },        {          "AddressName": "总耗市水量",          "AddressValue": 0        },        {          "AddressName": "酸洗面积添加PV",          "AddressValue": 12765        },        {          "AddressName": "除油面积添加SV",          "AddressValue": 0        },        {          "AddressName": "除油间隔面积PV",          "AddressValue": 3663        },        {          "AddressName": "预浸面积添加SV",          "AddressValue": 0        },        {          "AddressName": "预浸面积添加PV",          "AddressValue": 3663        },        {          "AddressName": "棕化面积添加SV",          "AddressValue": 0        },        {          "AddressName": "棕化面积添加PV",          "AddressValue": 3663        },        {          "AddressName": "酸洗SV",          "AddressValue": 351        },        {          "AddressName": "除油PV",          "AddressValue": 493        },        {          "AddressName": "当前传送速度",          "AddressValue": 0        },        {          "AddressName": "除油SV",          "AddressValue": 501        },        {          "AddressName": "预浸PV",          "AddressValue": 352        },        {          "AddressName": "预浸SV",          "AddressValue": 354        },        {          "AddressName": "棕化1PV",          "AddressValue": 358        },        {          "AddressName": "棕化1SV",          "AddressValue": 359        },        {          "AddressName": "棕化2PV",          "AddressValue": 354        },        {          "AddressName": "棕化2SV",          "AddressValue": 355        },        {          "AddressName": "热风1PV",          "AddressValue": 849        },        {          "AddressName": "热风1SV",          "AddressValue": 850        },        {          "AddressName": "热风2PV",          "AddressValue": 851        },        {          "AddressName": "热风2SV",          "AddressValue": 850        },        {          "AddressName": "热风3PV",          "AddressValue": 852        },        {          "AddressName": "热风3SV",          "AddressValue": 0        }      ]    },    {      "DeviceName": "设备0",      "listAddressValue": [        {          "AddressName": "地址",          "AddressValue": 96        },        {          "AddressName": "地址1",          "AddressValue": 96        },        {          "AddressName": "地址2",          "AddressValue": 96        },        {          "AddressName": "地址3",          "AddressValue": 96        }      ]    }  ]}"
@@ -94,7 +100,20 @@
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

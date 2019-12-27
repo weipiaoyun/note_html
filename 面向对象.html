@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>面向对象</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -24,7 +30,7 @@
 
 
 
-<h1 id="toc_1">属性 </h1>
+<h1 id="toc_1">属性 </h1><HR SIZE=1>
 <p>
 属性的本质就是两个函数set和get
 属性的功能是控制字段的读取。
@@ -170,8 +176,8 @@ set 和 get 是外面和内部私有的接口。使得外面可以获取该值�
 </p>
 	
 
-<h1 id="toc_2">虚方法 virtual 和抽象方法abstract</h1>
-<h1 id="toc_3">虚方法</h1>
+<h1 id="toc_2">虚方法 virtual 和抽象方法abstract</h1><HR SIZE=1>
+<h1 id="toc_3">虚方法</h1><HR SIZE=1>
 <p>
 功能：虚方法是子类继承父类时，由于某种需求，重写函数。
 虚方法的特点:
@@ -179,7 +185,7 @@ set 和 get 是外面和内部私有的接口。使得外面可以获取该值�
 	虚方法不能是私有的(需要重写，私有没意义)，因此不能使用private修饰符
 </p>
 
-<h1 id="toc_4">virtual</h1>
+<h1 id="toc_4">virtual</h1><HR SIZE=1>
 <p>
 virtual在基类中已经定义
 1，如果派生类没有重写该虚方法，则派生类的实例调用是基类中的方法。
@@ -190,14 +196,14 @@ virtual在基类中已经定义
 虚方法的实现可以由派生类所取代，这种取代是通过方法的重写实现的。
 </p>
 
-<h1 id="toc_5">抽象类</h1>
+<h1 id="toc_5">抽象类</h1><HR SIZE=1>
 <p>
 抽象类的用途是作为 父类 被子类 继承 (把所有的共有属性抽象出来)
 1.抽象类不能实例化,只能被继承.
 2.抽象类可以定义抽象函数/方法. 
 </p>
 
-<h1 id="toc_6">abstract</h1>
+<h1 id="toc_6">abstract</h1><HR SIZE=1>
 <p>
 abstract关键字只能用在抽象类中修饰方法，并且没有具体的实现。抽象方法的实现必须在派生类中使用override关键字来实现。
 </p>
@@ -226,7 +232,20 @@ abstract关键字只能用在抽象类中修饰方法，并且没有具体的实
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

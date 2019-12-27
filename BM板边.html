@@ -1,20 +1,26 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>BM板边</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">非对称复合靶</h1>
+<h1 id="toc_1">非对称复合靶</h1><HR SIZE=1>
 <p>
 PROC_ADD_PAD \(fh_xray3_by_x \)fh_xray3_by_y 0 no \(lsfhbkpad_erp \)polar
 </p>
 
-<h1 id="toc_2">捞取数据库</h1>
+<h1 id="toc_2">捞取数据库</h1><HR SIZE=1>
 <p>
 1，内层芯板厚度  inn_core_thick
 2，ERP的“内层涂布有预留边，抓取预留边数据  wxgmq_line_x_pro
@@ -34,15 +40,15 @@ Y涨缩值，y_s
 第三次修边：edge_x3 edge_y3
 </p>
 
-<h1 id="toc_3">左下角位置安排</h1>
+<h1 id="toc_3">左下角位置安排</h1><HR SIZE=1>
 <p>
 对应右下角先有方向孔站位置，后有不动的打靶需防呆占的位置，留有的位置放同心圆和防焊ccd
 </p>
 
 
-<h1 id="toc_4">右下角位置安排</h1>
+<h1 id="toc_4">右下角位置安排</h1><HR SIZE=1>
 
-<h1 id="toc_5">防呆</h1>
+<h1 id="toc_5">防呆</h1><HR SIZE=1>
 <p>
 右下角防呆靶到中间长靶	左下角防呆靶到中间的长靶    两者之间&lt;2mm
 </p>
@@ -82,7 +88,7 @@ Y涨缩值，y_s
 FX_LB 左下防呆
 </p>
 
-<h1 id="toc_6">变量</h1>
+<h1 id="toc_6">变量</h1><HR SIZE=1>
 <p>
 laser_yh 添加的时候判断镭射第几次压合
 </p>
@@ -110,7 +116,7 @@ jS		阶数
 有镭射打在两张及以上芯板的core层时及两层镭射有叠孔情况才用复合靶，新增0741客户两阶及两阶以上用复合靶
 </p>
 
-<h1 id="toc_7">同心圆</h1>
+<h1 id="toc_7">同心圆</h1><HR SIZE=1>
 <p>
 huan_x
 </p>
@@ -123,7 +129,7 @@ huan_x
 </p>
 
 
-<h1 id="toc_8">防焊曝光对位pad/防焊ccd</h1>
+<h1 id="toc_8">防焊曝光对位pad/防焊ccd</h1><HR SIZE=1>
 <p>
 长边的为正常，短边两个备用，第一个备用对应的防焊和文字有东西，第二次备用的没有东西
 </p>
@@ -143,7 +149,7 @@ huan_x
 fhccd_last_by_x 	fhccd_last_by_y最后一次备用。
 </p>
 
-<h1 id="toc_9">镭射ccd</h1>
+<h1 id="toc_9">镭射ccd</h1><HR SIZE=1>
 <p>
 laserT_ccd_x1
 </p>
@@ -162,28 +168,28 @@ laser_length 镭射的长度，左右的镭射长度，除去了第一次的镭�
 左下角，如果防呆后的复合靶和同心元之间的距离大于镭射ccd的长度，则放在同心元的上面，重新计算坐标。
 </p>
 
-<h1 id="toc_10">9孔LDI</h1>
+<h1 id="toc_10">9孔LDI</h1><HR SIZE=1>
 <p>
 遇到埋孔的时候判断是否第一次压合(压合结构需要正确才能保证这确添加)
 $yh_num == 1 时添加9空对位
 </p>
 
 
-<h1 id="toc_11">待优化防呆</h1>
+<h1 id="toc_11">待优化防呆</h1><HR SIZE=1>
 <p>
 右下角的复合靶尽可能的往下，保证左边的上下移动空间距离
 </p>
 
 
 
-<h1 id="toc_12">备用Xray</h1>
+<h1 id="toc_12">备用Xray</h1><HR SIZE=1>
 <p>
 1，内层从第二个开始掏铜。xray1_by_x
 </p>
 
 
 
-<h1 id="toc_13">自动添加选化湿膜</h1>
+<h1 id="toc_13">自动添加选化湿膜</h1><HR SIZE=1>
 <p>
 当制版为化金+电镀金手指+抗氧化工艺，自动添加gtj和gbj层
 </p>
@@ -202,24 +208,24 @@ COM create_layer,layer=gtj,context=board,type=solder_paste,polarity=positive,ins
 
 
 
-<h1 id="toc_14">\(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/dr_drill 通孔层</h1>
+<h1 id="toc_14">\(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/dr_drill 通孔层</h1><HR SIZE=1>
 
-<h1 id="toc_15">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/mdr_drill 埋孔层</h1>
+<h1 id="toc_15">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/mdr_drill 埋孔层</h1><HR SIZE=1>
 
-<h1 id="toc_16">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/plug_t通孔钻底板</h1>
+<h1 id="toc_16">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/plug_t通孔钻底板</h1><HR SIZE=1>
 
-<h1 id="toc_17">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/plug_m埋孔钻底板</h1>
+<h1 id="toc_17">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/plug_m埋孔钻底板</h1><HR SIZE=1>
 
-<h1 id="toc_18">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/ldt_drill顶层镭射</h1>
+<h1 id="toc_18">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/ldt_drill顶层镭射</h1><HR SIZE=1>
 
-<h1 id="toc_19">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/ldb_drill底层镭射</h1>
+<h1 id="toc_19">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/ldb_drill底层镭射</h1><HR SIZE=1>
 
-<h1 id="toc_20">source $GENESIS_DIR/sys/scripts/f12/sub_scripts/ldtt_drill 一次埋孔，两次镭射的二阶HDI板</h1>
+<h1 id="toc_20">source $GENESIS_DIR/sys/scripts/f12/sub_scripts/ldtt_drill 一次埋孔，两次镭射的二阶HDI板</h1><HR SIZE=1>
 
 
-<h1 id="toc_21">source $GENESIS_DIR/sys/scripts/f12/sub_scripts/ldbb_drill 底层镭射</h1>
+<h1 id="toc_21">source $GENESIS_DIR/sys/scripts/f12/sub_scripts/ldbb_drill 底层镭射</h1><HR SIZE=1>
 
-<h1 id="toc_22">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/l_top 内层顶层</h1>
+<h1 id="toc_22">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/l_top 内层顶层</h1><HR SIZE=1>
 <p>
 铺铜
 提供一厂symbol
@@ -232,25 +238,25 @@ bm-adfpad_bm1 防焊自动曝光靶内层掏空, 如果大于600的时候，有8
 </p>
 
 
-<h1 id="toc_23">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/l_bot 内层底层</h1>
+<h1 id="toc_23">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/l_bot 内层底层</h1><HR SIZE=1>
 
-<h1 id="toc_24">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/in_laser_t 没有埋孔，有镭射的一阶HDI内层顶层</h1>
-
-
-<h1 id="toc_25">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/in_laser_b 没有埋孔，有镭射的底层内层</h1>
-
-<h1 id="toc_26">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/sec_top 有镭射有埋孔的次外层顶层</h1>
+<h1 id="toc_24">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/in_laser_t 没有埋孔，有镭射的一阶HDI内层顶层</h1><HR SIZE=1>
 
 
+<h1 id="toc_25">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/in_laser_b 没有埋孔，有镭射的底层内层</h1><HR SIZE=1>
 
-<h1 id="toc_27">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/sec_bot 有镭射有埋孔的次外层底层</h1>
-
-<h1 id="toc_28">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/second_top 没镭射，有埋孔的次外层顶层</h1>
-<h1 id="toc_29">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/second_bot 没镭射，有埋孔的次外层底层</h1>
+<h1 id="toc_26">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/sec_top 有镭射有埋孔的次外层顶层</h1><HR SIZE=1>
 
 
 
-<h1 id="toc_30">待做</h1>
+<h1 id="toc_27">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/sec_bot 有镭射有埋孔的次外层底层</h1><HR SIZE=1>
+
+<h1 id="toc_28">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/second_top 没镭射，有埋孔的次外层顶层</h1><HR SIZE=1>
+<h1 id="toc_29">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/second_bot 没镭射，有埋孔的次外层底层</h1><HR SIZE=1>
+
+
+
+<h1 id="toc_30">待做</h1><HR SIZE=1>
 <p>
 判断是否有埋孔层，决定内层是否添加埋孔切片孔
 次外层的铺铜fill_fk_1.5
@@ -274,7 +280,7 @@ xray孔
 增加复合靶制板有镭射没有埋孔的内层加内层涨缩系数
 </p>
 
-<h1 id="toc_31">待确定</h1>
+<h1 id="toc_31">待确定</h1><HR SIZE=1>
 <p>
 如何区分一二厂(原来是判断人名)
 有镭射打在两张及以上芯板的core层时及两层镭射有叠孔情况才用复合靶，新增0741客户两阶及两阶以上用复合靶
@@ -300,7 +306,7 @@ b06e012661a0 不能根据镭射判断次外层和内层。只能根据ERP
 </p>
 
 
-<h1 id="toc_32">图形界面</h1>
+<h1 id="toc_32">图形界面</h1><HR SIZE=1>
 <p>
 1，内层铜厚 (cu_thickness) ok
 2，完成铜厚 (board_thickness)  ok
@@ -328,13 +334,13 @@ b06e012661a0 不能根据镭射判断次外层和内层。只能根据ERP
 </p>
 
 
-<h1 id="toc_33">抓去ERP的数据</h1>
+<h1 id="toc_33">抓去ERP的数据</h1><HR SIZE=1>
 <p>
 1，内层涨缩系数
 </p>
 
 
-<h1 id="toc_34">规则</h1>
+<h1 id="toc_34">规则</h1><HR SIZE=1>
 <p>
 阶数以压合次数算
 </p>
@@ -381,14 +387,14 @@ ld34 层对应的第4层要有一个pad
 每压合一次，往内缩距锣边2mm
 </p>
 
-<h1 id="toc_35">外层干菲林对位</h1>
+<h1 id="toc_35">外层干菲林对位</h1><HR SIZE=1>
 <p>
 adfpad-t_bm1 和bm-adfpad-b_bm1
 普通板 &gt; 600 在长边，xray-by位置上(右下角还有一个)，否则在短边
 </p>
 
 
-<h1 id="toc_36">挂片孔</h1>
+<h1 id="toc_36">挂片孔</h1><HR SIZE=1>
 <p>
 MATH pnlgua_x1 = $gSR_LIMITSxmin - 6.5/25.4
 </p>
@@ -405,7 +411,7 @@ MATH pnlgua_x1 = $gSR_LIMITSxmin - 6.5/25.4
 </p>
 
  
-<h1 id="toc_37">干菲林对位</h1>
+<h1 id="toc_37">干菲林对位</h1><HR SIZE=1>
 <p>
 secpad_x  第一次次外层对位
 </p>
@@ -419,7 +425,7 @@ secpad_x  第一次次外层对位
 复合靶，在短边都要有
 </p>
 
-<h1 id="toc_38">压合次数，镭射次数，次外层内层</h1>
+<h1 id="toc_38">压合次数，镭射次数，次外层内层</h1><HR SIZE=1>
 <p>
 压合次数和次外层(如果core按次外层算，则压合次数少1)相对应,和阶数相对应
 镭射次数与镭射钻孔相对应
@@ -465,7 +471,7 @@ secpad_x  第一次次外层对位
 9，第几次压合和第几次镭射也需要分开。因为压合和镭射也没必然关系。
 </p>
 
-<h1 id="toc_39">变量</h1>
+<h1 id="toc_39">变量</h1><HR SIZE=1>
 <p>
 xray1_by_x	长边的备用靶标，第一次压合对应的坐标点
 </p>
@@ -477,7 +483,7 @@ outpad_x 拆为长边outpad_chang_x 和outpad_duan_x, 解决长短不一的问�
 fh_xray_mktq_x 在通孔里面加的最后一次埋孔的透气孔(正常的3.153的斜靶孔)
 </p>
 
-<h1 id="toc_40">备注</h1>
+<h1 id="toc_40">备注</h1><HR SIZE=1>
 <p>
 #内层，除了内层的，其它的都需要掏开
 PROC_ADD_PAD_MULT \(xray1_by_x \)xray1_by_y 0 no bm-adfpad positive 1 0 [expr \(yhcs - 1] \)xray_by_chg_y
@@ -492,14 +498,14 @@ PROC_ADD_PAD \(xray_by_x \)xray_by_y 270 no bm-adfpad $polar
 
 
 
-<h1 id="toc_41">待处理</h1>
+<h1 id="toc_41">待处理</h1><HR SIZE=1>
 <p>
 PROC_ADD_PAD \(outpad_x \)outpad_y 0 no $outpad_second_sym positive
 #PROC_ADD_PAD \(outpad_x \)outpad_y 0 no $outpad_inner_sym positive
 </p>
 
 
-<h1 id="toc_42">#假二阶</h1>
+<h1 id="toc_42">#假二阶</h1><HR SIZE=1>
 <p>
 两层镭射，第一次镭射对应的目标层为内层流程
 </p>
@@ -519,7 +525,20 @@ PROC_ADD_PAD \(outpad_x \)outpad_y 0 no $outpad_second_sym positive
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

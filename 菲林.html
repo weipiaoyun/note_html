@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>菲林</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -59,7 +65,7 @@
 
 
 
-<h1 id="toc_1">临时资料</h1>
+<h1 id="toc_1">临时资料</h1><HR SIZE=1>
 <p>
 1，料号名
 2，涨缩系数
@@ -67,9 +73,9 @@
 </p>
 
 
-<h1 id="toc_2">除了选化和文字，顶层都镜像</h1>
+<h1 id="toc_2">除了选化和文字，顶层都镜像</h1><HR SIZE=1>
 
-<h1 id="toc_3">图形界面</h1>
+<h1 id="toc_3">图形界面</h1><HR SIZE=1>
 <p>
 菲林排产系统：Frm_FilmOrder
 菲林收发系统：
@@ -90,7 +96,7 @@
 待发送
 CTLGuid：FDE44F43-5507-E611-8C4E-78ACC03D06A8
 </p>
-<h1 id="toc_4">存储过程</h1>
+<h1 id="toc_4">存储过程</h1><HR SIZE=1>
 <p>
 deleteFilm 取消申请
 GetWaitingSend 获取待发送
@@ -108,7 +114,7 @@ CancelBrushoffClick 取消报废
 2,前十个不排序
 </p>
 
-<h1 id="toc_5">优先级</h1>
+<h1 id="toc_5">优先级</h1><HR SIZE=1>
 <p>
 更改申请的优先级，则如果详细的层别优先级小于修改后的申请优先级，则调为修改后的优先级(保持光绘的优先级和申请的优先级同步)
 </p>
@@ -190,7 +196,7 @@ Guid_
 PGuid_
 </p>
 
-<h1 id="toc_6">查找CAM人员发放的记录</h1>
+<h1 id="toc_6">查找CAM人员发放的记录</h1><HR SIZE=1>
 <p>
 SELECT     TOP (200) Guid_, TiaoMa_, ApplyGuid_, OrderGuid_, jobName_, TypeId, Apply2Dep, Aplly2People, TheFilmReson, ScaleX_, ScaleY_, FinishX_, FinishY_, TieMoX_, TieMoY_, FilmType_, FilmLayer_, 
 </p>
@@ -555,7 +561,7 @@ AOI时间
 </p>
 
 
-<h1 id="toc_7">有一个待回收即该料号为待回收</h1>
+<h1 id="toc_7">有一个待回收即该料号为待回收</h1><HR SIZE=1>
 <p>
   SELECT  a.[jobName_],b.ReceiveWaiting_
   FROM [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] a 
@@ -572,13 +578,13 @@ AOI时间
 </p>
   
 
-<h1 id="toc_8">收发系统</h1>
+<h1 id="toc_8">收发系统</h1><HR SIZE=1>
 <p>
 getSendLog，单击改变收发记录
 </p>
 
 
-<h1 id="toc_9">待优化</h1>
+<h1 id="toc_9">待优化</h1><HR SIZE=1>
 <p>
 1, CAM绘片没有设置条形码数据。
 2，相同类型的菲林需要一起收发
@@ -586,7 +592,7 @@ getSendLog，单击改变收发记录
 
 
 
-<h1 id="toc_10">待处理</h1>
+<h1 id="toc_10">待处理</h1><HR SIZE=1>
 <p>
 申请人和产线不一致
 </p>
@@ -736,7 +742,7 @@ while (select top 1 from #tmp_film)
 
 
 		
-<h1 id="toc_11">备份sql</h1>
+<h1 id="toc_11">备份sql</h1><HR SIZE=1>
 <h2 id="toc_11.1">删除多余发放日志</h2>
 <blockquote>
 drop table #tmpaaa2
@@ -769,7 +775,7 @@ drop table #tmpaaa2
 </p>
   
 
-<h1 id="toc_12">更新返回时间</h1>
+<h1 id="toc_12">更新返回时间</h1><HR SIZE=1>
 <blockquote>
 drop table #tmpaaa1
 </blockquote>
@@ -819,7 +825,7 @@ drop table #tmpaaa
   end
 </p>
   
-<h1 id="toc_13" class="justcenter">志浩周期4a2536b0</h1>
+<h1 id="toc_13" class="justcenter">志浩周期4a2536b0</h1><HR SIZE=1>
 <blockquote>
 --	exec P_WF_FilmOrder @operType=N'getWaitingSendReport'
 </blockquote>
@@ -920,7 +926,20 @@ AS FilmStatusDis_
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

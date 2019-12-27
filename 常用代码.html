@@ -1,40 +1,46 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>常用代码</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">获取Ip地址</h1>
+<h1 id="toc_1">获取Ip地址</h1><HR SIZE=1>
 <p>
 If ls_ip Is Nothing OrElse ls_ip.Count &lt;= 0 Then ls_ip = PHelp_SystemInfo.GetIPList()
 </p>
 
-<h1 id="toc_2">获取Mac地址</h1>
+<h1 id="toc_2">获取Mac地址</h1><HR SIZE=1>
 <p>
 If ls_mac Is Nothing OrElse ls_ip.Count &lt;= 0 Then ls_mac = PHelp_SystemInfo.getMacList()
 </p>
 
-<h1 id="toc_3">获取主机名</h1>
+<h1 id="toc_3">获取主机名</h1><HR SIZE=1>
 <p>
 Environment.MachineName
 </p>
 
-<h1 id="toc_4">系统版本</h1>
+<h1 id="toc_4">系统版本</h1><HR SIZE=1>
 <p>
 Environment.OSVersion.ToString()
 </p>
 
-<h1 id="toc_5">消息框</h1>
+<h1 id="toc_5">消息框</h1><HR SIZE=1>
 <p>
 MsgBox(TextBox1.Text)
 </p>
 
-<h1 id="toc_6">错误提示</h1>
+<h1 id="toc_6">错误提示</h1><HR SIZE=1>
 <p>
 MessageError(strReportPath)
 </p>
@@ -200,7 +206,20 @@ Response.Cookies("UserName").Expires = 0
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

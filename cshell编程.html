@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>cshell编程</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -18,18 +24,18 @@
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">perl参数传递给csh </h1>
+<h1 id="toc_1">perl参数传递给csh </h1><HR SIZE=1>
 <p>
 perl里面print 
 csh <code>perl</code>
 </p>
-<h1 id="toc_2">常用命令</h1>
+<h1 id="toc_2">常用命令</h1><HR SIZE=1>
 <p>
 set infoShuzhu = <code>cat \(GENESIS_TMP/info.\)\( | awk '{print \)3}'</code>
 infoShuzhu是一个数组，文件cat出来的第三列所组成的数组。
 </p>
 
-<h1 id="toc_3">取整</h1>
+<h1 id="toc_3">取整</h1><HR SIZE=1>
 <p>
 set aa = <code>echo \(bb[\)i] | bc -l | awk '{printf "%1.0f", $1}'</code>
 </p>
@@ -309,7 +315,20 @@ Uniq命令作用：重复行：1，只显示一次。2，全不显示
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

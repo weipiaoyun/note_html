@@ -1,15 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>gridControl</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">GridControl和GridView之间的关系</h1>
+<h1 id="toc_1">GridControl和GridView之间的关系</h1><HR SIZE=1>
 <p>
 GridControl只控制数据，不显示数据
 GridView负责显示数据，所以要控制显示，就要控制GridView控件
@@ -20,7 +26,7 @@ GridView负责显示数据，所以要控制显示，就要控制GridView控件
 sqlGridControl里面有对gridview的设置，对列进行设置。
 </p>
 
-<h1 id="toc_2">1,AutoLoad 获取Guid_对应的datarow</h1>
+<h1 id="toc_2">1,AutoLoad 获取Guid_对应的datarow</h1><HR SIZE=1>
 
 <p>
 当点击钻孔的时候，会触发事件改变，此时需要获取到焦点行。当点击钻带时，会自动更改钻孔触发改变事件，而焦点还是原来的焦点，此时需要更改焦点。
@@ -30,7 +36,7 @@ sqlGridControl里面有对gridview的设置，对列进行设置。
 点击时获取当前行的Guid_
 </p>
 
-<h1 id="toc_3">GridColumn</h1>
+<h1 id="toc_3">GridColumn</h1><HR SIZE=1>
 <p>
 对guidColumn的一些设置，比如：描述，字段名，名，是否可见，可见顺序，是否只读，是否允许编辑。
 </p>
@@ -40,7 +46,7 @@ sqlGridControl里面有对gridview的设置，对列进行设置。
 <p>
 DataRow aa = sqlGridControl1.View_.GetDataRow(sqlGridControl1.View_.FocusedRowHandle);
 </p>
-<h1 id="toc_4">GetFocusedRowCellValue</h1>
+<h1 id="toc_4">GetFocusedRowCellValue</h1><HR SIZE=1>
 
 <h2 id="toc_4.1">获取某数字列的数据</h2>
 <p>
@@ -64,7 +70,7 @@ this.gridViewMake.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.R
 </p>
 
 
-<h1 id="toc_5">属性</h1>
+<h1 id="toc_5">属性</h1><HR SIZE=1>
 <p>
 View_.OptionsCustomization.AllowSort = false
 View_.FocusedRowHandle 焦点行句柄
@@ -98,7 +104,7 @@ this.textBox1.Text = gridView2.GetDataRow(e.RowHandle)["列名"].ToString();//�
 </p>
 
 
-<h1 id="toc_6">固定</h1>
+<h1 id="toc_6">固定</h1><HR SIZE=1>
 <p>
 //左边固定
 View_.Columns["selectNum_"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -109,7 +115,7 @@ View_.Columns["selectNum_"].Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
  this.sqlGridControl2.View_.FocusedRowChanged += new FocusedRowChangedEventHandler(ChangDrillLayerInfo);
 </p>
  
-<h1 id="toc_7">boundGridView</h1>
+<h1 id="toc_7">boundGridView</h1><HR SIZE=1>
 <p>
 this.bgvCamDispatchTmpJobList.Grid_.DataSource = ds.Tables[1];
 </p>
@@ -129,7 +135,20 @@ this.bgvCamDispatchTmpJobList.Grid_.DataSource = ds.Tables[1];
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

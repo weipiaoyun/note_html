@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>IEnumerable接口</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -38,7 +44,7 @@ carArray[3] = new Car("Fred", 45);
 
 
 
-<h1 id="toc_1">foreach</h1>
+<h1 id="toc_1">foreach</h1><HR SIZE=1>
 <p>
 数组能用foreach遍历，是因为其实现了IEnumerabale和IEnumerator的接口，通过IEnumerabale的GetEnumerator 获取IEnumerator。
 IEnumerabale 使成为枚举(枚举器)
@@ -69,7 +75,7 @@ foreach里面的定义变量，会访问Current属性，并赋值。
 <code>要实现可枚举的，其必须本身就是一个个的实体组成的对象集合，对对象的集合进行枚举</code>，必定是数组
 </p>
 
-<h1 id="toc_2">1.  IEnumerable 与  IEnumerator</h1>
+<h1 id="toc_2">1.  IEnumerable 与  IEnumerator</h1><HR SIZE=1>
 <p>
 IEnumerable(可列举的接口)是一个枚举器
 IEnumerator是一个迭代器
@@ -150,7 +156,20 @@ II，实现IEnumerator接口操作返回的枚举数对象(其实枚举数本质
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>MySQL</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -29,7 +35,7 @@
 <a href="mysql 学习笔记.html">mysql 学习笔记</a>
 <a href="mysql 字符集.html">mysql 字符集</a>
 </p>
-<h1 id="toc_1">perl mysql </h1>
+<h1 id="toc_1">perl mysql </h1><HR SIZE=1>
 <p>
 use DBI;
 </p>
@@ -59,14 +65,14 @@ my \(rows = \)dbh-&gt;do("INSERT INTO users VALUES (4, 'jay', 'CZ'), (5, 'll', '
 $dbh-&gt;disconnect(); #断开连接
 </p>
 
-<h1 id="toc_2">执行数据库方法 </h1>
+<h1 id="toc_2">执行数据库方法 </h1><HR SIZE=1>
 <p>
 prepare：一般是查询，如select
 do：执行删除，创建等；delete， create
 </p>
 
 
-<h1 id="toc_3">linux创建mysql新用户并添加权限 </h1>
+<h1 id="toc_3">linux创建mysql新用户并添加权限 </h1><HR SIZE=1>
 <ol>
 <li>
 mysql -uroot -p #登录
@@ -91,7 +97,7 @@ select * from mysql.user where user = 'admin';
 
 </ol>
 
-<h1 id="toc_4">表 </h1>
+<h1 id="toc_4">表 </h1><HR SIZE=1>
 <h2 id="toc_4.1">FPC脚本 </h2>
 <p>
 HcCam_ChildFlowList
@@ -112,7 +118,20 @@ HcCam_ChildFlowList
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

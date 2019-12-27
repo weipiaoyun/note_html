@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>CIMON的配置和框架笔记</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -42,7 +48,7 @@
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">添加字典 </h1>
+<h1 id="toc_1">添加字典 </h1><HR SIZE=1>
 <p>
 Infrastructure.TBL_SYS_DICTIONARY dic = GetDictionaryByCode("DLINK_IP");
 if (dic == null || string.IsNullOrEmpty(dic.CDIC_VALUE))
@@ -69,7 +75,7 @@ if (dicDalLinkIp == null || string.IsNullOrEmpty(dicDalLinkIp.CDIC_VALUE))
 </p>
 
 
-<h1 id="toc_2">添加用户 </h1>
+<h1 id="toc_2">添加用户 </h1><HR SIZE=1>
 <p>
 用户管理-&gt;新增-&gt;输入基本属性-&gt;关联运营组织
 </p>
@@ -84,7 +90,7 @@ if (dicDalLinkIp == null || string.IsNullOrEmpty(dicDalLinkIp.CDIC_VALUE))
 e:\CIMOM\05.Server\Release Assemblies\Config\
 </p>
 
-<h1 id="toc_3">启动程序 </h1>
+<h1 id="toc_3">启动程序 </h1><HR SIZE=1>
 <p>
 客户端：E:\CIMOM\10.Client\bin\Debug\Startup.exe
 服务器：E:\CIMOM\05.Server\Release Assemblies\Startup.exe
@@ -94,7 +100,7 @@ e:\CIMOM\05.Server\Release Assemblies\Config\
 客户端：解压Debug
 服务器，解压Release Assemblies.rar
 </p>
-<h1 id="toc_4">更新文件 </h1>
+<h1 id="toc_4">更新文件 </h1><HR SIZE=1>
 <p>
 更新文件：E:\CIMOM\10.Client\bin\Debug
 </p>
@@ -130,18 +136,18 @@ e:\CIMOM\10.Client\bin\Debug\WorkBench.config
 e:\CIMOM\10.Client\Plugins\
 </p>
 
-<h1 id="toc_5">功能模块 </h1>
+<h1 id="toc_5">功能模块 </h1><HR SIZE=1>
 <p>
 配方名称和参数列表在同一个表。配方名称的其它参数为空。
 </p>
 
 
-<h1 id="toc_6">上传代码 </h1>
+<h1 id="toc_6">上传代码 </h1><HR SIZE=1>
 <p>
 1，团队资源管理器-&gt;主页-&gt;源代码管理器-&gt;选择05.server, Plugins-&gt;右击-&gt;将项增加到文件夹-&gt;选择要增加的文件夹。
 </p>
 
-<h1 id="toc_7">上传插件 </h1>
+<h1 id="toc_7">上传插件 </h1><HR SIZE=1>
 <h2 id="toc_7.1">上传到服务器端，中间件 </h2>
 <p>
 系统配置-&gt;服务器插件管理
@@ -154,22 +160,22 @@ e:\CIMOM\10.Client\bin\Debug\Upload.exe
 </p>
 
 
-<h1 id="toc_8">异常 </h1>
+<h1 id="toc_8">异常 </h1><HR SIZE=1>
 <p>
 CI.Common 的引用异常。
 =======
 </p>
-<h1 id="toc_9">program </h1>
+<h1 id="toc_9">program </h1><HR SIZE=1>
 <h2 id="toc_9.1">EAP </h2>
 <p>
 具体参数列表=&gt;RecipeCollection
 </p>
 
 
-<h1 id="toc_10">连接PLC </h1>
+<h1 id="toc_10">连接PLC </h1><HR SIZE=1>
 
 
-<h1 id="toc_11">代码 </h1>
+<h1 id="toc_11">代码 </h1><HR SIZE=1>
 <h2 id="toc_11.1">过滤方法 </h2>
 <p>
 Query-&gt;GetAll
@@ -190,7 +196,20 @@ Query-&gt;GetAll
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

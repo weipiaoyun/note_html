@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>测线图</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -93,12 +99,12 @@ countCXTcoord计算测线图文字标记位置
 }
 </p>
 
-<h1 id="toc_1">可能出现一个类型多个数据的情况，比如阻抗线</h1>
+<h1 id="toc_1">可能出现一个类型多个数据的情况，比如阻抗线</h1><HR SIZE=1>
 <p>
 管它类型里面多少个数据。只需要把所有的y提出来排好序，然后提取的时候逐步提取类型，找出里面的y和排好的y进行对比，然后添加即可。
 </p>
 
-<h1 id="toc_2">阻抗线一种类型多个数据，如何添加。把所有类型都当作多个数据添加</h1>
+<h1 id="toc_2">阻抗线一种类型多个数据，如何添加。把所有类型都当作多个数据添加</h1><HR SIZE=1>
 
 <h2 id="toc_2.1">阻抗线的删除</h2>
 <p>
@@ -288,7 +294,20 @@ bga自动数据后返回的图形界面错了,因为结束后传递到setCXTPara
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

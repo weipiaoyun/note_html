@@ -1,15 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>proe第十八课：造型工具</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">自由曲线</h1>
+<h1 id="toc_1">自由曲线</h1><HR SIZE=1>
 <p>
 产生2D或3D的曲线
 </p>
@@ -26,20 +32,20 @@
 下面的控制点，
 </p>
 
-<h1 id="toc_2">下落曲线</h1>
+<h1 id="toc_2">下落曲线</h1><HR SIZE=1>
 <p>
 造型里面，是投影线
 </p>
 
 
-<h1 id="toc_3">来自基准的曲线</h1>
+<h1 id="toc_3">来自基准的曲线</h1><HR SIZE=1>
 <p>
 不是造型曲线,编辑是编辑不了的，要编辑首先要编程造型曲线。
 </p>
 
 
 
-<h1 id="toc_4">COS曲线</h1>
+<h1 id="toc_4">COS曲线</h1><HR SIZE=1>
 <p>
 即落在曲面上的曲线，如果曲面发生变化，曲线也随之变化。cos里面是不能跨越两个平面的。要两个面之间的话，就两面都画，最后 连在一起。
 </p>
@@ -48,51 +54,51 @@
 cos可以转换成平面。
 </p>
 
-<h1 id="toc_5">造型的优先选项</h1>
+<h1 id="toc_5">造型的优先选项</h1><HR SIZE=1>
 <p>
 造型-优先选项里面选，可以设置网格的大小，着色时显不显示网格线等等。
 </p>
 
-<h1 id="toc_6">平面曲线</h1>
+<h1 id="toc_6">平面曲线</h1><HR SIZE=1>
 <p>
 可以转换成自由曲线，一般平面曲线放置在活动平面，可以选择参照进行偏移。
 </p>
 
-<h1 id="toc_7">切向量的对齐</h1>
+<h1 id="toc_7">切向量的对齐</h1><HR SIZE=1>
 <p>
 对操控线右击按对齐就是切向量对齐
 </p>
 
-<h1 id="toc_8">切向量相切</h1>
+<h1 id="toc_8">切向量相切</h1><HR SIZE=1>
 <p>
 曲面相切，可以很好地过度。
 </p>
 
-<h1 id="toc_9">曲面的创建</h1>
+<h1 id="toc_9">曲面的创建</h1><HR SIZE=1>
 <p>
 四边曲面的质量会高一些。
 </p>
 
-<h1 id="toc_10">二边创造的曲面</h1>
+<h1 id="toc_10">二边创造的曲面</h1><HR SIZE=1>
 
-<h1 id="toc_11">三边创造的曲面</h1>
+<h1 id="toc_11">三边创造的曲面</h1><HR SIZE=1>
 
-<h1 id="toc_12">三角面的创建</h1>
+<h1 id="toc_12">三角面的创建</h1><HR SIZE=1>
 <p>
 选取的第一条为自然边界。与自然边相对的是退化点，退化点千万不要连在与曲线相连的地方去。
 </p>
 
-<h1 id="toc_13">三角面的解决方法。</h1>
+<h1 id="toc_13">三角面的解决方法。</h1><HR SIZE=1>
 <p>
 进行对面删除，然后修补，变为四条边，
 </p>
 
-<h1 id="toc_14">实例一：照明设备</h1>
+<h1 id="toc_14">实例一：照明设备</h1><HR SIZE=1>
 <p>
 上面应用程序下面的的红色表示发生问题，必须另行解决，黄色表示必须再生完成，绿色表示没问题。
 </p>
 
-<h1 id="toc_15">曲面连接</h1>
+<h1 id="toc_15">曲面连接</h1><HR SIZE=1>
 <p>
 曲线和曲线之间的连接关系有三种：连接（C0），相切（C1）和曲率（C2）连续三种
 G0：衔接：两邻接曲面虽使用一条共同的边界线。但两曲面并无相同的切线或曲率。
@@ -107,7 +113,7 @@ G2是两个箭头 表示的。
 鞋撑头部的曲面。
 </p>
 
-<h1 id="toc_16">跟踪草绘</h1>
+<h1 id="toc_16">跟踪草绘</h1><HR SIZE=1>
 
 <p>
 在草绘下拉菜单里面个跟踪有草绘
@@ -128,7 +134,20 @@ G2是两个箭头 表示的。
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

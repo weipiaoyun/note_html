@@ -1,31 +1,37 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>web服务器</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">web服务器的搭建</h1>
+<h1 id="toc_1">web服务器的搭建</h1><HR SIZE=1>
 <h2 id="toc_1.1">开启IIS(internet information server)服务</h2>
 <p>
 控制面板-》程序和功能-》打开或关闭windows功能-》把Internet信息服务的全部勾选上(包括FTP服务器、Web管理工具、万维网服务)
 </p>
 
-<h1 id="toc_2">Web服务的发布</h1>
+<h1 id="toc_2">Web服务的发布</h1><HR SIZE=1>
 <p>
 点生成-》发布-》默认配置文件1-》发布方法选择文件系统，然后选择目标位置
 </p>
 
-<h1 id="toc_3">发布后添加网站</h1>
+<h1 id="toc_3">发布后添加网站</h1><HR SIZE=1>
 <p>
 打开IIS 信息服务管理器-》右击网站，添加网站-》填写网站名称ws-》填写物理路径(注意选择路径)-》选择IP地址(一般为本地Ip地址)-&gt;填写主机名(如果有申请域名的话，需要将域名解析到你的电脑的外网IP)
 </p>
 
-<h1 id="toc_4">报错</h1>
+<h1 id="toc_4">报错</h1><HR SIZE=1>
 <p>
 行 20:             设置为 true。
 行 21:         --&gt;
@@ -46,9 +52,9 @@
 <p>
 IIS管理器-&gt;网站-&gt;选择其中生成的一个-》右击-》管理网站-》高级设置-》应用程序池设置为ASP.NET v4.0
 </p>
-<h1 id="toc_5">如果找不到ASP.NET v4.0</h1>
+<h1 id="toc_5">如果找不到ASP.NET v4.0</h1><HR SIZE=1>
 
-<h1 id="toc_6">如何发布程序</h1>
+<h1 id="toc_6">如何发布程序</h1><HR SIZE=1>
 <p>
 右击发布项目-》发布方法选择文件系统，目标位置：C:\inetpub\wwwroot(报错)
 </p>
@@ -56,7 +62,7 @@ IIS管理器-&gt;网站-&gt;选择其中生成的一个-》右击-》管理网�
 
 
 
-<h1 id="toc_7">报错 The 'microsoft.jet.oledb.4.0' provider is not registered on the local machin</h1>
+<h1 id="toc_7">报错 The 'microsoft.jet.oledb.4.0' provider is not registered on the local machin</h1><HR SIZE=1>
 <p>
 打开控制面板--管理工具--Internet 信息服务(IIS)管理器-》右击应用池程序-&gt;选择右边的ASP.NET v4.0-》右击-》高级设置-》把启用32位应用程序设置为True
 </p>
@@ -89,10 +95,10 @@ strIP = "<a href="http://localhost:61672/webServer/WebWFInterface.asmx"">http://
 <a href="http://172.18.3.231:80/ws/WebAppUpdateInfo.asmx|http://172.18.3.231:80/ws/WebAppUpdateInfo.asmx">http://172.18.3.231:80/ws/WebAppUpdateInfo.asmx|http://172.18.3.231:80/ws/WebAppUpdateInfo.asmx</a>
 </p>
 
-<h1 id="toc_8">双击应用池</h1>
+<h1 id="toc_8">双击应用池</h1><HR SIZE=1>
 
 
-<h1 id="toc_9">更改WEB IP</h1>
+<h1 id="toc_9">更改WEB IP</h1><HR SIZE=1>
 <p>
 appSettings	Path	WebIP-LAN	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	NULL	WEBIP
 appSettings	Path	WebIP-LAN_bak	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	NULL	WEBIP
@@ -100,7 +106,7 @@ appSettings	Path	WebIP-WLAN	<a href="http://121.15.131.226:804">http://121.15.13
 </p>
 
 
-<h1 id="toc_10">飞伟</h1>
+<h1 id="toc_10">飞伟</h1><HR SIZE=1>
 <p>
 appSettings	Path	WebIP-LAN	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://192.168.114.152:80">http://192.168.114.152:80</a>	NULL	WEBIP
 appSettings	Path	WebIP-LAN_bak	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://192.168.114.152:80">http://192.168.114.152:80</a>	NULL	WEBIP
@@ -225,7 +231,20 @@ strURL	"<a href="http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchData
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

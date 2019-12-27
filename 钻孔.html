@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>钻孔</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -39,7 +45,7 @@
 <p>
  3044538
 </p>
-<h1 id="toc_1" class="justcenter">获取料号名</h1>
+<h1 id="toc_1" class="justcenter">获取料号名</h1><HR SIZE=1>
 <p>
  private EngSys.MODEL.Pub.Ppe.Job.Model_CurrentJob CurrentJob = EngSys.MODEL.MODEL_Main.CurrentJob;
 </p>
@@ -47,7 +53,7 @@
 <p>
  Application.StartupPath
 </p>
-<h1 id="toc_2">功能</h1>
+<h1 id="toc_2">功能</h1><HR SIZE=1>
 <p>
 1，从genesis捞钻孔信息。(钻带信息(钻带类型，原稿的最小孔径，钻带名，从什么层到什么层)，钻孔信息表T_Pub_DrillInfo(原稿的，处理过的)。)
 2，自动设置公差
@@ -60,7 +66,7 @@
 </p>
 <h2 id="toc_2.1">如何实现</h2>
 
-<h1 id="toc_3">显示的数据</h1>
+<h1 id="toc_3">显示的数据</h1><HR SIZE=1>
 <p>
 1, 基础数据
 	本厂编号
@@ -90,7 +96,7 @@
 
 <h2 id="toc_3.1">如何展现</h2>
 
-<h1 id="toc_4">存数据</h1>
+<h1 id="toc_4">存数据</h1><HR SIZE=1>
 <p>
 1，从genesis捞出来的数据 [T_Pub_DrillInfoOrg]
 	T_Pub_DrillLayerOrg 钻带信息表
@@ -179,7 +185,20 @@
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

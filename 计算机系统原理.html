@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>计算机系统原理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -32,23 +38,23 @@
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
-<h1 id="toc_1">进制 </h1>
+<h1 id="toc_1">进制 </h1><HR SIZE=1>
 <p>
 二进制更适合描述状态。但太长。
 十进制符合平时的计算。但转换二进制不好转。
 十六进制可以很容易转二进制。4位二进制对应一位十六进制。
 </p>
-<h1 id="toc_2">第一章：系统漫游 </h1>
+<h1 id="toc_2">第一章：系统漫游 </h1><HR SIZE=1>
 <h2 id="toc_2.1">处理器读并执行程序 </h2>
 <p>
 硬件分：CPU，主存(内)，和IO
 通过：系统总线，内存总线，IO总线都接上IO接口相连。
 </p>
-<h1 id="toc_3">主存 </h1>
+<h1 id="toc_3">主存 </h1><HR SIZE=1>
 <p>
 DRAM：动态的随机存储器芯片
 </p>
-<h1 id="toc_4">CPU </h1>
+<h1 id="toc_4">CPU </h1><HR SIZE=1>
 <p>
 <a href="https://www.cnblogs.com/taiyonghai/p/7244878.html">https://www.cnblogs.com/taiyonghai/p/7244878.html</a>
 CPU是16位，32位，是指处理器中“算术逻辑单元（ALU）”的宽度
@@ -70,7 +76,7 @@ CPU位数，数据总线位数，CPU内部寄存器的位数一般都是一样�
 <p>
 IO
 </p>
-<h1 id="toc_5">总线 </h1>
+<h1 id="toc_5">总线 </h1><HR SIZE=1>
 <p>
 ：各个部件传递信息的公共通道。
 </p>
@@ -136,7 +142,7 @@ IO设备通过控制器(主板内)或适配器和IO总线相连。
 
 <h2 id="toc_5.2">高速缓存 </h2>
 
-<h1 id="toc_6">并发和并行 </h1>
+<h1 id="toc_6">并发和并行 </h1><HR SIZE=1>
 <p>
 并发，同一时(段)发生。宏观不是同时。需要排队
 并行(OK，真正的同时发生)，同一时(刻)发生。宏微观都是同时。(多核)
@@ -162,7 +168,20 @@ IO设备通过控制器(主板内)或适配器和IO总线相连。
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

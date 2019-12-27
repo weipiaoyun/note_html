@@ -1,15 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>志浩板边</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">HDI板类型 </h1>
+<h1 id="toc_1">HDI板类型 </h1><HR SIZE=1>
 <p>
 iatype{bd_type} eq 'multi' 多层板
 iatype{bd_type}  eq 'hdi' hdi板
@@ -17,12 +23,12 @@ iatype{bd_type} eq 'double' 双面板
 </p>
 
 
-<h1 id="toc_2">HDI阶数 </h1>
+<h1 id="toc_2">HDI阶数 </h1><HR SIZE=1>
 <p>
 $iatype{hdi_step}
 </p>
 
-<h1 id="toc_3">锣边尺寸 </h1>
+<h1 id="toc_3">锣边尺寸 </h1><HR SIZE=1>
 <p>
 ia_routx1 第一次锣边
 ia_routx2 第二次锣边
@@ -37,7 +43,7 @@ ia_routx2 第二次锣边
 2，
 </p>
 
-<h1 id="toc_4">增加靶孔 </h1>
+<h1 id="toc_4">增加靶孔 </h1><HR SIZE=1>
 <p>
 ia_add_xray
 </p>
@@ -75,14 +81,14 @@ ia_add_cb_mark 添加外围孔
 </p>
 
 
-<h1 id="toc_5">铺铜</h1>
+<h1 id="toc_5">铺铜</h1><HR SIZE=1>
 <p>
 圆形
 /genesis/sys/scripts/alex/bin/Applet/app_panel_zlk
 </p>
 
 
-<h1 id="toc_6">新板边 </h1>
+<h1 id="toc_6">新板边 </h1><HR SIZE=1>
 <p>
 计算叠构由层别的结构计算(包括第几次压合。压合次数，是否core，是次外层还是内层)
 </p>
@@ -135,13 +141,13 @@ $h-&gt;{yhcs} += 1;
 内层和次外层先用core区分，中间两层肯定是core。然后中间两层寻找孔层
 </p>
 
-<h1 id="toc_7">任意层互联，走次外层流程 </h1>
+<h1 id="toc_7">任意层互联，走次外层流程 </h1><HR SIZE=1>
 <p>
 循环孔层，看能否找出最中间两层的钻孔层，不管是中间两层的钻孔是镭射还是通孔层。都需要走电镀流程。都需要是走次外层流程。
 </p>
 
 
-<h1 id="toc_8">计算第几次压合</h1>
+<h1 id="toc_8">计算第几次压合</h1><HR SIZE=1>
 <blockquote>
 <code>压合次数/2。次外层分上下层</code>
 </blockquote>
@@ -171,12 +177,12 @@ tehb100306d0
 tehb100359b0
 </p>
 
-<h1 id="toc_9">镭射 </h1>
+<h1 id="toc_9">镭射 </h1><HR SIZE=1>
 <p>
 镭射次数：顶底层镭射次数多的为镭射次数。
 </p>
 
-<h1 id="toc_10">计算第几次镭射 </h1>
+<h1 id="toc_10">计算第几次镭射 </h1><HR SIZE=1>
 <p>
 第一次镭射：最里面的目标层为第一次镭射。     gtl和gbl为最后一次镭射+1
 </p>
@@ -208,7 +214,7 @@ G靶 E靶20mm
 C靶到E靶3mm
 </p>
 
-<h1 id="toc_11">变量</h1>
+<h1 id="toc_11">变量</h1><HR SIZE=1>
 <p>
 $h-&gt;{laserJS} 镭射阶数，镭射次数，以最大镭射层为准
 \(h-&gt;{\)ia_layer}{yhIndex} 第几次压合
@@ -228,12 +234,12 @@ $h-&gt;{ccd_xLast_1} 最后一个ccd x坐标
 $h-&gt;{ccd_yLast_1} 最后一个ccd y坐标
 </p>
 
-<h1 id="toc_12">打靶和ccd </h1>
+<h1 id="toc_12">打靶和ccd </h1><HR SIZE=1>
 <p>
 <code>右下角ccd距离最后一次锣边要45mm以上</code>
 </p>
 
-<h1 id="toc_13">打靶y方向条件 </h1>
+<h1 id="toc_13">打靶y方向条件 </h1><HR SIZE=1>
 <p>
 1，打靶尽量靠外面。
 	最后一次锣完后，如果锣完后大小大于16.2。
@@ -266,13 +272,13 @@ yhIndex 第几次压合
 $h-&gt;{lastDingWei}	最后一次定位孔
 </p>
 
-<h1 id="toc_14">判断酸碱蚀 </h1>
+<h1 id="toc_14">判断酸碱蚀 </h1><HR SIZE=1>
 <p>
 $ia_flow  eq 'jian'  'suan'
 </p>
 
 
-<h1 id="toc_15">板类型 </h1>
+<h1 id="toc_15">板类型 </h1><HR SIZE=1>
 <p>
 $h-&gt;{hdiType}  = '4h';   #4层hdi
 $h-&gt;{hdiType}  = 'tk';  #通孔
@@ -283,7 +289,7 @@ $h-&gt;{hdiType}  = 'tk';  #通孔
 </p>
 
 
-<h1 id="toc_16">添加切片孔 </h1>
+<h1 id="toc_16">添加切片孔 </h1><HR SIZE=1>
 <p>
 添加的通孔，埋孔，盲孔的切片孔在同一个方法里面。
 </p>
@@ -307,7 +313,20 @@ ia_add_qie_drl
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

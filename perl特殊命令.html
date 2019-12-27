@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>perl特殊命令</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -30,7 +36,7 @@ Chomp命令，如果是标量，如果最后一行是空行，其会咬掉，如
 <p>
 用do执行文件，而不是用perl执行文件，注意用our全局变量
 </p>
-<h1 id="toc_1">substr</h1>
+<h1 id="toc_1">substr</h1><HR SIZE=1>
 <p>
 substr("$string", 0, 2);#表示从第零个开始，截取2个字符！/cut
 \(s=substr("perl5",2,2);        #这时\)s="rl";
@@ -39,12 +45,12 @@ substr("$string", 0, 2);#表示从第零个开始，截取2个字符！/cut
 </p>
 
 
-<h1 id="toc_2">index</h1>
+<h1 id="toc_2">index</h1><HR SIZE=1>
 <p>
 从左往右找到第一个字符的位置(序号)
 </p>
 
-<h1 id="toc_3">rindex</h1>
+<h1 id="toc_3">rindex</h1><HR SIZE=1>
 <p>
 从右往左找到第一个字符的位置(序号)
 rindex( $string, "/" );
@@ -107,7 +113,7 @@ my @same = grep (\(same{\)_}++, @array);
 if (exists \(h-&gt;{\)type}{$layerName})
 </p>
 
-<h1 id="toc_4">两数组交集，并集，补集</h1>
+<h1 id="toc_4">两数组交集，并集，补集</h1><HR SIZE=1>
 <p>
 #!/usr/bin/perl -w
 use Genesis;
@@ -191,7 +197,20 @@ else{
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

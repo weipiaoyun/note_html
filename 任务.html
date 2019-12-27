@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>任务</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -13,19 +19,19 @@
 任务就是一个函数，注意这个函数不是被调用的函数，而是被调度的函数。实现某一功能。实质就是返回类型为void型的函数，并在函数无线循环中完成用户的工作。
 </p>
 
-<h1 id="toc_1">任务响应时间</h1>
+<h1 id="toc_1">任务响应时间</h1><HR SIZE=1>
 <p>
 有中断，从后台进入前台的时间。注意，任何一个代码，任何一个动作都是要消耗时间的。
 </p>
 
 
-<h1 id="toc_2">代码的临界段</h1>
+<h1 id="toc_2">代码的临界段</h1><HR SIZE=1>
 <blockquote>
 不允许中断的代码。所以进入临界段之前要先关闭中断。出来临界段之后开中断。
 </blockquote>
     
-<h1 id="toc_3">任务也叫线程</h1>
-<h1 id="toc_4">任务的五状态</h1>
+<h1 id="toc_3">任务也叫线程</h1><HR SIZE=1>
+<h1 id="toc_4">任务的五状态</h1><HR SIZE=1>
 <p>
 <code>五哪咤等待睡觉，就在运功中，中断先拿开，全可进就睡，等运(运功)好孤独，中断拿回来</code>
 等待是等一个事件的发生。睡觉是因为没拿到任务控制块，就绪拿到了任务控制块并进行了就绪登记。运行(调度器调度后分配到了CPU的使用权)
@@ -46,7 +52,20 @@
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

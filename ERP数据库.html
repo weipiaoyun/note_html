@@ -1,21 +1,27 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>ERP数据库</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
 
-<h1 id="toc_1">志浩字段</h1>
+<h1 id="toc_1">志浩字段</h1><HR SIZE=1>
 <p>
 IMG_AREAPC:有效沉金面积 百分比 4a2584a0
 </p>
 
-<h1 id="toc_2">ERP查找工序代码</h1>
+<h1 id="toc_2">ERP查找工序代码</h1><HR SIZE=1>
 <p>
 在工程设计-&gt;基础数据-&gt;工序代码设置里面查找
 ERP表关系
@@ -163,7 +169,7 @@ where PARAMETER_VALUE like '%R-500 ZBH%'
 
 
 
-<h1 id="toc_3">开料短边为412+-5,468+-5的所有料号</h1>
+<h1 id="toc_3">开料短边为412+-5,468+-5的所有料号</h1><HR SIZE=1>
 <p>
 SELECT	d25.MANU_PART_NUMBER, d502.PNL_LEN, d502.PNL_WTH
 FROM		Data0025 d25 INNER JOIN
@@ -174,7 +180,7 @@ order by PNL_WTH, PNL_LEN
 </p>
  
 
-<h1 id="toc_4">表面处理为无铅喷锡流程</h1>
+<h1 id="toc_4">表面处理为无铅喷锡流程</h1><HR SIZE=1>
 <p>
 SELECT
 	dbo.Data0034.DEPT_NAME,
@@ -195,7 +201,7 @@ WHERE
 </p>
 
 
-<h1 id="toc_5">#搜寻工序流程</h1>
+<h1 id="toc_5">#搜寻工序流程</h1><HR SIZE=1>
 <p>
 SELECT
 dbo.Data0034.DEPT_NAME,
@@ -212,12 +218,12 @@ WHERE
 dbo.Data0025.MANU_PART_NUMBER = 'BKHB82292A0'
 </p>
 
-<h1 id="toc_6">查找pnl宽度</h1>
+<h1 id="toc_6">查找pnl宽度</h1><HR SIZE=1>
 <p>
 select d278.PARAMETER_NAME,d279.PARAMETER_VALUE from data0279 as d279, data0025 as d25,data0278 as d278 where d279.source_ptr = d25.rkey and d25.manu_part_number = 'bm82100a1' and d279.PARAMETER_PTR = d278.RKEY and d278.PARAMETER_NAME = 'PNL_WTH'
 </p>
 
-<h1 id="toc_7">是否存在文字镭射流程 </h1>
+<h1 id="toc_7">是否存在文字镭射流程 </h1><HR SIZE=1>
 <p>
 SELECT
 COUNT(*)
@@ -229,7 +235,7 @@ WHERE
 dbo.Data0025.MANU_PART_NUMBER like '%84408%'  and dbo.Data0034.DEPT_CODE = 'SX_No.'
 </p>
 
-<h1 id="toc_8">获取最后一次锣边</h1>
+<h1 id="toc_8">获取最后一次锣边</h1><HR SIZE=1>
 <p>
 		SELECT
 d494.PARAMETER_VALUE  
@@ -244,7 +250,7 @@ d494.PARAMETER_VALUE
 </p>
    
 
-<h1 id="toc_9">获取每次锣完后尺寸</h1>
+<h1 id="toc_9">获取每次锣完后尺寸</h1><HR SIZE=1>
 <p>
 SELECT      d25.MANU_PART_NUMBER,d34.DEPT_NAME,d34.DEPT_CODE,d278.PARAMETER_NAME,d278.PARAMETER_DESC , d494.PARAMETER_VALUE           
 FROM		Data0025 d25 INNER JOIN
@@ -257,7 +263,7 @@ WHERE     (d25.MANU_PART_NUMBER LIKE '%tkhb100576e0%' and (d278.PARAMETER_NAME =
 </p>
 
 
-<h1 id="toc_10">有二次干膜的华硕在线板</h1>
+<h1 id="toc_10">有二次干膜的华硕在线板</h1><HR SIZE=1>
 <p>
 SELECT DISTINCT
 dbo.Data0034.DEPT_NAME,
@@ -275,7 +281,7 @@ inner join dbo.data0056  on dbo.data0056.wo_ptr = dbo.data0006.rkey
 where DEPT_CODE = 'df2' and (dbo.Data0025.ORIG_CUSTOMER like '%ASUS%' or dbo.Data0010.CUST_CODE IN ('7347','7009','7325','7271','7346','7340'))
 </p>
 
-<h1 id="toc_11">在线板</h1>
+<h1 id="toc_11">在线板</h1><HR SIZE=1>
 <p>
  select distinct d25.MANU_PART_NUMBER,d34.DEPT_NAME,d34.DEPT_CODE,d38.STEP_NUMBER
 </p>
@@ -288,7 +294,7 @@ inner join [dbo].[data0038] d38 on d25.rkey = d38.SOURCE_PTR AND d34.RKEY = d38.
 </blockquote>
 
 
-<h1 id="toc_12">更新数据靶标数据</h1>
+<h1 id="toc_12">更新数据靶标数据</h1><HR SIZE=1>
 <p>
 			update 
 			d494
@@ -307,7 +313,7 @@ and d278.PARAMETER_NAME = 'TARLENA';
 			};
 </p>
 
-<h1 id="toc_13">更新靶距</h1>
+<h1 id="toc_13">更新靶距</h1><HR SIZE=1>
 <p>
 update dbo.DATA0033  set YAB = '\(AB',XFB = '\)FB', XFC = '\(FC', XFG = '\)FG', XEA = '\(EA', XED = '\)ED' where dbo.DATA0033.SOURCE_PTR = '\(matrix_ref-&gt;[0][0]' and dbo.DATA0033.layer_remark = '\)tmp-&gt;[5]'
 </p>
@@ -331,7 +337,7 @@ dbo.Data0025.MANU_PART_NUMBER = 'BKHB82292A0'
 
 
 
-<h1 id="toc_14">查询WIP</h1>
+<h1 id="toc_14">查询WIP</h1><HR SIZE=1>
 <p>
 通过for xml 写到xml
 </p>
@@ -369,7 +375,7 @@ FROM [EngSys].[dbo].T_ppe_ErpWip
 
 
 
-<h1 id="toc_15">梅州 </h1>
+<h1 id="toc_15">梅州 </h1><HR SIZE=1>
 <p>
 --查有卤无卤
 select d25.manu_part_number,d278.PARAMETER_NAME,d279.*
@@ -525,7 +531,20 @@ AND D34.DEPT_CODE = 'PSM'
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

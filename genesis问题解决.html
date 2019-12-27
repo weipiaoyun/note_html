@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>genesis问题解决</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -51,7 +57,7 @@ settable跳钻
 
 
 
-<h1 id="toc_1">属性找不到</h1>
+<h1 id="toc_1">属性找不到</h1><HR SIZE=1>
 <p>
 打开料号的时候:Attribute does not exist attribute:.ijob
 原因：找不到属性.打开
@@ -76,7 +82,7 @@ DEF=
 }
 </p>
 
-<h1 id="toc_2">料号卡死，没有保存</h1>
+<h1 id="toc_2">料号卡死，没有保存</h1><HR SIZE=1>
 <p>
 /frontline/app_gen/e93/misc/gateway %输入PID号
 然后手动执行命令：
@@ -114,7 +120,7 @@ It is possible the get，chenge the get version
 </p>
 
 
-<h1 id="toc_3">设置自动登录</h1>
+<h1 id="toc_3">设置自动登录</h1><HR SIZE=1>
 <p>
 create the environment FRONTLINE_NO_LOGIN_SCREEN，then set it value as 1
 secarch the .genesis in c:\documents and settings , and open it. And then create a file login, write 11 11
@@ -128,14 +134,14 @@ genesis’s /genesis is a directory that is mount from /frontline/app_gen in vir
 sometimes, you need add the Environment "HOME" and set the value "c:\Users\linwei\"
 </p>
 
-<h1 id="toc_4">手动保存料号</h1>
+<h1 id="toc_4">手动保存料号</h1><HR SIZE=1>
 <p>
 .gateway %PID号
 COM save_job
 如果返回1，则表示保存成功。
 </p>
 
-<h1 id="toc_5">用属性改变值，比如周期</h1>
+<h1 id="toc_5">用属性改变值，比如周期</h1><HR SIZE=1>
 <p>
 在userattr或者sysattr里面加上如下text属性，把DEF删掉，那么默认值就是0
 TEXT {
@@ -151,18 +157,18 @@ DEF=
 <p>
 }
 </p>
-<h1 id="toc_6">#程序设置属性值</h1>
+<h1 id="toc_6">#程序设置属性值</h1><HR SIZE=1>
 <p>
 \(genesis-&gt;COM('set_attribute', type =&gt; 'job',job =&gt; "\)job_name",name1 =&gt; '',name2 =&gt; '',name3 =&gt; '',attribute =&gt; 'lot',value =&gt; "$allemployees-&gt;{lot}", units =&gt; 'inch');
 </p>
 
-<h1 id="toc_7">阴阳拼板.release_from属性值获取</h1>
+<h1 id="toc_7">阴阳拼板.release_from属性值获取</h1><HR SIZE=1>
 <p>
 1，用DO_INFO
 2，直接用库函数GetStepAttr();
 </p>
 
-<h1 id="toc_8">根据网络分析netlist去判定是否操作</h1>
+<h1 id="toc_8">根据网络分析netlist去判定是否操作</h1><HR SIZE=1>
 <p>
 在line_hooks下面的netlist_compare.post里面可以保存netlist分析
 COM netlist_save_compare_results,out_file=$netlist_path,output=file
@@ -171,18 +177,18 @@ COM netlist_save_compare_results,out_file=$netlist_path,output=file
 </p>
 
 
-<h1 id="toc_9">genesis钻孔图显示不了ABC</h1>
+<h1 id="toc_9">genesis钻孔图显示不了ABC</h1><HR SIZE=1>
 <p>
 把/genesis/e92/all/markers替换一下
 </p>
 
-<h1 id="toc_10">gateway</h1>
+<h1 id="toc_10">gateway</h1><HR SIZE=1>
 <p>
 查找某台机有谁在使用genesis    ./gateway '<strong>cam04</strong>'
 谁在哪台机：./gateway '<strong>lw</strong>'
 </p>
 
-<h1 id="toc_11">设置genesis的颜色</h1>
+<h1 id="toc_11">设置genesis的颜色</h1><HR SIZE=1>
 <p>
 option-&gt;configuration-&gt;搜索color     把gui_native_color_mix值设为yes
 </p>
@@ -197,7 +203,7 @@ option-&gt;configuration-&gt;搜索color     把gui_native_color_mix值设为yes
 查看logs，看是gnd还是license问题
 </p>
 
-<h1 id="toc_12">输出去按原来的处理，不更新</h1>
+<h1 id="toc_12">输出去按原来的处理，不更新</h1><HR SIZE=1>
 <p>
 \(jobPath/steps/panel/layers/\)currentLayer/ncd 删掉即可
 </p>
@@ -222,7 +228,20 @@ mytest16x36NEG
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

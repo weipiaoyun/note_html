@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>数据库</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -94,7 +100,7 @@
 <a href="索引.html">索引</a>
 </p>
 
-<h1 id="toc_1">飞伟 </h1>
+<h1 id="toc_1">飞伟 </h1><HR SIZE=1>
 <p>
 安全性-》登陆名-》新建登陆名
 EMS4BQ(先把数据库下面的用户名删掉)
@@ -106,7 +112,7 @@ Get_StrConnect
 </p>
 
 
-<h1 id="toc_2">C#连接数据库</h1>
+<h1 id="toc_2">C#连接数据库</h1><HR SIZE=1>
 <p>
 定义连接字符串
 1，新建连接
@@ -128,7 +134,7 @@ sqlDataReader
 StringWriter和
 </p>
 
-<h1 id="toc_3">varchar和nvarchar</h1>
+<h1 id="toc_3">varchar和nvarchar</h1><HR SIZE=1>
 <p>
 varchar：非Unicode的字符数据
 </p>
@@ -151,12 +157,12 @@ nvarchar 英文,中文,都占两个字符
 如字段值只是英文可选择varchar，而字段值存在较多的双字节（中文、韩文等）字符时用nvarchar
 </p>
 
-<h1 id="toc_4">编辑前200行里面</h1>
+<h1 id="toc_4">编辑前200行里面</h1><HR SIZE=1>
 <p>
 有对数据的结果进行插入和新建表功能
 </p>
 
-<h1 id="toc_5">顺序</h1>
+<h1 id="toc_5">顺序</h1><HR SIZE=1>
 <p>
 from... …  where... group by... 
 having.... select ... order by...
@@ -192,7 +198,7 @@ DBI无法处理自动变长参数
 同一个数据库的关系都是用关键字连接在一起的。外键
 </p>
 
-<h1 id="toc_6">表联接</h1>
+<h1 id="toc_6">表联接</h1><HR SIZE=1>
 <p>
 不管什么连接，表的一行和另外表所有行进行条件比对。然后表的另外一行和另外表的所有行进行比对。
 </p>
@@ -223,7 +229,7 @@ inner join
 <code>如果左右表都符合条件连接，则和左右内连接没有关系</code>否则才有关系
 </p>
 
-<h1 id="toc_7">union和unionall</h1>
+<h1 id="toc_7">union和unionall</h1><HR SIZE=1>
 <p>
 如果我们需要将两个select语句的结果作为一个整体显示出来，我们就需要用到union或者union all关键字。union(或称为联合)的作用是将多个结果合并在一起显示出来。 
 </p>
@@ -236,7 +242,7 @@ Minus: 对两个结果进行差操作，不包括重复行，同时进行默认�
 </p>
 
 
-<h1 id="toc_8">库由表组成</h1>
+<h1 id="toc_8">库由表组成</h1><HR SIZE=1>
 <p>
 字段(列)   表(系统表，数据字典)   库   MySQL服务器
 </p>
@@ -855,12 +861,12 @@ select id, name, sex, 2015-birth as age, department, address from student where 
 select * from student where department in('计算机系', '英语系');
 </p>
 
-<h1 id="toc_9">left join right join inner join</h1>
+<h1 id="toc_9">left join right join inner join</h1><HR SIZE=1>
 <p>
 left join 
 </p>
 
-<h1 id="toc_10">聚合函数</h1>
+<h1 id="toc_10">聚合函数</h1><HR SIZE=1>
 <p>
 聚合函数有：
 count()
@@ -871,7 +877,7 @@ max()
 	跳过NULL值
 </p>
 
-<h1 id="toc_11">group by 分组，各个</h1>
+<h1 id="toc_11">group by 分组，各个</h1><HR SIZE=1>
 <p>
 <code>注意: group by 以后的选择输出只能是group by里面含有的字段，或者是经过聚合函数处理过的字段, 聚合函数处理的是对分组后的每组的小表进行计算，而不是大表</code>
 对某个类进行操作(查询结果为某一个类)。只会对某类查询一行结果。(多少类，结果为多少行)，缺省值为输出各类的第一行。
@@ -912,20 +918,20 @@ ORDER BY DEPT
 </p>
 
 
-<h1 id="toc_12">order by</h1>
+<h1 id="toc_12">order by</h1><HR SIZE=1>
 
 
-<h1 id="toc_13">asc desc</h1>
+<h1 id="toc_13">asc desc</h1><HR SIZE=1>
 <p>
 默认为asc升序，desc为降序
 </p>
 
-<h1 id="toc_14">limit</h1>
+<h1 id="toc_14">limit</h1><HR SIZE=1>
 <p>
 取个数，limit 3，表示取3个，limit 2，3，表示从第二个开始取，取三个
 </p>
 
-<h1 id="toc_15">求取某一部门的工资最低值</h1>
+<h1 id="toc_15">求取某一部门的工资最低值</h1><HR SIZE=1>
 <p>
 SELECT DEPT, MIN(SALARY)
 FROM STAFF
@@ -1027,7 +1033,7 @@ navicat选中数据库单击数据库属性
 (2) 用mysql命令SET character_set_client = utf8 ; 只能本次有效，下次重启后还是恢复到my.ini下的default-character-set的字符集，故要彻底改变，需改变my.ini的文件
 </p>
 
-<h1 id="toc_16">Liunx下修改MySQL字符集</h1>
+<h1 id="toc_16">Liunx下修改MySQL字符集</h1><HR SIZE=1>
 <h2 id="toc_16.1">修改mysql服务器的默认字符集</h2>
 <p>
 1.查找MySQL的cnf文件的位置
@@ -1438,7 +1444,7 @@ my \(rowArrayRef = \)sth-&gt;fetchrow_arrayref();
 my \(rowArrayAllRef = \)sth-&gt;fetchall_arrayref();
 </p>
 
-<h1 id="toc_17">备份数据库</h1>
+<h1 id="toc_17">备份数据库</h1><HR SIZE=1>
 <p>
 在navicat里面右击，然后选择数据传输，可以在数据库和数据库之间传输数据
 </p>
@@ -1482,7 +1488,20 @@ my \(rowArrayAllRef = \)sth-&gt;fetchall_arrayref();
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

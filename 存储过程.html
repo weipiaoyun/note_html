@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>存储过程</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -14,7 +20,7 @@
 insert into #aaa (columna, columnb, columnc) select (columna,columnb,columnc) from #bbb
 </p>
 
-<h1 id="toc_1">函数</h1>
+<h1 id="toc_1">函数</h1><HR SIZE=1>
 <h2 id="toc_1.1">LEFT:</h2>
 <p>
 LEFT(DrillName_,1)，截取第一个字符
@@ -56,7 +62,7 @@ stuff(param1, startIndex, length, param2)
 将param1中的自startIndex开始(SQL中都是从1开始)，删除length个字符，然后用param2替换删掉的字符
 </p>
 
-<h1 id="toc_2">with as</h1>
+<h1 id="toc_2">with as</h1><HR SIZE=1>
 <p>
 用博敏的数据库
 </p>
@@ -78,7 +84,7 @@ with data as
 select * from data
 </blockquote>
  
-<h1 id="toc_3" class="justcenter">转换</h1>
+<h1 id="toc_3" class="justcenter">转换</h1><HR SIZE=1>
 <h2 id="toc_3.1">时间</h2>
 <p>
 SET @time= CONVERT(varchar(100), GETDATE(), 23) + ' 08:00:00'
@@ -93,7 +99,7 @@ SELECT CAST(CONVERT(CHAR(10),CURRENT_TIMESTAMP,102) AS DATETIME)
 <h2 id="toc_3.5">getdate</h2>
 <h2 id="toc_3.6">datediff</h2>
 
-<h1 id="toc_4">把所有在线状态合并到一个单元格</h1>
+<h1 id="toc_4">把所有在线状态合并到一个单元格</h1><HR SIZE=1>
 <p>
 SELECT 
 jobName_
@@ -105,7 +111,7 @@ FROM [EngSys].[dbo].T_ppe_ErpWip
 </p>
 
 
-<h1 id="toc_5">更新表 表是变量的形式</h1>
+<h1 id="toc_5">更新表 表是变量的形式</h1><HR SIZE=1>
 <p>
 declare @tbname nvarchar(50),
 @sql nvarchar(2000)=''
@@ -129,21 +135,21 @@ exec (@sql)
 SET @sqlCmd = 'update [T_WF_FilmOrderDetialInfo] set   ' + @changeField + ' =  ' + @changeValue + ' WHERE Guid_ =  '   + '''' +  convert(VARCHAR(50),@changeGuid) + ''''
 </p>
 
-<h1 id="toc_6">在存储过程里面，单引号'是转意字符</h1>
+<h1 id="toc_6">在存储过程里面，单引号'是转意字符</h1><HR SIZE=1>
 
 
-<h1 id="toc_7">特殊变量</h1>
+<h1 id="toc_7">特殊变量</h1><HR SIZE=1>
 <p>
 @@rowcount 上一次执行的结果数量
 select HOST_NAME() 主机名
 </p>
 
-<h1 id="toc_8">特殊符号</h1>
+<h1 id="toc_8">特殊符号</h1><HR SIZE=1>
 <p>
 select CHAR(13) #回车
 </p>
 
-<h1 id="toc_9">union all合并多行，join合并多列</h1>
+<h1 id="toc_9">union all合并多行，join合并多列</h1><HR SIZE=1>
 <p>
 select getdate(),'s016012c6a0','LINWEI-PC','tl','1','0.387','22%' 
 union all select getdate(),'s016012c6a0','LINWEI-PC','l2b','2','1.383','80%' 
@@ -153,7 +159,7 @@ union all select getdate(),'s016012c6a0','LINWEI-PC','l5t','5','1.379','80%'
 union all select getdate(),'s016012c6a0','LINWEI-PC','bl','6','0.399','23%'
 </p>
 
-<h1 id="toc_10">单引号，转义字符</h1>
+<h1 id="toc_10">单引号，转义字符</h1><HR SIZE=1>
 <p>
 如果字符串''里面需要添加单引号，需要''用一个单引号作为转义。
 select ''''  打印一个单引号
@@ -175,7 +181,20 @@ select ''''  打印一个单引号
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

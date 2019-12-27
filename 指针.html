@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>指针</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -26,7 +32,7 @@
 只要是指针我们都可以把他拿出来。把指针当作是一个箭头。*叫做间接运算符寻址，必须是指针，因为我要寻址。用址找出变量。最后的结果是变量。把这个理解成靶子，箭头指向它，那么靶子就是一个变量。
 </p>
 
-<h1 id="toc_1">常量指针与指针常量</h1>
+<h1 id="toc_1">常量指针与指针常量</h1><HR SIZE=1>
 <p>
 前常量，中指针(浅尝而止)(const在前面表示的常量指针，中间const表示的是指针是常量)
 常量指针：指向常量的指针	const int *a；
@@ -64,7 +70,7 @@ Void * 是一个类型来的，原来的c语言没有空指针，用char *做通
 把不该变的都声明成const指针。
 </p>
 
-<h1 id="toc_2">指针数组和数组指针的区别</h1>
+<h1 id="toc_2">指针数组和数组指针的区别</h1><HR SIZE=1>
 <p>
 指针数组：是一个<code>数组</code>，数组里面是指针。申明形式：int  *a[]；数组里面的是int型的指针.a[]数组，int * 里面放的是指针。
 </p>
@@ -98,7 +104,7 @@ a -&gt;	| | |……
 <p>
 一个老伯伯指着一个包：<code>从这地址开始有10个都是我的</code>
 </p>
-<h1 id="toc_3">注意</h1>
+<h1 id="toc_3">注意</h1><HR SIZE=1>
 
 
 <p>
@@ -183,7 +189,20 @@ toc 目录：
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>VS</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -36,11 +42,11 @@
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">即时窗口 </h1>
+<h1 id="toc_1">即时窗口 </h1><HR SIZE=1>
 <p>
  TBL_EAP_EQUIPMENT_ADDRESS.FirstOrDefault(m=&gt;m.CADDRESS_CODE.Equals("D1542"));
 </p>
-<h1 id="toc_2">插件 </h1>
+<h1 id="toc_2">插件 </h1><HR SIZE=1>
 <h2 id="toc_2.1">Resharp </h2>
 <p>
 打开Crack文件夹-&gt;用管理员的身份运行AutoPatch 2018.1.cmd-&gt;打开ReSharper输入licens界面-&gt;按下右上角的按钮。
@@ -52,7 +58,7 @@ ReSharper-&gt;window
 </p>
 
 
-<h1 id="toc_3">File Structure</h1>
+<h1 id="toc_3">File Structure</h1><HR SIZE=1>
 
 <p>
 在项目进行编译后，在 bin/Debuge 文件下，将出现两个配置文件 ( 以本项目为例 ) ，一个名为“JxcManagement.EXE.config ”，另一个名为“ JxcManagement.vshost.exe.config ”。第一个文件为项目实际使用的配置文件，在程序运行中所做的更改都将被保存于此；第二个文件为原代码“ app.config ”的同步文件，在程序运行中不会发生更改。
@@ -78,11 +84,11 @@ ctrl+M,Ctrl+l 不折叠
 ctrl+M Ctrl+o，折叠
 </p>
 
-<h1 id="toc_4">显示行号</h1>
+<h1 id="toc_4">显示行号</h1><HR SIZE=1>
 <p>
 tool-》option-&gt;文本编辑器
 </p>
-<h1 id="toc_5">vs快捷键</h1>
+<h1 id="toc_5">vs快捷键</h1><HR SIZE=1>
 
 <p>
 窗口.关闭文档窗口  Ctrk+w
@@ -98,7 +104,7 @@ VS的各个组成部分：1，解决方案.sln；2，项目.csproj；3，类.cs
 </p>
 
 
-<h1 id="toc_6">设置自动换行 </h1>
+<h1 id="toc_6">设置自动换行 </h1><HR SIZE=1>
 <p>
 工具-》选项-&gt;文本编辑器-》C#-&gt;自动换行
 </p>
@@ -109,12 +115,12 @@ VS的各个组成部分：1，解决方案.sln；2，项目.csproj；3，类.cs
 调试-》窗口-》输出
 </p>
 
-<h1 id="toc_7">注册dll </h1>
+<h1 id="toc_7">注册dll </h1><HR SIZE=1>
 <p>
 gacutil.exe -i
 </p>
 
-<h1 id="toc_8">插件 </h1>
+<h1 id="toc_8">插件 </h1><HR SIZE=1>
 <p>
 Productivity
 </p>
@@ -128,7 +134,7 @@ Resharper-&gt;Build-&gt;External Sources
 
 
 
-<h1 id="toc_9">常用插件 </h1>
+<h1 id="toc_9">常用插件 </h1><HR SIZE=1>
 <p>
 productivity power
 web essential
@@ -149,7 +155,20 @@ web essential
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

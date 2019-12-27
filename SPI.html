@@ -1,15 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>SPI</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-<h1 id="toc_1">本质</h1>
+<h1 id="toc_1">本质</h1><HR SIZE=1>
 <p>
 就是同步串行移位寄存器
 不管怎样，记住主机占主动权，编程的命令主要都是主机的。从SPI怎么把数据读出来呢？因为是一个SPI是移位寄存器，你只要送数据过去，就可以读取里面的数据，至于读什么数据，你得先让主SPI发送命令过去。
@@ -18,12 +24,12 @@
 <p>
 SPI不用器件选通地址。而是用CS来表示从机。
 </p>
-<h1 id="toc_2">用途</h1>
+<h1 id="toc_2">用途</h1><HR SIZE=1>
 <p>
 是个协议，用来通信的，和E2PROME等
 </p>
 
-<h1 id="toc_3">4管脚</h1>
+<h1 id="toc_3">4管脚</h1><HR SIZE=1>
 <p>
 1和2，是MOSI和MISO
 </p>
@@ -62,7 +68,7 @@ SPI不用器件选通地址。而是用CS来表示从机。
 3.SCK的空闲状态必须和SPI_CR1寄存器指定的极性一致(CPOL为’1’时，空闲时应上拉SCK为高电平；CPOL为’0’时，空闲时应下拉SCK为低电平)。
 4. 数据帧格式(8位或16位)由SPI_CR1寄存器的DFF位选择，并且决定发送/接收的数据长度。
 </p>
-<h1 id="toc_4">传输的模式</h1>
+<h1 id="toc_4">传输的模式</h1><HR SIZE=1>
 <p>
 主要是按什么时候采样锁存数据，和什么电平表示空闲忙状态。主要是CPOL和CPHA来决定。
 CPOL：表示的是SCK空闲时是高电平的还是低电平的，CPOL为0表示的就是SCK空闲时是低电平的。
@@ -97,7 +103,20 @@ CS = 1是停止。
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

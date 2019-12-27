@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>MI图纸打印</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -60,13 +66,13 @@ flatten出所选的这两层
 </p>
 
 
-<h1 id="toc_1">要求</h1>
+<h1 id="toc_1">要求</h1><HR SIZE=1>
 <p>
 单张的尺寸如果占A4纸的三分之二，一页只打印一张
 </p>
 
 
-<h1 id="toc_2">待优化</h1>
+<h1 id="toc_2">待优化</h1><HR SIZE=1>
 <p>
 1，取标记和层的最值
 2，优化分析项目
@@ -74,7 +80,7 @@ flatten出所选的这两层
 </p>
 
 
-<h1 id="toc_3">条件</h1>
+<h1 id="toc_3">条件</h1><HR SIZE=1>
 <p>
 优先竖向
 </p>
@@ -127,7 +133,7 @@ elseif
 模式1和模式4可以放两层
 </p>
 
-<h1 id="toc_4">上下放，模式一</h1>
+<h1 id="toc_4">上下放，模式一</h1><HR SIZE=1>
 <p>
 #根据比例求移动的宽度，打印pdf自动根据纸张大小涨缩
 (板的宽度/(210-50)) = (移动的宽度/50)
@@ -139,7 +145,7 @@ elseif
 添加后的宽度/210 = (总的高度 (板的高度*2 + 移动的距离) / 297)
 </p>
 
-<h1 id="toc_5">左右放，模式四</h1>
+<h1 id="toc_5">左右放，模式四</h1><HR SIZE=1>
 <p>
 (板的高度/(270 - 50)) = (移动的高度/50)
 移动的高度=
@@ -155,13 +161,13 @@ elseif
 </p>
 
 
-<h1 id="toc_6">当板子太小的时候</h1>
+<h1 id="toc_6">当板子太小的时候</h1><HR SIZE=1>
 <p>
 在PROC_PDF_CHECKLIST里面设置moveChange
 </p>
 
 
-<h1 id="toc_7">奔强</h1>
+<h1 id="toc_7">奔强</h1><HR SIZE=1>
 <p>
 内层分析项目和外层分析项目不一样
 </p>
@@ -178,7 +184,7 @@ elseif
 </p>
 
 
-<h1 id="toc_8">水印</h1>
+<h1 id="toc_8">水印</h1><HR SIZE=1>
 <p>
 添加间距 PROC_PDF_ADDSHUIYINSPACE
 如果加上水印空间小于297的，根据比例，算出需要添加线的位置
@@ -199,7 +205,20 @@ elseif
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

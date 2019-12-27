@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>多线程</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -12,19 +18,19 @@
 <p>
 <a href="进程和线程.html">进程和线程</a>
 </p>
-<h1 id="toc_1">线程的同步和异步 </h1>
+<h1 id="toc_1">线程的同步和异步 </h1><HR SIZE=1>
 <p>
 所谓同步是指对共享资源进行同步或控制对共享资源的访问。
 如果未能正确地使用访问同步，会导致出现一些问题。包括死锁和挣用条件等。
 </p>
 
 
-<h1 id="toc_2">死锁 </h1>
+<h1 id="toc_2">死锁 </h1><HR SIZE=1>
 <p>
 两个线程都停止响应，并且都在等待对方完成。
 </p>
 
-<h1 id="toc_3">争用条件 </h1>
+<h1 id="toc_3">争用条件 </h1><HR SIZE=1>
 <p>
 意外地出现两个事件的执行时间的临界依赖性而发生反常的结果。
 </p>
@@ -42,7 +48,7 @@
 </p>
 	
 
-<h1 id="toc_4">后台线程和前台线程 </h1>
+<h1 id="toc_4">后台线程和前台线程 </h1><HR SIZE=1>
 <p>
 后台线程和前台线程的不同点：如果是后台，一旦所有前台线程在托管进程中被终止。系统将停止所有后台线程并关闭。
 IsThreadPoolThread的属性查看是否属于托管线程池的线程。
@@ -67,7 +73,20 @@ IsThreadPoolThread的属性查看是否属于托管线程池的线程。
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

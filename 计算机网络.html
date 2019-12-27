@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>计算机网络</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -60,12 +66,12 @@
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">计算机网络分类 </h1>
+<h1 id="toc_1">计算机网络分类 </h1><HR SIZE=1>
 <p>
-<img src="file://D:\vim\vim\mysite\note/images/ipClassify.JPEG" />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/ipClassify.JPEG" /></div>
 ipClassify.jpeg
 </p>
-<h1 id="toc_2">IP地址表示 </h1>
+<h1 id="toc_2">IP地址表示 </h1><HR SIZE=1>
 <p>
 172.18.3.231/16
 16表示的是网络码占用16位，可以有65534个主机(2^16-2)。表示子网掩码为255.255.0.0
@@ -107,7 +113,7 @@ ksldfj
 在Asp.net编程中，客户端使用了IPv6，在服务器端获取remote_addr时会获取形如 fe80::d84b:8939:7684:a5a4%7的机器主机，把该地址写入客户端时要注意把%替换掉，否则可能会出现一些html编码问题。
 </p>
 
-<h1 id="toc_3">IP </h1>
+<h1 id="toc_3">IP </h1><HR SIZE=1>
 
 <p>
 　　作用：有助于数据进出介质。
@@ -196,7 +202,7 @@ ksldfj
 标准的以太网帧——目的ip、源ip、类型、数据报、FCS。
 </p>
 
-<h1 id="toc_4">IPv6 </h1>
+<h1 id="toc_4">IPv6 </h1><HR SIZE=1>
 <p>
 ip地址2进制为128位。可以表示2^128个数据。
 如果用16进制表示。一个十六进制需要4个二进制表示。所以需要128/4=32个16进制表示。一组有4个16进制。所以需要8组。所以。
@@ -237,7 +243,7 @@ data packet
 	重新组装(由目的地的IP层来完成)
 </p>
 
-<h1 id="toc_5">网络设备 </h1>
+<h1 id="toc_5">网络设备 </h1><HR SIZE=1>
 <h2 id="toc_5.1">路由器 </h2>
 <p>
 路由也是数据包的中继站， 路由器是用来帮用户IP包寻找目的地在哪里的！
@@ -262,7 +268,7 @@ data packet
 1
 </p>
 
-<h1 id="toc_6">虚拟机的桥接和NAT模式 </h1>
+<h1 id="toc_6">虚拟机的桥接和NAT模式 </h1><HR SIZE=1>
 <h2 id="toc_6.1">linux虚拟网卡 </h2>
 <p>
 vnet0：虚拟机里面的网络适配器
@@ -324,7 +330,7 @@ VMware NetworkAdepter VMnet8虚拟网卡&lt;-VMnet8虚拟交换机-&gt;虚拟机
 </p>
 	
 	
-<h1 id="toc_7">linux网络命令 </h1>
+<h1 id="toc_7">linux网络命令 </h1><HR SIZE=1>
 <p>
 /sbin/ethtool eth0 | grep Link。
 </p>
@@ -337,7 +343,7 @@ VMware NetworkAdepter VMnet8虚拟网卡&lt;-VMnet8虚拟交换机-&gt;虚拟机
 <a href="七层模型and网络数据包.html">七层模型and网络数据包</a>
 <a href="套接字.html">套接字</a>
 </p>
-<h1 id="toc_8">VPN</h1>
+<h1 id="toc_8">VPN</h1><HR SIZE=1>
 <p>
 linux网络流量实时监控工具之iptraf
 </p>
@@ -411,12 +417,12 @@ NAT(Network Address Translation)模式是网络地址转换的形式，网络经
 桥接模式：把虚拟机当作是局域网中独立的主机对待，和其他主机具有相同的地位
 </p>
 
-<h1 id="toc_9">子网掩码</h1>
+<h1 id="toc_9">子网掩码</h1><HR SIZE=1>
 <p>
 子网掩码的作用就是用来判断任意两个IP地址是否属于同一子网络
 </p>
 
-<h1 id="toc_10">网关</h1>
+<h1 id="toc_10">网关</h1><HR SIZE=1>
 <p>
 gateway：两个网络之间连接的关口
 通常指的网关就是路由器的IP
@@ -432,7 +438,7 @@ gateway：两个网络之间连接的关口
 子网掩码和IP相与得出来的结果如果是一样，则是统一网络，否则不同网络
 </p>
 
-<h1 id="toc_11">DNS</h1>
+<h1 id="toc_11">DNS</h1><HR SIZE=1>
 <p>
 domain name system  域名系统
 其实就是一个分布式的数据库
@@ -449,7 +455,7 @@ domain name system  域名系统
 </p>
 
 
-<h1 id="toc_12">IP地</h1>
+<h1 id="toc_12">IP地</h1><HR SIZE=1>
 <p>
 我们知道IP地址是一个4字节（共32bit）的数字，被分为4段，每段8位，段与段之间用句点分隔。
 为了便于表达和识别，IP地址是以十进制形式表示的如210.52.207.2，
@@ -561,7 +567,7 @@ WINDOWS 系列 32
 UNIX 系列 255
 </p>
 
-<h1 id="toc_13">问题 </h1>
+<h1 id="toc_13">问题 </h1><HR SIZE=1>
 <h2 id="toc_13.1">为什么有IP地址还要有MAC地址 </h2>
 <p>
 如果只有MAC。则因为设备是移动的。很难定位。而IP是运营商管理的。很快可以定位到固定位置。所以需要IP。
@@ -591,7 +597,20 @@ UNIX 系列 255
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>

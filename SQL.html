@@ -1,10 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
 <title>SQL</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -44,19 +50,19 @@
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 
-<h1 id="toc_1">软件 </h1>
+<h1 id="toc_1">软件 </h1><HR SIZE=1>
 <p>
 SSMS-Setup-CHS
 </p>
 
-<h1 id="toc_2">表 </h1>
+<h1 id="toc_2">表 </h1><HR SIZE=1>
 <h2 id="toc_2.1">自定义表类型 </h2>
 <p>
 存储过程可以直接传递整个表过去。
 数据库-&gt;可编程性-》类型-》用户定义表类型。
 </p>
 
-<h1 id="toc_3">数据库根据mdf还原 </h1>
+<h1 id="toc_3">数据库根据mdf还原 </h1><HR SIZE=1>
 <ol>
 <li>
 右击数据库，附加，选择mdf。选择还原。
@@ -66,7 +72,7 @@ SSMS-Setup-CHS
 
 </ol>
 
-<h1 id="toc_4">压缩日志备份数据库 </h1>
+<h1 id="toc_4">压缩日志备份数据库 </h1><HR SIZE=1>
 <p>
 右击-》属性-》选项-》恢复模式改为简单
 任务-》收缩-》文件-》文件类型选择日志-》确定
@@ -74,11 +80,11 @@ SSMS-Setup-CHS
 右击-》属性-》选项-》恢复模式改为完整
 </p>
 
-<h1 id="toc_5">SQL服务的启动</h1>
+<h1 id="toc_5">SQL服务的启动</h1><HR SIZE=1>
 <p>
 所有程序-&gt;Microsoft SQL Server 2008 R2-&gt;配置工具-&gt;SQL Server 配置管理器
 </p>
-<h1 id="toc_6">SQL函数 </h1>
+<h1 id="toc_6">SQL函数 </h1><HR SIZE=1>
 
 <h2 id="toc_6.1">对查询出来的数据进行编号分页 </h2>
 <p>
@@ -110,27 +116,27 @@ UNION all
 IsNull
 </p>
 
-<h1 id="toc_7">新建数据库服务器sa 无法登陆。 </h1>
+<h1 id="toc_7">新建数据库服务器sa 无法登陆。 </h1><HR SIZE=1>
 <p>
 1，服务器-》属性，安全性选择SQL Server 和windows身份验证模式；连接-》允许远程连接到此服务器。
 2，安全性-&gt;登陆名-》sa-&gt;属性-常规-》把强制实施密码策略取消
 3，放火墙-&gt;例外-》添加端口-&gt;名称sql-》端口号：1433
 </p>
 
-<h1 id="toc_8">无法用ip登录 </h1>
+<h1 id="toc_8">无法用ip登录 </h1><HR SIZE=1>
 <p>
 sql ServerConfiguration Manager(数据库服务管理)-&gt;把SqlServer网络配置的Tcp/ip的已禁用改为已启用。然后重启sqlserver。
 </p>
 
 
-<h1 id="toc_9">转移数据库 </h1>
+<h1 id="toc_9">转移数据库 </h1><HR SIZE=1>
 <p>
 1，如果是本机，可以直接备份数据库，把备份的数据库还原即可
 2，在目的服务器建立同样名称的数据库，右击新建的数据库-》任务-》导入数据(只能导入表和视图)
 3，存储过程需要右击源数据库，点击任务-》生成脚本-》把存储过程生成脚本，然后在目的数据库里面运行
 </p>
 
-<h1 id="toc_10">转移维护计划 </h1>
+<h1 id="toc_10">转移维护计划 </h1><HR SIZE=1>
 <ol>
 <li>
 连接服务器，服务器的类型选择Integration services
@@ -155,7 +161,7 @@ sql ServerConfiguration Manager(数据库服务管理)-&gt;把SqlServer网络配
 
 </ol>
   
-<h1 id="toc_11">更改系统密码后sql无法登录 </h1>
+<h1 id="toc_11">更改系统密码后sql无法登录 </h1><HR SIZE=1>
 <p>
 SqlServer服务-&gt;右击属性-选择登录-&gt;把密码修改
 </p>
@@ -177,7 +183,7 @@ SqlServer服务-&gt;右击属性-选择登录-&gt;把密码修改
 	1，本地登录(ems本地的账号登录，或者sa)，远程用户(链接服务器的用户)，远程密码
 	2，使用此安全上下文建立连接，远程登录为远程用户，远程密码(不使用也可以)
 </p>
-<h1 id="toc_12">添加维护计划，执行T-SQL语句 </h1>
+<h1 id="toc_12">添加维护计划，执行T-SQL语句 </h1><HR SIZE=1>
 <p>
 对象资源管理器(数据库服务器)-&gt;管理-&gt;维护计划-》右击，新建维护计划。填写名称-》填写作业计划属性。
 生成子计划。查看-》工具箱-“执行 T-SQL 语句”任务
@@ -185,7 +191,7 @@ SqlServer服务-&gt;右击属性-选择登录-&gt;把密码修改
 </p>
 
 
-<h1 id="toc_13">如何备份数据库到网络盘 </h1>
+<h1 id="toc_13">如何备份数据库到网络盘 </h1><HR SIZE=1>
 <p>
 use  Master
 go
@@ -320,7 +326,7 @@ backup database EngSys to disk='H:\testDB.bak' with init
 <a href="菲林还原.html">菲林还原</a>
 </p>
 
-<h1 id="toc_14">知道字段，查找表</h1>
+<h1 id="toc_14">知道字段，查找表</h1><HR SIZE=1>
 <p>
 select * from sysobjects  where id in (select id from syscolumns where name='RT_NUM')
 select a.name as TableName,b.name as ColName From sysobjects a
@@ -328,7 +334,7 @@ inner join syscolumns b on (a.id=b.id)
 where a.xtype='U' and b.name='字段'
 </p>
 
-<h1 id="toc_15">禁止在 .NET Framework 中执行用户代码。启用 "clr enabled" 配置选项。</h1>
+<h1 id="toc_15">禁止在 .NET Framework 中执行用户代码。启用 "clr enabled" 配置选项。</h1><HR SIZE=1>
 <p>
 exec sp_configure 'show advanced options', '0';
 go
@@ -356,7 +362,20 @@ go
 <!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
 © <span id="year">2018</span> 
 </p>
-<script src="my.js"></script>
+<script src="scripts/my.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
 </div>
 </div>
 </body>
