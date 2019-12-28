@@ -50,13 +50,13 @@
 
 <h1 id="toc_1">vimwiki配置 </h1><HR SIZE=1>
 <p>
-	c:/bin/mygvim.exe
+	c:/bin/mygvim.exe<br />
 </p>
 	
 <h1 id="toc_2">html </h1><HR SIZE=1>
 <p>
-主页：我的主页.html
-笔记：我的笔记.html，需要从笔记整理里面复制更新。
+主页：我的主页.html<br />
+笔记：我的笔记.html，需要从笔记整理里面复制更新。<br />
 </p>
 	
 <h1 id="toc_3">链接 </h1><HR SIZE=1>
@@ -90,26 +90,26 @@
 
 </ul>
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/制作大板vcut步骤.docx"download=\"文件名.txt\">点击下载:【制作大板vcut步骤.docx】</a></div>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/制作大板vcut步骤.docx"download=\"文件名.txt\">点击下载:【制作大板vcut步骤.docx】</a></div><br />
 </p>
   
 <h1 id="toc_4">函数 </h1><HR SIZE=1>
 <p>
-vimwiki#RemoveHeaderLevel 下降标题级别<br>
-vimwiki#AddHeaderLevel 增加标题级别
+vimwiki#RemoveHeaderLevel 下降标题级别<br><br />
+vimwiki#AddHeaderLevel 增加标题级别<br />
 </p>
   
 <h1 id="toc_5">插件配置位置 </h1><HR SIZE=1>
 <p>
-  D:\Vim\vimfiles\autoload\vimwiki.vim 
-  D:\Vim\vimfiles\ftplugin\vimwiki.vim 
-  D:\Vim\vimfiles\syntax\vimwiki.vim 
-各级标题的颜色在 after/syntax/vimwiki里面修改。
+  D:\Vim\vimfiles\autoload\vimwiki.vim <br />
+  D:\Vim\vimfiles\ftplugin\vimwiki.vim <br />
+  D:\Vim\vimfiles\syntax\vimwiki.vim <br />
+各级标题的颜色在 after/syntax/vimwiki里面修改。<br />
 </p>
   
 <h1 id="toc_6">修改隐藏字符 </h1><HR SIZE=1>
 <p>
-syn match VimwikiHeaderChar contained /\%(^\s*=\+\)\|\%(\s*{{{\d}}}\s*=\+\s*$\)/
+syn match VimwikiHeaderChar contained /\%(^\s*=\+\)\|\%(\s*{{{\d}}}\s*=\+\s*$\)/<br />
 </p>
  
 <h1 id="toc_7">快捷键及命令 </h1><HR SIZE=1>
@@ -182,7 +182,7 @@ gl#
 
 <h2 id="toc_7.1">Table 快捷键 </h2>
 <p>
-在normal模式，按Alt+left/right可以更改table的列。
+在normal模式，按Alt+left/right可以更改table的列。<br />
 </p>
 
 
@@ -205,18 +205,18 @@ gl#
 <h2 id="toc_7.3">修改快捷键 </h2>
 
 <p>
-在 d:\Vim\vimfiles\autoload\vimwiki\base.vim	注销掉vimwiki#base#follow_link函数下面的 call vimwiki#base#normalize_link(0) 防止回车建link
+在 d:\Vim\vimfiles\autoload\vimwiki\base.vim	注销掉vimwiki#base#follow_link函数下面的 call vimwiki#base#normalize_link(0) 防止回车建link<br />
 </p>
  
  
 <p>
-在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加
-vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a>&lt;CR&gt;
+在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加<br />
+vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a>&lt;CR&gt;<br />
 </p>
 
 <h3 id="toc_7.3.1">加链接 </h3>
 <p>
-在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加
+在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加<br />
 </p>
 <ol>
 <li>
@@ -232,25 +232,25 @@ ctrl加回车加链接  nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;C-CR&gt; 0v$"p
 
 <h3 id="toc_7.3.2">连接本地图片 </h3>
 <p>
-vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;S-CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/{{local:images\/&lt;C-r&gt;p}}&lt;CR&gt;
+vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;S-CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/{{local:images\/&lt;C-r&gt;p}}&lt;CR&gt;<br />
 </p>
 
 <h2 id="toc_7.4">双击取消左边目录添加命令 </h2>
 <p>
-修改d:\Vim\vimfiles\ftplugin\vimwiki.vim
-nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;2-LeftMouse&gt; :call vimwiki#base#follow_link("nosplit", "\&lt;lt&gt;2-LeftMouse&gt;")&lt;CR&gt; :call voom#DeleteOutlines()&lt;CR&gt;
+修改d:\Vim\vimfiles\ftplugin\vimwiki.vim<br />
+nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;2-LeftMouse&gt; :call vimwiki#base#follow_link("nosplit", "\&lt;lt&gt;2-LeftMouse&gt;")&lt;CR&gt; :call voom#DeleteOutlines()&lt;CR&gt;<br />
 </p>
 
 <h1 id="toc_8">vimwiki的snippet(自动补全功能)被占用 </h1><HR SIZE=1>
 <p>
-	修改d:\Vim\vimfiles\ftplugin\vimwiki.vim
-	将inoremap &lt;expr&gt; &lt;buffer&gt; &lt;Tab&gt; vimwiki#tbl#kbd_tab()行，更改为inoremap &lt;expr&gt; &lt;buffer&gt; &lt;C-Tab&gt; vimwiki#tbl#kbd_tab()
+	修改d:\Vim\vimfiles\ftplugin\vimwiki.vim<br />
+	将inoremap &lt;expr&gt; &lt;buffer&gt; &lt;Tab&gt; vimwiki#tbl#kbd_tab()行，更改为inoremap &lt;expr&gt; &lt;buffer&gt; &lt;C-Tab&gt; vimwiki#tbl#kbd_tab()<br />
 </p>
 
 
 <h1 id="toc_9">vimwiki转html </h1><HR SIZE=1>
 <p>
-<strong>粗体</strong>  <em>斜体</em>  <del>删除线</del>   <code>Some Code 代码</code>   <sup><small>上</small></sup>标  <sub><small>下</small></sub>标
+<strong>粗体</strong>  <em>斜体</em>  <del>删除线</del>   <code>Some Code 代码</code>   <sup><small>上</small></sup>标  <sub><small>下</small></sub>标<br />
 </p>
 <blockquote>
 四个空格缩进的内容会被转成blockquote
@@ -282,7 +282,7 @@ nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;2-LeftMouse&gt; :call vimwiki#base#fol
 </ul>
   
 <p>
-<sub><small>* 和 - 是等价的，后面必须跟一个空格</small></sub>
+<sub><small>* 和 - 是等价的，后面必须跟一个空格</small></sub><br />
 </p>
  
 <ol>
@@ -304,28 +304,28 @@ nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;2-LeftMouse&gt; :call vimwiki#base#fol
 
 
 <p>
-g:vimwiki_valid_html_tags 的默认值是'b,i,s,u,sub,sup,kbd,br,hr'
+g:vimwiki_valid_html_tags 的默认值是'b,i,s,u,sub,sup,kbd,br,hr'<br />
 </p>
 <h1 id="toc_10">表格</h1><HR SIZE=1>
 <p>
-创建表格
+创建表格<br />
 </p>
 
 
 <h2 id="toc_10.1">修改生成html的标题和结尾 </h2>
 <p>
-修改路径：d:\Vim\vimfiles\autoload\vimwiki\default.tpl
+修改路径：d:\Vim\vimfiles\autoload\vimwiki\default.tpl<br />
 </p>
 
 <h2 id="toc_10.2">替换掉标题生成的大括号 </h2>
 <p>
-d:\Vim\vimfiles\autoload\html.vim let h_text = substitute(h_text,'{{{\d}}}',"","g")
+d:\Vim\vimfiles\autoload\html.vim let h_text = substitute(h_text,'{{{\d}}}',"","g")<br />
 </p>
 
 
 <h2 id="toc_10.3">更改生成的html </h2>
 <p>
-d:\vim\vim\vimfiles\autoload\vimwiki\html.vim
+d:\vim\vim\vimfiles\autoload\vimwiki\html.vim<br />
 </p>
 <ol>
 <li>
@@ -339,6 +339,9 @@ d:\vim\vim\vimfiles\autoload\vimwiki\html.vim
 
 <li>
 一级标题后面添加横线：let line = line.'<HR SIZE=1>'
+
+<li>
+html和vimwiki的换行格式一样。默认情况下不换行。函数 process_tag_para里面"call add(lines, a:line)更改为call add(lines, a:line.'<br />')
 
 </ol>
 
