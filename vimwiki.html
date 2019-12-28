@@ -25,13 +25,14 @@
 <li><a href="#toc_6">修改隐藏字符 </a>
 <li><a href="#toc_7">快捷键及命令 </a>
 <ul>
-<li><a href="#toc_7.1">查找 </a>
-<li><a href="#toc_7.2">修改快捷键 </a>
+<li><a href="#toc_7.1">Table 快捷键 </a>
+<li><a href="#toc_7.2">查找 </a>
+<li><a href="#toc_7.3">修改快捷键 </a>
 <ul>
-<li><a href="#toc_7.2.1">加链接 </a>
-<li><a href="#toc_7.2.2">连接本地图片 </a>
+<li><a href="#toc_7.3.1">加链接 </a>
+<li><a href="#toc_7.3.2">连接本地图片 </a>
 </ul>
-<li><a href="#toc_7.3">双击取消左边目录添加命令 </a>
+<li><a href="#toc_7.4">双击取消左边目录添加命令 </a>
 </ul>
 <li><a href="#toc_8">vimwiki的snippet(自动补全功能)被占用 </a>
 <li><a href="#toc_9">vimwiki转html </a>
@@ -41,6 +42,7 @@
 <li><a href="#toc_10.2">替换掉标题生成的大括号 </a>
 <li><a href="#toc_10.3">更改生成的html </a>
 </ul>
+<li><a href="#toc_11">待处理 </a>
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
@@ -88,12 +90,8 @@
 </ul>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/制作大板vcut步骤.docx"download=\"文件名.txt\">点击下载:【制作大板vcut步骤.docx】</a></div>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/制作大板vcut步骤.docx"download=\"文件名.txt\">点击下载:【制作大板vcut步骤.docx】</a></div>
 </p>
   
-<p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/ sdlfj "download=\"文件名.txt\">点击下载:【 sdlfj 】</a></div>
-</p>
 <h1 id="toc_4">函数 </h1><HR SIZE=1>
 <p>
 vimwiki#RemoveHeaderLevel 下降标题级别<br>
@@ -176,10 +174,18 @@ gl#
 <li>
 &lt;ctrl+up&gt; 上一个具有内容的笔记&lt;ctrl+down&gt;,下一个具有内容的笔记
 
+<li>
+
+
 </ul>
 
+<h2 id="toc_7.1">Table 快捷键 </h2>
+<p>
+在normal模式，按Alt+left/right可以更改table的列。
+</p>
 
-<h2 id="toc_7.1">查找 </h2>
+
+<h2 id="toc_7.2">查找 </h2>
 <ul>
 <li>
 :VimwikiSearch /pattern/
@@ -195,7 +201,7 @@ gl#
 
 </ul>
 
-<h2 id="toc_7.2">修改快捷键 </h2>
+<h2 id="toc_7.3">修改快捷键 </h2>
 
 <p>
 在 d:\Vim\vimfiles\autoload\vimwiki\base.vim	注销掉vimwiki#base#follow_link函数下面的 call vimwiki#base#normalize_link(0) 防止回车建link
@@ -207,7 +213,7 @@ gl#
 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a>&lt;CR&gt;
 </p>
 
-<h3 id="toc_7.2.1">加链接 </h3>
+<h3 id="toc_7.3.1">加链接 </h3>
 <p>
 在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加
 </p>
@@ -223,12 +229,12 @@ ctrl加回车加链接  nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;C-CR&gt; 0v$"p
 
 </ol>
 
-<h3 id="toc_7.2.2">连接本地图片 </h3>
+<h3 id="toc_7.3.2">连接本地图片 </h3>
 <p>
 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;S-CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/{{local:images\/&lt;C-r&gt;p}}&lt;CR&gt;
 </p>
 
-<h2 id="toc_7.3">双击取消左边目录添加命令 </h2>
+<h2 id="toc_7.4">双击取消左边目录添加命令 </h2>
 <p>
 修改d:\Vim\vimfiles\ftplugin\vimwiki.vim
 nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;2-LeftMouse&gt; :call vimwiki#base#follow_link("nosplit", "\&lt;lt&gt;2-LeftMouse&gt;")&lt;CR&gt; :call voom#DeleteOutlines()&lt;CR&gt;
@@ -334,6 +340,11 @@ d:\vim\vim\vimfiles\autoload\vimwiki\html.vim
 一级标题后面添加横线：let line = line.'<HR SIZE=1>'
 
 </ol>
+
+<h1 id="toc_11">待处理 </h1><HR SIZE=1>
+<p>
+怎么才能
+</p>
 
 
 <div class="foot">
