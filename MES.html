@@ -49,38 +49,65 @@
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 <h1 id="toc_1">MES项目 </h1><HR SIZE=1>
 <p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩工厂MES项目整体计划v2.0.xlsx"download=\"文件名.txt\">点击下载:【江西志浩工厂MES项目整体计划v2.0.xlsx】</a></div><br />
 </p>
 
 <h1 id="toc_2">What's MES </h1><HR SIZE=1>
 <p>
+The ANSI/ISA-95 standard merged the MESA-11 model with the Purdue Reference Model, creating a functional hierarchy. In this model, MES was established at the intermediate level three, between enterprise resource planning (ERP) at level four and process control at levels zero, one and two.<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/erp-mesa_11_model_desktop.jpg" /></div><br />
 </p>
 
 <p>
+A manufacturing execution system (MES) is an information system that connects, monitors and controls complex manufacturing systems and data flows on the factory floor. The main goal of an MES is to ensure effective execution of the manufacturing operations and improve production output.<br />
 </p>
 
 
 <p>
+An MES helps achieve that goal by tracking and gathering accurate, real-time data about the complete production lifecycle, beginning with order release until the product delivery stage for finished goods.<br />
 </p>
 
 <p>
+The MES collects data about product genealogy, performance, traceability, material management and work in progress (WIP) and other plant activities as they occur. This data, in turn, allows decision-makers to understand the current settings of the factory floor and better optimize the production process.<br />
 </p>
 
 <p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/erp-mes_isa95_desktop.png" /></div><br />
 </p>
 
 <p>
+Introduction<br />
+Manufacturers are often required to track the mixture of raw materials their products are made of including the raw materials, semi-finished product, and finished product so customer service and product engineers can investigate customer complaints, product exceptions, and other related quality conditions.<br />
 </p>
 
 <p>
+Product Genealogy is the recording of what goes into their products including:<br />
 </p>
 
 <p>
+Material Name<br />
+Date and time of consumption<br />
+Quantity of consumption<br />
+Lot number of the material<br />
+Serial number of the product<br />
+When consumptions are applied at all levels of production throughout the manufacturing process, one can backtrack from the final product all the way back to a specific lot of raw material and its associated paperwork:<br />
 </p>
 
 <p>
+Certificate of Analysis<br />
+Product Specification<br />
+Vendor Specification<br />
+Lab Test Results<br />
+This can be a very powerful tool for multiple departments within an organization:<br />
 </p>
 
 <p>
+Customer Service: process complaints<br />
+Production Managers: compare results over time and against a golden standard<br />
+Product Engineers: improve the product<br />
+Quality Engineers: measure conformance to the product specificiation<br />
+Purchasing Agents: hold vendors accountable to their specifications<br />
+Process Engineers: measure process capability against product specifications<br />
 </p>
 
 
@@ -104,6 +131,10 @@
 </ol>
 
 <p>
+数据的获取<br />
+数据的维护<br />
+数据的展示<br />
+命令的下发<br />
 </p>
 <ul>
 <li>
@@ -112,14 +143,23 @@ agv调度系统
 </ul>
 
 <p>
+接收<br />
+开工<br />
+完工<br />
 </p>
 
 <h1 id="toc_4">框架 </h1><HR SIZE=1>
 <p>
+车间服务器<br />
+开发员<br />
+系统管理级别<br />
+现场管理<br />
+操作员<br />
 </p>
 
 <h1 id="toc_5">硬件 </h1><HR SIZE=1>
 <p>
+节点机房<br />
 </p>
 
 <h2 id="toc_5.1">账号管理 </h2>
@@ -135,49 +175,68 @@ agv调度系统
 
 <h1 id="toc_6">志浩MES功能模块 </h1><HR SIZE=1>
 <p>
+<a href="志浩MES功能模块.html">志浩MES功能模块</a><br />
 </p>
 
 <h1 id="toc_7">术语 </h1><HR SIZE=1>
 <p>
+配料单，<br />
+流程卡、Lot卡，工单。<br />
+物料批次号。<br />
 </p>
 
 <p>
+批次号，作业单号，lot卡，流程卡，工单是同一个概念，不通称呼。<br />
 </p>
 <h2 id="toc_7.1">Q </h2>
 <p>
+是否可以根据工单，获取批次号<br />
+流程卡，lot卡，工单分别指什么？<br />
 </p>
 
 <h2 id="toc_7.2">系统 </h2>
 <p>
+FAQ 常见的系统问题处理。<br />
 </p>
 
 
 <h1 id="toc_8">重点优先 </h1><HR SIZE=1>
 <p>
+racipe and tracebility<br />
+高级计划排程<br />
 </p>
 
 
 
 <h1 id="toc_9">AGV </h1><HR SIZE=1>
 <p>
+上料，下料，转运空盘<br />
 </p>
 
 <p>
+待料中<br />
+配料中<br />
 </p>
 
 <p>
+异常存储区<br />
+空盘存储区<br />
+物料存储区<br />
 </p>
 
 <h2 id="toc_9.1">AGV解决方案 </h2>
 <p>
+如果是待料状态，则一直呼叫，如果返回的是0，则表示待料。返回的是1，则表示正在配料中。<br />
 </p>
 
 <p>
+如果使用队列模式，则需要添加一个服务，查询队列后调用AGV，等于队列+服务+中间件三个程序在跑。<br />
 </p>
 
 
 <h1 id="toc_10">流程 </h1><HR SIZE=1>
 <p>
+工段(钻孔)-&gt;工序(钻孔工段分为机械钻，镭射钻等工序)-&gt;工艺流程(机械钻孔1是工艺流程)<br />
 </p>
 
 	
@@ -194,29 +253,38 @@ agv调度系统
 
 <h1 id="toc_11">traceability  of the all technological process </h1><HR SIZE=1>
 <p>
+	we use the scan machine to get the parameters, which include temperature, speed, pressure etc.<br />
 </p>
 	
 <p>
+	Data source：PLC(register)、 sensing element 、IPC<br />
 </p>
 
 <h1 id="toc_12">HslCommunication </h1><HR SIZE=1>
 <p>
+主界面 HslCommunicationDemo.FormLoad<br />
+三菱  FormMelsecBinary  <br />
 </p>
 
 <p>
+西门子  DB206.226  DB205.16速度<br />
 </p>
 
 <p>
+1，添加引用。<br />
+2，减DemoUtils类。<br />
 </p>
 
 
 <h1 id="toc_13">MES系统架构 </h1><HR SIZE=1>
 <p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/mes系统架构.jfif" /></div><br />
 </p>
 
 
 <h1 id="toc_14">西门子camstar </h1><HR SIZE=1>
 <p>
+<a href="camstar.html">camstar</a><br />
 </p>
 
 
