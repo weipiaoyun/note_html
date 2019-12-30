@@ -19,7 +19,7 @@ blockquote {padding: 0.4em; background-color: #f6f5eb;}
 th {background-color: #f0f0f0;}
 hr {border: none; border-top: 1px solid #ccc; width: 100%;}
 del {text-decoration: line-through; color: #777777;}
-a { margin-top: 0em; margin-bottom: 1em;  padding-left: 0.5em;}
+a { margin-top: 1em; margin-bottom: 1em;  padding-left: 0.5em;}
 .toc li {list-style-type: none;}
 .todo {font-weight: bold; background-color: #f0ece8; color: #a03020;}
 .justleft {text-align: left;}
