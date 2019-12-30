@@ -78,29 +78,28 @@
 </ul>
 <li><a href="#toc_11">江西志浩参数采集服务 </a>
 <ul>
-<li><a href="#toc_11.0.1">AOI </a>
-<li><a href="#toc_11.0.2">裁磨线 </a>
-<li><a href="#toc_11.0.3">XRAY </a>
-<li><a href="#toc_11.0.4">Q? </a>
+<li><a href="#toc_11.1">AOI </a>
+<li><a href="#toc_11.2">裁磨线 </a>
+<li><a href="#toc_11.3">XRAY </a>
+<li><a href="#toc_11.4">Q? </a>
 </ul>
-<li><a href="#toc_11.1">配方下发 </a>
+<li><a href="#toc_12">配方下发 </a>
 <ul>
-<li><a href="#toc_11.1.1">电镀 </a>
+<li><a href="#toc_12.1">电镀 </a>
 </ul>
-<li><a href="#toc_11.2">设备统计 </a>
-</ul>
-<li><a href="#toc_12">包装入库 </a>
-<li><a href="#toc_13">信息中心 </a>
-<li><a href="#toc_14">生产类型 </a>
-<li><a href="#toc_15">看板管理 </a>
+<li><a href="#toc_13">设备统计 </a>
+<li><a href="#toc_14">包装入库 </a>
+<li><a href="#toc_15">信息中心 </a>
+<li><a href="#toc_16">生产类型 </a>
+<li><a href="#toc_17">看板管理 </a>
 <ul>
-<li><a href="#toc_15.1">Redis </a>
+<li><a href="#toc_17.1">Redis </a>
 <ul>
-<li><a href="#toc_15.1.1">时代峰峻 </a>
+<li><a href="#toc_17.1.1">时代峰峻 </a>
 </ul>
-<li><a href="#toc_15.2">路上的风景 </a>
+<li><a href="#toc_17.2">路上的风景 </a>
 </ul>
-<li><a href="#toc_16">华为要求 </a>
+<li><a href="#toc_18">华为要求 </a>
 </ul>
 </div>
 <div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
@@ -373,7 +372,7 @@ OPC 协议
 <a href="江西志浩参数采集服务.html">江西志浩参数采集服务</a>
 </p>
 
-<h3 id="toc_11.0.1">AOI </h3>
+<h2 id="toc_11.1">AOI </h2>
 <p>
 AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件。AOI扫描会加上喷印码。<br />
 </p>
@@ -398,9 +397,9 @@ VRS输出，和AOI机比对，生成误报率
 
 </ol>
 
-<h3 id="toc_11.0.2">裁磨线 </h3>
+<h2 id="toc_11.2">裁磨线 </h2>
 
-<h3 id="toc_11.0.3">XRAY </h3>
+<h2 id="toc_11.3">XRAY </h2>
 <ol>
 <li>
 怎么采集涨缩值
@@ -411,14 +410,14 @@ VRS输出，和AOI机比对，生成误报率
 </ol>
 
 
-<h3 id="toc_11.0.4">Q? </h3>
+<h2 id="toc_11.4">Q? </h2>
 <p>
 #OPC 协议的UA和DA (UA不需要设置DCOM)<br />
 </p>
 
-<h2 id="toc_11.1">配方下发 </h2>
+<h1 id="toc_12">配方下发 </h1><HR SIZE=1>
 
-<h3 id="toc_11.1.1">电镀 </h3>
+<h2 id="toc_12.1">电镀 </h2>
 <ol>
 <li>
 电镀面积
@@ -437,12 +436,12 @@ VRS输出，和AOI机比对，生成误报率
 
 </ol>
 
-<h2 id="toc_11.2">设备统计 </h2>
+<h1 id="toc_13">设备统计 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/设备统计.xlsx"download=\"文件名.txt\">点击下载:【设备统计.xlsx】</a></div><br />
 </p>
 
-<h1 id="toc_12">包装入库 </h1><HR SIZE=1>
+<h1 id="toc_14">包装入库 </h1><HR SIZE=1>
 <p>
 每块板包装之前都要有二维码。<br />
 大包装绑定小包装，小包装绑定里面的每块板。<br />
@@ -450,7 +449,7 @@ VRS输出，和AOI机比对，生成误报率
 
 
 
-<h1 id="toc_13">信息中心 </h1><HR SIZE=1>
+<h1 id="toc_15">信息中心 </h1><HR SIZE=1>
 <p>
 条码采集器<br />
 	绑定设备编码。采集到条码后，把最新的EAP采集的数据ID绑定。<br />
@@ -471,7 +470,7 @@ VRS输出，和AOI机比对，生成误报率
 EAP<br />
 </p>
 
-<h1 id="toc_14">生产类型 </h1><HR SIZE=1>
+<h1 id="toc_16">生产类型 </h1><HR SIZE=1>
 
 
 <p>
@@ -483,7 +482,7 @@ BOM数据<br />
 一岗一表(点检表，五确认)<br />
 </p>
 
-<h1 id="toc_15">看板管理 </h1><HR SIZE=1>
+<h1 id="toc_17">看板管理 </h1><HR SIZE=1>
 <p>
 产量，质量，稼动率，人员情况，设备的保养时间<br />
 WIP，趋势图，库存，<br />
@@ -507,21 +506,21 @@ WIP，趋势图，库存，<br />
 </p>
 
 
-<h2 id="toc_15.1">Redis </h2>
+<h2 id="toc_17.1">Redis </h2>
 <ol>
 <li>
 降低带宽和减少浪费数据库服务器资源
 
 </ol>
 
-<h3 id="toc_15.1.1">时代峰峻 </h3>
+<h3 id="toc_17.1.1">时代峰峻 </h3>
 <p>
 了设计费<br />
 </p>
-<h2 id="toc_15.2">路上的风景 </h2>
+<h2 id="toc_17.2">路上的风景 </h2>
  
  
-<h1 id="toc_16">华为要求 </h1><HR SIZE=1>
+<h1 id="toc_18">华为要求 </h1><HR SIZE=1>
 <ol>
 <li>
 物料先进先出
