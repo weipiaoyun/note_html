@@ -16,41 +16,41 @@
 <body>
 
 <p>
-P0口的作用：
+P0口的作用：<br />
 </p>
 
 <p>
-	(1)地址和数据复用(数据时是并行口)
+	(1)地址和数据复用(数据时是并行口)<br />
 </p>
 
 <p>
-	(2)准双向I/O口，输入数据时要先输出一个零，使那个场效应管截止，不然会误读
+	(2)准双向I/O口，输入数据时要先输出一个零，使那个场效应管截止，不然会误读<br />
 </p>
 
 <p>
-P0口作一般IO口使用，cpu发出控制电平，v1开通，v2截止，
+P0口作一般IO口使用，cpu发出控制电平，v1开通，v2截止，<br />
 </p>
 
 <p>
-P0口有两个<a href="三态门.html">三态门</a>，上面一个结了锁存器，下面的没有，上面的主要是用于读-》修改——》写时用的。
+P0口有两个<a href="三态门.html">三态门</a>，上面一个结了锁存器，下面的没有，上面的主要是用于读-》修改——》写时用的。<br />
 </p>
 
 <p>
-P0口作为地址地址数据总线使用的时候（传输地址或者数据），cpu是控制信号为高电平，开关打在上面。
+P0口作为地址地址数据总线使用的时候（传输地址或者数据），cpu是控制信号为高电平，开关打在上面。<br />
 </p>
 
 <p>
-P0口如果要驱动，要加上拉
+P0口如果要驱动，要加上拉<br />
 </p>
 
 <p>
-P0口由四部分组成。
-输出部分，一个锁存，一个多路开关，一个输出驱动
-输入部分：一个读缓冲和读锁存。
+P0口由四部分组成。<br />
+输出部分，一个锁存，一个多路开关，一个输出驱动<br />
+输入部分：一个读缓冲和读锁存。<br />
 </p>
 
 <p>
-输出的多路开关看指令，如果指令是MOV，说明是通用的IO口，上面的场效应管关闭。然后可以锁存数据，但是数据为1的时候是关闭的。上面下面的场效应管都关闭了。但这时本来是应该输出1的。所以必须加个上拉。如果是MOVX那么，上面下面的场效应管都是开着的，是推挽方式的。既可以输出低电平，也可以输出高电平。但是是先送地址，然后送数据。送完以后又是开关打在通用上。
+输出的多路开关看指令，如果指令是MOV，说明是通用的IO口，上面的场效应管关闭。然后可以锁存数据，但是数据为1的时候是关闭的。上面下面的场效应管都关闭了。但这时本来是应该输出1的。所以必须加个上拉。如果是MOVX那么，上面下面的场效应管都是开着的，是推挽方式的。既可以输出低电平，也可以输出高电平。但是是先送地址，然后送数据。送完以后又是开关打在通用上。<br />
 </p>
 
 
@@ -77,8 +77,6 @@ P0口由四部分组成。
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

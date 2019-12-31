@@ -17,37 +17,37 @@
 
 <h1 id="toc_1">检测列表的获取</h1><HR SIZE=1>
 <p>
-根据层别类型获取检测列表。内层的所有检测列表相同，次外层所有检测列表相同
+根据层别类型获取检测列表。内层的所有检测列表相同，次外层所有检测列表相同<br />
 </p>
 
 <p>
-GetLayerChkItems：根据层名还有类型，料号，获取该层的所有checklist item。并获取该item的结果。检测者等信息
+GetLayerChkItems：根据层名还有类型，料号，获取该层的所有checklist item。并获取该item的结果。检测者等信息<br />
 </p>
 
 <h1 id="toc_2">签名的获取</h1><HR SIZE=1>
 <p>
-GetLayerStatus   #获取层别状态(签名表里面的状态)，结果为：\(h-&gt;{Check}{\)layer}{Signature}{checker}其中\(h-&gt;{Check}{\)layer}{Signature}在updateLayerStatus的的时候重新赋值
+GetLayerStatus   #获取层别状态(签名表里面的状态)，结果为：\(h-&gt;{Check}{\)layer}{Signature}{checker}其中\(h-&gt;{Check}{\)layer}{Signature}在updateLayerStatus的的时候重新赋值<br />
 </p>
 
 <p>
-updateLayerStatus:根据是否签名重新更新层别的状态。包括更新待制作等的背景色，前景色，制作者的全局变量等
+updateLayerStatus:根据是否签名重新更新层别的状态。包括更新待制作等的背景色，前景色，制作者的全局变量等<br />
 </p>
 
 
 <h1 id="toc_3">makeSignature</h1><HR SIZE=1>
 <p>
-不管制作签名，特权签名，都经过此
+不管制作签名，特权签名，都经过此<br />
 </p>
 
 
 <h2 id="toc_3.1">获取检测Item</h2>
 <p>
-\(h-&gt;{Check}{\)layer}{Items} = \(h-&gt;GetLayerChkItems(\)type,\(h-&gt;{Job},\)layer);
+\(h-&gt;{Check}{\)layer}{Items} = \(h-&gt;GetLayerChkItems(\)type,\(h-&gt;{Job},\)layer);<br />
 </p>
 
 <h1 id="toc_4">更新左边制作状态</h1><HR SIZE=1>
 <p>
-updateLayerStatus(\(model, \)iter, $layer);
+updateLayerStatus(\(model, \)iter, $layer);<br />
 </p>
 
 
@@ -74,8 +74,6 @@ updateLayerStatus(\(model, \)iter, $layer);
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

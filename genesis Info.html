@@ -16,60 +16,60 @@
 <body>
 
 <p>
-#获取joblist
-my @joblist = @{$h-&gt;{doinfo}{gJOBS_LIST}};
-1，	获取层别列表。
+#获取joblist<br />
+my @joblist = @{$h-&gt;{doinfo}{gJOBS_LIST}};<br />
+1，	获取层别列表。<br />
 </p>
 
 <p>
-DO_INFO  –t  step  –e  /$JOB/  edit  -d  LAYERS_LIST
+DO_INFO  –t  step  –e  /$JOB/  edit  -d  LAYERS_LIST<br />
 </p>
 
 <p>
-——通过DATUM可以获取基准点
--t step –e \(JOB/\)STEP –d DATUM
+——通过DATUM可以获取基准点<br />
+-t step –e \(JOB/\)STEP –d DATUM<br />
 </p>
 
 <p>
-——获取checklist表
--t step –e \(JOB/\)STEP –d CHECKS_LIST(获取step里面的一个chk的文件夹里面)
+——获取checklist表<br />
+-t step –e \(JOB/\)STEP –d CHECKS_LIST(获取step里面的一个chk的文件夹里面)<br />
 </p>
 
 <p>
-——获取check的ERF
-DO_INFO -t check -e /\(JOB/\)STEP/fls_basic_cleanup -d ERF -o action=2
+——获取check的ERF<br />
+DO_INFO -t check -e /\(JOB/\)STEP/fls_basic_cleanup -d ERF -o action=2<br />
 </p>
 
 <p>
-——获取note信息
-DO_INFO -t notes -e \(JOB/\)STEP/sec2t/notes -d NOTE
-——获取attribute的详细信息
--t attributes –e $JOB –d ATR –s 1
-——获取特性（坐标，大小，极性等）
--t layer –e \(JOB/\)STEP/sec2t –d FEATURES
-——获取钻孔信息
--t layer –e \(JOB/\)STEP/sec2t –d FEATURES
-——获取各个特性的个数，线的总数
--t layer –e \(JOB/\)STEP/sec2t –d FEAT_HIST
-——获取symbol的详细信息，pad，arc，line等比如r3.94的线，获取个数
--t layer –e \(JOB/\)STEP/sec2t –d SYMS_HIST （组织）
-——判断某个step是否能够获取（某step是否存在）
--t step –e /$JOB/ic –d exists(如果ic step存在则gEXISTS = yes，否则no)
-——判断料号的所有行数包括信号层和字层甚至空层等全部之和
--t matrix –e $JOB/matrix     取gNUM_ROWS
-——获取panel里面set的信息
--t step –e $JOB/panel –d REPEAT(set数组)
-——获取选择的特性的坐标，正负片，symbol等信息（单击feature，下面显示的信息）
--t layer –e $JOB/panel/gtl –d FEATURES –o select
+——获取note信息<br />
+DO_INFO -t notes -e \(JOB/\)STEP/sec2t/notes -d NOTE<br />
+——获取attribute的详细信息<br />
+-t attributes –e $JOB –d ATR –s 1<br />
+——获取特性（坐标，大小，极性等）<br />
+-t layer –e \(JOB/\)STEP/sec2t –d FEATURES<br />
+——获取钻孔信息<br />
+-t layer –e \(JOB/\)STEP/sec2t –d FEATURES<br />
+——获取各个特性的个数，线的总数<br />
+-t layer –e \(JOB/\)STEP/sec2t –d FEAT_HIST<br />
+——获取symbol的详细信息，pad，arc，line等比如r3.94的线，获取个数<br />
+-t layer –e \(JOB/\)STEP/sec2t –d SYMS_HIST （组织）<br />
+——判断某个step是否能够获取（某step是否存在）<br />
+-t step –e /$JOB/ic –d exists(如果ic step存在则gEXISTS = yes，否则no)<br />
+——判断料号的所有行数包括信号层和字层甚至空层等全部之和<br />
+-t matrix –e $JOB/matrix     取gNUM_ROWS<br />
+——获取panel里面set的信息<br />
+-t step –e $JOB/panel –d REPEAT(set数组)<br />
+——获取选择的特性的坐标，正负片，symbol等信息（单击feature，下面显示的信息）<br />
+-t layer –e $JOB/panel/gtl –d FEATURES –o select<br />
 </p>
 
 <p>
-Wheel: DO_INFO –t wheel –e /$JOB/ drill12.rep
-Panel_classes: DO_INFO –t panel_classes –e $JOB
-Layer: DO_INFO –t panel_classes –e $JOB/edit/gtl
-Symbol: DO_INFO –t symbol –e $JOB/year_week
-——获取step信息
-Step：DO_INFO –t  step  –e  $JOB/edit
+Wheel: DO_INFO –t wheel –e /$JOB/ drill12.rep<br />
+Panel_classes: DO_INFO –t panel_classes –e $JOB<br />
+Layer: DO_INFO –t panel_classes –e $JOB/edit/gtl<br />
+Symbol: DO_INFO –t symbol –e $JOB/year_week<br />
+——获取step信息<br />
+Step：DO_INFO –t  step  –e  $JOB/edit<br />
 </p>
 
 <p>
@@ -77,7 +77,7 @@ Step：DO_INFO –t  step  –e  $JOB/edit
 </p>
 <h1 id="toc_1">bylengty </h1><HR SIZE=1>
 <p>
--m script -d TOOL_SLOTS
+-m script -d TOOL_SLOTS<br />
 </p>
 
 
@@ -104,8 +104,6 @@ Step：DO_INFO –t  step  –e  $JOB/edit
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -18,45 +18,45 @@
 <h1 id="toc_1">web服务器的搭建</h1><HR SIZE=1>
 <h2 id="toc_1.1">开启IIS(internet information server)服务</h2>
 <p>
-控制面板-》程序和功能-》打开或关闭windows功能-》把Internet信息服务的全部勾选上(包括FTP服务器、Web管理工具、万维网服务)
+控制面板-》程序和功能-》打开或关闭windows功能-》把Internet信息服务的全部勾选上(包括FTP服务器、Web管理工具、万维网服务)<br />
 </p>
 
 <h1 id="toc_2">Web服务的发布</h1><HR SIZE=1>
 <p>
-点生成-》发布-》默认配置文件1-》发布方法选择文件系统，然后选择目标位置
+点生成-》发布-》默认配置文件1-》发布方法选择文件系统，然后选择目标位置<br />
 </p>
 
 <h1 id="toc_3">发布后添加网站</h1><HR SIZE=1>
 <p>
-打开IIS 信息服务管理器-》右击网站，添加网站-》填写网站名称ws-》填写物理路径(注意选择路径)-》选择IP地址(一般为本地Ip地址)-&gt;填写主机名(如果有申请域名的话，需要将域名解析到你的电脑的外网IP)
+打开IIS 信息服务管理器-》右击网站，添加网站-》填写网站名称ws-》填写物理路径(注意选择路径)-》选择IP地址(一般为本地Ip地址)-&gt;填写主机名(如果有申请域名的话，需要将域名解析到你的电脑的外网IP)<br />
 </p>
 
 <h1 id="toc_4">报错</h1><HR SIZE=1>
 <p>
-行 20:             设置为 true。
-行 21:         --&gt;
-行 22: &lt;compilation debug="true" targetFramework="4.0"&gt;
+行 20:             设置为 true。<br />
+行 21:         --&gt;<br />
+行 22: &lt;compilation debug="true" targetFramework="4.0"&gt;<br />
 </p>
 
 <p>
-打开控制面板--管理工具--Internet 信息服务(IIS)管理器，选择默认网站，在右边的“管理网站”栏里选择“高级设置…”，将“应用程序池”修改为“ASP.NET v4.0 ”。
+打开控制面板--管理工具--Internet 信息服务(IIS)管理器，选择默认网站，在右边的“管理网站”栏里选择“高级设置…”，将“应用程序池”修改为“ASP.NET v4.0 ”。<br />
 </p>
 
 <h2 id="toc_4.1">如果没有找到ASP.NET v4.0</h2>
 <p>
-1,重新安装.netFramework4.0
-2,%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_regiis.exe -i 
+1,重新安装.netFramework4.0<br />
+2,%windir%\Microsoft.NET\Framework\v4.0.30319\aspnet_regiis.exe -i <br />
 </p>
 
 
 <p>
-IIS管理器-&gt;网站-&gt;选择其中生成的一个-》右击-》管理网站-》高级设置-》应用程序池设置为ASP.NET v4.0
+IIS管理器-&gt;网站-&gt;选择其中生成的一个-》右击-》管理网站-》高级设置-》应用程序池设置为ASP.NET v4.0<br />
 </p>
 <h1 id="toc_5">如果找不到ASP.NET v4.0</h1><HR SIZE=1>
 
 <h1 id="toc_6">如何发布程序</h1><HR SIZE=1>
 <p>
-右击发布项目-》发布方法选择文件系统，目标位置：C:\inetpub\wwwroot(报错)
+右击发布项目-》发布方法选择文件系统，目标位置：C:\inetpub\wwwroot(报错)<br />
 </p>
 
 
@@ -64,11 +64,11 @@ IIS管理器-&gt;网站-&gt;选择其中生成的一个-》右击-》管理网�
 
 <h1 id="toc_7">报错 The 'microsoft.jet.oledb.4.0' provider is not registered on the local machin</h1><HR SIZE=1>
 <p>
-打开控制面板--管理工具--Internet 信息服务(IIS)管理器-》右击应用池程序-&gt;选择右边的ASP.NET v4.0-》右击-》高级设置-》把启用32位应用程序设置为True
+打开控制面板--管理工具--Internet 信息服务(IIS)管理器-》右击应用池程序-&gt;选择右边的ASP.NET v4.0-》右击-》高级设置-》把启用32位应用程序设置为True<br />
 </p>
 
 <p>
-IIS管理器-&gt;点击应用池-&gt;右击ASP.NET v4.0-&gt;高级设置-&gt;启用32位应用程序设置为True
+IIS管理器-&gt;点击应用池-&gt;右击ASP.NET v4.0-&gt;高级设置-&gt;启用32位应用程序设置为True<br />
 </p>
 
 
@@ -82,7 +82,7 @@ IIS管理器-&gt;点击应用池-&gt;右击ASP.NET v4.0-&gt;高级设置-&gt;启
 
 
 <p>
-strIP = "<a href="http://localhost:61672/webServer/WebWFInterface.asmx"">http://localhost:61672/webServer/WebWFInterface.asmx"</a>
+strIP = "<a href="http://localhost:61672/webServer/WebWFInterface.asmx"<br">http://localhost:61672/webServer/WebWFInterface.asmx"<br</a> />
 <a href="http://localhost:61672/webServer/WebPpeInterface.asmx/GetWFMIDispatchDataInfo">http://localhost:61672/webServer/WebPpeInterface.asmx/GetWFMIDispatchDataInfo</a>
 <a href="http://localhost:61672/webServer/WebPpeInterface.asmx/GetWFMIDispatchDataInfo">http://localhost:61672/webServer/WebPpeInterface.asmx/GetWFMIDispatchDataInfo</a>
 <a href="http://localhost:61672/webServer/WebPpeInterface.asmx/GetWFMIDispatchDataInfo">http://localhost:61672/webServer/WebPpeInterface.asmx/GetWFMIDispatchDataInfo</a>
@@ -100,120 +100,120 @@ strIP = "<a href="http://localhost:61672/webServer/WebWFInterface.asmx"">http://
 
 <h1 id="toc_9">更改WEB IP</h1><HR SIZE=1>
 <p>
-appSettings	Path	WebIP-LAN	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	NULL	WEBIP
-appSettings	Path	WebIP-LAN_bak	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	NULL	WEBIP
-appSettings	Path	WebIP-WLAN	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	NULL	WEBIP
+appSettings	Path	WebIP-LAN	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	NULL	WEBIP<br />
+appSettings	Path	WebIP-LAN_bak	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	NULL	WEBIP<br />
+appSettings	Path	WebIP-WLAN	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	NULL	WEBIP<br />
 </p>
 
 
 <h1 id="toc_10">飞伟</h1><HR SIZE=1>
 <p>
-appSettings	Path	WebIP-LAN	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://192.168.114.152:80">http://192.168.114.152:80</a>	NULL	WEBIP
-appSettings	Path	WebIP-LAN_bak	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://192.168.114.152:80">http://192.168.114.152:80</a>	NULL	WEBIP
-appSettings	Path	WebIP-WLAN	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://192.168.114.152:80">http://192.168.114.152:80</a>	NULL	WEBIP
+appSettings	Path	WebIP-LAN	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://192.168.114.152:80">http://192.168.114.152:80</a>	NULL	WEBIP<br />
+appSettings	Path	WebIP-LAN_bak	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://127.0.0.1:804">http://127.0.0.1:804</a>	<a href="http://192.168.114.152:80">http://192.168.114.152:80</a>	NULL	WEBIP<br />
+appSettings	Path	WebIP-WLAN	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://192.168.114.152:80">http://192.168.114.152:80</a>	NULL	WEBIP<br />
 </p>
 
 
 
 
 <p>
-PKey_	FKey_	Key_	FristValue_	SecondValue_	ThreeValue_	FourthValue_	Captions_
-appSettings	AppUpdateFileNames	EMS	EMS	NULL	NULL	NULL	系统应用程序
-appSettings	AppUpdateFileNames	GS	genesis	NULL	NULL	脚本文件名	NULL
-appSettings	AppUpdatePath	EMS-LAN	/flupdate/EMS.zip	Environment.CurrentDirectory	0	NULL	系统应用程序
-appSettings	AppUpdatePath	EMS-WLAN	/flupdate/EMS.zip	Environment.CurrentDirectory	0	NULL	系统应用程序
-appSettings	AppUpdatePath	genesis-LAN	/flupdate/genesis.zip	C:\|C:\genesis	1	NULL	脚本更新
-appSettings	AppUpdatePath	genesis-WLAN	/flupdate/genesis.zip	C:\|C:\genesis	1	NULL	脚本更新
-appSettings	AppUpdatePath	gs-LAN	/flupdate/gs.zip	C:\|C:\gs	1	NULL	脚本更新
-appSettings	AppUpdatePath	gs-WLAN	/flupdate/gs.zip	C:\|C:\gs	1	NULL	脚本更新
-appSettings	AppUpdatePath	usr-LAN	/flupdate/usr.zip	C:\|C:\usr	1	NULL	脚本更新
-appSettings	AppUpdatePath	usr-WLAN	/flupdate/usr.zip	C:\|C:\usr	1	NULL	脚本更新
-appSettings	Combination	Accuracy	1	NULL	NULL	1	合拼板-精度
-appSettings	Combination	Angle	90	NULL	NULL	1	合拼板-角度
-appSettings	Combination	BoardSpace	12	NULL	NULL	2	板边间距(MM)
-appSettings	Combination	bSort	True	NULL	NULL	1	合拼板-排序  True/False
-appSettings	Combination	iNum	2	NULL	NULL	1	合拼板-合拼数
-appSettings	Combination	PnlSpace	1.6	NULL	NULL	2	拼板间距(MM)
-appSettings	Combination	ReArea	0.17	NULL	NULL	2	加投面积
-appSettings	Combination	ShtSize	520|622|415|520|347|415|0|0	16|21|0|0|0|0|0|0	12|18|0|0|0|0|0|0	2	拼板尺寸
-appSettings	Combination	TarRate	0.6	NULL	NULL	2	排板利用率
-appSettings	ENV	CAM	env1=pcb_flows=StrCode,env2=AreaID=HZ,env3=JOB=strPdctno	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_ErpData	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_mkt_CustParameter	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_mkt_OrderManageParameter	BLim_T_mkt_OrderManageParameter	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_mkt_OrderManageParameter2	BLim_T_mkt_OrderManageParameter	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_mkt_OrderParameter	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_ppe_MakeTechParameter	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_sys_UserAccDepartment	BLim_T_sys_UserListGroup	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_sys_UserAccGroupC	BLim_T_sys_UserListGroup	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_sys_UserAccGroupP	BLim_T_sys_UserListGroup	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	T_sys_UserAccGroupS	BLim_T_sys_UserListGroup	NULL	NULL	NULL	NULL
-appSettings	GroupSaveRule	tblProductMark	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL
-appSettings	GsWorkFlow	WithOutFlowType	100|101|102|103	NULL	NULL	Gs流程开关代码	NULL
-appSettings	keyConWPwd	HCPlan	7157583DE3D903E081C7AC49CD8FCB7F3E1C63850C99258CB9CD6B13A4F2314DJ	426DAABA9EDFAEC14DC521ACE0114830F42C9635E10D29977F46D01A4A28FAEEX	12FA02A86313E09347675FB339191B08C844AD29A400D955D452D88AE062B1C7N	12FA02A86313E09347675FB339191B08C844AD29A400D955D452D88AE062B1C7N	服务器连接
-appSettings	Model4EQ	EQModel	EQModel	/flxls/EQModule.xls	E:\work\	MI|EQ	EQ
-appSettings	Path	File4Combinate	E:/File4Combinate/	\\Gcservers\CAM资料\	NULL	NULL	合拼文件路径
-appSettings	Path	GsPatch-CAM	\sys\scripts\BQ_PCB\BQ_PCB.tcl,	NULL	NULL	NULL	NULL
-appSettings	Path	MktDown	E:\input\		NULL	NULL	市场文件下载目录
-appSettings	Path	TcpIP2-LAN	121.15.131.226:904	192.168.1.156:904	127.0.0.1:904	NULL	WEBIP
-appSettings	Path	TcpIP2-WLAN	121.15.131.226:904	192.168.1.156:904	127.0.0.1:904	NULL	WEBIP
-appSettings	Path	TcpIP-LAN	192.168.10.200:904	192.168.1.156:904	127.0.0.1:904	NULL	WEBIP
-appSettings	Path	TcpIP-WLAN	121.15.131.226:904	192.168.1.8:904	127.0.0.1:904	NULL	WEBIP
-appSettings	Path	WebIP-LAN	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://192.168.1.8:804">http://192.168.1.8:804</a>	<a href="http://192.168.1.8:804">http://192.168.1.8:804</a>	NULL	WEBIP
-appSettings	Path	WebIP-WLAN	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://192.168.1.8:804">http://192.168.1.8:804</a>	NULL	WEBIP
-appSettings	Path	WebServer-FileHandle	/ws/WebAppFileHandle.asmx	C580C62A7E775E85C2DAD72D12A0D8B1EA6FFBADF1F6D2EFF2F0AFBA8E9D8AC45843A4F73C3DCD242662610354C3E31F76CBE2CA3B878B2DD722AC4446BD2F569F02A8EF7473371A34AFC2C122EE53E7E914E8A02EFC904F895C41627BBEF872CEB673D92BD9500E709EAC60F8F291A38EB10FFF83106A4D0FFB4AECF795FC851417A2C7C5FB7FE56B93A5365D19EA47292	NULL	NULL	预审文件夹
-appSettings	Path	WebServer-PPE	/ws/WebPpeInterface.asmx	NULL	NULL	NULL	预审文件夹
-appSettings	Path	Web-UpLoad	/UpLoad/UpLoadFile.aspx	C580C62A7E775E85C2DAD72D12A0D8B1EA6FFBADF1F6D2EFF2F0AFBA8E9D8AC45843A4F73C3DCD242662610354C3E31F76CBE2CA3B878B2DD722AC4446BD2F569F02A8EF7473371A34AFC2C122EE53E7E914E8A02EFC904F895C41627BBEF872CEB673D92BD9500E709EAC60F8F291A38EB10FFF83106A4D0FFB4AECF795FC851417A2C7C5FB7FE56B93A5365D19EA47292	NULL	NULL	预审文件夹
-appSettings	PpeSys	DoubleErpSave	1	NULL	NULL	NULL	双向存储
-appSettings	PpeSys	IsHavePdctno	0	NULL	NULL	NULL	子板存在生产型号
-appSettings	PreFile	AttAddress	/flpfl/	files (*.rar and <strong>.zip)|</strong>.zip;<strong>.rar|zip files (</strong>.zip)|<strong>.zip|rar files (</strong>.rar)|*.rar	/File/PreFile/	NULL	附件扩展文件名
-appSettings	PubPpeEQAtt	AttAddress	/flape/	jpg files (<strong>.jpg)|</strong>.jpg	/File/Attachment/ppe/Eq/	NULL	附件扩展文件名
-appSettings	Remove	DLL	EMS.REPORT.dll#	NULL	NULL	NULL	删除的DEL文件 #分开
-appSettings	Report4Grid	FlowReport	P_Rpt_MakeFlow	/flrpt/Flow.grf	E:\work\		流程
-appSettings	Report4Grid	ImpListReport	P_Rpt_MakeImpModel	/flrpt/ImpList.grf	E:\work\	\	阻抗模块
-appSettings	Report4Grid	ImpReport	P_Pub_StackUp_Report	/flrpt/StackImp.grf	E:\work\	StrPdctno_\	叠构表
-appSettings	Report4Grid	MKTPriceReport		/flrpt/MktOrderPriceReport.grf	E:\work\		MKTREPORT
-appSettings	Report4Grid	MKTPriceReport4Simple		/flrpt/MktOrderPriceReport4Simple.grf	E:\work\		MKTREPORT
-appSettings	Report4Grid	ProductionOrderReport		/flrpt/ProductionOrderReport.grf	E:\work\		生产订单报表
-appSettings	Report4Grid	PTMakeInfo	P_Rpt_MakeInfo	/flrpt/MakeInfo.grf	E:\work\		制作信息
-appSettings	Report4Grid	PTReport	P_Rpt_MakePTInfo	/flrpt/PT.grf	E:\work\		PT指示
-connection	keyConWPwd	Lan-BK	5509DAC27C43F54F3FC6693C4F702D63C9D32039DCC950353BD374486892AC7D91C446A3EDC275DC37978B55E977AE48Y	823FA06EDB446A6A6968AE9837523C13867874A2C08BD48E7CAF0BF5EA7542A1	823FA06EDB446A6ADBA3924923F65B957226B5F4AA679F3B	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接
-connection	keyConWPwd	Lan-BQ	6EEB1F4AB3C317F34ACCA0ED51473D7D4EED50F35B4C9F211628C261C2C0070AC1BF9395E835F1EBA94CC55049F42D4E8	823FA06EDB446A6AB2EF9CEAD4A52ABF1FB177986FCD3F69	823FA06EDB446A6A268EE301D0277F0759A4F391B1A1E9D5	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接
-connection	keyConWPwd	Lan-TEST	6EEB1F4AB3C317F34ACCA0ED51473D7D4EED50F35B4C9F211628C261C2C0070AC1BF9395E835F1EBA94CC55049F42D4E8	823FA06EDB446A6AB2EF9CEAD4A52ABF54E21146AA35E9832700A1E254CBFCBD	823FA06EDB446A6A268EE301D0277F0759A4F391B1A1E9D5	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接
-connection	keyConWPwd	WLan-BK	5065432CBDACDAD7858FF7F836F358644CCC6B9643AFDECA70868A2784366FA9F8565DCAD3EA9057EA3775A3DA2F97C1F	57F51BFFF62A91B01124D24CB3EADDAA635C75D41403CA97C8BC0DD17DB608DF	823FA06EDB446A6ADBA3924923F65B957226B5F4AA679F3B	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接
-connection	keyConWPwd	WLan-BQ	87DE9D32323D1BE246E439A218CF6D7D3099598255658E80ED3F62CFFC03B06B9B9407BEAAC4BEC24616B1E06FA68D15M	57F51BFFF62A91B0A286FF892B72BCBD68DB469E3E76BEFC	823FA06EDB446A6A268EE301D0277F0759A4F391B1A1E9D5	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接
-connection	keyConWPwd	WLan-TEST	87DE9D32323D1BE246E439A218CF6D7D3099598255658E80ED3F62CFFC03B06B9B9407BEAAC4BEC24616B1E06FA68D15M	57F51BFFF62A91B0A286FF892B72BCBD455DBC33B378DD55EFAE8E64B547BADE	823FA06EDB446A6A268EE301D0277F0759A4F391B1A1E9D5	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接
+PKey_	FKey_	Key_	FristValue_	SecondValue_	ThreeValue_	FourthValue_	Captions_<br />
+appSettings	AppUpdateFileNames	EMS	EMS	NULL	NULL	NULL	系统应用程序<br />
+appSettings	AppUpdateFileNames	GS	genesis	NULL	NULL	脚本文件名	NULL<br />
+appSettings	AppUpdatePath	EMS-LAN	/flupdate/EMS.zip	Environment.CurrentDirectory	0	NULL	系统应用程序<br />
+appSettings	AppUpdatePath	EMS-WLAN	/flupdate/EMS.zip	Environment.CurrentDirectory	0	NULL	系统应用程序<br />
+appSettings	AppUpdatePath	genesis-LAN	/flupdate/genesis.zip	C:\|C:\genesis	1	NULL	脚本更新<br />
+appSettings	AppUpdatePath	genesis-WLAN	/flupdate/genesis.zip	C:\|C:\genesis	1	NULL	脚本更新<br />
+appSettings	AppUpdatePath	gs-LAN	/flupdate/gs.zip	C:\|C:\gs	1	NULL	脚本更新<br />
+appSettings	AppUpdatePath	gs-WLAN	/flupdate/gs.zip	C:\|C:\gs	1	NULL	脚本更新<br />
+appSettings	AppUpdatePath	usr-LAN	/flupdate/usr.zip	C:\|C:\usr	1	NULL	脚本更新<br />
+appSettings	AppUpdatePath	usr-WLAN	/flupdate/usr.zip	C:\|C:\usr	1	NULL	脚本更新<br />
+appSettings	Combination	Accuracy	1	NULL	NULL	1	合拼板-精度<br />
+appSettings	Combination	Angle	90	NULL	NULL	1	合拼板-角度<br />
+appSettings	Combination	BoardSpace	12	NULL	NULL	2	板边间距(MM)<br />
+appSettings	Combination	bSort	True	NULL	NULL	1	合拼板-排序  True/False<br />
+appSettings	Combination	iNum	2	NULL	NULL	1	合拼板-合拼数<br />
+appSettings	Combination	PnlSpace	1.6	NULL	NULL	2	拼板间距(MM)<br />
+appSettings	Combination	ReArea	0.17	NULL	NULL	2	加投面积<br />
+appSettings	Combination	ShtSize	520|622|415|520|347|415|0|0	16|21|0|0|0|0|0|0	12|18|0|0|0|0|0|0	2	拼板尺寸<br />
+appSettings	Combination	TarRate	0.6	NULL	NULL	2	排板利用率<br />
+appSettings	ENV	CAM	env1=pcb_flows=StrCode,env2=AreaID=HZ,env3=JOB=strPdctno	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_ErpData	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_mkt_CustParameter	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_mkt_OrderManageParameter	BLim_T_mkt_OrderManageParameter	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_mkt_OrderManageParameter2	BLim_T_mkt_OrderManageParameter	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_mkt_OrderParameter	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_ppe_MakeTechParameter	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_sys_UserAccDepartment	BLim_T_sys_UserListGroup	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_sys_UserAccGroupC	BLim_T_sys_UserListGroup	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_sys_UserAccGroupP	BLim_T_sys_UserListGroup	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	T_sys_UserAccGroupS	BLim_T_sys_UserListGroup	NULL	NULL	NULL	NULL<br />
+appSettings	GroupSaveRule	tblProductMark	BLim_T_ppe_MakeTechParameter	NULL	NULL	NULL	NULL<br />
+appSettings	GsWorkFlow	WithOutFlowType	100|101|102|103	NULL	NULL	Gs流程开关代码	NULL<br />
+appSettings	keyConWPwd	HCPlan	7157583DE3D903E081C7AC49CD8FCB7F3E1C63850C99258CB9CD6B13A4F2314DJ	426DAABA9EDFAEC14DC521ACE0114830F42C9635E10D29977F46D01A4A28FAEEX	12FA02A86313E09347675FB339191B08C844AD29A400D955D452D88AE062B1C7N	12FA02A86313E09347675FB339191B08C844AD29A400D955D452D88AE062B1C7N	服务器连接<br />
+appSettings	Model4EQ	EQModel	EQModel	/flxls/EQModule.xls	E:\work\	MI|EQ	EQ<br />
+appSettings	Path	File4Combinate	E:/File4Combinate/	\\Gcservers\CAM资料\	NULL	NULL	合拼文件路径<br />
+appSettings	Path	GsPatch-CAM	\sys\scripts\BQ_PCB\BQ_PCB.tcl,	NULL	NULL	NULL	NULL<br />
+appSettings	Path	MktDown	E:\input\		NULL	NULL	市场文件下载目录<br />
+appSettings	Path	TcpIP2-LAN	121.15.131.226:904	192.168.1.156:904	127.0.0.1:904	NULL	WEBIP<br />
+appSettings	Path	TcpIP2-WLAN	121.15.131.226:904	192.168.1.156:904	127.0.0.1:904	NULL	WEBIP<br />
+appSettings	Path	TcpIP-LAN	192.168.10.200:904	192.168.1.156:904	127.0.0.1:904	NULL	WEBIP<br />
+appSettings	Path	TcpIP-WLAN	121.15.131.226:904	192.168.1.8:904	127.0.0.1:904	NULL	WEBIP<br />
+appSettings	Path	WebIP-LAN	<a href="http://192.168.10.200:804">http://192.168.10.200:804</a>	<a href="http://192.168.1.8:804">http://192.168.1.8:804</a>	<a href="http://192.168.1.8:804">http://192.168.1.8:804</a>	NULL	WEBIP<br />
+appSettings	Path	WebIP-WLAN	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://121.15.131.226:804">http://121.15.131.226:804</a>	<a href="http://192.168.1.8:804">http://192.168.1.8:804</a>	NULL	WEBIP<br />
+appSettings	Path	WebServer-FileHandle	/ws/WebAppFileHandle.asmx	C580C62A7E775E85C2DAD72D12A0D8B1EA6FFBADF1F6D2EFF2F0AFBA8E9D8AC45843A4F73C3DCD242662610354C3E31F76CBE2CA3B878B2DD722AC4446BD2F569F02A8EF7473371A34AFC2C122EE53E7E914E8A02EFC904F895C41627BBEF872CEB673D92BD9500E709EAC60F8F291A38EB10FFF83106A4D0FFB4AECF795FC851417A2C7C5FB7FE56B93A5365D19EA47292	NULL	NULL	预审文件夹<br />
+appSettings	Path	WebServer-PPE	/ws/WebPpeInterface.asmx	NULL	NULL	NULL	预审文件夹<br />
+appSettings	Path	Web-UpLoad	/UpLoad/UpLoadFile.aspx	C580C62A7E775E85C2DAD72D12A0D8B1EA6FFBADF1F6D2EFF2F0AFBA8E9D8AC45843A4F73C3DCD242662610354C3E31F76CBE2CA3B878B2DD722AC4446BD2F569F02A8EF7473371A34AFC2C122EE53E7E914E8A02EFC904F895C41627BBEF872CEB673D92BD9500E709EAC60F8F291A38EB10FFF83106A4D0FFB4AECF795FC851417A2C7C5FB7FE56B93A5365D19EA47292	NULL	NULL	预审文件夹<br />
+appSettings	PpeSys	DoubleErpSave	1	NULL	NULL	NULL	双向存储<br />
+appSettings	PpeSys	IsHavePdctno	0	NULL	NULL	NULL	子板存在生产型号<br />
+appSettings	PreFile	AttAddress	/flpfl/	files (*.rar and <strong>.zip)|</strong>.zip;<strong>.rar|zip files (</strong>.zip)|<strong>.zip|rar files (</strong>.rar)|*.rar	/File/PreFile/	NULL	附件扩展文件名<br />
+appSettings	PubPpeEQAtt	AttAddress	/flape/	jpg files (<strong>.jpg)|</strong>.jpg	/File/Attachment/ppe/Eq/	NULL	附件扩展文件名<br />
+appSettings	Remove	DLL	EMS.REPORT.dll#	NULL	NULL	NULL	删除的DEL文件 #分开<br />
+appSettings	Report4Grid	FlowReport	P_Rpt_MakeFlow	/flrpt/Flow.grf	E:\work\		流程<br />
+appSettings	Report4Grid	ImpListReport	P_Rpt_MakeImpModel	/flrpt/ImpList.grf	E:\work\	\	阻抗模块<br />
+appSettings	Report4Grid	ImpReport	P_Pub_StackUp_Report	/flrpt/StackImp.grf	E:\work\	StrPdctno_\	叠构表<br />
+appSettings	Report4Grid	MKTPriceReport		/flrpt/MktOrderPriceReport.grf	E:\work\		MKTREPORT<br />
+appSettings	Report4Grid	MKTPriceReport4Simple		/flrpt/MktOrderPriceReport4Simple.grf	E:\work\		MKTREPORT<br />
+appSettings	Report4Grid	ProductionOrderReport		/flrpt/ProductionOrderReport.grf	E:\work\		生产订单报表<br />
+appSettings	Report4Grid	PTMakeInfo	P_Rpt_MakeInfo	/flrpt/MakeInfo.grf	E:\work\		制作信息<br />
+appSettings	Report4Grid	PTReport	P_Rpt_MakePTInfo	/flrpt/PT.grf	E:\work\		PT指示<br />
+connection	keyConWPwd	Lan-BK	5509DAC27C43F54F3FC6693C4F702D63C9D32039DCC950353BD374486892AC7D91C446A3EDC275DC37978B55E977AE48Y	823FA06EDB446A6A6968AE9837523C13867874A2C08BD48E7CAF0BF5EA7542A1	823FA06EDB446A6ADBA3924923F65B957226B5F4AA679F3B	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接<br />
+connection	keyConWPwd	Lan-BQ	6EEB1F4AB3C317F34ACCA0ED51473D7D4EED50F35B4C9F211628C261C2C0070AC1BF9395E835F1EBA94CC55049F42D4E8	823FA06EDB446A6AB2EF9CEAD4A52ABF1FB177986FCD3F69	823FA06EDB446A6A268EE301D0277F0759A4F391B1A1E9D5	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接<br />
+connection	keyConWPwd	Lan-TEST	6EEB1F4AB3C317F34ACCA0ED51473D7D4EED50F35B4C9F211628C261C2C0070AC1BF9395E835F1EBA94CC55049F42D4E8	823FA06EDB446A6AB2EF9CEAD4A52ABF54E21146AA35E9832700A1E254CBFCBD	823FA06EDB446A6A268EE301D0277F0759A4F391B1A1E9D5	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接<br />
+connection	keyConWPwd	WLan-BK	5065432CBDACDAD7858FF7F836F358644CCC6B9643AFDECA70868A2784366FA9F8565DCAD3EA9057EA3775A3DA2F97C1F	57F51BFFF62A91B01124D24CB3EADDAA635C75D41403CA97C8BC0DD17DB608DF	823FA06EDB446A6ADBA3924923F65B957226B5F4AA679F3B	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接<br />
+connection	keyConWPwd	WLan-BQ	87DE9D32323D1BE246E439A218CF6D7D3099598255658E80ED3F62CFFC03B06B9B9407BEAAC4BEC24616B1E06FA68D15M	57F51BFFF62A91B0A286FF892B72BCBD68DB469E3E76BEFC	823FA06EDB446A6A268EE301D0277F0759A4F391B1A1E9D5	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接<br />
+connection	keyConWPwd	WLan-TEST	87DE9D32323D1BE246E439A218CF6D7D3099598255658E80ED3F62CFFC03B06B9B9407BEAAC4BEC24616B1E06FA68D15M	57F51BFFF62A91B0A286FF892B72BCBD455DBC33B378DD55EFAE8E64B547BADE	823FA06EDB446A6A268EE301D0277F0759A4F391B1A1E9D5	EF2D32346071658C6EA383055DF3EDD8A5C0A547137B7269	服务器连接<br />
 </p>
 
 
 <p>
-"<a href="http://127.0.0.1:804/ws/Mkt/WebMktInterface.asmx/GetErpOrderInfo"">http://127.0.0.1:804/ws/Mkt/WebMktInterface.asmx/GetErpOrderInfo"</a>
-strURL	"<a href="http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"">http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"</a>	String
-		strURL	"<a href="http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"">http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"</a>	String
+"<a href="http://127.0.0.1:804/ws/Mkt/WebMktInterface.asmx/GetErpOrderInfo"<br">http://127.0.0.1:804/ws/Mkt/WebMktInterface.asmx/GetErpOrderInfo"<br</a> />
+strURL	"<a href="http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"">http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"</a>	String<br />
+		strURL	"<a href="http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"">http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"</a>	String<br />
 </p>
 
 <p>
-		strURL	"<a href="http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"">http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"</a>	String
+		strURL	"<a href="http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"">http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchDataInfo"</a>	String<br />
 </p>
 
 <p>
-		Pars	"StrPdctno=&amp;StrCno=&amp;StrOrderState=&amp;StrManagementNo_=&amp;IntUsNo_=811333"	String
+		Pars	"StrPdctno=&amp;StrCno=&amp;StrOrderState=&amp;StrManagementNo_=&amp;IntUsNo_=811333"	String<br />
 </p>
 
 <p>
-		Pars	"strPdctno=&amp;intUserNo=811333&amp;AccUserNo=-1&amp;mode=2&amp;facID=6"	String
+		Pars	"strPdctno=&amp;intUserNo=811333&amp;AccUserNo=-1&amp;mode=2&amp;facID=6"	String<br />
 </p>
 
 <p>
-		Pars	"strPdctno=&amp;intUserNo=811333&amp;AccUserNo=811333&amp;mode=4&amp;facID=6"	String
+		Pars	"strPdctno=&amp;intUserNo=811333&amp;AccUserNo=811333&amp;mode=4&amp;facID=6"	String<br />
 </p>
 
 <p>
-		Pars	"strPdctno=&amp;intUserNo=811333&amp;AccUserNo=-1&amp;mode=6&amp;facID=6"	String
+		Pars	"strPdctno=&amp;intUserNo=811333&amp;AccUserNo=-1&amp;mode=6&amp;facID=6"	String<br />
 </p>
 
 <p>
-		Pars	"strPdctno=&amp;intUserNo=811333&amp;AccUserNo=-1&amp;mode=7&amp;facID=6"	String
+		Pars	"strPdctno=&amp;intUserNo=811333&amp;AccUserNo=-1&amp;mode=7&amp;facID=6"	String<br />
 </p>
 
 
@@ -240,8 +240,6 @@ strURL	"<a href="http://127.0.0.1:804/ws/WebWFInterface.asmx/GetWFMIDispatchData
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

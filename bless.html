@@ -16,49 +16,49 @@
 <body>
 
 <p>
-bless的目的：能在其他文件直接调用函数，而不需要指定文件名。
-bless 引用，包名。两个参数，第一个必须是引用, 第二个必须是包名(类)。注意不是文件名，而是package后面的包名
-如果多次使用bless，其会和最后一个bless的包绑定。以前绑定的包无效。
+bless的目的：能在其他文件直接调用函数，而不需要指定文件名。<br />
+bless 引用，包名。两个参数，第一个必须是引用, 第二个必须是包名(类)。注意不是文件名，而是package后面的包名<br />
+如果多次使用bless，其会和最后一个bless的包绑定。以前绑定的包无效。<br />
 </p>
 
 <h2 id="toc_0.1">包的绑定过程：</h2>
 <p>
-	通过new方法绑定：一般在包里面提供一个new的方法，用来bless绑定和初始化一些数据。这个过程一般在执行程序用包名去调用new函数。传递的第一个参数为包名，然后new函数把包名和一个引用绑定，返回这个引用，然后通过该引用调用该包里面的各个函数。
-	直接bless：在通常情况下，绑定一个包之前或者之后会初始化一些数据。如果忽略初始化，我们可以跳过执行new函数，直接先定义一个引用，然后和包名绑定即可。
+	通过new方法绑定：一般在包里面提供一个new的方法，用来bless绑定和初始化一些数据。这个过程一般在执行程序用包名去调用new函数。传递的第一个参数为包名，然后new函数把包名和一个引用绑定，返回这个引用，然后通过该引用调用该包里面的各个函数。<br />
+	直接bless：在通常情况下，绑定一个包之前或者之后会初始化一些数据。如果忽略初始化，我们可以跳过执行new函数，直接先定义一个引用，然后和包名绑定即可。<br />
 </p>
 	
 <h2 id="toc_0.2">一个引用同时使用多个包里面的函数：</h2>
 <p>
-	因为bless只能绑定一个包，如果要同时使用多个包，只需把多个包被包含到绑定绑定的包上。然后把这个包共享出来(our @ISA = qw(Exporter Genesis test1))。即可绑定多个包。
+	因为bless只能绑定一个包，如果要同时使用多个包，只需把多个包被包含到绑定绑定的包上。然后把这个包共享出来(our @ISA = qw(Exporter Genesis test1))。即可绑定多个包。<br />
 </p>
 
 <p>
-用use HCHooks去加载HCHooks.pm里面的程序，里面的程序打包成一个HCHooks包。用的时候用的是package后面的包名，把期与一个引用绑定即可使用。
+用use HCHooks去加载HCHooks.pm里面的程序，里面的程序打包成一个HCHooks包。用的时候用的是package后面的包名，把期与一个引用绑定即可使用。<br />
 </p>
 
 <p>
-bless有两个参数：对象的引用、类的名称。 
-类的名称是一个字符串，代表了类的类型信息，这是理解bless的关键。 
-所谓bless就是把 类型信息 赋予 实例变量。 
-程序包括5个文件：
-person.pm ：实现了person类 
-dog.pm ：实现了dog类 
-bless.pl ： 正确的使用bless
-bless.wrong.pl ： 错误的使用bless
-bless.cc ： 使用C++语言实现了与bless.pl相同功能的代码
+bless有两个参数：对象的引用、类的名称。 <br />
+类的名称是一个字符串，代表了类的类型信息，这是理解bless的关键。 <br />
+所谓bless就是把 类型信息 赋予 实例变量。 <br />
+程序包括5个文件：<br />
+person.pm ：实现了person类 <br />
+dog.pm ：实现了dog类 <br />
+bless.pl ： 正确的使用bless<br />
+bless.wrong.pl ： 错误的使用bless<br />
+bless.cc ： 使用C++语言实现了与bless.pl相同功能的代码<br />
 </p>
 
 
 <p>
-person.pm 
-CODE:
-#!/usr/bin/perl -w
-package person;
-use strict;
+person.pm <br />
+CODE:<br />
+#!/usr/bin/perl -w<br />
+package person;<br />
+use strict;<br />
 </p>
 
 <p>
-sub sleep() {
+sub sleep() {<br />
 </p>
 <blockquote>
 my ($self) = @_;
@@ -68,11 +68,11 @@ my \(name = \)self-&gt;{"name"};
 print("$name is person, he is sleeping/n");
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-sub study() {
+sub study() {<br />
 </p>
 <blockquote>
 my ($self) = @_;
@@ -82,21 +82,21 @@ my \(name = \)self-&gt;{"name"};
 print("$name is person, he is studying/n");
 </blockquote>
 <p>
-}
-return 1;
+}<br />
+return 1;<br />
 </p>
 
 
 <p>
-dog.pm 
-CODE:
-#!/usr/bin/perl -w
-package dog;
-use strict;
+dog.pm <br />
+CODE:<br />
+#!/usr/bin/perl -w<br />
+package dog;<br />
+use strict;<br />
 </p>
 
 <p>
-sub sleep() {
+sub sleep() {<br />
 </p>
 <blockquote>
 my ($self) = @_;
@@ -106,11 +106,11 @@ my \(name = \)self-&gt;{"name"};
 print("$name is dog, he is sleeping/n");
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-sub bark() {
+sub bark() {<br />
 </p>
 <blockquote>
 my ($self) = @_;
@@ -120,26 +120,26 @@ my \(name = \)self-&gt;{"name"};
 print("$name is dog, he is barking/n");
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-return 1;
+return 1;<br />
 </p>
 
 
 <p>
-bless.pl 
-CODE:
-#!/usr/bin/perl =w
-use strict;
-use person;
-use dog;
+bless.pl <br />
+CODE:<br />
+#!/usr/bin/perl =w<br />
+use strict;<br />
+use person;<br />
+use dog;<br />
 </p>
 
 <p>
-sub main()
-{
+sub main()<br />
+{<br />
 </p>
 <blockquote>
 my $object = {"name" =&gt; "tom"};
@@ -172,11 +172,11 @@ my $object = {"name" =&gt; "tom"};
 
 </ol>
 <p>
-}
+}<br />
 </p>
 
 <p>
-&amp;main();
+&amp;main();<br />
 </p>
 
 <ol>
@@ -205,17 +205,17 @@ tom is person, he is studying
 
 
 <p>
-bless.wrong.pl 
-CODE:
-#!/usr/bin/perl =w
-use strict;
-use person;
-use dog;
+bless.wrong.pl <br />
+CODE:<br />
+#!/usr/bin/perl =w<br />
+use strict;<br />
+use person;<br />
+use dog;<br />
 </p>
 
 <p>
-sub main()
-{
+sub main()<br />
+{<br />
 </p>
 <blockquote>
 my $object = {"name" =&gt; "tom"};
@@ -229,11 +229,11 @@ my $object = {"name" =&gt; "tom"};
 
 </ol>
 <p>
-}
+}<br />
 </p>
 
 <p>
-&amp;main();
+&amp;main();<br />
 </p>
 
 <ol>
@@ -247,29 +247,29 @@ Can't call method "sleep" on unblessed reference at bless.wrong.pl line 10.
 
 
 <p>
-使用c++实现bless的功能
+使用c++实现bless的功能<br />
 </p>
 
 <p>
-c中的代码 
-CODE:
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
+c中的代码 <br />
+CODE:<br />
+#include &lt;stdio.h&gt;<br />
+#include &lt;stdlib.h&gt;<br />
+#include &lt;string.h&gt;<br />
 </p>
 
 <p>
-struct object {
+struct object {<br />
 </p>
 <blockquote>
 char name[16];
 </blockquote>
 <p>
-};
+};<br />
 </p>
 
 <p>
-struct person {
+struct person {<br />
 </p>
 <blockquote>
 char name[16];
@@ -279,11 +279,11 @@ void sleep() { printf("%s is person, he is sleeping/n", this-&gt;name); }
 void study() { printf("%s is person, he is studying/n", this-&gt;name); }
 </blockquote>
 <p>
-};
+};<br />
 </p>
 
 <p>
-struct dog {
+struct dog {<br />
 </p>
 <blockquote>
 char name[16];
@@ -293,16 +293,16 @@ void sleep() { printf("%s is dog, he is sleeping/n", this-&gt;name); }
 void bark() { printf("%s is dog, he is barking/n", this-&gt;name); }
 </blockquote>
 <p>
-};
+};<br />
 </p>
 
 <p>
-#define bless(object, type) ((type*) object)
+#define bless(object, type) ((type*) object)<br />
 </p>
 
 <p>
-int main()
-{
+int main()<br />
+{<br />
 </p>
 <blockquote>
 struct object * o = (struct object *) malloc(sizeof(struct object));
@@ -325,17 +325,17 @@ bless(o, person)-&gt;study();
 return 0;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-// 程序运行时输出：
-// tom is person, he is sleeping
-// tom is person, he is studying
-// tom is dog, he is sleeping
-// tom is dog, he is barking
-// tom is person, he is sleeping
-// tom is person, he is studying
+// 程序运行时输出：<br />
+// tom is person, he is sleeping<br />
+// tom is person, he is studying<br />
+// tom is dog, he is sleeping<br />
+// tom is dog, he is barking<br />
+// tom is person, he is sleeping<br />
+// tom is person, he is studying<br />
 </p>
 
 
@@ -362,8 +362,6 @@ return 0;
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

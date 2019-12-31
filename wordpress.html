@@ -20,60 +20,60 @@
 <li><a href="#toc_1">mysql忘记超级用户密码</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
-1，/space/www
-修改配置文件/space/www/wp-config.php, 修改mysql的帐号名和密码。
+1，/space/www<br />
+修改配置文件/space/www/wp-config.php, 修改mysql的帐号名和密码。<br />
 </p>
 
 <p>
-2，修改数据库
+2，修改数据库<br />
 </p>
 
 <p>
-显示所有的数据库
-show databases
+显示所有的数据库<br />
+show databases<br />
 </p>
 
 
 <p>
-更改权限
+更改权限<br />
 </p>
 
 <p>
-use mysql
+use mysql<br />
 </p>
 
 <p>
-update user set 
-在数据库mysql里面的user表是权限表。
+update user set <br />
+在数据库mysql里面的user表是权限表。<br />
 </p>
 
 
 <h1 id="toc_1">mysql忘记超级用户密码</h1><HR SIZE=1>
 <p>
-先停止mysql
-/etc/init.d/mysqld stop
-mysqld_safe --user=mysql --skip-grant-tables --skip-networking &amp;
-登陆 #mysql -u root mysql
-更改root密码；
-	update user set password = PASSWORD('123456') where user = 'root';
+先停止mysql<br />
+/etc/init.d/mysqld stop<br />
+mysqld_safe --user=mysql --skip-grant-tables --skip-networking &amp;<br />
+登陆 #mysql -u root mysql<br />
+更改root密码；<br />
+	update user set password = PASSWORD('123456') where user = 'root';<br />
 </p>
 
 <p>
-刷新权限
-	FLUSH PRIVILEGES;
+刷新权限<br />
+	FLUSH PRIVILEGES;<br />
 </p>
 	
 <p>
-更改帐号不止localhost能登陆
-	update user set Host= '%' where user = 'ia'
-	flush privileges;
+更改帐号不止localhost能登陆<br />
+	update user set Host= '%' where user = 'ia'<br />
+	flush privileges;<br />
 </p>
 	
 <p>
-重起mysql
-	/etc/init.d/mysqld restart
+重起mysql<br />
+	/etc/init.d/mysqld restart<br />
 </p>
 
 
@@ -100,8 +100,6 @@ mysqld_safe --user=mysql --skip-grant-tables --skip-networking &amp;
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

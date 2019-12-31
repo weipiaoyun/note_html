@@ -17,45 +17,45 @@
 
 <p>
 <a href="资料输出.html">资料输出</a>
-绘片
-1，	step不是只固定panel，还有panel-in panel-cb等
-2，	是否镜像，涨缩系数（内层涨缩可能不一样），正负片，菲林尺寸，解析度，偏移0.1
-3，	机器的选择
+绘片<br />
+1，	step不是只固定panel，还有panel-in panel-cb等<br />
+2，	是否镜像，涨缩系数（内层涨缩可能不一样），正负片，菲林尺寸，解析度，偏移0.1<br />
+3，	机器的选择<br />
 </p>
 
 <p>
-输出tgz
-1，	gerber只输出外层和文字（CTS）
-2，	文字喷墨，调用供应商提供的脚本
-3，	Tgz
+输出tgz<br />
+1，	gerber只输出外层和文字（CTS）<br />
+2，	文字喷墨，调用供应商提供的脚本<br />
+3，	Tgz<br />
 </p>
 
 
 <p>
-输出钻孔
-1，	分为两个夹子，一个是正常（包括默认拉伸），一个是拉伸。
-2，	拉升系数按+1， -1的格式
+输出钻孔<br />
+1，	分为两个夹子，一个是正常（包括默认拉伸），一个是拉伸。<br />
+2，	拉升系数按+1， -1的格式<br />
 </p>
 
 <p>
-正常
-	通常情况下是x1y1，文件的名字是x0y0
-	树脂塞孔和埋孔，喘气板，如果是非开料钻
-1，	如果是二阶板，且塞孔为第一次塞如m38则为X4Y4
-2，	如果是埋孔则为X0Y0，否则塞孔和喘气板为X2Y2
-镭射，如果开料钻，则输出
-通孔的塞孔和喘气板为X1Y1。
+正常<br />
+	通常情况下是x1y1，文件的名字是x0y0<br />
+	树脂塞孔和埋孔，喘气板，如果是非开料钻<br />
+1，	如果是二阶板，且塞孔为第一次塞如m38则为X4Y4<br />
+2，	如果是埋孔则为X0Y0，否则塞孔和喘气板为X2Y2<br />
+镭射，如果开料钻，则输出<br />
+通孔的塞孔和喘气板为X1Y1。<br />
 </p>
 
 <p>
-拉伸
-	输出到scale夹子
+拉伸<br />
+	输出到scale夹子<br />
 </p>
 
 <p>
-输出后处理
-1，	毛刺孔和通孔两个文件合并
-2，	镭射字唛替换。
+输出后处理<br />
+1，	毛刺孔和通孔两个文件合并<br />
+2，	镭射字唛替换。<br />
 </p>
 
 
@@ -82,8 +82,6 @@
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

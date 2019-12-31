@@ -20,42 +20,42 @@
 </p>
 <h1 id="toc_1">线程的同步和异步 </h1><HR SIZE=1>
 <p>
-所谓同步是指对共享资源进行同步或控制对共享资源的访问。
-如果未能正确地使用访问同步，会导致出现一些问题。包括死锁和挣用条件等。
+所谓同步是指对共享资源进行同步或控制对共享资源的访问。<br />
+如果未能正确地使用访问同步，会导致出现一些问题。包括死锁和挣用条件等。<br />
 </p>
 
 
 <h1 id="toc_2">死锁 </h1><HR SIZE=1>
 <p>
-两个线程都停止响应，并且都在等待对方完成。
+两个线程都停止响应，并且都在等待对方完成。<br />
 </p>
 
 <h1 id="toc_3">争用条件 </h1><HR SIZE=1>
 <p>
-意外地出现两个事件的执行时间的临界依赖性而发生反常的结果。
+意外地出现两个事件的执行时间的临界依赖性而发生反常的结果。<br />
 </p>
 
 
 <p>
-所谓同步，是资源的同步。
+所谓同步，是资源的同步。<br />
 </p>
 
 <p>
-需要同步的资源包括：
-	系统资源(如通信端口)
-	多个进程所共享的资源(文件句柄)
-	由多个线程访问的单个应用程序域的资源(如全局、静态、实例字段等)
+需要同步的资源包括：<br />
+	系统资源(如通信端口)<br />
+	多个进程所共享的资源(文件句柄)<br />
+	由多个线程访问的单个应用程序域的资源(如全局、静态、实例字段等)<br />
 </p>
 	
 
 <h1 id="toc_4">后台线程和前台线程 </h1><HR SIZE=1>
 <p>
-后台线程和前台线程的不同点：如果是后台，一旦所有前台线程在托管进程中被终止。系统将停止所有后台线程并关闭。
-IsThreadPoolThread的属性查看是否属于托管线程池的线程。
+后台线程和前台线程的不同点：如果是后台，一旦所有前台线程在托管进程中被终止。系统将停止所有后台线程并关闭。<br />
+IsThreadPoolThread的属性查看是否属于托管线程池的线程。<br />
 </p>
 
 <p>
-从非托管代码进入托管执行环境的所有线程都被标记为后台线程。透过创建并启动新的Thread对象而生成的所有线程都默认为前台线程。
+从非托管代码进入托管执行环境的所有线程都被标记为后台线程。透过创建并启动新的Thread对象而生成的所有线程都默认为前台线程。<br />
 </p>
 
 
@@ -82,8 +82,6 @@ IsThreadPoolThread的属性查看是否属于托管线程池的线程。
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -23,37 +23,37 @@
 
 <h1 id="toc_1">获取datagridview的选中的显示值。 </h1><HR SIZE=1>
 <p>
-GetRowCellDisplayText(dgvJobInfo.View_.FocusedRowHandle, dgvJobInfo.View_.Columns[1]);
+GetRowCellDisplayText(dgvJobInfo.View_.FocusedRowHandle, dgvJobInfo.View_.Columns[1]);<br />
 </p>
 
 
 <h1 id="toc_2">获取dataGridView的当前行，当前列数据。 </h1><HR SIZE=1>
 <p>
- var info = gridview.CalcHitInfo(e.Location);
- if (gridview.GetRowCellValue(info.RowHandle, info.Column).ToString() == "下载")
+ var info = gridview.CalcHitInfo(e.Location);<br />
+ if (gridview.GetRowCellValue(info.RowHandle, info.Column).ToString() == "下载")<br />
 </p>
  
 <p>
-var job = dgvJobInfo.View_.GetRowCellDisplayText(dgvJobInfo.View_.FocusedRowHandle, dgvJobInfo.View_.Columns[1]);
+var job = dgvJobInfo.View_.GetRowCellDisplayText(dgvJobInfo.View_.FocusedRowHandle, dgvJobInfo.View_.Columns[1]);<br />
 </p>
 
 <p>
-var fileName = gridview.GetRowCellValue(gridview.FocusedRowHandle, gridview.Columns.ColumnByName("FileName_")).ToString();
+var fileName = gridview.GetRowCellValue(gridview.FocusedRowHandle, gridview.Columns.ColumnByName("FileName_")).ToString();<br />
 </p>
 
 <h1 id="toc_3">DataGriwView 增加popupMenu 右击菜单 </h1><HR SIZE=1>
 <p>
-工具箱-&gt;添加PopupMenu控件
-下面会显示popupMenu控键。点击控件右上角小箭头-》Run Designer 打开设计器
-Sub Menus &amp; Popup Menus 	Menu-&gt;Add popup menu-&gt;然后添加右击菜单。
+工具箱-&gt;添加PopupMenu控件<br />
+下面会显示popupMenu控键。点击控件右上角小箭头-》Run Designer 打开设计器<br />
+Sub Menus &amp; Popup Menus 	Menu-&gt;Add popup menu-&gt;然后添加右击菜单。<br />
 </p>
 
 
 <h1 id="toc_4">分组后排序变乱 </h1><HR SIZE=1>
 <h2 id="toc_4.1">重新排序 </h2>
 <p>
-sqlGridControlHaveStorage.View_.Columns["group_"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
-sqlGridControlHaveStorage.View_.Columns["LayerIndex_"].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+sqlGridControlHaveStorage.View_.Columns["group_"].SortOrder = DevExpress.Data.ColumnSortOrder.Descending;<br />
+sqlGridControlHaveStorage.View_.Columns["LayerIndex_"].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;<br />
 </p>
 
 
@@ -80,8 +80,6 @@ sqlGridControlHaveStorage.View_.Columns["LayerIndex_"].SortOrder = DevExpress.Da
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

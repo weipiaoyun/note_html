@@ -17,166 +17,166 @@
 
 <h1 id="toc_1">genesis装PDF</h1><HR SIZE=1>
 <p>
-拷贝ps2pdf  ps_merge ps_preview ps_tile
-ps2pdf的set pstill_converter_dir  = "D:/GPStill"路径修改
-夹子拷贝GPStill
-PStillV1.72.8
+拷贝ps2pdf  ps_merge ps_preview ps_tile<br />
+ps2pdf的set pstill_converter_dir  = "D:/GPStill"路径修改<br />
+夹子拷贝GPStill<br />
+PStillV1.72.8<br />
 </p>
 
 <p>
 <a href="genesisWindows板网络板.html">genesisWindows板网络板</a>
-vi inittab
-reboot
-./NVIDIA_Linux~.run
-vi inittab
-reboot
-tar -zxvf odbc-dghdi.tgz
-csh installODBC.csh
-csh installGtk.csh
-install Config-IniFiles-2.38
-install Switch-2.13 perl Makefile.PL &amp;&amp; make &amp;&amp; make test &amp;&amp; make install
-install Text-shellwords-1.08
-这里可能要先安装libX11
-install Tk-804.030
-setup
-cd /gen_db/IMgr
-install autofs
-install ypbind
-ln -s /gen_db/odb1 fw
-ln -s /gen_db/genesis/hosts
-ln -s /gen_db/genesis/logs
-ln -s /gen_db/genesis/sys
-ln -s /tmp
-mkdir share
-cd share
-ln -s /gen_db/genesis/share/.angle1
-ln -s /gen_db/genesis/share/.loks
-ln -s /gen_db/genesis/share/baju
-ln -s /gen_db/genesis/share/groups
-ln 
-scp cam03:/genesis/share/.comms .
-vim /etc/i18n
-scp c
+vi inittab<br />
+reboot<br />
+./NVIDIA_Linux~.run<br />
+vi inittab<br />
+reboot<br />
+tar -zxvf odbc-dghdi.tgz<br />
+csh installODBC.csh<br />
+csh installGtk.csh<br />
+install Config-IniFiles-2.38<br />
+install Switch-2.13 perl Makefile.PL &amp;&amp; make &amp;&amp; make test &amp;&amp; make install<br />
+install Text-shellwords-1.08<br />
+这里可能要先安装libX11<br />
+install Tk-804.030<br />
+setup<br />
+cd /gen_db/IMgr<br />
+install autofs<br />
+install ypbind<br />
+ln -s /gen_db/odb1 fw<br />
+ln -s /gen_db/genesis/hosts<br />
+ln -s /gen_db/genesis/logs<br />
+ln -s /gen_db/genesis/sys<br />
+ln -s /tmp<br />
+mkdir share<br />
+cd share<br />
+ln -s /gen_db/genesis/share/.angle1<br />
+ln -s /gen_db/genesis/share/.loks<br />
+ln -s /gen_db/genesis/share/baju<br />
+ln -s /gen_db/genesis/share/groups<br />
+ln <br />
+scp cam03:/genesis/share/.comms .<br />
+vim /etc/i18n<br />
+scp c<br />
 </p>
 
 
 <p>
-rpm -ivh createrepo
-createrepo -g ~/comps-rh
+rpm -ivh createrepo<br />
+createrepo -g ~/comps-rh<br />
 </p>
 
 <p>
-1, linux系统安装与配置
-		安装nvidia
-		cd hcinstall
-		cd nvidia
-		./NVIDIA-Linux-x86_64-319.17.run
+1, linux系统安装与配置<br />
+		安装nvidia<br />
+		cd hcinstall<br />
+		cd nvidia<br />
+		./NVIDIA-Linux-x86_64-319.17.run<br />
 	1，安装好后先把libXp和libstdc++装好<a href="yum源.html">yum源</a>
 	2，设置好网络 <a href="linux网络与共享.html">linux网络与共享</a>
 	3，配置好hostname(/etc/sysconfig/network)<a href="hostname.html">hostname</a>和/etc/hosts<a href="hosts.html">hosts</a>
 	4, 配置genesis帐号 <a href="linux用户管理.html">linux用户管理</a>
-	5，安装软件
-		1,Name:app_gen
-		2,Version:v100
-		3,O.S.:linux
-		4,安装服务器版本
-	5, 拷贝license,get,gnd
-	7, 拷贝
+	5，安装软件<br />
+		1,Name:app_gen<br />
+		2,Version:v100<br />
+		3,O.S.:linux<br />
+		4,安装服务器版本<br />
+	5, 拷贝license,get,gnd<br />
+	7, 拷贝<br />
 	8, 安装odbc，在安装之前需要安装DBI <a href="DBD和DBI的安装.html">DBD和DBI的安装</a> <a href="odbc安装.html">odbc安装</a>
 <a href="odbc安装.html">odbc安装</a>
-2，安装完后把app_gen考过去，重新启动，登录genesis，帐号为sys。
+2，安装完后把app_gen考过去，重新启动，登录genesis，帐号为sys。<br />
 </p>
 
 <p>
-前后注意genesis的权限问题
-/genesis里面所有的权限为 genesis:users 755
+前后注意genesis的权限问题<br />
+/genesis里面所有的权限为 genesis:users 755<br />
 </p>
 
 
 <p>
-3，处理错误
-	a,安装Tk-804.030.tar.gz
-	b,安装Text-Shellwords-1.08.tar.gz
-		tar -xvzf Text-Shellwords-1.08.tar.gz
-		cd Text-Shellwords-1.08
-		perl Makefile.PL
-		make install
-		perl -e "use Text::Shellwords"
-	c,安装Switch-2.13.tar.gz
-	d,修改/etc/sysconfig/i18n
+3，处理错误<br />
+	a,安装Tk-804.030.tar.gz<br />
+	b,安装Text-Shellwords-1.08.tar.gz<br />
+		tar -xvzf Text-Shellwords-1.08.tar.gz<br />
+		cd Text-Shellwords-1.08<br />
+		perl Makefile.PL<br />
+		make install<br />
+		perl -e "use Text::Shellwords"<br />
+	c,安装Switch-2.13.tar.gz<br />
+	d,修改/etc/sysconfig/i18n<br />
 </p>
 	
 
 <p>
-1,防火墙和selinux问题
-2,账号
-3，权限
+1,防火墙和selinux问题<br />
+2,账号<br />
+3，权限<br />
 </p>
 <h2 id="toc_1.1">genesis修改Ip</h2>
 <p>
-1，修改主机的IP /etc/sysconfig/network-scripts/eth0-ifg
-2, 修改hosts文件 /etc/hosts
-3, 修改/genesis/share/.command里面的gnd
+1，修改主机的IP /etc/sysconfig/network-scripts/eth0-ifg<br />
+2, 修改hosts文件 /etc/hosts<br />
+3, 修改/genesis/share/.command里面的gnd<br />
 </p>
 	
 
 <h2 id="toc_1.2">客户端安装</h2>
 <p>
-1，网络设置;(修改IP地址)
-2，更改主机名。(建立或重设genesis帐号名)
-3，在根目录新建genesis和gen_db文件夹
-4，在gen_db里面设置自动mount;autofs
-5, 拷贝e100，e93到/genesis目录下，并链接其它文件
-6，/usr/lib/libXp.so.6拷贝
-7，拷贝主目录下面的.cshrc
-8, 拷贝/usr/bin/MainWindow(程序主界面)
-10，安装Tk模块
-11，安装Text-ShellWords-1.08
-12，启动
+1，网络设置;(修改IP地址)<br />
+2，更改主机名。(建立或重设genesis帐号名)<br />
+3，在根目录新建genesis和gen_db文件夹<br />
+4，在gen_db里面设置自动mount;autofs<br />
+5, 拷贝e100，e93到/genesis目录下，并链接其它文件<br />
+6，/usr/lib/libXp.so.6拷贝<br />
+7，拷贝主目录下面的.cshrc<br />
+8, 拷贝/usr/bin/MainWindow(程序主界面)<br />
+10，安装Tk模块<br />
+11，安装Text-ShellWords-1.08<br />
+12，启动<br />
 </p>
 
 <h2 id="toc_1.3">92版本转为97版本</h2>
 <p>
-1，拷贝e97
-2，拷贝share/license
-3, 终端进入D:/genesis/e97/gnd
-	gnd -remove
-	gnd -install
-4，修改环境变量
-5，控制面板-&gt;管理工具-&gt;服务-&gt;Frontline gnd 重新启动
-6，注释掉D:/genesis/sys/frontline_prog，以防dfm更新错误，执行出错
-7, 修改启动文件
+1，拷贝e97<br />
+2，拷贝share/license<br />
+3, 终端进入D:/genesis/e97/gnd<br />
+	gnd -remove<br />
+	gnd -install<br />
+4，修改环境变量<br />
+5，控制面板-&gt;管理工具-&gt;服务-&gt;Frontline gnd 重新启动<br />
+6，注释掉D:/genesis/sys/frontline_prog，以防dfm更新错误，执行出错<br />
+7, 修改启动文件<br />
 </p>
 
 <h2 id="toc_1.4">禁止的服务</h2>
 <p>
-/sbin/chkconfig blutetooth off
-/sbin/chkconfig cpuspeed off
-ip6tables off
-iscsi off
-iscsid off
-isdn off
-sendmail off
-xinetd off
-yum_updatesd
+/sbin/chkconfig blutetooth off<br />
+/sbin/chkconfig cpuspeed off<br />
+ip6tables off<br />
+iscsi off<br />
+iscsid off<br />
+isdn off<br />
+sendmail off<br />
+xinetd off<br />
+yum_updatesd<br />
 </p>
 
 <h2 id="toc_1.5">问题</h2>
 <p>
-如果服务器不让mount上去
-	修改Ip以后能mount上去
+如果服务器不让mount上去<br />
+	修改Ip以后能mount上去<br />
 </p>
 
 <h2 id="toc_1.6">待解决</h2>
 <p>
-小键盘
+小键盘<br />
 </p>
 
 
 
 <h1 id="toc_2">安装itcl</h1><HR SIZE=1>
 <p>
-tclConfig的路径，在/usr/lib
+tclConfig的路径，在/usr/lib<br />
 </p>
 
 
@@ -203,8 +203,6 @@ tclConfig的路径，在/usr/lib
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

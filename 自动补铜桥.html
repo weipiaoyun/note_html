@@ -16,28 +16,28 @@
 <body>
 
 <p>
-s107531t03a0
-通过削桥命令补铜桥，cover到原稿的就是需要补的铜桥
+s107531t03a0<br />
+通过削桥命令补铜桥，cover到原稿的就是需要补的铜桥<br />
 </p>
 
 
 <p>
-DFM-&gt;Optimization-&gt;Solder Mask Opt   能削桥的条件，必须保证不开窗漏铜,pad大一点，补出来的铜桥长一点
+DFM-&gt;Optimization-&gt;Solder Mask Opt   能削桥的条件，必须保证不开窗漏铜,pad大一点，补出来的铜桥长一点<br />
 </p>
 
 <p>
-当前层删掉原来的铜桥
-在备份层选择
-1，选择铜皮拷贝到butong-cu
-3，没有碰到铜皮的pad(会掏铜皮的PAD),拷贝到butong-pad
-*4，孔层碰butong-all(剩余会掏铜皮的pad)，碰到的是需要补铜皮的孔(用孔去做铜桥，如果用pad，可能出现一个pad大，一个pad小，出现补的桥不再两个孔的正中间)
-5，pad加大掏铜大小，改变属性作为线路层
-6，加大30um，作为防焊放在线路层上面。butong-sm
-7，butong-pad 防焊优化，做出桥
-8，butong-sm 删除除了不是负片的东西，留下桥，转正极性，去除重复线
-9，除了cover到butong-cu的(原稿有铜皮的)，其余删除
-touch pad掏铜的大小，孔掏铜的大小(保证只有间距较小的才拷贝过去)，touch到的拷贝到对应的层
-10，把桥拷贝到对应的层
+当前层删掉原来的铜桥<br />
+在备份层选择<br />
+1，选择铜皮拷贝到butong-cu<br />
+3，没有碰到铜皮的pad(会掏铜皮的PAD),拷贝到butong-pad<br />
+*4，孔层碰butong-all(剩余会掏铜皮的pad)，碰到的是需要补铜皮的孔(用孔去做铜桥，如果用pad，可能出现一个pad大，一个pad小，出现补的桥不再两个孔的正中间)<br />
+5，pad加大掏铜大小，改变属性作为线路层<br />
+6，加大30um，作为防焊放在线路层上面。butong-sm<br />
+7，butong-pad 防焊优化，做出桥<br />
+8，butong-sm 删除除了不是负片的东西，留下桥，转正极性，去除重复线<br />
+9，除了cover到butong-cu的(原稿有铜皮的)，其余删除<br />
+touch pad掏铜的大小，孔掏铜的大小(保证只有间距较小的才拷贝过去)，touch到的拷贝到对应的层<br />
+10，把桥拷贝到对应的层<br />
 </p>
 
 
@@ -64,8 +64,6 @@ touch pad掏铜的大小，孔掏铜的大小(保证只有间距较小的才拷�
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

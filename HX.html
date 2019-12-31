@@ -32,26 +32,26 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <h1 id="toc_1">HX </h1><HR SIZE=1>
 <h2 id="toc_1.1">规范 </h2>
 <h2 id="toc_1.2">大孔规范 </h2>
 <p>
-PTH：
-都要加4.0的预钻是吧？然后5.5-6.35的是钻出，大于6.35是锣出，放pth和jxt层。
+PTH：<br />
+都要加4.0的预钻是吧？然后5.5-6.35的是钻出，大于6.35是锣出，放pth和jxt层。<br />
 </p>
 
 <p>
-NPTH
-当NPTH孔选用钻咀大于5.3mm时，直接把原稿NPTH孔转为outline放到GKO即可，不用补偿，5.3以下的钻出，不用加预钻孔
+NPTH<br />
+当NPTH孔选用钻咀大于5.3mm时，直接把原稿NPTH孔转为outline放到GKO即可，不用补偿，5.3以下的钻出，不用加预钻孔<br />
 </p>
 
 
 <h1 id="toc_2">全局参数 </h1><HR SIZE=1>
 <p>
-select d279.*,d278.PARAMETER_DESC
-	  FROM     sj_v20_live.dbo.Data0279 as d279
-	  inner join sj_v20_live.dbo.Data0025 as d25 on d25.RKEY = d279.SOURCE_PTR 
+select d279.*,d278.PARAMETER_DESC<br />
+	  FROM     sj_v20_live.dbo.Data0279 as d279<br />
+	  inner join sj_v20_live.dbo.Data0025 as d25 on d25.RKEY = d279.SOURCE_PTR <br />
 </p>
 <blockquote>
 inner join sj_v20_live.dbo.data0278 as d278 on d278.RKEY = d279.PARAMETER_PTR 
@@ -62,62 +62,62 @@ where d25.MANU_PART_NUMBER like 's08i001815' and d278.PARAMETER_DESC like '%孔%
 
 <h2 id="toc_2.1">孔铜 </h2>
 <p>
-update sj_v20_live.dbo.Data0279 set PARAMETER_VALUE = '0.23'
-where RKEY = (select RKEY  from sj_v20_live.dbo.Data0279 where PARAMETER_PTR = '2346'
-and SOURCE_PTR  = (select RKEY from sj_v20_live.dbo.Data0025 where MANU_PART_NUMBER = 'S06I003750')
-)
+update sj_v20_live.dbo.Data0279 set PARAMETER_VALUE = '0.23'<br />
+where RKEY = (select RKEY  from sj_v20_live.dbo.Data0279 where PARAMETER_PTR = '2346'<br />
+and SOURCE_PTR  = (select RKEY from sj_v20_live.dbo.Data0025 where MANU_PART_NUMBER = 'S06I003750')<br />
+)<br />
 </p>
 
 <h1 id="toc_3">流程参数 </h1><HR SIZE=1>
 <p>
-update Data0494 SET PARAMETER_VALUE = '0.13' WHERE  rkey = (
-		select d494.RKEY
+update Data0494 SET PARAMETER_VALUE = '0.13' WHERE  rkey = (<br />
+		select d494.RKEY<br />
 </p>
 
 <p>
-	  FROM     Data0050 as d50
-	  inner join Data0025 as d25 on d50.RKEY = d25.ANCESTOR_PTR
+	  FROM     Data0050 as d50<br />
+	  inner join Data0025 as d25 on d50.RKEY = d25.ANCESTOR_PTR<br />
 </p>
 <blockquote>
 INNER JOIN  dbo.Data0038 AS D38 ON d25.RKEY = D38.SOURCE_PTR
 </blockquote>
 <p>
-		 INNER JOIN dbo.Data0494  as d494 on d494.ROUTE_STEP_PTR = D38.RKEY
-		 INNER JOIN  dbo.Data0278 AS D278 ON D494.PARAMETER_PTR = D278.RKEY
-		 INNER JOIN  dbo.Data0034 AS D34 ON D34.RKEY = d38.DEPT_PTR
+		 INNER JOIN dbo.Data0494  as d494 on d494.ROUTE_STEP_PTR = D38.RKEY<br />
+		 INNER JOIN  dbo.Data0278 AS D278 ON D494.PARAMETER_PTR = D278.RKEY<br />
+		 INNER JOIN  dbo.Data0034 AS D34 ON D34.RKEY = d38.DEPT_PTR<br />
 </p>
 		
 <p>
-		where d50.CUSTOMER_PART_NUMBER + d50.CP_REV = 's08i001815a0' and d278.RKEY = '2222'
+		where d50.CUSTOMER_PART_NUMBER + d50.CP_REV = 's08i001815a0' and d278.RKEY = '2222'<br />
 </p>
 
 
 
 <p>
-select d25.MANU_PART_NUMBER ,d494.PARAMETER_VALUE,d278.PARAMETER_DESC,d278.RKEY ,d38.STEP_NUMBER,d34.DEPT_NAME,d38.FLOW_NO
+select d25.MANU_PART_NUMBER ,d494.PARAMETER_VALUE,d278.PARAMETER_DESC,d278.RKEY ,d38.STEP_NUMBER,d34.DEPT_NAME,d38.FLOW_NO<br />
 </p>
 
 <p>
-	  FROM     Data0050 as d50
-	  inner join Data0025 as d25 on d50.RKEY = d25.ANCESTOR_PTR
+	  FROM     Data0050 as d50<br />
+	  inner join Data0025 as d25 on d50.RKEY = d25.ANCESTOR_PTR<br />
 </p>
 <blockquote>
 INNER JOIN  dbo.Data0038 AS D38 ON d25.RKEY = D38.SOURCE_PTR
 </blockquote>
 <p>
-		 INNER JOIN dbo.Data0494  as d494 on d494.ROUTE_STEP_PTR = D38.RKEY
-		 INNER JOIN  dbo.Data0278 AS D278 ON D494.PARAMETER_PTR = D278.RKEY
-		 INNER JOIN  dbo.Data0034 AS D34 ON D34.RKEY = d38.DEPT_PTR
-		where d50.CUSTOMER_PART_NUMBER like '%s08i001815%'
-		order by d38.STEP_NUMBER
+		 INNER JOIN dbo.Data0494  as d494 on d494.ROUTE_STEP_PTR = D38.RKEY<br />
+		 INNER JOIN  dbo.Data0278 AS D278 ON D494.PARAMETER_PTR = D278.RKEY<br />
+		 INNER JOIN  dbo.Data0034 AS D34 ON D34.RKEY = d38.DEPT_PTR<br />
+		where d50.CUSTOMER_PART_NUMBER like '%s08i001815%'<br />
+		order by d38.STEP_NUMBER<br />
 </p>
 		
 
 <h2 id="toc_3.1">获取蓝胶面数的Rkey </h2>
 
 <p>
-SELECT *
-  FROM [sj_v20_live].[dbo].[Data0278] where PARAMETER_DESC like '%蓝胶面数%'
+SELECT *<br />
+  FROM [sj_v20_live].[dbo].[Data0278] where PARAMETER_DESC like '%蓝胶面数%'<br />
 </p>
 
 
@@ -144,8 +144,6 @@ SELECT *
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -17,88 +17,88 @@
 
 
 <p>
-------------------------C. 常见特殊变量-----------------------
-1. $_
-$ARG，常常是一个默认变量
+------------------------C. 常见特殊变量-----------------------<br />
+1. $_<br />
+$ARG，常常是一个默认变量<br />
 </p>
 
 <p>
-2. @_
-@ARG，子例程参数表
+2. @_<br />
+@ARG，子例程参数表<br />
 </p>
 
 <p>
-3. $0
-$PROGRAM_NAME，本程序的名字。路径名字
+3. $0<br />
+$PROGRAM_NAME，本程序的名字。路径名字<br />
 </p>
 
 <p>
-4. @ARGV
-本程序的命令行参数表
+4. @ARGV<br />
+本程序的命令行参数表<br />
 </p>
 
 <p>
-5. $"
-$LIST_SEPARATOR，数组内插到双引号字符串中时所用的分隔符，
-默认为空格
+5. $"<br />
+$LIST_SEPARATOR，数组内插到双引号字符串中时所用的分隔符，<br />
+默认为空格<br />
 </p>
 
 <p>
-6. $,
-\(OFS，或\)OUTPUT_FIELD_SEPARATOR，用于print的输出字段分隔符，
-即一个print语句中用逗号分隔的部分之间用什么分隔，默认为无
+6. $,<br />
+\(OFS，或\)OUTPUT_FIELD_SEPARATOR，用于print的输出字段分隔符，<br />
+即一个print语句中用逗号分隔的部分之间用什么分隔，默认为无<br />
 </p>
 
 <p>
-7. $\
-\(ORS，或\)OUTPUT_RECORD_SEPARATOR，用于print的输出记录分隔符，
-即一个print语句结束时末尾添加什么，默认为无
+7. $\<br />
+\(ORS，或\)OUTPUT_RECORD_SEPARATOR，用于print的输出记录分隔符，<br />
+即一个print语句结束时末尾添加什么，默认为无<br />
 </p>
 
 <p>
-8. $/
-\(RS，或\)INPUT_RECORD_SEPARATOR，输入记录分隔符，改变了readline，
-&lt;FH&gt;和chomp对于“行”的看法，默认为换行符
+8. $/<br />
+\(RS，或\)INPUT_RECORD_SEPARATOR，输入记录分隔符，改变了readline，<br />
+&lt;FH&gt;和chomp对于“行”的看法，默认为换行符<br />
 </p>
 
 <p>
-9. $.
-\(NR，或\)INPUT_LINE_NUMBER，最后读取的“行”号(注意行的概念可能
-被8所改变)
+9. $.<br />
+\(NR，或\)INPUT_LINE_NUMBER，最后读取的“行”号(注意行的概念可能<br />
+被8所改变)<br />
 </p>
 
 <p>
-10. $|
-\(AUTOFLUSH，或\)OUTPUT_AUTOFLUSH，输出缓冲区开关，默认为0，即关
+10. $|<br />
+\(AUTOFLUSH，或\)OUTPUT_AUTOFLUSH，输出缓冲区开关，默认为0，即关<br />
 </p>
 
 <p>
-11. $$
-\(PID，或\)PROCESS_ID，本脚本的进程号(PID)
+11. $$<br />
+\(PID，或\)PROCESS_ID，本脚本的进程号(PID)<br />
 </p>
 
 <p>
-12. $!
-\(ERRNO，或\)OS_ERROR，上一次系统调用错误值
+12. $!<br />
+\(ERRNO，或\)OS_ERROR，上一次系统调用错误值<br />
 </p>
 
 <p>
-13. $@
-$EVAL_ERROR，上一次eval操作错误值
+13. $@<br />
+$EVAL_ERROR，上一次eval操作错误值<br />
 </p>
 
 <p>
-14. $^I
-$INPLACE_EDIT，现场编辑的备份文件扩展名
+14. $^I<br />
+$INPLACE_EDIT，现场编辑的备份文件扩展名<br />
 </p>
 
 <p>
-15. %ENV
-当前环境变量
+15. %ENV<br />
+当前环境变量<br />
 </p>
 
 <p>
-16. 与正则表达式相关的几个量
+16. 与正则表达式相关的几个量<br />
 <table>
 <tr>
 <td>
@@ -112,7 +112,7 @@ $INPLACE_EDIT，现场编辑的备份文件扩展名
 </td>
 </tr>
 </table>
-/ ------- mmmmmmmm ++++++++/ =&gt; 正则表达式(注意：空格不代表实际空格)
+/ ------- mmmmmmmm ++++++++/ =&gt; 正则表达式(注意：空格不代表实际空格)<br />
 <table class='center'>
 <tr>
 <td>
@@ -123,29 +123,29 @@ $INPLACE_EDIT，现场编辑的备份文件扩展名
 </td>
 </tr>
 </table>
- 0  (\(-[0])      (\)+[0])
+ 0  (\(-[0])      (\)+[0])<br />
 </p>
 
 <p>
-17. $^O
-操作系统名称。
-或者
-use English;
-print $OSNAME;
-或者
-use Config;
-print $Config{'osname'};
+17. $^O<br />
+操作系统名称。<br />
+或者<br />
+use English;<br />
+print $OSNAME;<br />
+或者<br />
+use Config;<br />
+print $Config{'osname'};<br />
 </p>
 
 <p>
-#获取主机名
-use Sys::Hostname;
-my $hostName = hostname();
+#获取主机名<br />
+use Sys::Hostname;<br />
+my $hostName = hostname();<br />
 </p>
 
 
 <p>
-$EVN{HOST}
+$EVN{HOST}<br />
 </p>
 
 
@@ -172,8 +172,6 @@ $EVN{HOST}
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

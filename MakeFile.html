@@ -16,46 +16,46 @@
 <body>
 
 <p>
-Makefile:条件执行，后面的文件只要时间有变，就得重新编译。
-Make如何工作：
-1，输入make执行命令以后，make会找到makefile文件
-2，找到第一个目标文件，也是最终的目标文件
-3，执不执行后面的命令就看目标文件是不是存在或者是目标文件的时间比依赖文件还早，这说明也要更新。
-4，根据第一个目标文件，找到依赖文件的生成命令。一般是.o文件
+Makefile:条件执行，后面的文件只要时间有变，就得重新编译。<br />
+Make如何工作：<br />
+1，输入make执行命令以后，make会找到makefile文件<br />
+2，找到第一个目标文件，也是最终的目标文件<br />
+3，执不执行后面的命令就看目标文件是不是存在或者是目标文件的时间比依赖文件还早，这说明也要更新。<br />
+4，根据第一个目标文件，找到依赖文件的生成命令。一般是.o文件<br />
 </p>
 
 <p>
-注意：1.如果没有依赖关系的东西，像clean，因为第一个目标程序不需要它，所以，你要执行他只有之间make它。
-2，如果发现有错误，又没有—那么他会直接退出。
-3，clean是伪目标，它不是正真的目标，即它不是文件，不存在
-4，clean放到最后
+注意：1.如果没有依赖关系的东西，像clean，因为第一个目标程序不需要它，所以，你要执行他只有之间make它。<br />
+2，如果发现有错误，又没有—那么他会直接退出。<br />
+3，clean是伪目标，它不是正真的目标，即它不是文件，不存在<br />
+4，clean放到最后<br />
 </p>
 
 
 
 
 <p>
-$@，表示规则中的目标。
+$@，表示规则中的目标。<br />
 </p>
 
 <p>
-$&lt;，表示规则中的第一个条件。
+$&lt;，表示规则中的第一个条件。<br />
 </p>
 
 <p>
-$?，表示规则中所有比目标新的条件，组成一个列表，以空格分隔。
+$?，表示规则中所有比目标新的条件，组成一个列表，以空格分隔。<br />
 </p>
 
 <p>
-$^，表示规则中的所有条件，组成一个列表，以空格分隔。
+$^，表示规则中的所有条件，组成一个列表，以空格分隔。<br />
 </p>
 
 <p>
-Make 目标，如果指定了目标，则更新目标，如果不指定则更新第一条目标。
+Make 目标，如果指定了目标，则更新目标，如果不指定则更新第一条目标。<br />
 </p>
 
 <p>
-只要执行了命令列表就算是已经更新了目标。即使目标没有生成也算，比如clean
+只要执行了命令列表就算是已经更新了目标。即使目标没有生成也算，比如clean<br />
 </p>
 
 
@@ -82,8 +82,6 @@ Make 目标，如果指定了目标，则更新目标，如果不指定则更新
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

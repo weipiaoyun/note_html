@@ -30,9 +30,9 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
-程序按功能分可以分为：数值运算，符号处理，io操作。符号处理占了绝大部分。
+程序按功能分可以分为：数值运算，符号处理，io操作。符号处理占了绝大部分。<br />
 </p>
 
 <p>
@@ -41,29 +41,29 @@
 
 <h1 id="toc_1">this指针 </h1><HR SIZE=1>
 <p>
-在普通的非 const成员函数中，this的类型是一个指向类类型的(const)指针。
-可以改变this所指向的值，但不能改变 this所保存的地址(地址不变，可变地址对应的地方存放的内容)
-在 const成员函数中，this的类型是一个指向 const类类型对象的 const指针。既不能改变 this所指向的对象，也不能改变 this所保存的地址。
+在普通的非 const成员函数中，this的类型是一个指向类类型的(const)指针。<br />
+可以改变this所指向的值，但不能改变 this所保存的地址(地址不变，可变地址对应的地方存放的内容)<br />
+在 const成员函数中，this的类型是一个指向 const类类型对象的 const指针。既不能改变 this所指向的对象，也不能改变 this所保存的地址。<br />
 </p>
 
 
 <p>
-const更大的魅力是它可以修饰函数的参数、返回值，甚至函数的定义体。
-被const修饰的东西都受到强制保护，可以预防意外的变动，能提高程序的健壮性。所以很多C++程序设计书籍建议：“Useconst whenever you need”。
+const更大的魅力是它可以修饰函数的参数、返回值，甚至函数的定义体。<br />
+被const修饰的东西都受到强制保护，可以预防意外的变动，能提高程序的健壮性。所以很多C++程序设计书籍建议：“Useconst whenever you need”。<br />
 </p>
 
 
 <p>
-void StringCopy(char*strDestination, const char *strSource);
-这是一个复制字符串的函数。第一个为输出参数。第二个为输入参数。输出参数如果加const，则不能改变。输出参数作为参数可以防止改变。如果输入参数采用“指针传递”，那么加const修饰可以防止意外地改动该指针，起到保护作用。
+void StringCopy(char*strDestination, const char *strSource);<br />
+这是一个复制字符串的函数。第一个为输出参数。第二个为输入参数。输出参数如果加const，则不能改变。输出参数作为参数可以防止改变。如果输入参数采用“指针传递”，那么加const修饰可以防止意外地改动该指针，起到保护作用。<br />
 </p>
 
 
 <h1 id="toc_2">编译程序 </h1><HR SIZE=1>
 <p>
-编辑.c文件，vim test.c
-编译gcc test.c
-执行 ./a.out
+编辑.c文件，vim test.c<br />
+编译gcc test.c<br />
+执行 ./a.out<br />
 </p>
 
 <p>
@@ -132,7 +132,7 @@ vs中找不到qt5。工具-》扩展和更新-》搜索qt-》安装完后点QT5-
 
 
 <p>
-c++环境搭建
+c++环境搭建<br />
 </p>
 <ol>
 <li>
@@ -144,31 +144,31 @@ c:/mingw32
 </ol>
 <h2 id="toc_4.1">linux </h2>
 <p>
-源码安装freetds
- ./configure --prefix=/usr/local/freetds --enable-msdblib
+源码安装freetds<br />
+ ./configure --prefix=/usr/local/freetds --enable-msdblib<br />
 </p>
  
 <p>
-/usr/local/freetds/bin/tsql -H 172.18.2.240 -p 1433 -D EngSys -U sa -P D018002240 
+/usr/local/freetds/bin/tsql -H 172.18.2.240 -p 1433 -D EngSys -U sa -P D018002240 <br />
 </p>
 
 
 <p>
-qt-everywhere-opensource-src-4.8.7.tar
+qt-everywhere-opensource-src-4.8.7.tar<br />
 </p>
 
 <p>
-qt-creator-linux-x86_64-opensource-2.5.2
+qt-creator-linux-x86_64-opensource-2.5.2<br />
 </p>
 
 <h3 id="toc_4.1.1">访问不了odbc </h3>
 <p>
-yum list | grep odbc #把所有带odbc的安装后即可。
+yum list | grep odbc #把所有带odbc的安装后即可。<br />
 </p>
 
 <h2 id="toc_4.2">问题</h2>
 <p>
-switch后面可不可以调用函数。
+switch后面可不可以调用函数。<br />
 </p>
 
 
@@ -201,8 +201,6 @@ switch后面可不可以调用函数。
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

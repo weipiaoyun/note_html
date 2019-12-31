@@ -29,212 +29,212 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <h1 id="toc_1">linux的特殊权限</h1><HR SIZE=1>
 <p>
-getfacl（获取）、setfacl（设置）
+getfacl（获取）、setfacl（设置）<br />
 </p>
 
 <p>
-特殊权限有三个：SetUID，SetGID，setbit
+特殊权限有三个：SetUID，SetGID，setbit<br />
 </p>
 
 <h2 id="toc_1.1">SetUID</h2>
 <p>
-当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行
+当一个具有执行权限的文件设置SetUID权限后，用户执行这个文件时将以文件所有者的身份执行<br />
 </p>
 
 <p>
-/usr/bin/passwd
-/etc/passwd, /etc/shadow只有超级用户才有权限写，其也有权限就是因为passwd是setUid的，相当于超级用户执行。
-SetUID只针对具有可执行权限的文件有效，无执行权限的时候添加setuid，由小s编程了大S
+/usr/bin/passwd<br />
+/etc/passwd, /etc/shadow只有超级用户才有权限写，其也有权限就是因为passwd是setUid的，相当于超级用户执行。<br />
+SetUID只针对具有可执行权限的文件有效，无执行权限的时候添加setuid，由小s编程了大S<br />
 </p>
 
 
 <p>
-vi /etc/fstab
-LABEL=/home       /home     ext3        defaults,nosuid              1     2
-mount -o remount /home
+vi /etc/fstab<br />
+LABEL=/home       /home     ext3        defaults,nosuid              1     2<br />
+mount -o remount /home<br />
 </p>
 
 <p>
-分区/home上任何可执行文件即使被设置了SetUID权限也无法执行
+分区/home上任何可执行文件即使被设置了SetUID权限也无法执行<br />
 </p>
 
 <h2 id="toc_1.2">危险的setuid</h2>
 <p>
-如果把/bin/vi 设置成setuid，则当使用vi取修改任何东西都可以，以为vi是属于root用户的。
+如果把/bin/vi 设置成setuid，则当使用vi取修改任何东西都可以，以为vi是属于root用户的。<br />
 </p>
 
 
 <h2 id="toc_1.3">SetGID</h2>
 <p>
-chmod 2755 filename
-chmod g+s filename
-chmod g-s filename
+chmod 2755 filename<br />
+chmod g+s filename<br />
+chmod g-s filename<br />
 </p>
 
 <h2 id="toc_1.4">粘着位t</h2>
 <p>
-	/tmp目录，所有人都能写，但只能删除自己存放的。drwxrwxrwt
-	chmod o+t /test   # 或 chmod 1777 /test
+	/tmp目录，所有人都能写，但只能删除自己存放的。drwxrwxrwt<br />
+	chmod o+t /test   # 或 chmod 1777 /test<br />
 </p>
 	
 <h2 id="toc_1.5">chattr</h2>
 
 
 <p>
-chatrr只有超人root用户可以使用，用来修改文件的权限属性，建立凌驾于rwx基础权限之上的授权。
-在此介绍两个常用选项：
-a  (不允许删除) 只允许在文件后追加数据，如果目录具有此属性，系统将只允许在目录下建立和修改文件，而不允许删除任何文件。
+chatrr只有超人root用户可以使用，用来修改文件的权限属性，建立凌驾于rwx基础权限之上的授权。<br />
+在此介绍两个常用选项：<br />
+a  (不允许删除) 只允许在文件后追加数据，如果目录具有此属性，系统将只允许在目录下建立和修改文件，而不允许删除任何文件。<br />
 </p>
 
 <p>
-i  不允许对文件进行任何修改，如果目录具有此属性，那么只能修改目录下的文件，不允许建立和删除文件。
-chattr +i README
-chattr -i README
+i  不允许对文件进行任何修改，如果目录具有此属性，那么只能修改目录下的文件，不允许建立和删除文件。<br />
+chattr +i README<br />
+chattr -i README<br />
 </p>
 
 <p>
-lsattr README
-----i-------- README
+lsattr README<br />
+----i-------- README<br />
 </p>
 
 
 <h2 id="toc_1.6">权限之ACL</h2>
 <p>
-较为复杂的权限设置,设定多组权限中间用逗号分隔,文件权限位后增加了一个加号,说明设置了ACL。
-setfacl -m u:zhangsan:rwx,u:lisi:r,u:wangwu:rw,g:bakgroup:rx /backup/log
-setfacl -m user:m1159:rwx myfile.txt
-getfacl myfile.txt
-setfacl -b myfile.txt
+较为复杂的权限设置,设定多组权限中间用逗号分隔,文件权限位后增加了一个加号,说明设置了ACL。<br />
+setfacl -m u:zhangsan:rwx,u:lisi:r,u:wangwu:rw,g:bakgroup:rx /backup/log<br />
+setfacl -m user:m1159:rwx myfile.txt<br />
+getfacl myfile.txt<br />
+setfacl -b myfile.txt<br />
 </p>
 
 <p>
-查看详细权限设置
-getfacl test
+查看详细权限设置<br />
+getfacl test<br />
 </p>
 
 <p>
-这样即可实现Linux中文件/目录的复杂权限控制，要注意的是ACL优先于基本权限设置，也就是说如果默认所属组为rx权限，但是ACL若指定了所属组中某个成员为rwx权限，则此成员拥有rwx权限。
+这样即可实现Linux中文件/目录的复杂权限控制，要注意的是ACL优先于基本权限设置，也就是说如果默认所属组为rx权限，但是ACL若指定了所属组中某个成员为rwx权限，则此成员拥有rwx权限。<br />
 </p>
 
 
 <p>
-zhaoliu           Helen=/etc/rc.d/init.d/httpd reload,/etc/rc.d/init.d/httpd configtest
+zhaoliu           Helen=/etc/rc.d/init.d/httpd reload,/etc/rc.d/init.d/httpd configtest<br />
 </p>
 
 
 
 <h2 id="toc_1.7">Sudo特权</h2>
 <p>
-用户名/用户组名              主机地址=授权命令（绝对路径）
-zhaoliu           Helen=/etc/rc.d/init.d/httpd reload,/etc/rc.d/init.d/httpd configtest
-zhaoliu           Helen=/etc/rc.d/init.d/httpd reload,/etc/rc.d/init.d/httpd configtest
+用户名/用户组名              主机地址=授权命令（绝对路径）<br />
+zhaoliu           Helen=/etc/rc.d/init.d/httpd reload,/etc/rc.d/init.d/httpd configtest<br />
+zhaoliu           Helen=/etc/rc.d/init.d/httpd reload,/etc/rc.d/init.d/httpd configtest<br />
 </p>
 
 <p>
-sudo -l
-sudo /sbin/shutdown -h now
-</p>
-
-
-<p>
-drwxrwsr-- root cam
-</p>
-
-<p>
-如果m3009用户属于camm mi cam等组，这个夹子允许cam组进入，进入的时候以cam组的身份运行，比如创建(命令的所属组)的文件，或修改(命令的所属组)文件后，文件所属的组也是cam组。如果是drwxrwxr-- root cam，以cam的身份进入以后，所创建的文件不一定是cam组
-</p>
-
-<p>
-(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。 w(Write,写入)：对文件而言，具有新增、修改文件内容的权限；对目录来说，具有删除、移动目录内文件的权限。x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。s或S（SUID,Set UID）：可执行的文件搭配这个权限，便能得到特权，任意存取该文件的所有者能使用的全部系统资源。请注意具备SUID权限的文件，黑客经常利用这种权限，以SUID配上root帐号拥有者，无声无息地在系统中开扇后门，供日后进出使用。T或T（Sticky）：/tmp和 /var/tmp目录供所有用户暂时存取文件，亦即每位用户皆拥有完整的权限进入该目录，去浏览、删除和移动文件。R,W,X是基本权限 S、T是特殊权限
-</p>
-
-<p>
-文件权限除了r、w、x外还有s、t、i、a权限：
-</p>
-
-<p>
-s：文件属主和组设置SUID和GUID，文件在被设置了s权限后将以root身份执行。在设置s权限时文件属主、属组必须先设置相应的x权限，否则s权限并不能正真生效（c h m o d命令不进行必要的完整性检查，即使不设置x权限就设置s权限，chmod也不会报错，当我们ls -l时看到rwS，大写S说明s权限未生效）。Linux修改密码的passwd便是个设置了SUID的程序，普通用户无读写/etc/shadow文件的权限却可以修改自己的密码。
-</p>
-
-<p>
-ls -al /usr/bin/passwd
--rwsr-xr-x 1 root root 32988 2008-12-08 17:17 /usr/bin/passwd
-</p>
-
-<p>
-我们可以通过字符模式设置s权限：chmod a+s filename，也可以使用绝对模式进行设置：
-</p>
-
-<p>
-设置s u i d：将相应的权限位之前的那一位设置为4；
-设置g u i d：将相应的权限位之前的那一位设置为2；
-两者都置位：将相应的权限位之前的那一位设置为4+2=6。
-</p>
-
-<p>
-如：chmod 4764 filename   //设置SUID
-</p>
-
-<p>
-t ：设置粘着位，一个文件可读写的用户并一定相让他有删除此文件的权限，如果文件设置了t权限则只用属主和root有删除文件的权限，通过chmod +t filename 来设置t权限。
-</p>
-
-<p>
-i：不可修改权限  例：chattr u+i filename 则filename文件就不可修改，无论任何人，如果需要修改需要先删除i权限，用chattr -i filename就可以了。查看文件是否设置了i权限用lsattr filename。
-</p>
-
-<p>
-a：只追加权限， 对于日志系统很好用，这个权限让目标文件只能追加，不能删除，而且不能通过编辑器追加。可以使用chattr +a设置追加权限。
+sudo -l<br />
+sudo /sbin/shutdown -h now<br />
 </p>
 
 
 <p>
-每一个文件都不一样，都有其自己的属性。其有如下几个：
-1，	文件名
-2，	文件类型
-3，	文件长度
-4，	文件创造者，所属的组
-5，		文件的最后修改时间
-用ls –l命令可以列出全部信息
+drwxrwsr-- root cam<br />
+</p>
+
+<p>
+如果m3009用户属于camm mi cam等组，这个夹子允许cam组进入，进入的时候以cam组的身份运行，比如创建(命令的所属组)的文件，或修改(命令的所属组)文件后，文件所属的组也是cam组。如果是drwxrwxr-- root cam，以cam的身份进入以后，所创建的文件不一定是cam组<br />
+</p>
+
+<p>
+(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。 w(Write,写入)：对文件而言，具有新增、修改文件内容的权限；对目录来说，具有删除、移动目录内文件的权限。x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。s或S（SUID,Set UID）：可执行的文件搭配这个权限，便能得到特权，任意存取该文件的所有者能使用的全部系统资源。请注意具备SUID权限的文件，黑客经常利用这种权限，以SUID配上root帐号拥有者，无声无息地在系统中开扇后门，供日后进出使用。T或T（Sticky）：/tmp和 /var/tmp目录供所有用户暂时存取文件，亦即每位用户皆拥有完整的权限进入该目录，去浏览、删除和移动文件。R,W,X是基本权限 S、T是特殊权限<br />
+</p>
+
+<p>
+文件权限除了r、w、x外还有s、t、i、a权限：<br />
+</p>
+
+<p>
+s：文件属主和组设置SUID和GUID，文件在被设置了s权限后将以root身份执行。在设置s权限时文件属主、属组必须先设置相应的x权限，否则s权限并不能正真生效（c h m o d命令不进行必要的完整性检查，即使不设置x权限就设置s权限，chmod也不会报错，当我们ls -l时看到rwS，大写S说明s权限未生效）。Linux修改密码的passwd便是个设置了SUID的程序，普通用户无读写/etc/shadow文件的权限却可以修改自己的密码。<br />
+</p>
+
+<p>
+ls -al /usr/bin/passwd<br />
+-rwsr-xr-x 1 root root 32988 2008-12-08 17:17 /usr/bin/passwd<br />
+</p>
+
+<p>
+我们可以通过字符模式设置s权限：chmod a+s filename，也可以使用绝对模式进行设置：<br />
+</p>
+
+<p>
+设置s u i d：将相应的权限位之前的那一位设置为4；<br />
+设置g u i d：将相应的权限位之前的那一位设置为2；<br />
+两者都置位：将相应的权限位之前的那一位设置为4+2=6。<br />
+</p>
+
+<p>
+如：chmod 4764 filename   //设置SUID<br />
+</p>
+
+<p>
+t ：设置粘着位，一个文件可读写的用户并一定相让他有删除此文件的权限，如果文件设置了t权限则只用属主和root有删除文件的权限，通过chmod +t filename 来设置t权限。<br />
+</p>
+
+<p>
+i：不可修改权限  例：chattr u+i filename 则filename文件就不可修改，无论任何人，如果需要修改需要先删除i权限，用chattr -i filename就可以了。查看文件是否设置了i权限用lsattr filename。<br />
+</p>
+
+<p>
+a：只追加权限， 对于日志系统很好用，这个权限让目标文件只能追加，不能删除，而且不能通过编辑器追加。可以使用chattr +a设置追加权限。<br />
+</p>
+
+
+<p>
+每一个文件都不一样，都有其自己的属性。其有如下几个：<br />
+1，	文件名<br />
+2，	文件类型<br />
+3，	文件长度<br />
+4，	文件创造者，所属的组<br />
+5，		文件的最后修改时间<br />
+用ls –l命令可以列出全部信息<br />
 </p>
  
 <p>
-第一个d和-表示文件的类型，d表示的是文件夹，-表示的是普通文件。从第二个开始有九个。分为三组，每一组表示的是一个对象所拥有的三种权限的状态。以rwx为顺序表示可读可写可执行，当对应位用-表示的时候，表示其不拥有该权限。2和1表示的是硬链接数。Genesis是文件创建者，users是文件所属组。4096和610表示的是文件所占有的空间分别为4096byte = 4k，610byte = 0.6k。后面一个是Nov 11 14：45和Oct 12 14：28表示最后修改时间。最后一个是文档名。
-为了保护数据的安全，linux为每个文件或文件夹提供了权限的限制。每个操作者对文件的操作具有不同的权限。主要分为四种对象。其一，root用户；其二，创建文件者。其三：和创建文件者属于同一组的。最后一个，除了前面三个的其他对象。
-权限的分类有三类：读，写，执行。这三种权限谁有谁无，由创建文件者设定。但，根用户和系统管理员可以改变任何普通用户的设置。
-改变权限位chmod
-改变权限的权限位有两种方式，一种为符号模式，另一种为绝对模式。
-符号模式：chmod [who] operator [permission] filename.
-Who 有u，g，o，a
-Operator有+，-，=
-Permission有r，w，x等
-绝对模式：chmod mode filename。
-两种模式选用一种即可，一般采用符号模式。
-参数：-R，递归，同时设置目录的各个文件。
-注意：千万不要随意使用参数-R，否则一旦全部权限改变，一个个改回来不是那么容易的事。
+第一个d和-表示文件的类型，d表示的是文件夹，-表示的是普通文件。从第二个开始有九个。分为三组，每一组表示的是一个对象所拥有的三种权限的状态。以rwx为顺序表示可读可写可执行，当对应位用-表示的时候，表示其不拥有该权限。2和1表示的是硬链接数。Genesis是文件创建者，users是文件所属组。4096和610表示的是文件所占有的空间分别为4096byte = 4k，610byte = 0.6k。后面一个是Nov 11 14：45和Oct 12 14：28表示最后修改时间。最后一个是文档名。<br />
+为了保护数据的安全，linux为每个文件或文件夹提供了权限的限制。每个操作者对文件的操作具有不同的权限。主要分为四种对象。其一，root用户；其二，创建文件者。其三：和创建文件者属于同一组的。最后一个，除了前面三个的其他对象。<br />
+权限的分类有三类：读，写，执行。这三种权限谁有谁无，由创建文件者设定。但，根用户和系统管理员可以改变任何普通用户的设置。<br />
+改变权限位chmod<br />
+改变权限的权限位有两种方式，一种为符号模式，另一种为绝对模式。<br />
+符号模式：chmod [who] operator [permission] filename.<br />
+Who 有u，g，o，a<br />
+Operator有+，-，=<br />
+Permission有r，w，x等<br />
+绝对模式：chmod mode filename。<br />
+两种模式选用一种即可，一般采用符号模式。<br />
+参数：-R，递归，同时设置目录的各个文件。<br />
+注意：千万不要随意使用参数-R，否则一旦全部权限改变，一个个改回来不是那么容易的事。<br />
 </p>
 
 <p>
-改变用户所有者：chown
-改变用户所在组：chgrp
-查看用户所在组：group，group+user，或使用id命令。
+改变用户所有者：chown<br />
+改变用户所在组：chgrp<br />
+查看用户所在组：group，group+user，或使用id命令。<br />
 </p>
 
 <p>
-Umask
-	创建文件的时候，每一个用户对文件的权限具有一个缺省值，由umask设置。若想改变自己的umask值，在自己的主目录$HOME下.profile或者.bash_profile中设置。若要改变所用用户的umask值，在/etc/profile下修改。
-Umask的值
-	Umask的值缺省是0，文件和文件夹权限的缺省值是666和777，即文件除全不可执行外皆可读可写，文件夹皆可读可写可打开。如果umask其对应某一位为1（二进制），不管权限值多少，其对应的位清零0，即该位无权限。
-例：如果umask为2，其二进制为000 000 010，对应的其他用户的可写位为0，即不可写。根据权限的缺省值可得文件的权限值为664，文件夹的权限值为775。
+Umask<br />
+	创建文件的时候，每一个用户对文件的权限具有一个缺省值，由umask设置。若想改变自己的umask值，在自己的主目录$HOME下.profile或者.bash_profile中设置。若要改变所用用户的umask值，在/etc/profile下修改。<br />
+Umask的值<br />
+	Umask的值缺省是0，文件和文件夹权限的缺省值是666和777，即文件除全不可执行外皆可读可写，文件夹皆可读可写可打开。如果umask其对应某一位为1（二进制），不管权限值多少，其对应的位清零0，即该位无权限。<br />
+例：如果umask为2，其二进制为000 000 010，对应的其他用户的可写位为0，即不可写。根据权限的缺省值可得文件的权限值为664，文件夹的权限值为775。<br />
 </p>
 
 <p>
-符号链结
-	软连接：命令用ln –s。当多个用户使用同一个文档，或者是文档的路径比较深的时候，经常会创建链结，不用操作真正的文档，只需打开链结即可自动找到。其和widows操作系统的创建快捷方式一样的。这样可以节省空间，且使得管理文档更加方便。
-链接一旦创立，其具有可读，可写，可执行权限，但源文档的权限没有改变，操作也是对源文件的操作。
+符号链结<br />
+	软连接：命令用ln –s。当多个用户使用同一个文档，或者是文档的路径比较深的时候，经常会创建链结，不用操作真正的文档，只需打开链结即可自动找到。其和widows操作系统的创建快捷方式一样的。这样可以节省空间，且使得管理文档更加方便。<br />
+链接一旦创立，其具有可读，可写，可执行权限，但源文档的权限没有改变，操作也是对源文件的操作。<br />
 </p>
 
 
@@ -261,8 +261,6 @@ Umask的值
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

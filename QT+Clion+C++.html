@@ -29,23 +29,23 @@
 <li><a href="#toc_6">如果报找不到头文件 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">创建Project </h1><HR SIZE=1>
 <p>
-Language standard选择C++98.按98标准。名字为myTest
+Language standard选择C++98.按98标准。名字为myTest<br />
 </p>
 
 
 <h1 id="toc_2">修改main.cpp如下 </h1><HR SIZE=1>
 <p>
-#include "mainwindow.h"
-#include &lt;QApplication&gt;
+#include "mainwindow.h"<br />
+#include &lt;QApplication&gt;<br />
 </p>
 
 <p>
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[])<br />
+{<br />
 </p>
 <blockquote>
 QApplication a(argc, argv);
@@ -56,115 +56,115 @@ w.show();
 return a.exec();
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <h1 id="toc_3">右击项目，新建File，名字为mainwindow.ui </h1><HR SIZE=1>
 <p>
-用qt designer打开。添加后保存。Build-&gt;Build Project
+用qt designer打开。添加后保存。Build-&gt;Build Project<br />
 </p>
 
 
 <h1 id="toc_4">更改CMakeLists.txt文件 </h1><HR SIZE=1>
 <p>
-cmake_minimum_required(VERSION 3.13)
-project(myTest)
+cmake_minimum_required(VERSION 3.13)<br />
+project(myTest)<br />
 </p>
 
 <p>
-set(CMAKE_CXX_STANDARD 98)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTORCC ON)
+set(CMAKE_CXX_STANDARD 98)<br />
+set(CMAKE_AUTOMOC ON)<br />
+set(CMAKE_AUTOUIC ON)<br />
+set(CMAKE_AUTORCC ON)<br />
 </p>
 
 <p>
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)<br />
 </p>
 
 <p>
-#设置路径
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
-#QT
-set(CMAKE_PREFIX_PATH C:/Qt/4.8.7)
-find_package(Qt4 REQUIRED QtCore QtGui QtNetwork)
-include_directories(Qt4_INCLUDE_DIRECTORIES)
-include(${QT_USE_FILE})
+#设置路径<br />
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)<br />
+#QT<br />
+set(CMAKE_PREFIX_PATH C:/Qt/4.8.7)<br />
+find_package(Qt4 REQUIRED QtCore QtGui QtNetwork)<br />
+include_directories(Qt4_INCLUDE_DIRECTORIES)<br />
+include(${QT_USE_FILE})<br />
 </p>
 
 <p>
-add_executable(myTest WIN32 main.cpp mainwindow.cpp mainwindow.h)
-TARGET_LINK_LIBRARIES(myTest ${QT_LIBRARIES})
+add_executable(myTest WIN32 main.cpp mainwindow.cpp mainwindow.h)<br />
+TARGET_LINK_LIBRARIES(myTest ${QT_LIBRARIES})<br />
 </p>
 
 <h1 id="toc_5">右击项目，新建c++库 </h1><HR SIZE=1>
 <p>
-名字为：mainwindow。生成两个文档，一个为mainwindow.cpp。另一个为：mainwindow.h
+名字为：mainwindow。生成两个文档，一个为mainwindow.cpp。另一个为：mainwindow.h<br />
 </p>
 <h2 id="toc_5.1">mainwindow.cpp.cpp内容如下： </h2>
 <p>
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "mainwindow.h"<br />
+#include "ui_mainwindow.h"<br />
 </p>
 
 <p>
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent) :<br />
 </p>
 <blockquote>
 QMainWindow(parent),
 ui(new Ui::MainWindow)
 </blockquote>
 <p>
-{
+{<br />
 </p>
 <blockquote>
 ui-&gt;setupUi(this);
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow()<br />
+{<br />
 </p>
 <blockquote>
 delete ui;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <h2 id="toc_5.2">mainwindow.h内容如下： </h2>
 <p>
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINDOW_H<br />
+#define MAINWINDOW_H<br />
 </p>
 
 <p>
-#include &lt;QMainWindow&gt;
+#include &lt;QMainWindow&gt;<br />
 </p>
 
 <p>
-namespace Ui {
+namespace Ui {<br />
 </p>
 <blockquote>
 class MainWindow;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow<br />
+{<br />
 </p>
 <blockquote>
 Q_OBJECT
 </blockquote>
 
 <p>
-public:
+public:<br />
 </p>
 <blockquote>
 explicit MainWindow(QWidget *parent = 0);
@@ -172,22 +172,22 @@ explicit MainWindow(QWidget *parent = 0);
 </blockquote>
 
 <p>
-private:
+private:<br />
 </p>
 <blockquote>
 Ui::MainWindow *ui;
 </blockquote>
 <p>
-};
+};<br />
 </p>
 
 <p>
-#endif // MAINWINDOW_H
+#endif // MAINWINDOW_H<br />
 </p>
 
 <h1 id="toc_6">如果报找不到头文件 </h1><HR SIZE=1>
 <p>
-Build不会报错。CMakeLists.txt  Reload一下，然后重新Build
+Build不会报错。CMakeLists.txt  Reload一下，然后重新Build<br />
 </p>
 
 
@@ -214,8 +214,6 @@ Build不会报错。CMakeLists.txt  Reload一下，然后重新Build
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

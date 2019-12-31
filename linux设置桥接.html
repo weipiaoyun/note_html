@@ -16,27 +16,27 @@
 <body>
 
 <p>
-cd /etc/sysconfig/network-scripts/
-cp ifcfg-eth0 ifcfg-br0
-vim ifcfg-br0
-vim ifcfg-eth1
-/sbin/service network restart
-详细命令参考2.67install，参数详细参考2.67配置文件
+cd /etc/sysconfig/network-scripts/<br />
+cp ifcfg-eth0 ifcfg-br0<br />
+vim ifcfg-br0<br />
+vim ifcfg-eth1<br />
+/sbin/service network restart<br />
+详细命令参考2.67install，参数详细参考2.67配置文件<br />
 </p>
 
 <p>
-172.17.2.67
+172.17.2.67<br />
 </p>
 
 <p>
-硬件：两个网卡
-上面：eth0，和大部分电脑相同得ip设置，可以连接vnc
-下面：eth1，当作是桥接器，插上后可以连接虚拟机。如果没有插上，则虚拟机和172.17.2.67无法接通。因为桥没有和外面的网络连接，eth0和eth1是隔离的，连接后通过交换机连接
-eth0和eth1是真实网卡
+硬件：两个网卡<br />
+上面：eth0，和大部分电脑相同得ip设置，可以连接vnc<br />
+下面：eth1，当作是桥接器，插上后可以连接虚拟机。如果没有插上，则虚拟机和172.17.2.67无法接通。因为桥没有和外面的网络连接，eth0和eth1是隔离的，连接后通过交换机连接<br />
+eth0和eth1是真实网卡<br />
 </p>
 
 <p>
-测试双网卡是否连通
+测试双网卡是否连通<br />
 </p>
 
 
@@ -63,8 +63,6 @@ eth0和eth1是真实网卡
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

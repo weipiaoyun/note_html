@@ -16,61 +16,61 @@
 <body>
 
 <p>
-void RCC_Configuration(void)
-{
-	RCC_DeInit();
-	RCC_HSEConfig(RCC_HSE_ON);
-	HSEStartUpStatus = RCC_WaitForHSEStartUp();
+void RCC_Configuration(void)<br />
+{<br />
+	RCC_DeInit();<br />
+	RCC_HSEConfig(RCC_HSE_ON);<br />
+	HSEStartUpStatus = RCC_WaitForHSEStartUp();<br />
 </p>
 
 <p>
-	if (HSEStartUpStatus == SUCCESS) 
-	{
-		FLASH_PrefetchBufferCmd(FLASH_PrefetchBuffer_Enable);
+	if (HSEStartUpStatus == SUCCESS) <br />
+	{<br />
+		FLASH_PrefetchBufferCmd(FLASH_PrefetchBuffer_Enable);<br />
 </p>
 
 <p>
-		FLASH_SetLatency(FLASH_Latency_2);
+		FLASH_SetLatency(FLASH_Latency_2);<br />
 </p>
 
 <p>
-		RCC_HCLKConfig(RCC_SYSCLK_Div1);
+		RCC_HCLKConfig(RCC_SYSCLK_Div1);<br />
 </p>
 
 <p>
-		RCC_PCLK2Config(RCC_HCLK_Div1);
+		RCC_PCLK2Config(RCC_HCLK_Div1);<br />
 </p>
 
 <p>
-		RCC_PCLK1Config(RCC_HCLK_Div2);
+		RCC_PCLK1Config(RCC_HCLK_Div2);<br />
 </p>
 
 <p>
-		RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul_9);
+		RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul_9);<br />
 </p>
 
 <p>
-		RCC_PLLCmd(ENABLE);
+		RCC_PLLCmd(ENABLE);<br />
 </p>
 
 <p>
-		while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET) 
-		{
-		}
+		while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET) <br />
+		{<br />
+		}<br />
 </p>
 <blockquote>
 RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
 </blockquote>
 <p>
-		/* 设置系统时钟前和后都要延时等待，前等待pll，后等待系统时钟准备好 */
+		/* 设置系统时钟前和后都要延时等待，前等待pll，后等待系统时钟准备好 */<br />
 </p>
 
 <p>
-		while(RCC_GetSYSCLKSource() != 0x08)
-		{
-		}
-	}
-}
+		while(RCC_GetSYSCLKSource() != 0x08)<br />
+		{<br />
+		}<br />
+	}<br />
+}<br />
 </p>
 
 
@@ -97,8 +97,6 @@ RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

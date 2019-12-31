@@ -17,36 +17,36 @@
 
 <h2 id="toc_0.1">添加硬盘</h2>
 <p>
-虚拟机添加硬盘
-右击-&gt;设置 点击硬盘，点击添加
+虚拟机添加硬盘<br />
+右击-&gt;设置 点击硬盘，点击添加<br />
 </p>
 
 <p>
-分区和格式化：
-	首先，用fdisk -l查看磁盘设备的大小
-	对某块分区进行操作：
-		fdisk /dev/sdb 进入b硬盘
-		p 打印分区情况
-		n 新建分区 p 表主分区，e表扩展分区
-		数字表示第几分区
-		w 写入
-	分完区后，对该分区进行格式化
-		mkfs.ext3 /dev/sdb1
+分区和格式化：<br />
+	首先，用fdisk -l查看磁盘设备的大小<br />
+	对某块分区进行操作：<br />
+		fdisk /dev/sdb 进入b硬盘<br />
+		p 打印分区情况<br />
+		n 新建分区 p 表主分区，e表扩展分区<br />
+		数字表示第几分区<br />
+		w 写入<br />
+	分完区后，对该分区进行格式化<br />
+		mkfs.ext3 /dev/sdb1<br />
 </p>
 
 <h2 id="toc_0.2">查看硬盘空间</h2>
 <p>
-df -h
-哪个设备，大小，已使用大小，剩余值，使用百分比，从什么地方mount过来的 挂载到哪个目录
+df -h<br />
+哪个设备，大小，已使用大小，剩余值，使用百分比，从什么地方mount过来的 挂载到哪个目录<br />
 </p>
 
 <p>
-df -h 查看所有mount
+df -h 查看所有mount<br />
 </p>
 
 <h2 id="toc_0.3">查看某个文件夹占用空间大小</h2>
 <p>
-du -sh fileName
+du -sh fileName<br />
 </p>
 
 
@@ -73,8 +73,6 @@ du -sh fileName
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

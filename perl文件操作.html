@@ -17,99 +17,99 @@
 
 <h1 id="toc_1">拖文件夹到perl </h1><HR SIZE=1>
 <p>
-#!c:/perl/bin/perl -w
-use warnings;
-use Encode;
-use Win32::PerfLib;
-use Win32::GUI();
-use Win32::GUI::DropFiles();
+#!c:/perl/bin/perl -w<br />
+use warnings;<br />
+use Encode;<br />
+use Win32::PerfLib;<br />
+use Win32::GUI();<br />
+use Win32::GUI::DropFiles();<br />
 </p>
 
 
 
 <p>
-my $mw = Win32::GUI::Window-&gt;new(
-	-title =&gt; "Win32::GUI拖放",
-	-pos   =&gt; [100,100],
-	-size  =&gt; [400,300],
-	-onResize =&gt; \&amp;mwResize,
-);
+my $mw = Win32::GUI::Window-&gt;new(<br />
+	-title =&gt; "Win32::GUI拖放",<br />
+	-pos   =&gt; [100,100],<br />
+	-size  =&gt; [400,300],<br />
+	-onResize =&gt; \&amp;mwResize,<br />
+);<br />
 </p>
 
 <p>
-$mw-&gt;AddLabel(
-	-pos  =&gt; [10,10],
-	-text =&gt; "把文件拖人列表中",
-);
+$mw-&gt;AddLabel(<br />
+	-pos  =&gt; [10,10],<br />
+	-text =&gt; "把文件拖人列表中",<br />
+);<br />
 </p>
 
 <p>
-$mw-&gt;AddListbox(
-	-name =&gt; 'list1',
-	-pos =&gt; [10,30],
-	-vscroll =&gt; 1,
-	-acceptfiles =&gt; 1,
-	-onDropFiles =&gt; \&amp;gotDrop,
-);
+$mw-&gt;AddListbox(<br />
+	-name =&gt; 'list1',<br />
+	-pos =&gt; [10,30],<br />
+	-vscroll =&gt; 1,<br />
+	-acceptfiles =&gt; 1,<br />
+	-onDropFiles =&gt; \&amp;gotDrop,<br />
+);<br />
 </p>
 
 <p>
-$mw-&gt;Show();
-Win32::GUI::Dialog();
-$mw-&gt;Hide();
-exit(0);
+$mw-&gt;Show();<br />
+Win32::GUI::Dialog();<br />
+$mw-&gt;Hide();<br />
+exit(0);<br />
 </p>
 
 <p>
-sub gotDrop {
-	my (\(self, \)dropObj) = @_;
-my @rr = $dropObj-&gt;GetDroppedFiles();
-my \(path = Encode::encode('gbk',\)rr[0]);
-Win32::GUI::MessageBox(0,"$path","提示",0x0003|0x0030);
-}
+sub gotDrop {<br />
+	my (\(self, \)dropObj) = @_;<br />
+my @rr = $dropObj-&gt;GetDroppedFiles();<br />
+my \(path = Encode::encode('gbk',\)rr[0]);<br />
+Win32::GUI::MessageBox(0,"$path","提示",0x0003|0x0030);<br />
+}<br />
 </p>
 
 <p>
-sub mwResize {
-	my $self = shift;
+sub mwResize {<br />
+	my $self = shift;<br />
 </p>
 
 <p>
-	$self-&gt;list1-&gt;Resize(
-		$self-&gt;ScaleWidth()-20,
-		$self-&gt;ScaleHeight()-40,
-	);
+	$self-&gt;list1-&gt;Resize(<br />
+		$self-&gt;ScaleWidth()-20,<br />
+		$self-&gt;ScaleHeight()-40,<br />
+	);<br />
 </p>
 
 <p>
-	return 1;
-}
+	return 1;<br />
+}<br />
 </p>
 
 <h1 id="toc_2">TK拖动文件 </h1><HR SIZE=1>
 <p>
-#!/usr/bin/perl -w
-use Tk;
-use Tk::DropSite;
+#!/usr/bin/perl -w<br />
+use Tk;<br />
+use Tk::DropSite;<br />
 </p>
 
 <p>
-$mw = MainWindow-&gt;new();
-my \(txt = \)mw-&gt;Text()-&gt;pack();
-my \(drop = \)txt-&gt;DropSite(-droptypes,'Win32', -dropcommand, [\&amp;dropCmd, $txt]);
+$mw = MainWindow-&gt;new();<br />
+my \(txt = \)mw-&gt;Text()-&gt;pack();<br />
+my \(drop = \)txt-&gt;DropSite(-droptypes,'Win32', -dropcommand, [\&amp;dropCmd, $txt]);<br />
 </p>
 
 <p>
-MainLoop;
+MainLoop;<br />
 </p>
 
 
 <p>
-sub dropCmd {
-  my (\(txt, \)s) = @_;
-  my \(filename = \)txt-&gt;SelectionGet(-selection =&gt; $s,'STRING');
-  \(txt-&gt;insert('end', \)filename."\n");
-}
+sub dropCmd {<br />
+  my (\(txt, \)s) = @_;<br />
+  my \(filename = \)txt-&gt;SelectionGet(-selection =&gt; $s,'STRING');<br />
+  \(txt-&gt;insert('end', \)filename."\n");<br />
+}<br />
 </p>
 
 
@@ -136,8 +136,6 @@ sub dropCmd {
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

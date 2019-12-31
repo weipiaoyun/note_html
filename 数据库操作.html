@@ -16,18 +16,18 @@
 <body>
 
 <p>
-1,使用sqlconnection对象连接数据库(连接数据库)
-2，建立sqlcommand对象，负责SQL语句的执行和存储过程的调用(执行SQL语句)
-	如果只需执行SQL语句或者SP，没有必要用到DataAdapter，直接用sqlCommand的Execute。
-3，对SQL或存储过程执行后返回的结果进行操作(处理返回结果)
+1,使用sqlconnection对象连接数据库(连接数据库)<br />
+2，建立sqlcommand对象，负责SQL语句的执行和存储过程的调用(执行SQL语句)<br />
+	如果只需执行SQL语句或者SP，没有必要用到DataAdapter，直接用sqlCommand的Execute。<br />
+3，对SQL或存储过程执行后返回的结果进行操作(处理返回结果)<br />
 	a，用sqlDataReader一行一行读取数据集。(时刻和远程保持连接，将远程的数据通过'流'的形式传输给客户端，它是只读的。效率高，但使用起来不方便)<a href="sqlDataReader.html">sqlDataReader</a>
-	b，dataset联合sqldataAdapter (使用方便，性能稍差)
+	b，dataset联合sqldataAdapter (使用方便，性能稍差)<br />
 		DataSet：(数据集合)，内存中的数据库。<a href="DataSet.html">DataSet</a>
 		SqlDataAdapter (sql数据适配器) DataSet和SQL Server之间的桥接器<a href="SqlDataAdapter.html">SqlDataAdapter</a>
 </p>
 		
 <p>
-		DataSet  --adapter.fill(dataset)更新---&gt; SqlServer
+		DataSet  --adapter.fill(dataset)更新---&gt; SqlServer<br />
 </p>
 		
 <p>
@@ -36,8 +36,8 @@
 
 
 <p>
-ExecuteScalar
-sqlCommand.ExecuteNonQuery();
+ExecuteScalar<br />
+sqlCommand.ExecuteNonQuery();<br />
 </p>
 
 
@@ -71,8 +71,6 @@ sqlCommand.ExecuteNonQuery();
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -17,151 +17,151 @@
 
 <h2 id="toc_0.1">软板脚本位置</h2>
 <p>
-程序位置：genflex04:/frontline/app_gfx -ixelFm
-lib库位置：hcsystem:/odb
+程序位置：genflex04:/frontline/app_gfx -ixelFm<br />
+lib库位置：hcsystem:/odb<br />
 </p>
 
 <p>
-输出资料位置：/gen_db/genflex/sys/scripts/topcb/output
-输出资料主程序：/gen_db/genflex/sys/scripts/topcb/output/auto_output
-主程序存在位置：/gen_db/genflex/sys/scripts/main
-主程序界面位置：/gen_db/genflex/sys/scripts/ftp_main
-钻孔输出位置： /genesis/sys/scripts/wxs/drills1
-自动输出锣带：/genesis/sys/scripts/main-&gt;/genesis/sys/scripts/topcb/output/auto_output-&gt;/genesis/sys/scripts/topcb/output/auto_rout
-板边所在位置：/genesis/sys/scripts/panel/fpc-panel然后调用ten
-文字喷墨所在位置：/genesis/sys/scripts/hc/bin/addHiPrintMark.pl
+输出资料位置：/gen_db/genflex/sys/scripts/topcb/output<br />
+输出资料主程序：/gen_db/genflex/sys/scripts/topcb/output/auto_output<br />
+主程序存在位置：/gen_db/genflex/sys/scripts/main<br />
+主程序界面位置：/gen_db/genflex/sys/scripts/ftp_main<br />
+钻孔输出位置： /genesis/sys/scripts/wxs/drills1<br />
+自动输出锣带：/genesis/sys/scripts/main-&gt;/genesis/sys/scripts/topcb/output/auto_output-&gt;/genesis/sys/scripts/topcb/output/auto_rout<br />
+板边所在位置：/genesis/sys/scripts/panel/fpc-panel然后调用ten<br />
+文字喷墨所在位置：/genesis/sys/scripts/hc/bin/addHiPrintMark.pl<br />
 </p>
 
 <h2 id="toc_0.2">硬板脚本位置</h2>
 <p>
-板边主程序：/scripts/greate/topcb/danpin
-附：
-1，	在哪里添加属性
-D:/genesis/fw/lib/misc/userattr
+板边主程序：/scripts/greate/topcb/danpin<br />
+附：<br />
+1，	在哪里添加属性<br />
+D:/genesis/fw/lib/misc/userattr<br />
 </p>
 
 <p>
-2，	跑板边存放目录
-/genesis/fw/jobs/.bd63689a0/.symbols/.main/.new
+2，	跑板边存放目录<br />
+/genesis/fw/jobs/.bd63689a0/.symbols/.main/.new<br />
 </p>
 
 <p>
-3，	自动输出钻孔。
-/genesis/sys/scripts/greate/drill/newdrilloutput.csh
+3，	自动输出钻孔。<br />
+/genesis/sys/scripts/greate/drill/newdrilloutput.csh<br />
 </p>
 
 <p>
-4，	编辑工具入口
-/genesis/sys/script/greate/misc/.add_mainwindow
+4，	编辑工具入口<br />
+/genesis/sys/script/greate/misc/.add_mainwindow<br />
 </p>
 
 <p>
-5, 自动制作信号层
-/genesis/sys/script/greate/.copy_forms
-/gen_db/odb1/lib/forms/main/def/cb/E11
+5, 自动制作信号层<br />
+/genesis/sys/script/greate/.copy_forms<br />
+/gen_db/odb1/lib/forms/main/def/cb/E11<br />
 </p>
 
 <p>
-6, 自动掏铜
-/genesis/sys/scripts/greate/outer/select_cu
+6, 自动掏铜<br />
+/genesis/sys/scripts/greate/outer/select_cu<br />
 </p>
 
 <p>
-5，panel板边程序主菜单
-/gen_db/cam101/app_gen/fw/jobs/.bd63689a0/.symbols/.main/.panel
+5，panel板边程序主菜单<br />
+/gen_db/cam101/app_gen/fw/jobs/.bd63689a0/.symbols/.main/.panel<br />
 </p>
 
 <p>
-6,输出打靶数据(输出的靶距数据)
-/greate/misc/exportData.pl
+6,输出打靶数据(输出的靶距数据)<br />
+/greate/misc/exportData.pl<br />
 </p>
 
 <p>
-7,自动输出网房CTS-Gerber274x
-/gen_db/genesis/sys/scripts/great/misc/output/autoExportAOI.pl
+7,自动输出网房CTS-Gerber274x<br />
+/gen_db/genesis/sys/scripts/great/misc/output/autoExportAOI.pl<br />
 </p>
 
 <p>
-8，测线图
-/genesis/sys/scripts/hc/bin/createCXT.pl
+8，测线图<br />
+/genesis/sys/scripts/hc/bin/createCXT.pl<br />
 </p>
 
 <p>
-9,文字喷墨位置：/scripts/wxs/outputgo
+9,文字喷墨位置：/scripts/wxs/outputgo<br />
 </p>
 
 <p>
-10，增加小野十字架
-/genesis/sys/scripts/greate/panel/ChoiceLayer.pl
+10，增加小野十字架<br />
+/genesis/sys/scripts/greate/panel/ChoiceLayer.pl<br />
 </p>
 
 <p>
-11，alias存在位置
-/genesis/sys/.script_all.csh
+11，alias存在位置<br />
+/genesis/sys/.script_all.csh<br />
 </p>
 
 <p>
-12，自动制作防焊位置
-/genesis/sys/scripts/greate/mask/
+12，自动制作防焊位置<br />
+/genesis/sys/scripts/greate/mask/<br />
 </p>
 
 <p>
-13，自动制作锣带
-/genesis/sys/scripts/rout/pan
+13，自动制作锣带<br />
+/genesis/sys/scripts/rout/pan<br />
 </p>
 
 <p>
-14, 外层LDI资料
-/genesis/sys/scripts/greate/misc/output/autoExportAOI.pl
+14, 外层LDI资料<br />
+/genesis/sys/scripts/greate/misc/output/autoExportAOI.pl<br />
 </p>
 
 <p>
-15，LDI自动外层
-/genesis/sys/scripts/greate/panel/LDI_panel.pl
+15，LDI自动外层<br />
+/genesis/sys/scripts/greate/panel/LDI_panel.pl<br />
 </p>
 
 <p>
-16, 3:3夹线位置
-/gen_db/genesis/sys/scripts/greate/outer
+16, 3:3夹线位置<br />
+/gen_db/genesis/sys/scripts/greate/outer<br />
 </p>
 
 <p>
-17, 环境变量alias位置
-/scripts/greate/misc/.env_script
+17, 环境变量alias位置<br />
+/scripts/greate/misc/.env_script<br />
 </p>
 
 <p>
-18, 自动制作锣带
-/genesis/sys/scripts/greate/panel/auto.rout.pl
+18, 自动制作锣带<br />
+/genesis/sys/scripts/greate/panel/auto.rout.pl<br />
 </p>
 
 
 <h2 id="toc_0.3">梅双脚本位置</h2>
 <p>
-1，lib库
-172.17.0.66/odb/.lib
+1，lib库<br />
+172.17.0.66/odb/.lib<br />
 </p>
 
 <p>
-2,scripts
-172.17.0.66/space/app_gen
+2,scripts<br />
+172.17.0.66/space/app_gen<br />
 </p>
 
 
 <h2 id="toc_0.4">自动备份料号脚本</h2>
 <p>
-cam04
+cam04<br />
 </p>
 
 <h2 id="toc_0.5">文件服务器</h2>
 <p>
-workfile存在路径：172.18.3.113/pesvr/11.cam/workfile/outfile
-public所在目录：/gen_db/pesvr/public
-F2编辑工具存在的地方：/scripts/greate/misc/.add_mainwindow
-F2编辑工具各图片存在地址：
-/genesis/sys/scripts/wxs/photo/update
-文件服务器自动删除，自动移动资料脚本位置/usr/local/pesvr(梅双，东莞)
-自动更新EQ状态：pesvr：/home/dgeq/parsermail.pl
+workfile存在路径：172.18.3.113/pesvr/11.cam/workfile/outfile<br />
+public所在目录：/gen_db/pesvr/public<br />
+F2编辑工具存在的地方：/scripts/greate/misc/.add_mainwindow<br />
+F2编辑工具各图片存在地址：<br />
+/genesis/sys/scripts/wxs/photo/update<br />
+文件服务器自动删除，自动移动资料脚本位置/usr/local/pesvr(梅双，东莞)<br />
+自动更新EQ状态：pesvr：/home/dgeq/parsermail.pl<br />
 </p>
 
 
@@ -188,8 +188,6 @@ F2编辑工具各图片存在地址：
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

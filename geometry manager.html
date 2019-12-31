@@ -16,73 +16,73 @@
 <body>
 
 <p>
-geometry manager controls the position and the size.
-frame or toplevel widget(MainWindow is special toplevel) widget separate groups of widgets(they are master);
+geometry manager controls the position and the size.<br />
+frame or toplevel widget(MainWindow is special toplevel) widget separate groups of widgets(they are master);<br />
 </p>
 
 <p>
-it 's difficult to use more than one geometry manager within the same area.(so if we start using pack, we should continue to use pack, because two geometry managers will get into a race condition and sometimes it will goto die while).if we want to use pack and grid at the same time,we can use the Frame.
+it 's difficult to use more than one geometry manager within the same area.(so if we start using pack, we should continue to use pack, because two geometry managers will get into a race condition and sometimes it will goto die while).if we want to use pack and grid at the same time,we can use the Frame.<br />
 </p>
 
 <p>
-The geometry manager have pack, grid ,form and place.
+The geometry manager have pack, grid ,form and place.<br />
 </p>
 <h2 id="toc_0.1">pack</h2>
 <p>
-pack is the most commonly used, pack allows you to control:
-	1, position in the window <code>relative</code> to the <code>window</code> or <code>Frame edges</code>
-	2, Size of widgets, <code>relative</code> to other <code>widgets</code> or <code>absolute</code>
-	3, spacing between widgets
-	4, position in the window's or Frame's widget list
+pack is the most commonly used, pack allows you to control:<br />
+	1, position in the window <code>relative</code> to the <code>window</code> or <code>Frame edges</code><br />
+	2, Size of widgets, <code>relative</code> to other <code>widgets</code> or <code>absolute</code><br />
+	3, spacing between widgets<br />
+	4, position in the window's or Frame's widget list<br />
 </p>
 	
 <p>
-widgets cannot overlap or cover each other,partially and completely and it only with rectangular shapes!
+widgets cannot overlap or cover each other,partially and completely and it only with rectangular shapes!<br />
 </p>
 
 <p>
-for the pack, order is important
+for the pack, order is important<br />
 </p>
 
 <p>
-pack
-	-widget-&gt;packForget();if want to pack again，you can use "-widget-&gt;pack()";
-	-side =&gt; 'top' #the defaule size is top
-	-after =&gt; $widget1 #在widget1的后面
-	-ipadx =&gt; 10m #internal 本身的widget长度10mm
-	-ipady =&gt; 20m #internal 本身的widget宽度20mm
-	-padx =&gt; 10 	#spacing of the widget
-	-pady =&gt; 10 	#spacing of the widget
-	-expand =&gt; '1'
-	-anchor =&gt; 'w' #the default of anchor is center; when use anchor, the defaule of expand is 1 
-	-in, displaying in a parent other than your own.
-	sometimes when -side and -anchor use together, the result won't what we wan't to see
+pack<br />
+	-widget-&gt;packForget();if want to pack again，you can use "-widget-&gt;pack()";<br />
+	-side =&gt; 'top' #the defaule size is top<br />
+	-after =&gt; $widget1 #在widget1的后面<br />
+	-ipadx =&gt; 10m #internal 本身的widget长度10mm<br />
+	-ipady =&gt; 20m #internal 本身的widget宽度20mm<br />
+	-padx =&gt; 10 	#spacing of the widget<br />
+	-pady =&gt; 10 	#spacing of the widget<br />
+	-expand =&gt; '1'<br />
+	-anchor =&gt; 'w' #the default of anchor is center; when use anchor, the defaule of expand is 1 <br />
+	-in, displaying in a parent other than your own.<br />
+	sometimes when -side and -anchor use together, the result won't what we wan't to see<br />
 </p>
 	
 	
 <p>
-	-expand和-fill
-	1，没有expand和没有fill，则top放在上面，缺省大小为所需大小。
-	2，有fill，没有expand，它会填充，但是，top和bottom只能左右填充(保证上下位置不变，top还是top，bottom还是bottom)，left和right只能上下填充(保证左右位置不变，left还是left，right还是right)。
-	3, 有expand没有fill。占用的位置会扩展，但本身的控件不扩展。
-	4，有expand和有fill。要看顺序，如果第一个填充。第二个如果是同类型的，比如top和bottom。left和right。则可以平分。否则第二个只满足足够大小。
+	-expand和-fill<br />
+	1，没有expand和没有fill，则top放在上面，缺省大小为所需大小。<br />
+	2，有fill，没有expand，它会填充，但是，top和bottom只能左右填充(保证上下位置不变，top还是top，bottom还是bottom)，left和right只能上下填充(保证左右位置不变，left还是left，right还是right)。<br />
+	3, 有expand没有fill。占用的位置会扩展，但本身的控件不扩展。<br />
+	4，有expand和有fill。要看顺序，如果第一个填充。第二个如果是同类型的，比如top和bottom。left和right。则可以平分。否则第二个只满足足够大小。<br />
 </p>
 <h3 id="toc_0.1.1">form</h3>
 <p>
-form is like a combination of pack and place
+form is like a combination of pack and place<br />
 </p>
 
 <h1 id="toc_1">farme</h1><HR SIZE=1>
 <p>
-frame maintains a list of that are display within it.
+frame maintains a list of that are display within it.<br />
 </p>
 
 <h2 id="toc_1.1">grid</h2>
 <p>
--columnspan =&gt; '3',
--sticky =&gt; 'nsew');
-在默认的情况下，一个grid在第一行
-$mw-&gt;Button(-text =&gt; 'Button1', -command =&gt; \&amp;call1)-&gt;grid(
+-columnspan =&gt; '3',<br />
+-sticky =&gt; 'nsew');<br />
+在默认的情况下，一个grid在第一行<br />
+$mw-&gt;Button(-text =&gt; 'Button1', -command =&gt; \&amp;call1)-&gt;grid(<br />
 </p>
 <blockquote>
 $mw-&gt;Button(-text =&gt; 'Button2', -command =&gt; \&amp;call2),
@@ -92,7 +92,7 @@ $mw-&gt;Button(-text =&gt; 'Button4', -command =&gt; \&amp;call4));
 
 	
 <p>
-$mw-&gt;Button(-text =&gt; 'Button1', -command =&gt; \&amp;call1)-&gt;grid(
+$mw-&gt;Button(-text =&gt; 'Button1', -command =&gt; \&amp;call1)-&gt;grid(<br />
 </p>
 <blockquote>
 $mw-&gt;Button(-text =&gt; 'Button2', -command =&gt; \&amp;call2),
@@ -100,10 +100,10 @@ $mw-&gt;Button(-text =&gt; 'Button3', -command =&gt; \&amp;call3),
 $mw-&gt;Button(-text =&gt; 'Button4', -command =&gt; \&amp;call4));
 </blockquote>
 <p>
-#在第一个里面的全部button以grid的形式放在第一个grid第一列行，第二个里面的全部button以grid的形式放在第二个grid第二行里面
-参数一个“-”延伸一个column
-参数一个"x"空一个column
-参数一个“^”Increases rowspan
+#在第一个里面的全部button以grid的形式放在第一个grid第一列行，第二个里面的全部button以grid的形式放在第二个grid第二行里面<br />
+参数一个“-”延伸一个column<br />
+参数一个"x"空一个column<br />
+参数一个“^”Increases rowspan<br />
 </p>
 
 
@@ -130,8 +130,6 @@ $mw-&gt;Button(-text =&gt; 'Button4', -command =&gt; \&amp;call4));
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

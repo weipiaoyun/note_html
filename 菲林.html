@@ -17,59 +17,59 @@
 
 
 <p>
-添加镜像，菲林大小，正负片
+添加镜像，菲林大小，正负片<br />
 </p>
 
 <p>
-添加临时资料
+添加临时资料<br />
 </p>
 
 <p>
-内层自动抓取系数
-</p>
-
-
-<p>
-增加贴膜系数
-</p>
-
-
-
-
-<p>
-老料号绘片时自动添加条形码
-</p>
-
-<p>
-贴膜系数的添加
-</p>
-
-<p>
-次外层，外层系数更改
+内层自动抓取系数<br />
 </p>
 
 
 <p>
-1，改系数
-2，改绘片
-3，改板边
+增加贴膜系数<br />
+</p>
+
+
+
+
+<p>
+老料号绘片时自动添加条形码<br />
 </p>
 
 <p>
-判断是否有条形码，没有添加
+贴膜系数的添加<br />
 </p>
 
 <p>
-菲林扫描用ID表示，转换成Guid后访问数据库
+次外层，外层系数更改<br />
+</p>
+
+
+<p>
+1，改系数<br />
+2，改绘片<br />
+3，改板边<br />
+</p>
+
+<p>
+判断是否有条形码，没有添加<br />
+</p>
+
+<p>
+菲林扫描用ID表示，转换成Guid后访问数据库<br />
 </p>
 
 
 
 <h1 id="toc_1">临时资料</h1><HR SIZE=1>
 <p>
-1，料号名
-2，涨缩系数
-3，层名
+1，料号名<br />
+2，涨缩系数<br />
+3，层名<br />
 </p>
 
 
@@ -77,8 +77,8 @@
 
 <h1 id="toc_3">图形界面</h1><HR SIZE=1>
 <p>
-菲林排产系统：Frm_FilmOrder
-菲林收发系统：
+菲林排产系统：Frm_FilmOrder<br />
+菲林收发系统：<br />
 </p>
 
 
@@ -93,112 +93,112 @@
 
 
 <p>
-待发送
-CTLGuid：FDE44F43-5507-E611-8C4E-78ACC03D06A8
+待发送<br />
+CTLGuid：FDE44F43-5507-E611-8C4E-78ACC03D06A8<br />
 </p>
 <h1 id="toc_4">存储过程</h1><HR SIZE=1>
 <p>
-deleteFilm 取消申请
-GetWaitingSend 获取待发送
-CancelBrushoffClick 取消报废
+deleteFilm 取消申请<br />
+GetWaitingSend 获取待发送<br />
+CancelBrushoffClick 取消报废<br />
 </p>
 
 
 
 
 <p>
-默认前十个都改为特急
+默认前十个都改为特急<br />
 </p>
 
 <p>
-2,前十个不排序
+2,前十个不排序<br />
 </p>
 
 <h1 id="toc_5">优先级</h1><HR SIZE=1>
 <p>
-更改申请的优先级，则如果详细的层别优先级小于修改后的申请优先级，则调为修改后的优先级(保持光绘的优先级和申请的优先级同步)
+更改申请的优先级，则如果详细的层别优先级小于修改后的申请优先级，则调为修改后的优先级(保持光绘的优先级和申请的优先级同步)<br />
 </p>
 
 <p>
-如果更改光绘的优先级，则不该变申请的优先级
+如果更改光绘的优先级，则不该变申请的优先级<br />
 </p>
 
 <h2 id="toc_5.1">光绘顺序</h2>
 <p>
-判断n如果大于10，则报错，返回。
+判断n如果大于10，则报错，返回。<br />
 </p>
 
 <p>
-第0行开始找，直到找到大于改变值的数字为止
+第0行开始找，直到找到大于改变值的数字为止<br />
 </p>
 
 
 
 <p>
-if (输入的数字 &gt; 10 || 不是数字)
-{
-	//MessageBox.Show("请输入小于10的数字");
-}
-else
-{
-	获取改变的值
-	int change = Convert.ToInt32(e.Value);
+if (输入的数字 &gt; 10 || 不是数字)<br />
+{<br />
+	//MessageBox.Show("请输入小于10的数字");<br />
+}<br />
+else<br />
+{<br />
+	获取改变的值<br />
+	int change = Convert.ToInt32(e.Value);<br />
 </p>
 
 <p>
-	//循环前十行
-	for (int i = 0; i &lt; 10; i++)
-	{
-		if (菲林顺序为孔)
-		{
-			break;
-		}
+	//循环前十行<br />
+	for (int i = 0; i &lt; 10; i++)<br />
+	{<br />
+		if (菲林顺序为孔)<br />
+		{<br />
+			break;<br />
+		}<br />
 </p>
 
 <p>
-		if (改变的值和当前行相等)
-		{
-			if (更改的那一行，不需加1)
-			{
+		if (改变的值和当前行相等)<br />
+		{<br />
+			if (更改的那一行，不需加1)<br />
+			{<br />
 </p>
 <blockquote>
 continue;
 </blockquote>
 				
 <p>
-			}
+			}<br />
 </p>
 
 <p>
-			把当前行+1
-			change += 1;
+			把当前行+1<br />
+			change += 1;<br />
 </p>
 
 <p>
-			更新当前行
+			更新当前行<br />
 </p>
 			
 <p>
-		}
-	}
-}
+		}<br />
+	}<br />
+}<br />
 </p>
 
 <p>
-newid()
+newid()<br />
 </p>
 
 <h2 id="toc_5.2">排产和收发共用一个表</h2>
 
 <h2 id="toc_5.3">发放记录一个表</h2>
 <p>
-Guid_
-PGuid_
+Guid_<br />
+PGuid_<br />
 </p>
 
 <h1 id="toc_6">查找CAM人员发放的记录</h1><HR SIZE=1>
 <p>
-SELECT     TOP (200) Guid_, TiaoMa_, ApplyGuid_, OrderGuid_, jobName_, TypeId, Apply2Dep, Aplly2People, TheFilmReson, ScaleX_, ScaleY_, FinishX_, FinishY_, TieMoX_, TieMoY_, FilmType_, FilmLayer_, 
+SELECT     TOP (200) Guid_, TiaoMa_, ApplyGuid_, OrderGuid_, jobName_, TypeId, Apply2Dep, Aplly2People, TheFilmReson, ScaleX_, ScaleY_, FinishX_, FinishY_, TieMoX_, TieMoY_, FilmType_, FilmLayer_, <br />
 </p>
 <blockquote>
 Machine_, FilmId_, ApplyTime, OrderOfFilm_, CancelFilm_, WIP_, Film_, FilmTime_, yaMo_, yaMoTime_, AOI, AOITime_, Measure_, MeasureTime_, Check_, CheckTime_, Mir_, Polarity_, Size_, 
@@ -206,8 +206,8 @@ Priority_, FilmNumApply_, FilmNumIng_, FilmNumOk_, Storage_, StorageTime_, SendN
 ReceiveWaiting_, CloseName_, CloseTime_, CloseStatus_, IsBrushoff_, BrushoffName_, BrushoffTime_, Remark_, selectNum_
 </blockquote>
 <p>
-FROM         T_WF_FilmOrderDetialInfo
-WHERE     (FilmType_ = '默认')
+FROM         T_WF_FilmOrderDetialInfo<br />
+WHERE     (FilmType_ = '默认')<br />
 </p>
 
 
@@ -237,179 +237,179 @@ WHERE     (FilmType_ = '默认')
 
 
 <p>
-刷新主要是更新WIP到要显示的表里面
+刷新主要是更新WIP到要显示的表里面<br />
 </p>
 
 
 <p>
-申请
-	料号名
-	涨缩X
-	涨缩Y
-	光绘机
-	类型
-	绘片原因
+申请<br />
+	料号名<br />
+	涨缩X<br />
+	涨缩Y<br />
+	光绘机<br />
+	类型<br />
+	绘片原因<br />
 </p>
 
 
 
 
 <p>
-排产
-	CAM资料完成排序，产线提交((写单或者邮件))后(CAM完成)插入，绘菲林
-</p>
-	
-<p>
-	料号名
+排产<br />
+	CAM资料完成排序，产线提交((写单或者邮件))后(CAM完成)插入，绘菲林<br />
 </p>
 	
 <p>
-	申请部门		内层        外层        绿油       文字     
+	料号名<br />
+</p>
+	
+<p>
+	申请部门		内层        外层        绿油       文字     <br />
 </p>
 <blockquote>
 开料  电镀（图形 全板） 绿油过数   绿油
 </blockquote>
 
 <p>
-	申请人	人名，系统
+	申请人	人名，系统<br />
 </p>
 	
 <p>
-	绘片原因
+	绘片原因<br />
 </p>
 
 <p>
-	涨缩系数（绘菲林）
+	涨缩系数（绘菲林）<br />
 </p>
 	
 <p>
-	类型(内层，阻焊，文字)
+	类型(内层，阻焊，文字)<br />
 </p>
 	
 <p>
-	曝光机
+	曝光机<br />
 </p>
 	
 <p>
-	申请张数
+	申请张数<br />
 </p>
 	
 <p>
-	目前张数
+	目前张数<br />
 </p>
 	
 <p>
-	申请时间
+	申请时间<br />
 </p>
 	
 <p>
-	光绘
+	光绘<br />
 </p>
 	
 <p>
-	光绘时间
+	光绘时间<br />
 </p>
 
 <p>
-	压膜
+	压膜<br />
 </p>
 	
 <p>
-	压膜时间
+	压膜时间<br />
 </p>
 
 <p>
-	(AOI)
+	(AOI)<br />
 </p>
 	
 <p>
-	AOI时间
+	AOI时间<br />
 </p>
 
 <p>
-	二次元
+	二次元<br />
 </p>
 	
 <p>
-	二次元时间
+	二次元时间<br />
 </p>
 
 <p>
-	外观检查
+	外观检查<br />
 </p>
 	
 <p>
-	外观检查时间
+	外观检查时间<br />
 </p>
 
 <p>
-	入库	
+	入库	<br />
 </p>
 	
 <p>
-	入库时间
+	入库时间<br />
 </p>
 	
 <p>
-	备注
+	备注<br />
 </p>
 	
 
 <p>
-OrderGuid_
-TypeId
-Apply2Dep
-TheFilmReson
-ScaleX_
-ScaleY_
-FilmType_
-Machine_
-FilmId_
-ApplyTime
-Film_
-FilmTime_
-yaMo_
-yaMoTime_
-AOI
-AOITime_
-Measure_
-MeasureTime_
-Check_
-CheckTime_
-Storage_
-StorateTime_
-Remark
+OrderGuid_<br />
+TypeId<br />
+Apply2Dep<br />
+TheFilmReson<br />
+ScaleX_<br />
+ScaleY_<br />
+FilmType_<br />
+Machine_<br />
+FilmId_<br />
+ApplyTime<br />
+Film_<br />
+FilmTime_<br />
+yaMo_<br />
+yaMoTime_<br />
+AOI<br />
+AOITime_<br />
+Measure_<br />
+MeasureTime_<br />
+Check_<br />
+CheckTime_<br />
+Storage_<br />
+StorateTime_<br />
+Remark<br />
 </p>
 
 
 <p>
-收发
-	型号	
-	层别	
-	系数X/Y	
-	张数	
-	绘片原因	
-	曝光机	
-	申请时间	
-	申请人	
-	光绘时间	
-	检查人	
-	"档案接收时间"  
-	第一次发放时间	
-	第一次发放人	
-	第一次接收人	
-	第一次归还时间	
-	第一次确认人	
-	第二次发放时间	
-	第二次发放人	
-	第二次接收人	
-	第二次归还时间	
-	第二次确认人													
-	封存时间
-	封存人
-	报废时间
-	报废确认人
-	备注
+收发<br />
+	型号	<br />
+	层别	<br />
+	系数X/Y	<br />
+	张数	<br />
+	绘片原因	<br />
+	曝光机	<br />
+	申请时间	<br />
+	申请人	<br />
+	光绘时间	<br />
+	检查人	<br />
+	"档案接收时间"  <br />
+	第一次发放时间	<br />
+	第一次发放人	<br />
+	第一次接收人	<br />
+	第一次归还时间	<br />
+	第一次确认人	<br />
+	第二次发放时间	<br />
+	第二次发放人	<br />
+	第二次接收人	<br />
+	第二次归还时间	<br />
+	第二次确认人													<br />
+	封存时间<br />
+	封存人<br />
+	报废时间<br />
+	报废确认人<br />
+	备注<br />
 </p>
 				
 	
@@ -418,90 +418,90 @@ Remark
 	
 
 <p>
-排产系统
+排产系统<br />
 </p>
 
 <p>
-CAM资料制作完成
+CAM资料制作完成<br />
 </p>
 
 <p>
-产线需求
+产线需求<br />
 </p>
 
 <p>
-申请部门		内层        外层        绿油       文字     
+申请部门		内层        外层        绿油       文字     <br />
 </p>
 <blockquote>
 开料  电镀（图形 全板） 绿油过数   绿油
 </blockquote>
 
 <p>
-申请类型		人，WIp
+申请类型		人，WIp<br />
 </p>
 
 <p>
-涨缩（绘菲林）
+涨缩（绘菲林）<br />
 </p>
 
 <p>
-绘片
+绘片<br />
 </p>
 
 <p>
-出片
+出片<br />
 </p>
 
 <p>
-压膜
+压膜<br />
 </p>
 
 <p>
-扫描(AOI)
+扫描(AOI)<br />
 </p>
 
 <p>
-二次元
+二次元<br />
 </p>
 
 <p>
-外观检查
+外观检查<br />
 </p>
 
 <p>
-入库
+入库<br />
 </p>
 
 
 
 
 <p>
-菲林收发系统
-</p>
-
-
-<p>
-237	38	10	BJ		标记	10
-</p>
-
-<p>
-新菲林
-菲林擦花
-变形重出
-更改周期
-压伤加绘
-重申请
-折伤加绘
-寿命到期
-更改资料
-改系数
-申请加绘
+菲林收发系统<br />
 </p>
 
 
 <p>
-468	76	1  新菲林		NULL	绘片原因	1
-469	76	2  菲林擦花		NULL	绘片原因	2
+237	38	10	BJ		标记	10<br />
+</p>
+
+<p>
+新菲林<br />
+菲林擦花<br />
+变形重出<br />
+更改周期<br />
+压伤加绘<br />
+重申请<br />
+折伤加绘<br />
+寿命到期<br />
+更改资料<br />
+改系数<br />
+申请加绘<br />
+</p>
+
+
+<p>
+468	76	1  新菲林		NULL	绘片原因	1<br />
+469	76	2  菲林擦花		NULL	绘片原因	2<br />
 </p>
 <blockquote>
 变形重出
@@ -517,123 +517,123 @@ CAM资料制作完成
            
 
 <p>
-申请部门		内层        外层        绿油       文字     
+申请部门		内层        外层        绿油       文字     <br />
 </p>
 <blockquote>
 开料  电镀（图形 全板） 绿油过数   绿油
 </blockquote>
 <p>
-申请人	人名，系统
-绘片原因
-涨缩系数（绘菲林）
-类型(内层，阻焊，文字)
-曝光机
-申请张数
-目前张数
-申请时间
-光绘
-光绘时间
-压膜
-压膜时间
-(AOI)
-AOI时间
-二次元
-二次元时间
-外观检查
-外观检查时间
-入库	
-入库时间
-备注
+申请人	人名，系统<br />
+绘片原因<br />
+涨缩系数（绘菲林）<br />
+类型(内层，阻焊，文字)<br />
+曝光机<br />
+申请张数<br />
+目前张数<br />
+申请时间<br />
+光绘<br />
+光绘时间<br />
+压膜<br />
+压膜时间<br />
+(AOI)<br />
+AOI时间<br />
+二次元<br />
+二次元时间<br />
+外观检查<br />
+外观检查时间<br />
+入库	<br />
+入库时间<br />
+备注<br />
 </p>
 
 
 <h2 id="toc_6.1">待处理</h2>
 <p>
-类型添加其他
+类型添加其他<br />
 </p>
 
 <p>
-更改镜像和尺寸的集合
+更改镜像和尺寸的集合<br />
 </p>
 
 <p>
-更改原因
+更改原因<br />
 </p>
 
 
 <h1 id="toc_7">有一个待回收即该料号为待回收</h1><HR SIZE=1>
 <p>
-  SELECT  a.[jobName_],b.ReceiveWaiting_
-  FROM [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] a 
-  LEFT JOIN
-	(SELECT  *
-  FROM [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] WHERE ReceiveWaiting_ = 1) AS b ON a.jobName_ = b.jobName_
-  GROUP BY a.jobName_,b.ReceiveWaiting_
+  SELECT  a.[jobName_],b.ReceiveWaiting_<br />
+  FROM [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] a <br />
+  LEFT JOIN<br />
+	(SELECT  *<br />
+  FROM [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] WHERE ReceiveWaiting_ = 1) AS b ON a.jobName_ = b.jobName_<br />
+  GROUP BY a.jobName_,b.ReceiveWaiting_<br />
 </p>
 
 
 
 <p>
-  waitingReceiveSelectAllClick	待回收选择所有
+  waitingReceiveSelectAllClick	待回收选择所有<br />
 </p>
   
 
 <h1 id="toc_8">收发系统</h1><HR SIZE=1>
 <p>
-getSendLog，单击改变收发记录
+getSendLog，单击改变收发记录<br />
 </p>
 
 
 <h1 id="toc_9">待优化</h1><HR SIZE=1>
 <p>
-1, CAM绘片没有设置条形码数据。
-2，相同类型的菲林需要一起收发
+1, CAM绘片没有设置条形码数据。<br />
+2，相同类型的菲林需要一起收发<br />
 </p>
 
 
 
 <h1 id="toc_10">待处理</h1><HR SIZE=1>
 <p>
-申请人和产线不一致
+申请人和产线不一致<br />
 </p>
 
 <p>
-版本和周期控制
+版本和周期控制<br />
 </p>
 
 <p>
-Lp-7008涨缩系数不同。
+Lp-7008涨缩系数不同。<br />
 </p>
 
 <p>
-报表时间
-报表根据备注过滤
-取消申请时收发状态同时取消
+报表时间<br />
+报表根据备注过滤<br />
+取消申请时收发状态同时取消<br />
 </p>
 
 
 
 
 <p>
-统计：套数：7(select * from film where 待发放 group by group_)    张数：15 (select * from film where 待发放)
-	料号：120264 套数：5  张数：10
-		组：内层 张数：5
-			in
-			in
-			in
-		组：阻焊 张数：2
-			gts
-			gbs
+统计：套数：7(select * from film where 待发放 group by group_)    张数：15 (select * from film where 待发放)<br />
+	料号：120264 套数：5  张数：10<br />
+		组：内层 张数：5<br />
+			in<br />
+			in<br />
+			in<br />
+		组：阻焊 张数：2<br />
+			gts<br />
+			gbs<br />
 </p>
 		
 <p>
-	料号：120263 套数：2 张数：5
-		组：内层 张数：2
-			in
-			in
-		组：文字 张数：3
-			gto
-			gbo
+	料号：120263 套数：2 张数：5<br />
+		组：内层 张数：2<br />
+			in<br />
+			in<br />
+		组：文字 张数：3<br />
+			gto<br />
+			gbo<br />
 </p>
 			
 
@@ -714,30 +714,30 @@ jobName_
 </table>
 
 <p>
-select * into #tmp_film from film  where 待发放
+select * into #tmp_film from film  where 待发放<br />
 </p>
 
 <p>
-select * into #liaohao from #tmp_film
+select * into #liaohao from #tmp_film<br />
 </p>
 
 <p>
-set liaohaoShu =  select * into #liaohao from #tmp_film group by jobName_
-set taoShu = select count(*) #tmp_film  group by group_
-set zhangShu = select count(*) #tmp_film
+set liaohaoShu =  select * into #liaohao from #tmp_film group by jobName_<br />
+set taoShu = select count(*) #tmp_film  group by group_<br />
+set zhangShu = select count(*) #tmp_film<br />
 </p>
 
 <p>
-while (select top 1 from #tmp_film)
-{
-	select 
+while (select top 1 from #tmp_film)<br />
+{<br />
+	select <br />
 </p>
 	
 	
 	
 <p>
-	delete 
-}
+	delete <br />
+}<br />
 </p>
 
 
@@ -748,30 +748,30 @@ while (select top 1 from #tmp_film)
 drop table #tmpaaa2
 </blockquote>
 <p>
-  declare @guid_ varchar(100), @givebackTime_ varchar(100)
+  declare @guid_ varchar(100), @givebackTime_ varchar(100)<br />
 </p>
   
 <p>
-  select * into #tmpaaa2 from T_WF_FilmSendReceiveLog  
+  select * into #tmpaaa2 from T_WF_FilmSendReceiveLog  <br />
 </p>
   
 <p>
-  while exists (select top 1 * from #tmpaaa2)
-  begin
-	select top 1 @guid_ = Guid_  from #tmpaaa2
+  while exists (select top 1 * from #tmpaaa2)<br />
+  begin<br />
+	select top 1 @guid_ = Guid_  from #tmpaaa2<br />
 </p>
 	
 <p>
-	if not exists (select top 1 * from  [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] where Guid_ = @guid_)
-	begin
-		delete from T_WF_FilmSendReceiveLog where  Guid_ = @guid_
-	end
+	if not exists (select top 1 * from  [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] where Guid_ = @guid_)<br />
+	begin<br />
+		delete from T_WF_FilmSendReceiveLog where  Guid_ = @guid_<br />
+	end<br />
 </p>
 
 	
 <p>
-	delete from #tmpaaa2 where  Guid_ = @guid_
-  end
+	delete from #tmpaaa2 where  Guid_ = @guid_<br />
+  end<br />
 </p>
   
 
@@ -780,49 +780,49 @@ drop table #tmpaaa2
 drop table #tmpaaa1
 </blockquote>
 <p>
-  declare @guid_ varchar(100), @givebackTime_ varchar(100)
+  declare @guid_ varchar(100), @givebackTime_ varchar(100)<br />
 </p>
   
 <p>
-  select * into #tmpaaa1 from T_WF_FilmSendReceiveLog  
+  select * into #tmpaaa1 from T_WF_FilmSendReceiveLog  <br />
 </p>
   
 <p>
-  while exists (select top 1 * from #tmpaaa1)
-  begin
-	select top 1 @guid_ = Guid_,@giveBackTime_ = GivebackTime_  from #tmpaaa1  where GivebackTime_ is not null and sendTime_ is not null
-	update [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] set GivebackTime_ = @giveBackTime_ where Guid_ = @guid_
+  while exists (select top 1 * from #tmpaaa1)<br />
+  begin<br />
+	select top 1 @guid_ = Guid_,@giveBackTime_ = GivebackTime_  from #tmpaaa1  where GivebackTime_ is not null and sendTime_ is not null<br />
+	update [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] set GivebackTime_ = @giveBackTime_ where Guid_ = @guid_<br />
 </p>
 	
 <p>
-	delete from #tmpaaa1 where  Guid_ = @guid_
-  end
+	delete from #tmpaaa1 where  Guid_ = @guid_<br />
+  end<br />
 </p>
 <blockquote>
 drop table #tmpaaa
 </blockquote>
 <p>
-  declare @guid_ varchar(100), @givebackTime_ varchar(100)
+  declare @guid_ varchar(100), @givebackTime_ varchar(100)<br />
 </p>
   
 <p>
-  select * into #tmpaaa from T_WF_FilmSendReceiveLog  
+  select * into #tmpaaa from T_WF_FilmSendReceiveLog  <br />
 </p>
   
 <p>
-  while exists (select top 1 * from #tmpaaa)
-  begin
-	select top 1 @guid_ = Guid_  from #tmpaaa  where GivebackTime_ is null and sendTime_ is not null
-	update [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] set receiveWaiting_ = 1 where Guid_ = @guid_
+  while exists (select top 1 * from #tmpaaa)<br />
+  begin<br />
+	select top 1 @guid_ = Guid_  from #tmpaaa  where GivebackTime_ is null and sendTime_ is not null<br />
+	update [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] set receiveWaiting_ = 1 where Guid_ = @guid_<br />
 </p>
 	
 <p>
-	delete from #tmpaaa where  Guid_ = @guid_
+	delete from #tmpaaa where  Guid_ = @guid_<br />
 </p>
 	
 <p>
-	--select count(*) from #tmpaaa
-  end
+	--select count(*) from #tmpaaa<br />
+  end<br />
 </p>
   
 <h1 id="toc_13" class="justcenter">志浩周期4a2536b0</h1><HR SIZE=1>
@@ -830,8 +830,8 @@ drop table #tmpaaa
 --	exec P_WF_FilmOrder @operType=N'getWaitingSendReport'
 </blockquote>
 <p>
-		if @operType = 'getWaitingSendReport'
-		BEGIN
+		if @operType = 'getWaitingSendReport'<br />
+		BEGIN<br />
 </p>
 <blockquote>
 declare @liaohaoShu int,@taoShu int, @zhangShu int,@jobName1 nvarchar(50)
@@ -885,7 +885,7 @@ end
 </blockquote>
 
 <p>
-			select * ,
+			select * ,<br />
 </p>
 <blockquote>
 (CASE 
@@ -904,11 +904,11 @@ AS FilmStatusDis_
 			
 			
 <p>
-			from #filmDetial1 where ApplyTime &gt; '2017-7-10'	 order by ApplyTime
+			from #filmDetial1 where ApplyTime &gt; '2017-7-10'	 order by ApplyTime<br />
 </p>
 			
 <p>
-		END
+		END<br />
 </p>
 
 
@@ -935,8 +935,6 @@ AS FilmStatusDis_
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

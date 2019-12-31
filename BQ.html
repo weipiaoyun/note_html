@@ -18,71 +18,71 @@
 <h1 id="toc_1">CAM_Guid</h1><HR SIZE=1>
 <h2 id="toc_1.1">阻焊转pad</h2>
 <p>
-选择线和弧
-DFM-&gt;Cleanup-&gt;Construct Pads(Ref.)...
+选择线和弧<br />
+DFM-&gt;Cleanup-&gt;Construct Pads(Ref.)...<br />
 </p>
 
 <h2 id="toc_1.2">线路转pad</h2>
 <p>
-循环所有的行，如果为线路，且为顶底层，则转PAD
-DFM-&gt;Cleanup-&gt;Construct Pads(Auto.)
+循环所有的行，如果为线路，且为顶底层，则转PAD<br />
+DFM-&gt;Cleanup-&gt;Construct Pads(Auto.)<br />
 </p>
 
 <h2 id="toc_1.3">正负叠加</h2>
 <p>
-就是负片优化
-把所有的非文字的负片选中(文字最好不转)，然后把铜皮正片选中，转铜
+就是负片优化<br />
+把所有的非文字的负片选中(文字最好不转)，然后把铜皮正片选中，转铜<br />
 </p>
 
 <h2 id="toc_1.4">外框转槽</h2>
 <p>
-铜皮也可以
-铜皮-&gt;DFM-&gt;Cleanup-&gt;Construct Pads(Auto.)自动转pad-&gt;break(打散成线)-&gt;获取线的大小-&gt;转换成槽的symbol
+铜皮也可以<br />
+铜皮-&gt;DFM-&gt;Cleanup-&gt;Construct Pads(Auto.)自动转pad-&gt;break(打散成线)-&gt;获取线的大小-&gt;转换成槽的symbol<br />
 </p>
 
 
 
 <h1 id="toc_2">函数</h1><HR SIZE=1>
 <p>
-PROC_ROUT_PREHOLE	加拐角孔
+PROC_ROUT_PREHOLE	加拐角孔<br />
 </p>
 
 
 <h1 id="toc_3">板边</h1><HR SIZE=1>
 <h2 id="toc_3.1">函数</h2>
 <p>
-PROC_RUN_ROUT 添加锣边框
+PROC_RUN_ROUT 添加锣边框<br />
 </p>
 
 <h1 id="toc_4">变量</h1><HR SIZE=1>
 <p>
-$GET_yp  是否样品拼版
-sjTIME	时间
-lb_size 左边留边
+$GET_yp  是否样品拼版<br />
+sjTIME	时间<br />
+lb_size 左边留边<br />
 </p>
 
 <p>
-Panel_x panel X的尺寸
+Panel_x panel X的尺寸<br />
 </p>
 
 <p>
-NPW 同心圆负量
+NPW 同心圆负量<br />
 </p>
 
 
 <p>
-制作RBK
-RORC_FZ_CREATERBK
-PROC_RUN_ROUT \(Bw_x1 \)Bw_x2 \(Bw_y1 \)Bw_y2 $Bw_y3 rbk  转换成变量
+制作RBK<br />
+RORC_FZ_CREATERBK<br />
+PROC_RUN_ROUT \(Bw_x1 \)Bw_x2 \(Bw_y1 \)Bw_y2 $Bw_y3 rbk  转换成变量<br />
 </p>
 
 <p>
-PROC_RUN_ROUT \(Bw_x1 \)Bw_x2 \(Bw_y1 \)Bw_y2 \(Bw_y3 \)lay_name
-PROC_ADD_ARC \(dtCirA \)inner_maoa_y \(dtCirA \)inner_maoa_y \(inner_maoa_x \)inner_maoa_y r200 positive cw
+PROC_RUN_ROUT \(Bw_x1 \)Bw_x2 \(Bw_y1 \)Bw_y2 \(Bw_y3 \)lay_name<br />
+PROC_ADD_ARC \(dtCirA \)inner_maoa_y \(dtCirA \)inner_maoa_y \(inner_maoa_x \)inner_maoa_y r200 positive cw<br />
 </p>
 
 <p>
-\(vYCount \)zh_vcut_xcount \(zh_vcut_x2 \)inner_maob_x2
+\(vYCount \)zh_vcut_xcount \(zh_vcut_x2 \)inner_maob_x2<br />
 </p>
 
 
@@ -109,8 +109,6 @@ PROC_ADD_ARC \(dtCirA \)inner_maoa_y \(dtCirA \)inner_maoa_y \(inner_maoa_x \)in
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

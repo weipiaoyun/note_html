@@ -17,34 +17,34 @@
 
 <h1 id="toc_1">单片机的基本结构</h1><HR SIZE=1>
 <p>
-基本结构：
-	(1)cpu系统:
-		包括cpu（运算器和控制器），时钟系统（振荡器、外接谐振单元、可关闭振荡器或cpu时钟），总线控制逻辑三部分
+基本结构：<br />
+	(1)cpu系统:<br />
+		包括cpu（运算器和控制器），时钟系统（振荡器、外接谐振单元、可关闭振荡器或cpu时钟），总线控制逻辑三部分<br />
 </p>
 
 <p>
-	(2)外围功能单元
-		RAM,ROM,I/O端口，SFR
+	(2)外围功能单元<br />
+		RAM,ROM,I/O端口，SFR<br />
 </p>
 
 <p>
-	(3)归一化I/O端口(基本逻辑单元，串口并口，)
+	(3)归一化I/O端口(基本逻辑单元，串口并口，)<br />
 </p>
 	
 <p>
-	程序执行的顺序：
-		在ROM中读取指令，送到IR里面，经过译码后到定时控制逻辑，产生控制字。(要用微观的角度思考，放慢，一条指令，经过循环计数器，产生多个控制字。移位一个就产生一个。也就选择了一组部件。数据经过部件就会处理。
-		(一个指令，译码，变成控制字，循环开关，打开交流部件)
+	程序执行的顺序：<br />
+		在ROM中读取指令，送到IR里面，经过译码后到定时控制逻辑，产生控制字。(要用微观的角度思考，放慢，一条指令，经过循环计数器，产生多个控制字。移位一个就产生一个。也就选择了一组部件。数据经过部件就会处理。<br />
+		(一个指令，译码，变成控制字，循环开关，打开交流部件)<br />
 </p>
 		
 <p>
-		地址多少位就决定了寻址空间多大。
+		地址多少位就决定了寻址空间多大。<br />
 <a href="51单片机存储器.html">51单片机存储器</a>
 <a href="算术逻辑单元.html">算术逻辑单元</a>
 <a href="定时控制部件.html">定时控制部件</a>
 <a href="指令系统.html">指令系统</a>
 <a href="并行输入输出端口.html">并行输入输出端口</a>
-<a href="中断系统.html">中断系统</a> 
+<a href="中断系统.html">中断系统</a> <br />
 <a href="单片机接口技术.html">单片机接口技术</a>
 <a href="51单片机问题.html">51单片机问题</a>
 <a href="8位ADC0809与单片机接口.html">8位ADC0809与单片机接口</a>
@@ -66,8 +66,8 @@
 
 
 <p>
-ALE:	地址锁存信号，它有一个特点，如果不是MOVX或MOVC指令。每隔1/6时钟震荡频率就输出正脉冲。由硬件置1，延时一段时间后又由硬件清零。
-		ALE是外设的控制线(外设的L门用其打开)，
+ALE:	地址锁存信号，它有一个特点，如果不是MOVX或MOVC指令。每隔1/6时钟震荡频率就输出正脉冲。由硬件置1，延时一段时间后又由硬件清零。<br />
+		ALE是外设的控制线(外设的L门用其打开)，<br />
 </p>
 
 
@@ -94,8 +94,6 @@ ALE:	地址锁存信号，它有一个特点，如果不是MOVX或MOVC指令。�
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

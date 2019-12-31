@@ -48,18 +48,18 @@
 <li><a href="#toc_15">禁止在 .NET Framework 中执行用户代码。启用 "clr enabled" 配置选项。</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">软件 </h1><HR SIZE=1>
 <p>
-SSMS-Setup-CHS
+SSMS-Setup-CHS<br />
 </p>
 
 <h1 id="toc_2">表 </h1><HR SIZE=1>
 <h2 id="toc_2.1">自定义表类型 </h2>
 <p>
-存储过程可以直接传递整个表过去。
-数据库-&gt;可编程性-》类型-》用户定义表类型。
+存储过程可以直接传递整个表过去。<br />
+数据库-&gt;可编程性-》类型-》用户定义表类型。<br />
 </p>
 
 <h1 id="toc_3">数据库根据mdf还原 </h1><HR SIZE=1>
@@ -74,66 +74,66 @@ SSMS-Setup-CHS
 
 <h1 id="toc_4">压缩日志备份数据库 </h1><HR SIZE=1>
 <p>
-右击-》属性-》选项-》恢复模式改为简单
-任务-》收缩-》文件-》文件类型选择日志-》确定
-备份还原
-右击-》属性-》选项-》恢复模式改为完整
+右击-》属性-》选项-》恢复模式改为简单<br />
+任务-》收缩-》文件-》文件类型选择日志-》确定<br />
+备份还原<br />
+右击-》属性-》选项-》恢复模式改为完整<br />
 </p>
 
 <h1 id="toc_5">SQL服务的启动</h1><HR SIZE=1>
 <p>
-所有程序-&gt;Microsoft SQL Server 2008 R2-&gt;配置工具-&gt;SQL Server 配置管理器
+所有程序-&gt;Microsoft SQL Server 2008 R2-&gt;配置工具-&gt;SQL Server 配置管理器<br />
 </p>
 <h1 id="toc_6">SQL函数 </h1><HR SIZE=1>
 
 <h2 id="toc_6.1">对查询出来的数据进行编号分页 </h2>
 <p>
- ROW_NUMBER() OVER ( ORDER BY ApplyTime)
+ ROW_NUMBER() OVER ( ORDER BY ApplyTime)<br />
 </p>
  
 <p>
-SELECT  ROW_NUMBER() OVER ( ORDER BY ApplyTime) AS NUMBER,  *   FROM [EngSys].[dbo].[T_WF_FilmOrderDetialInfo]
+SELECT  ROW_NUMBER() OVER ( ORDER BY ApplyTime) AS NUMBER,  *   FROM [EngSys].[dbo].[T_WF_FilmOrderDetialInfo]<br />
 </p>
   
 <h2 id="toc_6.2">for xml path </h2>
 <p>
-把查询的结果已xml的形式输出  for xml path
+把查询的结果已xml的形式输出  for xml path<br />
 </p>
 
 <h3 id="toc_6.2.1">改变节点名称 </h3>
 <p>
-for xml path ('user')， path 后传入字符串参数
-select jobName_ from [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] t where jobName_ = 'bk100971b0'for xml path('')
+for xml path ('user')， path 后传入字符串参数<br />
+select jobName_ from [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] t where jobName_ = 'bk100971b0'for xml path('')<br />
 </p>
 <h3 id="toc_6.2.2">改变节点 </h3>
 <p>
-select ';'+jobName_ from [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] t where jobName_ = 'bk100971b0'for xml path('')
+select ';'+jobName_ from [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] t where jobName_ = 'bk100971b0'for xml path('')<br />
 </p>
 
 
 <p>
-UNION all
-IsNull
+UNION all<br />
+IsNull<br />
 </p>
 
 <h1 id="toc_7">新建数据库服务器sa 无法登陆。 </h1><HR SIZE=1>
 <p>
-1，服务器-》属性，安全性选择SQL Server 和windows身份验证模式；连接-》允许远程连接到此服务器。
-2，安全性-&gt;登陆名-》sa-&gt;属性-常规-》把强制实施密码策略取消
-3，放火墙-&gt;例外-》添加端口-&gt;名称sql-》端口号：1433
+1，服务器-》属性，安全性选择SQL Server 和windows身份验证模式；连接-》允许远程连接到此服务器。<br />
+2，安全性-&gt;登陆名-》sa-&gt;属性-常规-》把强制实施密码策略取消<br />
+3，放火墙-&gt;例外-》添加端口-&gt;名称sql-》端口号：1433<br />
 </p>
 
 <h1 id="toc_8">无法用ip登录 </h1><HR SIZE=1>
 <p>
-sql ServerConfiguration Manager(数据库服务管理)-&gt;把SqlServer网络配置的Tcp/ip的已禁用改为已启用。然后重启sqlserver。
+sql ServerConfiguration Manager(数据库服务管理)-&gt;把SqlServer网络配置的Tcp/ip的已禁用改为已启用。然后重启sqlserver。<br />
 </p>
 
 
 <h1 id="toc_9">转移数据库 </h1><HR SIZE=1>
 <p>
-1，如果是本机，可以直接备份数据库，把备份的数据库还原即可
-2，在目的服务器建立同样名称的数据库，右击新建的数据库-》任务-》导入数据(只能导入表和视图)
-3，存储过程需要右击源数据库，点击任务-》生成脚本-》把存储过程生成脚本，然后在目的数据库里面运行
+1，如果是本机，可以直接备份数据库，把备份的数据库还原即可<br />
+2，在目的服务器建立同样名称的数据库，右击新建的数据库-》任务-》导入数据(只能导入表和视图)<br />
+3，存储过程需要右击源数据库，点击任务-》生成脚本-》把存储过程生成脚本，然后在目的数据库里面运行<br />
 </p>
 
 <h1 id="toc_10">转移维护计划 </h1><HR SIZE=1>
@@ -163,85 +163,85 @@ sql ServerConfiguration Manager(数据库服务管理)-&gt;把SqlServer网络配
   
 <h1 id="toc_11">更改系统密码后sql无法登录 </h1><HR SIZE=1>
 <p>
-SqlServer服务-&gt;右击属性-选择登录-&gt;把密码修改
+SqlServer服务-&gt;右击属性-选择登录-&gt;把密码修改<br />
 </p>
 
 
 <h2 id="toc_11.1">如何添加链接服务器</h2>
 <p>
-点开服务器对象-&gt;点开链接服务器-&gt;右击新建链接服务器-&gt;
-在常规里面填写
-	1，填写链接服务器，也就是引用链接服务器时将使用的名称DGWZERP
-	2，在服务器类型里面选择其他数据源
-	3，在访问接口选择Microsoft OLE DB Provider for SQL Server
-	4, 产品名称和链接服务器的名称相同
-	5，数据源为源服务器的IP地址
+点开服务器对象-&gt;点开链接服务器-&gt;右击新建链接服务器-&gt;<br />
+在常规里面填写<br />
+	1，填写链接服务器，也就是引用链接服务器时将使用的名称DGWZERP<br />
+	2，在服务器类型里面选择其他数据源<br />
+	3，在访问接口选择Microsoft OLE DB Provider for SQL Server<br />
+	4, 产品名称和链接服务器的名称相同<br />
+	5，数据源为源服务器的IP地址<br />
 </p>
 	
 <p>
-在安全性里面填写
-	1，本地登录(ems本地的账号登录，或者sa)，远程用户(链接服务器的用户)，远程密码
-	2，使用此安全上下文建立连接，远程登录为远程用户，远程密码(不使用也可以)
+在安全性里面填写<br />
+	1，本地登录(ems本地的账号登录，或者sa)，远程用户(链接服务器的用户)，远程密码<br />
+	2，使用此安全上下文建立连接，远程登录为远程用户，远程密码(不使用也可以)<br />
 </p>
 <h1 id="toc_12">添加维护计划，执行T-SQL语句 </h1><HR SIZE=1>
 <p>
-对象资源管理器(数据库服务器)-&gt;管理-&gt;维护计划-》右击，新建维护计划。填写名称-》填写作业计划属性。
-生成子计划。查看-》工具箱-“执行 T-SQL 语句”任务
-管理链接。编辑，使用特定的用户名和密码。
+对象资源管理器(数据库服务器)-&gt;管理-&gt;维护计划-》右击，新建维护计划。填写名称-》填写作业计划属性。<br />
+生成子计划。查看-》工具箱-“执行 T-SQL 语句”任务<br />
+管理链接。编辑，使用特定的用户名和密码。<br />
 </p>
 
 
 <h1 id="toc_13">如何备份数据库到网络盘 </h1><HR SIZE=1>
 <p>
-use  Master
-go
-sp_configure 'show advanced options', 1;
-go
-reconfigure;
-go
-sp_configure 'xp_cmdshell', 1;
-go
-reconfigure;
-go
+use  Master<br />
+go<br />
+sp_configure 'show advanced options', 1;<br />
+go<br />
+reconfigure;<br />
+go<br />
+sp_configure 'xp_cmdshell', 1;<br />
+go<br />
+reconfigure;<br />
+go<br />
 </p>
 
 <p>
---报错， 不支持对系统目录进行即席更新
-sp_configure 'allow updates',0
+--报错， 不支持对系统目录进行即席更新<br />
+sp_configure 'allow updates',0<br />
 </p>
 
 <p>
--- To allow advanced options to be changed.  
-EXEC sp_configure 'show advanced options', 1;  
-GO  
+-- To allow advanced options to be changed.  <br />
+EXEC sp_configure 'show advanced options', 1;  <br />
+GO  <br />
 </p>
 
 <p>
--- To update the currently configured value for advanced options.  
-RECONFIGURE;  
-GO  
--- To enable the feature.  
-EXEC sp_configure 'xp_cmdshell', 1;  
-GO  
--- To update the currently configured value for this feature.  
-RECONFIGURE;  
-GO  
+-- To update the currently configured value for advanced options.  <br />
+RECONFIGURE;  <br />
+GO  <br />
+-- To enable the feature.  <br />
+EXEC sp_configure 'xp_cmdshell', 1;  <br />
+GO  <br />
+-- To update the currently configured value for this feature.  <br />
+RECONFIGURE;  <br />
+GO  <br />
 </p>
 
 <p>
---接下来执行备份脚本进行测试：
+--接下来执行备份脚本进行测试：<br />
 </p>
 
 <p>
-DECLARE @backupfile VARCHAR(1024)
-DECLARE @backdesc VARCHAR(1024)
-DECLARE @filename VARCHAR(1024)
-DECLARE @path VARCHAR(1024)
-DECLARE @dbname VARCHAR(1024)
-DECLARE @extension_name VARCHAR(16)
---定义游标
-DECLARE tmp_Cur CURSOR
-FOR
+DECLARE @backupfile VARCHAR(1024)<br />
+DECLARE @backdesc VARCHAR(1024)<br />
+DECLARE @filename VARCHAR(1024)<br />
+DECLARE @path VARCHAR(1024)<br />
+DECLARE @dbname VARCHAR(1024)<br />
+DECLARE @extension_name VARCHAR(16)<br />
+--定义游标<br />
+DECLARE tmp_Cur CURSOR<br />
+FOR<br />
 </p>
 <blockquote>
 SELECT  name
@@ -249,73 +249,73 @@ FROM    [sys].[databases]
 WHERE   LOWER(name) IN ('zyCenter', 'TransDbCpu','AccessCtrl' )
 </blockquote>
 <p>
---开启映射
-exec master..xp_cmdshell 'net use H: \\172.18.3.113\hc\DatabaseBak  "hcsystem" /user:D018002240\d018002240'
-SET @path = N'H:\';
-SET @extension_name = N'bak';
-SET @filename = CONVERT(VARCHAR(1024), GETDATE(), 120)
-SET @filename = REPLACE(@filename, ':', '')
-SET @filename = REPLACE(@filename, '-', '')
-SET @filename = REPLACE(@filename, ' ', '')
-SET @filename = @filename + '_' + CONVERT (VARCHAR(3), DATEPART(ms, GETDATE()))
+--开启映射<br />
+exec master..xp_cmdshell 'net use H: \\172.18.3.113\hc\DatabaseBak  "hcsystem" /user:D018002240\d018002240'<br />
+SET @path = N'H:\';<br />
+SET @extension_name = N'bak';<br />
+SET @filename = CONVERT(VARCHAR(1024), GETDATE(), 120)<br />
+SET @filename = REPLACE(@filename, ':', '')<br />
+SET @filename = REPLACE(@filename, '-', '')<br />
+SET @filename = REPLACE(@filename, ' ', '')<br />
+SET @filename = @filename + '_' + CONVERT (VARCHAR(3), DATEPART(ms, GETDATE()))<br />
 </p>
 <blockquote>
 + N'.' + @extension_name
 </blockquote>
 
 <p>
---OPEN tmp_Cur;
---FETCH NEXT FROM tmp_Cur INTO @dbname;
---WHILE @@FETCH_STATUS = 0
+--OPEN tmp_Cur;<br />
+--FETCH NEXT FROM tmp_Cur INTO @dbname;<br />
+--WHILE @@FETCH_STATUS = 0<br />
 </p>
 <blockquote>
 --BEGIN
 SET @backupfile = @path + @dbname+'<em>full</em>'+ @filename
 </blockquote>
 <p>
-  SET @backdesc =@dbname + N'-完整备份'
-  print '---------------'
-  print @backdesc
-  print '---------------'
-  -- 执行备份
+  SET @backdesc =@dbname + N'-完整备份'<br />
+  print '---------------'<br />
+  print @backdesc<br />
+  print '---------------'<br />
+  -- 执行备份<br />
 </p>
 <blockquote>
 -- BACKUP DATABASE @dbname TO DISK = @backupfile WITH RETAINDAYS = 14,NOFORMAT, NOINIT,  NAME = @backdesc, SKIP, NOREWIND, NOUNLOAD,  STATS = 10, COMPRESSION
 </blockquote>
 <p>
-backup database EngSys to disk=@backdesc with init
---FETCH NEXT FROM tmp_Cur INTO @dbname
-  --  END
---CLOSE tmp_Cur;
---DEALLOCATE tmp_Cur;
+backup database EngSys to disk=@backdesc with init<br />
+--FETCH NEXT FROM tmp_Cur INTO @dbname<br />
+  --  END<br />
+--CLOSE tmp_Cur;<br />
+--DEALLOCATE tmp_Cur;<br />
 </p>
 
 <p>
--- 删除14天前的备份文件
-DECLARE @olddate DATETIME
-SELECT  @olddate = DATEADD(d, -14, GETDATE())
-EXECUTE master.dbo.xp_delete_file 0, @path, @extension_name, @olddate, 1
---关闭映射
---exec master.sys.xp_cmdshell 'net use H: /delete'
+-- 删除14天前的备份文件<br />
+DECLARE @olddate DATETIME<br />
+SELECT  @olddate = DATEADD(d, -14, GETDATE())<br />
+EXECUTE master.dbo.xp_delete_file 0, @path, @extension_name, @olddate, 1<br />
+--关闭映射<br />
+--exec master.sys.xp_cmdshell 'net use H: /delete'<br />
 </p>
  
 <p>
-sp_addumpdevice 'DISK','NetWork','\\172.18.3.113\hc\DatabaseBak\'
-go
-backup database EngSys to network
+sp_addumpdevice 'DISK','NetWork','\\172.18.3.113\hc\DatabaseBak\'<br />
+go<br />
+backup database EngSys to network<br />
 </p>
 
 <p>
-EXEC sp_configure 'show advanced options', 1;
-RECONFIGURE;EXEC sp_configure 'xp_cmdshell', 1;
-RECONFIGURE;
-exec master..xp_cmdshell 'net use \\172.18.3.113\hc\DatabaseBak\ hcsystem /user:D018002240\d018002240'
-backup database EngSys to disk='H:\testDB.bak' with init
+EXEC sp_configure 'show advanced options', 1;<br />
+RECONFIGURE;EXEC sp_configure 'xp_cmdshell', 1;<br />
+RECONFIGURE;<br />
+exec master..xp_cmdshell 'net use \\172.18.3.113\hc\DatabaseBak\ hcsystem /user:D018002240\d018002240'<br />
+backup database EngSys to disk='H:\testDB.bak' with init<br />
 </p>
 
 <p>
 <a href="志浩ERP查询.html">志浩ERP查询</a>
-审核状态：0025:TSTATUS 
+审核状态：0025:TSTATUS <br />
 <a href="SQL存储过程.html">SQL存储过程</a>
 <a href="ERP数据库.html">ERP数据库</a>
 <a href="HX.html">HX</a>
@@ -328,23 +328,23 @@ backup database EngSys to disk='H:\testDB.bak' with init
 
 <h1 id="toc_14">知道字段，查找表</h1><HR SIZE=1>
 <p>
-select * from sysobjects  where id in (select id from syscolumns where name='RT_NUM')
-select a.name as TableName,b.name as ColName From sysobjects a
-inner join syscolumns b on (a.id=b.id)
-where a.xtype='U' and b.name='字段'
+select * from sysobjects  where id in (select id from syscolumns where name='RT_NUM')<br />
+select a.name as TableName,b.name as ColName From sysobjects a<br />
+inner join syscolumns b on (a.id=b.id)<br />
+where a.xtype='U' and b.name='字段'<br />
 </p>
 
 <h1 id="toc_15">禁止在 .NET Framework 中执行用户代码。启用 "clr enabled" 配置选项。</h1><HR SIZE=1>
 <p>
-exec sp_configure 'show advanced options', '0';
-go
-reconfigure  WITH OVERRIDE ;
-go
-exec sp_configure 'clr enabled', '1'
-go
-reconfigure  WITH OVERRIDE ;
-exec sp_configure 'show advanced options', '1';
-go
+exec sp_configure 'show advanced options', '0';<br />
+go<br />
+reconfigure  WITH OVERRIDE ;<br />
+go<br />
+exec sp_configure 'clr enabled', '1'<br />
+go<br />
+reconfigure  WITH OVERRIDE ;<br />
+exec sp_configure 'show advanced options', '1';<br />
+go<br />
 </p>
 
 
@@ -371,8 +371,6 @@ go
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

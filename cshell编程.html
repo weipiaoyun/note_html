@@ -22,282 +22,282 @@
 <li><a href="#toc_3">取整</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">perl参数传递给csh </h1><HR SIZE=1>
 <p>
-perl里面print 
-csh <code>perl</code>
+perl里面print <br />
+csh <code>perl</code><br />
 </p>
 <h1 id="toc_2">常用命令</h1><HR SIZE=1>
 <p>
-set infoShuzhu = <code>cat \(GENESIS_TMP/info.\)\( | awk '{print \)3}'</code>
-infoShuzhu是一个数组，文件cat出来的第三列所组成的数组。
+set infoShuzhu = <code>cat \(GENESIS_TMP/info.\)\( | awk '{print \)3}'</code><br />
+infoShuzhu是一个数组，文件cat出来的第三列所组成的数组。<br />
 </p>
 
 <h1 id="toc_3">取整</h1><HR SIZE=1>
 <p>
-set aa = <code>echo \(bb[\)i] | bc -l | awk '{printf "%1.0f", $1}'</code>
+set aa = <code>echo \(bb[\)i] | bc -l | awk '{printf "%1.0f", $1}'</code><br />
 </p>
 
 <p>
-set aa = <code>cat \(TMP/message_bar | awk -F, '{print \)10}' | awk -F= '{print \(2}' | awk -F. '{print \)1}'</code>,以，为字段分割符，第十个字段，然后以=作为字段分割符，取第二个字段，最后以点作为分割符，取第一个字段。
-</p>
-
-
-<p>
-set aa = \(#ARRAY 最好用set aa = <code>echo \)#ARRAY</code>代替;
-Awk 的print等动作要用大括号括起来。
-Awk后面的要用单引号括起来。
+set aa = <code>cat \(TMP/message_bar | awk -F, '{print \)10}' | awk -F= '{print \(2}' | awk -F. '{print \)1}'</code>,以，为字段分割符，第十个字段，然后以=作为字段分割符，取第二个字段，最后以点作为分割符，取第一个字段。<br />
 </p>
 
 
 <p>
-Shell编程
-</p>
-
-<p>
-Shell语法总结
-</p>
-
-<p>
-1，	管道命令的前面的命令必须有信号输出才能执行，否则只执行后面的命令。
-</p>
-
-<p>
-2，	Tee一般是和管道一起使用，表示把标准输出备份一个到一文档里面，同时在终端显示。
-</p>
-
-<p>
-3，错误重定向Grep “genesis” scripts  2&gt;grep.err不能在csh里面使用，可以在bash里面使用。后面的文件描述符重定向不能有空格。
-</p>
-
-<p>
-4，@命令不能在bash里面使用，可以在csh里面使用，它是运算命令。Shell语言是用命令组成的，如果直接运算，发现第一个变量不是命令，提示错误。还有shell里面的x不比c语言里面的，x只表示变量，在c里我们还可以把它当作是一个值。
-</p>
-
-<p>
-5，./执行和source执行有什么不同。./是执行文档文件，它可以设置执行的shell。Source文档名的时候，不管设置的是什么shell，其都是在当前shell环境下执行。
-</p>
-
-<p>
-6，在shell里面没有分整型变量，全都是字符串变量。所有的数值都由字符串的形式表示。 
-</p>
-
-<p>
-7，变量：
-	对一个变量赋予多个不同的值，用（）。其相当于c里面的数组。
-	取消赋值用unset，其以后使用变量的时候会提示underfined variable
-8，特定变量：
-		#$表示数组全部值
-		$# 传递到脚本的参数个数。
-		$* 
-		$$脚本运行的当前进程ID
-		$!后台运行的最后一个进程的进程ID号
-</p>
-
-<p>
-9，shift命令，左移命令，删除数组第一个值。
-</p>
-
-<p>
-10，引号：
-		双引号里面的可以$取值，单引号里面是什么显示什么。反引号里面的表执行shell命令。反引号也可嵌入到双引号里面，同样表示执行反引号命令。
-</p>
-
-<p>
-11，有些符号已经代表了某个特定的含义。要表示其本身含义，需前面加反斜杠。
+set aa = \(#ARRAY 最好用set aa = <code>echo \)#ARRAY</code>代替;<br />
+Awk 的print等动作要用大括号括起来。<br />
+Awk后面的要用单引号括起来。<br />
 </p>
 
 
 <p>
-14，alias别名。
-	Unalias
+Shell编程<br />
 </p>
 
 <p>
-15，控制语句
-	Break：跳出全部循环
-	Continue：跳出本轮循环，继续判断循环
+Shell语法总结<br />
 </p>
 
 <p>
-16，Foreach语法
-格式：foreach 变量名 （$数组名）
-End
-循环取数组里面的each放到变量名里面，一次取一个。如：
-Foreach word （hello kugou）
-	Echo $word
-End
-程序会取hello kugou数组里面的每一次放一个放到word里面，打印出来！
+1，	管道命令的前面的命令必须有信号输出才能执行，否则只执行后面的命令。<br />
 </p>
 
 <p>
-17，$?tmp 在判断语句里判断该值是否已经定义，如果已经定义，返回值1，没有为0.
+2，	Tee一般是和管道一起使用，表示把标准输出备份一个到一文档里面，同时在终端显示。<br />
 </p>
 
 <p>
-18，If语句后面非0即真，这和c语言里面的是一样的。而在linux里面，操作如果成功返回的是0。$?variable，如果variable没有定义，则返回结果为0，否则为1 
+3，错误重定向Grep “genesis” scripts  2&gt;grep.err不能在csh里面使用，可以在bash里面使用。后面的文件描述符重定向不能有空格。<br />
 </p>
 
 <p>
-19，\!表示的是取得参数，\!:1,表第一个参数，\!:3, 表第三个参数
+4，@命令不能在bash里面使用，可以在csh里面使用，它是运算命令。Shell语言是用命令组成的，如果直接运算，发现第一个变量不是命令，提示错误。还有shell里面的x不比c语言里面的，x只表示变量，在c里我们还可以把它当作是一个值。<br />
 </p>
 
 <p>
-20，数组的赋值和c语言不一样，可以整个数组值全部一起赋值过去，其以空格表示
+5，./执行和source执行有什么不同。./是执行文档文件，它可以设置执行的shell。Source文档名的时候，不管设置的是什么shell，其都是在当前shell环境下执行。<br />
 </p>
 
 <p>
-21，附加到某个文档是以换行的方式存储到文档
+6，在shell里面没有分整型变量，全都是字符串变量。所有的数值都由字符串的形式表示。 <br />
 </p>
 
 <p>
-22，如果要把一个文档里面的内容赋值给一个数组变量，必须先把其cat出来
+7，变量：<br />
+	对一个变量赋予多个不同的值，用（）。其相当于c里面的数组。<br />
+	取消赋值用unset，其以后使用变量的时候会提示underfined variable<br />
+8，特定变量：<br />
+		#$表示数组全部值<br />
+		$# 传递到脚本的参数个数。<br />
+		$* <br />
+		$$脚本运行的当前进程ID<br />
+		$!后台运行的最后一个进程的进程ID号<br />
 </p>
 
 <p>
-23，判断两个值是否不匹配用!~
+9，shift命令，左移命令，删除数组第一个值。<br />
 </p>
 
 <p>
-正则表达式和grep，awk
-^行的开始
-$行的结束
-.点任意单字符
-*任意多个任意字符。
-？匹配单个字符
-[]匹配里的面任意一个字符
-\&lt;，与^不同，这时单词的开始，若单词的开始存在下面字眼，输出此行。
-\&gt;,单词的结束
-X\{m\}重复字符x，m次
-X\{m，\}至少m次
-X\{m，n\}m次到n次s
-\w，相当于[a-zA-Z0-9]
-\W,\w的反置形式
-\b，单词锁定符，\bgrep\b, 只匹配grep单词的行
-‘^$’空行
-+和？只适用于awk，不适用于grep
+10，引号：<br />
+		双引号里面的可以$取值，单引号里面是什么显示什么。反引号里面的表执行shell命令。反引号也可嵌入到双引号里面，同样表示执行反引号命令。<br />
 </p>
 
 <p>
-一、	Grep
-功能：在文件里搜索匹配模式。如果搜到，打印该行。
-格式: grep  选项  正则表达式  文件。
-注意：输入字符串或变量时，最好用双引号括起来，在匹配模式的时候用单引号
--c 显示包含字符串的行号
--v 非匹配行
--i 忽略大小写
--b 打印块号码
-</p>
-
-<p>
-例：
-1，	要搜寻带有&lt;tab&gt;键的字符串。
-Grep “sdf	”  test #f后面使用tab键在正常情况下，终端是无法输入&lt;tab&gt;键的，这只能在文本脚本里面使用。
-2，	搜寻只含sdf字符串的精确匹配
-Grep “\bsdf\b” test #如果前后没有锁定，搜寻出的结果是包含所有具有sdf的行
-3，	搜寻不是以sdf为行开头的。
-Grep “<sup><small>[</small></sup>sdf]” test #第一个<sup><small>表示行开头，第二个</small></sup>表示的是非。
-</p>
-
-<p>
-Fgrep, 快速grep，可以同时搜索多个字符串，但不能使用正则表达式
-Egrep，不仅可以搜索多个字符串，也可使用正则表达式。
+11，有些符号已经代表了某个特定的含义。要表示其本身含义，需前面加反斜杠。<br />
 </p>
 
 
 <p>
-二、	Awk
-抽取数据包。还可进行命令操作。采用逐行扫描的方式，从第一行到最后一行。匹配特定模式。
-Awk [option] 
+14，alias别名。<br />
+	Unalias<br />
 </p>
 
 <p>
-Awk由模式和动作组成。，模式和动作要用单引号括起来。
-模式可以是条件语句，复合语句，或者是正则表达式。其决定触发时间和触发事件
+15，控制语句<br />
+	Break：跳出全部循环<br />
+	Continue：跳出本轮循环，继续判断循环<br />
 </p>
 
 <p>
-例: Awk ‘/genesis/’ /etc/passwd  genesis要放在//里面，//为字符串格式匹配，中间不能有空格。最外面还有一个引号。
+16，Foreach语法<br />
+格式：foreach 变量名 （$数组名）<br />
+End<br />
+循环取数组里面的each放到变量名里面，一次取一个。如：<br />
+Foreach word （hello kugou）<br />
+	Echo $word<br />
+End<br />
+程序会取hello kugou数组里面的每一次放一个放到word里面，打印出来！<br />
 </p>
 
 <p>
-例：echo  3，2  |  awk ‘{if  (\(1&lt;\)2) print 1; else print 2}’  注意，动作必须用{}括起来，命令与命令之间用分号隔开。
+17，$?tmp 在判断语句里判断该值是否已经定义，如果已经定义，返回值1，没有为0.<br />
 </p>
 
 <p>
-记录和域
-在awk中，awk以换行符结束的行称为一个记录（一行一记录）。保存在内建变量ORS和RS中。每个单词称为一个域，默认情况下以空格或tab分隔，awk可以跟踪域的个数，并在内建变量NF中保存该值。
-NR：行号计数器，每处理完一条记录，NR就会加1，
+18，If语句后面非0即真，这和c语言里面的是一样的。而在linux里面，操作如果成功返回的是0。$?variable，如果variable没有定义，则返回结果为0，否则为1 <br />
 </p>
 
 <p>
-例：cat gui | awk ‘/^(a|s)/’查找以a或者是s开头的行
-例：awk ‘$1 ~/^..c/’ gui   域1里面第三个是c的行
-例：awk ‘{x = 1; while(x &lt;= 10) {print x; x++}}’ test
-因为awk是逐行逐行扫描的，每扫描一行，awk后面的就执行一次。这里的x本身表示其值，所以如果test有85行，则一次打印1-10，一共执行85次，故有850行打印出来。这里的\(x表示\)1等，所以，如果x改为$x, 打印出来的是一个域一个域的。里面的语法符合c语言的。（awk第一行，awk第二行，……）
+19，\!表示的是取得参数，\!:1,表第一个参数，\!:3, 表第三个参数<br />
 </p>
 
 <p>
-例：awk –F. ‘/abc/{ptint $1}’ tmp
-在默认情况下，awk是以空格和Tab键为域的分隔符。加上-F参数以后，后面点作为域分隔符。匹配到abc后打印的域以.作为分割。
+20，数组的赋值和c语言不一样，可以整个数组值全部一起赋值过去，其以空格表示<br />
+</p>
+
+<p>
+21，附加到某个文档是以换行的方式存储到文档<br />
+</p>
+
+<p>
+22，如果要把一个文档里面的内容赋值给一个数组变量，必须先把其cat出来<br />
+</p>
+
+<p>
+23，判断两个值是否不匹配用!~<br />
+</p>
+
+<p>
+正则表达式和grep，awk<br />
+^行的开始<br />
+$行的结束<br />
+.点任意单字符<br />
+*任意多个任意字符。<br />
+？匹配单个字符<br />
+[]匹配里的面任意一个字符<br />
+\&lt;，与^不同，这时单词的开始，若单词的开始存在下面字眼，输出此行。<br />
+\&gt;,单词的结束<br />
+X\{m\}重复字符x，m次<br />
+X\{m，\}至少m次<br />
+X\{m，n\}m次到n次s<br />
+\w，相当于[a-zA-Z0-9]<br />
+\W,\w的反置形式<br />
+\b，单词锁定符，\bgrep\b, 只匹配grep单词的行<br />
+‘^$’空行<br />
++和？只适用于awk，不适用于grep<br />
+</p>
+
+<p>
+一、	Grep<br />
+功能：在文件里搜索匹配模式。如果搜到，打印该行。<br />
+格式: grep  选项  正则表达式  文件。<br />
+注意：输入字符串或变量时，最好用双引号括起来，在匹配模式的时候用单引号<br />
+-c 显示包含字符串的行号<br />
+-v 非匹配行<br />
+-i 忽略大小写<br />
+-b 打印块号码<br />
+</p>
+
+<p>
+例：<br />
+1，	要搜寻带有&lt;tab&gt;键的字符串。<br />
+Grep “sdf	”  test #f后面使用tab键在正常情况下，终端是无法输入&lt;tab&gt;键的，这只能在文本脚本里面使用。<br />
+2，	搜寻只含sdf字符串的精确匹配<br />
+Grep “\bsdf\b” test #如果前后没有锁定，搜寻出的结果是包含所有具有sdf的行<br />
+3，	搜寻不是以sdf为行开头的。<br />
+Grep “<sup><small>[</small></sup>sdf]” test #第一个<sup><small>表示行开头，第二个</small></sup>表示的是非。<br />
+</p>
+
+<p>
+Fgrep, 快速grep，可以同时搜索多个字符串，但不能使用正则表达式<br />
+Egrep，不仅可以搜索多个字符串，也可使用正则表达式。<br />
 </p>
 
 
 <p>
-三、	Sed
-1，	流编辑器（可编辑，删除，替换，插入等操作）
-2，	不仅可以编辑文本文件，还可进行管道编辑
-3，	参数 –n
-例：sed –n ‘3p’ tmp  #p打印，显示第三行
-	Sed –n ‘1, 3p’ tmp #显示一到三行也可以用  sed –n ‘3q’
-	Sed –n ‘$p’ tmp #显示最后一行
-	Sed –n ‘/lin/p’  tmp #打印匹配lin的行
-	Sed –n ‘/lin/\!p’ tmp #匹配到lin行，不打印它，其他都打印
-	Sed –n ‘2,/liu/p’  tmp#看第二行是否有liu，如果有打印第二行
-	Sed –n ‘/^.\{3\}/p’ tmp #打印三个以上的行
-	Sed –n ‘/2liu.<strong>cai.</strong>.lin/\!d’ tmp #打印包含2liu， cai * lin的行
+二、	Awk<br />
+抽取数据包。还可进行命令操作。采用逐行扫描的方式，从第一行到最后一行。匹配特定模式。<br />
+Awk [option] <br />
+</p>
+
+<p>
+Awk由模式和动作组成。，模式和动作要用单引号括起来。<br />
+模式可以是条件语句，复合语句，或者是正则表达式。其决定触发时间和触发事件<br />
+</p>
+
+<p>
+例: Awk ‘/genesis/’ /etc/passwd  genesis要放在//里面，//为字符串格式匹配，中间不能有空格。最外面还有一个引号。<br />
+</p>
+
+<p>
+例：echo  3，2  |  awk ‘{if  (\(1&lt;\)2) print 1; else print 2}’  注意，动作必须用{}括起来，命令与命令之间用分号隔开。<br />
+</p>
+
+<p>
+记录和域<br />
+在awk中，awk以换行符结束的行称为一个记录（一行一记录）。保存在内建变量ORS和RS中。每个单词称为一个域，默认情况下以空格或tab分隔，awk可以跟踪域的个数，并在内建变量NF中保存该值。<br />
+NR：行号计数器，每处理完一条记录，NR就会加1，<br />
+</p>
+
+<p>
+例：cat gui | awk ‘/^(a|s)/’查找以a或者是s开头的行<br />
+例：awk ‘$1 ~/^..c/’ gui   域1里面第三个是c的行<br />
+例：awk ‘{x = 1; while(x &lt;= 10) {print x; x++}}’ test<br />
+因为awk是逐行逐行扫描的，每扫描一行，awk后面的就执行一次。这里的x本身表示其值，所以如果test有85行，则一次打印1-10，一共执行85次，故有850行打印出来。这里的\(x表示\)1等，所以，如果x改为$x, 打印出来的是一个域一个域的。里面的语法符合c语言的。（awk第一行，awk第二行，……）<br />
+</p>
+
+<p>
+例：awk –F. ‘/abc/{ptint $1}’ tmp<br />
+在默认情况下，awk是以空格和Tab键为域的分隔符。加上-F参数以后，后面点作为域分隔符。匹配到abc后打印的域以.作为分割。<br />
+</p>
+
+
+<p>
+三、	Sed<br />
+1，	流编辑器（可编辑，删除，替换，插入等操作）<br />
+2，	不仅可以编辑文本文件，还可进行管道编辑<br />
+3，	参数 –n<br />
+例：sed –n ‘3p’ tmp  #p打印，显示第三行<br />
+	Sed –n ‘1, 3p’ tmp #显示一到三行也可以用  sed –n ‘3q’<br />
+	Sed –n ‘$p’ tmp #显示最后一行<br />
+	Sed –n ‘/lin/p’  tmp #打印匹配lin的行<br />
+	Sed –n ‘/lin/\!p’ tmp #匹配到lin行，不打印它，其他都打印<br />
+	Sed –n ‘2,/liu/p’  tmp#看第二行是否有liu，如果有打印第二行<br />
+	Sed –n ‘/^.\{3\}/p’ tmp #打印三个以上的行<br />
+	Sed –n ‘/2liu.<strong>cai.</strong>.lin/\!d’ tmp #打印包含2liu， cai * lin的行<br />
 </p>
 	
 <p>
-删除包含某个字符串的行。注意不直接操作源文件，而是一个临时空间。如果要改变源文件，需要重定向它。
-Sed –n /string/d tmp
+删除包含某个字符串的行。注意不直接操作源文件，而是一个临时空间。如果要改变源文件，需要重定向它。<br />
+Sed –n /string/d tmp<br />
 </p>
 
 <p>
-四、	数据处理工具sort
-在默认情况下sort的排序方式是ASCLL码的顺序进行排序。
-Sort的域0是第一列；1表第二列。
-如果要排序第二列，sort –k1 tmp
+四、	数据处理工具sort<br />
+在默认情况下sort的排序方式是ASCLL码的顺序进行排序。<br />
+Sort的域0是第一列；1表第二列。<br />
+如果要排序第二列，sort –k1 tmp<br />
 </p>
 
 <p>
-五、	Uniq
-Uniq命令作用：重复行：1，只显示一次。2，全不显示
-一般情况下，uniq使用之前已经对其分类，并且假定其是正确的情况下执行的。
-1，	Uniq的唯一性体现在同一区域重复出现的。当有其它隔开的时候，不认为是重复的。
-2，	-u参数，重复行不显示，只显示不重复行
-3，	-d参数，只显示有重复的行。
-4，	-c参数，打印每一重复行出现的次数。
-5，	-f参数，后面接个n数字，表前n个域被忽略。
+五、	Uniq<br />
+Uniq命令作用：重复行：1，只显示一次。2，全不显示<br />
+一般情况下，uniq使用之前已经对其分类，并且假定其是正确的情况下执行的。<br />
+1，	Uniq的唯一性体现在同一区域重复出现的。当有其它隔开的时候，不认为是重复的。<br />
+2，	-u参数，重复行不显示，只显示不重复行<br />
+3，	-d参数，只显示有重复的行。<br />
+4，	-c参数，打印每一重复行出现的次数。<br />
+5，	-f参数，后面接个n数字，表前n个域被忽略。<br />
 </p>
 
 
 <p>
-六、	Sort排序工具
-对数据进行管理，分类
-1，	sort默认的情况下是按照第一数字排序的，如果要按照大小顺序排序，需要加上-n参数。
-2，	–t参数，后面还跟一个参数，表示以其作为域的分隔符
-3，	-kn参数，对第n个域进行排序
-例：sort –n –t ‘a’-k3  kaka
+六、	Sort排序工具<br />
+对数据进行管理，分类<br />
+1，	sort默认的情况下是按照第一数字排序的，如果要按照大小顺序排序，需要加上-n参数。<br />
+2，	–t参数，后面还跟一个参数，表示以其作为域的分隔符<br />
+3，	-kn参数，对第n个域进行排序<br />
+例：sort –n –t ‘a’-k3  kaka<br />
 </p>
 
 <p>
-七、	Sed工具
-对文本进行拷贝编辑
-1，Sed  –n ‘2p’dada    -n表示行号，2p表示print第二行.
-2，Sed  s/\’/bibi/g   s(search) \’表示‘替换bibi，g表示global
+七、	Sed工具<br />
+对文本进行拷贝编辑<br />
+1，Sed  –n ‘2p’dada    -n表示行号，2p表示print第二行.<br />
+2，Sed  s/\’/bibi/g   s(search) \’表示‘替换bibi，g表示global<br />
 </p>
 
 
@@ -324,8 +324,6 @@ Uniq命令作用：重复行：1，只显示一次。2，全不显示
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -17,35 +17,35 @@
 
 <h2 id="toc_0.1">读取有那些文件</h2>
 <p>
-通过句柄实现，首先打开路径opendir，然后读取该路径句柄readdir DIR
-opendir DIR,"$dir/jobs/";
-while (readdir DIR) {
-	push @JobList,\(_ if (\)_ !~ m/^\./ );
-}
+通过句柄实现，首先打开路径opendir，然后读取该路径句柄readdir DIR<br />
+opendir DIR,"$dir/jobs/";<br />
+while (readdir DIR) {<br />
+	push @JobList,\(_ if (\)_ !~ m/^\./ );<br />
+}<br />
 </p>
 
 <p>
-$ViewFilePath = "/genesis/sys/scripts/";
-@filename = ();
-opendir Dir,"$ViewFilePath";
-foreach my $file (readdir Dir) {
-	if ( ! -d $file ) {
-		push @filename , $file;
-	}
-}
-@filename = reverse(@filename);
+$ViewFilePath = "/genesis/sys/scripts/";<br />
+@filename = ();<br />
+opendir Dir,"$ViewFilePath";<br />
+foreach my $file (readdir Dir) {<br />
+	if ( ! -d $file ) {<br />
+		push @filename , $file;<br />
+	}<br />
+}<br />
+@filename = reverse(@filename);<br />
 </p>
 
 <h2 id="toc_0.2">取随机数</h2>
 <p>
-my $answer = sprintf("%d", rand(100));
+my $answer = sprintf("%d", rand(100));<br />
 </p>
 
 
 <h2 id="toc_0.3">算第几个字符</h2>
 <p>
-my \(IndexLayer = index (\)ChangeLayer , "&gt;");#算出&gt;所在的第几个字符，从第0个开始算起
-readpipe
+my \(IndexLayer = index (\)ChangeLayer , "&gt;");#算出&gt;所在的第几个字符，从第0个开始算起<br />
+readpipe<br />
 </p>
 
 
@@ -72,8 +72,6 @@ readpipe
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

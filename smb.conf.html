@@ -17,98 +17,98 @@
 
 <h1 id="toc_1">变量</h1><HR SIZE=1>
 <p>
-%S	当前服务器名。
-%P	当前服务器的根目录。
-%u	当前服务器的用户名。
-%g	当前用户所在的主工作组。
-%U	当前对话的用户名。
-%G	当前对话的用户我主工作组。
-%H 当前服务器用户的home目录。
-%v	Samba服务器的版本号。
-%h	运行Samba服务器的主机名。
-%m	客户机的NetBios名。
-%L	服务器的NetBios名。
-%M	客户机的主机名。
-%N	NIS服务器名。
-%p	NIS服务器的Home目录。
-%R	所采用的服务器等级。
-%d	当前服务进程的ID。
-%a	客户机和结构。
-%I	客户机的IP。
-%T	当前日期和时间。
+%S	当前服务器名。<br />
+%P	当前服务器的根目录。<br />
+%u	当前服务器的用户名。<br />
+%g	当前用户所在的主工作组。<br />
+%U	当前对话的用户名。<br />
+%G	当前对话的用户我主工作组。<br />
+%H 当前服务器用户的home目录。<br />
+%v	Samba服务器的版本号。<br />
+%h	运行Samba服务器的主机名。<br />
+%m	客户机的NetBios名。<br />
+%L	服务器的NetBios名。<br />
+%M	客户机的主机名。<br />
+%N	NIS服务器名。<br />
+%p	NIS服务器的Home目录。<br />
+%R	所采用的服务器等级。<br />
+%d	当前服务进程的ID。<br />
+%a	客户机和结构。<br />
+%I	客户机的IP。<br />
+%T	当前日期和时间。<br />
 </p>
 <h1 id="toc_2">试验测试配置文件</h1><HR SIZE=1>
 <p>
-[global]
- hosts deny = 192.168.100.1,192.168.100.100	//拒绝的主机。
-;设置工作组名称。
-workgroup = linuxLab
-;设置NetBios名称。
-netbios name = linuxsrv
-;设置服务器描述。
-server string = Linux Samba Server TestServer
-passdb backend = smbpasswd
-log file = /var/log/samba/%m.log
-max log size = 50
-;security = share
-#设置Samba共享安全级别：
-#share: 共享级别，服务器不对客户机进行身份验证。
-#user: 用户级别，服务器对客户机进行身份验证。
-#server: 服务器级别，Samba服务器必须通过另一台服务器对客户机进行身份验证。如果设置为此值，需另加一行：password Server = IP才行。
-security = user
-security = share   //不需要用户名和密码的共享模式。进去权限一般有限
-unix charset = CP936
-dos charset = CP936
-display charset = CP936
+[global]<br />
+ hosts deny = 192.168.100.1,192.168.100.100	//拒绝的主机。<br />
+;设置工作组名称。<br />
+workgroup = linuxLab<br />
+;设置NetBios名称。<br />
+netbios name = linuxsrv<br />
+;设置服务器描述。<br />
+server string = Linux Samba Server TestServer<br />
+passdb backend = smbpasswd<br />
+log file = /var/log/samba/%m.log<br />
+max log size = 50<br />
+;security = share<br />
+#设置Samba共享安全级别：<br />
+#share: 共享级别，服务器不对客户机进行身份验证。<br />
+#user: 用户级别，服务器对客户机进行身份验证。<br />
+#server: 服务器级别，Samba服务器必须通过另一台服务器对客户机进行身份验证。如果设置为此值，需另加一行：password Server = IP才行。<br />
+security = user<br />
+security = share   //不需要用户名和密码的共享模式。进去权限一般有限<br />
+unix charset = CP936<br />
+dos charset = CP936<br />
+display charset = CP936<br />
 </p>
 
 <p>
-domain: 域级别，Samba服务器要通过windows server的域控制器对客户机进行身份验证，同样，如果设置为此值，需另加一行：password Server = IP才行。
-passdb backend = tdbsam
-指定Samba服务器对用户帐户和密码的管理方式。一般默认即可。
+domain: 域级别，Samba服务器要通过windows server的域控制器对客户机进行身份验证，同样，如果设置为此值，需另加一行：password Server = IP才行。<br />
+passdb backend = tdbsam<br />
+指定Samba服务器对用户帐户和密码的管理方式。一般默认即可。<br />
 </p>
 
 <p>
-;       local master = no
-如果不想Samba服务器成为局域网内的主浏览服务器，此项选择no.
-;       os level = 33
-设置刻服务器在局域网内访问的优先级。
-;       preferred master = yes
-使Samba启动时选择一个本地浏览器，并给它获得选择较高的机会。
+;       local master = no<br />
+如果不想Samba服务器成为局域网内的主浏览服务器，此项选择no.<br />
+;       os level = 33<br />
+设置刻服务器在局域网内访问的优先级。<br />
+;       preferred master = yes<br />
+使Samba启动时选择一个本地浏览器，并给它获得选择较高的机会。<br />
 </p>
 
 <p>
-[sharedoc]
-path = /usr/share/doc
-readonly = yes
-browseable = yes
-guest ok = yes
-writable = yes
-设置此用户是否可写。
-valid users = %S
-设置可访问的用户和组。多个用户用逗号分开，指定组时要在组名前加@。
-invalid users = 用户名/组名
-设置不能访问的用户和组，用法同上
+[sharedoc]<br />
+path = /usr/share/doc<br />
+readonly = yes<br />
+browseable = yes<br />
+guest ok = yes<br />
+writable = yes<br />
+设置此用户是否可写。<br />
+valid users = %S<br />
+设置可访问的用户和组。多个用户用逗号分开，指定组时要在组名前加@。<br />
+invalid users = 用户名/组名<br />
+设置不能访问的用户和组，用法同上<br />
 </p>
 
 <h1 id="toc_3">保存后的权限属性</h1><HR SIZE=1>
 <p>
-create mode = 0755
+create mode = 0755<br />
 </p>
 
 <h1 id="toc_4">是否有保存权限</h1><HR SIZE=1>
 <p>
-writable = yes
+writable = yes<br />
 </p>
 
 <h2 id="toc_4.1">samba回收站</h2>
 <p>
-[test]
-	comment= Samba Share
-	path=/test
-	writable = yes
-#以下参数用于配置回收站。
-	vfs object = recycle
+[test]<br />
+	comment= Samba Share<br />
+	path=/test<br />
+	writable = yes<br />
+#以下参数用于配置回收站。<br />
+	vfs object = recycle<br />
 </p>
 <blockquote>
 recycle:repository = .deleted/%U
@@ -119,19 +119,19 @@ recycle:exclude = <strong>.tmp|</strong>.mp3
 recycle:noversions = *.doc
 </blockquote>
 <p>
-在Samba配置回收站功能中各参数作用如下。
-(1)      vfs object = recycle：载入Samba用于回收站功能的模块recycle.so。
-(2)      recycle:repository = . deleted/%U：回收站的相对路径，这个选项指定删除的文件将被储存在什么目录，即回收站的路径，该路径与共享资源的实际路径有关。在上面的例子中，共享“test”的实际路径是“/test”，因此任何被删除的内容都被移动到这个目录下的. deleted目录下，%U变量表示当前浏览共享用户的用户名，因此每个用户删除的文件都会存放在以他用户名命名的目录下。比如当用户“user1”访问该共享删除的文件将被保存到“/test/.deleted/user1”目录中。此参数只能使用相对路径。所配置的目录其他用户必须有写权限。当有文件需在放入此目录时，如果出现问题Samba服务器会将相关情况写入日志，并继续对文件的删除操作。
-(3)      recycle:keeptree = Yes：在将文件移入回收站时，要建立相对应的目录结构。
-(4)      recycle:versions = Yes：如果在回收站所在目录中存在同名文件，则以“Copy #x of”文件名的形式加以区分。
-(5)      recycle:maxsixe = 0：回收站的最大使用空间，单位为字节。“0”表示没有最大使用空间的限制。
-(6)      recycle:exclude = <strong>.tmp|</strong>.mp3：不放入回收站的文件类型。
-(7)      recycle:noversions = *.doc：如果在回收站所在目录中存在同名文件，覆盖原有文件的文件类型。
+在Samba配置回收站功能中各参数作用如下。<br />
+(1)      vfs object = recycle：载入Samba用于回收站功能的模块recycle.so。<br />
+(2)      recycle:repository = . deleted/%U：回收站的相对路径，这个选项指定删除的文件将被储存在什么目录，即回收站的路径，该路径与共享资源的实际路径有关。在上面的例子中，共享“test”的实际路径是“/test”，因此任何被删除的内容都被移动到这个目录下的. deleted目录下，%U变量表示当前浏览共享用户的用户名，因此每个用户删除的文件都会存放在以他用户名命名的目录下。比如当用户“user1”访问该共享删除的文件将被保存到“/test/.deleted/user1”目录中。此参数只能使用相对路径。所配置的目录其他用户必须有写权限。当有文件需在放入此目录时，如果出现问题Samba服务器会将相关情况写入日志，并继续对文件的删除操作。<br />
+(3)      recycle:keeptree = Yes：在将文件移入回收站时，要建立相对应的目录结构。<br />
+(4)      recycle:versions = Yes：如果在回收站所在目录中存在同名文件，则以“Copy #x of”文件名的形式加以区分。<br />
+(5)      recycle:maxsixe = 0：回收站的最大使用空间，单位为字节。“0”表示没有最大使用空间的限制。<br />
+(6)      recycle:exclude = <strong>.tmp|</strong>.mp3：不放入回收站的文件类型。<br />
+(7)      recycle:noversions = *.doc：如果在回收站所在目录中存在同名文件，覆盖原有文件的文件类型。<br />
 </p>
 
 <h2 id="toc_4.2">找不到文件夹</h2>
 <p>
-如果属于多个组，找到的文件夹默认为第一个组，不会所有组的文件显示
+如果属于多个组，找到的文件夹默认为第一个组，不会所有组的文件显示<br />
 </p>
 
 
@@ -158,8 +158,6 @@ recycle:noversions = *.doc
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

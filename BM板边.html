@@ -17,32 +17,32 @@
 
 <h1 id="toc_1">非对称复合靶</h1><HR SIZE=1>
 <p>
-PROC_ADD_PAD \(fh_xray3_by_x \)fh_xray3_by_y 0 no \(lsfhbkpad_erp \)polar
+PROC_ADD_PAD \(fh_xray3_by_x \)fh_xray3_by_y 0 no \(lsfhbkpad_erp \)polar<br />
 </p>
 
 <h1 id="toc_2">捞取数据库</h1><HR SIZE=1>
 <p>
-1，内层芯板厚度  inn_core_thick
-2，ERP的“内层涂布有预留边，抓取预留边数据  wxgmq_line_x_pro
-3，PE冲孔抓取Mi数据（ERP数据），包括长方向和短方向数据 XA  XB YA YB 
-4，客户代码，custno
-客户型号，custsty
-成品板厚，Get_thick
-外层正负片，film_mode
-阻焊颜色，SM_Color
-内层铜厚，inn_OZ
-周期层别，week_layer
-制版类型，sel_board
-X涨缩值，x_s
-Y涨缩值，y_s
-第一次修边： edge_x1 edge_y1 
-第二次修边：edge_x2 edge_y2 
-第三次修边：edge_x3 edge_y3
+1，内层芯板厚度  inn_core_thick<br />
+2，ERP的“内层涂布有预留边，抓取预留边数据  wxgmq_line_x_pro<br />
+3，PE冲孔抓取Mi数据（ERP数据），包括长方向和短方向数据 XA  XB YA YB <br />
+4，客户代码，custno<br />
+客户型号，custsty<br />
+成品板厚，Get_thick<br />
+外层正负片，film_mode<br />
+阻焊颜色，SM_Color<br />
+内层铜厚，inn_OZ<br />
+周期层别，week_layer<br />
+制版类型，sel_board<br />
+X涨缩值，x_s<br />
+Y涨缩值，y_s<br />
+第一次修边： edge_x1 edge_y1 <br />
+第二次修边：edge_x2 edge_y2 <br />
+第三次修边：edge_x3 edge_y3<br />
 </p>
 
 <h1 id="toc_3">左下角位置安排</h1><HR SIZE=1>
 <p>
-对应右下角先有方向孔站位置，后有不动的打靶需防呆占的位置，留有的位置放同心圆和防焊ccd
+对应右下角先有方向孔站位置，后有不动的打靶需防呆占的位置，留有的位置放同心圆和防焊ccd<br />
 </p>
 
 
@@ -50,160 +50,160 @@ Y涨缩值，y_s
 
 <h1 id="toc_5">防呆</h1><HR SIZE=1>
 <p>
-右下角防呆靶到中间长靶	左下角防呆靶到中间的长靶    两者之间&lt;2mm
+右下角防呆靶到中间长靶	左下角防呆靶到中间的长靶    两者之间&lt;2mm<br />
 </p>
 
 
 <p>
-注意左下角可以上下调整，但距离Y方向中心距离要&gt;150MM
+注意左下角可以上下调整，但距离Y方向中心距离要&gt;150MM<br />
 </p>
 
 
 <p>
-调整离呆靶时要检测单元内是否存在PTH孔，若有要保证有10MM，若实在没有地方可以放在左下角的短边
+调整离呆靶时要检测单元内是否存在PTH孔，若有要保证有10MM，若实在没有地方可以放在左下角的短边<br />
 </p>
 
 
 
 <p>
-本料号防呆，确保产线旋转或放反不可以用
+本料号防呆，确保产线旋转或放反不可以用<br />
 </p>
 
 <p>
-针对有埋孔情况要考虑9孔防呆
+针对有埋孔情况要考虑9孔防呆<br />
 </p>
 
 <p>
-复合靶是用bm-ldi 防呆
+复合靶是用bm-ldi 防呆<br />
 </p>
 
 <h2 id="toc_5.1">复合靶</h2>
 <p>
-复合靶右下角固定，左下角从右下角固定位置往上3mm开始移动(错开5mm本料号防呆)
-左下角和右下角需要错开5mm，右下角的固定
+复合靶右下角固定，左下角从右下角固定位置往上3mm开始移动(错开5mm本料号防呆)<br />
+左下角和右下角需要错开5mm，右下角的固定<br />
 </p>
 
 <h2 id="toc_5.2">防呆变量</h2>
 <p>
-FX_LB 左下防呆
+FX_LB 左下防呆<br />
 </p>
 
 <h1 id="toc_6">变量</h1><HR SIZE=1>
 <p>
-laser_yh 添加的时候判断镭射第几次压合
+laser_yh 添加的时候判断镭射第几次压合<br />
 </p>
 
 <h2 id="toc_6.1">十字架</h2>
 <p>
-SZJ_X	十字架 字符偏移十字靶对应的开窗
+SZJ_X	十字架 字符偏移十字靶对应的开窗<br />
 </p>
 
 
 <h2 id="toc_6.2">bzp</h2>
 <p>
-outpad_x		外层曝光定位孔
+outpad_x		外层曝光定位孔<br />
 </p>
 
 <p>
-bm_adfpad1_x	次外层短边曝光定位孔(第一次压合yh_num == 1)
-mk_qp_x  埋孔切片空，小电镀测试孔
-fbk_x   防爆孔
-rhk_x	融合块，热熔块
-Smpad_X	防焊文字有的防焊曝光对位点(先用长边，备用短边)，在短边还有一个备用PNLreg_X，没有防焊文字
-yhpd1_x 压合配对
-xray_by_x 备用靶
-jS		阶数
-有镭射打在两张及以上芯板的core层时及两层镭射有叠孔情况才用复合靶，新增0741客户两阶及两阶以上用复合靶
+bm_adfpad1_x	次外层短边曝光定位孔(第一次压合yh_num == 1)<br />
+mk_qp_x  埋孔切片空，小电镀测试孔<br />
+fbk_x   防爆孔<br />
+rhk_x	融合块，热熔块<br />
+Smpad_X	防焊文字有的防焊曝光对位点(先用长边，备用短边)，在短边还有一个备用PNLreg_X，没有防焊文字<br />
+yhpd1_x 压合配对<br />
+xray_by_x 备用靶<br />
+jS		阶数<br />
+有镭射打在两张及以上芯板的core层时及两层镭射有叠孔情况才用复合靶，新增0741客户两阶及两阶以上用复合靶<br />
 </p>
 
 <h1 id="toc_7">同心圆</h1><HR SIZE=1>
 <p>
-huan_x
+huan_x<br />
 </p>
 
 <p>
-左上角，哪边大放哪边
-左下角，统一放在孔上面，右边的考虑防呆靶，刚好这个位置放同心圆
-右上角，放在方向孔旁边(左边方向孔预留了一个位置)
-右下角，放在方向孔上面
+左上角，哪边大放哪边<br />
+左下角，统一放在孔上面，右边的考虑防呆靶，刚好这个位置放同心圆<br />
+右上角，放在方向孔旁边(左边方向孔预留了一个位置)<br />
+右下角，放在方向孔上面<br />
 </p>
 
 
 <h1 id="toc_8">防焊曝光对位pad/防焊ccd</h1><HR SIZE=1>
 <p>
-长边的为正常，短边两个备用，第一个备用对应的防焊和文字有东西，第二次备用的没有东西
+长边的为正常，短边两个备用，第一个备用对应的防焊和文字有东西，第二次备用的没有东西<br />
 </p>
 
 <p>
-正常的坐标，如果存在xray，则放在xray的上面
+正常的坐标，如果存在xray，则放在xray的上面<br />
 </p>
 
 <p>
-左下角 smpad_1_y
-	1, 复合靶: 通过右下角的复合靶加上防呆值计算(右下角复合靶不动)
-	2，普通和三压：通过备用打靶(备用打靶已经算上防呆)
+左下角 smpad_1_y<br />
+	1, 复合靶: 通过右下角的复合靶加上防呆值计算(右下角复合靶不动)<br />
+	2，普通和三压：通过备用打靶(备用打靶已经算上防呆)<br />
 </p>
 
 
 <p>
-fhccd_last_by_x 	fhccd_last_by_y最后一次备用。
+fhccd_last_by_x 	fhccd_last_by_y最后一次备用。<br />
 </p>
 
 <h1 id="toc_9">镭射ccd</h1><HR SIZE=1>
 <p>
-laserT_ccd_x1
+laserT_ccd_x1<br />
 </p>
 
 <p>
-如果有复合靶，laser2T_ccd_y 第二次以后的通过复合靶的坐标计算，第二个(左上)，第三个(右上)的错开防焊ccd，第一次的错开防呆靶(左下)
-fh_xrayLast_by_y
+如果有复合靶，laser2T_ccd_y 第二次以后的通过复合靶的坐标计算，第二个(左上)，第三个(右上)的错开防焊ccd，第一次的错开防呆靶(左下)<br />
+fh_xrayLast_by_y<br />
 </p>
 
 
 <p>
-laser_length 镭射的长度，左右的镭射长度，除去了第一次的镭射
+laser_length 镭射的长度，左右的镭射长度，除去了第一次的镭射<br />
 </p>
 
 <p>
-左下角，如果防呆后的复合靶和同心元之间的距离大于镭射ccd的长度，则放在同心元的上面，重新计算坐标。
+左下角，如果防呆后的复合靶和同心元之间的距离大于镭射ccd的长度，则放在同心元的上面，重新计算坐标。<br />
 </p>
 
 <h1 id="toc_10">9孔LDI</h1><HR SIZE=1>
 <p>
-遇到埋孔的时候判断是否第一次压合(压合结构需要正确才能保证这确添加)
-$yh_num == 1 时添加9空对位
+遇到埋孔的时候判断是否第一次压合(压合结构需要正确才能保证这确添加)<br />
+$yh_num == 1 时添加9空对位<br />
 </p>
 
 
 <h1 id="toc_11">待优化防呆</h1><HR SIZE=1>
 <p>
-右下角的复合靶尽可能的往下，保证左边的上下移动空间距离
+右下角的复合靶尽可能的往下，保证左边的上下移动空间距离<br />
 </p>
 
 
 
 <h1 id="toc_12">备用Xray</h1><HR SIZE=1>
 <p>
-1，内层从第二个开始掏铜。xray1_by_x
+1，内层从第二个开始掏铜。xray1_by_x<br />
 </p>
 
 
 
 <h1 id="toc_13">自动添加选化湿膜</h1><HR SIZE=1>
 <p>
-当制版为化金+电镀金手指+抗氧化工艺，自动添加gtj和gbj层
+当制版为化金+电镀金手指+抗氧化工艺，自动添加gtj和gbj层<br />
 </p>
 
 <p>
-第三个字母为d|t|r|u
+第三个字母为d|t|r|u<br />
 </p>
 
 <p>
-COM create_layer,layer=gtj,context=board,type=solder_paste,polarity=positive,ins_layer=to
+COM create_layer,layer=gtj,context=board,type=solder_paste,polarity=positive,ins_layer=to<br />
 </p>
 
 <p>
-在to层上面，在bo层下面自动添加
+在to层上面，在bo层下面自动添加<br />
 </p>
 
 
@@ -227,14 +227,14 @@ COM create_layer,layer=gtj,context=board,type=solder_paste,polarity=positive,ins
 
 <h1 id="toc_22">source \(GENESIS_DIR/sys/scripts/\)bindkey/sub_scripts/l_top 内层顶层</h1><HR SIZE=1>
 <p>
-铺铜
-提供一厂symbol
-有盲孔
+铺铜<br />
+提供一厂symbol<br />
+有盲孔<br />
 </p>
 
 <p>
-bm-adfpad_bm1 防焊自动曝光靶内层掏空, 如果大于600的时候，有8个，在长边，否则，有4个，在短边
-激光定位pad 多一阶多加一组
+bm-adfpad_bm1 防焊自动曝光靶内层掏空, 如果大于600的时候，有8个，在长边，否则，有4个，在短边<br />
+激光定位pad 多一阶多加一组<br />
 </p>
 
 
@@ -258,241 +258,241 @@ bm-adfpad_bm1 防焊自动曝光靶内层掏空, 如果大于600的时候，有8
 
 <h1 id="toc_30">待做</h1><HR SIZE=1>
 <p>
-判断是否有埋孔层，决定内层是否添加埋孔切片孔
-次外层的铺铜fill_fk_1.5
-添加p6，p7
-tk_sk_s
-tk_sk_c
-mk_sk_s
-mk_sk_c
-镭射字麦打散
-xray孔
+判断是否有埋孔层，决定内层是否添加埋孔切片孔<br />
+次外层的铺铜fill_fk_1.5<br />
+添加p6，p7<br />
+tk_sk_s<br />
+tk_sk_c<br />
+mk_sk_s<br />
+mk_sk_c<br />
+镭射字麦打散<br />
+xray孔<br />
 </p>
 
 
 
 <h2 id="toc_30.1">喷锡挂孔按照最后一次修边</h2>
 <p>
-针对最后一次修边后留边&gt;12MM另加两孔做为喷锡挂孔。&lt;=12MM的可以直接用靶孔作为喷锡挂孔(确定靶孔的位置)
+针对最后一次修边后留边&gt;12MM另加两孔做为喷锡挂孔。&lt;=12MM的可以直接用靶孔作为喷锡挂孔(确定靶孔的位置)<br />
 </p>
 
 <p>
-增加复合靶制板有镭射没有埋孔的内层加内层涨缩系数
+增加复合靶制板有镭射没有埋孔的内层加内层涨缩系数<br />
 </p>
 
 <h1 id="toc_31">待确定</h1><HR SIZE=1>
 <p>
-如何区分一二厂(原来是判断人名)
-有镭射打在两张及以上芯板的core层时及两层镭射有叠孔情况才用复合靶，新增0741客户两阶及两阶以上用复合靶
-太阳靶要不要打散
-融合块有两种(rrd_r_5mm_ly,rrd_l_5mm_new)
-压合配对的，标的是层别标识？
-铆钉和xray重叠
-xray掏空
-P8料号的第一个和第二个是层名？
-p7 一阶内层symbol
+如何区分一二厂(原来是判断人名)<br />
+有镭射打在两张及以上芯板的core层时及两层镭射有叠孔情况才用复合靶，新增0741客户两阶及两阶以上用复合靶<br />
+太阳靶要不要打散<br />
+融合块有两种(rrd_r_5mm_ly,rrd_l_5mm_new)<br />
+压合配对的，标的是层别标识？<br />
+铆钉和xray重叠<br />
+xray掏空<br />
+P8料号的第一个和第二个是层名？<br />
+p7 一阶内层symbol<br />
 </p>
 
 <p>
-b06e012661a0 不能根据镭射判断次外层和内层。只能根据ERP
+b06e012661a0 不能根据镭射判断次外层和内层。只能根据ERP<br />
 </p>
 
 
 
 <p>
-#2016 08 18 by zh 设置初始值 以备ERP中没有数据按照样板跑出.
-#$sel_board="s";
-(\(y_s,\)x_s,\(edge_y1,\)edge_x1,\(edge_y2 ,\)edge_x2 ,\(edge_y3 ,\)edge_x3,\(cu_thickness,\)color_defind,\(custno,\)custsty,\(add_shuzhi_test_hole,\)board_thickness,\(sel_film,\)sel_board) = &amp;get_erp_inner_film_scale();
+#2016 08 18 by zh 设置初始值 以备ERP中没有数据按照样板跑出.<br />
+#$sel_board="s";<br />
+(\(y_s,\)x_s,\(edge_y1,\)edge_x1,\(edge_y2 ,\)edge_x2 ,\(edge_y3 ,\)edge_x3,\(cu_thickness,\)color_defind,\(custno,\)custsty,\(add_shuzhi_test_hole,\)board_thickness,\(sel_film,\)sel_board) = &amp;get_erp_inner_film_scale();<br />
 </p>
 
 
 <h1 id="toc_32">图形界面</h1><HR SIZE=1>
 <p>
-1，内层铜厚 (cu_thickness) ok
-2，完成铜厚 (board_thickness)  ok
-3，外层正负片 (sel_film) ok
-4，制版类型(样品或量产) (sel_board) (ProductStyle产品类型) 
-5, 客户代码 (custno)
-6，客户型号(custsty)
-6，内层涨缩系数 (\(y_s,\)x_s)
-7，锣边数据(第几次锣边，目前最多三次) ok (edge_y1)
-8, 阻焊油墨颜色(color_defind) ok
-9, 周期层面 ok
+1，内层铜厚 (cu_thickness) ok<br />
+2，完成铜厚 (board_thickness)  ok<br />
+3，外层正负片 (sel_film) ok<br />
+4，制版类型(样品或量产) (sel_board) (ProductStyle产品类型) <br />
+5, 客户代码 (custno)<br />
+6，客户型号(custsty)<br />
+6，内层涨缩系数 (\(y_s,\)x_s)<br />
+7，锣边数据(第几次锣边，目前最多三次) ok (edge_y1)<br />
+8, 阻焊油墨颜色(color_defind) ok<br />
+9, 周期层面 ok<br />
 </p>
 
 
 <p>
- \(sth = \)dbh-&gt;prepare("
-	  select  
-	  max(case when ParamID='0001' and ProcessID = 'T046' then ParamValue else '' end ) as zhb,
-	  max(case when ParamID='0002' and ProcessID = 'T091' then ParamValue else '' end ) as side
-	  FROM [\(database].[dbo].[ENG_ProcessGeneral]  where ProcessID in ('T091','T046') and ParamID in('0001','0002') and ProductID = '\)JOB' 
+ \(sth = \)dbh-&gt;prepare("<br />
+	  select  <br />
+	  max(case when ParamID='0001' and ProcessID = 'T046' then ParamValue else '' end ) as zhb,<br />
+	  max(case when ParamID='0002' and ProcessID = 'T091' then ParamValue else '' end ) as side<br />
+	  FROM [\(database].[dbo].[ENG_ProcessGeneral]  where ProcessID in ('T091','T046') and ParamID in('0001','0002') and ProductID = '\)JOB' <br />
 </p>
 
 <p>
-9,如果有外层树脂塞并且有外层沉铜2，添加树脂测试孔 (add_shuzhi_test_hole)
+9,如果有外层树脂塞并且有外层沉铜2，添加树脂测试孔 (add_shuzhi_test_hole)<br />
 </p>
 
 
 <h1 id="toc_33">抓去ERP的数据</h1><HR SIZE=1>
 <p>
-1，内层涨缩系数
+1，内层涨缩系数<br />
 </p>
 
 
 <h1 id="toc_34">规则</h1><HR SIZE=1>
 <p>
-阶数以压合次数算
+阶数以压合次数算<br />
 </p>
 
 <p>
-镭射的
+镭射的<br />
 </p>
 
 <h2 id="toc_34.1">复合靶</h2>
 <p>
-复合靶层别。镭射顶层或底层的个数(取最大值) +1层
-靶标以镭射层的第几次添加
+复合靶层别。镭射顶层或底层的个数(取最大值) +1层<br />
+靶标以镭射层的第几次添加<br />
 </p>
 
 <p>
-复合靶的个数：镭射顶层或底层的个数(取最大值)
-标记：
+复合靶的个数：镭射顶层或底层的个数(取最大值)<br />
+标记：<br />
 </p>
 
 <p>
-复合靶和备用xray(去掉通孔的)就是一样的
+复合靶和备用xray(去掉通孔的)就是一样的<br />
 </p>
 
 <p>
-计算复合靶所在的层别
+计算复合靶所在的层别<br />
 </p>
 
 <p>
-复合靶l12   第一层有铜，第二层没铜
+复合靶l12   第一层有铜，第二层没铜<br />
 </p>
 
 <h2 id="toc_34.2">偏位孔</h2>
 <p>
-第一次的，内层里面全都加pad, 第一次的也加pad
+第一次的，内层里面全都加pad, 第一次的也加pad<br />
 </p>
 
 <p>
-ld34 层对应的第4层要有一个pad
+ld34 层对应的第4层要有一个pad<br />
 </p>
 
 
 <h2 id="toc_34.3">ko</h2>
 <p>
-每压合一次，往内缩距锣边2mm
+每压合一次，往内缩距锣边2mm<br />
 </p>
 
 <h1 id="toc_35">外层干菲林对位</h1><HR SIZE=1>
 <p>
-adfpad-t_bm1 和bm-adfpad-b_bm1
-普通板 &gt; 600 在长边，xray-by位置上(右下角还有一个)，否则在短边
+adfpad-t_bm1 和bm-adfpad-b_bm1<br />
+普通板 &gt; 600 在长边，xray-by位置上(右下角还有一个)，否则在短边<br />
 </p>
 
 
 <h1 id="toc_36">挂片孔</h1><HR SIZE=1>
 <p>
-MATH pnlgua_x1 = $gSR_LIMITSxmin - 6.5/25.4
+MATH pnlgua_x1 = $gSR_LIMITSxmin - 6.5/25.4<br />
 </p>
 
 <p>
-层数&gt;4 并且 且HDI板
-	左边留边&gt;12mm 并且&lt;14 mm
-	MATH pnlgua_x1 = $gPROF_LIMITSxmin + 5.5/25.4
+层数&gt;4 并且 且HDI板<br />
+	左边留边&gt;12mm 并且&lt;14 mm<br />
+	MATH pnlgua_x1 = $gPROF_LIMITSxmin + 5.5/25.4<br />
 </p>
 
 <p>
-	大于14mm
-	MATH pnlgua_x1 = $gPROF_LIMITSxmin + 7.5/25.4
+	大于14mm<br />
+	MATH pnlgua_x1 = $gPROF_LIMITSxmin + 7.5/25.4<br />
 </p>
 
  
 <h1 id="toc_37">干菲林对位</h1><HR SIZE=1>
 <p>
-secpad_x  第一次次外层对位
+secpad_x  第一次次外层对位<br />
 </p>
 
 <p>
-第二次以后，用备用xray
-右上角 加多一个三角形xray1_by_tri_y xray2_by_tri_y
+第二次以后，用备用xray<br />
+右上角 加多一个三角形xray1_by_tri_y xray2_by_tri_y<br />
 </p>
 
 <p>
-复合靶，在短边都要有
+复合靶，在短边都要有<br />
 </p>
 
 <h1 id="toc_38">压合次数，镭射次数，次外层内层</h1><HR SIZE=1>
 <p>
-压合次数和次外层(如果core按次外层算，则压合次数少1)相对应,和阶数相对应
-镭射次数与镭射钻孔相对应
+压合次数和次外层(如果core按次外层算，则压合次数少1)相对应,和阶数相对应<br />
+镭射次数与镭射钻孔相对应<br />
 </p>
 
 <p>
-如果抓取的ERP内层为空，有可能访问不了ERP。则以料号名抓去阶数
+如果抓取的ERP内层为空，有可能访问不了ERP。则以料号名抓去阶数<br />
 </p>
 
 <p>
-以目标层为镭射所在层，普通HDI板，第几次压合为第几次镭射，第一次压合为第一次镭射。
+以目标层为镭射所在层，普通HDI板，第几次压合为第几次镭射，第一次压合为第一次镭射。<br />
 </p>
 
 <p>
-镭射的顶低最大值必须准确，以镭射的顶低最大值作为镭射的次数和所在层别
+镭射的顶低最大值必须准确，以镭射的顶低最大值作为镭射的次数和所在层别<br />
 </p>
 
 <p>
-镭射层有第几次，线路层也有第几次，只要钻孔和线路的第几次匹配上即可
+镭射层有第几次，线路层也有第几次，只要钻孔和线路的第几次匹配上即可<br />
 </p>
 
 <p>
-计算复合靶所在的位置  以镭射的个数确定复合靶所在的层别
+计算复合靶所在的位置  以镭射的个数确定复合靶所在的层别<br />
 </p>
 
 <p>
-镭射定位，目标层有一个靶标
+镭射定位，目标层有一个靶标<br />
 </p>
 
 <h2 id="toc_38.1">实际情况</h2>
 <p>
-1，有埋孔，没镭射孔。
-2，有镭射，没有埋孔。
-3，开料钻，有电镀流程，中间的core走次外层流程。
-4，任意层互联，中间两层是次外层。中间是一张core
-5，一般情况下中间两层都是core，如果有镭射（任意层互联）或埋孔，都需要电镀流程，所以都走次外层流程。否则，如果没孔，则走内层流程。
-6，先判断内层和次外层（需要镭射和埋孔一起判断，只要有孔都需要电镀流程，按此外层算）（1），找埋孔层，找到最里面的埋孔层，一般情况都是包括最里面的埋孔层，往上的都是次外层dr56，则5和6层是次外层，往上都是次外层。
-	找镭射层，如果镭射层为最中间两层，则为任意层互联，所有都是次外层。否则，找最里面的镭射层，不包括它的上面层都是次外层。
-	然后取镭射和埋孔的最里面层。往外的都是次外层。
-7，阶数是以顶低层的镭射最大个数来算的。
-8，压合次数是以减去core个数算的(也不是以次外层算的，因为core有时候也是次外层流程)。所以压合次数和阶数没关系。一般情况下，压合次数比阶数多一。但也有相等的情况，也就是以前的假阶。
-	压合次数=层数/2-core的个数。
-9，第几次压合和第几次镭射也需要分开。因为压合和镭射也没必然关系。
+1，有埋孔，没镭射孔。<br />
+2，有镭射，没有埋孔。<br />
+3，开料钻，有电镀流程，中间的core走次外层流程。<br />
+4，任意层互联，中间两层是次外层。中间是一张core<br />
+5，一般情况下中间两层都是core，如果有镭射（任意层互联）或埋孔，都需要电镀流程，所以都走次外层流程。否则，如果没孔，则走内层流程。<br />
+6，先判断内层和次外层（需要镭射和埋孔一起判断，只要有孔都需要电镀流程，按此外层算）（1），找埋孔层，找到最里面的埋孔层，一般情况都是包括最里面的埋孔层，往上的都是次外层dr56，则5和6层是次外层，往上都是次外层。<br />
+	找镭射层，如果镭射层为最中间两层，则为任意层互联，所有都是次外层。否则，找最里面的镭射层，不包括它的上面层都是次外层。<br />
+	然后取镭射和埋孔的最里面层。往外的都是次外层。<br />
+7，阶数是以顶低层的镭射最大个数来算的。<br />
+8，压合次数是以减去core个数算的(也不是以次外层算的，因为core有时候也是次外层流程)。所以压合次数和阶数没关系。一般情况下，压合次数比阶数多一。但也有相等的情况，也就是以前的假阶。<br />
+	压合次数=层数/2-core的个数。<br />
+9，第几次压合和第几次镭射也需要分开。因为压合和镭射也没必然关系。<br />
 </p>
 
 <h1 id="toc_39">变量</h1><HR SIZE=1>
 <p>
-xray1_by_x	长边的备用靶标，第一次压合对应的坐标点
+xray1_by_x	长边的备用靶标，第一次压合对应的坐标点<br />
 </p>
 
 
 <p>
-outpad_x 外层曝光定位孔 profile600 &lt; 600的时候在在短边(x)，否则在长边(y)
-outpad_x 拆为长边outpad_chang_x 和outpad_duan_x, 解决长短不一的问题
-fh_xray_mktq_x 在通孔里面加的最后一次埋孔的透气孔(正常的3.153的斜靶孔)
+outpad_x 外层曝光定位孔 profile600 &lt; 600的时候在在短边(x)，否则在长边(y)<br />
+outpad_x 拆为长边outpad_chang_x 和outpad_duan_x, 解决长短不一的问题<br />
+fh_xray_mktq_x 在通孔里面加的最后一次埋孔的透气孔(正常的3.153的斜靶孔)<br />
 </p>
 
 <h1 id="toc_40">备注</h1><HR SIZE=1>
 <p>
-#内层，除了内层的，其它的都需要掏开
-PROC_ADD_PAD_MULT \(xray1_by_x \)xray1_by_y 0 no bm-adfpad positive 1 0 [expr \(yhcs - 1] \)xray_by_chg_y
+#内层，除了内层的，其它的都需要掏开<br />
+PROC_ADD_PAD_MULT \(xray1_by_x \)xray1_by_y 0 no bm-adfpad positive 1 0 [expr \(yhcs - 1] \)xray_by_chg_y<br />
 </p>
 
 
 <p>
-#除了内层，通孔的备用靶都需要掏开
-PROC_ADD_PAD \(xray_by_x \)xray_by_y 270 no bm-adfpad $polar
+#除了内层，通孔的备用靶都需要掏开<br />
+PROC_ADD_PAD \(xray_by_x \)xray_by_y 270 no bm-adfpad $polar<br />
 </p>
 
 
@@ -500,14 +500,14 @@ PROC_ADD_PAD \(xray_by_x \)xray_by_y 270 no bm-adfpad $polar
 
 <h1 id="toc_41">待处理</h1><HR SIZE=1>
 <p>
-PROC_ADD_PAD \(outpad_x \)outpad_y 0 no $outpad_second_sym positive
-#PROC_ADD_PAD \(outpad_x \)outpad_y 0 no $outpad_inner_sym positive
+PROC_ADD_PAD \(outpad_x \)outpad_y 0 no $outpad_second_sym positive<br />
+#PROC_ADD_PAD \(outpad_x \)outpad_y 0 no $outpad_inner_sym positive<br />
 </p>
 
 
 <h1 id="toc_42">#假二阶</h1><HR SIZE=1>
 <p>
-两层镭射，第一次镭射对应的目标层为内层流程
+两层镭射，第一次镭射对应的目标层为内层流程<br />
 </p>
 
 
@@ -534,8 +534,6 @@ PROC_ADD_PAD \(outpad_x \)outpad_y 0 no $outpad_second_sym positive
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

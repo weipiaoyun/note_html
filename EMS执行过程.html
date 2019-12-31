@@ -17,42 +17,42 @@
 
 <h1 id="toc_1">CTL_Button的执行过程</h1><HR SIZE=1>
 <p>
-加载模块的时候自动将模块的Guid赋值。
-在自动加载按钮的时候，自动根据模块的Guid获取有哪些按钮，在加载的时候自动配置按钮。
-通过按钮的Tag，获取Guid，从而获取调用的函数
+加载模块的时候自动将模块的Guid赋值。<br />
+在自动加载按钮的时候，自动根据模块的Guid获取有哪些按钮，在加载的时候自动配置按钮。<br />
+通过按钮的Tag，获取Guid，从而获取调用的函数<br />
 </p>
 
 <p>
-CTL_Sys_Btn通过btn_LoadTxt 加载按钮 有开始制作，制作完成等
+CTL_Sys_Btn通过btn_LoadTxt 加载按钮 有开始制作，制作完成等<br />
 </p>
 
 
 
 <p>
-CreateForm 生成窗体的时候 fm.FrmGuid = model.Guid_
-</p>
-
-
-<p>
-model指：工程模块-  M  I派单
+CreateForm 生成窗体的时候 fm.FrmGuid = model.Guid_<br />
 </p>
 
 
 <p>
-Frm_main.vb 里面的 ButtonX_Click函数 调用CreateForm(model_Fm, Me)
+model指：工程模块-  M  I派单<br />
+</p>
+
+
+<p>
+Frm_main.vb 里面的 ButtonX_Click函数 调用CreateForm(model_Fm, Me)<br />
 </p>
 
 
 
 <h1 id="toc_2">获取MI派单数据信息</h1><HR SIZE=1>
 <p>
-GetWFMIDispatchDataInfo
+GetWFMIDispatchDataInfo<br />
 </p>
 
 
 <h1 id="toc_3">PHelp_NetWork.vb</h1><HR SIZE=1>
 <p>
-WebServerPost
+WebServerPost<br />
 </p>
 
 
@@ -79,8 +79,6 @@ WebServerPost
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

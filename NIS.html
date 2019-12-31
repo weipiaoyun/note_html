@@ -17,30 +17,30 @@
 
 <h1 id="toc_1">NIS服务</h1><HR SIZE=1>
 <p>
-network information service (网络信息服务)
-提供客户端的使用者相关参数查询(如：用户的账号、密码、UID、家目录、shell等)
+network information service (网络信息服务)<br />
+提供客户端的使用者相关参数查询(如：用户的账号、密码、UID、家目录、shell等)<br />
 </p>
 
 <p>
-网络基础，防火墙，selinux。
-RPC
-sun yellow pages
+网络基础，防火墙，selinux。<br />
+RPC<br />
+sun yellow pages<br />
 </p>
 
 <p>
-/etc/passwd 提供用户账号、UID、GID、家目录所在、Shell 等等
-/etc/group 提供用户账号、UID、GID、家目录所在、Shell 等等
-/etc/hosts
-/etc/service 每一种服务 (daemons) 所对应的埠口 (port number)
-/etc/protocols 基础的 TCP/IP 封包协定，如 TCP, UDP, ICMP 等
-/etc/netgroup	网络群组的定义与使用 (NIS 可能会需要)
-/etc/rpc	每种 RPC 服务器所对应的程序号码
-/var/yp/ypservers	NIS 服务器所提供的数据库
-/etc/nsswitch.conf
+/etc/passwd 提供用户账号、UID、GID、家目录所在、Shell 等等<br />
+/etc/group 提供用户账号、UID、GID、家目录所在、Shell 等等<br />
+/etc/hosts<br />
+/etc/service 每一种服务 (daemons) 所对应的埠口 (port number)<br />
+/etc/protocols 基础的 TCP/IP 封包协定，如 TCP, UDP, ICMP 等<br />
+/etc/netgroup	网络群组的定义与使用 (NIS 可能会需要)<br />
+/etc/rpc	每种 RPC 服务器所对应的程序号码<br />
+/var/yp/ypservers	NIS 服务器所提供的数据库<br />
+/etc/nsswitch.conf<br />
 </p>
 
 <p>
-更新NIS库：/usr/lib64/yp/ypinit -m   按&lt;control D&gt;. y
+更新NIS库：/usr/lib64/yp/ypinit -m   按&lt;control D&gt;. y<br />
 </p>
 
 
@@ -48,23 +48,23 @@ sun yellow pages
 
 <h1 id="toc_2">客户端</h1><HR SIZE=1>
 <p>
-1，运行authconfig-tui
-2, 把NIS服务勾上，然后填写域和服务器
+1，运行authconfig-tui<br />
+2, 把NIS服务勾上，然后填写域和服务器<br />
 </p>
 
 
 <p>
-1,检查hostname
-2，
+1,检查hostname<br />
+2，<br />
 </p>
 
 <p>
-1，hostname cam09
-2, vim /etc/pam.d/system-auth
-3, nisdomainname	iasystem
-4, vi /etc/host 增加192.168.8.1  	iasystem
-5, /sbin/service portmap restart
-5, /sbin/service nfs restart
+1，hostname cam09<br />
+2, vim /etc/pam.d/system-auth<br />
+3, nisdomainname	iasystem<br />
+4, vi /etc/host 增加192.168.8.1  	iasystem<br />
+5, /sbin/service portmap restart<br />
+5, /sbin/service nfs restart<br />
 </p>
 
 
@@ -91,8 +91,6 @@ sun yellow pages
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

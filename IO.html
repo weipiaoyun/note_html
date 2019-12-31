@@ -16,64 +16,64 @@
 <body>
 
 <p>
-#!/usr/bin/perl -w
-#源码名称: IO.pm
-#功能描述: 为文件IO操作,根据王葛,王智辉的所修改
-#开发单位: 集团工程系统开发部
-#作者    : 洪军
-#开发日期: 2014.4.8
-#版本号  : 1.0
+#!/usr/bin/perl -w<br />
+#源码名称: IO.pm<br />
+#功能描述: 为文件IO操作,根据王葛,王智辉的所修改<br />
+#开发单位: 集团工程系统开发部<br />
+#作者    : 洪军<br />
+#开发日期: 2014.4.8<br />
+#版本号  : 1.0<br />
 </p>
 
 <p>
-#导入模块
-package IO;
-use strict;
-use warnings;
-use Tk;
-use Tk::MsgBox;
-use utf8;
-use Fcntl qw(:flock);
-require Exporter;
-our @ISA = qw(Exporter);
+#导入模块<br />
+package IO;<br />
+use strict;<br />
+use warnings;<br />
+use Tk;<br />
+use Tk::MsgBox;<br />
+use utf8;<br />
+use Fcntl qw(:flock);<br />
+require Exporter;<br />
+our @ISA = qw(Exporter);<br />
 </p>
 
 <p>
-#设置程式名称
-my $appname = 'IO';
+#设置程式名称<br />
+my $appname = 'IO';<br />
 </p>
 
 <p>
-#设置版本号
-my $version = 1.0;
+#设置版本号<br />
+my $version = 1.0;<br />
 </p>
 
 <p>
-#new方法dc
-sub new {
+#new方法dc<br />
+sub new {<br />
 </p>
 <blockquote>
 my $caller = shift;
 my \(class  = ref(\)caller) || $caller;
 </blockquote>
 <p>
-	my $self = {};
+	my $self = {};<br />
 </p>
 <blockquote>
 bless \(self, \)class;
 return $self;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:ReadFile
-#功能		:读取文本文件
-#参数		:文件路径
-#返回值		:文件内容
-#使用例子	:$h-&gt;ReadFile('c:/test.txt');
-sub ReadFile{
+#名字		:ReadFile<br />
+#功能		:读取文本文件<br />
+#参数		:文件路径<br />
+#返回值		:文件内容<br />
+#使用例子	:$h-&gt;ReadFile('c:/test.txt');<br />
+sub ReadFile{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -82,33 +82,33 @@ my @file;
 </blockquote>
     
 <p>
-	eval{
-		open FILE,\(filePath or die "can't open \)filePath $!\n";
-		@file = &lt;FILE&gt;;
-		close FILE;
-		#unlink $filePath;
+	eval{<br />
+		open FILE,\(filePath or die "can't open \)filePath $!\n";<br />
+		@file = &lt;FILE&gt;;<br />
+		close FILE;<br />
+		#unlink $filePath;<br />
 </p>
 <blockquote>
 };
 </blockquote>
     
 <p>
-	\(self-&gt;StopMsgBox('error',"读取文件失败！\n \)@") if $@;
+	\(self-&gt;StopMsgBox('error',"读取文件失败！\n \)@") if $@;<br />
 </p>
 <blockquote>
 return @file;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:WriteFile
-#功能		:写文本文件
-#参数		:1,文件路径 2,文件内容
-#返回值		:1
-#使用例子	:$h-&gt;WriteFile('c:/test.txt','test');
-sub WriteFile{
+#名字		:WriteFile<br />
+#功能		:写文本文件<br />
+#参数		:1,文件路径 2,文件内容<br />
+#返回值		:1<br />
+#使用例子	:$h-&gt;WriteFile('c:/test.txt','test');<br />
+sub WriteFile{<br />
 </p>
 <blockquote>
 my  $self 		= shift;
@@ -118,17 +118,17 @@ my  $model          = shift || '&gt;&gt;';
 </blockquote>
     
 <p>
-	#写入文本文件
+	#写入文本文件<br />
 </p>
 <blockquote>
 eval{
 </blockquote>
 <p>
-		open FILE,\(model,\)filePath or die "can't open \(filePath \)!\n";
-		flock (FILE,LOCK_EX);
-		print FILE  "$file\n";
-		flock (FILE,LOCK_UN);
-		close FILE;
+		open FILE,\(model,\)filePath or die "can't open \(filePath \)!\n";<br />
+		flock (FILE,LOCK_EX);<br />
+		print FILE  "$file\n";<br />
+		flock (FILE,LOCK_UN);<br />
+		close FILE;<br />
 </p>
 <blockquote>
 };
@@ -138,16 +138,16 @@ eval{
 return 1;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:SetUser
-#功能		:设置显示图片
-#参数		:设置显示内容
-#返回值		:无
-#使用例子	:$h-&gt;StopMsgBox('error',"工作层是顶层,添加text字无需镜像");
-sub StopMsgBox{
+#名字		:SetUser<br />
+#功能		:设置显示图片<br />
+#参数		:设置显示内容<br />
+#返回值		:无<br />
+#使用例子	:$h-&gt;StopMsgBox('error',"工作层是顶层,添加text字无需镜像");<br />
+sub StopMsgBox{<br />
 </p>
 <blockquote>
 my  $self = shift;
@@ -156,7 +156,7 @@ my 	$msg  = shift;
 my	$mw = MainWindow -&gt; new;
 </blockquote>
 <p>
-	$mw-&gt;withdraw;
+	$mw-&gt;withdraw;<br />
 </p>
 <blockquote>
 $mw-&gt;optionAdd("*font" =&gt; 'application 11');
@@ -171,11 +171,11 @@ $d-&gt;Show;
 $mw -&gt;destroy;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-1;
+1;<br />
 </p>
 
 
@@ -202,8 +202,6 @@ $mw -&gt;destroy;
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

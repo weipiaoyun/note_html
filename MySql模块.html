@@ -16,39 +16,39 @@
 <body>
 
 <p>
-#!/usr/bin/perl -w
-#源码名称: MySQL.pm
-#功能描述: MySQL数据库的基本调用方法
-#开发单位: 集团工程系统开发部
-#作者    : 洪军
-#开发日期: 2014.4.8
-#版本号  : 1.0
+#!/usr/bin/perl -w<br />
+#源码名称: MySQL.pm<br />
+#功能描述: MySQL数据库的基本调用方法<br />
+#开发单位: 集团工程系统开发部<br />
+#作者    : 洪军<br />
+#开发日期: 2014.4.8<br />
+#版本号  : 1.0<br />
 </p>
 
 <p>
-#导入模块
-package MySQL;
-use strict;
-use warnings;
-use utf8;
-use DBI;
-require Exporter;
-our @ISA = qw(Exporter);
+#导入模块<br />
+package MySQL;<br />
+use strict;<br />
+use warnings;<br />
+use utf8;<br />
+use DBI;<br />
+require Exporter;<br />
+our @ISA = qw(Exporter);<br />
 </p>
 
 <p>
-#设置程式名称
-my $appname = 'MySQL';
+#设置程式名称<br />
+my $appname = 'MySQL';<br />
 </p>
 
 <p>
-#设置版本号
-my $version = 1.0;
+#设置版本号<br />
+my $version = 1.0;<br />
 </p>
 
 <p>
-#new方法
-sub new {
+#new方法<br />
+sub new {<br />
 </p>
 <blockquote>
 my $caller = shift;
@@ -58,11 +58,11 @@ bless \(self, \)class;
 return $self;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-sub SetMySQLPar{
+sub SetMySQLPar{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -77,12 +77,12 @@ $self-&gt;{MySQL}{Pwd}  = shift;
 return 1;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#初始化数据库连接
-sub initMysql{
+#初始化数据库连接<br />
+sub initMysql{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -113,9 +113,9 @@ if($@){
 }else{
 </blockquote>
 <p>
-		$dbh-&gt;do("SET character_set_client='utf8'");
-		$dbh-&gt;do("SET character_set_connection='utf8'");
-		$dbh-&gt;do("SET character_set_results='utf8'");
+		$dbh-&gt;do("SET character_set_client='utf8'");<br />
+		$dbh-&gt;do("SET character_set_connection='utf8'");<br />
+		$dbh-&gt;do("SET character_set_results='utf8'");<br />
 </p>
 <blockquote>
 \(self-&gt;{MySql}{dbh} = \)dbh;
@@ -123,12 +123,12 @@ if($@){
 return 1;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#对数据库正行增删改查操作
-sub sqlExecute{
+#对数据库正行增删改查操作<br />
+sub sqlExecute{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -145,16 +145,16 @@ eval{
 return 1;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:FetchrowArray
-#功能		:使用fetchrow_array方式获取数据库内容
-#参数		:sql语句
-#返回值		:
-#使用例子	:$h-&gt;FetchrowArray('select * from ...');
-sub FetchrowArray{
+#名字		:FetchrowArray<br />
+#功能		:使用fetchrow_array方式获取数据库内容<br />
+#参数		:sql语句<br />
+#返回值		:<br />
+#使用例子	:$h-&gt;FetchrowArray('select * from ...');<br />
+sub FetchrowArray{<br />
 </p>
 <blockquote>
 my  $self = shift;
@@ -181,8 +181,8 @@ if ($self-&gt;{MySql}{sth} ne '')
 {
 </blockquote>
 <p>
-	$self-&gt;{MySql}{sth}-&gt;finish();
-	delete $self-&gt;{MySql}{sth};
+	$self-&gt;{MySql}{sth}-&gt;finish();<br />
+	delete $self-&gt;{MySql}{sth};<br />
 </p>
 <blockquote>
 }
@@ -191,17 +191,17 @@ if ($self-&gt;{MySql}{sth} ne '')
 return $data;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:FetchrowArrayref
-#功能		:使用fetchrow_arrayref方式获取数据库内容
-#参数		:sql语句
-#返回值		:
-#使用例子	:$h-&gt;FetchrowArrayref('select * from ...');
-sub FetchrowArrayref
-{
+#名字		:FetchrowArrayref<br />
+#功能		:使用fetchrow_arrayref方式获取数据库内容<br />
+#参数		:sql语句<br />
+#返回值		:<br />
+#使用例子	:$h-&gt;FetchrowArrayref('select * from ...');<br />
+sub FetchrowArrayref<br />
+{<br />
 </p>
 <blockquote>
 my  $self = shift;
@@ -226,8 +226,8 @@ if ($self-&gt;{MySql}{sth} ne '')
 {
 </blockquote>
 <p>
-	$self-&gt;{MySql}{sth}-&gt;finish();
-	delete $self-&gt;{MySql}{sth};
+	$self-&gt;{MySql}{sth}-&gt;finish();<br />
+	delete $self-&gt;{MySql}{sth};<br />
 </p>
 <blockquote>
 }
@@ -236,17 +236,17 @@ if ($self-&gt;{MySql}{sth} ne '')
 return $data;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:FetchrowHashref
-#功能		:使用fetchrow_hashref方式获取数据库内容
-#参数		:sql语句
-#返回值		:
-#使用例子	:$h-&gt;FetchrowHashref('select * from ...');
-sub FetchrowHashref
-{
+#名字		:FetchrowHashref<br />
+#功能		:使用fetchrow_hashref方式获取数据库内容<br />
+#参数		:sql语句<br />
+#返回值		:<br />
+#使用例子	:$h-&gt;FetchrowHashref('select * from ...');<br />
+sub FetchrowHashref<br />
+{<br />
 </p>
 <blockquote>
 my  $self = shift;
@@ -271,8 +271,8 @@ if ($self-&gt;{MySql}{sth} ne '')
 {
 </blockquote>
 <p>
-	$self-&gt;{MySql}{sth}-&gt;finish();
-	delete $self-&gt;{MySql}{sth};
+	$self-&gt;{MySql}{sth}-&gt;finish();<br />
+	delete $self-&gt;{MySql}{sth};<br />
 </p>
 <blockquote>
 }
@@ -281,17 +281,17 @@ if ($self-&gt;{MySql}{sth} ne '')
 return $data;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:FetchallArrayref
-#功能		:使用fetchall_arrayref方式获取数据库内容
-#参数		:sql语句
-#返回值		:
-#使用例子	:$h-&gt;FetchallArrayref('select * from ...');
-sub FetchallArrayref
-{
+#名字		:FetchallArrayref<br />
+#功能		:使用fetchall_arrayref方式获取数据库内容<br />
+#参数		:sql语句<br />
+#返回值		:<br />
+#使用例子	:$h-&gt;FetchallArrayref('select * from ...');<br />
+sub FetchallArrayref<br />
+{<br />
 </p>
 <blockquote>
 my  $self = shift;
@@ -314,8 +314,8 @@ if ($self-&gt;{MySql}{sth} ne '')
 {
 </blockquote>
 <p>
-	$self-&gt;{MySql}{sth}-&gt;finish();
-	delete $self-&gt;{MySql}{sth};
+	$self-&gt;{MySql}{sth}-&gt;finish();<br />
+	delete $self-&gt;{MySql}{sth};<br />
 </p>
 <blockquote>
 }
@@ -324,13 +324,13 @@ if ($self-&gt;{MySql}{sth} ne '')
 return $table;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 
 <p>
-#断开数据库连接
-sub disconnect{
+#断开数据库连接<br />
+sub disconnect{<br />
 </p>
 <blockquote>
 my 	$self = shift;
@@ -338,16 +338,16 @@ if ($self-&gt;{MySql}{dbh} ne '')
 {
 </blockquote>
 <p>
-	$self-&gt;{MySql}{dbh}-&gt;disconnect();
-	delete $self-&gt;{MySql}{dbh};
+	$self-&gt;{MySql}{dbh}-&gt;disconnect();<br />
+	delete $self-&gt;{MySql}{dbh};<br />
 </p>
 <blockquote>
 }
 </blockquote>
 <p>
-}
-1;
-_<em>END</em>_
+}<br />
+1;<br />
+_<em>END</em>_<br />
 </p>
 
 
@@ -374,8 +374,6 @@ _<em>END</em>_
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

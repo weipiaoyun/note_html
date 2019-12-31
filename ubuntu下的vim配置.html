@@ -17,270 +17,270 @@
 
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 一般设定
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 设定默认解码
-set fenc=utf-8
-set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936 
-" 不要使用vi的键盘模式，而是vim自己的
-set nocompatible
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 一般设定<br />
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 设定默认解码<br />
+set fenc=utf-8<br />
+set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936 <br />
+" 不要使用vi的键盘模式，而是vim自己的<br />
+set nocompatible<br />
 </p>
 
 <p>
-" history文件中需要记录的行数
-set history=100
+" history文件中需要记录的行数<br />
+set history=100<br />
 </p>
 
 <p>
-" 在处理未保存或只读文件的时候，弹出确认
-set confirm
+" 在处理未保存或只读文件的时候，弹出确认<br />
+set confirm<br />
 </p>
 
 <p>
-" 与windows共享剪贴板
-set clipboard+=unnamed
+" 与windows共享剪贴板<br />
+set clipboard+=unnamed<br />
 </p>
 
 <p>
-" 侦测文件类型
-filetype on
+" 侦测文件类型<br />
+filetype on<br />
 </p>
 
 <p>
-" 载入文件类型插件
-filetype plugin on
+" 载入文件类型插件<br />
+filetype plugin on<br />
 </p>
 
 <p>
-" 为特定文件类型载入相关缩进文件
-filetype indent on
+" 为特定文件类型载入相关缩进文件<br />
+filetype indent on<br />
 </p>
 
 <p>
-" 保存全局变量
-set viminfo+=!
+" 保存全局变量<br />
+set viminfo+=!<br />
 </p>
 
 <p>
-" 带有如下符号的单词不要被换行分割
-set iskeyword+=_,$,@,%,#,-
+" 带有如下符号的单词不要被换行分割<br />
+set iskeyword+=_,$,@,%,#,-<br />
 </p>
 
 <p>
-" 语法高亮
-syntax on
+" 语法高亮<br />
+syntax on<br />
 </p>
 
 <p>
-" 高亮字符，让其不受100列限制
-:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
-:match OverLength '\%101v.*'
+" 高亮字符，让其不受100列限制<br />
+:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white<br />
+:match OverLength '\%101v.*'<br />
 </p>
 
 <p>
-" 状态行颜色
-highlight StatusLine guifg=SlateBlue guibg=Yellow
-highlight StatusLineNC guifg=Gray guibg=White
+" 状态行颜色<br />
+highlight StatusLine guifg=SlateBlue guibg=Yellow<br />
+highlight StatusLineNC guifg=Gray guibg=White<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 文件设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 不要备份文件（根据自己需要取舍）
-set nobackup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 文件设置<br />
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 不要备份文件（根据自己需要取舍）<br />
+set nobackup<br />
 </p>
 
 <p>
-" 不要生成swap文件，当buffer被丢弃的时候隐藏它
-setlocal noswapfile
-set bufhidden=hide
+" 不要生成swap文件，当buffer被丢弃的时候隐藏它<br />
+setlocal noswapfile<br />
+set bufhidden=hide<br />
 </p>
 
 <p>
-" 字符间插入的像素行数目
-set linespace=0
+" 字符间插入的像素行数目<br />
+set linespace=0<br />
 </p>
 
 <p>
-" 增强模式中的命令行自动完成操作
-set wildmenu
+" 增强模式中的命令行自动完成操作<br />
+set wildmenu<br />
 </p>
 
 <p>
-" 在状态行上显示光标所在位置的行号和列号
-set ruler
-set rulerformat=%20(%2*%&lt;%f%=\ %m%r\ %3l\ %c\ %p%%%)
+" 在状态行上显示光标所在位置的行号和列号<br />
+set ruler<br />
+set rulerformat=%20(%2*%&lt;%f%=\ %m%r\ %3l\ %c\ %p%%%)<br />
 </p>
 
 <p>
-" 命令行（在状态行下）的高度，默认为1，这里是2
-set cmdheight=2
+" 命令行（在状态行下）的高度，默认为1，这里是2<br />
+set cmdheight=2<br />
 </p>
 
 <p>
-" 使回格键（backspace）正常处理indent, eol, start等
-set backspace=2
+" 使回格键（backspace）正常处理indent, eol, start等<br />
+set backspace=2<br />
 </p>
 
 <p>
-" 允许backspace和光标键跨越行边界
-set whichwrap+=&lt;,&gt;,h,l
+" 允许backspace和光标键跨越行边界<br />
+set whichwrap+=&lt;,&gt;,h,l<br />
 </p>
 
 <p>
-" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
-set mouse=a
-set selection=exclusive
-set selectmode=mouse,key
+" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）<br />
+set mouse=a<br />
+set selection=exclusive<br />
+set selectmode=mouse,key<br />
 </p>
 
 <p>
-" 通过使用: commands命令，告诉我们文件的哪一行被改变过
-set report=0
+" 通过使用: commands命令，告诉我们文件的哪一行被改变过<br />
+set report=0<br />
 </p>
 
 <p>
-" 在被分割的窗口间显示空白，便于阅读
-set fillchars=vert:\ ,stl:\ ,stlnc:\
+" 在被分割的窗口间显示空白，便于阅读<br />
+set fillchars=vert:\ ,stl:\ ,stlnc:\<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 搜索和匹配
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 高亮显示匹配的括号
-set showmatch
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 搜索和匹配<br />
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 高亮显示匹配的括号<br />
+set showmatch<br />
 </p>
 
 <p>
-" 匹配括号高亮的时间（单位是十分之一秒）
-set matchtime=5
+" 匹配括号高亮的时间（单位是十分之一秒）<br />
+set matchtime=5<br />
 </p>
 
 <p>
-" 在搜索的时候忽略大小写
-set ignorecase
+" 在搜索的时候忽略大小写<br />
+set ignorecase<br />
 </p>
 
 <p>
-" 不要高亮被搜索的句子（phrases）
-set nohlsearch
+" 不要高亮被搜索的句子（phrases）<br />
+set nohlsearch<br />
 </p>
 
 <p>
-" 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
-set incsearch
+" 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）<br />
+set incsearch<br />
 </p>
 
 <p>
-" 输入:set list命令是应该显示些啥？
-set listchars=tab:\|\ ,trail:.,extends:&gt;,precedes:&lt;,eol
+" 输入:set list命令是应该显示些啥？<br />
+set listchars=tab:\|\ ,trail:.,extends:&gt;,precedes:&lt;,eol<br />
 </p>
 
 <p>
-" 光标移动到buffer的顶部和底部时保持3行距离
-set scrolloff=3
+" 光标移动到buffer的顶部和底部时保持3行距离<br />
+set scrolloff=3<br />
 </p>
 
 <p>
-" 不要闪烁
-set novisualbell
+" 不要闪烁<br />
+set novisualbell<br />
 </p>
 
 <p>
-" 我的状态行显示的内容（包括文件类型和解码）
-set statusline=%F%m%r%h%w\[POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+" 我的状态行显示的内容（包括文件类型和解码）<br />
+set statusline=%F%m%r%h%w\[POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}<br />
 </p>
 
 <p>
-" 总是显示状态行
-set laststatus=2
+" 总是显示状态行<br />
+set laststatus=2<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 文本格式和排版
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 自动格式化
-set formatoptions=tcrqn
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 文本格式和排版<br />
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 自动格式化<br />
+set formatoptions=tcrqn<br />
 </p>
 
 <p>
-" 继承前一行的缩进方式，特别适用于多行注释
-set autoindent
+" 继承前一行的缩进方式，特别适用于多行注释<br />
+set autoindent<br />
 </p>
 
 <p>
-" 为C程序提供自动缩进
-set smartindent
+" 为C程序提供自动缩进<br />
+set smartindent<br />
 </p>
 
 <p>
-" 使用C样式的缩进
-"set cindent
+" 使用C样式的缩进<br />
+"set cindent<br />
 </p>
 
 <p>
-" 制表符为4统一缩进为4
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+" 制表符为4统一缩进为4<br />
+set tabstop=4<br />
+set softtabstop=4<br />
+set shiftwidth=4<br />
 </p>
 
 <p>
-" 用空格代替制表符
-set expandtab
+" 用空格代替制表符<br />
+set expandtab<br />
 </p>
 
 <p>
-" 不要换行
-set nowrap
+" 不要换行<br />
+set nowrap<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CTags的设定
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 按照名称排序
-let Tlist_Sort_Type = "name"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" CTags的设定<br />
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 按照名称排序<br />
+let Tlist_Sort_Type = "name"<br />
 </p>
 
 <p>
-" 在右侧显示窗口
-let Tlist_Use_Right_Window = 1
+" 在右侧显示窗口<br />
+let Tlist_Use_Right_Window = 1<br />
 </p>
 
 <p>
-" 压缩方式
-let Tlist_Compart_Format = 1
+" 压缩方式<br />
+let Tlist_Compart_Format = 1<br />
 </p>
 
 <p>
-" 如果只有一个buffer，kill窗口也kill掉buffer
-let Tlist_Exist_OnlyWindow = 1
+" 如果只有一个buffer，kill窗口也kill掉buffer<br />
+let Tlist_Exist_OnlyWindow = 1<br />
 </p>
 
 <p>
-" 不要关闭其他文件的tags
-let Tlist_File_Fold_Auto_Close = 0
+" 不要关闭其他文件的tags<br />
+let Tlist_File_Fold_Auto_Close = 0<br />
 </p>
 
 <p>
-" 不要显示折叠树
-let Tlist_Enable_Fold_Column = 0
+" 不要显示折叠树<br />
+let Tlist_Enable_Fold_Column = 0<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Autocommands
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" Autocommands<br />
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
+" 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示<br />
 </p>
 
 <p>
-if has("autocmd")
+if has("autocmd")<br />
 </p>
 <blockquote>
 autocmd FileType xml,html,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby set number
@@ -294,39 +294,39 @@ autocmd BufReadPost *
 \ endif
 </blockquote>
 <p>
-endif "has("autocmd")
+endif "has("autocmd")<br />
 </p>
 
 <p>
-" F5编译和运行C程序，F6编译和运行C++程序
-" 请注意，下述代码在windows下使用会报错
-" 需要去掉./这两个字符
+" F5编译和运行C程序，F6编译和运行C++程序<br />
+" 请注意，下述代码在windows下使用会报错<br />
+" 需要去掉./这两个字符<br />
 </p>
 
 <p>
-" C的编译和运行
-map &lt;F5&gt; :call CompileRunGcc()&lt;CR&gt;
-func! CompileRunGcc()
-exec "w"
-exec "!gcc % -o %&lt;"
-exec "! ./%&lt;"
-endfunc
+" C的编译和运行<br />
+map &lt;F5&gt; :call CompileRunGcc()&lt;CR&gt;<br />
+func! CompileRunGcc()<br />
+exec "w"<br />
+exec "!gcc % -o %&lt;"<br />
+exec "! ./%&lt;"<br />
+endfunc<br />
 </p>
 
 <p>
-" C++的编译和运行
-map &lt;F6&gt; :call CompileRunGpp()&lt;CR&gt;
-func! CompileRunGpp()
-exec "w"
-exec "!g++ % -o %&lt;"
-exec "! ./%&lt;"
-endfunc
+" C++的编译和运行<br />
+map &lt;F6&gt; :call CompileRunGpp()&lt;CR&gt;<br />
+func! CompileRunGpp()<br />
+exec "w"<br />
+exec "!g++ % -o %&lt;"<br />
+exec "! ./%&lt;"<br />
+endfunc<br />
 </p>
 
 <p>
-" 能够漂亮地显示.NFO文件
-set encoding=utf-8
-function! SetFileEncodings(encodings)
+" 能够漂亮地显示.NFO文件<br />
+set encoding=utf-8<br />
+function! SetFileEncodings(encodings)<br />
 </p>
 <blockquote>
 let b:myfileencodingsbak=&amp;fileencodings
@@ -342,27 +342,27 @@ au BufReadPre *.nfo call SetFileEncodings('cp437')|set ambiwidth=single au BufRe
 </blockquote>
 
 <p>
-" 高亮显示普通txt文件（需要txt.vim脚本）
-au BufRead,BufNewFile * setfiletype txt
+" 高亮显示普通txt文件（需要txt.vim脚本）<br />
+au BufRead,BufNewFile * setfiletype txt<br />
 </p>
 
 <p>
-" 用空格键来开关折叠
-set foldenable
-set foldmethod=manual
-nnoremap &lt;space&gt; @=((foldclosed(line('.')) &lt; 0) ? 'zc':'zo')&lt;CR&gt;
+" 用空格键来开关折叠<br />
+set foldenable<br />
+set foldmethod=manual<br />
+nnoremap &lt;space&gt; @=((foldclosed(line('.')) &lt; 0) ? 'zc':'zo')&lt;CR&gt;<br />
 </p>
 
 <p>
-" minibufexpl插件的一般设置
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
+" minibufexpl插件的一般设置<br />
+let g:miniBufExplMapWindowNavVim = 1<br />
+let g:miniBufExplMapWindowNavArrows = 1<br />
+let g:miniBufExplMapCTabSwitchBufs = 1<br />
+let g:miniBufExplModSelTarget = 1<br />
 </p>
 
 <p>
-注：此为网上比较流行的一个.vimrc版本
+注：此为网上比较流行的一个.vimrc版本<br />
 </p>
 
 
@@ -372,778 +372,778 @@ let g:miniBufExplModSelTarget = 1
 
 
 <p>
-ps:在网上看到的另外一种.vimrc版本，代码如下
+ps:在网上看到的另外一种.vimrc版本，代码如下<br />
 </p>
 
 
 <p>
-" 配色方案
+" 配色方案<br />
 </p>
 
 <p>
-colorscheme torte
+colorscheme torte<br />
 </p>
 
 <p>
-" 去掉输入错误的提示声音
+" 去掉输入错误的提示声音<br />
 </p>
 
 <p>
-set noeb
+set noeb<br />
 </p>
 
 <p>
-" 下面5行用来解决gVim菜单栏和右键菜单乱码问题
+" 下面5行用来解决gVim菜单栏和右键菜单乱码问题<br />
 </p>
 
 <p>
-set encoding=utf8
+set encoding=utf8<br />
 </p>
 
 <p>
-set langmenu=zh_CN.UTF-8
+set langmenu=zh_CN.UTF-8<br />
 </p>
 
 <p>
-set imcmdline
+set imcmdline<br />
 </p>
 
 <p>
-source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/delmenu.vim<br />
 </p>
 
 <p>
-source $VIMRUNTIME/menu.vim
+source $VIMRUNTIME/menu.vim<br />
 </p>
 
 
 
 
 <p>
-" 解决gVim中提示框乱码
+" 解决gVim中提示框乱码<br />
 </p>
 
 <p>
-language message zh_CN.UTF-8
+language message zh_CN.UTF-8<br />
 </p>
 
 
 
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 一般设定
+" 一般设定<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 设定默认解码
+" 设定默认解码<br />
 </p>
 
 <p>
-set fenc=utf-8
+set fenc=utf-8<br />
 </p>
 
 <p>
-set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936
+set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936<br />
 </p>
 
 
 
 
 <p>
-" 不要使用vi的键盘模式，而是vim自己的
+" 不要使用vi的键盘模式，而是vim自己的<br />
 </p>
 
 <p>
-set nocompatible
+set nocompatible<br />
 </p>
 
 
 
 
 <p>
-" history文件中需要记录的行数
+" history文件中需要记录的行数<br />
 </p>
 
 <p>
-set history=100
+set history=100<br />
 </p>
 
 
 
 
 <p>
-" 在处理未保存或只读文件的时候，弹出确认
+" 在处理未保存或只读文件的时候，弹出确认<br />
 </p>
 
 <p>
-set confirm
+set confirm<br />
 </p>
 
 
 
 
 <p>
-" 与windows共享剪贴板
+" 与windows共享剪贴板<br />
 </p>
 
 <p>
-"set clipboard+=unnamed
+"set clipboard+=unnamed<br />
 </p>
 
 
 
 
 <p>
-" 侦测文件类型
+" 侦测文件类型<br />
 </p>
 
 <p>
-filetype on
+filetype on<br />
 </p>
 
 
 
 
 <p>
-" 载入文件类型插件
+" 载入文件类型插件<br />
 </p>
 
 <p>
-filetype plugin on
+filetype plugin on<br />
 </p>
 
 
 
 
 <p>
-" 为特定文件类型载入相关缩进文件
+" 为特定文件类型载入相关缩进文件<br />
 </p>
 
 <p>
-filetype indent on
+filetype indent on<br />
 </p>
 
 
 
 
 <p>
-" 保存全局变量
+" 保存全局变量<br />
 </p>
 
 <p>
-set viminfo+=!
+set viminfo+=!<br />
 </p>
 
 
 
 
 <p>
-" 带有如下符号的单词不要被换行分割
+" 带有如下符号的单词不要被换行分割<br />
 </p>
 
 <p>
-set iskeyword+=_,$,@,%,#,-
+set iskeyword+=_,$,@,%,#,-<br />
 </p>
 
 
 
 
 <p>
-" 语法高亮
+" 语法高亮<br />
 </p>
 
 <p>
-syntax on
+syntax on<br />
 </p>
 
 
 
 
 <p>
-" 高亮字符，让其不受100列限制
+" 高亮字符，让其不受100列限制<br />
 </p>
 
 <p>
-:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white
+:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white<br />
 </p>
 
 <p>
-:match OverLength '\%101v.*'
+:match OverLength '\%101v.*'<br />
 </p>
 
 
 
 
 <p>
-" 状态行颜色
+" 状态行颜色<br />
 </p>
 
 <p>
-highlight StatusLine guifg=SlateBlue guibg=Yellow
+highlight StatusLine guifg=SlateBlue guibg=Yellow<br />
 </p>
 
 <p>
-highlight StatusLineNC guifg=Gray guibg=White
+highlight StatusLineNC guifg=Gray guibg=White<br />
 </p>
 
 
 
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 文件设置
+" 文件设置<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 不要备份文件（根据自己需要取舍）
+" 不要备份文件（根据自己需要取舍）<br />
 </p>
 
 <p>
-set nobackup
+set nobackup<br />
 </p>
 
 
 
 
 <p>
-" 不要生成swap文件，当buffer被丢弃的时候隐藏它
+" 不要生成swap文件，当buffer被丢弃的时候隐藏它<br />
 </p>
 
 <p>
-setlocal noswapfile
+setlocal noswapfile<br />
 </p>
 
 <p>
-set bufhidden=hide
+set bufhidden=hide<br />
 </p>
 
 
 
 
 <p>
-" 字符间插入的像素行数目
+" 字符间插入的像素行数目<br />
 </p>
 
 <p>
-set linespace=0
+set linespace=0<br />
 </p>
 
 
 
 
 <p>
-" 增强模式中的命令行自动完成操作
+" 增强模式中的命令行自动完成操作<br />
 </p>
 
 <p>
-set wildmenu
+set wildmenu<br />
 </p>
 
 
 
 
 <p>
-" 在状态行上显示光标所在位置的行号和列号
+" 在状态行上显示光标所在位置的行号和列号<br />
 </p>
 
 <p>
-set ruler
+set ruler<br />
 </p>
 
 <p>
-set rulerformat=%20(%2*%&lt;%f%=\ %m%r\ %3l\ %c\ %p%%%)
+set rulerformat=%20(%2*%&lt;%f%=\ %m%r\ %3l\ %c\ %p%%%)<br />
 </p>
 
 
 
 
 <p>
-" 命令行（在状态行下）的高度，默认为1，这里是2
+" 命令行（在状态行下）的高度，默认为1，这里是2<br />
 </p>
 
 <p>
-set cmdheight=2
+set cmdheight=2<br />
 </p>
 
 
 
 
 <p>
-" 使回格键（backspace）正常处理indent, eol, start等
+" 使回格键（backspace）正常处理indent, eol, start等<br />
 </p>
 
 <p>
-set backspace=2
+set backspace=2<br />
 </p>
 
 
 
 
 <p>
-" 允许backspace和光标键跨越行边界
+" 允许backspace和光标键跨越行边界<br />
 </p>
 
 <p>
-set whichwrap+=&lt;,&gt;,h,l
+set whichwrap+=&lt;,&gt;,h,l<br />
 </p>
 
 
 
 
 <p>
-" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
+" 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）<br />
 </p>
 
 <p>
-"set mouse=a
+"set mouse=a<br />
 </p>
 
 <p>
-"set selection=exclusive
+"set selection=exclusive<br />
 </p>
 
 <p>
-"set selectmode=mouse,key
+"set selectmode=mouse,key<br />
 </p>
 
 
 
 
 <p>
-" 启动的时候不显示那个援助索马里儿童的提示
+" 启动的时候不显示那个援助索马里儿童的提示<br />
 </p>
 
 <p>
-set shortmess=atI
+set shortmess=atI<br />
 </p>
 
 
 
 
 <p>
-" 通过使用: commands命令，告诉我们文件的哪一行被改变过
+" 通过使用: commands命令，告诉我们文件的哪一行被改变过<br />
 </p>
 
 <p>
-set report=0
+set report=0<br />
 </p>
 
 
 
 
 <p>
-" 不让vim发出讨厌的滴滴声
+" 不让vim发出讨厌的滴滴声<br />
 </p>
 
 <p>
-set noerrorbells
+set noerrorbells<br />
 </p>
 
 
 
 
 <p>
-" 在被分割的窗口间显示空白，便于阅读
+" 在被分割的窗口间显示空白，便于阅读<br />
 </p>
 
 <p>
-set fillchars=vert:\ ,stl:\ ,stlnc:\
+set fillchars=vert:\ ,stl:\ ,stlnc:\<br />
 </p>
 
 
 
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 搜索和匹配
+" 搜索和匹配<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 高亮显示匹配的括号
+" 高亮显示匹配的括号<br />
 </p>
 
 <p>
-set showmatch
+set showmatch<br />
 </p>
 
 
 
 
 <p>
-" 匹配括号高亮的时间（单位是十分之一秒）
+" 匹配括号高亮的时间（单位是十分之一秒）<br />
 </p>
 
 <p>
-set matchtime=5
+set matchtime=5<br />
 </p>
 
 
 
 
 <p>
-" 在搜索的时候忽略大小写
+" 在搜索的时候忽略大小写<br />
 </p>
 
 <p>
-set ignorecase
+set ignorecase<br />
 </p>
 
 
 
 
 <p>
-" 不要高亮被搜索的句子（phrases）
+" 不要高亮被搜索的句子（phrases）<br />
 </p>
 
 <p>
-set nohlsearch
+set nohlsearch<br />
 </p>
 
 
 
 
 <p>
-" 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）
+" 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）<br />
 </p>
 
 <p>
-set incsearch
+set incsearch<br />
 </p>
 
 
 
 
 <p>
-" 输入:set list命令是应该显示些啥？
+" 输入:set list命令是应该显示些啥？<br />
 </p>
 
 <p>
-set listchars=tab:\|\ ,trail:.,extends:&gt;,precedes:&lt;,eol:$
+set listchars=tab:\|\ ,trail:.,extends:&gt;,precedes:&lt;,eol:$<br />
 </p>
 
 
 
 
 <p>
-" 光标移动到buffer的顶部和底部时保持3行距离
+" 光标移动到buffer的顶部和底部时保持3行距离<br />
 </p>
 
 <p>
-set scrolloff=3
+set scrolloff=3<br />
 </p>
 
 
 
 
 <p>
-" 不要闪烁
+" 不要闪烁<br />
 </p>
 
 <p>
-set novisualbell
+set novisualbell<br />
 </p>
 
 
 
 
 <p>
-" 我的状态行显示的内容（包括文件类型和解码）
+" 我的状态行显示的内容（包括文件类型和解码）<br />
 </p>
 
 <p>
-set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}<br />
 </p>
 
 
 
 
 <p>
-" 总是显示状态行
+" 总是显示状态行<br />
 </p>
 
 <p>
-set laststatus=2
+set laststatus=2<br />
 </p>
 
 
 
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 文本格式和排版
+" 文本格式和排版<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 自动格式化
+" 自动格式化<br />
 </p>
 
 <p>
-set formatoptions=tcrqn
+set formatoptions=tcrqn<br />
 </p>
 
 
 
 
 <p>
-" 继承前一行的缩进方式，特别适用于多行注释
+" 继承前一行的缩进方式，特别适用于多行注释<br />
 </p>
 
 <p>
-set autoindent
+set autoindent<br />
 </p>
 
 
 
 
 <p>
-"自动补全'Python'代码
+"自动补全'Python'代码<br />
 </p>
 
 <p>
-if has ("autocmd")
+if has ("autocmd")<br />
 </p>
 
 <p>
-autocmd FileType python set complete+=k~/.vim/tools/pydiction
+autocmd FileType python set complete+=k~/.vim/tools/pydiction<br />
 </p>
 
 <p>
-endif
+endif<br />
 </p>
 
 <p>
-" 为C程序提供自动缩进
+" 为C程序提供自动缩进<br />
 </p>
 
 <p>
-set smartindent
+set smartindent<br />
 </p>
 
 
 
 
 <p>
-" 使用C样式的缩进
+" 使用C样式的缩进<br />
 </p>
 
 <p>
-set cindent
+set cindent<br />
 </p>
 
 
 
 
 <p>
-" 制表符为4
+" 制表符为4<br />
 </p>
 
 <p>
-set tabstop=4
+set tabstop=4<br />
 </p>
 
 
 
 
 <p>
-" 统一缩进为4
+" 统一缩进为4<br />
 </p>
 
 <p>
-set softtabstop=4
+set softtabstop=4<br />
 </p>
 
 <p>
-set shiftwidth=4
+set shiftwidth=4<br />
 </p>
 
 
 
 
 <p>
-" 不要用空格代替制表符
+" 不要用空格代替制表符<br />
 </p>
 
 <p>
-set expandtab
+set expandtab<br />
 </p>
 
 
 
 
 <p>
-" 换行
+" 换行<br />
 </p>
 
 <p>
-set wrap
+set wrap<br />
 </p>
 
 
 
 
 <p>
-" 在行和段开始处使用制表符
+" 在行和段开始处使用制表符<br />
 </p>
 
 <p>
-set smarttab
+set smarttab<br />
 </p>
 
 
 
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" CTags的设定
+" CTags的设定<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 按照名称排序
+" 按照名称排序<br />
 </p>
 
 <p>
-let Tlist_Sort_Type = "name"
+let Tlist_Sort_Type = "name"<br />
 </p>
 
 
 
 
 <p>
-" 在右侧显示窗口
+" 在右侧显示窗口<br />
 </p>
 
 <p>
-let Tlist_Use_Right_Window = 1
+let Tlist_Use_Right_Window = 1<br />
 </p>
 
 
 
 
 <p>
-" 压缩方式
+" 压缩方式<br />
 </p>
 
 <p>
-let Tlist_Compart_Format = 1
+let Tlist_Compart_Format = 1<br />
 </p>
 
 
 
 
 <p>
-" 如果只有一个buffer，kill窗口也kill掉buffer
+" 如果只有一个buffer，kill窗口也kill掉buffer<br />
 </p>
 
 <p>
-let Tlist_Exist_OnlyWindow = 1
+let Tlist_Exist_OnlyWindow = 1<br />
 </p>
 
 
 
 
 <p>
-" 不要关闭其他文件的tags
+" 不要关闭其他文件的tags<br />
 </p>
 
 <p>
-let Tlist_File_Fold_Auto_Close = 0
+let Tlist_File_Fold_Auto_Close = 0<br />
 </p>
 
 
 
 
 <p>
-" 不要显示折叠树
+" 不要显示折叠树<br />
 </p>
 
 <p>
-let Tlist_Enable_Fold_Column = 0
+let Tlist_Enable_Fold_Column = 0<br />
 </p>
 
 
 
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" Autocommands
+" Autocommands<br />
 </p>
 
 <p>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""<br />
 </p>
 
 <p>
-" 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示
+" 只在下列文件类型被侦测到的时候显示行号，普通文本文件不显示<br />
 </p>
 
 
 
 
 <p>
-if has("autocmd")
+if has("autocmd")<br />
 </p>
 
 <p>
-   autocmd FileType xml,html,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby set number
+   autocmd FileType xml,html,c,cs,java,perl,shell,bash,cpp,python,vim,php,ruby set number<br />
 </p>
 
 <p>
-   autocmd FileType xml,html vmap &lt;C-o&gt; &lt;ESC&gt;'&lt;i&lt;!--&lt;ESC&gt;o&lt;ESC&gt;'&gt;o--&gt;
+   autocmd FileType xml,html vmap &lt;C-o&gt; &lt;ESC&gt;'&lt;i&lt;!--&lt;ESC&gt;o&lt;ESC&gt;'&gt;o--&gt;<br />
 </p>
 
 <p>
-   autocmd FileType java,c,cpp,cs vmap &lt;C-o&gt; &lt;ESC&gt;'&lt;o/<strong>&lt;ESC&gt;'&gt;o</strong>/
+   autocmd FileType java,c,cpp,cs vmap &lt;C-o&gt; &lt;ESC&gt;'&lt;o/<strong>&lt;ESC&gt;'&gt;o</strong>/<br />
 </p>
 
 <p>
-   autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100
+   autocmd FileType html,text,php,vim,c,java,xml,bash,shell,perl,python setlocal textwidth=100<br />
 </p>
 
 <p>
-   autocmd Filetype html,xml,xsl source $VIMRUNTIME/plugin/closetag.vim
+   autocmd Filetype html,xml,xsl source $VIMRUNTIME/plugin/closetag.vim<br />
 </p>
 
 <p>
-   autocmd BufReadPost *
+   autocmd BufReadPost *<br />
 </p>
 <blockquote>
 \ if line("'\"") &gt; 0 &amp;&amp; line("'\"") &lt;= line("$") |
@@ -1156,96 +1156,96 @@ if has("autocmd")
 </blockquote>
 
 <p>
-endif " has("autocmd")
+endif " has("autocmd")<br />
 </p>
 
 
 
 
 <p>
-" F5编译和运行C程序，F6编译和运行C++程序
+" F5编译和运行C程序，F6编译和运行C++程序<br />
 </p>
 
 <p>
-" 请注意，下述代码在windows下使用会报错
+" 请注意，下述代码在windows下使用会报错<br />
 </p>
 
 <p>
-" 需要去掉./这两个字符
+" 需要去掉./这两个字符<br />
 </p>
 
 <p>
-" C的编译和运行
+" C的编译和运行<br />
 </p>
 
 <p>
-map &lt;F5&gt; :call CompileRunGcc()&lt;CR&gt;
+map &lt;F5&gt; :call CompileRunGcc()&lt;CR&gt;<br />
 </p>
 
 <p>
-func! CompileRunGcc()
+func! CompileRunGcc()<br />
 </p>
 
 <p>
-exec "w"
+exec "w"<br />
 </p>
 
 <p>
-exec "!gcc % -o %&lt;"
+exec "!gcc % -o %&lt;"<br />
 </p>
 
 <p>
-exec "! &lt;"
+exec "! &lt;"<br />
 </p>
 
 <p>
-endfunc
-</p>
-
-
-
-
-<p>
-" C++的编译和运行
-</p>
-
-<p>
-map &lt;F6&gt; :call CompileRunGpp()&lt;CR&gt;
-</p>
-
-<p>
-func! CompileRunGpp()
-</p>
-
-<p>
-exec "w"
-</p>
-
-<p>
-exec "!g++ % -o %&lt;"
-</p>
-
-<p>
-exec "! &lt;"
-</p>
-
-<p>
-endfunc
+endfunc<br />
 </p>
 
 
 
 
 <p>
-" 能够漂亮地显示.NFO文件
+" C++的编译和运行<br />
 </p>
 
 <p>
-set encoding=utf-8 fileencodings=ucs-bom,utf-8,gbk,cp936
+map &lt;F6&gt; :call CompileRunGpp()&lt;CR&gt;<br />
 </p>
 
 <p>
-function! SetFileEncodings(encodings)
+func! CompileRunGpp()<br />
+</p>
+
+<p>
+exec "w"<br />
+</p>
+
+<p>
+exec "!g++ % -o %&lt;"<br />
+</p>
+
+<p>
+exec "! &lt;"<br />
+</p>
+
+<p>
+endfunc<br />
+</p>
+
+
+
+
+<p>
+" 能够漂亮地显示.NFO文件<br />
+</p>
+
+<p>
+set encoding=utf-8 fileencodings=ucs-bom,utf-8,gbk,cp936<br />
+</p>
+
+<p>
+function! SetFileEncodings(encodings)<br />
 </p>
 <blockquote>
 let b:myfileencodingsbak=&amp;fileencodings
@@ -1255,11 +1255,11 @@ let &amp;fileencodings=a:encodings
 </blockquote>
 
 <p>
-endfunction
+endfunction<br />
 </p>
 
 <p>
-function! RestoreFileEncodings()
+function! RestoreFileEncodings()<br />
 </p>
 <blockquote>
 let &amp;fileencodings=b:myfileencodingsbak
@@ -1269,85 +1269,85 @@ unlet b:myfileencodingsbak
 </blockquote>
 
 <p>
-endfunction
+endfunction<br />
 </p>
 
 
 
 
 <p>
-au BufReadPre *.nfo call SetFileEncodings('cp437')|set ambiwidth=single
+au BufReadPre *.nfo call SetFileEncodings('cp437')|set ambiwidth=single<br />
 </p>
 
 <p>
-au BufReadPost *.nfo call RestoreFileEncodings()
-</p>
-
-
-
-
-<p>
-" 用空格键来开关折叠
-</p>
-
-<p>
-set foldenable
-</p>
-
-<p>
-set foldmethod=manual
-</p>
-
-<p>
-nnoremap &lt;space&gt; @=((foldclosed(line('.')) &lt; 0) ? 'zc' : 'zo')&lt;CR&gt;
+au BufReadPost *.nfo call RestoreFileEncodings()<br />
 </p>
 
 
 
 
 <p>
-" minibufexpl插件的一般设置
+" 用空格键来开关折叠<br />
 </p>
 
 <p>
-let g:miniBufExplMapWindowNavVim = 1
+set foldenable<br />
 </p>
 
 <p>
-let g:miniBufExplMapWindowNavArrows = 1
+set foldmethod=manual<br />
 </p>
 
 <p>
-let g:miniBufExplMapCTabSwitchBufs = 1
-</p>
-
-<p>
-let g:miniBufExplModSelTarget = 1 
-</p>
-
-<p>
-set number
+nnoremap &lt;space&gt; @=((foldclosed(line('.')) &lt; 0) ? 'zc' : 'zo')&lt;CR&gt;<br />
 </p>
 
 
+
+
 <p>
-经此两步，VIM已经配置完成，快打开看效果吧<sup><small>_</small></sup> 
+" minibufexpl插件的一般设置<br />
 </p>
 
 <p>
-按照上面的两个步骤做了就搞定了！要先安装vim-full然后再配置！ 可以使用F5与F6来编译！
-  评论这张 
- 转发至微博 
- 转发至微博  0人  |  分享到：         阅读(38)| 评论(0)| 转载 (0) |举报 . 
+let g:miniBufExplMapWindowNavVim = 1<br />
+</p>
+
+<p>
+let g:miniBufExplMapWindowNavArrows = 1<br />
+</p>
+
+<p>
+let g:miniBufExplMapCTabSwitchBufs = 1<br />
+</p>
+
+<p>
+let g:miniBufExplModSelTarget = 1 <br />
+</p>
+
+<p>
+set number<br />
+</p>
+
+
+<p>
+经此两步，VIM已经配置完成，快打开看效果吧<sup><small>_</small></sup> <br />
+</p>
+
+<p>
+按照上面的两个步骤做了就搞定了！要先安装vim-full然后再配置！ 可以使用F5与F6来编译！<br />
+  评论这张 <br />
+ 转发至微博 <br />
+ 转发至微博  0人  |  分享到：         阅读(38)| 评论(0)| 转载 (0) |举报 . <br />
 </p>
   
 <p>
-ubuntu 下 rar 显示乱码的解决方法  
-java文件名的部分规则【转于<a href="http://www.newwhy.com】.历史上的今天.">http://www.newwhy.com】.历史上的今天.</a>
-相关文章.
-最近读者登录后，您可以在此留下足迹。..
-评论
-  登录后你可以发表评论，请先登录。登录&gt;&gt;上一页 1... -1-1-1-1-1-1-1... -1下一页.. 
+ubuntu 下 rar 显示乱码的解决方法  <br />
+java文件名的部分规则【转于<a href="http://www.newwhy.com】.历史上的今天.<br">http://www.newwhy.com】.历史上的今天.<br</a> />
+相关文章.<br />
+最近读者登录后，您可以在此留下足迹。..<br />
+评论<br />
+  登录后你可以发表评论，请先登录。登录&gt;&gt;上一页 1... -1-1-1-1-1-1-1... -1下一页.. <br />
 </p>
 
 
@@ -1374,8 +1374,6 @@ java文件名的部分规则【转于<a href="http://www.newwhy.com】.历史上
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

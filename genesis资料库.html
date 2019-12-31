@@ -17,38 +17,38 @@
 
 <h2 id="toc_0.1">料号列表(joblist)存储的地方：</h2>
 <p>
-	/genesis/share/joblist，当有资料更新的时候，不用手动更新，只需要刷新database
-	/genesis/share/rcs, 料号的一些信息，当保存的时候会扫描，如果没有添加。可以清除
+	/genesis/share/joblist，当有资料更新的时候，不用手动更新，只需要刷新database<br />
+	/genesis/share/rcs, 料号的一些信息，当保存的时候会扫描，如果没有添加。可以清除<br />
 </p>
 <h2 id="toc_0.2">数据库列表存在地方dblist</h2>
 <p>
-	/genesis/sys/dblist
+	/genesis/sys/dblist<br />
 </p>
 <h2 id="toc_0.3">料号存储的地方</h2>
 <p>
-	/genesis/fw/jobs
+	/genesis/fw/jobs<br />
 </p>
 
 <h1 id="toc_1">料号到实体的链接</h1><HR SIZE=1>
 <p>
-由DB数据库，option-&gt;Database里面，列表根据数据库路径查找资料
+由DB数据库，option-&gt;Database里面，列表根据数据库路径查找资料<br />
 </p>
 
 <h2 id="toc_1.1">资料共享和备份</h2>
 <p>
-1，/genesis是/frontline/app_gen的软链接
-2，/fw/是/gen_db/odb1或者是/gen_db/odb2的软链接
-3，/home/genesis/workfile是/gen_db/workfile的软链接
+1，/genesis是/frontline/app_gen的软链接<br />
+2，/fw/是/gen_db/odb1或者是/gen_db/odb2的软链接<br />
+3，/home/genesis/workfile是/gen_db/workfile的软链接<br />
 </p>
 
 <p>
-重要的文件，odb1和odb2和workfile放在/gen_db目录下
-odb1由gen-odb1:/odb/odb1 mount过来
-odb2由gen-odb2:/odb/odb2 mount过来
+重要的文件，odb1和odb2和workfile放在/gen_db目录下<br />
+odb1由gen-odb1:/odb/odb1 mount过来<br />
+odb2由gen-odb2:/odb/odb2 mount过来<br />
 </p>
 
 <p>
-在不同主机里面用mount；在相同主机里面用ln -s
+在不同主机里面用mount；在相同主机里面用ln -s<br />
 </p>
 
 
@@ -75,8 +75,6 @@ odb2由gen-odb2:/odb/odb2 mount过来
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

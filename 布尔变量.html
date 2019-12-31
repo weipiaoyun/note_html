@@ -16,49 +16,49 @@
 <body>
 
 <p>
-#include &lt;stdio.h&gt;
+#include &lt;stdio.h&gt;<br />
 </p>
 
 
 <p>
-int main(int argc, const char *argv[])
-{
+int main(int argc, const char *argv[])<br />
+{<br />
 </p>
 
 <p>
-	typedef enum {DISABLE = 0, ENABLE = !DISABLE} A;
-	A B;
-	B = ENABLE;
-	printf("%d\n", B)
-	return 0;
-}
+	typedef enum {DISABLE = 0, ENABLE = !DISABLE} A;<br />
+	A B;<br />
+	B = ENABLE;<br />
+	printf("%d\n", B)<br />
+	return 0;<br />
+}<br />
 </p>
 
 <p>
-ENABLE = 1；结果是1.
+ENABLE = 1；结果是1.<br />
 </p>
 
 <p>
-#include &lt;stdio.h&gt;
+#include &lt;stdio.h&gt;<br />
 </p>
 
 
 <p>
-int main(int argc, const char *argv[])
-{
+int main(int argc, const char *argv[])<br />
+{<br />
 </p>
 
 <p>
-	typedef enum {DISABLE = 54, ENABLE = !DISABLE} A;
-	A B;
-	B = ENABLE;
-	printf("%d\n", B);
-	return 0;
-}
+	typedef enum {DISABLE = 54, ENABLE = !DISABLE} A;<br />
+	A B;<br />
+	B = ENABLE;<br />
+	printf("%d\n", B);<br />
+	return 0;<br />
+}<br />
 </p>
 
 <p>
-这说明了，如果！a，如果a是0，那么就是假，！假就是真，真就是1。如果a是非0，那么就是真，真的值就是1.
+这说明了，如果！a，如果a是0，那么就是假，！假就是真，真就是1。如果a是非0，那么就是真，真的值就是1.<br />
 </p>
 
 
@@ -85,8 +85,6 @@ int main(int argc, const char *argv[])
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

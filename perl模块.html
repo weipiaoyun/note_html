@@ -17,52 +17,52 @@
 
 <h2 id="toc_0.1">strftime</h2>
 <p>
-处理时间字符串的格式
-use POSIX qw(strftime);
-strftime("%H:%M:%S", localtime(time));
+处理时间字符串的格式<br />
+use POSIX qw(strftime);<br />
+strftime("%H:%M:%S", localtime(time));<br />
 </p>
 
 <h2 id="toc_0.2">锁</h2>
 <p>
-use FCntl qw(:flock);
-LOCK_EX:排它锁，写锁，只要上锁，其它事务就不能上任何锁。
-LOCK_SH:共享锁，读锁。对文件进行读锁，其它事务可以同时对文件进行读锁。只要存在读锁，写锁就不能执行。只有等全部读锁全部解除，才能进行写锁。
+use FCntl qw(:flock);<br />
+LOCK_EX:排它锁，写锁，只要上锁，其它事务就不能上任何锁。<br />
+LOCK_SH:共享锁，读锁。对文件进行读锁，其它事务可以同时对文件进行读锁。只要存在读锁，写锁就不能执行。只有等全部读锁全部解除，才能进行写锁。<br />
 </p>
 
 <h2 id="toc_0.3">获取数据结构</h2>
 <p>
-use Data::Dumper;
-print Dumper(%tmp);
+use Data::Dumper;<br />
+print Dumper(%tmp);<br />
 </p>
 
 
 <h1 id="toc_1">Tk</h1><HR SIZE=1>
 <p>
-use Tk
-use Browse::Entry
+use Tk<br />
+use Browse::Entry<br />
 </p>
 
 
 <p>
-use Carp;
-croak 
+use Carp;<br />
+croak <br />
 </p>
 
 <h1 id="toc_2">获取文件的名字，所在路径，扩展名</h1><HR SIZE=1>
 <p>
-require File::Basename;
-my(\(basename, \)script_dir, \(ext) = File::Basename::fileparse(\)0, '\.[^\.]+');
+require File::Basename;<br />
+my(\(basename, \)script_dir, \(ext) = File::Basename::fileparse(\)0, '\.[^\.]+');<br />
 </p>
 
 
 <h1 id="toc_3">压缩文件</h1><HR SIZE=1>
 <p>
-use Archive::Zip;
-my $zip = Archive::Zip-&gt;new();
-\(zip-&gt;addFile("\)JOB.$_");
-my \(zip_file .= "(\)JOB)".'.arj';
-\(zip-&gt;writeToFileNamed(\)zip_file);
-system("mv \(wfDir/\)JOB.\({_}ok \)JOB.$_");
+use Archive::Zip;<br />
+my $zip = Archive::Zip-&gt;new();<br />
+\(zip-&gt;addFile("\)JOB.$_");<br />
+my \(zip_file .= "(\)JOB)".'.arj';<br />
+\(zip-&gt;writeToFileNamed(\)zip_file);<br />
+system("mv \(wfDir/\)JOB.\({_}ok \)JOB.$_");<br />
 </p>
 
 
@@ -89,8 +89,6 @@ system("mv \(wfDir/\)JOB.\({_}ok \)JOB.$_");
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

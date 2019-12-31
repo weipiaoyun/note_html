@@ -16,44 +16,44 @@
 <body>
 
 <p>
-Checklist
-#获取checklist的info，输出到文件/tmp/genesischecklistLine.$job
-#-t(type), check
-#-e \(JOB/\)STEP/camchecklist(分析后新建的checklist名字)；
-#-d MEAS(messages)
-#-o (action=1+category=line+layer=$layer); action = 1表示checklist后分析出的型#(drill/signal/solder mask/),category = line			   
-#种类为线, layer = $layer, 为层别
-\(f-&gt;COM("info",out_file =&gt; "/tmp/genesischecklistLine.\)JOB",args =&gt; "-t check -e \(JOB/\)STEP/camchecklist -m script -d MEAS -o action=1+category=line+layer=\(ROWname[\)ii]");
+Checklist<br />
+#获取checklist的info，输出到文件/tmp/genesischecklistLine.$job<br />
+#-t(type), check<br />
+#-e \(JOB/\)STEP/camchecklist(分析后新建的checklist名字)；<br />
+#-d MEAS(messages)<br />
+#-o (action=1+category=line+layer=$layer); action = 1表示checklist后分析出的型#(drill/signal/solder mask/),category = line			   <br />
+#种类为线, layer = $layer, 为层别<br />
+\(f-&gt;COM("info",out_file =&gt; "/tmp/genesischecklistLine.\)JOB",args =&gt; "-t check -e \(JOB/\)STEP/camchecklist -m script -d MEAS -o action=1+category=line+layer=\(ROWname[\)ii]");<br />
 </p>
 
 <p>
-#####################################################################
+#####################################################################<br />
 </p>
 
 <p>
-spacing_length gtl 5 x 223.64 mil r0 r0 LN 0.7173258 1.9647994 0.7173258 1.7411594 0.0025 S 1 Ychecklist
-Spacing_length[2]为最小间距值，Spacing_length[4] 为间距长度。  Spacing_length[9]，Spacing_length[10]为间距线的起始坐标。Spacing_length[11]，Spacing_length[12]，为结束点坐标。
+spacing_length gtl 5 x 223.64 mil r0 r0 LN 0.7173258 1.9647994 0.7173258 1.7411594 0.0025 S 1 Ychecklist<br />
+Spacing_length[2]为最小间距值，Spacing_length[4] 为间距长度。  Spacing_length[9]，Spacing_length[10]为间距线的起始坐标。Spacing_length[11]，Spacing_length[12]，为结束点坐标。<br />
 </p>
 
 <h2 id="toc_0.1">line gtl 7 x 105.434 mil r7 LN 1.6715058 1.1104061 1.6715058 1.21584 0.0035 S 1 Y</h2>
 <p>
-line[6]为最小线宽, 后面的四个数字为坐标
+line[6]为最小线宽, 后面的四个数字为坐标<br />
 </p>
 
 <p>
-via_ar gtl 7.478 mil r19.7 r35 SG 0.7097858 1.2561294 0.7097858 1.263607 2 G
-via_ar[2]为最小ring环
+via_ar gtl 7.478 mil r19.7 r35 SG 0.7097858 1.2561294 0.7097858 1.263607 2 G<br />
+via_ar[2]为最小ring环<br />
 </p>
 
 <p>
-pth_ar gtl 10.859 mil r39.37 r61.2 SG 2.0132664 0.6892988 2.0055883 0.696977 2 B
-pth_ar[2]为pt孔ring环
+pth_ar gtl 10.859 mil r39.37 r61.2 SG 2.0132664 0.6892988 2.0055883 0.696977 2 B<br />
+pth_ar[2]为pt孔ring环<br />
 </p>
 
 <p>
-文字
-ss2sm 22 0 mil rect95x69.5xr2.75 SG 1.9244996 9.3134212 1.9244996 9.3134212 2 R
-ss2sm[2]为文字到smd的距离
+文字<br />
+ss2sm 22 0 mil rect95x69.5xr2.75 SG 1.9244996 9.3134212 1.9244996 9.3134212 2 R<br />
+ss2sm[2]为文字到smd的距离<br />
 </p>
 
 
@@ -80,8 +80,6 @@ ss2sm[2]为文字到smd的距离
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

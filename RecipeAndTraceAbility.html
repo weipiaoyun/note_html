@@ -76,23 +76,23 @@
 <li><a href="#toc_15">上下板机 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">全流程追溯方案 </h1><HR SIZE=1>
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩全流程品质追溯方案20190801.ppt"download=\"文件名.txt\">点击下载:【江西志浩全流程品质追溯方案20190801.ppt】</a></div>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩全流程品质追溯方案20190801.ppt"download=\"文件名.txt\">点击下载:【江西志浩全流程品质追溯方案20190801.ppt】</a></div><br />
 </p>
 
 <h1 id="toc_2">Recipe下发 </h1><HR SIZE=1>
 <p>
-after scan the LOT, select the parameters automatically
+after scan the LOT, select the parameters automatically<br />
 </p>
 
 <h2 id="toc_2.1">水平线(前处理，棕化等) </h2>
 <p>
-RecipeTemplate		配方模板(已取消，配方列表为模板)
-RecipeJob			料号配方参数
-RecipeCollection	配方列表
+RecipeTemplate		配方模板(已取消，配方列表为模板)<br />
+RecipeJob			料号配方参数<br />
+RecipeCollection	配方列表<br />
 </p>
 
 <h2 id="toc_2.2">Drill Machine </h2>
@@ -120,7 +120,7 @@ Staff operate and confirm the information accroding to the PDA instructions.
 </p>
 
 <p>
-干膜不同，曝光能量不同，
+干膜不同，曝光能量不同，<br />
 </p>
 <ul>
 <li>
@@ -128,7 +128,7 @@ Staff operate and confirm the information accroding to the PDA instructions.
 
 </ul>
 <p>
-LDI机有固定涨缩和自动涨缩，固定涨缩是工艺测量后输入涨缩值。自动涨缩是LDI机自动测量涨缩值，然后进行涨缩。
+LDI机有固定涨缩和自动涨缩，固定涨缩是工艺测量后输入涨缩值。自动涨缩是LDI机自动测量涨缩值，然后进行涨缩。<br />
 </p>
 
 <ol>
@@ -142,34 +142,34 @@ LDI机有固定涨缩和自动涨缩，固定涨缩是工艺测量后输入涨�
 
 <h4 id="toc_2.3.1.1">路径 </h4>
 <p>
-\\10.80.13.52\dp\dpconfig\setpuf
-\\10.80.13.52\dp\cam\dp100-jobs
+\\10.80.13.52\dp\dpconfig\setpuf<br />
+\\10.80.13.52\dp\cam\dp100-jobs<br />
 </p>
 
 
 <h4 id="toc_2.3.1.2">需要的参数 </h4>
 <p>
-工程输出的文件
-IMAGE-SETUP-FILE-NAME=设定的文件名
-INITIAL-SERIAL-NUMBER=
-IMAGE-SETUP-FILE-NAME=
-LINE-NUM= *这行添加了行后必须更改。
+工程输出的文件<br />
+IMAGE-SETUP-FILE-NAME=设定的文件名<br />
+INITIAL-SERIAL-NUMBER=<br />
+IMAGE-SETUP-FILE-NAME=<br />
+LINE-NUM= *这行添加了行后必须更改。<br />
 </p>
 
 <h4 id="toc_2.3.1.3">下发Recipe </h4>
 <p>
-解决方案1，扫描工单后，下载资料和参数，DI机进行做资料处理。
-解决方案2，MES自动排产，自动放资料和参数，DI机进行资料处理。
+解决方案1，扫描工单后，下载资料和参数，DI机进行做资料处理。<br />
+解决方案2，MES自动排产，自动放资料和参数，DI机进行资料处理。<br />
 </p>
 
 <p>
-资料处理完后板进行曝光的时候，员工扫工单，LDI调取相对应的资料。做板。
+资料处理完后板进行曝光的时候，员工扫工单，LDI调取相对应的资料。做板。<br />
 </p>
 
 <h4 id="toc_2.3.1.4">参数采集 </h4>
 <p>
-通过批次号和初始序列号绑定，通过初始序列号查出参数。
-希望奥宝能把我们的pnl条码读取，然后绑定序列号。(可通过条码，或pnl追溯)，或者通过扫工单后，工单和序列号绑定(可通过Lot卡追溯，不能追溯具体到板，但是Lot卡和pnl条码能否在开料打码的地方绑定？)。
+通过批次号和初始序列号绑定，通过初始序列号查出参数。<br />
+希望奥宝能把我们的pnl条码读取，然后绑定序列号。(可通过条码，或pnl追溯)，或者通过扫工单后，工单和序列号绑定(可通过Lot卡追溯，不能追溯具体到板，但是Lot卡和pnl条码能否在开料打码的地方绑定？)。<br />
 </p>
 
 <h4 id="toc_2.3.1.5">问题点 </h4>
@@ -185,9 +185,9 @@ LINE-NUM= *这行添加了行后必须更改。
 
 <h2 id="toc_2.4">压机Recipe </h2>
 <p>
-先绑定LOT卡和载盘标签。(知道载盘里面的对应的什么料号)
-载盘在进去的之前自动扫标签。查找该料号用的是什么Recipe。然后调用存储过程[SP_SFC_LAM_LOT_BARCODE]，往压机供应商提供的数据库表里面写数据。
-压机根据数据库表LAUFFER_RECIPE.dbo.Load_Data  自动更改程式。
+先绑定LOT卡和载盘标签。(知道载盘里面的对应的什么料号)<br />
+载盘在进去的之前自动扫标签。查找该料号用的是什么Recipe。然后调用存储过程[SP_SFC_LAM_LOT_BARCODE]，往压机供应商提供的数据库表里面写数据。<br />
+压机根据数据库表LAUFFER_RECIPE.dbo.Load_Data  自动更改程式。<br />
 </p>
 
 
@@ -209,43 +209,43 @@ binding second or outer item num. bkh85445a0.IN27
 </ul>
 
 <p>
-1，添加记录。
-2，下发前添加判断当前料号和扫描料号是否为同一个料号。如果是同一个料号，时间超过一天，重新下发配方。如果是不同料号，重新下发配方(防止配方下发后HDM下更改。)
-3， 记录当前机台号的当前料号，当前recipe
+1，添加记录。<br />
+2，下发前添加判断当前料号和扫描料号是否为同一个料号。如果是同一个料号，时间超过一天，重新下发配方。如果是不同料号，重新下发配方(防止配方下发后HDM下更改。)<br />
+3， 记录当前机台号的当前料号，当前recipe<br />
 </p>
 
 
 
 <h2 id="toc_2.6">内层DES复制棕化Recipe </h2>
 <p>
-1，复制项目文件夹。
-2，添加现有项目。
-3，修改所有命名空间(卸载其它的)
-4，修改csproj里面的生成的dll名字。
-5，修改service
+1，复制项目文件夹。<br />
+2，添加现有项目。<br />
+3，修改所有命名空间(卸载其它的)<br />
+4，修改csproj里面的生成的dll名字。<br />
+5，修改service<br />
 </p>
 
 
 <h1 id="toc_3">trace ability </h1><HR SIZE=1>
 <p>
-条码规则
+条码规则<br />
 </p>
 
 <p>
-机台号，相当于分配了一个IP段。
-每年自动从0开始
+机台号，相当于分配了一个IP段。<br />
+每年自动从0开始<br />
 </p>
 
 <p>
-物料，叠构，工艺参数都可以追溯。
+物料，叠构，工艺参数都可以追溯。<br />
 </p>
 
 
 <h2 id="toc_3.1">解决方案 </h2>
 <h3 id="toc_3.1.1">内层二维码 </h3>
 <p>
-漏码率多少？
-12x12(点阵)	10位数
+漏码率多少？<br />
+12x12(点阵)	10位数<br />
 </p>
 <ol>
 <li>
@@ -278,7 +278,7 @@ binding second or outer item num. bkh85445a0.IN27
 
 </ol>
 <p>
-次外层和外层二维码和最上面的内层二维码相同。
+次外层和外层二维码和最上面的内层二维码相同。<br />
 </p>
 
 
@@ -292,13 +292,13 @@ CAM 输出坐标和类型(明码，二维码，lot卡号) [WZDGERP].[wisdompcb].
 
 <h3 id="toc_3.2.1">二维码类型 </h3>
 <p>
-明码
-二维码
+明码<br />
+二维码<br />
 </p>
 
 <p>
-	打码机实际的二维码类型就两种，要么二维码，要么明码。
-	二维码的内容会根据二维码的类型不同而不同。所以CAM资料导出来的时候要指定类型。MES根据类型生成二维码类型。二维码内容生成后MES更改二维码类型是明码还是二维码。
+	打码机实际的二维码类型就两种，要么二维码，要么明码。<br />
+	二维码的内容会根据二维码的类型不同而不同。所以CAM资料导出来的时候要指定类型。MES根据类型生成二维码类型。二维码内容生成后MES更改二维码类型是明码还是二维码。<br />
 </p>
 
 <ol>
@@ -309,14 +309,14 @@ CAM 输出坐标和类型(明码，二维码，lot卡号) [WZDGERP].[wisdompcb].
 
 <h3 id="toc_3.2.2">二维码尺寸，点数 </h3>
 <p>
-3.5	14x14
-4	16x16
-4.5	18x18
-6	26x26(华为)
+3.5	14x14<br />
+4	16x16<br />
+4.5	18x18<br />
+6	26x26(华为)<br />
 </p>
 
 <p>
-明码字符 1mm高
+明码字符 1mm高<br />
 </p>
 
 <h3 id="toc_3.2.3">打码数据类型 </h3>
@@ -339,23 +339,23 @@ CAM输出到表[Print2D_CAM]
 </ol>
 
 <p>
-二维码数据6*6 4*4
-明码数据10*10
-阻抗LOT号1*1.5
+二维码数据6*6 4*4<br />
+明码数据10*10<br />
+阻抗LOT号1*1.5<br />
 </p>
 
 <h3 id="toc_3.2.4">二维码信息规则 </h3>
 <p>
-长宽，尺寸，板厚，文字或绿油
-光点(参考点)四个。
+长宽，尺寸，板厚，文字或绿油<br />
+光点(参考点)四个。<br />
 </p>
 	
 <p>
-坐标(x，y，ang)，类型()，set号，edit号，打码值
+坐标(x，y，ang)，类型()，set号，edit号，打码值<br />
 </p>
 
 <p>
-码：pnl码(10位)+set号(3位)+edit号(3位)
+码：pnl码(10位)+set号(3位)+edit号(3位)<br />
 </p>
 <ul>
 <li>
@@ -364,58 +364,58 @@ CAM输出到表[Print2D_CAM]
 </ul>
 
 <p>
---------二维码----------------
-W
-厂内编号（料号）取7位
-版本（A0,B0）
-lot号（取后4位）
-PNAEL 3位
-SET   3位 
-PCS   3位
+--------二维码----------------<br />
+W<br />
+厂内编号（料号）取7位<br />
+版本（A0,B0）<br />
+lot号（取后4位）<br />
+PNAEL 3位<br />
+SET   3位 <br />
+PCS   3位<br />
 </p>
 
 <p>
-25字节 18X18  4MM*4MM
+25字节 18X18  4MM*4MM<br />
 </p>
 
 <p>
---------明码-------------------
+--------明码-------------------<br />
 </p>
 
 <p>
-lot号（取后4位）
-PNAEL 3位
-SET   3位 
-PCS   3位
+lot号（取后4位）<br />
+PNAEL 3位<br />
+SET   3位 <br />
+PCS   3位<br />
 </p>
 
 <p>
-华勤二维码规则：工厂+lot卡+流水号+set号+pcs号
-通用二维码规则：pnl条码1921234567 + set号+ pcs号
+华勤二维码规则：工厂+lot卡+流水号+set号+pcs号<br />
+通用二维码规则：pnl条码1921234567 + set号+ pcs号<br />
 </p>
 
 
 <h3 id="toc_3.2.5">华为二维码规则 </h3>
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/华为技术PCB二维码试运行操作指导书V3-0.doc"download=\"文件名.txt\">点击下载:【华为技术PCB二维码试运行操作指导书V3-0.doc】</a></div>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/华为技术PCB二维码试运行操作指导书V3-0.doc"download=\"文件名.txt\">点击下载:【华为技术PCB二维码试运行操作指导书V3-0.doc】</a></div><br />
 </p>
 
 
 
 <h1 id="toc_4">AOI </h1><HR SIZE=1>
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/AOI数据采集说明+自动解析料号+二维码位置需求.rar"download=\"文件名.txt\">点击下载:【AOI数据采集说明+自动解析料号+二维码位置需求.rar】</a></div>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/AOI数据采集说明+自动解析料号+二维码位置需求.rar"download=\"文件名.txt\">点击下载:【AOI数据采集说明+自动解析料号+二维码位置需求.rar】</a></div><br />
 </p>
 
 <h1 id="toc_5">压合到镭射 </h1><HR SIZE=1>
 <p>
-浩硕机有三台，放到两条线，有一条线1台(老机器，直接打出七个孔，靶孔+ccd孔)，另一条线有两台(一台打3个孔，一台打四个孔，为得是提高效率)。
+浩硕机有三台，放到两条线，有一条线1台(老机器，直接打出七个孔，靶孔+ccd孔)，另一条线有两台(一台打3个孔，一台打四个孔，为得是提高效率)。<br />
 </p>
 
 
 <p>
-压合-&gt;XRAY靶孔(浩硕)-&gt;镭射二维码-&gt;裁磨线-&gt;XRAY ccd孔(测涨缩)-&gt;分板
-压合-&gt;XRAY靶孔-&gt;裁磨线-&gt;XRAY ccd孔(测涨缩)-&gt;镭射二维码-&gt;分板
+压合-&gt;XRAY靶孔(浩硕)-&gt;镭射二维码-&gt;裁磨线-&gt;XRAY ccd孔(测涨缩)-&gt;分板<br />
+压合-&gt;XRAY靶孔-&gt;裁磨线-&gt;XRAY ccd孔(测涨缩)-&gt;镭射二维码-&gt;分板<br />
 </p>
 
 <ol>
@@ -439,34 +439,34 @@ PCS   3位
 
 </ol>
 <p>
-#
+#<br />
 </p>
 
 <h1 id="toc_6">环球镭射 </h1><HR SIZE=1>
 <p>
-1，计划排程
-2，钻带和参数下发
-3，
-	棕化减铜下料后，写入信息到RFID。RFID绑定锣卡信息等。
+1，计划排程<br />
+2，钻带和参数下发<br />
+3，<br />
+	棕化减铜下料后，写入信息到RFID。RFID绑定锣卡信息等。<br />
 </p>
 
 <p>
-	环球的MES更具计划排程，自动从立体仓取出加工。
+	环球的MES更具计划排程，自动从立体仓取出加工。<br />
 </p>
 
 <p>
-	需要知道当前设备的状态等信息。
+	需要知道当前设备的状态等信息。<br />
 </p>
 	
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西志浩项目生产资料下发接口对接文档V1.2江西志浩项目生产资料下发接口对接文档V1-2.pdf"download=\"文件名.txt\">点击下载:【江西志浩项目生产资料下发接口对接文档V1.2江西志浩项目生产资料下发接口对接文档V1-2.pdf】</a></div>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西志浩项目生产资料下发接口对接文档V1.2江西志浩项目生产资料下发接口对接文档V1-2.pdf"download=\"文件名.txt\">点击下载:【江西志浩项目生产资料下发接口对接文档V1.2江西志浩项目生产资料下发接口对接文档V1-2.pdf】</a></div><br />
 </p>
 
 <h1 id="toc_7">机械钻孔 </h1><HR SIZE=1>
 
 <p>
-下发到路径
-\\172.19.10.1\mechdrill
+下发到路径<br />
+\\172.19.10.1\mechdrill<br />
 </p>
 
 <ol>
@@ -491,18 +491,18 @@ lot卡号	找到对应的钻带
 </ol>
 
 <p>
-机械钻孔可以钻机台号和轴号，验孔机安装扫描头，同时扫二维码和机台号，二维码和机台号绑定，可以追溯到哪个机台钻的。
+机械钻孔可以钻机台号和轴号，验孔机安装扫描头，同时扫二维码和机台号，二维码和机台号绑定，可以追溯到哪个机台钻的。<br />
 </p>
 
 
 <h2 id="toc_7.1">奥宝钻锣自动化解决方案 </h2>
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/Fastec_brochure_Rev1_CN_4.pdf"download=\"文件名.txt\">点击下载:【Fastec_brochure_Rev1_CN_4.pdf】</a></div>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/Fastec_brochure_Rev1_CN_4.pdf"download=\"文件名.txt\">点击下载:【Fastec_brochure_Rev1_CN_4.pdf】</a></div><br />
 </p>
 
 <h1 id="toc_8">镭射 </h1><HR SIZE=1>
 <p>
-配方包括两个
+配方包括两个<br />
 </p>
 <ol>
 <li>
@@ -514,24 +514,24 @@ lot卡号	找到对应的钻带
 </ol>
 
 <p>
-钻带型号和RFID绑定。
+钻带型号和RFID绑定。<br />
 </p>
 
 <h1 id="toc_9">对接文档 </h1><HR SIZE=1>
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩项目生产资料下发接口对接文档V1.2.pdf"download=\"文件名.txt\">点击下载:【江西志浩项目生产资料下发接口对接文档V1.2.pdf】</a></div>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩项目生产资料下发接口对接文档V1.2.pdf"download=\"文件名.txt\">点击下载:【江西志浩项目生产资料下发接口对接文档V1.2.pdf】</a></div><br />
 </p>
 
 <h1 id="toc_10">VCUT </h1><HR SIZE=1>
 <h2 id="toc_10.1">vcut格式，自动传入vcut机器 </h2>
 <p>
-<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/e076be5914481649d13f3e4796e4c16.png" /></div>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/e076be5914481649d13f3e4796e4c16.png" /></div><br />
 </p>
 
 <h1 id="toc_11">待入库 </h1><HR SIZE=1>
 
 <p>
-待入库到成品仓有多少之前老板不清楚。
+待入库到成品仓有多少之前老板不清楚。<br />
 </p>
 
 <h1 id="toc_12">成品仓 </h1><HR SIZE=1>
@@ -543,7 +543,7 @@ lot卡号	找到对应的钻带
 <h1 id="toc_14">三化一稳 </h1><HR SIZE=1>
 <h2 id="toc_14.1">怎么找到某个产品使用的物料批次？ </h2>
 <p>
-	MES增加追溯功能。可以根据
+	MES增加追溯功能。可以根据<br />
 </p>
 <ol>
 <li>
@@ -561,7 +561,7 @@ lot卡号	找到对应的钻带
 
 <h1 id="toc_15">上下板机 </h1><HR SIZE=1>
 <p>
-如果扫描的扫到lot卡和目前使用的Recipe不是同一个绑定的Recipe，停掉上下板机。
+如果扫描的扫到lot卡和目前使用的Recipe不是同一个绑定的Recipe，停掉上下板机。<br />
 </p>
 <ol>
 <li>
@@ -579,8 +579,8 @@ lot卡号	找到对应的钻带
 </ol>
 
 <p>
-读取地址
-	控制模式：
+读取地址<br />
+	控制模式：<br />
 </p>
 <ul>
 <li>
@@ -616,8 +616,6 @@ AGV
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -45,160 +45,160 @@
 <li><a href="#toc_19">空旷位置铺矩形线</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
 <a href="genesis Info.html">genesis Info</a>
 <a href="genesis输出.html">genesis输出</a>
-/genesis/e93/misc/dbutil delete 9999
+/genesis/e93/misc/dbutil delete 9999<br />
 </p>
 
 <h1 id="toc_1">删除重孔 </h1><HR SIZE=1>
 <p>
-DFM-》Redundancy Cleanup-》NFP Removal
+DFM-》Redundancy Cleanup-》NFP Removal<br />
 </p>
 
 <h1 id="toc_2">删除重线 </h1><HR SIZE=1>
 <p>
-DFM-&gt;Redundancy cleanup-&gt;Redundant Line Removal
+DFM-&gt;Redundancy cleanup-&gt;Redundant Line Removal<br />
 </p>
 
 <p>
-chklist=valor_dfm_nflr
+chklist=valor_dfm_nflr<br />
 </p>
 
 <h1 id="toc_3">转pad </h1><HR SIZE=1>
 <p>
-valor_cleanup_auto_subst
+valor_cleanup_auto_subst<br />
 </p>
 
 <h1 id="toc_4">圈转pad </h1><HR SIZE=1>
 <p>
-Edit-》Reshape-》Cutting Data(sel_cut_data)
-Edit-》Reshape-》Contour to pad(sel_cont2pad)
+Edit-》Reshape-》Cutting Data(sel_cut_data)<br />
+Edit-》Reshape-》Contour to pad(sel_cont2pad)<br />
 </p>
 
 <h1 id="toc_5">填小间隙，填空洞 </h1><HR SIZE=1>
 <p>
-valor_dfm_clean_holes
-DFM-&gt;Repair-&gt;Pinhole Elimination
+valor_dfm_clean_holes<br />
+DFM-&gt;Repair-&gt;Pinhole Elimination<br />
 </p>
 
 <h1 id="toc_6">过滤器选择 </h1><HR SIZE=1>
 <p>
-pan_feat
-sel_layer_feat,operation=select
+pan_feat<br />
+sel_layer_feat,operation=select<br />
 </p>
 
 <h1 id="toc_7">根据第几个选择物件 </h1><HR SIZE=1>
 <p>
- -m script -d FEATURES -o feat_index
+ -m script -d FEATURES -o feat_index<br />
 </p>
  
 <h1 id="toc_8">替换或选择相同类型物件 </h1><HR SIZE=1>
 <p>
-Edit-&gt;Reshape-&gt;Substitue
+Edit-&gt;Reshape-&gt;Substitue<br />
 </p>
 
 <p>
-如果需要选择相同类型物件，把substitute改成select
+如果需要选择相同类型物件，把substitute改成select<br />
 </p>
 
 <h1 id="toc_9">查找genesis命令</h1><HR SIZE=1>
 <p>
-C:\genesis\e97\all\helps\line
+C:\genesis\e97\all\helps\line<br />
 </p>
 
 <h1 id="toc_10">Gateway</h1><HR SIZE=1>
 <p>
-c:/genesis/e97/misc/gateway.exe  "WHO"
+c:/genesis/e97/misc/gateway.exe  "WHO"<br />
 </p>
 
 <h1 id="toc_11">外挂处理程序</h1><HR SIZE=1>
 <p>
-c:/genesis/e97/misc/gateway.exe "00@D018003249.D018003249" "COM script_run,name=D:/Codes/EMS/UI/bin/Release/EMS.dll,env1=Auto_flows=DrillInput,env2=AreaID=1,env3=JOB=tk80993a1,env4=PAR=801044"
+c:/genesis/e97/misc/gateway.exe "00@D018003249.D018003249" "COM script_run,name=D:/Codes/EMS/UI/bin/Release/EMS.dll,env1=Auto_flows=DrillInput,env2=AreaID=1,env3=JOB=tk80993a1,env4=PAR=801044"<br />
 </p>
 
 <h2 id="toc_11.1">fill</h2>
 <p>
-Step&amp;Repeat nesting 如果yes，则板内也铺铜
-Step margin 距离profile的距离
-Step max dist 距离profile的最大距离
-S &amp; R margin 距离SR的距离
+Step&amp;Repeat nesting 如果yes，则板内也铺铜<br />
+Step margin 距离profile的距离<br />
+Step max dist 距离profile的最大距离<br />
+S &amp; R margin 距离SR的距离<br />
 </p>
 
 
 <p>
-$h-&gt;COM(
-	'add_surf_poly_seg',
-	x =&gt; $h-&gt;{profXmax} + 5, 
-	y =&gt; $h-&gt;{profYmin} - 5
-);
+$h-&gt;COM(<br />
+	'add_surf_poly_seg',<br />
+	x =&gt; $h-&gt;{profXmax} + 5, <br />
+	y =&gt; $h-&gt;{profYmin} - 5<br />
+);<br />
 </p>
 
 <h1 id="toc_12">单位</h1><HR SIZE=1>
 
 <h2 id="toc_12.1">量尺寸</h2>
 <p>
-子量的是mm和inch
-转换成um和mil *1000
+子量的是mm和inch<br />
+转换成um和mil *1000<br />
 </p>
 
 <h2 id="toc_12.2">set_table</h2>
 <p>
-set_table用的是mil
+set_table用的是mil<br />
 </p>
 
 <h1 id="toc_13">转锣带</h1><HR SIZE=1>
 <p>
-sel_design2rout,det_tol=127,con_tol=127,rad_tol=12.7 (1)
-edit-&gt;reshape-&gt;design to rout
+sel_design2rout,det_tol=127,con_tol=127,rad_tol=12.7 (1)<br />
+edit-&gt;reshape-&gt;design to rout<br />
 </p>
 
 
 <h1 id="toc_14">获取bar message</h1><HR SIZE=1>
 <p>
-COM pan_feat,layer=drl,index=$index,auto_zoom=yes
+COM pan_feat,layer=drl,index=$index,auto_zoom=yes<br />
 </p>
 
 <p>
-COM get_message_bar
+COM get_message_bar<br />
 </p>
 
 <h1 id="toc_15">删除step</h1><HR SIZE=1>
 <p>
-COM delete_entity,job=\(JOB,type=step,name=\)step_tmp
+COM delete_entity,job=\(JOB,type=step,name=\)step_tmp<br />
 </p>
 
 
 <h1 id="toc_16">删除层里面的数据</h1><HR SIZE=1>
 <p>
-COM "truncate_layer,layer=$viaName"
+COM "truncate_layer,layer=$viaName"<br />
 </p>
 
 <h1 id="toc_17">锣废料</h1><HR SIZE=1>
 <p>
-1，画铜皮
-2，锣外框
-打开制作锣带界面-》选第一个生成锣带-》刀大小1.6mm-》左补偿-&gt;点应用
-3，打废料
-选择打废料-》选蛇形-》刀大小1-》方向选择水平-》点选铜皮-&gt;点应用
+1，画铜皮<br />
+2，锣外框<br />
+打开制作锣带界面-》选第一个生成锣带-》刀大小1.6mm-》左补偿-&gt;点应用<br />
+3，打废料<br />
+选择打废料-》选蛇形-》刀大小1-》方向选择水平-》点选铜皮-&gt;点应用<br />
 </p>
 
 <h1 id="toc_18">dfm</h1><HR SIZE=1>
 <p>
-valor_dfm_nflr	删除重线
+valor_dfm_nflr	删除重线<br />
 </p>
 
 <h1 id="toc_19">空旷位置铺矩形线</h1><HR SIZE=1>
 
 <p>
-铺铜，按照SR  clip一下
+铺铜，按照SR  clip一下<br />
 </p>
 
 <p>
-铜转外形线
-弧删掉
-改变大小s2000
+铜转外形线<br />
+弧删掉<br />
+改变大小s2000<br />
 </p>
 
 
@@ -225,8 +225,6 @@ valor_dfm_nflr	删除重线
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

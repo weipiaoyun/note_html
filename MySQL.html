@@ -26,9 +26,9 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
-库如文件夹，表如文件，字段如内容
+库如文件夹，表如文件，字段如内容<br />
 <a href="MySQL语句.html">MySQL语句</a>
 <a href="索引.html">索引</a>
 <a href="工作数据库列表用途.html">工作数据库列表用途</a>
@@ -37,38 +37,38 @@
 </p>
 <h1 id="toc_1">perl mysql </h1><HR SIZE=1>
 <p>
-use DBI;
+use DBI;<br />
 </p>
 
 <p>
-#设置mysql连接参数
-my $sqlDataBase = 'test'; #设置数据库名称
-my $sqlHost = 'localhost'; #设置主机名称
-my $sqlUser = 'root'; #设置用户
-my $sqlPwd = 'lwtest';#设置密码
-my \(dsn = "DBI:mysql:database=\)sqlDataBase; host = $sqlHost";#设置dsn(包括主机名称和数据库名称，数据库类型)
-my $attributes = {'RaiseError' =&gt; 1}; #设置其他
+#设置mysql连接参数<br />
+my $sqlDataBase = 'test'; #设置数据库名称<br />
+my $sqlHost = 'localhost'; #设置主机名称<br />
+my $sqlUser = 'root'; #设置用户<br />
+my $sqlPwd = 'lwtest';#设置密码<br />
+my \(dsn = "DBI:mysql:database=\)sqlDataBase; host = $sqlHost";#设置dsn(包括主机名称和数据库名称，数据库类型)<br />
+my $attributes = {'RaiseError' =&gt; 1}; #设置其他<br />
 </p>
 
 <p>
-#连接mysql
-my \(dbh = DBI-&gt;connect(\)dsn, \(sqlUser, \)sqlPwd, $attributes); #dsn 用户，密码，其他
+#连接mysql<br />
+my \(dbh = DBI-&gt;connect(\)dsn, \(sqlUser, \)sqlPwd, $attributes); #dsn 用户，密码，其他<br />
 </p>
 
 <p>
-#插入
-my \(rows = \)dbh-&gt;do("INSERT INTO users VALUES (4, 'jay', 'CZ'), (5, 'll', 'KJ')");
+#插入<br />
+my \(rows = \)dbh-&gt;do("INSERT INTO users VALUES (4, 'jay', 'CZ'), (5, 'll', 'KJ')");<br />
 </p>
 
 <p>
-#断开连接
-$dbh-&gt;disconnect(); #断开连接
+#断开连接<br />
+$dbh-&gt;disconnect(); #断开连接<br />
 </p>
 
 <h1 id="toc_2">执行数据库方法 </h1><HR SIZE=1>
 <p>
-prepare：一般是查询，如select
-do：执行删除，创建等；delete， create
+prepare：一般是查询，如select<br />
+do：执行删除，创建等；delete， create<br />
 </p>
 
 
@@ -100,7 +100,7 @@ select * from mysql.user where user = 'admin';
 <h1 id="toc_4">表 </h1><HR SIZE=1>
 <h2 id="toc_4.1">FPC脚本 </h2>
 <p>
-HcCam_ChildFlowList
+HcCam_ChildFlowList<br />
 </p>
 
 
@@ -127,8 +127,6 @@ HcCam_ChildFlowList
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -16,20 +16,20 @@
 <body>
 
 <p>
-发送端不需要在发送一帧之前和接收端进行协调
+发送端不需要在发送一帧之前和接收端进行协调<br />
 </p>
 
 <p>
-空闲位一般是高电位。传送数据，出现了低电位。就是起始位。数据传送结束后。奇偶校验位后面往往以停止位结束。是高电位。一帧以低电位开始。。以高电位结束。。 
+空闲位一般是高电位。传送数据，出现了低电位。就是起始位。数据传送结束后。奇偶校验位后面往往以停止位结束。是高电位。一帧以低电位开始。。以高电位结束。。 <br />
 </p>
 
 <p>
-保证两者是已经连接好，也就是接收放随时都准备好接收数据。在没有数据通信的时候线路上是高电平的，当出现低电平(起始位)的时候，接收方会检测到，然后就启动移位寄存器。接收方和发送方的移位寄存器就开始工作，发送方的数据放到了接受方的缓存里面。注意这是相当于同步的。同步和异步的不同在于时钟源的不同。
+保证两者是已经连接好，也就是接收放随时都准备好接收数据。在没有数据通信的时候线路上是高电平的，当出现低电平(起始位)的时候，接收方会检测到，然后就启动移位寄存器。接收方和发送方的移位寄存器就开始工作，发送方的数据放到了接受方的缓存里面。注意这是相当于同步的。同步和异步的不同在于时钟源的不同。<br />
 </p>
 
 <p>
-当然，接收端必须时刻做好接收的准备（如果接收端主机的电源都没有加上，那么发送端发送字符就没有意义，因为接收端根本无法接收）。
-其他引脚
+当然，接收端必须时刻做好接收的准备（如果接收端主机的电源都没有加上，那么发送端发送字符就没有意义，因为接收端根本无法接收）。<br />
+其他引脚<br />
 </p>
 
 
@@ -56,8 +56,6 @@
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

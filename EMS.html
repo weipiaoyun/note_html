@@ -17,86 +17,86 @@
 
 <h1 id="toc_1">账号和密码 </h1><HR SIZE=1>
 <p>
-EMS4BQ
-EMSPW4SZBQPCB.COM
+EMS4BQ<br />
+EMSPW4SZBQPCB.COM<br />
 <a href="工程系统.html">工程系统</a>
-初始进入
-	清空临时报告
+初始进入<br />
+	清空临时报告<br />
 </p>
 <h2 id="toc_1.1" class="justcenter">软件更新 </h2>
 <p>
-	1，不升级版本更新。更新包放服务器。按照数据库的更新字段更新。
+	1，不升级版本更新。更新包放服务器。按照数据库的更新字段更新。<br />
 </p>
 	
 <p>
-   数据库连接
-   清空无用的dll
+   数据库连接<br />
+   清空无用的dll<br />
 </p>
 
 <h1 id="toc_2">数据结构 </h1><HR SIZE=1>
 <p>
-DataTable   转Dictionary， Guid为键，类为值
+DataTable   转Dictionary， Guid为键，类为值<br />
 </p>
 
 <p>
-首次通过配置文件获取数据库账号和密码，后面通过数据库表获取其他的数据库账号和密码，进入数据库的账号密码设置(Help_DataBase.vb GetConnect4Str)。
-PHelp_SystemInfo.vb GetIPList
+首次通过配置文件获取数据库账号和密码，后面通过数据库表获取其他的数据库账号和密码，进入数据库的账号密码设置(Help_DataBase.vb GetConnect4Str)。<br />
+PHelp_SystemInfo.vb GetIPList<br />
 </p>
 
 <h2 id="toc_2.1">获取数据库的IP地址</h2>
 <p>
-MOD_SysAppConn	StrServerIp();
+MOD_SysAppConn	StrServerIp();<br />
 </p>
 
 <p>
-所有的数据库账号和密码:Help_DataBase.vb GetAppStartConfig
-解密数据库账号密码:Help_DataBase.vb ConnPwdDesEnc 
-获取数据库Ip地址：Help_DataBase.vb GetConnect4Str
+所有的数据库账号和密码:Help_DataBase.vb GetAppStartConfig<br />
+解密数据库账号密码:Help_DataBase.vb ConnPwdDesEnc <br />
+获取数据库Ip地址：Help_DataBase.vb GetConnect4Str<br />
 </p>
 
 <h2 id="toc_2.2">class</h2>
 <h1 id="toc_3">Help</h1><HR SIZE=1>
 <p>
-PHelp_SystemInfo 获取系统信息：主机的IP地址，Mac地址，主机名
+PHelp_SystemInfo 获取系统信息：主机的IP地址，Mac地址，主机名<br />
 </p>
 
 <p>
-PHelp_NetWork 网络信息，检测是否可以ping通
+PHelp_NetWork 网络信息，检测是否可以ping通<br />
 </p>
 
 <h1 id="toc_4">BLL</h1><HR SIZE=1>
 <p>
-BLL_SysAppHandle 系统程序处理：清除临时报告，检测网络是否正常
-BLL_SysLogin 系统登录处理：验证密码、检查用户登录、检查版本等、记录登录，获取本机的IP，mac，主机名等
-BLL_Rar	解压缩文件
+BLL_SysAppHandle 系统程序处理：清除临时报告，检测网络是否正常<br />
+BLL_SysLogin 系统登录处理：验证密码、检查用户登录、检查版本等、记录登录，获取本机的IP，mac，主机名等<br />
+BLL_Rar	解压缩文件<br />
 </p>
 
 <h1 id="toc_5">检测网络是否正常</h1><HR SIZE=1>
 <p>
-Change_NetType 
+Change_NetType <br />
 </p>
 
 <h1 id="toc_6">在PHelp_Encrypt加密类型</h1><HR SIZE=1>
 <p>
-COMM = 1
-SPECIAL = 2
-PWD = 3
-USER = 4
+COMM = 1<br />
+SPECIAL = 2<br />
+PWD = 3<br />
+USER = 4<br />
 </p>
 
 <h1 id="toc_7">在MOD_SysEnum定义系统enum</h1><HR SIZE=1>
 <p>
-WZDG = 1
-WZSZ = 2
-WZMZ = 3
-WZZH = 4
-BK = 11 中心数据库
+WZDG = 1<br />
+WZSZ = 2<br />
+WZMZ = 3<br />
+WZZH = 4<br />
+BK = 11 中心数据库<br />
 </p>
 
 <h1 id="toc_8">广域局域网在Help_DataBase.vb</h1><HR SIZE=1>
 <p>
-strSevConnect
-strSevConnect = If(NetType = 1, "Lan", "WLan")
+strSevConnect<br />
+strSevConnect = If(NetType = 1, "Lan", "WLan")<br />
 </p>
 
 <p>
@@ -107,19 +107,19 @@ strSevConnect = If(NetType = 1, "Lan", "WLan")
 
 <h2 id="toc_8.1">过程</h2>
 <p>
-CleanReportTmp
-清除临时报告:D:\Codes - 副本 (2)\EMS\UI\bin\Release\tmp\ 和D:\Codes - 副本 (2)\EMS\UI\bin\Release\report\
+CleanReportTmp<br />
+清除临时报告:D:\Codes - 副本 (2)\EMS\UI\bin\Release\tmp\ 和D:\Codes - 副本 (2)\EMS\UI\bin\Release\report\<br />
 </p>
 
 <p>
-HandleAppUpDate
-处理更新进度
-	读取Config里面的配置文件信息
-	是否能ping通IP
+HandleAppUpDate<br />
+处理更新进度<br />
+	读取Config里面的配置文件信息<br />
+	是否能ping通IP<br />
 </p>
 
 <p>
-点击登录以后-》
+点击登录以后-》<br />
 </p>
 
 
@@ -146,8 +146,6 @@ HandleAppUpDate
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

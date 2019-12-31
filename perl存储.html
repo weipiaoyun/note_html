@@ -19,27 +19,27 @@
 程序保存和读取复杂的数据结构(2010-07-07 16:37:10)转载▼标签： perl保存和读取数据结构storable杂谈 分类： Perl  
 </blockquote>
 <p>
-#!/usr/local/bin/perl -w
+#!/usr/local/bin/perl -w<br />
 </p>
 
 <p>
-use strict;
+use strict;<br />
 </p>
 
 <p>
-use FileHandle;
+use FileHandle;<br />
 </p>
 
 <p>
-use utf8;
+use utf8;<br />
 </p>
 
 <p>
-use 5.010;
+use 5.010;<br />
 </p>
 
 <p>
-use storable qw(store retrieve); # 表明用到了模块中的两个函数。
+use storable qw(store retrieve); # 表明用到了模块中的两个函数。<br />
 </p>
 
 <ol>
@@ -63,7 +63,7 @@ retrieve 用途: 从一个二进制文件中读出数据结构
 </ol>
 
 <p>
-my $myArray = ['a','b','b','d','f'];
+my $myArray = ['a','b','b','d','f'];<br />
 </p>
 
 <ol>
@@ -73,7 +73,7 @@ my $myArray = ['a','b','b','d','f'];
 </ol>
 
 <p>
-my $myHash = {a =&gt; 1,b =&gt; 2,c =&gt; 3,d =&gt; 4,e =&gt; 5,};
+my $myHash = {a =&gt; 1,b =&gt; 2,c =&gt; 3,d =&gt; 4,e =&gt; 5,};<br />
 </p>
 
  
@@ -85,7 +85,7 @@ my $myHash = {a =&gt; 1,b =&gt; 2,c =&gt; 3,d =&gt; 4,e =&gt; 5,};
 </ol>
 
 <p>
-my \(statusArray = store \)myArray, "TestArray.dat"; # 如果成功返回true，不成功返回未定义。
+my \(statusArray = store \)myArray, "TestArray.dat"; # 如果成功返回true，不成功返回未定义。<br />
 </p>
 
 <ol>
@@ -95,7 +95,7 @@ my \(statusArray = store \)myArray, "TestArray.dat"; # 如果成功返回true，
 </ol>
 
 <p>
-my \(statusHash = store \)myHash, "TestHash.dat"; # 如果成功返回true，不成功返回未定义。
+my \(statusHash = store \)myHash, "TestHash.dat"; # 如果成功返回true，不成功返回未定义。<br />
 </p>
 
  
@@ -107,7 +107,7 @@ my \(statusHash = store \)myHash, "TestHash.dat"; # 如果成功返回true，不
 </ol>
 
 <p>
-my $testArray = retrieve("TestArray.dat");
+my $testArray = retrieve("TestArray.dat");<br />
 </p>
 
 <ol>
@@ -117,17 +117,17 @@ my $testArray = retrieve("TestArray.dat");
 </ol>
 
 <p>
-my $testHash = retrieve("TestHash.dat");
+my $testHash = retrieve("TestHash.dat");<br />
 </p>
 
  
 
 <p>
-say 'array=&gt;',Dumper($testArray);
+say 'array=&gt;',Dumper($testArray);<br />
 </p>
 
 <p>
-say 'hash=&gt;',Dumper($testHash);
+say 'hash=&gt;',Dumper($testHash);<br />
 </p>
 
 <h2 id="toc_0.1">实例</h2>
@@ -176,8 +176,6 @@ $tk_on = 'yes';
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

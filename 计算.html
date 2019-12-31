@@ -17,32 +17,32 @@
 
 <h1 id="toc_1">对二进制进行左右移是进行乘除操作，右移1位是除以2，注意是整除。</h1><HR SIZE=1>
 <p>
-#include &lt;stdio.h&gt;
+#include &lt;stdio.h&gt;<br />
 </p>
 
 <p>
-int main(int argc, const char *argv[])
-{
-	int a = 0x01;
-	int b = 0x11;
-	double c;
-	double d;
+int main(int argc, const char *argv[])<br />
+{<br />
+	int a = 0x01;<br />
+	int b = 0x11;<br />
+	double c;<br />
+	double d;<br />
 </p>
 
 <p>
-	c = a &gt;&gt; 1;
-	d = b &gt;&gt; 1;
+	c = a &gt;&gt; 1;<br />
+	d = b &gt;&gt; 1;<br />
 </p>
 
 <p>
-	printf("c = %f\n", c);
-	printf("d = %f\n", d);
-	return 0;
-}
+	printf("c = %f\n", c);<br />
+	printf("d = %f\n", d);<br />
+	return 0;<br />
+}<br />
 </p>
 
 <p>
-得出的结果是 c = 0，d = 8.说明把余数给省略了。是整除
+得出的结果是 c = 0，d = 8.说明把余数给省略了。是整除<br />
 </p>
 
 
@@ -69,8 +69,6 @@ int main(int argc, const char *argv[])
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -16,43 +16,43 @@
 <body>
 
 <p>
-与
-	相与可以对指定位清零。指定位是为0的位。单逻辑有效，也就是为1的位无效，只是保持。value = value &amp; ~（1 &lt;&lt; bit_number）
+与<br />
+	相与可以对指定位清零。指定位是为0的位。单逻辑有效，也就是为1的位无效，只是保持。value = value &amp; ~（1 &lt;&lt; bit_number）<br />
 </p>
 	
 <p>
-	取反相与，对应位清零
+	取反相与，对应位清零<br />
 </p>
 
 
 <p>
-或
-相或可以对指定为置1。指定位是为1的位。单逻辑有效，也就是为0的位无效，只是保持。
-VICVectCntl0 = 0x20 | 0x06;			// UART0分配到IRQ slot0，即最高优先级，这个或的作用就是可以很清楚得看出高8位是怎样的，低8位是怎样的。主要是区分功能。value = value &amp; (1 &lt;&lt; bit_number)
+或<br />
+相或可以对指定为置1。指定位是为1的位。单逻辑有效，也就是为0的位无效，只是保持。<br />
+VICVectCntl0 = 0x20 | 0x06;			// UART0分配到IRQ slot0，即最高优先级，这个或的作用就是可以很清楚得看出高8位是怎样的，低8位是怎样的。主要是区分功能。value = value &amp; (1 &lt;&lt; bit_number)<br />
 </p>
 
 <p>
-相与有取余的意思。比如一个数与0111相与，那么就是除以4取得的余数。
+相与有取余的意思。比如一个数与0111相与，那么就是除以4取得的余数。<br />
 </p>
 
 <p>
-相与相或还可以赋值，比如一个数与0x0111相与，其实赋值给的是低三位，其它的都清零了，这个可以用在对固定的位进行赋值，然后与其它位相与就可以设置整个了，所以相与可以部分，相或可以整体。
+相与相或还可以赋值，比如一个数与0x0111相与，其实赋值给的是低三位，其它的都清零了，这个可以用在对固定的位进行赋值，然后与其它位相与就可以设置整个了，所以相与可以部分，相或可以整体。<br />
 </p>
 
 <p>
-&amp;= 和|=经常连在一起用。第一个是对对应位清零，第二位是对对应位置一。我们对对应位置一的时候必须保证其它位是0的，所以要&amp;=先把其它的位清零了。也就是对应的清零，对应的置一，他们需联系起来用。
+&amp;= 和|=经常连在一起用。第一个是对对应位清零，第二位是对对应位置一。我们对对应位置一的时候必须保证其它位是0的，所以要&amp;=先把其它的位清零了。也就是对应的清零，对应的置一，他们需联系起来用。<br />
 </p>
 
 <p>
-&amp;=还可以对对应位如果为1就清0，如果是0就保持不变。一般对应位是为1的位。所以一般要先取反，如：a &amp;= ~(b)；表示的就是对b为1的位清零。
+&amp;=还可以对对应位如果为1就清0，如果是0就保持不变。一般对应位是为1的位。所以一般要先取反，如：a &amp;= ~(b)；表示的就是对b为1的位清零。<br />
 </p>
 
 <p>
-相与可以取出相对应的位，可以把要留下来的用1，保存下来，不用的用0，清除
+相与可以取出相对应的位，可以把要留下来的用1，保存下来，不用的用0，清除<br />
 </p>
 
 <p>
-相与可以判断某位是0还是1，把要判断的设为1，当那位为0的时候相与就是0，当那位是1的时候，相与就是1.所以可以判断某位。
+相与可以判断某位是0还是1，把要判断的设为1，当那位为0的时候相与就是0，当那位是1的时候，相与就是1.所以可以判断某位。<br />
 </p>
 
 
@@ -79,8 +79,6 @@ VICVectCntl0 = 0x20 | 0x06;			// UART0分配到IRQ slot0，即最高优先级，
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

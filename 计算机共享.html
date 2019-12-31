@@ -21,37 +21,37 @@
 <li><a href="#toc_2">删除 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">共享文件夹时需输入用户名和密码 </h1><HR SIZE=1>
 <p>
-secpol.msc
-本地策略-&gt;安全选项-&gt;网络访问：本地账户的共享和安全模型-&gt;选择 仅来宾-对本地用户进行身份验证，其身份为来宾。
+secpol.msc<br />
+本地策略-&gt;安全选项-&gt;网络访问：本地账户的共享和安全模型-&gt;选择 仅来宾-对本地用户进行身份验证，其身份为来宾。<br />
 </p>
 
 <h1 id="toc_2">删除 </h1><HR SIZE=1>
 <p>
-删除凭证命令
-cmdkey /delete: 172.17.0.66
+删除凭证命令<br />
+cmdkey /delete: 172.17.0.66<br />
 </p>
 
 <p>
-添加凭证命令 cmdkey /add
+添加凭证命令 cmdkey /add<br />
 </p>
 
 <p>
-删除链接
-net use /delete /y
+删除链接<br />
+net use /delete /y<br />
 </p>
 
 <p>
-添加链接账号peout， peout
-net use \\172.17.3.18 peout /user:peout
+添加链接账号peout， peout<br />
+net use \\172.17.3.18 peout /user:peout<br />
 </p>
 
 <p>
-浏览网络文件夹
-start \\172.17.3.18
+浏览网络文件夹<br />
+start \\172.17.3.18<br />
 </p>
 
 
@@ -78,8 +78,6 @@ start \\172.17.3.18
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

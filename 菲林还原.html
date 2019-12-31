@@ -16,15 +16,15 @@
 <body>
 
 <p>
-  /****** Script for SelectTopNRows command from SSMS  ******/
-SELECT * into #tmpTab
-  FROM [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo_bak] where insertDate = '2018-01-16 08:15:01'
+  /****** Script for SelectTopNRows command from SSMS  ******/<br />
+SELECT * into #tmpTab<br />
+  FROM [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo_bak] where insertDate = '2018-01-16 08:15:01'<br />
 </p>
  
 <p>
-	declare 
-	@Guid_ varchar(50),
-	@group_ varchar(50), 
+	declare <br />
+	@Guid_ varchar(50),<br />
+	@group_ varchar(50), <br />
 </p>
 <blockquote>
 @TiaoMa_ varchar(50),
@@ -86,79 +86,79 @@ SELECT * into #tmpTab
 </blockquote>
 	
 <p>
- while exists (select top 1 Guid_ from #tmpTab)
- begin
-	select top 1 
-	@group_ =    group_,
-@Guid_ = Guid_,
-@TiaoMa_ = TiaoMa_,
-@ApplyGuid_ = ApplyGuid_,
-@jobName_ = jobName_,
-@Apply2Dep = Apply2Dep,
-@Aplly2People = Aplly2People,
-@TheFilmReson = TheFilmReson,
-@ScaleX_ = ScaleX_,
-@ScaleY_ = ScaleY_,
-@ApplyNum_ = ApplyNum_,
-@FinishX_ = FinishX_,
-@FinishY_ = FinishY_,
-@TieMoX_ = TieMoX_,
-@TieMoY_ = TieMoY_,
-@FilmType_ = FilmType_,
-@FilmLayer_ = FilmLayer_,
-@LayerIndex_ = LayerIndex_,
-@Machine_ = Machine_,
-@FilmId_ = FilmId_,
-@ApplyTime = ApplyTime,
-@OrderOfFilm_ = OrderOfFilm_,
-@CancelFilm_ = CancelFilm_,
-@WIP_ = WIP_,
-@Film_ = Film_,
-@FilmTime_ = FilmTime_,
-@Check_ = Check_,
-@CheckTime_ = CheckTime_,
-@Mir_ = Mir_,
-@Polarity_ = Polarity_,
-@Size_ = Size_,
-@Priority_ = Priority_,
-@FilmNumApply_ = FilmNumApply_,
-@FilmNumIng_ = FilmNumIng_,
-@FilmNumOk_ = FilmNumOk_,
-@Storage_ = Storage_,
-@StorageTime_ = StorageTime_,
-@SendName_ = SendName_,
-@SendTime_ = SendTime_,
-@SendNum_ = SendNum_,
-@ReceiveName_ = ReceiveName_,
-@GivebackTime_ = GivebackTime_,
-@GivebackNum_ = GivebackNum_,
-@ConfirmName_ = ConfirmName_,
-@ReceiveWaiting_ = ReceiveWaiting_,
-@CloseName_ = CloseName_,
-@CloseTime_ = CloseTime_,
-@CloseStatus_ = CloseStatus_,
-@IsBrushoff_ = IsBrushoff_,
-@BrushoffName_ = BrushoffName_,
-@BrushoffTime_ = BrushoffTime_,
-@Week_ = Week_,
-@Remark_ = Remark_,
-@selectNum_ = selectNum_,
-@addIndex_ = addIndex_
+ while exists (select top 1 Guid_ from #tmpTab)<br />
+ begin<br />
+	select top 1 <br />
+	@group_ =    group_,<br />
+@Guid_ = Guid_,<br />
+@TiaoMa_ = TiaoMa_,<br />
+@ApplyGuid_ = ApplyGuid_,<br />
+@jobName_ = jobName_,<br />
+@Apply2Dep = Apply2Dep,<br />
+@Aplly2People = Aplly2People,<br />
+@TheFilmReson = TheFilmReson,<br />
+@ScaleX_ = ScaleX_,<br />
+@ScaleY_ = ScaleY_,<br />
+@ApplyNum_ = ApplyNum_,<br />
+@FinishX_ = FinishX_,<br />
+@FinishY_ = FinishY_,<br />
+@TieMoX_ = TieMoX_,<br />
+@TieMoY_ = TieMoY_,<br />
+@FilmType_ = FilmType_,<br />
+@FilmLayer_ = FilmLayer_,<br />
+@LayerIndex_ = LayerIndex_,<br />
+@Machine_ = Machine_,<br />
+@FilmId_ = FilmId_,<br />
+@ApplyTime = ApplyTime,<br />
+@OrderOfFilm_ = OrderOfFilm_,<br />
+@CancelFilm_ = CancelFilm_,<br />
+@WIP_ = WIP_,<br />
+@Film_ = Film_,<br />
+@FilmTime_ = FilmTime_,<br />
+@Check_ = Check_,<br />
+@CheckTime_ = CheckTime_,<br />
+@Mir_ = Mir_,<br />
+@Polarity_ = Polarity_,<br />
+@Size_ = Size_,<br />
+@Priority_ = Priority_,<br />
+@FilmNumApply_ = FilmNumApply_,<br />
+@FilmNumIng_ = FilmNumIng_,<br />
+@FilmNumOk_ = FilmNumOk_,<br />
+@Storage_ = Storage_,<br />
+@StorageTime_ = StorageTime_,<br />
+@SendName_ = SendName_,<br />
+@SendTime_ = SendTime_,<br />
+@SendNum_ = SendNum_,<br />
+@ReceiveName_ = ReceiveName_,<br />
+@GivebackTime_ = GivebackTime_,<br />
+@GivebackNum_ = GivebackNum_,<br />
+@ConfirmName_ = ConfirmName_,<br />
+@ReceiveWaiting_ = ReceiveWaiting_,<br />
+@CloseName_ = CloseName_,<br />
+@CloseTime_ = CloseTime_,<br />
+@CloseStatus_ = CloseStatus_,<br />
+@IsBrushoff_ = IsBrushoff_,<br />
+@BrushoffName_ = BrushoffName_,<br />
+@BrushoffTime_ = BrushoffTime_,<br />
+@Week_ = Week_,<br />
+@Remark_ = Remark_,<br />
+@selectNum_ = selectNum_,<br />
+@addIndex_ = addIndex_<br />
 </p>
 
 <p>
-	 from #tmpTab
+	 from #tmpTab<br />
 </p>
 	
 <p>
-	--如果存在，则更新
+	--如果存在，则更新<br />
 </p>
 	
 <p>
-	--if exists (select top 1 Guid_ from [ENGSYS4DG].[EngSys].[dbo].[T_WF_FilmOrderDetialInfo])
-	if exists (select top 1 Guid_ from [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] where Guid_ = @Guid_)
-	begin
-		--update [ENGSYS4DG].[EngSys].[dbo].[T_WF_FilmOrderDetialInfo] set TieMoX_ = '10', TieMoY_ = '20'  where Guid_ = @Guid 
+	--if exists (select top 1 Guid_ from [ENGSYS4DG].[EngSys].[dbo].[T_WF_FilmOrderDetialInfo])<br />
+	if exists (select top 1 Guid_ from [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] where Guid_ = @Guid_)<br />
+	begin<br />
+		--update [ENGSYS4DG].[EngSys].[dbo].[T_WF_FilmOrderDetialInfo] set TieMoX_ = '10', TieMoY_ = '20'  where Guid_ = @Guid <br />
 </p>
 <blockquote>
 print ''
@@ -168,73 +168,73 @@ update [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] set
 group_ = @group_,
 </blockquote>
 <p>
-		Guid_ = @Guid_,
-		ApplyGuid_ = @ApplyGuid_,
-		jobName_ = @jobName_,
-		Apply2Dep = @Apply2Dep,
-		Aplly2People = @Aplly2People,
-		TheFilmReson = @TheFilmReson,
-		ScaleX_ = @ScaleX_,
-		ScaleY_ = @ScaleY_,
-		ApplyNum_ = @ApplyNum_,
-		FinishX_ = @FinishX_,
-		FinishY_ = @FinishY_,
-		TieMoX_ = @TieMoX_,
-		TieMoY_ = @TieMoY_,
-		FilmType_ = @FilmType_,
-		FilmLayer_ = @FilmLayer_,
-		LayerIndex_ = @LayerIndex_,
-		Machine_ = @Machine_,
-		FilmId_ = @FilmId_,
-		ApplyTime = @ApplyTime,
-		OrderOfFilm_ = @OrderOfFilm_,
-		CancelFilm_ = @CancelFilm_,
-		WIP_ = @WIP_,
-		Film_ = @Film_,
-		FilmTime_ = @FilmTime_,
-		Check_ = @Check_,
-		CheckTime_ = @CheckTime_,
-		Mir_ = @Mir_,
-		Polarity_ = @Polarity_,
-		Size_ = @Size_,
-		Priority_ = @Priority_,
-		FilmNumApply_ = @FilmNumApply_,
-		FilmNumIng_ = @FilmNumIng_,
-		FilmNumOk_ = @FilmNumOk_,
-		Storage_ = @Storage_,
-		StorageTime_ = @StorageTime_,
-		SendName_ = @SendName_,
-		SendTime_ = @SendTime_,
-		SendNum_ = @SendNum_,
-		ReceiveName_ = @ReceiveName_,
-		GivebackTime_ = @GivebackTime_,
-		GivebackNum_ = @GivebackNum_,
-		ConfirmName_ = @ConfirmName_,
-		ReceiveWaiting_ = @ReceiveWaiting_,
-		CloseName_ = @CloseName_,
-		CloseTime_ = @CloseTime_,
-		BrushoffName_ = @BrushoffName_,
-		BrushoffTime_ = @BrushoffTime_,
-		Week_ = @Week_,
-		Remark_ = @Remark_,
-		selectNum_ = @selectNum_,
-		addIndex_ = @addIndex_
+		Guid_ = @Guid_,<br />
+		ApplyGuid_ = @ApplyGuid_,<br />
+		jobName_ = @jobName_,<br />
+		Apply2Dep = @Apply2Dep,<br />
+		Aplly2People = @Aplly2People,<br />
+		TheFilmReson = @TheFilmReson,<br />
+		ScaleX_ = @ScaleX_,<br />
+		ScaleY_ = @ScaleY_,<br />
+		ApplyNum_ = @ApplyNum_,<br />
+		FinishX_ = @FinishX_,<br />
+		FinishY_ = @FinishY_,<br />
+		TieMoX_ = @TieMoX_,<br />
+		TieMoY_ = @TieMoY_,<br />
+		FilmType_ = @FilmType_,<br />
+		FilmLayer_ = @FilmLayer_,<br />
+		LayerIndex_ = @LayerIndex_,<br />
+		Machine_ = @Machine_,<br />
+		FilmId_ = @FilmId_,<br />
+		ApplyTime = @ApplyTime,<br />
+		OrderOfFilm_ = @OrderOfFilm_,<br />
+		CancelFilm_ = @CancelFilm_,<br />
+		WIP_ = @WIP_,<br />
+		Film_ = @Film_,<br />
+		FilmTime_ = @FilmTime_,<br />
+		Check_ = @Check_,<br />
+		CheckTime_ = @CheckTime_,<br />
+		Mir_ = @Mir_,<br />
+		Polarity_ = @Polarity_,<br />
+		Size_ = @Size_,<br />
+		Priority_ = @Priority_,<br />
+		FilmNumApply_ = @FilmNumApply_,<br />
+		FilmNumIng_ = @FilmNumIng_,<br />
+		FilmNumOk_ = @FilmNumOk_,<br />
+		Storage_ = @Storage_,<br />
+		StorageTime_ = @StorageTime_,<br />
+		SendName_ = @SendName_,<br />
+		SendTime_ = @SendTime_,<br />
+		SendNum_ = @SendNum_,<br />
+		ReceiveName_ = @ReceiveName_,<br />
+		GivebackTime_ = @GivebackTime_,<br />
+		GivebackNum_ = @GivebackNum_,<br />
+		ConfirmName_ = @ConfirmName_,<br />
+		ReceiveWaiting_ = @ReceiveWaiting_,<br />
+		CloseName_ = @CloseName_,<br />
+		CloseTime_ = @CloseTime_,<br />
+		BrushoffName_ = @BrushoffName_,<br />
+		BrushoffTime_ = @BrushoffTime_,<br />
+		Week_ = @Week_,<br />
+		Remark_ = @Remark_,<br />
+		selectNum_ = @selectNum_,<br />
+		addIndex_ = @addIndex_<br />
 </p>
 <blockquote>
 where Guid_ = @Guid_
 </blockquote>
 <p>
-	end
+	end<br />
 </p>
 	
 <p>
-	else
-	begin
+	else<br />
+	begin<br />
 </p>
 
 <p>
-		INSERT INTO [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] 
-		(
+		INSERT INTO [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] <br />
+		(<br />
 </p>
 <blockquote>
 group_,
@@ -291,9 +291,9 @@ selectNum_,
 addIndex_
 </blockquote>
 <p>
-		)
-		VALUES (
-		@group_,
+		)<br />
+		VALUES (<br />
+		@group_,<br />
 </p>
 <blockquote>
 @Guid_,
@@ -350,39 +350,39 @@ addIndex_
 ) 
 </blockquote>
 <p>
-	end
+	end<br />
 </p>
 	
 <p>
-	delete #tmpTab where Guid_  = @Guid_
- end
- drop table   #tmpTab
+	delete #tmpTab where Guid_  = @Guid_<br />
+ end<br />
+ drop table   #tmpTab<br />
 </p>
   
 <p>
-  return
+  return<br />
 </p>
   
 <p>
-  	INSERT INTO [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] 
-		(Guid_,jobName_ ,ScaleX_,ScaleY_,[FilmType_],[Machine_],[TheFilmReson],[Apply2Dep],[Aplly2People],[ApplyTime],Priority_,FilmLayer_,[FinishX_],[FinishY_],group_,Remark_)
-		VALUES (
-		'5129BB7D-5E5E-42C3-B4A6-7E28840AC53E', 
-		'bk23303a0' ,
-		'100.010' ,
-		'100.010',
-		'防焊', 
-		'防焊自动-新',
-		'更改周期',
-		'',
-		'',
-		GETDATE(),
-		'',
-		'',
-		'',
-		'',
-		'', 
-		'')
+  	INSERT INTO [ZH_DB].[dbo].[T_WF_FilmOrderDetialInfo] <br />
+		(Guid_,jobName_ ,ScaleX_,ScaleY_,[FilmType_],[Machine_],[TheFilmReson],[Apply2Dep],[Aplly2People],[ApplyTime],Priority_,FilmLayer_,[FinishX_],[FinishY_],group_,Remark_)<br />
+		VALUES (<br />
+		'5129BB7D-5E5E-42C3-B4A6-7E28840AC53E', <br />
+		'bk23303a0' ,<br />
+		'100.010' ,<br />
+		'100.010',<br />
+		'防焊', <br />
+		'防焊自动-新',<br />
+		'更改周期',<br />
+		'',<br />
+		'',<br />
+		GETDATE(),<br />
+		'',<br />
+		'',<br />
+		'',<br />
+		'',<br />
+		'', <br />
+		'')<br />
 </p>
 
 
@@ -409,8 +409,6 @@ addIndex_
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

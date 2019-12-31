@@ -16,26 +16,26 @@
 <body>
 
 <p>
-#!/bin/csh
-cd /opt
-rm -rf /opt/gtk
-rm -rf /opt/gtk212
-rm -rf /opt/gtk.zip
-wget <a href="http://172.18.2.240/FileDown/gtk.zip">http://172.18.2.240/FileDown/gtk.zip</a>
-mkdir -p /opt/gtk212
-unzip -o -d /opt/gtk gtk.zip
+#!/bin/csh<br />
+cd /opt<br />
+rm -rf /opt/gtk<br />
+rm -rf /opt/gtk212<br />
+rm -rf /opt/gtk.zip<br />
+wget <a href="http://172.18.2.240/FileDown/gtk.zip<br">http://172.18.2.240/FileDown/gtk.zip<br</a> />
+mkdir -p /opt/gtk212<br />
+unzip -o -d /opt/gtk gtk.zip<br />
 </p>
 
 <p>
-######################install glib########################################
+######################install glib########################################<br />
 </p>
 
 <p>
-set kernel = <code>uname -r</code>
-set os = 'linux5'
-if ("$kernel" =~ <strong>el6</strong>) then
-	set os = 'linux6'
-endif
+set kernel = <code>uname -r</code><br />
+set os = 'linux5'<br />
+if ("$kernel" =~ <strong>el6</strong>) then<br />
+	set os = 'linux6'<br />
+endif<br />
 </p>
 
 <ol>
@@ -63,10 +63,10 @@ chmod 775 /etc/profile.d/gtk212.csh
 </ol>
 
 <p>
-setenv LD_LIBRARY_PATH /opt/gtk212/lib:/opt/mono/lib
-setenv PKG_CONFIG_PATH /opt/gtk212/lib/pkgconfig:/opt/mono/lib/pkgconfig
-setenv PATH /opt/gtk212/bin:/opt/mono/bin:/opt/mono/lib:/opt/mono/lib/mono/gtk-sharp-2.0:$PATH
-ldconfig
+setenv LD_LIBRARY_PATH /opt/gtk212/lib:/opt/mono/lib<br />
+setenv PKG_CONFIG_PATH /opt/gtk212/lib/pkgconfig:/opt/mono/lib/pkgconfig<br />
+setenv PATH /opt/gtk212/bin:/opt/mono/bin:/opt/mono/lib:/opt/mono/lib/mono/gtk-sharp-2.0:$PATH<br />
+ldconfig<br />
 </p>
 <ol>
 <li>
@@ -75,176 +75,176 @@ source /etc/profile.d/gtk212.csh
 </ol>
 
 <p>
-#################install gdiplus###########################################
-yum list | grep -i gif | awk '{print $1}' | xargs yum -y install
-yum list | grep -i tiff | awk '{print $1}' | xargs yum -y install
-yum list | grep -i jpeg | awk '{print $1}' | xargs yum -y install
-yum list | grep -i png | awk '{print $1}' | xargs yum -y install
-yum list | grep -i exif | awk '{print $1}' | xargs yum -y install
+#################install gdiplus###########################################<br />
+yum list | grep -i gif | awk '{print $1}' | xargs yum -y install<br />
+yum list | grep -i tiff | awk '{print $1}' | xargs yum -y install<br />
+yum list | grep -i jpeg | awk '{print $1}' | xargs yum -y install<br />
+yum list | grep -i png | awk '{print $1}' | xargs yum -y install<br />
+yum list | grep -i exif | awk '{print $1}' | xargs yum -y install<br />
 </p>
 
 
 <p>
-#################install pixman##########################################
-cd /opt/gtk
-tar -zxvf pixman-0.30.2.tar.gz
-cd pixman-0.30.2
-./configure --prefix=/opt/gtk212
-make
-make install
+#################install pixman##########################################<br />
+cd /opt/gtk<br />
+tar -zxvf pixman-0.30.2.tar.gz<br />
+cd pixman-0.30.2<br />
+./configure --prefix=/opt/gtk212<br />
+make<br />
+make install<br />
 </p>
 
 <p>
-#################install cairo###########################################
-cd /opt/gtk
-tar -zxvf cairo-1.6.4.tar.gz
-cd cairo-1.6.4
-./configure --prefix=/opt/gtk212
-make
-make install
-</p>
-
-
-<p>
-cd /opt/gtk
-tar -zxvf libgdiplus-3.8.tar.gz
-cd libgdiplus-3.8
-./configure --prefix=/opt/mono
-make
-make install
-</p>
-
-
-
-<p>
-cd /opt/gtk
-tar -zxvf glib-2.19.10.tar.gz
-cd /opt/gtk/glib-2.19.10
-./configure --prefix=/opt/gtk212
-make
-make install
-#######################install pango#######################################
-cd /opt/gtk
-tar -zxvf pango-1.20.5.tar.gz
-cd pango-1.20.5
-./configure --prefix=/opt/gtk212
-make 
-make install
-</p>
-
-<p>
-############################install atk####################################
-cd /opt/gtk
-tar -zxvf atk-1.26.0.tar.gz
-cd atk-1.26.0
-./configure --prefix=/opt/gtk212
-make
-make install
-</p>
-
-<p>
-#########################install gtk######################################
-</p>
-
-<p>
-yum -y install libtiff-devel
-yum -y install libjpeg-devel
-</p>
-
-<p>
-cd /opt/gtk
-tar -zxvf gtk+2.16.6.tar.gz
-cd gtk+-2.16.6
-./configure --prefix=/opt/gtk212 --without-libjasper
-make
-make install
-</p>
-
-<p>
-#########################install inttool##################################
-yum -y install perl-XML-Parser
-cd /opt/gtk
-tar -zxvf intltool-0.32.1.tar.gz
-cd intltool-0.32.1
-./configure --prefix=/opt/gtk212
-make
-make install
-</p>
-
-<p>
-#########################install gtk-engines##############################
-cd /opt/gtk
-tar -zxvf gtk-engines-2.18.5.tar.gz
-cd gtk-engines-2.18.5
-./configure --prefix=/opt/gtk212
-make
-make install
+#################install cairo###########################################<br />
+cd /opt/gtk<br />
+tar -zxvf cairo-1.6.4.tar.gz<br />
+cd cairo-1.6.4<br />
+./configure --prefix=/opt/gtk212<br />
+make<br />
+make install<br />
 </p>
 
 
 <p>
-############################install  mono#################################
-yum list | grep gcc | awk '{print $1}' | xargs yum -y install
-cd /opt/gtk
-tar -jxvf mono-2.11.4.tar.bz2
-cd mono-2.11.4
-./configure --prefix=/opt/mono
-make
-make install
+cd /opt/gtk<br />
+tar -zxvf libgdiplus-3.8.tar.gz<br />
+cd libgdiplus-3.8<br />
+./configure --prefix=/opt/mono<br />
+make<br />
+make install<br />
+</p>
+
+
+
+<p>
+cd /opt/gtk<br />
+tar -zxvf glib-2.19.10.tar.gz<br />
+cd /opt/gtk/glib-2.19.10<br />
+./configure --prefix=/opt/gtk212<br />
+make<br />
+make install<br />
+#######################install pango#######################################<br />
+cd /opt/gtk<br />
+tar -zxvf pango-1.20.5.tar.gz<br />
+cd pango-1.20.5<br />
+./configure --prefix=/opt/gtk212<br />
+make <br />
+make install<br />
 </p>
 
 <p>
-############################install  gtk-sharp############################
-cd /opt/gtk
-tar -zxvf gtk-sharp-2.12.26.tar.gz
-cd gtk-sharp-2.12.26
-./configure --prefix=/opt/mono
-make
-make install
+############################install atk####################################<br />
+cd /opt/gtk<br />
+tar -zxvf atk-1.26.0.tar.gz<br />
+cd atk-1.26.0<br />
+./configure --prefix=/opt/gtk212<br />
+make<br />
+make install<br />
 </p>
 
 <p>
-############################install  mono-addons###########################
-cd /opt/gtk
-tar -jxvf mono-addins-0.6.tar.bz2
-cd mono-addins-0.6
-./configure --prefix=/opt/mono
-make
-make install
-############################install  keyfile-sharp#########################
-cd /opt/gtk
-tar -zxvf gkeyfile-sharp-0.1.tar.gz
-cd gkeyfile-sharp-0.1
-./configure --prefix=/opt/mono
-make
-make install
+#########################install gtk######################################<br />
 </p>
 
 <p>
-############################install  gnome-sharp###########################
-yum list | grep libart | awk '{print $1}' | xargs yum -y install
-yum list | grep gnome-vfs | awk '{print $1}' | xargs yum -y install
-yum list | grep libgnome | awk '{print $1}' | xargs yum -y install
-yum list | grep gnome-panel | awk '{print $1}' | xargs yum -y install
+yum -y install libtiff-devel<br />
+yum -y install libjpeg-devel<br />
 </p>
 
 <p>
-cd /opt/gtk
-tar -zxvf gnome-sharp-2.16.1.tar.gz
-cd gnome-sharp-2.16.1
-./configure --prefix=/opt/gtk212
-sed -i 's@EXTRA_TARGETS = TestXfer.exe@#EXTRA_TARGETS = TestXfer.exe@' ./sample/gnomevfs/Makefile
-sed -i 's@TestXfer.exe: \((srcdir)/TestXfer.cs \)(assemblies)@#TestXfer.exe: \((srcdir)/TestXfer.cs \)(assemblies)@' ./sample/gnomevfs/Makefile
-sed -i 's@\((CSC) /out:TestXfer.exe \)(references) -r:Mono.GetOptions.dll \((srcdir)/TestXfer.cs@#\)(CSC) /out:TestXfer.exe \((references) -r:Mono.GetOptions.dll \)(srcdir)/TestXfer.cs@' ./sample/gnomevfs/Makefile
-make
-make install
-############################install  monodevlop############################
-cd /opt/gtk
-tar -jxvf monodevelop-3.1.1.tar.bz2
-cd monodevelop-3.1.1
-./configure --prefix=/opt/mono
-make
-make install
+cd /opt/gtk<br />
+tar -zxvf gtk+2.16.6.tar.gz<br />
+cd gtk+-2.16.6<br />
+./configure --prefix=/opt/gtk212 --without-libjasper<br />
+make<br />
+make install<br />
+</p>
+
+<p>
+#########################install inttool##################################<br />
+yum -y install perl-XML-Parser<br />
+cd /opt/gtk<br />
+tar -zxvf intltool-0.32.1.tar.gz<br />
+cd intltool-0.32.1<br />
+./configure --prefix=/opt/gtk212<br />
+make<br />
+make install<br />
+</p>
+
+<p>
+#########################install gtk-engines##############################<br />
+cd /opt/gtk<br />
+tar -zxvf gtk-engines-2.18.5.tar.gz<br />
+cd gtk-engines-2.18.5<br />
+./configure --prefix=/opt/gtk212<br />
+make<br />
+make install<br />
+</p>
+
+
+<p>
+############################install  mono#################################<br />
+yum list | grep gcc | awk '{print $1}' | xargs yum -y install<br />
+cd /opt/gtk<br />
+tar -jxvf mono-2.11.4.tar.bz2<br />
+cd mono-2.11.4<br />
+./configure --prefix=/opt/mono<br />
+make<br />
+make install<br />
+</p>
+
+<p>
+############################install  gtk-sharp############################<br />
+cd /opt/gtk<br />
+tar -zxvf gtk-sharp-2.12.26.tar.gz<br />
+cd gtk-sharp-2.12.26<br />
+./configure --prefix=/opt/mono<br />
+make<br />
+make install<br />
+</p>
+
+<p>
+############################install  mono-addons###########################<br />
+cd /opt/gtk<br />
+tar -jxvf mono-addins-0.6.tar.bz2<br />
+cd mono-addins-0.6<br />
+./configure --prefix=/opt/mono<br />
+make<br />
+make install<br />
+############################install  keyfile-sharp#########################<br />
+cd /opt/gtk<br />
+tar -zxvf gkeyfile-sharp-0.1.tar.gz<br />
+cd gkeyfile-sharp-0.1<br />
+./configure --prefix=/opt/mono<br />
+make<br />
+make install<br />
+</p>
+
+<p>
+############################install  gnome-sharp###########################<br />
+yum list | grep libart | awk '{print $1}' | xargs yum -y install<br />
+yum list | grep gnome-vfs | awk '{print $1}' | xargs yum -y install<br />
+yum list | grep libgnome | awk '{print $1}' | xargs yum -y install<br />
+yum list | grep gnome-panel | awk '{print $1}' | xargs yum -y install<br />
+</p>
+
+<p>
+cd /opt/gtk<br />
+tar -zxvf gnome-sharp-2.16.1.tar.gz<br />
+cd gnome-sharp-2.16.1<br />
+./configure --prefix=/opt/gtk212<br />
+sed -i 's@EXTRA_TARGETS = TestXfer.exe@#EXTRA_TARGETS = TestXfer.exe@' ./sample/gnomevfs/Makefile<br />
+sed -i 's@TestXfer.exe: \((srcdir)/TestXfer.cs \)(assemblies)@#TestXfer.exe: \((srcdir)/TestXfer.cs \)(assemblies)@' ./sample/gnomevfs/Makefile<br />
+sed -i 's@\((CSC) /out:TestXfer.exe \)(references) -r:Mono.GetOptions.dll \((srcdir)/TestXfer.cs@#\)(CSC) /out:TestXfer.exe \((references) -r:Mono.GetOptions.dll \)(srcdir)/TestXfer.cs@' ./sample/gnomevfs/Makefile<br />
+make<br />
+make install<br />
+############################install  monodevlop############################<br />
+cd /opt/gtk<br />
+tar -jxvf monodevelop-3.1.1.tar.bz2<br />
+cd monodevelop-3.1.1<br />
+./configure --prefix=/opt/mono<br />
+make<br />
+make install<br />
 </p>
 
 
@@ -271,8 +271,6 @@ make install
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

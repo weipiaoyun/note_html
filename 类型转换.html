@@ -16,84 +16,84 @@
 <body>
 
 <p>
-1，哪些情况下会发生类型转换
+1，哪些情况下会发生类型转换<br />
 </p>
 
 <p>
-Integer（整型） promotion（晋升，促进）：
-</p>
-
-
-
-<p>
-现在详细解释一下Usual Arithmetic Conversion的规则：
-</p>
-
-<p>
-1. 如果有一边的类型是long double，则把另一边也转成long double。
-</p>
-
-<p>
-2. 否则，如果有一边的类型是double，则把另一边也转成double。
-</p>
-
-<p>
-3. 否则，如果有一边的类型是float，则把另一边也转成float。
-</p>
-
-<p>
-4. 否则，两边应该都是整数类型，首先按上一小节讲过的规则对a和b做Integer Promotion，然后如果类型仍不相同，则需要继续转换。首先规定char、short、int、long、longlong的转换级别（Integer Conversion Rank）一个比一个高，同一类型的有符号和无符号数具有相同的Rank，然后有如下转换规则：
-</p>
-
-<p>
-a. 如果两边都是有符号数，或者都是无符号数，那么较低Rank的类型转换成较高Rank的类型。例如unsigned int和unsigned long做算术运算时都转成unsignedlong。
-</p>
-
-<p>
-b. 否则，如果一边是无符号数另一边是有符号数，无符号数的Rank不低于有符号数的Rank，则把有符号数转成另一边的无符号类型。例如unsigned long和int做算术运算时都转成unsigned long，unsigned long和long做算术运算时也都转成unsignedlong。
-</p>
-
-<p>
-c. 剩下的情况就是：一边是无符号数另一边是有符号数，并且无符号数的Rank低于有符号数的Rank。这时又分为两种情况，如果这个有符号数类型能够覆盖这个无符号数类型的取值范围，则把无符号数转成另一边的有符号类型。例如遵循LP64的平台上unsigned int和long在做算术运算时都转成long。
-</p>
-
-<p>
-d. 否则，也就是这个符号数类型不足以覆盖这个无符号数类型的取值范围，则把两边都转成两者之中较高Rank的无符号类型。例如遵循ILP32的平台上unsignedint和long在做算术运算时都转成unsigned long。
+Integer（整型） promotion（晋升，促进）：<br />
 </p>
 
 
 
 <p>
-Usual arithmetic conversion：为了程序的可读性，不应该依赖这些规则来写代码上面的这些规则不是用来用的，而是为了在出错是更容易分析错误原因，这些规则不需要记住，但要知道有这么回事，一边用的时候能找到这一段
+现在详细解释一下Usual Arithmetic Conversion的规则：<br />
 </p>
 
 <p>
-#include&lt;stdio.h&gt; 
-int main() 
-{ 
-unsigned int a=6; 
-int b=-20; 
-printf("%d\n",a+b); 
-(a+b)&gt;6? puts("&gt;6"):puts("&lt;=6"); 
-return 0; 
-} 
+1. 如果有一边的类型是long double，则把另一边也转成long double。<br />
+</p>
+
+<p>
+2. 否则，如果有一边的类型是double，则把另一边也转成double。<br />
+</p>
+
+<p>
+3. 否则，如果有一边的类型是float，则把另一边也转成float。<br />
+</p>
+
+<p>
+4. 否则，两边应该都是整数类型，首先按上一小节讲过的规则对a和b做Integer Promotion，然后如果类型仍不相同，则需要继续转换。首先规定char、short、int、long、longlong的转换级别（Integer Conversion Rank）一个比一个高，同一类型的有符号和无符号数具有相同的Rank，然后有如下转换规则：<br />
+</p>
+
+<p>
+a. 如果两边都是有符号数，或者都是无符号数，那么较低Rank的类型转换成较高Rank的类型。例如unsigned int和unsigned long做算术运算时都转成unsignedlong。<br />
+</p>
+
+<p>
+b. 否则，如果一边是无符号数另一边是有符号数，无符号数的Rank不低于有符号数的Rank，则把有符号数转成另一边的无符号类型。例如unsigned long和int做算术运算时都转成unsigned long，unsigned long和long做算术运算时也都转成unsignedlong。<br />
+</p>
+
+<p>
+c. 剩下的情况就是：一边是无符号数另一边是有符号数，并且无符号数的Rank低于有符号数的Rank。这时又分为两种情况，如果这个有符号数类型能够覆盖这个无符号数类型的取值范围，则把无符号数转成另一边的有符号类型。例如遵循LP64的平台上unsigned int和long在做算术运算时都转成long。<br />
+</p>
+
+<p>
+d. 否则，也就是这个符号数类型不足以覆盖这个无符号数类型的取值范围，则把两边都转成两者之中较高Rank的无符号类型。例如遵循ILP32的平台上unsignedint和long在做算术运算时都转成unsigned long。<br />
+</p>
+
+
+
+<p>
+Usual arithmetic conversion：为了程序的可读性，不应该依赖这些规则来写代码上面的这些规则不是用来用的，而是为了在出错是更容易分析错误原因，这些规则不需要记住，但要知道有这么回事，一边用的时候能找到这一段<br />
+</p>
+
+<p>
+#include&lt;stdio.h&gt; <br />
+int main() <br />
+{ <br />
+unsigned int a=6; <br />
+int b=-20; <br />
+printf("%d\n",a+b); <br />
+(a+b)&gt;6? puts("&gt;6"):puts("&lt;=6"); <br />
+return 0; <br />
+} <br />
 </p>
 
 
 <p>
-结果是：-14  &gt;6
+结果是：-14  &gt;6<br />
 </p>
 
 <p>
-意想不到吧？
+意想不到吧？<br />
 </p>
 
 <p>
-为什么结果这样呢？
+为什么结果这样呢？<br />
 </p>
 
 <p>
-原来有符号数和无符号数进行比较运算时（==，&lt;,&gt;,&lt;=,&gt;=）,有符号数隐式转换成了无符号数（即底层的补码不变，但是此数从有符号数变成了无符号数），比如上面 (a+b)&gt;6这个比较运算，a+b=-14，-14的补码为1111111111110010。此数进行比较运算时，被当成了无符号数，它远远大于6，所以得到上述结果。
+原来有符号数和无符号数进行比较运算时（==，&lt;,&gt;,&lt;=,&gt;=）,有符号数隐式转换成了无符号数（即底层的补码不变，但是此数从有符号数变成了无符号数），比如上面 (a+b)&gt;6这个比较运算，a+b=-14，-14的补码为1111111111110010。此数进行比较运算时，被当成了无符号数，它远远大于6，所以得到上述结果。<br />
 </p>
 
 
@@ -120,8 +120,6 @@ return 0;
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

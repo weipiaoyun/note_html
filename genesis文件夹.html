@@ -42,7 +42,7 @@
 <li><a href="#toc_6">错误status</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <h1 id="toc_1">DFMPE </h1><HR SIZE=1>
 <ol>
 <li>
@@ -62,16 +62,16 @@
 </p>
 
 <p>
-把genesis放到一台主机，共享出来
-下面放着共享的文件夹，全部链接过去
-把odb放在一台主机，共享出来，每台机链接过去
-Genesis下面共享的有fw，share，sys，tmp
-Fw链接到数据库odb，share链接到gen-linux
+把genesis放到一台主机，共享出来<br />
+下面放着共享的文件夹，全部链接过去<br />
+把odb放在一台主机，共享出来，每台机链接过去<br />
+Genesis下面共享的有fw，share，sys，tmp<br />
+Fw链接到数据库odb，share链接到gen-linux<br />
 </p>
 
 <h2 id="toc_1.1">数据库列表位置</h2>
 <p>
-/genesis/sys/dblist
+/genesis/sys/dblist<br />
 </p>
 
 <h2 id="toc_1.2">config配置：</h2>
@@ -83,125 +83,125 @@ Fw链接到数据库odb，share链接到gen-linux
 
 <h2 id="toc_1.3">Gnd的网络地址</h2>
 <p>
-/genesis/share/.comms/gend_global
-/genesis/share/.comms/gend_local
+/genesis/share/.comms/gend_global<br />
+/genesis/share/.comms/gend_local<br />
 </p>
 
 <h2 id="toc_1.4">帐号权限的控制：</h2>
 <p>
-/genesis/share/privs
+/genesis/share/privs<br />
 </p>
 
 <h2 id="toc_1.5">启动genesis初始化</h2>
 <p>
-/genesis/share/init.gen
+/genesis/share/init.gen<br />
 </p>
 
 <h2 id="toc_1.6">ERF文档存放的位置</h2>
 <p>
-analysis的ERF文档位置：
-	/genesis/e93/prog/analysis.
-		比如信号层的ERF文档。在analysis目录里面的signal.erf。在该文档里面可以添加多个不用的ERF。名字时.model后面的名字。再如防焊是在analysis下面的sm.erf里面的。
+analysis的ERF文档位置：<br />
+	/genesis/e93/prog/analysis.<br />
+		比如信号层的ERF文档。在analysis目录里面的signal.erf。在该文档里面可以添加多个不用的ERF。名字时.model后面的名字。再如防焊是在analysis下面的sm.erf里面的。<br />
 </p>
 		
 	
 <h2 id="toc_1.7">铜桥大小分析不出</h2>
 <p>
-large_net_min 加大才能分析
+large_net_min 加大才能分析<br />
 </p>
 
 <p>
-DFM的ERF存放位置
-	/genesis/e93/prog/dfm
-		比如信号层的ERF，在dfm下面的sigopt.erf(注意改了要重新启动软件)。文档里，可以更改名字，参数等。
+DFM的ERF存放位置<br />
+	/genesis/e93/prog/dfm<br />
+		比如信号层的ERF，在dfm下面的sigopt.erf(注意改了要重新启动软件)。文档里，可以更改名字，参数等。<br />
 </p>
 
 <h2 id="toc_1.8">可执行文件的存放位置</h2>
 <p>
-/genesis/e92/misc/
-	如dbutil.exe。gzip.exe
+/genesis/e92/misc/<br />
+	如dbutil.exe。gzip.exe<br />
 </p>
 
 <p>
-get.exe和glf.exe在:
-		/genesis/e93/get里面
-gui.exe存放的位置在:
-		/genesis/e92/all里面
+get.exe和glf.exe在:<br />
+		/genesis/e93/get里面<br />
+gui.exe存放的位置在:<br />
+		/genesis/e92/all里面<br />
 </p>
 
 <h2 id="toc_1.9">useattr 和 sysattr</h2>
 <p>
-用户自定义属性存放的位置：
-	/genesis/fw/lib/misc
-系统定义的属性存放的位置：
-	/genesis/e93/all/sysattr
+用户自定义属性存放的位置：<br />
+	/genesis/fw/lib/misc<br />
+系统定义的属性存放的位置：<br />
+	/genesis/e93/all/sysattr<br />
 </p>
 	
 <h2 id="toc_1.10">/genesis/share目录</h2>
 <p>
-	users：用户的基本信息
-	privs：设置用户的权限，比如配置文件谁能更改，能不能保持料号，是否允许录制等,具体怎么更改文件里面有
-	init.csh初始化配置文件，在脚本执行开始初始化一些变量。
-	.comms
+	users：用户的基本信息<br />
+	privs：设置用户的权限，比如配置文件谁能更改，能不能保持料号，是否允许录制等,具体怎么更改文件里面有<br />
+	init.csh初始化配置文件，在脚本执行开始初始化一些变量。<br />
+	.comms<br />
 </p>
 	
 <h2 id="toc_1.11">/genesis/e93/all</h2>
 <p>
-	scr_start.csh:脚本执行最先调用的程序，设定一些变量，执行hooks下面的script_start.csh genesis/sys/里面的.script_all.csh程序，一些变量设置。
-	cshrc.target:一些环境变量的设置,刚启动主目录下面的.cshrc即调用该脚本
+	scr_start.csh:脚本执行最先调用的程序，设定一些变量，执行hooks下面的script_start.csh genesis/sys/里面的.script_all.csh程序，一些变量设置。<br />
+	cshrc.target:一些环境变量的设置,刚启动主目录下面的.cshrc即调用该脚本<br />
 </p>
 	
 <h2 id="toc_1.12">用户锁</h2>
 <p>
-	/genesis/sys/share/rcs
+	/genesis/sys/share/rcs<br />
 </p>
 	
 <h2 id="toc_1.13">Output Minimal brush的默认值设置</h2>
 <p>
-/genesis/sys/hooks/popup_defaults/output_package	
+/genesis/sys/hooks/popup_defaults/output_package	<br />
 </p>
 
 
 <h2 id="toc_1.14">D码模板</h2>
 <p>
-/odb/lib/whltemps/
+/odb/lib/whltemps/<br />
 </p>
 
 <h2 id="toc_1.15">分析的ERF文档</h2>
 <p>
-d:\genesis\e97\prog\analysis\
+d:\genesis\e97\prog\analysis\<br />
 </p>
 
 <h1 id="toc_2">ps2pdf的路径</h1><HR SIZE=1>
 <p>
-在hooks里面
+在hooks里面<br />
 </p>
 
 <h1 id="toc_3">钻孔管理工具里面的参数名设置</h1><HR SIZE=1>
 <p>
-d:/genesis/sys/hooks/drill_size.prm
+d:/genesis/sys/hooks/drill_size.prm<br />
 </p>
 
 <h1 id="toc_4">钻孔管理工具的自动补偿</h1><HR SIZE=1>
 <p>
-D:/genesis/sys/hooks/drill_size
+D:/genesis/sys/hooks/drill_size<br />
 </p>
 
 
 <h1 id="toc_5">开始执行的映射</h1><HR SIZE=1>
 <p>
-D:/genesis\e97\all\scr_start.csh
-alias BQ_PCB_SCRIPTS 'tclsh ${GENESIS_DIR}/sys/scripts/BQ_PCB/BQ_PCB.tcl'
+D:/genesis\e97\all\scr_start.csh<br />
+alias BQ_PCB_SCRIPTS 'tclsh ${GENESIS_DIR}/sys/scripts/BQ_PCB/BQ_PCB.tcl'<br />
 </p>
 
 <h1 id="toc_6">错误status</h1><HR SIZE=1>
 <p>
-d:\genesis\e97\all\errs\
+d:\genesis\e97\all\errs\<br />
 </p>
 
 
 <p>
-linux根目录下面.cshrc调用source /genesis/share/init.gen
+linux根目录下面.cshrc调用source /genesis/share/init.gen<br />
 </p>
 
 
@@ -228,8 +228,6 @@ linux根目录下面.cshrc调用source /genesis/share/init.gen
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

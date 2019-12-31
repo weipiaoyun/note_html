@@ -86,7 +86,7 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
 <a href="linux概念.html">linux概念</a>
 <a href="linux服务.html">linux服务</a>
@@ -107,42 +107,42 @@
 
 <h1 id="toc_1">系统及安装 </h1><HR SIZE=1>
 <p>
-linux安装包里面有Server夹子，
+linux安装包里面有Server夹子，<br />
 </p>
 
 <h2 id="toc_1.1">系统下载 </h2>
 <p>
-	开源镜像站
+	开源镜像站<br />
 </p>
 	
 <h2 id="toc_1.2">软件安装 </h2>
 <p>
-pirut
+pirut<br />
 </p>
 
 <p>
-package install remove and update tool
-alt+f1 添加/删除软件
+package install remove and update tool<br />
+alt+f1 添加/删除软件<br />
 </p>
 
 <p>
-检测是否安装软件
-rpm -qa | grep smb
+检测是否安装软件<br />
+rpm -qa | grep smb<br />
 </p>
 
 <p>
-查看某个rpm包的作用
-rpm -qip ***.rpm
+查看某个rpm包的作用<br />
+rpm -qip ***.rpm<br />
 </p>
 
 <p>
-查看某个服务的配置文件
-rpm -qc
+查看某个服务的配置文件<br />
+rpm -qc<br />
 </p>
 
 <h3 id="toc_1.2.1">批量安装 </h3>
 <p>
-Kickstart自动批量安装Linux
+Kickstart自动批量安装Linux<br />
 </p>
 
 <p>
@@ -152,85 +152,85 @@ Kickstart自动批量安装Linux
 
 <h3 id="toc_1.2.2">KVM </h3>
 <p>
-因为 KVM 是硬件辅助的虚拟化技术，主要负责 比较繁琐的 CPU 和内存虚拟化，而 Qemu 则负责 I/O 虚拟化，两者合作各自发挥自身的优势，相得益彰。
+因为 KVM 是硬件辅助的虚拟化技术，主要负责 比较繁琐的 CPU 和内存虚拟化，而 Qemu 则负责 I/O 虚拟化，两者合作各自发挥自身的优势，相得益彰。<br />
 </p>
 
 
 <h4 id="toc_1.2.2.1">软板报错 </h4>
 <p>
-sudo libvirtd -d
+sudo libvirtd -d<br />
 </p>
 
 <h4 id="toc_1.2.2.2">kvm更改 添加 CD </h4>
 <p>
-网络
-	ovs-vsctl
-	<a href="https://pkgs.org/download/openvswitch">https://pkgs.org/download/openvswitch</a>   下载，安装
+网络<br />
+	ovs-vsctl<br />
+	<a href="https://pkgs.org/download/openvswitch">https://pkgs.org/download/openvswitch</a>   下载，安装<br />
 </p>
 
 <p>
-解释：guest01代表需更改的虚机名，*.iso为需添加的iso
+解释：guest01代表需更改的虚机名，*.iso为需添加的iso<br />
 </p>
 
 <p>
-如果报错：
+如果报错：<br />
 </p>
 
 <p>
-virsh # attach-disk ICCS-PM /gfs/sysdisk/installdisk-pool/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd2.iso hdc --driver file --type cdrom --mode readonly
+virsh # attach-disk ICCS-PM /gfs/sysdisk/installdisk-pool/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd2.iso hdc --driver file --type cdrom --mode readonly<br />
 </p>
 
 <p>
-错误：Failed to attach disk
+错误：Failed to attach disk<br />
 </p>
 
 <p>
-错误：internal error unsupported driver name 'file' for disk '/gfs/sysdisk/installdisk-pool/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd2.iso'
+错误：internal error unsupported driver name 'file' for disk '/gfs/sysdisk/installdisk-pool/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd2.iso'<br />
 </p>
 
 <p>
-取消--driver file参数即可
+取消--driver file参数即可<br />
 </p>
 
 
 <p>
-Add CDROM:
+Add CDROM:<br />
 </p>
 
 <p>
-#virsh
+#virsh<br />
 </p>
 
 <p>
-attach-disk guest01 /root/disc1.iso hdc --driver file --type cdrom
+attach-disk guest01 /root/disc1.iso hdc --driver file --type cdrom<br />
 </p>
 
 <p>
---mode readonly
+--mode readonly<br />
 </p>
 
 <p>
-Change CDROM:
+Change CDROM:<br />
 </p>
 
 <p>
-attach-disk guest01 /root/disc2.iso hdc --driver file --type cdrom
+attach-disk guest01 /root/disc2.iso hdc --driver file --type cdrom<br />
 </p>
 
 <p>
---mode readonly
+--mode readonly<br />
 </p>
 
 <p>
-Remove CDROM:
+Remove CDROM:<br />
 </p>
 
 <p>
-attach-disk guest01 " " hdc --driver file --type cdrom
+attach-disk guest01 " " hdc --driver file --type cdrom<br />
 </p>
 
 <p>
---mode readonly
+--mode readonly<br />
 </p>
 
 <h4 id="toc_1.2.2.3">设置开机自动启动 </h4>
@@ -252,95 +252,95 @@ ln -s /etc/libvirt/qemu/instance-00000002.xml /etc/libvirt/qemu/autostart/
 
 <h1 id="toc_2">优化linux </h1><HR SIZE=1>
 <p>
-Sysctl.conf
+Sysctl.conf<br />
 </p>
 
 <h1 id="toc_3">gnome管理器 </h1><HR SIZE=1>
 <p>
-	gnome管理器，gconf-editor
-	/apps/panel/global/   locked_down
-	要限制panel的编辑：把apps下拉，panel下拉，default——setup下拉，双击global，然后把locked_down勾上
-	隐藏桌面上的我的电脑 apps-&gt;nautilus
-	setup,打开配置
+	gnome管理器，gconf-editor<br />
+	/apps/panel/global/   locked_down<br />
+	要限制panel的编辑：把apps下拉，panel下拉，default——setup下拉，双击global，然后把locked_down勾上<br />
+	隐藏桌面上的我的电脑 apps-&gt;nautilus<br />
+	setup,打开配置<br />
 </p>
 	
 <h2 id="toc_3.1">gnome-terminal脚本运行完后自动关闭 </h2>
 <p>
-	终端-》Edit-》profiles-&gt;Defale-&gt;选择Title and Command-》把When Command exits修改选项。
+	终端-》Edit-》profiles-&gt;Defale-&gt;选择Title and Command-》把When Command exits修改选项。<br />
 </p>
 
 	
 <h1 id="toc_4">linux 环境变量 </h1><HR SIZE=1>
 <p>
-打印环境变量：printenv
+打印环境变量：printenv<br />
 </p>
 
 
 <h1 id="toc_5">linux配置 </h1><HR SIZE=1>
 <h2 id="toc_5.1">配置host </h2>
 <p>
-Hostname      获取主机名字。
-vi /etc/sysconfig/network
-	NETWORKING = yes
-	NETWORKING_IPV6=no
-	HOSTNAME=cam03
-	NISDOMAIN=iasystem
+Hostname      获取主机名字。<br />
+vi /etc/sysconfig/network<br />
+	NETWORKING = yes<br />
+	NETWORKING_IPV6=no<br />
+	HOSTNAME=cam03<br />
+	NISDOMAIN=iasystem<br />
 </p>
 
 
 <p>
-192.168.6.6	cam06	localhost	localhost	cam06.zh	cam06
+192.168.6.6	cam06	localhost	localhost	cam06.zh	cam06<br />
 </p>
 <h2 id="toc_5.2">配置开机启动 </h2>
 <p>
-	开机启动sshd
-	/sbin/chkconfig  sshd on
-	sshd开机启动列表
-	/sbin/chkcofnig sshd --list
+	开机启动sshd<br />
+	/sbin/chkconfig  sshd on<br />
+	sshd开机启动列表<br />
+	/sbin/chkcofnig sshd --list<br />
 </p>
 
 <h2 id="toc_5.3">linux产生私匙和公匙 </h2>
 <p>
-	输入命令
-	$ssh-keygen -t rsa 产生的私匙和公匙放在家目录下面的.ssh里面
+	输入命令<br />
+	$ssh-keygen -t rsa 产生的私匙和公匙放在家目录下面的.ssh里面<br />
 </p>
 	
 <h2 id="toc_5.4">linux防火墙 </h2>
 <p>
-*filter
-:INPUT ACCEPT [0:0]
-:FORWARD ACCEPT [0:0]
-:OUTPUT ACCEPT [0:0]
-:RH-Firewall-1-INPUT - [0:0]
--A INPUT -j RH-Firewall-1-INPUT
--A FORWARD -j RH-Firewall-1-INPUT
--A RH-Firewall-1-INPUT -i lo -j ACCEPT
--A RH-Firewall-1-INPUT -p icmp --icmp-type any -j ACCEPT
--A RH-Firewall-1-INPUT -p 50 -j ACCEPT
--A RH-Firewall-1-INPUT -p 51 -j ACCEPT
--A RH-Firewall-1-INPUT -p udp --dport 5353 -d 224.0.0.251 -j ACCEPT
--A RH-Firewall-1-INPUT -p udp -m udp --dport 631 -j ACCEPT
--A RH-Firewall-1-INPUT -p tcp -m tcp --dport 631 -j ACCEPT
--A RH-Firewall-1-INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
--A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
--A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
--A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.1.119  -p tcp --dport 5901 -j ACCEPT
--A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.1.139  -p tcp --dport 5902 -j ACCEPT
--A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.2.70  -p tcp --dport 5903 -j ACCEPT
--A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.1.154  -p tcp --dport 5904 -j ACCEPT
--A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.1.143  -p tcp --dport 5904 -j ACCEPT
--A RH-Firewall-1-INPUT -j REJECT --reject-with icmp-host-prohibited
-COMMIT
+*filter<br />
+:INPUT ACCEPT [0:0]<br />
+:FORWARD ACCEPT [0:0]<br />
+:OUTPUT ACCEPT [0:0]<br />
+:RH-Firewall-1-INPUT - [0:0]<br />
+-A INPUT -j RH-Firewall-1-INPUT<br />
+-A FORWARD -j RH-Firewall-1-INPUT<br />
+-A RH-Firewall-1-INPUT -i lo -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -p icmp --icmp-type any -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -p 50 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -p 51 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -p udp --dport 5353 -d 224.0.0.251 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -p udp -m udp --dport 631 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -p tcp -m tcp --dport 631 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.1.119  -p tcp --dport 5901 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.1.139  -p tcp --dport 5902 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.2.70  -p tcp --dport 5903 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.1.154  -p tcp --dport 5904 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -s 172.18.1.143  -p tcp --dport 5904 -j ACCEPT<br />
+-A RH-Firewall-1-INPUT -j REJECT --reject-with icmp-host-prohibited<br />
+COMMIT<br />
 </p>
 
 
 <h2 id="toc_5.5">自定义开机启动 </h2>
 <p>
-脚本放在/etc/init.d
+脚本放在/etc/init.d<br />
 </p>
 
 <p>
-开机启动放在rc(\d).d, 链接到/etc/init.d里面
+开机启动放在rc(\d).d, 链接到/etc/init.d里面<br />
 </p>
 
 
@@ -348,22 +348,22 @@ COMMIT
 
 <h2 id="toc_5.6">登录中禁止关机和重启</h2>
 <p>
-/etc/gdm/custom.conf
-在 [greeter]增加一行或者修改
-SystemMenu=false
+/etc/gdm/custom.conf<br />
+在 [greeter]增加一行或者修改<br />
+SystemMenu=false<br />
 </p>
 
 <p>
-setenv是csh的命令; 在bash中是没有setenv的
+setenv是csh的命令; 在bash中是没有setenv的<br />
 </p>
 
 <p>
-csh/tcsh有两种类型的变量:局部变量和环境变量.局域变量是在shell内部声明的;环境变量是全局域的变量.
-使用set来定义局部变量, 使用setenv可以定义环境变量; 局部变量只对本shell有效, 不能传递给子shell; 但环境变量可传递给子shell. setenv有点类似于bash中export一个变量.
+csh/tcsh有两种类型的变量:局部变量和环境变量.局域变量是在shell内部声明的;环境变量是全局域的变量.<br />
+使用set来定义局部变量, 使用setenv可以定义环境变量; 局部变量只对本shell有效, 不能传递给子shell; 但环境变量可传递给子shell. setenv有点类似于bash中export一个变量.<br />
 </p>
 
 <p>
-当然, set 和setenv的语法不一样
+当然, set 和setenv的语法不一样<br />
 </p>
 <ol>
 <li>
@@ -377,77 +377,77 @@ setenv varname2 valu2;
 
 </ol>
 <p>
-set语法set name=value
-setenv语法setenv name value
-最大的区别是，set变量只对当前进程有效，不会传递给子进程
-setenv变量不仅对当前进程有效，而且会传递给子进程
-而当同时使用set和setenv设置一个变量时，当前进程中，会优先使用set设置的值
+set语法set name=value<br />
+setenv语法setenv name value<br />
+最大的区别是，set变量只对当前进程有效，不会传递给子进程<br />
+setenv变量不仅对当前进程有效，而且会传递给子进程<br />
+而当同时使用set和setenv设置一个变量时，当前进程中，会优先使用set设置的值<br />
 </p>
 
 <p>
-在Bash中也有类似的区别
-BASH不需要显示声明变量使用=号直接能声明并初始化变量，但是如果没有export，是不能被子进程使用的。
+在Bash中也有类似的区别<br />
+BASH不需要显示声明变量使用=号直接能声明并初始化变量，但是如果没有export，是不能被子进程使用的。<br />
 </p>
 
 
 <p>
-bash  和csh
+bash  和csh<br />
 </p>
 
 <h3 id="toc_5.6.1">网络设置 </h3>
 <p>
-测试网络iptraf
+测试网络iptraf<br />
 </p>
 
 <h4 id="toc_5.6.1.1">linux网络设备操作命令汇总 </h4>
 <p>
-Linux网络设备操作命令包括ifconfig, ip, ping, netstat, route, ip, arp, hostname和arpwatch。
+Linux网络设备操作命令包括ifconfig, ip, ping, netstat, route, ip, arp, hostname和arpwatch。<br />
 </p>
 
 <p>
-重启网络
-/sbin/service network restart
+重启网络<br />
+/sbin/service network restart<br />
 </p>
 
 <p>
-修改Ip地址
-ifconfig eth0 192.168.8.88
+修改Ip地址<br />
+ifconfig eth0 192.168.8.88<br />
 </p>
 
 
 <p>
-查看某ip的nfs共享文件夹命令：showmount -e 192.168.8.1
+查看某ip的nfs共享文件夹命令：showmount -e 192.168.8.1<br />
 </p>
 
 <h4 id="toc_5.6.1.2">更改ip </h4>
 <p>
-临时更改：ifconfig eth0 192.168.8.88
-永久更改：vim /etc/sysconfig/network-scripts/ifcfg-eth0
+临时更改：ifconfig eth0 192.168.8.88<br />
+永久更改：vim /etc/sysconfig/network-scripts/ifcfg-eth0<br />
 </p>
 
 <h4 id="toc_5.6.1.3">单网卡添加ip </h4>
 <p>
-用命令的方式添加：
-/etc/sysconfig/network-scripts/ifcfg-eth0 拷贝一个ifcfg-eth0重命名为ifcfg-eth0:1。进行编辑
+用命令的方式添加：<br />
+/etc/sysconfig/network-scripts/ifcfg-eth0 拷贝一个ifcfg-eth0重命名为ifcfg-eth0:1。进行编辑<br />
 </p>
 
 <p>
-1，改DEVICE etho 为eth0:1
-2, 改BROADCAST 192.168.8.255为172.18.255.255
-3, 改IPADDR 192.18.100.108改为172.168.8.8
-4, 改NETMASK 255.255.255.0改为255.255.0.0
-5，改NETWORK 192.168.8.0改为172.18.0.0
+1，改DEVICE etho 为eth0:1<br />
+2, 改BROADCAST 192.168.8.255为172.18.255.255<br />
+3, 改IPADDR 192.18.100.108改为172.168.8.8<br />
+4, 改NETMASK 255.255.255.0改为255.255.0.0<br />
+5，改NETWORK 192.168.8.0改为172.18.0.0<br />
 </p>
 
 <h4 id="toc_5.6.1.4">重新启动网络 </h4>
 <p>
-service network restart
+service network restart<br />
 </p>
 
 <h4 id="toc_5.6.1.5">其他局域网电脑连接自己电脑上的虚拟机 </h4>
 <p>
 1，把VM的网络适配器由NAT模式改为桥接模式，详情看<a href="计算机网络.html">计算机网络</a>
-2，修改配置文件/etc/sysconfig/network-scripts。改为如下：
+2，修改配置文件/etc/sysconfig/network-scripts。改为如下：<br />
 </p>
 <ol>
 <li>
@@ -455,20 +455,20 @@ Broadcom Corporation NetXtreme BCM5764M Gigabit Ethernet PCIe
 
 </ol>
 <p>
-DEVICE=eth1
-BOOTPROTO=none
-BROADCAST=192.168.8.255
-HWADDR=e8:39:35:30:cf:d4
-IPADDR=192.168.8.94
-NETMASK=255.255.255.0
-NETWORK=192.168.8.0
-ONBOOT=yes
-GATEWAY=192.168.8.1
-TYPE=Ethernet
+DEVICE=eth1<br />
+BOOTPROTO=none<br />
+BROADCAST=192.168.8.255<br />
+HWADDR=e8:39:35:30:cf:d4<br />
+IPADDR=192.168.8.94<br />
+NETMASK=255.255.255.0<br />
+NETWORK=192.168.8.0<br />
+ONBOOT=yes<br />
+GATEWAY=192.168.8.1<br />
+TYPE=Ethernet<br />
 </p>
 
 <p>
-或者是：
+或者是：<br />
 </p>
 <ol>
 <li>
@@ -476,22 +476,22 @@ Broadcom Corporation NetXtreme BCM5764M Gigabit Ethernet PCIe
 
 </ol>
 <p>
-DEVICE=eth0
-BOOTPROTO=none
-BROADCAST=172.18.255.255
-HWADDR=E8:39:35:30:CF:D5
-IPADDR=172.18.1.42
-IPV6INIT=yes
-IPV6_AUTOCONF=yes
-NETMASK=255.255.0.0
-NETWORK=172.18.0.0
-ONBOOT=yes
-TYPE=Ethernet
+DEVICE=eth0<br />
+BOOTPROTO=none<br />
+BROADCAST=172.18.255.255<br />
+HWADDR=E8:39:35:30:CF:D5<br />
+IPADDR=172.18.1.42<br />
+IPV6INIT=yes<br />
+IPV6_AUTOCONF=yes<br />
+NETMASK=255.255.0.0<br />
+NETWORK=172.18.0.0<br />
+ONBOOT=yes<br />
+TYPE=Ethernet<br />
 </p>
 
 <p>
-3，重启网络。即可。
-如果不行，手动设置网络。ifconfig 192.168.8.94 netmask 255.255.255.0 up
+3，重启网络。即可。<br />
+如果不行，手动设置网络。ifconfig 192.168.8.94 netmask 255.255.255.0 up<br />
 </p>
 
 
@@ -545,33 +545,33 @@ Ctl+Alt+BackSpace
 <h2 id="toc_7.1">系统问题 </h2>
 <h3 id="toc_7.1.1">启动Acpi问题 </h3>
 <p>
-总之：如果你遇到了觉得不可思议的问题时，可以优先考虑增加acpi=off noapic的核心参数，也许以为是大问题的事情就这么轻松的解决了。
-方法：
-/boot/grub/menu.lst文件，在启动的核心kernel那行最后加上
-acpi=off noapic
+总之：如果你遇到了觉得不可思议的问题时，可以优先考虑增加acpi=off noapic的核心参数，也许以为是大问题的事情就这么轻松的解决了。<br />
+方法：<br />
+/boot/grub/menu.lst文件，在启动的核心kernel那行最后加上<br />
+acpi=off noapic<br />
 </p>
 <h3 id="toc_7.1.2">如何同步网络时间 </h3>
 <p>
-	/sbin/ntpdate
+	/sbin/ntpdate<br />
 </p>
 <h3 id="toc_7.1.3">鼠标激活 </h3>
 <p>
-system-&gt;preference-&gt;windows-&gt;把select windows when the mouse moves over them勾选上
+system-&gt;preference-&gt;windows-&gt;把select windows when the mouse moves over them勾选上<br />
 </p>
 
 <h3 id="toc_7.1.4">设置开机自启动，关闭自动更新功能 </h3>
 <p>
-	system-&gt;Preferences-&gt;Startup Applications-&gt;去掉PackageKit Update Applet
+	system-&gt;Preferences-&gt;Startup Applications-&gt;去掉PackageKit Update Applet<br />
 </p>
 
 <h3 id="toc_7.1.5">vncserver不能自动启动： </h3>
 <p>
-system-&gt;Administration-&gt;server settings-&gt;services 把vncservear勾选上
+system-&gt;Administration-&gt;server settings-&gt;services 把vncservear勾选上<br />
 </p>
 
 <h3 id="toc_7.1.6">linux中英文，中文输入法问题 </h3>
 <p>
-	<a href="https://blog.csdn.net/lzjsqn/article/details/54377604">https://blog.csdn.net/lzjsqn/article/details/54377604</a>
+	<a href="https://blog.csdn.net/lzjsqn/article/details/54377604<br">https://blog.csdn.net/lzjsqn/article/details/54377604<br</a> />
 </p>
 
 <h3 id="toc_7.1.7">linux非超级用户不能保存 </h3>
@@ -592,27 +592,27 @@ system-&gt;Administration-&gt;server settings-&gt;services 把vncservear勾选�
 <h2 id="toc_7.2">软件问题 </h2>
 <h3 id="toc_7.2.1">linux虚拟机如何调分辨率： </h3>
 <p>
-	命令system-config-display   然
-	后选择硬件，第一个，显示器类型，选择LCD Panel 1440x900，然后注销
+	命令system-config-display   然<br />
+	后选择硬件，第一个，显示器类型，选择LCD Panel 1440x900，然后注销<br />
 </p>
 	
 <h3 id="toc_7.2.2">genesis分析点出来的窗口在下面 | 置顶 </h3>
 <p>
-	system tool-&gt;Configuration Editor
-	设置new_windows_always_on_top,新窗口始终置顶
+	system tool-&gt;Configuration Editor<br />
+	设置new_windows_always_on_top,新窗口始终置顶<br />
 </p>
 	
 	
 <h2 id="toc_7.3">程序问题 </h2>
 <h3 id="toc_7.3.1">tk键盘无法输入 </h3>
 <p>
-system-&gt;preference-&gt;more preference-&gt;input method
+system-&gt;preference-&gt;more preference-&gt;input method<br />
 </p>
 
 <h3 id="toc_7.3.2">C#解决中文 </h3>
 <p>
-Environment.SetEnvironmentVariable("LANG","C",EnvirontVariableTartet.Process)
-Environment.SetEnvironmentVariable("LC_CTYPT","zh_CN.UTF-8",EnvirontVariableTartet.Process)
+Environment.SetEnvironmentVariable("LANG","C",EnvirontVariableTartet.Process)<br />
+Environment.SetEnvironmentVariable("LC_CTYPT","zh_CN.UTF-8",EnvirontVariableTartet.Process)<br />
 </p>
 
 
@@ -639,8 +639,6 @@ Environment.SetEnvironmentVariable("LC_CTYPT","zh_CN.UTF-8",EnvirontVariableTart
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

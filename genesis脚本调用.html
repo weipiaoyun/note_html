@@ -21,9 +21,9 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
-Genesis的启动文件放在/genesis/sys/hooks/script_start.csh
+Genesis的启动文件放在/genesis/sys/hooks/script_start.csh<br />
 </p>
 <h2 id="toc_0.1">genesis脚本调用</h2>
 <ol>
@@ -41,18 +41,18 @@ cshell调用已编译perl，直接执行，不用调用perl set tmp_list = (<cod
 
 </ol>
 <p>
-3，Perl里面执行cshell，注意JOB=$self=&gt;{JOB}的等号两边不能有空格
-4，\(self-&gt;COM(‘script_run’, name =&gt; ‘/genesis/sys/scripts/greate/drill/outputDrill.csh’,  env1 =&gt; “JOB=\)self=&gt;{JOB}”, env2 =&gt; “STEP=$STEP”);
-5，perl的图形界面后台运行可执行
-/usr/bin/perl $scriptPath/script.pl &gt;&amp; /dev/null &amp;
-6，调用系统函数
-system('/usr/bin/gedit', "参数");
+3，Perl里面执行cshell，注意JOB=$self=&gt;{JOB}的等号两边不能有空格<br />
+4，\(self-&gt;COM(‘script_run’, name =&gt; ‘/genesis/sys/scripts/greate/drill/outputDrill.csh’,  env1 =&gt; “JOB=\)self=&gt;{JOB}”, env2 =&gt; “STEP=$STEP”);<br />
+5，perl的图形界面后台运行可执行<br />
+/usr/bin/perl $scriptPath/script.pl &gt;&amp; /dev/null &amp;<br />
+6，调用系统函数<br />
+system('/usr/bin/gedit', "参数");<br />
 </p>
 
 <p>
-7，cshell调用perl和传递函数。(钻孔输出调用背钻程序)
-perl /gen_db/workfile/input/cam/wzh/drill-BZ.pl \(JOB \)layer[\(ii] \)drill_path/\(JOB."\)layer[\(ii]"x"\)xcom2"y"$ycom2"
-然后在perl里面获取这三个参数。
+7，cshell调用perl和传递函数。(钻孔输出调用背钻程序)<br />
+perl /gen_db/workfile/input/cam/wzh/drill-BZ.pl \(JOB \)layer[\(ii] \)drill_path/\(JOB."\)layer[\(ii]"x"\)xcom2"y"$ycom2"<br />
+然后在perl里面获取这三个参数。<br />
 </p>
 <ol>
 <li>
@@ -60,7 +60,7 @@ perl /gen_db/workfile/input/cam/wzh/drill-BZ.pl \(JOB \)layer[\(ii] \)drill_path
 
 </ol>
 <p>
-\(h-&gt;{Job} = \)ARGV[0];
+\(h-&gt;{Job} = \)ARGV[0];<br />
 </p>
 
 <ol>
@@ -69,7 +69,7 @@ perl /gen_db/workfile/input/cam/wzh/drill-BZ.pl \(JOB \)layer[\(ii] \)drill_path
 
 </ol>
 <p>
-\(h-&gt;{currentLayerName} = \)ARGV[1];
+\(h-&gt;{currentLayerName} = \)ARGV[1];<br />
 </p>
 
 <ol>
@@ -78,7 +78,7 @@ perl /gen_db/workfile/input/cam/wzh/drill-BZ.pl \(JOB \)layer[\(ii] \)drill_path
 
 </ol>
 <p>
-\(h-&gt;{currentFilePath} = \)ARGV[2];
+\(h-&gt;{currentFilePath} = \)ARGV[2];<br />
 </p>
 
 
@@ -105,8 +105,6 @@ perl /gen_db/workfile/input/cam/wzh/drill-BZ.pl \(JOB \)layer[\(ii] \)drill_path
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

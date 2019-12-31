@@ -16,103 +16,103 @@
 <body>
 
 <p>
-作用：利用它可以从字符串中取出整数、浮点数和字符串等等
-sscanf(a, b, c);把a的数据转换成b的格式放到c里面
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+作用：利用它可以从字符串中取出整数、浮点数和字符串等等<br />
+sscanf(a, b, c);把a的数据转换成b的格式放到c里面<br />
+#include &lt;stdio.h&gt;<br />
+#include &lt;string.h&gt;<br />
 </p>
 
 
 <p>
-int main(int argc, const char *argv[])
-{
+int main(int argc, const char *argv[])<br />
+{<br />
 </p>
 	
 <p>
-	char str[512] = {0};
-	sscanf("123456abcdedf","%[^ ]",str);
-	printf("str=%s",str);
+	char str[512] = {0};<br />
+	sscanf("123456abcdedf","%[^ ]",str);<br />
+	printf("str=%s",str);<br />
 </p>
 
 
 <p>
-}
+}<br />
 </p>
 
 <p>
-str=123456abcdedfPress any key to continue
+str=123456abcdedfPress any key to continue<br />
 </p>
 
 <h1 id="toc_1">问题</h1><HR SIZE=1>
 <p>
-sscanf,表示从字符串中格式化输入
+sscanf,表示从字符串中格式化输入<br />
 </p>
 
 <p>
-上面表示从str中，输入数字给x，就是32700
-久以前，我以为c没有自己的split string函数，后来我发现了sscanf；一直以来，我以为sscanf只能以空格来界定字符串，现在我发现我错了。
+上面表示从str中，输入数字给x，就是32700<br />
+久以前，我以为c没有自己的split string函数，后来我发现了sscanf；一直以来，我以为sscanf只能以空格来界定字符串，现在我发现我错了。<br />
 </p>
  
 <p>
-sscanf是一个运行时函数，原形很简单：
-int sscanf(
-const char *buffer,
-   const char *format [,
-   argument ] ... 
-);
-它强大的功能体现在对format的支持上。
+sscanf是一个运行时函数，原形很简单：<br />
+int sscanf(<br />
+const char *buffer,<br />
+   const char *format [,<br />
+   argument ] ... <br />
+);<br />
+它强大的功能体现在对format的支持上。<br />
 </p>
  
 <p>
-我以前用它来分隔类似这样的字符串2006:03:18:
-int a, b, c;
-sscanf("2006:03:18", "%d:%d:%d", a, b, c);
-以及2006:03:18 - 2006:04:18:
-char sztime1[16] = "", sztime2[16] = "";
-sscanf("2006:03:18 - 2006:04:18", "%s - %s", sztime1, sztime2);
+我以前用它来分隔类似这样的字符串2006:03:18:<br />
+int a, b, c;<br />
+sscanf("2006:03:18", "%d:%d:%d", a, b, c);<br />
+以及2006:03:18 - 2006:04:18:<br />
+char sztime1[16] = "", sztime2[16] = "";<br />
+sscanf("2006:03:18 - 2006:04:18", "%s - %s", sztime1, sztime2);<br />
 </p>
  
 <p>
-但是后来，我需要处理2006:03:18-2006:04:18
-仅仅是取消了‘-’两边的空格，却打破了%s对字符串的界定。
+但是后来，我需要处理2006:03:18-2006:04:18<br />
+仅仅是取消了‘-’两边的空格，却打破了%s对字符串的界定。<br />
 </p>
  
 <p>
-我需要重新设计一个函数来处理这样的情况？这并不复杂，但是，为了使所有的代码都有统一的风格，我需要改动很多地方，把已有的sscanf替换成我自己的分割函数。我以为我肯定需要这样做，并伴随着对sscanf的强烈不满而入睡；一觉醒来，发现其实不必。
+我需要重新设计一个函数来处理这样的情况？这并不复杂，但是，为了使所有的代码都有统一的风格，我需要改动很多地方，把已有的sscanf替换成我自己的分割函数。我以为我肯定需要这样做，并伴随着对sscanf的强烈不满而入睡；一觉醒来，发现其实不必。<br />
 </p>
  
 <p>
-format-type中有%[]这样的type field。如果读取的字符串，不是以空格来分隔的话，就可以使用%[]。
-%[]类似于一个正则表达式。[a-z]表示读取a-z的所有字符，[^a-z]表示读取除a-z以外的所有字符。
+format-type中有%[]这样的type field。如果读取的字符串，不是以空格来分隔的话，就可以使用%[]。<br />
+%[]类似于一个正则表达式。[a-z]表示读取a-z的所有字符，[^a-z]表示读取除a-z以外的所有字符。<br />
 </p>
  
 <p>
-所以那个问题也就迎刃而解了:
-sscanf("2006:03:18 - 2006:04:18", "%[0-9,:] - %[0-9,:]", sztime1, sztime2);
-在softmse (Jake) 的问题贴<a href="http://community.csdn.net/Expert/topic/4843/4843294.xml?temp=.4321558中">http://community.csdn.net/Expert/topic/4843/4843294.xml?temp=.4321558中</a> ，周星星给出了一个很cool的sscanf用例，而后通过学习，发现sscanf真棒，现做一总结。
+所以那个问题也就迎刃而解了:<br />
+sscanf("2006:03:18 - 2006:04:18", "%[0-9,:] - %[0-9,:]", sztime1, sztime2);<br />
+在softmse (Jake) 的问题贴<a href="http://community.csdn.net/Expert/topic/4843/4843294.xml?temp=.4321558中">http://community.csdn.net/Expert/topic/4843/4843294.xml?temp=.4321558中</a> ，周星星给出了一个很cool的sscanf用例，而后通过学习，发现sscanf真棒，现做一总结。<br />
 </p>
 
 <p>
-原问题：
+原问题：<br />
 </p>
 
 <p>
-iios/12DDWDFF@122
-获取/和@之间的字符串怎么做
-C程序里面有什么函数吗?
+iios/12DDWDFF@122<br />
+获取/和@之间的字符串怎么做<br />
+C程序里面有什么函数吗?<br />
 </p>
 
 <p>
-周星星的代码：
+周星星的代码：<br />
 </p>
 
 <p>
-#include &lt;stdio.h&gt;
+#include &lt;stdio.h&gt;<br />
 </p>
 
 <p>
-int main()
-{
+int main()<br />
+{<br />
 </p>
 <blockquote>
 const char* s = "iios/12DDWDFF@122";
@@ -126,96 +126,96 @@ printf( "%s\n", buf );
 return 0;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-结果为:12DDWDFF
+结果为:12DDWDFF<br />
 </p>
 
 <p>
-sscanf与scanf类似，都是用于输入的，只是后者以屏幕(stdin)为输入源，前者以固定字符串为输入源。
+sscanf与scanf类似，都是用于输入的，只是后者以屏幕(stdin)为输入源，前者以固定字符串为输入源。<br />
 </p>
 
 <p>
-函数原型：
+函数原型：<br />
 </p>
 
 <p>
-int scanf( const char *format [,argument]... );
-其中的format可以是一个或多个 {%[*] [width] [{h | l | I64 | L}]type  |  ' ' |  '\t' | '\n' | 非%符号}，
+int scanf( const char *format [,argument]... );<br />
+其中的format可以是一个或多个 {%[*] [width] [{h | l | I64 | L}]type  |  ' ' |  '\t' | '\n' | 非%符号}，<br />
 </p>
 
 <p>
-注：{a|b|c}表示a,b,c中选一，[d],表示可以有d也可以没有d。
-</p>
-
- 
-
-<p>
- width:宽度，一般可以忽略，用法如：
-</p>
-
-<p>
-const  char sourceStr[] = "hello, world";
-</p>
-
-<p>
-char buf[10] = {0};
-</p>
-
-<p>
-sscanf(sourceStr, "%5s", buf);   //%5s，只取5个字符
-</p>
-
-<p>
-cout &lt;&lt; buf&lt;&lt; endl;
-</p>
-
-<p>
-结果为:hello
-</p>
-
-<p>
- {h | l | I64 | L}:参数的size,通常h表示单字节size，I表示2字节 size,L表示4字节size(double例外),l64表示8字节size。
-</p>
-
-<p>
-type :这就很多了，就是%s,%d之类。
+注：{a|b|c}表示a,b,c中选一，[d],表示可以有d也可以没有d。<br />
 </p>
 
  
 
 <p>
-特别的：
+ width:宽度，一般可以忽略，用法如：<br />
 </p>
 
 <p>
-%*[width] [{h | l | I64 | L}]type  表示满足该条件的被过滤掉，不会向目标参数中写入值。如：
+const  char sourceStr[] = "hello, world";<br />
 </p>
 
 <p>
-const  char sourceStr[] = "hello, world";
+char buf[10] = {0};<br />
 </p>
 
 <p>
-char buf[10] = {0};
+sscanf(sourceStr, "%5s", buf);   //%5s，只取5个字符<br />
 </p>
 
 <p>
-sscanf(sourceStr, "%*s%s", buf);   //%*s表示第一个匹配到的%s被过滤掉，即hello被过滤了
+cout &lt;&lt; buf&lt;&lt; endl;<br />
 </p>
 
 <p>
-cout &lt;&lt; buf&lt;&lt; endl;
+结果为:hello<br />
 </p>
 
 <p>
-结果为:world
+ {h | l | I64 | L}:参数的size,通常h表示单字节size，I表示2字节 size,L表示4字节size(double例外),l64表示8字节size。<br />
 </p>
 
 <p>
-支持集合操作：
+type :这就很多了，就是%s,%d之类。<br />
+</p>
+
+ 
+
+<p>
+特别的：<br />
+</p>
+
+<p>
+%*[width] [{h | l | I64 | L}]type  表示满足该条件的被过滤掉，不会向目标参数中写入值。如：<br />
+</p>
+
+<p>
+const  char sourceStr[] = "hello, world";<br />
+</p>
+
+<p>
+char buf[10] = {0};<br />
+</p>
+
+<p>
+sscanf(sourceStr, "%*s%s", buf);   //%*s表示第一个匹配到的%s被过滤掉，即hello被过滤了<br />
+</p>
+
+<p>
+cout &lt;&lt; buf&lt;&lt; endl;<br />
+</p>
+
+<p>
+结果为:world<br />
+</p>
+
+<p>
+支持集合操作：<br />
 </p>
 <blockquote>
 %[a-z]  表示匹配a到z中任意字符，贪婪性(尽可能多的匹配)
@@ -231,7 +231,7 @@ cout &lt;&lt; buf&lt;&lt; endl;
 </blockquote>
 
 <p>
-星星大哥例子回顾：
+星星大哥例子回顾：<br />
 </p>
 <blockquote>
 const char* s = "iios/12DDWDFF@122";
@@ -243,11 +243,11 @@ printf( "%s\n", buf );
 </blockquote>
 
 <p>
-先将 "iios/"过滤掉，再将非'@'的一串内容送到buf中，cool.得到结果。
+先将 "iios/"过滤掉，再将非'@'的一串内容送到buf中，cool.得到结果。<br />
 </p>
 
 <p>
-PS: 向星星大哥和softmse (Jake) 致谢了，有了你们才有它啊
+PS: 向星星大哥和softmse (Jake) 致谢了，有了你们才有它啊<br />
 </p>
 
 
@@ -274,8 +274,6 @@ PS: 向星星大哥和softmse (Jake) 致谢了，有了你们才有它啊
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

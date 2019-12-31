@@ -16,16 +16,16 @@
 <body>
 
 <p>
-	RAM/IO
-	通过选择可以选择其中的一个。
+	RAM/IO<br />
+	通过选择可以选择其中的一个。<br />
 </p>
 
 <p>
-	如果选中I/O口，那么IO口里面就有6个寄存器，分别装的是控制字，PA/PB/PC数值(锁存数据的)，定时器(2个)。(通过地址译码选择对应的寄存器)
+	如果选中I/O口，那么IO口里面就有6个寄存器，分别装的是控制字，PA/PB/PC数值(锁存数据的)，定时器(2个)。(通过地址译码选择对应的寄存器)<br />
 </p>
 
 <p>
-	操作顺序，<code>首先</code>发送控制字(用来控制其他寄存器的L门和E门，一旦写进去就决定了哪个L门开，哪个E门开，如果要改变，就得重新写入)，自动将其锁存
+	操作顺序，<code>首先</code>发送控制字(用来控制其他寄存器的L门和E门，一旦写进去就决定了哪个L门开，哪个E门开，如果要改变，就得重新写入)，自动将其锁存<br />
 </p>
 <blockquote>
 <code>其次</code>发送数据，自动锁存。
@@ -60,8 +60,6 @@
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

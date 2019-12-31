@@ -41,7 +41,7 @@
 <li><a href="#toc_12">输出去按原来的处理，不更新</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <ul>
 <li>
@@ -59,16 +59,16 @@ settable跳钻
 
 <h1 id="toc_1">属性找不到</h1><HR SIZE=1>
 <p>
-打开料号的时候:Attribute does not exist attribute:.ijob
-原因：找不到属性.打开
-	/genesis/fw/lib/misc/userattr
-系统定义的属性存放的位置：
-	/genesis/e93/all/sysattr
+打开料号的时候:Attribute does not exist attribute:.ijob<br />
+原因：找不到属性.打开<br />
+	/genesis/fw/lib/misc/userattr<br />
+系统定义的属性存放的位置：<br />
+	/genesis/e93/all/sysattr<br />
 </p>
 	
 <p>
-	加上属性
-TEXT {
+	加上属性<br />
+TEXT {<br />
 </p>
 <blockquote>
 NAME=.ijob
@@ -79,72 +79,72 @@ ENTITY=ALL
 DEF=
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <h1 id="toc_2">料号卡死，没有保存</h1><HR SIZE=1>
 <p>
-/frontline/app_gen/e93/misc/gateway %输入PID号
-然后手动执行命令：
-COM save_job
+/frontline/app_gen/e93/misc/gateway %输入PID号<br />
+然后手动执行命令：<br />
+COM save_job<br />
 </p>
 
 
 <h2 id="toc_2.1">钻孔输出包inner error</h2>
 <p>
-1，钻孔有可能有0mil或者是不是rpad的东西
-2，里面有保存的ncd没有删除
+1，钻孔有可能有0mil或者是不是rpad的东西<br />
+2，里面有保存的ncd没有删除<br />
 </p>
 
 <h2 id="toc_2.2">genesis 无法启动</h2>
 <p>
-打开终端执行主目录的.cshrc。通过.cshrc调用启动genesis的命令和初始化一些变量
+打开终端执行主目录的.cshrc。通过.cshrc调用启动genesis的命令和初始化一些变量<br />
 </p>
 
 <h2 id="toc_2.3">Socket connect problem</h2>
 <p>
-1,dongle
-2,gnd
-3,license
-4,Ip
+1,dongle<br />
+2,gnd<br />
+3,license<br />
+4,Ip<br />
 </p>
 
 <h2 id="toc_2.4">How to use gnd</h2>
 <p>
-Control panle-＞seach services-&gt;find the “front line gnd server”, and then start it
+Control panle-＞seach services-&gt;find the “front line gnd server”, and then start it<br />
 </p>
 
 <p>
-Socket read problem
-It is possible the get，chenge the get version
+Socket read problem<br />
+It is possible the get，chenge the get version<br />
 </p>
 
 
 <h1 id="toc_3">设置自动登录</h1><HR SIZE=1>
 <p>
-create the environment FRONTLINE_NO_LOGIN_SCREEN，then set it value as 1
-secarch the .genesis in c:\documents and settings , and open it. And then create a file login, write 11 11
+create the environment FRONTLINE_NO_LOGIN_SCREEN，then set it value as 1<br />
+secarch the .genesis in c:\documents and settings , and open it. And then create a file login, write 11 11<br />
 </p>
 
 <p>
-genesis’s /genesis is a directory that is mount from /frontline/app_gen in virture machine gen_linux
+genesis’s /genesis is a directory that is mount from /frontline/app_gen in virture machine gen_linux<br />
 </p>
 
 <p>
-sometimes, you need add the Environment "HOME" and set the value "c:\Users\linwei\"
+sometimes, you need add the Environment "HOME" and set the value "c:\Users\linwei\"<br />
 </p>
 
 <h1 id="toc_4">手动保存料号</h1><HR SIZE=1>
 <p>
-.gateway %PID号
-COM save_job
-如果返回1，则表示保存成功。
+.gateway %PID号<br />
+COM save_job<br />
+如果返回1，则表示保存成功。<br />
 </p>
 
 <h1 id="toc_5">用属性改变值，比如周期</h1><HR SIZE=1>
 <p>
-在userattr或者sysattr里面加上如下text属性，把DEF删掉，那么默认值就是0
-TEXT {
+在userattr或者sysattr里面加上如下text属性，把DEF删掉，那么默认值就是0<br />
+TEXT {<br />
 </p>
 <blockquote>
 NAME=.cu_area
@@ -155,62 +155,62 @@ ENTITY=LAYER
 DEF=
 </blockquote>
 <p>
-}
+}<br />
 </p>
 <h1 id="toc_6">#程序设置属性值</h1><HR SIZE=1>
 <p>
-\(genesis-&gt;COM('set_attribute', type =&gt; 'job',job =&gt; "\)job_name",name1 =&gt; '',name2 =&gt; '',name3 =&gt; '',attribute =&gt; 'lot',value =&gt; "$allemployees-&gt;{lot}", units =&gt; 'inch');
+\(genesis-&gt;COM('set_attribute', type =&gt; 'job',job =&gt; "\)job_name",name1 =&gt; '',name2 =&gt; '',name3 =&gt; '',attribute =&gt; 'lot',value =&gt; "$allemployees-&gt;{lot}", units =&gt; 'inch');<br />
 </p>
 
 <h1 id="toc_7">阴阳拼板.release_from属性值获取</h1><HR SIZE=1>
 <p>
-1，用DO_INFO
-2，直接用库函数GetStepAttr();
+1，用DO_INFO<br />
+2，直接用库函数GetStepAttr();<br />
 </p>
 
 <h1 id="toc_8">根据网络分析netlist去判定是否操作</h1><HR SIZE=1>
 <p>
-在line_hooks下面的netlist_compare.post里面可以保存netlist分析
-COM netlist_save_compare_results,out_file=$netlist_path,output=file
-保存后截取里面的数据
-把set shorted = ok 等写入文件，source该文件，判断如果ok则继续
+在line_hooks下面的netlist_compare.post里面可以保存netlist分析<br />
+COM netlist_save_compare_results,out_file=$netlist_path,output=file<br />
+保存后截取里面的数据<br />
+把set shorted = ok 等写入文件，source该文件，判断如果ok则继续<br />
 </p>
 
 
 <h1 id="toc_9">genesis钻孔图显示不了ABC</h1><HR SIZE=1>
 <p>
-把/genesis/e92/all/markers替换一下
+把/genesis/e92/all/markers替换一下<br />
 </p>
 
 <h1 id="toc_10">gateway</h1><HR SIZE=1>
 <p>
-查找某台机有谁在使用genesis    ./gateway '<strong>cam04</strong>'
-谁在哪台机：./gateway '<strong>lw</strong>'
+查找某台机有谁在使用genesis    ./gateway '<strong>cam04</strong>'<br />
+谁在哪台机：./gateway '<strong>lw</strong>'<br />
 </p>
 
 <h1 id="toc_11">设置genesis的颜色</h1><HR SIZE=1>
 <p>
-option-&gt;configuration-&gt;搜索color     把gui_native_color_mix值设为yes
+option-&gt;configuration-&gt;搜索color     把gui_native_color_mix值设为yes<br />
 </p>
 
 <h2 id="toc_11.1">无法访问别台电脑的gnd</h2>
 <p>
-是否防火墙打开
+是否防火墙打开<br />
 </p>
 
 <h2 id="toc_11.2">打开genesis自动关闭，无法登陆</h2>
 <p>
-查看logs，看是gnd还是license问题
+查看logs，看是gnd还是license问题<br />
 </p>
 
 <h1 id="toc_12">输出去按原来的处理，不更新</h1><HR SIZE=1>
 <p>
-\(jobPath/steps/panel/layers/\)currentLayer/ncd 删掉即可
+\(jobPath/steps/panel/layers/\)currentLayer/ncd 删掉即可<br />
 </p>
 
 
 <p>
-mytest16x36NEG
+mytest16x36NEG<br />
 </p>
 
 
@@ -237,8 +237,6 @@ mytest16x36NEG
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

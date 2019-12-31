@@ -36,86 +36,86 @@
 
 <h2 id="toc_0.1">perl特殊命令</h2>
 <p>
-	%aa = (bb =&gt; [a, c, b], ee =&gt; ff);
-	$cc = \%aa;
-	\(genesis-&gt;PAUSE("@{\)$cc{bb}}");
-	\(genesis-&gt;PAUSE("@{\)aa{bb}}");	
+	%aa = (bb =&gt; [a, c, b], ee =&gt; ff);<br />
+	$cc = \%aa;<br />
+	\(genesis-&gt;PAUSE("@{\)$cc{bb}}");<br />
+	\(genesis-&gt;PAUSE("@{\)aa{bb}}");	<br />
 </p>
 	
 <p>
-	%aa = (bb =&gt; [a, c, b], ee =&gt; ff);一键对一值，bb =&gt; [a, c, b]中的[a, c, b]是个指向数组的引用，类型为scale。注意：里面的时一一对应关系，不会是一对多。
-	名称表地址$cc表示的是aa
-	键值有两种情况：标量数值，数组或哈希的引用。
+	%aa = (bb =&gt; [a, c, b], ee =&gt; ff);一键对一值，bb =&gt; [a, c, b]中的[a, c, b]是个指向数组的引用，类型为scale。注意：里面的时一一对应关系，不会是一对多。<br />
+	名称表地址$cc表示的是aa<br />
+	键值有两种情况：标量数值，数组或哈希的引用。<br />
 </p>
 
 <p>
-	genesis是一个scalar，其是一个变量名，内容为0x1d9b86c，是个引用,指向一个无名哈希。$\(genesis{doinfo}或者\)genesis-&gt;{doinfo}，为哈希值，其也是一个scalar，就是一个地址，这地址指向无名哈希，通过该地址可求出某个键的值。
+	genesis是一个scalar，其是一个变量名，内容为0x1d9b86c，是个引用,指向一个无名哈希。$\(genesis{doinfo}或者\)genesis-&gt;{doinfo}，为哈希值，其也是一个scalar，就是一个地址，这地址指向无名哈希，通过该地址可求出某个键的值。<br />
 </p>
 	
 <p>
-	%aa = (bb =&gt; [hong, tian, liang], ee =&gt; ff);
-	my %tmp;
-	@tmp{@{$aa{"bb"}}} = qw(ha hi ho);
-	@known_opt{@KnownOptIn, @KnownOptOut} = ("aaa") x 100;
+	%aa = (bb =&gt; [hong, tian, liang], ee =&gt; ff);<br />
+	my %tmp;<br />
+	@tmp{@{$aa{"bb"}}} = qw(ha hi ho);<br />
+	@known_opt{@KnownOptIn, @KnownOptOut} = ("aaa") x 100;<br />
 </p>
 	
 <p>
-	print Dumper(@tmp{hong, tian});##打印出来时ha，hi
-	如果是取哈希的单个值，直接用$tmp{}表示，如果是取哈希的多个值，那么用@tmp{多个键值}，表示的是多个键所对应的值所组成的数组
-	变量前面加反斜杠，表示取址
+	print Dumper(@tmp{hong, tian});##打印出来时ha，hi<br />
+	如果是取哈希的单个值，直接用$tmp{}表示，如果是取哈希的多个值，那么用@tmp{多个键值}，表示的是多个键所对应的值所组成的数组<br />
+	变量前面加反斜杠，表示取址<br />
 </p>
 	
 <p>
-   qw/1 2 3 4 5/ 省去单引号和逗号的列表
+   qw/1 2 3 4 5/ 省去单引号和逗号的列表<br />
 </p>
    
 <p>
-   -font=&gt;[](数组的引用)
+   -font=&gt;[](数组的引用)<br />
 </p>
    
 <p>
-	perl函数如果能区分什么是参数，就没有必要加括号。
-	sort 子程序或代码块list，后面必须要用括号扩住。
+	perl函数如果能区分什么是参数，就没有必要加括号。<br />
+	sort 子程序或代码块list，后面必须要用括号扩住。<br />
 </p>
 	
 <p>
-	\(h-&gt;{aa}-&gt;{bb}.\)h是引用第一个箭头不能省略，如果省略编程\(h{aa}-&gt;{bb}.\)h不是引用，而是一个变量。由于\(h-&gt;{aa}不管怎样只要后面也是下标都表示引用(不像\)h，h有可能是变量，有可能是引用)。故可以省略左右都是下标的箭头。
+	\(h-&gt;{aa}-&gt;{bb}.\)h是引用第一个箭头不能省略，如果省略编程\(h{aa}-&gt;{bb}.\)h不是引用，而是一个变量。由于\(h-&gt;{aa}不管怎样只要后面也是下标都表示引用(不像\)h，h有可能是变量，有可能是引用)。故可以省略左右都是下标的箭头。<br />
 </p>
 	
 <p>
-	标量和引用之间很明显的不同在于引用表示某种类型。可以用ref来返回该引用所指向的数据的类型。
+	标量和引用之间很明显的不同在于引用表示某种类型。可以用ref来返回该引用所指向的数据的类型。<br />
 </p>
    
 <h2 id="toc_0.2">Exporter 类 (共享包的函数)</h2>
 <p>
-exporter类提供了共享函数的方法
-在包里面需要三个语句和一个函数：
-	require Exporter;
-	our @ISA = qw(Exporter);
-	our @EXPORT = qw(function);
+exporter类提供了共享函数的方法<br />
+在包里面需要三个语句和一个函数：<br />
+	require Exporter;<br />
+	our @ISA = qw(Exporter);<br />
+	our @EXPORT = qw(function);<br />
 </p>
 	
 <p>
-	sub function{
-		……
-	}
+	sub function{<br />
+		……<br />
+	}<br />
 </p>
 	
 <p>
-使用的时候需要使用use 包名 qw(function);(前面要包含包地址)
-然后可以直接使用该函数
-	function();
+使用的时候需要使用use 包名 qw(function);(前面要包含包地址)<br />
+然后可以直接使用该函数<br />
+	function();<br />
 </p>
 	
 <p>
-@EXPORT = qw(Exists Ev exit MainLoop DoOneEvent tkinit haha);EXPORT数组里面的函数是外部可用的函数
+@EXPORT = qw(Exists Ev exit MainLoop DoOneEvent tkinit haha);EXPORT数组里面的函数是外部可用的函数<br />
 </p>
 
 <p>
-my %hash = qw(aa bb cc dd ee ff);
-while (my (\(key, \)val) = each %hash) {
-	print "\(key =&gt; \)val\n";
-}
+my %hash = qw(aa bb cc dd ee ff);<br />
+while (my (\(key, \)val) = each %hash) {<br />
+	print "\(key =&gt; \)val\n";<br />
+}<br />
 </p>
 
 
@@ -142,8 +142,6 @@ while (my (\(key, \)val) = each %hash) {
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

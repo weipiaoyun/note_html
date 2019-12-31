@@ -49,52 +49,52 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">新建工程 </h1><HR SIZE=1>
 <p>
-工程-&gt;新建工程-&gt;单击工程-&gt;单击开发
-点击I/O设备-&gt;新建PLC设备
+工程-&gt;新建工程-&gt;单击工程-&gt;单击开发<br />
+点击I/O设备-&gt;新建PLC设备<br />
 </p>
 
 <h1 id="toc_2">测试连接 </h1><HR SIZE=1>
 <p>
-双击I/O设备-&gt;右击右边已添加设备-&gt;选择测试。
+双击I/O设备-&gt;右击右边已添加设备-&gt;选择测试。<br />
 </p>
 
 
 <h1 id="toc_3">建点 </h1><HR SIZE=1>
 <p>
-项目-&gt;数据库组态-&gt;选择数据库-&gt;双击NAME(点名)-&gt;模拟I/O点-&gt;输入名称-&gt;单击数据连接-&gt;连接项单击增加-&gt;选择I/O类型-&gt;填写偏移地址。
+项目-&gt;数据库组态-&gt;选择数据库-&gt;双击NAME(点名)-&gt;模拟I/O点-&gt;输入名称-&gt;单击数据连接-&gt;连接项单击增加-&gt;选择I/O类型-&gt;填写偏移地址。<br />
 </p>
 
 <h1 id="toc_4">窗口 </h1><HR SIZE=1>
 <p>
-窗口-&gt;新建窗口-&gt;新添图元文本-&gt;双击图元-&gt;选择数据输出-&gt;模拟-&gt;变量选择。
+窗口-&gt;新建窗口-&gt;新添图元文本-&gt;双击图元-&gt;选择数据输出-&gt;模拟-&gt;变量选择。<br />
 </p>
 
 
 <h2 id="toc_4.1">修改变量 </h2>
 <p>
-双击图元-&gt;数据输入-&gt;点模拟-&gt;变量选择。
+双击图元-&gt;数据输入-&gt;点模拟-&gt;变量选择。<br />
 </p>
 
 <h1 id="toc_5">数据库操作 </h1><HR SIZE=1>
 <p>
-后台组件-&gt;通用控件-&gt;双击ADO组建-&gt;设置-&gt;添加-&gt;定义数据源名称-&gt;点击...(*)-&gt;选择sql server-&gt;输入sql链接
+后台组件-&gt;通用控件-&gt;双击ADO组建-&gt;设置-&gt;添加-&gt;定义数据源名称-&gt;点击...(*)-&gt;选择sql server-&gt;输入sql链接<br />
 </p>
 
 <p>
-报表-&gt;专家报表-&gt;报表向导-&gt;关系数据库报表向导。-&gt;在报表向导第三步选择数据源名称。-&gt;第四步选择数据表和字段。
+报表-&gt;专家报表-&gt;报表向导-&gt;关系数据库报表向导。-&gt;在报表向导第三步选择数据源名称。-&gt;第四步选择数据表和字段。<br />
 </p>
 
 
 <h2 id="toc_5.1">打开数据库，查询数据 </h2>
 <p>
-全局脚本-&gt;动作-&gt;应用程序动作-&gt;进入程序
-#ADOModule.OpenDataBase();
-#ADOModule.ExcuteSQL("select top 1 Name from AutoCam_ChildFlowList");
-区域1\job.desc  = #ADOModule.GetValueByFieldStr("Name");
+全局脚本-&gt;动作-&gt;应用程序动作-&gt;进入程序<br />
+#ADOModule.OpenDataBase();<br />
+#ADOModule.ExcuteSQL("select top 1 Name from AutoCam_ChildFlowList");<br />
+区域1\job.desc  = #ADOModule.GetValueByFieldStr("Name");<br />
 </p>
 
 <ol>
@@ -105,7 +105,7 @@
 
 <h1 id="toc_6">添加点 </h1><HR SIZE=1>
 <p>
-数据库组态-&gt;
+数据库组态-&gt;<br />
 </p>
 
 
@@ -113,74 +113,74 @@
 <h1 id="toc_7">实时数据库 </h1><HR SIZE=1>
 <h2 id="toc_7.1">通信不上显示？？ </h2>
 <p>
-工程-&gt;数据库参数-&gt;通信故障时显示值为：？？？？
+工程-&gt;数据库参数-&gt;通信故障时显示值为：？？？？<br />
 </p>
 
 <p>
-可以选保存数据
+可以选保存数据<br />
 </p>
 
 
 <p>
-可以导入导出。
+可以导入导出。<br />
 </p>
 
 
 <h1 id="toc_8">ADO组建 </h1><HR SIZE=1>
 <p>
-SQL数据表模板
-数据表绑定(字段和参数类型和模板表要对应)
+SQL数据表模板<br />
+数据表绑定(字段和参数类型和模板表要对应)<br />
 </p>
 
 
 <h1 id="toc_9">变量选择 </h1><HR SIZE=1>
 <p>
-在全局中可以找到系统时间。
+在全局中可以找到系统时间。<br />
 </p>
 
 
 <h1 id="toc_10">后台组建 </h1><HR SIZE=1>
 <h2 id="toc_10.1">EMAIL组建 </h2>
 <p>
-<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/组态Email.jpg" /></div>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/组态Email.jpg" /></div><br />
 </p>
 
 
 <h2 id="toc_10.2">ADO组建-同步数据库 </h2>
 <p>
-基本属性注意表名的位置。放到链接里面。
-<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/组态ADO基本属性.jpg" /></div>
+基本属性注意表名的位置。放到链接里面。<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/组态ADO基本属性.jpg" /></div><br />
 </p>
 
 <p>
-<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/组态ADO数据表管理.jpg" /></div>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/组态ADO数据表管理.jpg" /></div><br />
 </p>
 
 <p>
-#DRAW1.#Report4.UpdateRecord(0);
+#DRAW1.#Report4.UpdateRecord(0);<br />
 </p>
 
 
 <h1 id="toc_11">报表 </h1><HR SIZE=1>
 <h2 id="toc_11.1">设置关系型数据库报表值 </h2>
 <p>
-#DRAW1.#Report4.SetCellString(-1, 1,1,"set" ,0);
-#DRAW1.#Report4.SetCellTextColor(-1, 1,1 ,1);
+#DRAW1.#Report4.SetCellString(-1, 1,1,"set" ,0);<br />
+#DRAW1.#Report4.SetCellTextColor(-1, 1,1 ,1);<br />
 </p>
 
 <h2 id="toc_11.2">可以定时刷新数据库值 </h2>
 <p>
-#DRAW1.#Report4.RefreshSheet(-1);
+#DRAW1.#Report4.RefreshSheet(-1);<br />
 </p>
 
 <h2 id="toc_11.3">也可以定时更新数据值 </h2>
 <p>
-#Report4.UpdateRecord(0);
+#Report4.UpdateRecord(0);<br />
 </p>
 
 <h2 id="toc_11.4">设置条件颜色 </h2>
 <p>
-右击单元格-&gt;单元格属性-&gt;其它-&gt;单元前景色使用颜色值公式。
+右击单元格-&gt;单元格属性-&gt;其它-&gt;单元前景色使用颜色值公式。<br />
 </p>
 
 
@@ -207,8 +207,6 @@ SQL数据表模板
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

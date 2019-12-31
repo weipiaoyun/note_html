@@ -16,13 +16,13 @@
 <body>
 
 <p>
-只要是多个元素的集合，都可以实现foreach，只要支持GetEnumerator()方法。
+只要是多个元素的集合，都可以实现foreach，只要支持GetEnumerator()方法。<br />
 </p>
 
 
 <p>
-public class Garage  
-{  
+public class Garage  <br />
+{  <br />
 </p>
 <blockquote>
 Car[] carArray = new Car[4];  //在Garage中定义一个Car类型的数组carArray,其实carArray在这里的本质是一个数组字段  
@@ -39,106 +39,106 @@ carArray[3] = new Car("Fred", 45);
 }  
 </blockquote>
 <p>
-}  
+}  <br />
 </p>
 
 
 
 <h1 id="toc_1">foreach</h1><HR SIZE=1>
 <p>
-数组能用foreach遍历，是因为其实现了IEnumerabale和IEnumerator的接口，通过IEnumerabale的GetEnumerator 获取IEnumerator。
-IEnumerabale 使成为枚举(枚举器)
-IEnumerator获取每个值(迭代器)
+数组能用foreach遍历，是因为其实现了IEnumerabale和IEnumerator的接口，通过IEnumerabale的GetEnumerator 获取IEnumerator。<br />
+IEnumerabale 使成为枚举(枚举器)<br />
+IEnumerator获取每个值(迭代器)<br />
 </p>
 
 <p>
-要实现foreach必须要实现IEnumerabale和IEnumerator的接口。才能实现遍历。
+要实现foreach必须要实现IEnumerabale和IEnumerator的接口。才能实现遍历。<br />
 </p>
 
 <p>
-也可以只实现GetEnumerator方法即可，不需要实现IEnumerable接口
+也可以只实现GetEnumerator方法即可，不需要实现IEnumerable接口<br />
 </p>
 
 <p>
-foreach 里面的in，会调用Emumerator里面的MoveNext()函数。
+foreach 里面的in，会调用Emumerator里面的MoveNext()函数。<br />
 </p>
 
 <p>
-foreach里面的定义变量，会访问Current属性，并赋值。
+foreach里面的定义变量，会访问Current属性，并赋值。<br />
 </p>
 
 <p>
-通过foreach, 获得对象(里面含后GetEnumerator方法，返回Enumerator)的Enumerator。通过Enumerator执行MoveNext()函数获取当前指向，从而获取属性值。
+通过foreach, 获得对象(里面含后GetEnumerator方法，返回Enumerator)的Enumerator。通过Enumerator执行MoveNext()函数获取当前指向，从而获取属性值。<br />
 </p>
 
 <p>
-<code>要实现可枚举的，其必须本身就是一个个的实体组成的对象集合，对对象的集合进行枚举</code>，必定是数组
+<code>要实现可枚举的，其必须本身就是一个个的实体组成的对象集合，对对象的集合进行枚举</code>，必定是数组<br />
 </p>
 
 <h1 id="toc_2">1.  IEnumerable 与  IEnumerator</h1><HR SIZE=1>
 <p>
-IEnumerable(可列举的接口)是一个枚举器
-IEnumerator是一个迭代器
+IEnumerable(可列举的接口)是一个枚举器<br />
+IEnumerator是一个迭代器<br />
 </p>
 <h2 id="toc_2.1">IEnumerable</h2>
 <p>
-IEnumerable是一个类
-继承这个类后的类的对象成了可枚举类型(foreach的操作是针对可枚举类型的)
+IEnumerable是一个类<br />
+继承这个类后的类的对象成了可枚举类型(foreach的操作是针对可枚举类型的)<br />
 </p>
 
 <p>
-有一个抽象方法：GetEnumerator(), 返回IEnumerator
+有一个抽象方法：GetEnumerator(), 返回IEnumerator<br />
 </p>
 
 <p>
-<code>继承IEnumerable该类的需添加GetEnumerator这个函数</code>
+<code>继承IEnumerable该类的需添加GetEnumerator这个函数</code><br />
 </p>
 
 <h2 id="toc_2.2">IEnumerator</h2>
 <p>
-字段：
-state: int型，私有，计数器用
-current: object型，私有，当前值
+字段：<br />
+state: int型，私有，计数器用<br />
+current: object型，私有，当前值<br />
 </p>
 
 <p>
-属性：
-Current: object型，当前值
+属性：<br />
+Current: object型，当前值<br />
 </p>
 
 
 <p>
-方法：
-构造函数
-MoveNext：移动到下一个值
-Reset：重置
+方法：<br />
+构造函数<br />
+MoveNext：移动到下一个值<br />
+Reset：重置<br />
 </p>
 
 
 <h3 id="toc_2.2.1">作用</h3>
 <p>
-实现可枚举数
+实现可枚举数<br />
 </p>
 
 <p>
-IEnumerator是一个迭代器(计数器), 真正实现了访问集合的功能
-IEnumerator只有一个Current属性，MoveNext和Reset两个方法。
+IEnumerator是一个迭代器(计数器), 真正实现了访问集合的功能<br />
+IEnumerator只有一个Current属性，MoveNext和Reset两个方法。<br />
 </p>
 
 <h2 id="toc_2.3">可枚举类型和枚举</h2>
 <p>
-可枚举类型 → 实现IEnumerable接口，可以不需要直接实现这个接口，但必须有个GetEnumerator方法，返回值类型必须为IEnumerator类型，也就是第四点最后一段代码中接口注释的那种写法！
+可枚举类型 → 实现IEnumerable接口，可以不需要直接实现这个接口，但必须有个GetEnumerator方法，返回值类型必须为IEnumerator类型，也就是第四点最后一段代码中接口注释的那种写法！<br />
 </p>
 
 
 
 
 <p>
-　I， 实现IEnumerable接口，实现GetEnumerator方法，返回IEnumerator类型的枚举数，使定义的类变为可枚举类型！
+　I， 实现IEnumerable接口，实现GetEnumerator方法，返回IEnumerator类型的枚举数，使定义的类变为可枚举类型！<br />
 </p>
 
 <p>
-II，实现IEnumerator接口操作返回的枚举数对象(其实枚举数本质上就是数组或集合)，以至于可以依次返回集合中项的类对象！
+II，实现IEnumerator接口操作返回的枚举数对象(其实枚举数本质上就是数组或集合)，以至于可以依次返回集合中项的类对象！<br />
 </p>
 
 
@@ -165,8 +165,6 @@ II，实现IEnumerator接口操作返回的枚举数对象(其实枚举数本质
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

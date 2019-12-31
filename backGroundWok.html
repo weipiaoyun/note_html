@@ -16,21 +16,21 @@
 <body>
 
 <p>
-RunWorkerAsync  异步调用的启动
+RunWorkerAsync  异步调用的启动<br />
 </p>
 
 <p>
-ProgressChanged进度改变事件:dForm.progressFileDownload.Position = e.ProgressPercentage;
-DoWork执行任务事件：
-RunWorkerCompleted完成事件：
+ProgressChanged进度改变事件:dForm.progressFileDownload.Position = e.ProgressPercentage;<br />
+DoWork执行任务事件：<br />
+RunWorkerCompleted完成事件：<br />
 </p>
 
 
 <p>
-1，BackgroundWorker bgw = new BackgroundWorker();创建后台线程对象。
-	ReportProgress，在后台线程处理的程序，通常情况下需要反馈处理的进度给用户。在调用ReportProgress的方法时，会触发ProgressChanged事件。提供0-100之间的整数。
-	ProgressChanged事件，参数为百分比和你自己的对象e.ProgressPercentage, e.UserState
-2，bgw.RunWorkerAsync 异步启动
+1，BackgroundWorker bgw = new BackgroundWorker();创建后台线程对象。<br />
+	ReportProgress，在后台线程处理的程序，通常情况下需要反馈处理的进度给用户。在调用ReportProgress的方法时，会触发ProgressChanged事件。提供0-100之间的整数。<br />
+	ProgressChanged事件，参数为百分比和你自己的对象e.ProgressPercentage, e.UserState<br />
+2，bgw.RunWorkerAsync 异步启动<br />
 </p>
 
 
@@ -57,8 +57,6 @@ RunWorkerCompleted完成事件：
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

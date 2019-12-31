@@ -16,41 +16,41 @@
 <body>
 
 <p>
-select  convert(datetime,CONVERT(VARCHAR(10),GETDATE(),120)+' 00:00:00',111)
+select  convert(datetime,CONVERT(VARCHAR(10),GETDATE(),120)+' 00:00:00',111)<br />
 </p>
 
 
 
 <h1 id="toc_1">with as</h1><HR SIZE=1>
 <p>
-WITH Data25 AS
-(
-	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,0 AS lvl FROM  [dbo].[T_ppe_MakeModuleNo] c WHERE c.Guid_='8E392F3A-16D3-441C-9C74-F9931AD3AECA'
-	UNION ALL
-	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,lvl+1   FROM  Data25 z
-	INNER JOIN [dbo].[T_ppe_MakeModuleNo] c
-	ON z.Guid_=c.Guid4ChKB
-)
+WITH Data25 AS<br />
+(<br />
+	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,0 AS lvl FROM  [dbo].[T_ppe_MakeModuleNo] c WHERE c.Guid_='8E392F3A-16D3-441C-9C74-F9931AD3AECA'<br />
+	UNION ALL<br />
+	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,lvl+1   FROM  Data25 z<br />
+	INNER JOIN [dbo].[T_ppe_MakeModuleNo] c<br />
+	ON z.Guid_=c.Guid4ChKB<br />
+)<br />
 </p>
 
 <h1 id="toc_2">BM</h1><HR SIZE=1>
 <p>
-SELECT *  FROM Data25
+SELECT *  FROM Data25<br />
 </p>
 
 <p>
-WITH Data25 AS
-(
-	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,0 AS lvl FROM  [dbo].[T_ppe_MakeModuleNo] c WHERE c.Guid_='8E392F3A-16D3-441C-9C74-F9931AD3AECA'
-	UNION ALL
-	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,lvl+1   FROM  Data25 z
-	INNER JOIN [dbo].[T_ppe_MakeModuleNo] c
-	ON z.Guid_=c.Guid4ChKB
-)
+WITH Data25 AS<br />
+(<br />
+	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,0 AS lvl FROM  [dbo].[T_ppe_MakeModuleNo] c WHERE c.Guid_='8E392F3A-16D3-441C-9C74-F9931AD3AECA'<br />
+	UNION ALL<br />
+	SELECT c.Guid_,c.Pdct_NAME_,c.PdctNo_,c.Guid4ChKB,lvl+1   FROM  Data25 z<br />
+	INNER JOIN [dbo].[T_ppe_MakeModuleNo] c<br />
+	ON z.Guid_=c.Guid4ChKB<br />
+)<br />
 </p>
 
 <p>
-SELECT *  FROM Data25
+SELECT *  FROM Data25<br />
 </p>
 
 
@@ -77,8 +77,6 @@ SELECT *  FROM Data25
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

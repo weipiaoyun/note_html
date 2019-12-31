@@ -17,16 +17,16 @@
 
 <h1 id="toc_1">virtual </h1><HR SIZE=1>
 <p>
-虚函数， 子类可以override父类。
+虚函数， 子类可以override父类。<br />
 </p>
 
 <p>
-A a =new B(); 其中A是申明类，B是实例类
+A a =new B(); 其中A是申明类，B是实例类<br />
 </p>
 
 <p>
-申明类
- 1.当调用一个对象的函数时，系统会直接去检查这个对象申明定义的类，即申明类，看所调用的函数是否为虚函数； 2.如果不是虚函数，那么它就直接执行该函数。而如果是一个虚函数，那么这个时候它就不会立刻执行该函数了，而是开始检查对象的实例类。 3.在这个实例类里，他会检查这个实例类的定义中是否有实现该虚函数或者重新实现该虚函数（通过override关键字）的方法， 如果有，它就不会再找了，而是马上执行该实例类中实现的虚函数的方法。而如果没有的话，系统就会不停地往上找实例类的父类， 并对父类重复刚才在实例类里的检查，直到找到第一个重载了该虚函数的父类为止，然后执行该父类里重载后的函数。
+申明类<br />
+ 1.当调用一个对象的函数时，系统会直接去检查这个对象申明定义的类，即申明类，看所调用的函数是否为虚函数； 2.如果不是虚函数，那么它就直接执行该函数。而如果是一个虚函数，那么这个时候它就不会立刻执行该函数了，而是开始检查对象的实例类。 3.在这个实例类里，他会检查这个实例类的定义中是否有实现该虚函数或者重新实现该虚函数（通过override关键字）的方法， 如果有，它就不会再找了，而是马上执行该实例类中实现的虚函数的方法。而如果没有的话，系统就会不停地往上找实例类的父类， 并对父类重复刚才在实例类里的检查，直到找到第一个重载了该虚函数的父类为止，然后执行该父类里重载后的函数。<br />
 </p>
 
 
@@ -53,8 +53,6 @@ A a =new B(); 其中A是申明类，B是实例类
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -46,129 +46,129 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">添加字典 </h1><HR SIZE=1>
 <p>
-Infrastructure.TBL_SYS_DICTIONARY dic = GetDictionaryByCode("DLINK_IP");
-if (dic == null || string.IsNullOrEmpty(dic.CDIC_VALUE))
-{
+Infrastructure.TBL_SYS_DICTIONARY dic = GetDictionaryByCode("DLINK_IP");<br />
+if (dic == null || string.IsNullOrEmpty(dic.CDIC_VALUE))<br />
+{<br />
 </p>
 
 <p>
-	MessageBox.Show("请先到数据字典维护ERP接口地址");
-	return null;
-}
+	MessageBox.Show("请先到数据字典维护ERP接口地址");<br />
+	return null;<br />
+}<br />
 </p>
             
 
 
 <p>
-TBL_SYS_DICTIONARY dicDalLinkIp = GetDictionaryByCode("DIALink");
-if (dicDalLinkIp == null || string.IsNullOrEmpty(dicDalLinkIp.CDIC_VALUE))
-{
-	functionResult.Success = false;
-	functionResult.Content = model.CRESULT = "请先到数据字典维护DalLinkIp接口地址";
-	InsertLog(model);
-	return functionResult;
-}
+TBL_SYS_DICTIONARY dicDalLinkIp = GetDictionaryByCode("DIALink");<br />
+if (dicDalLinkIp == null || string.IsNullOrEmpty(dicDalLinkIp.CDIC_VALUE))<br />
+{<br />
+	functionResult.Success = false;<br />
+	functionResult.Content = model.CRESULT = "请先到数据字典维护DalLinkIp接口地址";<br />
+	InsertLog(model);<br />
+	return functionResult;<br />
+}<br />
 </p>
 
 
 <h1 id="toc_2">添加用户 </h1><HR SIZE=1>
 <p>
-用户管理-&gt;新增-&gt;输入基本属性-&gt;关联运营组织
+用户管理-&gt;新增-&gt;输入基本属性-&gt;关联运营组织<br />
 </p>
 
 <p>
-角色管理-&gt;如果无-&gt;新增-&gt;角色成员-&gt;新加人。
+角色管理-&gt;如果无-&gt;新增-&gt;角色成员-&gt;新加人。<br />
 </p>
 
 
 <h2 id="toc_2.1">中间件数据库配置 </h2>
 <p>
-e:\CIMOM\05.Server\Release Assemblies\Config\
+e:\CIMOM\05.Server\Release Assemblies\Config\<br />
 </p>
 
 <h1 id="toc_3">启动程序 </h1><HR SIZE=1>
 <p>
-客户端：E:\CIMOM\10.Client\bin\Debug\Startup.exe
-服务器：E:\CIMOM\05.Server\Release Assemblies\Startup.exe
+客户端：E:\CIMOM\10.Client\bin\Debug\Startup.exe<br />
+服务器：E:\CIMOM\05.Server\Release Assemblies\Startup.exe<br />
 </p>
 
 <p>
-客户端：解压Debug
-服务器，解压Release Assemblies.rar
+客户端：解压Debug<br />
+服务器，解压Release Assemblies.rar<br />
 </p>
 <h1 id="toc_4">更新文件 </h1><HR SIZE=1>
 <p>
-更新文件：E:\CIMOM\10.Client\bin\Debug
+更新文件：E:\CIMOM\10.Client\bin\Debug<br />
 </p>
 
 <p>
-系统配置-&gt;表对象管理-&gt;新增-&gt;右边填写表名称-&gt;导入字段-&gt;从oneNote中复制。-&gt;点击保存-&gt;创建插件程序集， 如下：
+系统配置-&gt;表对象管理-&gt;新增-&gt;右边填写表名称-&gt;导入字段-&gt;从oneNote中复制。-&gt;点击保存-&gt;创建插件程序集， 如下：<br />
 </p>
 
 <p>
-模块类别：APS
-模块名称：ProductionPlan
-模块名称：产品计划
-模块描述：
-主表名称：TBL_APS_TEST
+模块类别：APS<br />
+模块名称：ProductionPlan<br />
+模块名称：产品计划<br />
+模块描述：<br />
+主表名称：TBL_APS_TEST<br />
 </p>
 
 <p>
-自动生成=&gt;CI.Client.Plugins.[模块类别(APS)].[模块名称(ProductionPlan)]
+自动生成=&gt;CI.Client.Plugins.[模块类别(APS)].[模块名称(ProductionPlan)]<br />
 </p>
 
 
 <h2 id="toc_4.1">生成的路径在如下配置 </h2>
 <p>
-e:\CIMOM\10.Client\bin\Debug\WorkBench.config 
+e:\CIMOM\10.Client\bin\Debug\WorkBench.config <br />
 </p>
 
 <p>
-右击-&gt;添加-&gt;现有项目
+右击-&gt;添加-&gt;现有项目<br />
 </p>
 
 
 <p>
-e:\CIMOM\10.Client\Plugins\
+e:\CIMOM\10.Client\Plugins\<br />
 </p>
 
 <h1 id="toc_5">功能模块 </h1><HR SIZE=1>
 <p>
-配方名称和参数列表在同一个表。配方名称的其它参数为空。
+配方名称和参数列表在同一个表。配方名称的其它参数为空。<br />
 </p>
 
 
 <h1 id="toc_6">上传代码 </h1><HR SIZE=1>
 <p>
-1，团队资源管理器-&gt;主页-&gt;源代码管理器-&gt;选择05.server, Plugins-&gt;右击-&gt;将项增加到文件夹-&gt;选择要增加的文件夹。
+1，团队资源管理器-&gt;主页-&gt;源代码管理器-&gt;选择05.server, Plugins-&gt;右击-&gt;将项增加到文件夹-&gt;选择要增加的文件夹。<br />
 </p>
 
 <h1 id="toc_7">上传插件 </h1><HR SIZE=1>
 <h2 id="toc_7.1">上传到服务器端，中间件 </h2>
 <p>
-系统配置-&gt;服务器插件管理
+系统配置-&gt;服务器插件管理<br />
 </p>
 
 <h2 id="toc_7.2">上传客户端 </h2>
 <p>
-e:\CIMOM\10.Client\bin\Debug\Upload.exe
-注意选项选择：E:\CIMOM\10.Client\bin\Debug
+e:\CIMOM\10.Client\bin\Debug\Upload.exe<br />
+注意选项选择：E:\CIMOM\10.Client\bin\Debug<br />
 </p>
 
 
 <h1 id="toc_8">异常 </h1><HR SIZE=1>
 <p>
-CI.Common 的引用异常。
-=======
+CI.Common 的引用异常。<br />
+=======<br />
 </p>
 <h1 id="toc_9">program </h1><HR SIZE=1>
 <h2 id="toc_9.1">EAP </h2>
 <p>
-具体参数列表=&gt;RecipeCollection
+具体参数列表=&gt;RecipeCollection<br />
 </p>
 
 
@@ -178,7 +178,7 @@ CI.Common 的引用异常。
 <h1 id="toc_11">代码 </h1><HR SIZE=1>
 <h2 id="toc_11.1">过滤方法 </h2>
 <p>
-Query-&gt;GetAll
+Query-&gt;GetAll<br />
 </p>
 
 
@@ -205,8 +205,6 @@ Query-&gt;GetAll
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

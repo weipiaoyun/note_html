@@ -20,88 +20,88 @@
 </p>
 
 <p>
-PROC_PRE_STARTBYONE
-PROC_PRE_CHKLIST
-PROC_PRE_ATUTOROW 自动拉孔带
-PROC_PRE_COPYNET 拷贝net
-PROC_PRE_SETPOINT 设置原点，基点，建立profile
-PROC_PRE_SOL_PAD  阻焊转pad
-PROC_PRE_SMD_ARR  检查smd属性
-PROC_PRE_COPYEDIT 拷贝edit
-PROC_SIG_LINE_CUT 线路掏铜(内层掏铜)
+PROC_PRE_STARTBYONE<br />
+PROC_PRE_CHKLIST<br />
+PROC_PRE_ATUTOROW 自动拉孔带<br />
+PROC_PRE_COPYNET 拷贝net<br />
+PROC_PRE_SETPOINT 设置原点，基点，建立profile<br />
+PROC_PRE_SOL_PAD  阻焊转pad<br />
+PROC_PRE_SMD_ARR  检查smd属性<br />
+PROC_PRE_COPYEDIT 拷贝edit<br />
+PROC_SIG_LINE_CUT 线路掏铜(内层掏铜)<br />
 </p>
 
 <h1 id="toc_1">处理路径</h1><HR SIZE=1>
 <p>
-PROC_PATH_DEAL
+PROC_PATH_DEAL<br />
 </p>
 
 <h1 id="toc_2">求数组的个数</h1><HR SIZE=1>
 <p>
-[string length $lay_name]
+[string length $lay_name]<br />
 </p>
 
 <h1 id="toc_3">截取字符串第几个到第几个</h1><HR SIZE=1>
 <p>
-[string range $lay_name 2 end]
+[string range $lay_name 2 end]<br />
 </p>
 
 <h1 id="toc_4">转换成大写</h1><HR SIZE=1>
 <p>
-[string toupper
+[string toupper<br />
 </p>
 
 <h1 id="toc_5">时间函数</h1><HR SIZE=1>
 <p>
-set DateTime [clock format [clock seconds] -format "%Y-%m-%d %T"]
+set DateTime [clock format [clock seconds] -format "%Y-%m-%d %T"]<br />
 </p>
 
 <h1 id="toc_6">匹配</h1><HR SIZE=1>
 <p>
-if {[string match *bak \(LAYER] == 1 || [string match *+* \)LAYER] == 1}
+if {[string match *bak \(LAYER] == 1 || [string match *+* \)LAYER] == 1}<br />
 </p>
 
 <h1 id="toc_7">排序</h1><HR SIZE=1>
 <p>
-降序，去除重复的
-[lsort -decreasing -unique -real $total_list]
+降序，去除重复的<br />
+[lsort -decreasing -unique -real $total_list]<br />
 </p>
 
 <h1 id="toc_8">正余弦函数</h1><HR SIZE=1>
 <p>
-set ang 30
-#sin
+set ang 30<br />
+#sin<br />
 set aa [sin [expr \(PI*\)ang/180]]
 </p>
 
 <p>
-#反sin
-set bb [asin 0.5]
-set ang1 [expr 180/\(PI*\)bb]
-#PAUSE "\(aa \)ang1"
+#反sin<br />
+set bb [asin 0.5]<br />
+set ang1 [expr 180/\(PI*\)bb]<br />
+#PAUSE "\(aa \)ang1"<br />
 </p>
 
 <h1 id="toc_9">去掉重复</h1><HR SIZE=1>
 <p>
-[lsort -decreasing -unique -real $total_list]
+[lsort -decreasing -unique -real $total_list]<br />
 </p>
 
 <h1 id="toc_10">替换</h1><HR SIZE=1>
 <p>
-set gATTRval [string map {"\"" ""} $gATTRval]
-string map {abc 1 ab 2 a 3 1 0} 1abcaababcabababc 
-中间的是规则，最后的是字符串
-结果为： 01321221   因为abc替换成1；ab替换成2；a替换成3；1替换成0
+set gATTRval [string map {"\"" ""} $gATTRval]<br />
+string map {abc 1 ab 2 a 3 1 0} 1abcaababcabababc <br />
+中间的是规则，最后的是字符串<br />
+结果为： 01321221   因为abc替换成1；ab替换成2；a替换成3；1替换成0<br />
 </p>
 
 <h1 id="toc_11">pid</h1><HR SIZE=1>
 <p>
-${workLayer}.[pid]
+${workLayer}.[pid]<br />
 </p>
 
 <h1 id="toc_12">取数组下标</h1><HR SIZE=1>
 <p>
-[lindex $lineX1 0]
+[lindex $lineX1 0]<br />
 </p>
 <blockquote>
 set i 0
@@ -109,7 +109,7 @@ set i 0
 
 <h1 id="toc_13">删除文件</h1><HR SIZE=1>
 <p>
-file delete -force $CAM_TMP/checkInfo
+file delete -force $CAM_TMP/checkInfo<br />
 </p>
 
 <h1 id="toc_14">取小数点</h1><HR SIZE=1>
@@ -120,17 +120,17 @@ set sizex1 [format %3.2f [expr \(gLIMITSxmax - \)gLIMITSxmin]]
 
 <h1 id="toc_15">获取某个字符</h1><HR SIZE=1>
 <p>
-set lay_tb [string index $lay_name end]
+set lay_tb [string index $lay_name end]<br />
 </p>
 
 
 <h1 id="toc_16">截取字符串</h1><HR SIZE=1>
 <p>
-[exec echo $cs | cut -c5- | cut -f1 -dx]
+[exec echo $cs | cut -c5- | cut -f1 -dx]<br />
 </p>
 
 <p>
-[lsearch [concat \(innerList \)innerListC \(outList] \)checkLayer]
+[lsearch [concat \(innerList \)innerListC \(outList] \)checkLayer]<br />
 </p>
 
 
@@ -157,8 +157,6 @@ set lay_tb [string index $lay_name end]
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

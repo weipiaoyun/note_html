@@ -17,26 +17,26 @@
 
 <h1 id="toc_1">判断文件是否存在</h1><HR SIZE=1>
 <p>
-if {[file exists $chkDir] == 0} {
+if {[file exists $chkDir] == 0} {<br />
 </p>
 
 <h1 id="toc_2">文件删除</h1><HR SIZE=1>
 <p>
-file delete -force $chkDir
+file delete -force $chkDir<br />
 </p>
 
 <h1 id="toc_3">文件创建</h1><HR SIZE=1>
 <p>
-exec mkdir $chkDir
+exec mkdir $chkDir<br />
 </p>
 
 
 <h1 id="toc_4">文件流的形式读取文件</h1><HR SIZE=1>
 <p>
-set f [open \(CAM_TMP/\){tmpLayer} r]
-while {[eof $f] != 1} {
-	set dat [gets $f]	
-}
+set f [open \(CAM_TMP/\){tmpLayer} r]<br />
+while {[eof $f] != 1} {<br />
+	set dat [gets $f]	<br />
+}<br />
 </p>
 
 
@@ -63,8 +63,6 @@ while {[eof $f] != 1} {
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

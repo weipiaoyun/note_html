@@ -17,21 +17,21 @@
 
 <h1 id="toc_1">ARM</h1><HR SIZE=1>
 <p>
-const uint32 LEDS8 = (0xFF &lt;&lt; 18); 对0xff进行左移18位，ff是8位的，也就是对第18位开始，有8位进行修改。这样设置的好处是以后只要用到这个常量，就可只表示那8位，其它的位都是0.这样做比较直观，代码比较容易读懂。一般比较常用于一种普遍情况，这种情况就是当往某个寄存器里面写入特定的逻辑值有效，而反逻辑无效，这时只需关心有效逻辑，而不管无效逻辑。而这种寄存器因为只有一种逻辑有效，那么另一种效果就要用到另一个寄存器，所以一般情况下都是成对出现的。如IO0CLR和IO0SET.还有这个LEDS8一般是不变的。
+const uint32 LEDS8 = (0xFF &lt;&lt; 18); 对0xff进行左移18位，ff是8位的，也就是对第18位开始，有8位进行修改。这样设置的好处是以后只要用到这个常量，就可只表示那8位，其它的位都是0.这样做比较直观，代码比较容易读懂。一般比较常用于一种普遍情况，这种情况就是当往某个寄存器里面写入特定的逻辑值有效，而反逻辑无效，这时只需关心有效逻辑，而不管无效逻辑。而这种寄存器因为只有一种逻辑有效，那么另一种效果就要用到另一个寄存器，所以一般情况下都是成对出现的。如IO0CLR和IO0SET.还有这个LEDS8一般是不变的。<br />
 </p>
 
 <p>
-IO1CLR = ((LED_TBL[i] &lt;&lt; 18));这样做也比较直观，因为要控制18位后面的8位，可以先设置低8位，然后进行左移就可以控制了。
+IO1CLR = ((LED_TBL[i] &lt;&lt; 18));这样做也比较直观，因为要控制18位后面的8位，可以先设置低8位，然后进行左移就可以控制了。<br />
 </p>
 
 <p>
-设置数组，设置数组可以增加可读性，代码可以变短。
+设置数组，设置数组可以增加可读性，代码可以变短。<br />
 </p>
 
 <p>
-U0BLM = BAK &gt;&gt; 8;
-U0BLL = BAK &amp; 0XFF;
-这两句是用来设置高8位和低8位的。第一条语句是右移8位，那么第8位已经不在，然后赋值给U0BLM，这时U0BLM保存的就是高8位的值。后一句更有技巧，它直接保留低8位的值赋值给U0BLL.
+U0BLM = BAK &gt;&gt; 8;<br />
+U0BLL = BAK &amp; 0XFF;<br />
+这两句是用来设置高8位和低8位的。第一条语句是右移8位，那么第8位已经不在，然后赋值给U0BLM，这时U0BLM保存的就是高8位的值。后一句更有技巧，它直接保留低8位的值赋值给U0BLL.<br />
 </p>
 
 
@@ -58,8 +58,6 @@ U0BLL = BAK &amp; 0XFF;
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

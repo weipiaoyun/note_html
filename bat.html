@@ -30,60 +30,59 @@
 <li><a href="#toc_8">重启gnd </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
 <h1 id="toc_1">后台处理 </h1><HR SIZE=1>
 <p>
-start /b  d:\vim\vim\gitupdate.bat
+start /b  d:\vim\vim\gitupdate.bat<br />
 </p>
 
 <h2 id="toc_1.1">利用vbe隐藏bat运行 </h2>
 <p>
-#新建后缀名为vbe的文件。调用.bat的文件。
-set ws=wscript.createobject("wscript.shell")
-ws.run "gitupdate.bat /start",0
+#新建后缀名为vbe的文件。调用.bat的文件。<br />
+set ws=wscript.createobject("wscript.shell")<br />
+ws.run "gitupdate.bat /start",0<br />
 </p>
 
 
 <p>
-net start aaa.exe 可异步
+net start aaa.exe 可异步<br />
 </p>
 <h1 id="toc_2">关键字 </h1><HR SIZE=1>
 <p>
-@echo off 如果没有这句。和cmd里面操作显示相同。
+@echo off 如果没有这句。和cmd里面操作显示相同。<br />
 </p>
 
 <p>
-命令前加@，表示该命令在终端中不显示。
+命令前加@，表示该命令在终端中不显示。<br />
 </p>
 
 <h1 id="toc_3">注释 </h1><HR SIZE=1>
 <p>
-rem
+rem<br />
 </p>
 
 <h1 id="toc_4">设置环境变量 </h1><HR SIZE=1>
 <p>
-setx GENESIS_DIR \\172.17.3.18\app_w2k\app_gen /m
-setx GENESIS_SHAREDIR  \\172.17.3.72\g2k /m
+setx GENESIS_DIR \\172.17.3.18\app_w2k\app_gen /m<br />
+setx GENESIS_SHAREDIR  \\172.17.3.72\g2k /m<br />
 </p>
 
 <h1 id="toc_5">连接网络盘 </h1><HR SIZE=1>
 <p>
-net use \\172.17.1.98 iasystem /user:g2k
-net use \\172.17.3.72 iasystem /user:g2k
+net use \\172.17.1.98 iasystem /user:g2k<br />
+net use \\172.17.3.72 iasystem /user:g2k<br />
 </p>
 
 <h1 id="toc_6">存储的用户名和密码 </h1><HR SIZE=1>
 <p>
-cmdkey /add: 172.17.1.98 /user:%computername%\g2k /pass:iasystem
-cmdkey /add: 172.17.3.72 /user:%computername%\g2k /pass:iasystem
-pause install ok
+cmdkey /add: 172.17.1.98 /user:%computername%\g2k /pass:iasystem<br />
+cmdkey /add: 172.17.3.72 /user:%computername%\g2k /pass:iasystem<br />
+pause install ok<br />
 </p>
 
 
 <h1 id="toc_7">获取计算机名称 </h1><HR SIZE=1>
 <p>
-echo %computername%
+echo %computername%<br />
 </p>
 
 <p>
@@ -92,11 +91,11 @@ echo %computername%
 
 <h1 id="toc_8">重启gnd </h1><HR SIZE=1>
 <p>
-NET STOP "Valor gnd Server"
+NET STOP "Valor gnd Server"<br />
 </p>
 
 <p>
-NET START "Valor gnd Server" 
+NET START "Valor gnd Server" <br />
 </p>
 
 
@@ -123,8 +122,6 @@ NET START "Valor gnd Server"
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

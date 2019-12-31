@@ -48,11 +48,11 @@
 <li><a href="#toc_7">岗位资格认证 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <h1 id="toc_1">料号及条码 </h1><HR SIZE=1>
 <h2 id="toc_1.1">查找工作中心信息 </h2>
 <p>
-1900039779
+1900039779<br />
 </p>
 
 <h1 id="toc_2">地址账号和路径 </h1><HR SIZE=1>
@@ -221,17 +221,17 @@ HDI1#
 </table>
 
 <p>
-临时IP
-10.96.80.2
-255.255.255.0
-10.96.80.1
+临时IP<br />
+10.96.80.2<br />
+255.255.255.0<br />
+10.96.80.1<br />
 </p>
 
 <h2 id="toc_2.2">网址 </h2>
 <h3 id="toc_2.2.1">172.18.120.254 MES库 </h3>
 <p>
-linwei
-mes123$
+linwei<br />
+mes123$<br />
 </p>
 
 <h3 id="toc_2.2.2">集成质量管理系统 </h3>
@@ -243,7 +243,7 @@ mes123$
 <h3 id="toc_2.2.3">禅道登录地址 </h3>
 <p>
 <a href="http://172.19.11.8/zentao/user-login.html">http://172.19.11.8/zentao/user-login.html</a>
-账户名：工号
+账户名：工号<br />
 </p>
 <blockquote>
 密码：123456
@@ -252,47 +252,47 @@ mes123$
 <h2 id="toc_2.3">账号 </h2>
 <h3 id="toc_2.3.1">Radmin </h3>
 <p>
-C&amp;kE54JD
+C&amp;kE54JD<br />
 </p>
 
 <h3 id="toc_2.3.2">数据库 </h3>
 <p>
-172.19.9.1
-MOM
-csfoti@160721
-database=CIMOMJXZH
+172.19.9.1<br />
+MOM<br />
+csfoti@160721<br />
+database=CIMOMJXZH<br />
 </p>
 
 
 <h2 id="toc_2.4">路径 </h2>
 <h3 id="toc_2.4.1">Ipplan输出XML文档路径 </h3>
 <p>
-\\172.19.11.3\inplan\InPlanShared\ERP\tmp
+\\172.19.11.3\inplan\InPlanShared\ERP\tmp<br />
 </p>
 
 
 <h3 id="toc_2.4.2">体系文件路径 </h3>
 <p>
-\\172.19.10.1\体系文件\3.三级文件\电镀部\外层碱性蚀刻
+\\172.19.10.1\体系文件\3.三级文件\电镀部\外层碱性蚀刻<br />
 </p>
 
 
 <h1 id="toc_3">棕化 </h1><HR SIZE=1>
 <p>
-0 停机
-1， 保养维护
-2 手动
-3 自动
+0 停机<br />
+1， 保养维护<br />
+2 手动<br />
+3 自动<br />
 </p>
 
 <p>
-1，IndexViewModel = &gt; plugin.PluginTitle = "BrownOxide";
+1，IndexViewModel = &gt; plugin.PluginTitle = "BrownOxide";<br />
 </p>
 
 
 <h1 id="toc_4">添加采集的机器到Redis </h1><HR SIZE=1>
 <p>
-{
+{<br />
 </p>
 <blockquote>
 "CEQUIPMENT_CODE": "GME-PRE-001",
@@ -302,12 +302,12 @@ database=CIMOMJXZH
 "CPORT":6000
 </blockquote>
 <p>
-}	
+}	<br />
 </p>
 
 
 <p>
-{
+{<br />
 </p>
 <blockquote>
 "CEQUIPMENT_CODE": "TEST",
@@ -317,7 +317,7 @@ database=CIMOMJXZH
 "CPORT":1301
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 
@@ -333,6 +333,13 @@ SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b
    order by a.CDATETIME_CREATED desc
 </pre>
 
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+	  	SELECT a.CDATETIME_CREATED, b.CADDRESS_NAME, b.CADDRESS_CODE, b.CDATA_TYPE, a.CDATA_VALUE
+  FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
+  left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.CID
+  --where b.CADDRESS_CODE in ('D2035','D2835', 'D2052', 'D300')
+  order by a.CDATETIME_CREATED desc
+</pre>
 
 
 <h1 id="toc_6">查询MI叠构 </h1><HR SIZE=1>
@@ -386,8 +393,6 @@ and CEQUIPMENT_CODE = 'FAE-DRL-003'
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

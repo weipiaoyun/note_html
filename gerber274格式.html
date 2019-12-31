@@ -17,22 +17,22 @@
 
 <h1 id="toc_1">Input操作方法 </h1><HR SIZE=1>
 <p>
-1，Input资料时只需要导入'lst'文件，不需要translate
-当存在wheel文件，只是单位不一致时，操作方法如下：
-	1，首先确定是前省零还是后省零，parameters里面设置。编辑"rep"文件， 打开”open wheel Template"  判断窗口，左窗口中打开”parameter 菜单中的"global" 窗口进行设置 "unit", 设置"ok"后点击”actions"中的"translate wheel" 转换即可。
+1，Input资料时只需要导入'lst'文件，不需要translate<br />
+当存在wheel文件，只是单位不一致时，操作方法如下：<br />
+	1，首先确定是前省零还是后省零，parameters里面设置。编辑"rep"文件， 打开”open wheel Template"  判断窗口，左窗口中打开”parameter 菜单中的"global" 窗口进行设置 "unit", 设置"ok"后点击”actions"中的"translate wheel" 转换即可。<br />
 </p>
 	
 <p>
-	2，配置wheel文件
-	钻带中没有显示钻孔的大小需要自己配置wheel文件。操作如下:
-	1, 打开对应的"open wheel template" 窗口， 点击第一个钻孔行列。再设置"global" 中的参数，wheel type 钻孔中选择设置单位mil or mm； Global Separator 填写"."特别注意
-	2，点击Edit中的"Add"按钮， 选择”hole，显示一列选项，再选择第一个代码"Float"， "1", 选择将其定义为"Dcode"，再选择对应的大小"float", "8" 再点击"Diameter"，设置成A，再点击"Action
-	"中的"Transtrate Wheel"
-	对应的钻孔会变成绿色，配置成功，如果有两种类型，即npth和pth，需重新再配置一次。定义为Hole Type "NPLATE"
+	2，配置wheel文件<br />
+	钻带中没有显示钻孔的大小需要自己配置wheel文件。操作如下:<br />
+	1, 打开对应的"open wheel template" 窗口， 点击第一个钻孔行列。再设置"global" 中的参数，wheel type 钻孔中选择设置单位mil or mm； Global Separator 填写"."特别注意<br />
+	2，点击Edit中的"Add"按钮， 选择”hole，显示一列选项，再选择第一个代码"Float"， "1", 选择将其定义为"Dcode"，再选择对应的大小"float", "8" 再点击"Diameter"，设置成A，再点击"Action<br />
+	"中的"Transtrate Wheel"<br />
+	对应的钻孔会变成绿色，配置成功，如果有两种类型，即npth和pth，需重新再配置一次。定义为Hole Type "NPLATE"<br />
 </p>
 	
 <p>
-	3，再进入parameter 窗口中，点击wheel，添加刚设置好的"wheel"文件，再点击transtate即可完成设置。
+	3，再进入parameter 窗口中，点击wheel，添加刚设置好的"wheel"文件，再点击transtate即可完成设置。<br />
 </p>
 
 
@@ -47,76 +47,76 @@
 
 <h1 id="toc_2">genesis格式分析 </h1><HR SIZE=1>
 <p>
-我主要分析文件的格式,对于GERBER文件的其它常识,请你查阅相关资料吧
-GERBER文件中的x,y代表的其是就是屏幕中的坐标(一般是指绝对坐标)
-如:X25300Y326541
-坐标后面跟的数值是把小数点省略提了,那么这些数值实际代表是多少大呢,单位又是多少呢?
+我主要分析文件的格式,对于GERBER文件的其它常识,请你查阅相关资料吧<br />
+GERBER文件中的x,y代表的其是就是屏幕中的坐标(一般是指绝对坐标)<br />
+如:X25300Y326541<br />
+坐标后面跟的数值是把小数点省略提了,那么这些数值实际代表是多少大呢,单位又是多少呢?<br />
 </p>
 
 <p>
-一,首先看这是前省0,还是后省0
-X25300,数字是5位数,后面有0,这说明肯定不后省0,
-Y326541数字是6位数,那说明X25300是前面省了一个0
-由此可以判定GERBER文件是前省0格式(一般情况下是这样判断,
-不可能同一个资料中有GERBER文件是前省0,又有后省0,
-除非客户输出GERBER时脑子让驴踢了,绝对是坑爹的)
+一,首先看这是前省0,还是后省0<br />
+X25300,数字是5位数,后面有0,这说明肯定不后省0,<br />
+Y326541数字是6位数,那说明X25300是前面省了一个0<br />
+由此可以判定GERBER文件是前省0格式(一般情况下是这样判断,<br />
+不可能同一个资料中有GERBER文件是前省0,又有后省0,<br />
+除非客户输出GERBER时脑子让驴踢了,绝对是坑爹的)<br />
 </p>
 
 <p>
-(前面有0，后面有零，不省零)
-(前面有0，后面没0，后省0)
-(前面无0，后面有0，前省0)
+(前面有0，后面有零，不省零)<br />
+(前面有0，后面没0，后省0)<br />
+(前面无0，后面有0，前省0)<br />
 </p>
 
 <p>
-二,看小数点在那个位置
-Y326541数字是6位数,说明小数点前后的数字个数至少等于6
-也就是说格式至少是2:4,3:3,4:2,2:5,3:5,4:5........
-不可能为2:3,2:2等
-如果是2:4,那么X25300Y326541就相当于
-X坐标2.53,y坐标32.6541  (注意,只是如果)
+二,看小数点在那个位置<br />
+Y326541数字是6位数,说明小数点前后的数字个数至少等于6<br />
+也就是说格式至少是2:4,3:3,4:2,2:5,3:5,4:5........<br />
+不可能为2:3,2:2等<br />
+如果是2:4,那么X25300Y326541就相当于<br />
+X坐标2.53,y坐标32.6541  (注意,只是如果)<br />
 </p>
 
 <p>
-取最大位数(先用2:3, 2:4, 2:5)inch。如果&gt;25,则用3,2mm。3:3mm，3:4mm,4:3mm(很少)
+取最大位数(先用2:3, 2:4, 2:5)inch。如果&gt;25,则用3,2mm。3:3mm，3:4mm,4:3mm(很少)<br />
 </p>
 
 <p>
-三,分析单位是英制,还是公制
-在GERBER文件中英制单位一般是指英寸(inch),公制单位一般是指毫米(mm)
-1inch=25.4mm   反过来1mm=0.03937inch
-我们的CAM350屏幕默认大小好是50*50inch吧(记不清楚,好像最多不会超过两米,
-因为目前来说也几乎没有这么大的板,具体你打开软件实测一下),
-所以说上面的X25300Y326541,将格式判断为英制3:3,那么:
-x坐标25.3inch      //这个还有点像
-y坐标326.541inch     //这个显然是错误的
-以上只是举个例子,初步分析格式至少要靠谱,不能盲目的瞎猜
+三,分析单位是英制,还是公制<br />
+在GERBER文件中英制单位一般是指英寸(inch),公制单位一般是指毫米(mm)<br />
+1inch=25.4mm   反过来1mm=0.03937inch<br />
+我们的CAM350屏幕默认大小好是50*50inch吧(记不清楚,好像最多不会超过两米,<br />
+因为目前来说也几乎没有这么大的板,具体你打开软件实测一下),<br />
+所以说上面的X25300Y326541,将格式判断为英制3:3,那么:<br />
+x坐标25.3inch      //这个还有点像<br />
+y坐标326.541inch     //这个显然是错误的<br />
+以上只是举个例子,初步分析格式至少要靠谱,不能盲目的瞎猜<br />
 </p>
 
 <p>
-四,这时我们还是没有确定正确的格式,剩下的工作便是猜格式了(猜的时候注意以上三点)
-客户一般会给我们板的尺寸,我们每读一次资料进去时,测试量一下外型尺寸,如果跟客户的尺
-寸一样,那说明格式就正确了
-PS:如果这时候你还的图形还是不对,那可能就是D-CODE没有正确读入
+四,这时我们还是没有确定正确的格式,剩下的工作便是猜格式了(猜的时候注意以上三点)<br />
+客户一般会给我们板的尺寸,我们每读一次资料进去时,测试量一下外型尺寸,如果跟客户的尺<br />
+寸一样,那说明格式就正确了<br />
+PS:如果这时候你还的图形还是不对,那可能就是D-CODE没有正确读入<br />
 </p>
 
 <p>
-花了半个钟,打这点字,为了组织语言,尽量讲得通俗易懂,希望你能看得懂,不然我白忙活了 
+花了半个钟,打这点字,为了组织语言,尽量讲得通俗易懂,希望你能看得懂,不然我白忙活了 <br />
 </p>
 
 <p>
-补答你的第二次提问:
-用什么PCB设计软件不重要(而且我也没那能耐,这是客户的事情),PCB工厂不是做设计的,
-PCB上游厂商将PCB设计好之后都会输出GERBER文件发给PCB厂商,所有的PCB设计软件生成的
-GERBER文件都是一样的,都可以被CAM350这样的CAM软件读取,所以我们只要会分析GERBER文件即可
+补答你的第二次提问:<br />
+用什么PCB设计软件不重要(而且我也没那能耐,这是客户的事情),PCB工厂不是做设计的,<br />
+PCB上游厂商将PCB设计好之后都会输出GERBER文件发给PCB厂商,所有的PCB设计软件生成的<br />
+GERBER文件都是一样的,都可以被CAM350这样的CAM软件读取,所以我们只要会分析GERBER文件即可<br />
 </p>
 
 <p>
-当然有些客户比较的菜鸟的工程师,对于GERBER也是一头雾水,只会用设计软件来画板,画好之后根本不会输出GERBER文件,直接让PCB厂商自已输出GERBER,
-原则上这样是不允许的,因为这涉及到软件的输出设定开关(因为有些东西是不要的,或者有些东西是附加的,这些只有客户的设计工程师知道,还有些是因为软件版本问题可能会导致丢失数据),经常因为这样的事情做错板,但是这些鸟工程师就是牛B哄哄的不管你,给你一个PCB文件,其它什么都不管,没办法现在竞争激烈,所以好多PCB厂商只有绥协,这样只能自已承担了报废风险
-原则上这样是不允许的还有另外一个原因,PCB设计软件有几十上百种,这些几乎都是价格不菲的商业软件,如果我们的不同客户使用的软件也都互不相同,就是说我们所有的设计软件都可能遇到,那我们就要购买所有的这类软件,并进行相关培训,这对于一个PCB厂商来说显然是不现实的,好在现在中国的知识产权保护比较放松,打击盗版破解还没那么严厉(可能都是一些小鱼小虾,没什么油水,所以懒得打击),所以现在基本上都是用破解软件来干活,在PCB厂商比较常用的PCB设计软件有POWER PCB系列,DXP系列(包含有protel)软件.
-像这类情况在国内是比较普遍,国外的很少见到这样的,PCB厂商收到的外单资料几乎全部都是GERBER文件
-这说明人家国外还是比较正规的,工程师素质也蛮高的,把PCB板设计画好后再输出GERBER文件,让你舒服的用CAM350,genesis2000,gc-cam这样的软件读入GERBER文件就可以了
+当然有些客户比较的菜鸟的工程师,对于GERBER也是一头雾水,只会用设计软件来画板,画好之后根本不会输出GERBER文件,直接让PCB厂商自已输出GERBER,<br />
+原则上这样是不允许的,因为这涉及到软件的输出设定开关(因为有些东西是不要的,或者有些东西是附加的,这些只有客户的设计工程师知道,还有些是因为软件版本问题可能会导致丢失数据),经常因为这样的事情做错板,但是这些鸟工程师就是牛B哄哄的不管你,给你一个PCB文件,其它什么都不管,没办法现在竞争激烈,所以好多PCB厂商只有绥协,这样只能自已承担了报废风险<br />
+原则上这样是不允许的还有另外一个原因,PCB设计软件有几十上百种,这些几乎都是价格不菲的商业软件,如果我们的不同客户使用的软件也都互不相同,就是说我们所有的设计软件都可能遇到,那我们就要购买所有的这类软件,并进行相关培训,这对于一个PCB厂商来说显然是不现实的,好在现在中国的知识产权保护比较放松,打击盗版破解还没那么严厉(可能都是一些小鱼小虾,没什么油水,所以懒得打击),所以现在基本上都是用破解软件来干活,在PCB厂商比较常用的PCB设计软件有POWER PCB系列,DXP系列(包含有protel)软件.<br />
+像这类情况在国内是比较普遍,国外的很少见到这样的,PCB厂商收到的外单资料几乎全部都是GERBER文件<br />
+这说明人家国外还是比较正规的,工程师素质也蛮高的,把PCB板设计画好后再输出GERBER文件,让你舒服的用CAM350,genesis2000,gc-cam这样的软件读入GERBER文件就可以了<br />
 </p>
 
 
@@ -124,37 +124,37 @@ GERBER文件都是一样的,都可以被CAM350这样的CAM软件读取,所以我
 
 
 <p>
-GTL---toplayer 顶层
-GBL---bottomlayer 底层
-GTO---TopOverlay 顶层丝印层
-GBO---Bottomlayer 底层丝印层
-GTP---TopPaste 顶层表贴(做激光模板用)
-GBP---BottomPaste 底层表贴
-GTS---Topsolder 顶层阻焊(也叫防锡层/绿油,负片)
-GBS---BottomSolder 底层阻焊
- G1---Midlayer1 内部走线层1
- G2---Midayerr2 内部走线层2
- ...
-GP1---InternalPlane1 内平面1(负片)
-GP2---InternalPlane2 内平面2(负片)
-...
-GM1---Mechanical1 机械层1
-GM2---Mechanical2 机械层2
-...
-GKO---KeepOuter 禁止布线层
-GG1---DrillGuide 钻孔引导层
-GD1---DrillDrawing 钻孔图层
-GPT---Top pad Master 顶层主焊盘
-GPB---Bottom pad Master 底层主焊盘
+GTL---toplayer 顶层<br />
+GBL---bottomlayer 底层<br />
+GTO---TopOverlay 顶层丝印层<br />
+GBO---Bottomlayer 底层丝印层<br />
+GTP---TopPaste 顶层表贴(做激光模板用)<br />
+GBP---BottomPaste 底层表贴<br />
+GTS---Topsolder 顶层阻焊(也叫防锡层/绿油,负片)<br />
+GBS---BottomSolder 底层阻焊<br />
+ G1---Midlayer1 内部走线层1<br />
+ G2---Midayerr2 内部走线层2<br />
+ ...<br />
+GP1---InternalPlane1 内平面1(负片)<br />
+GP2---InternalPlane2 内平面2(负片)<br />
+...<br />
+GM1---Mechanical1 机械层1<br />
+GM2---Mechanical2 机械层2<br />
+...<br />
+GKO---KeepOuter 禁止布线层<br />
+GG1---DrillGuide 钻孔引导层<br />
+GD1---DrillDrawing 钻孔图层<br />
+GPT---Top pad Master 顶层主焊盘<br />
+GPB---Bottom pad Master 底层主焊盘<br />
 </p>
  
 <p>
-Gerber文件介绍:
-标准的gerber file 格式可分为RS-274 与RS-274X 两种，其不同在于：
-RS-274 格式的gerber file 与aperture 是分开的不同文件。
-RS-274X 格式的aperture 是整合在gerber file 中的，因此不需要aperture 文件(即，内含D 码)。
-数据格式：整数位+小数位
-常用：3：3（公制，整数3 位，小数3 位）
+Gerber文件介绍:<br />
+标准的gerber file 格式可分为RS-274 与RS-274X 两种，其不同在于：<br />
+RS-274 格式的gerber file 与aperture 是分开的不同文件。<br />
+RS-274X 格式的aperture 是整合在gerber file 中的，因此不需要aperture 文件(即，内含D 码)。<br />
+数据格式：整数位+小数位<br />
+常用：3：3（公制，整数3 位，小数3 位）<br />
 </p>
 <blockquote>
 2：4（英制，整数2 位，小数4 位）
@@ -162,26 +162,26 @@ RS-274X 格式的aperture 是整合在gerber file 中的，因此不需要apertu
 3：3（英制，整数3 位，小数3 位）
 </blockquote>
 <p>
-前导零、后导零和不导零：
-例：025690 前导零后变为：25690 (Leading)
+前导零、后导零和不导零：<br />
+例：025690 前导零后变为：25690 (Leading)<br />
 </p>
 <blockquote>
 025690 后导零后变为：02569 (Trailing)
 025690 不导零后变为：025690 (None)
 </blockquote>
 <p>
-单位：
-METRIC（mm）
-ENGLISH（inch or mil）
-单位换算：
-1 inch ＝ 1000 mil ＝ 2.54 cm ＝ 25.4 mm
-1 mm ＝ 0.03937 inch ＝ 39.37 mil
-GERBER 格式的数据特点：
-数据码：ASCLL、EBCDIC、EIA、ISO 码，常用：ASC II 码。
-数据单位：英制、公制、常用：英制。
-坐标形式：相对坐标、绝对坐标，常用：绝对坐标。
-数据形式：省前零、定长、省后零，常用：定长。
-GERBER FILE 极性介绍：
+单位：<br />
+METRIC（mm）<br />
+ENGLISH（inch or mil）<br />
+单位换算：<br />
+1 inch ＝ 1000 mil ＝ 2.54 cm ＝ 25.4 mm<br />
+1 mm ＝ 0.03937 inch ＝ 39.37 mil<br />
+GERBER 格式的数据特点：<br />
+数据码：ASCLL、EBCDIC、EIA、ISO 码，常用：ASC II 码。<br />
+数据单位：英制、公制、常用：英制。<br />
+坐标形式：相对坐标、绝对坐标，常用：绝对坐标。<br />
+数据形式：省前零、定长、省后零，常用：定长。<br />
+GERBER FILE 极性介绍：<br />
 </p>
 <blockquote>
 正片（POSITIVE） ：GERBER 描述是线路层，并且描述之图形主要是有铜部分。或GERBER 描述是防焊层，并且描述之图形主要是防焊部分(即盖油墨部分)。
@@ -191,101 +191,101 @@ GERBER FILE 极性介绍：
 </blockquote>
  
 <p>
-GERBER数据是所有PCB CAD系统可以生成的，可以被所有光绘图机处理的文件格式。GERBER格式是EIA 标准RS-274D的子集。扩展GERBER格式是EIA标准RS-274D格式的超集，又叫RS-274X。RS-274X增强了处理多边形填充，正负图组合和自定义D码及其它功能。它还定义了GERBER数据文件中嵌入光圈表的规则。
-　　GERBER格式文件由一系列数据块（参数和代码）组成。每一数据块由块结束（EOB）符分开。EOB字符通常是星号（*）。根据文件中出现的顺序，数据块分为以下两类：
-1 RS-274X参数
-按顺序分为下面几组：
-提示性参数
-AS 坐标选择
-FS 格式描述
-MI 镜像图像
-MO 单位
-OF 偏移
-SF 比例因子
-图像参数
-IJ 图像对齐
-IN 图像名称
-IO 图像偏移
-IP 图像正负性
-IR 图像旋转
-PF 绘图胶片名
-光圈参数
-AD 光圈描述
-AM 光圈自定义
-层参数
-KO 挖除
-LN 层名
-LP 层正负性
-SR 移动与复制
-其它杂项
-IF 嵌入文件
-2 标准RS-274D码
-　　包括一个字符的功能码如D码，G码，M码等和坐标数据。X，Y格式的坐标数据描述线性位置，I，J格式描述弧形位置。
-N码：顺序码，命名数据块顺序。（0-99999）
-D码：绘图码，选择，控制光圈，指定线型。
-G码：通用码，用于坐标定位。
-M码：指定文件结束等。
-例子：
-*G04 THIS IS DEMO         注释
-%FSLAX23Y23*%             省略前导零，绝对坐标X2.3, Y2.3
-%MOIN*%                   设定英寸单位
-%OFA0B0*%                 无偏移
-%SFA1.0B1.0*%             输出比例X轴1.0, Y轴1.0
-?D10C,0.010*%           定义D10码为圆，直径10MILs
-%LNBOXES*%                层名为BOXES
-G54D10*                   以下为RS0274D数据
-X0Y0D02*X5000Y0D01*
-X5000Y5000D01*X0Y5000D01*X0Y0D01*
-X6000Y0*X11000Y0D01*
-X6000Y0D01*D02*
-M02*                      数据结束
-二 RS-274X参数
-格式：%[]*%
-参数码 双字符码(AD, AM, FS等)
-修饰符 完成参数码定义所需的限定符
-AD Aperture Definition 光圈描述
-数据块格式：?D,[X]*%
-n1 D码编号(10-9999)
+GERBER数据是所有PCB CAD系统可以生成的，可以被所有光绘图机处理的文件格式。GERBER格式是EIA 标准RS-274D的子集。扩展GERBER格式是EIA标准RS-274D格式的超集，又叫RS-274X。RS-274X增强了处理多边形填充，正负图组合和自定义D码及其它功能。它还定义了GERBER数据文件中嵌入光圈表的规则。<br />
+　　GERBER格式文件由一系列数据块（参数和代码）组成。每一数据块由块结束（EOB）符分开。EOB字符通常是星号（*）。根据文件中出现的顺序，数据块分为以下两类：<br />
+1 RS-274X参数<br />
+按顺序分为下面几组：<br />
+提示性参数<br />
+AS 坐标选择<br />
+FS 格式描述<br />
+MI 镜像图像<br />
+MO 单位<br />
+OF 偏移<br />
+SF 比例因子<br />
+图像参数<br />
+IJ 图像对齐<br />
+IN 图像名称<br />
+IO 图像偏移<br />
+IP 图像正负性<br />
+IR 图像旋转<br />
+PF 绘图胶片名<br />
+光圈参数<br />
+AD 光圈描述<br />
+AM 光圈自定义<br />
+层参数<br />
+KO 挖除<br />
+LN 层名<br />
+LP 层正负性<br />
+SR 移动与复制<br />
+其它杂项<br />
+IF 嵌入文件<br />
+2 标准RS-274D码<br />
+　　包括一个字符的功能码如D码，G码，M码等和坐标数据。X，Y格式的坐标数据描述线性位置，I，J格式描述弧形位置。<br />
+N码：顺序码，命名数据块顺序。（0-99999）<br />
+D码：绘图码，选择，控制光圈，指定线型。<br />
+G码：通用码，用于坐标定位。<br />
+M码：指定文件结束等。<br />
+例子：<br />
+*G04 THIS IS DEMO         注释<br />
+%FSLAX23Y23*%             省略前导零，绝对坐标X2.3, Y2.3<br />
+%MOIN*%                   设定英寸单位<br />
+%OFA0B0*%                 无偏移<br />
+%SFA1.0B1.0*%             输出比例X轴1.0, Y轴1.0<br />
+?D10C,0.010*%           定义D10码为圆，直径10MILs<br />
+%LNBOXES*%                层名为BOXES<br />
+G54D10*                   以下为RS0274D数据<br />
+X0Y0D02*X5000Y0D01*<br />
+X5000Y5000D01*X0Y5000D01*X0Y0D01*<br />
+X6000Y0*X11000Y0D01*<br />
+X6000Y0D01*D02*<br />
+M02*                      数据结束<br />
+二 RS-274X参数<br />
+格式：%[]*%<br />
+参数码 双字符码(AD, AM, FS等)<br />
+修饰符 完成参数码定义所需的限定符<br />
+AD Aperture Definition 光圈描述<br />
+数据块格式：?D,[X]*%<br />
+n1 D码编号(10-9999)<br />
 </p>
 
 <p>
-C(圆)   外径    X向孔径 Y向孔径
-R(长方) X向大小 Y向大小 X向孔径 Y向孔径
-O(椭圆) X向大小 Y向大小 X向孔径 Y向孔径
-P(正多边) 外径 边数 旋转角度 X向孔径 Y向孔径
-AM Aperture Macro 自定义光圈
-数据块格式：%AM*,,,[]*
-[,,,[&gt;<strong>…</strong>%
-  为当前自定义光圈定义一个名称
-  ? ū ū ? ? ? ? ? ?
-1(圆)      Exp 直径 圆心X 圆心Y
-2/20(线)   Exp 线宽 起点X 起点Y   终点X  终点Y 角度
-21(长方形) Exp 宽   高    中心Ｘ  中心Ｙ 角度
-22(长方形) Exp 宽   高    左下X   左下Y  角度
-4(多边形)  Exp 点个数 起点X 起点Y X1 Y1 。。。角度
-5(正多边形) Exp 顶点数 中心X 中心Y 直径
-6(Moire) X0 Y0 外径 环宽 环间距 环个数 十宽 十长 角度
-7(散热形) X0 Y0 外径 内径 口尺寸 角度
-3 结束自定义
-AS Axis Select 坐标轴选择
-数据块格式：%ASA[X|Y]B[X|Y]*%
-A B 输出设备坐标轴
-X Y 数据文件坐标轴
-FS Format Statement
-数据块格式：%FS[L|T][A|I][Nn][Gn]XnnYnn[Dn][Mn]*%
-L T L 省略前导零 T省略尾零
-A I A 绝对坐标 I 相对坐标
+C(圆)   外径    X向孔径 Y向孔径<br />
+R(长方) X向大小 Y向大小 X向孔径 Y向孔径<br />
+O(椭圆) X向大小 Y向大小 X向孔径 Y向孔径<br />
+P(正多边) 外径 边数 旋转角度 X向孔径 Y向孔径<br />
+AM Aperture Macro 自定义光圈<br />
+数据块格式：%AM*,,,[]*<br />
+[,,,[&gt;<strong>…</strong>%<br />
+  为当前自定义光圈定义一个名称<br />
+  ? ū ū ? ? ? ? ? ?<br />
+1(圆)      Exp 直径 圆心X 圆心Y<br />
+2/20(线)   Exp 线宽 起点X 起点Y   终点X  终点Y 角度<br />
+21(长方形) Exp 宽   高    中心Ｘ  中心Ｙ 角度<br />
+22(长方形) Exp 宽   高    左下X   左下Y  角度<br />
+4(多边形)  Exp 点个数 起点X 起点Y X1 Y1 。。。角度<br />
+5(正多边形) Exp 顶点数 中心X 中心Y 直径<br />
+6(Moire) X0 Y0 外径 环宽 环间距 环个数 十宽 十长 角度<br />
+7(散热形) X0 Y0 外径 内径 口尺寸 角度<br />
+3 结束自定义<br />
+AS Axis Select 坐标轴选择<br />
+数据块格式：%ASA[X|Y]B[X|Y]*%<br />
+A B 输出设备坐标轴<br />
+X Y 数据文件坐标轴<br />
+FS Format Statement<br />
+数据块格式：%FS[L|T][A|I][Nn][Gn]XnnYnn[Dn][Mn]*%<br />
+L T L 省略前导零 T省略尾零<br />
+A I A 绝对坐标 I 相对坐标<br />
 </p>
  
 <p>
-在大多数的EDA软件中设计PCB时都会定义一层Solder Mask,这在生产上就是所谓的阻焊层，对于焊盘上未定义Solder Mask的区域。也就是生产时上焊料、阻焊剂的地方，如果这各区域定义的过大，将会使该焊盘附近的走线或其他导电物体裸露在阻焊剂之处。从而在加工时该焊盘与其附近的金属走线容易形成“桥接”，造成短路现象。由此可见，生产上的“Solder Bridges”现象通常是由于设计阶段的mask数据的不恰当定义并且CAD系统又没有及时发现而引起的。因此，在生产加工之前快速的检测并修复“Solder Bridges”现象是非常必要的。
+在大多数的EDA软件中设计PCB时都会定义一层Solder Mask,这在生产上就是所谓的阻焊层，对于焊盘上未定义Solder Mask的区域。也就是生产时上焊料、阻焊剂的地方，如果这各区域定义的过大，将会使该焊盘附近的走线或其他导电物体裸露在阻焊剂之处。从而在加工时该焊盘与其附近的金属走线容易形成“桥接”，造成短路现象。由此可见，生产上的“Solder Bridges”现象通常是由于设计阶段的mask数据的不恰当定义并且CAD系统又没有及时发现而引起的。因此，在生产加工之前快速的检测并修复“Solder Bridges”现象是非常必要的。<br />
 </p>
 <blockquote>
 CAM350不仅能快速的发现“Solder Bridge”，同时还能进行修复。加工前实现这一功能只要利用菜单Analysis -&gt; Find Solder Bridges打开“Solder Bridging”对话框。
 在“Top Check/Bottom Check”前的小方框中打上勾可以选择只对表层或底层检测或者同时检测。在后面的“Mask Layer、Check Against”中选择正确的层，注意Soldermask_top对应Top层；Soldermask_bottom对应Bottom层。在“Bridge Distance”中输入最小能忍受的“桥接”间距。在下面的“Search Area”中如果选择“Process Entire Layer”表示系统将对当前打开的所有层进行检测。如果选择“Window Area to Process”则表示先选择一个窗口，系统将对窗口所在区域进行检测。OK后，系统将持续一段时间的检测。如果发现错误系统将弹出一个报错对话框。确定后屏幕会跳转至另一个编辑窗口，右上方出现一个信息显示/编辑条。在这里可以查看所有错误具体位置，可以点击“All”显示所有的错误，也可以在下拉框中选中某一个error,这样可以查询这个error的具体位置。
 </blockquote>
 <p>
-6.Check Drill
+6.Check Drill<br />
 </p>
 <blockquote>
 这个功能项是用来检验钻孔层的各种问题的。例如孔与孔之间的距离是否合理，是否在同一位置上有两个大小相同或大小不一的孔。
@@ -296,14 +296,14 @@ Analysis -&gt; Check Drills,弹出Drill Alalysis对话框。
  
  
 <p>
-3. Copper Slivers
+3. Copper Slivers<br />
 </p>
 <blockquote>
 “Copper Slivers”时指那些在生产过程中容易造成脱落的细而窄的铺铜区域。这项功能不仅能检测出细窄的铺铜区域，而且还有修复/修剪功能。在执行这个操作前首先要打开需要检测的相关层。Analysis -&gt; Copper Slivers就会弹出“Copper Slivers Detection”对话框。
 首先在“Find Slivers Less than”后输入最小能容忍的铜面积数。在“Processing Control”中可以选上“Fix Silvers”以修复细铜。选择“Remove Old Slivers”即消除原现产生过的检测结果如“Mask Silvers”。而在下面的“Search Area”中如果选择“Process Entire Layer”表示系统将对当前打开的所有层进行检测。如果选择“Window Area to Process”则表示先选择一个窗口，系统将对窗口所在区域进行检测。OK后，系统将持续一端时间的检测，最后弹出一个提示信息，如果没有错误将显示“Found no new Slivers”.如果发现错误将弹出一个报错提示框，确定后屏幕会跳转至另一个编辑窗口。在这里可以查看所有错误具体位置，可以点击“All”显示所有的错误，也可以在下拉框中选中某一个error，这样可以查询这个error的具体位置。
 </blockquote>
 <p>
-4.Mask Slivers
+4.Mask Slivers<br />
 </p>
 <blockquote>
 “Mask Slivers”是指那些在生产过程中容易造成脱落的阻焊层上（俗称“绿油”的阻焊剂）细而窄的区域。阻焊剂一旦剥落很容易滑向焊料造成不良后果。这一功能项就可以在生产之前预先检测并修复一下以免造成不必要的后果。Analysis -&gt; Mask Silvers,弹出一个“Mask Sliver Detection”的对话框。
@@ -312,21 +312,21 @@ Analysis -&gt; Check Drills,弹出Drill Alalysis对话框。
  
  
 <p>
-1. Silk to Solder Spacing
+1. Silk to Solder Spacing<br />
 </p>
 <blockquote>
 这是软件自动检验丝印层与阻焊层间距的功能。Analysis -&gt; Silk to Solder Spacing就会弹出“Check Silkscreen”对话框。
 首先选择要检查的两层，即Sildcreen_top/Soldermask_top同时选中或Sildcreen_bottom/Soldermask_bottom同时选中。然后在Clearance中输入可以寸的过孔，但这些过孔是由相同的Tool产生的。“Drill Hole to Drill Hole Clearance”可以检验过孔之间的间距是否满足某种即定的规则。接着在“Layers to Analyze”中选择需要检验的层。
 </blockquote>
 <p>
-7.以上介绍的DFM检验各项功能都可以在Info -&gt; Report菜单中产生一个报告显示检测结果。如Sliver Report、Solder Mask Errors容忍的最效间距。最好在“Remove Old Silkscreen Errors”前打上勾，以免混淆。OK后系统执行查找，此时屏幕底端左边显示“Silk to Sold Check”：右边显示百分比，执行完毕后会弹出一个报错信息框。“确定”后屏幕跳转至这两层信息，并且屏幕的右上方会增加一个信息显示/编辑条。在这里可以查看所有错误具体位置，可以点击“All”显示所有的错误，也可以在下拉框中选择某一个error，这样可以查询这个error的具体位置。
-2. Solder Mask to Trace Spacing
+7.以上介绍的DFM检验各项功能都可以在Info -&gt; Report菜单中产生一个报告显示检测结果。如Sliver Report、Solder Mask Errors容忍的最效间距。最好在“Remove Old Silkscreen Errors”前打上勾，以免混淆。OK后系统执行查找，此时屏幕底端左边显示“Silk to Sold Check”：右边显示百分比，执行完毕后会弹出一个报错信息框。“确定”后屏幕跳转至这两层信息，并且屏幕的右上方会增加一个信息显示/编辑条。在这里可以查看所有错误具体位置，可以点击“All”显示所有的错误，也可以在下拉框中选择某一个error，这样可以查询这个error的具体位置。<br />
+2. Solder Mask to Trace Spacing<br />
 </p>
 <blockquote>
 在一般的EDA软件中定义为Solder Mask的地方，在实际做板的时候就是涂焊锡的地方。没有Solder Mask的地方，做板时就时阻焊剂。阻焊剂的主要目的时避免在焊接过程中焊料无序流动而导致焊盘引线之间“桥接”短路，保证安装质量，提供长时间的电气环境和抗化学保护，形成印刷电路板的“外衣”。
 </blockquote>
 <p>
-这个命令就时一个实现软件自动检查走线和Sold（焊料）间距的功能。
+这个命令就时一个实现软件自动检查走线和Sold（焊料）间距的功能。<br />
 </p>
 <blockquote>
 Analysis -&gt; Solder Mask to Trace Spacing，就会弹出“Check Solder Mask”对话框。
@@ -358,8 +358,6 @@ Analysis -&gt; Solder Mask to Trace Spacing，就会弹出“Check Solder Mask�
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

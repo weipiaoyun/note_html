@@ -16,41 +16,41 @@
 <body>
 
 <p>
-输出前output.pre判断匹配*flip Step 的.release_from，如果值不为空，说明包含阴阳拼板是蓝色，没有更新的。
-如果格式时Excellon2，则检测周期输出是否合法。
+输出前output.pre判断匹配*flip Step 的.release_from，如果值不为空，说明包含阴阳拼板是蓝色，没有更新的。<br />
+如果格式时Excellon2，则检测周期输出是否合法。<br />
 </p>
 
 <p>
-输出后output.post主要写日志文件
+输出后output.post主要写日志文件<br />
 </p>
 
 <p>
-#获取料号名
-my \(jobName  = \)argv-&gt;{lnVAL}-&gt;[0];
+#获取料号名<br />
+my \(jobName  = \)argv-&gt;{lnVAL}-&gt;[0];<br />
 </p>
 
 <p>
-#获取STEP名
-my \(stepName = \)argv-&gt;{lnVAL}-&gt;[1];
+#获取STEP名<br />
+my \(stepName = \)argv-&gt;{lnVAL}-&gt;[1];<br />
 </p>
 
 <p>
-my \(format   = \)argv-&gt;{lnVAL}-&gt;[2];
+my \(format   = \)argv-&gt;{lnVAL}-&gt;[2];<br />
 </p>
 
 <h2 id="toc_0.1">rename_entity.post</h2>
 <p>
-my \(type = \)argv-&gt;{lnVAL}-&gt;[2];
-#type为料号名等
-my \(name = \)argv-&gt;{lnVAL}-&gt;[4];
-my \(newName = \)argv-&gt;{lnVAL}-&gt;[5];
+my \(type = \)argv-&gt;{lnVAL}-&gt;[2];<br />
+#type为料号名等<br />
+my \(name = \)argv-&gt;{lnVAL}-&gt;[4];<br />
+my \(newName = \)argv-&gt;{lnVAL}-&gt;[5];<br />
 </p>
 
 
 <h1 id="toc_1">打印</h1><HR SIZE=1>
 <p>
-lp_prog
-PRINTERS_ON_COMP
+lp_prog<br />
+PRINTERS_ON_COMP<br />
 </p>
 
 
@@ -77,8 +77,6 @@ PRINTERS_ON_COMP
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -17,20 +17,27 @@
 
 <div class="toc">
 <ul>
-<li><a href="#toc_0.1">用错机器 </a>
-<li><a href="#toc_0.2">过数管控 </a>
-<li><a href="#toc_0.3">避免流程走错 </a>
+<li><a href="#toc_1">PCB软件 </a>
+<ul>
+<li><a href="#toc_1.1">用错机器 </a>
+<li><a href="#toc_1.2">过数管控 </a>
+<li><a href="#toc_1.3">避免流程走错 </a>
 </ul>
-<li><a href="#toc_1">批次号 </a>
+<li><a href="#toc_2">批次号 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
-步骤
-1，画原理图库
-2，画原理图
-3，画PCB封装
-4，画PCB
+步骤<br />
+1，画原理图库<br />
+2，画原理图<br />
+3，画PCB封装<br />
+4，画PCB<br />
+</p>
+
+<h1 id="toc_1">PCB软件 </h1><HR SIZE=1>
+<p>
+<a href="PCB软件.html">PCB软件</a>
 </p>
 
 <p>
@@ -48,24 +55,24 @@
 
 
 <p>
-老板考虑的问题
-1，开料的时候避免用错机器。等到后面才发现到磨损导致板面积少了。(用错机器)
-2，在过数时候，没有管控。有些是直接签了。导致后面发现少了。无法查找是哪个工序少了。(无法追溯)
-3，流程管控。有些特殊流程，产线看都没有看。直接按常规流程走。导致报废板。(走错流程)
+老板考虑的问题<br />
+1，开料的时候避免用错机器。等到后面才发现到磨损导致板面积少了。(用错机器)<br />
+2，在过数时候，没有管控。有些是直接签了。导致后面发现少了。无法查找是哪个工序少了。(无法追溯)<br />
+3，流程管控。有些特殊流程，产线看都没有看。直接按常规流程走。导致报废板。(走错流程)<br />
 </p>
 
-<h2 id="toc_0.1">用错机器 </h2>
+<h2 id="toc_1.1">用错机器 </h2>
 <p>
-扫码，扫机，比对。
+扫码，扫机，比对。<br />
 </p>
 
-<h2 id="toc_0.2">过数管控 </h2>
+<h2 id="toc_1.2">过数管控 </h2>
 <p>
-每个板过了就有数，没过就没，二维码扫码管控
+每个板过了就有数，没过就没，二维码扫码管控<br />
 </p>
 
 
-<h2 id="toc_0.3">避免流程走错 </h2>
+<h2 id="toc_1.3">避免流程走错 </h2>
 <ol>
 <li>
 扫流程卡/扫板里面的二维码，然后就知道这个板在哪个工序已经完成，先一个工序在哪。给到mes系统。
@@ -76,24 +83,24 @@
 </ol>
 
 <p>
-在流水线前面加一个线。有个扫码器。一个plc。如果扫出来对不上，停掉加的流水线。但不停里面的设备。
+在流水线前面加一个线。有个扫码器。一个plc。如果扫出来对不上，停掉加的流水线。但不停里面的设备。<br />
 </p>
 
-<h1 id="toc_1">批次号 </h1><HR SIZE=1>
+<h1 id="toc_2">批次号 </h1><HR SIZE=1>
 <p>
-订单下面是批次号(投产号)。批次号下面是作业单号(Lot卡号)。作业单号下面分内层和外层。
-</p>
-
-<p>
-一个订单分为多个批次。一个批次分为多个Lot去做板。
+订单下面是批次号(投产号)。批次号下面是作业单号(Lot卡号)。作业单号下面分内层和外层。<br />
 </p>
 
 <p>
-订单号-&gt;批次号(投产号)-&gt;作业单号(Lot卡号)-&gt;内层，外层Lot卡。
+一个订单分为多个批次。一个批次分为多个Lot去做板。<br />
 </p>
 
 <p>
-理论上，不同的芯板有相同的批次号。批次号可以根据主料号或者是订单号生成。
+订单号-&gt;批次号(投产号)-&gt;作业单号(Lot卡号)-&gt;内层，外层Lot卡。<br />
+</p>
+
+<p>
+理论上，不同的芯板有相同的批次号。批次号可以根据主料号或者是订单号生成。<br />
 </p>
 
 
@@ -120,8 +127,6 @@
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

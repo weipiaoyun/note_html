@@ -29,67 +29,67 @@
 <li><a href="#toc_5">访问ftp的哪个目录 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <h2 id="toc_0.1">什么是uri</h2>
 <p>
-Uniform Resource Identifier 统一资源标识符
-网络上的每种资源都通过url进行定位，由三部分组成，通过这三部分即可获取资源路径。
+Uniform Resource Identifier 统一资源标识符<br />
+网络上的每种资源都通过url进行定位，由三部分组成，通过这三部分即可获取资源路径。<br />
 </p>
 
 <p>
-URL是URI命名机制的一个子集
+URL是URI命名机制的一个子集<br />
 </p>
 
 <p>
-一，主机名
-存放资源自身的名称，由路径表示。
-协议名称://域名.根域名/目录/文件名.后缀
-如:<a href="http://baike.so.com/doc/100.html">http://baike.so.com/doc/100.html</a>
-	这是可通过HTTP协议访问的资源，位于baike.so.com的主机上。在/doc文件夹，100.html的这个文件。
+一，主机名<br />
+存放资源自身的名称，由路径表示。<br />
+协议名称://域名.根域名/目录/文件名.后缀<br />
+如:<a href="http://baike.so.com/doc/100.html<br">http://baike.so.com/doc/100.html<br</a> />
+	这是可通过HTTP协议访问的资源，位于baike.so.com的主机上。在/doc文件夹，100.html的这个文件。<br />
 </p>
 	
 <p>
-二，标识符
-协议://域名/目录/文件#片段标示符（例如：/a/b.php#a）
+二，标识符<br />
+协议://域名/目录/文件#片段标示符（例如：/a/b.php#a）<br />
 </p>
 
 <p>
-三、相对URI
+三、相对URI<br />
 </p>
 
 <h1 id="toc_1">安装ftp </h1><HR SIZE=1>
 <p>
-yum install vsftpd* 
+yum install vsftpd* <br />
 </p>
 
 <h2 id="toc_1.1">启动 </h2>
 <p>
-/sbin/service vsftpd start
+/sbin/service vsftpd start<br />
 </p>
 
 <h1 id="toc_2">禁止匿名登录 </h1><HR SIZE=1>
 <p>
-vim /etc/vsftpd/vsftpd.conf
-anonymous_enable=NO
+vim /etc/vsftpd/vsftpd.conf<br />
+anonymous_enable=NO<br />
 </p>
 
 <h1 id="toc_3">设置开机启动 </h1><HR SIZE=1>
 <p>
-chkconfig --level 35 vsftpd on
+chkconfig --level 35 vsftpd on<br />
 </p>
 
 <h1 id="toc_4">创建用户名 </h1><HR SIZE=1>
 <p>
-useradd zhPeServer
+useradd zhPeServer<br />
 </p>
 
 <p>
-ftp 127.0.0.1   登录本机ftp
+ftp 127.0.0.1   登录本机ftp<br />
 </p>
 
 <h1 id="toc_5">访问ftp的哪个目录 </h1><HR SIZE=1>
 <p>
-ftp进去的目录需要查看登录的账号的目录的主目录。
+ftp进去的目录需要查看登录的账号的目录的主目录。<br />
 </p>
 
 
@@ -116,8 +116,6 @@ ftp进去的目录需要查看登录的账号的目录的主目录。
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

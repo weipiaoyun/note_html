@@ -16,44 +16,44 @@
 <body>
 
 <p>
-mount 172.17.1.98:/netins ./netins
-cd /etc/yum.repos.d/
-vim public-yum-ol6.repo
-	[public_ol6]
-	name=Oracle Linux
-	baseurl=<a href="file:///mnt/netins/pack/ole6_5">file:///mnt/netins/pack/ole6_5</a>
-	gpgkey=<a href="file:///mnt/netins/pack/ole6_5/RPM-GPG-KEY-oracle">file:///mnt/netins/pack/ole6_5/RPM-GPG-KEY-oracle</a>
-	gpgcheck=1
-	enabled=1
+mount 172.17.1.98:/netins ./netins<br />
+cd /etc/yum.repos.d/<br />
+vim public-yum-ol6.repo<br />
+	[public_ol6]<br />
+	name=Oracle Linux<br />
+	baseurl=<a href="file:///mnt/netins/pack/ole6_5<br">file:///mnt/netins/pack/ole6_5<br</a> />
+	gpgkey=<a href="file:///mnt/netins/pack/ole6_5/RPM-GPG-KEY-oracle<br">file:///mnt/netins/pack/ole6_5/RPM-GPG-KEY-oracle<br</a> />
+	gpgcheck=1<br />
+	enabled=1<br />
 </p>
 	
 <p>
-yum update
-yum install vncserver
-yum install tigervnc-server
+yum update<br />
+yum install vncserver<br />
+yum install tigervnc-server<br />
 </p>
 
 <p>
-whereis spicec
-cp -rpu
-cp -rvp
+whereis spicec<br />
+cp -rpu<br />
+cp -rvp<br />
 </p>
 
 <p>
-whereis qemu-img
-man qemu-img
+whereis qemu-img<br />
+man qemu-img<br />
 </p>
 
 
 <p>
-brctl show
+brctl show<br />
 </p>
 
 <p>
-route
-more ifcfg-br0
-more ifcfg-eth2
-more ifcfg-eth1
+route<br />
+more ifcfg-br0<br />
+more ifcfg-eth2<br />
+more ifcfg-eth1<br />
 </p>
 
 
@@ -80,8 +80,6 @@ more ifcfg-eth1
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

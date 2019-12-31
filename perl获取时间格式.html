@@ -17,23 +17,23 @@
 
 <h2 id="toc_0.1">获取文件修改的年月日，时分秒</h2>
 <p>
-201207251200
-my \(fileTime = strftime "%Y%m%d%H%M%S", localtime((stat "\)filePath")[9])
+201207251200<br />
+my \(fileTime = strftime "%Y%m%d%H%M%S", localtime((stat "\)filePath")[9])<br />
 </p>
 
 <p>
-File::stat
-stat:获取状态，时间
-localtime:转换成现在时间
-localtime(time)可以简写为localtime()，获取系统时间函数。
-strftime:把时间转成需要的格式
+File::stat<br />
+stat:获取状态，时间<br />
+localtime:转换成现在时间<br />
+localtime(time)可以简写为localtime()，获取系统时间函数。<br />
+strftime:把时间转成需要的格式<br />
 </p>
 
 <h2 id="toc_0.2">stat命令</h2>
 <p>
-8 atime 上次访问的时间 上次访问的时间 (access time)
-9 mtime 上次修改的时间 上次修改的时间 (modify time)
-10 ctime Inode修改时间 文件的创建时间 (change time)
+8 atime 上次访问的时间 上次访问的时间 (access time)<br />
+9 mtime 上次修改的时间 上次修改的时间 (modify time)<br />
+10 ctime Inode修改时间 文件的创建时间 (change time)<br />
 </p>
 
 
@@ -60,8 +60,6 @@ strftime:把时间转成需要的格式
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

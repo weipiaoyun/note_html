@@ -32,16 +32,22 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
+
+
 
 <h1 id="toc_1">插件 </h1><HR SIZE=1>
 <p>
-PropertyChanged.Fody.3.0.1 省去绑定属性
+PropertyChanged.Fody.3.0.1 省去绑定属性<br />
 </p>
 
 <h1 id="toc_2">ICommand </h1><HR SIZE=1>
 <p>
-ICommand is an Interface which has three members as shown in below table:
+<a href="https://www.codeproject.com/Articles/1052346/ICommand-Interface-in-WPF">https://www.codeproject.com/Articles/1052346/ICommand-Interface-in-WPF</a>
+</p>
+
+<p>
+ICommand is an Interface which has three members as shown in below table:<br />
 </p>
 
 
@@ -81,40 +87,40 @@ It takes an object as an argument and we generally pass a delegate into this met
 </table>
 
 <p>
-	First The UI Controls will Create an  ICommand object  which receives  an object that was bound  in the XAML file.Then, if the button is clicked,the XAML will execute a function that can execute an event  which  was defined in "event EventHandler CanExecuteChanged". The event will be registered by the XAML with the above method "void Execute(object parameter)".
+	First The UI Controls will Create an  ICommand object  which receives  an object that was bound  in the XAML file.Then, if the button is clicked,the XAML will execute a function that can execute an event  which  was defined in "event EventHandler CanExecuteChanged". The event will be registered by the XAML with the above method "void Execute(object parameter)".<br />
 </p>
 	
 
 
 <h2 id="toc_2.1">INotifyPropertyChanged </h2>
 <p>
-The purpose of INotefyPropertyChanged is to <code>notify</code> if any changes happen to a property to all of its references
+The purpose of INotefyPropertyChanged is to <code>notify</code> if any changes happen to a property to all of its references<br />
 </p>
 
 
 <p>
-we need to implement this interface for ViewModels too so that if any change occurs in ViewModel side, it can be notified/reflected to UI.
+we need to implement this interface for ViewModels too so that if any change occurs in ViewModel side, it can be notified/reflected to UI.<br />
 </p>
 
 
 <p>
-Whenever any change will occur in properties either from UI or ViewModel, OnPropertyChanged method will be called
+Whenever any change will occur in properties either from UI or ViewModel, OnPropertyChanged method will be called<br />
 </p>
 
 
 <p>
-in this method, It will provide  subscribers to your event named <code>PropertyChanged</code>.
-this.DataContext = testMessage;
+in this method, It will provide  subscribers to your event named <code>PropertyChanged</code>.<br />
+this.DataContext = testMessage;<br />
 </p>
 
 <p>
-	so, DataContex must give it a class object which Inherit an interface named INotefyPropertyChanged which must have an event named "PropertyChanged". and when you change your value.you should call PropertyChanged method which will notify the UI what you have change in parameters.
+	so, DataContex must give it a class object which Inherit an interface named INotefyPropertyChanged which must have an event named "PropertyChanged". and when you change your value.you should call PropertyChanged method which will notify the UI what you have change in parameters.<br />
 </p>
 
 
 <h1 id="toc_3">TreeView </h1><HR SIZE=1>
 <p>
-namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
+namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml<br />
 </p>
 
 
@@ -125,30 +131,30 @@ namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
 
 <h1 id="toc_4">TabControl </h1><HR SIZE=1>
 <p>
-&lt;TabControl Name="TabControl" Grid.Row="2" Grid.Column="0"&gt;
-		&lt;TabItem Header="大料拼板"&gt;
-			&lt;Image Name="ImageSheet" Source="{Binding Path=SheetImg}"&gt;&lt;/Image&gt;
-		&lt;/TabItem&gt;
-		&lt;TabItem Header="PNLA拼板"&gt;
-			&lt;Image Name="ImagePanela" Source="{Binding Path=PnlaImg}" &gt;&lt;/Image&gt;
-		&lt;/TabItem&gt;
-		&lt;TabItem Header="PNLB拼板"&gt;
-			&lt;Image Name="ImagePanelb" Source="{Binding Path=PnlbImg}"&gt;&lt;/Image&gt;
-		&lt;/TabItem&gt;
-&lt;/TabControl&gt;
+&lt;TabControl Name="TabControl" Grid.Row="2" Grid.Column="0"&gt;<br />
+		&lt;TabItem Header="大料拼板"&gt;<br />
+			&lt;Image Name="ImageSheet" Source="{Binding Path=SheetImg}"&gt;&lt;/Image&gt;<br />
+		&lt;/TabItem&gt;<br />
+		&lt;TabItem Header="PNLA拼板"&gt;<br />
+			&lt;Image Name="ImagePanela" Source="{Binding Path=PnlaImg}" &gt;&lt;/Image&gt;<br />
+		&lt;/TabItem&gt;<br />
+		&lt;TabItem Header="PNLB拼板"&gt;<br />
+			&lt;Image Name="ImagePanelb" Source="{Binding Path=PnlbImg}"&gt;&lt;/Image&gt;<br />
+		&lt;/TabItem&gt;<br />
+&lt;/TabControl&gt;<br />
 </p>
 
 
 
 <h1 id="toc_5">Grid </h1><HR SIZE=1>
 <p>
-&lt;ColumnDefinition Width="Auto"&gt;&lt;/ColumnDefinition&gt;
+&lt;ColumnDefinition Width="Auto"&gt;&lt;/ColumnDefinition&gt;<br />
 </p>
 
 
 <h1 id="toc_6">Resources </h1><HR SIZE=1>
 <p>
-  &lt;Plugin:WindowPlugin.Resources&gt;
+  &lt;Plugin:WindowPlugin.Resources&gt;<br />
 </p>
 <blockquote>
 &lt;ResourceDictionary&gt;
@@ -165,53 +171,53 @@ namespace CI.Client.Plugins.BD.Item.Item /IndexPage.xaml
 
 <h1 id="toc_7">触发器 </h1><HR SIZE=1>
 <p>
-&lt;i:Interaction.Triggers&gt;
-	&lt;i:EventTrigger EventName="MouseDown"&gt;
-		&lt;i:InvokeCommandAction Command="{Binding ClickCommand}" CommandParameter="MOUSEDOWN"/&gt;
-	&lt;/i:EventTrigger&gt;
-&lt;/i:Interaction.Triggers&gt;
+&lt;i:Interaction.Triggers&gt;<br />
+	&lt;i:EventTrigger EventName="MouseDown"&gt;<br />
+		&lt;i:InvokeCommandAction Command="{Binding ClickCommand}" CommandParameter="MOUSEDOWN"/&gt;<br />
+	&lt;/i:EventTrigger&gt;<br />
+&lt;/i:Interaction.Triggers&gt;<br />
 </p>
 
 
 
 <p>
-&lt;controls:IconButton BorderThickness="0" ToolTip="最小化"       CommandParameter="BTNMIN"
-	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"
-	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"
-	ImageSource="/CI.Controls;component/Images/Logo/Min5.png"
-	/&gt;
-&lt;controls:IconButton BorderThickness="0" ToolTip="最大化"  CommandParameter="BTNMAX"
-	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"
-	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"
-	ImageSource="/CI.Controls;component/Images/Logo/Max5.png"
-	/&gt;
-&lt;controls:IconButton BorderThickness="0" ToolTip="关闭" CommandParameter="BTNCLOSE"
-	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"
-	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"
-	ImageSource="/CI.Controls;component/Images/Logo/Close5.png"
+&lt;controls:IconButton BorderThickness="0" ToolTip="最小化"       CommandParameter="BTNMIN"<br />
+	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"<br />
+	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"<br />
+	ImageSource="/CI.Controls;component/Images/Logo/Min5.png"<br />
+	/&gt;<br />
+&lt;controls:IconButton BorderThickness="0" ToolTip="最大化"  CommandParameter="BTNMAX"<br />
+	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"<br />
+	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"<br />
+	ImageSource="/CI.Controls;component/Images/Logo/Max5.png"<br />
+	/&gt;<br />
+&lt;controls:IconButton BorderThickness="0" ToolTip="关闭" CommandParameter="BTNCLOSE"<br />
+	Margin="0"  Background="Transparent" Style="{StaticResource WindowIconButton }"<br />
+	Content=""     Command="{Binding ClickCommand}"  VerticalAlignment="Center" HorizontalAlignment="Center"<br />
+	ImageSource="/CI.Controls;component/Images/Logo/Close5.png"<br />
 </p>
 	
 
 
 <h2 id="toc_7.1">background </h2>
 <p>
- &lt;Border Grid.Row="0" Grid.ColumnSpan="3" Background="{StaticResource MenuModuleBackground}" BorderBrush="#cdcdcd" BorderThickness="0,0,0,1"   &gt;
+ &lt;Border Grid.Row="0" Grid.ColumnSpan="3" Background="{StaticResource MenuModuleBackground}" BorderBrush="#cdcdcd" BorderThickness="0,0,0,1"   &gt;<br />
 </p>
  
 
 
 <p>
-&lt;views:SelectItemPage Grid.Row="1" Grid.Column="0" x:Name="SelectItemPage"
+&lt;views:SelectItemPage Grid.Row="1" Grid.Column="0" x:Name="SelectItemPage"<br />
 </p>
 <blockquote>
 HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"
 Height="Auto" Width="Auto"&gt;
 </blockquote>
 <p>
-	&lt;i:Interaction.Triggers&gt;
-		&lt;i:EventTrigger EventName="DrillInfoSelectChanged" /&gt;
-	&lt;/i:Interaction.Triggers&gt;
-&lt;/views:SelectItemPage&gt;
+	&lt;i:Interaction.Triggers&gt;<br />
+		&lt;i:EventTrigger EventName="DrillInfoSelectChanged" /&gt;<br />
+	&lt;/i:Interaction.Triggers&gt;<br />
+&lt;/views:SelectItemPage&gt;<br />
 </p>
 
 
@@ -238,8 +244,6 @@ Height="Auto" Width="Auto"&gt;
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

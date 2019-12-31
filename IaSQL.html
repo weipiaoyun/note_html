@@ -16,39 +16,39 @@
 <body>
 
 <p>
-#!/usr/bin/perl -w
-#源码名称: Base.pm
-#功能描述: 为Genesis的基本数据库操作提供类,继承MySQL.pm模块
-#开发单位: 集团工程系统开发部
-#作者    : 洪军
-#开发日期: 2014.4.27
-#版本号  : 1.0
+#!/usr/bin/perl -w<br />
+#源码名称: Base.pm<br />
+#功能描述: 为Genesis的基本数据库操作提供类,继承MySQL.pm模块<br />
+#开发单位: 集团工程系统开发部<br />
+#作者    : 洪军<br />
+#开发日期: 2014.4.27<br />
+#版本号  : 1.0<br />
 </p>
 
 <p>
-#导入模块
-package IaSQL;
-use strict;
-use warnings;
-use utf8;
-use HC::MySQL;
-require Exporter;
-our @ISA = qw(Exporter MySQL);
+#导入模块<br />
+package IaSQL;<br />
+use strict;<br />
+use warnings;<br />
+use utf8;<br />
+use HC::MySQL;<br />
+require Exporter;<br />
+our @ISA = qw(Exporter MySQL);<br />
 </p>
 
 <p>
-#设置程式名称
-my $appname = 'IaSQL';
+#设置程式名称<br />
+my $appname = 'IaSQL';<br />
 </p>
 
 <p>
-#设置版本号
-my $version = 1.0;
+#设置版本号<br />
+my $version = 1.0;<br />
 </p>
 
 <p>
-#new方法
-sub new {
+#new方法<br />
+sub new {<br />
 </p>
 <blockquote>
 my $caller = shift;
@@ -60,16 +60,16 @@ bless \(self, \)class;
 return $self;
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserGenJobSavePriv
-#功能		:获取用户是否有保存料号权限
-#参数		:无
-#返回值		:用户名
-#使用例子	:$h-&gt;GetUserGenJobSavePriv();
-sub GetUserGenJobSavePriv{
+#名字		:GetUserGenJobSavePriv<br />
+#功能		:获取用户是否有保存料号权限<br />
+#参数		:无<br />
+#返回值		:用户名<br />
+#使用例子	:$h-&gt;GetUserGenJobSavePriv();<br />
+sub GetUserGenJobSavePriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -81,16 +81,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserGenJobDelPriv
-#功能		:获取用户是否有删除料号权限
-#参数		:无
-#返回值		:用户名
-#使用例子	:$h-&gt;GetUserGenJobDelPriv();
-sub GetUserGenJobDelPriv{
+#名字		:GetUserGenJobDelPriv<br />
+#功能		:获取用户是否有删除料号权限<br />
+#参数		:无<br />
+#返回值		:用户名<br />
+#使用例子	:$h-&gt;GetUserGenJobDelPriv();<br />
+sub GetUserGenJobDelPriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -102,16 +102,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserGenJobSavePriv
-#功能		:获取用户是否有Input料号权限
-#参数		:无
-#返回值		:用户名
-#使用例子	:$h-&gt;GetUserGenJobInputPriv();
-sub GetUserGenJobInputPriv{
+#名字		:GetUserGenJobSavePriv<br />
+#功能		:获取用户是否有Input料号权限<br />
+#参数		:无<br />
+#返回值		:用户名<br />
+#使用例子	:$h-&gt;GetUserGenJobInputPriv();<br />
+sub GetUserGenJobInputPriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -123,16 +123,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserCAMCheckPriv
-#功能		:获取用户是否有资料检查权限
-#参数		:无
-#返回值		:用户名
-#使用例子	:$h-&gt;GetUserCAMCheckPriv();
-sub GetUserCAMCheckPriv{
+#名字		:GetUserCAMCheckPriv<br />
+#功能		:获取用户是否有资料检查权限<br />
+#参数		:无<br />
+#返回值		:用户名<br />
+#使用例子	:$h-&gt;GetUserCAMCheckPriv();<br />
+sub GetUserCAMCheckPriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -144,16 +144,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserCAMMakePriv
-#功能		:获取用户是否有资料制作权限
-#参数		:无
-#返回值		:用户名
-#使用例子	:$h-&gt;GetUserCAMMakePriv();
-sub GetUserCAMMakePriv{
+#名字		:GetUserCAMMakePriv<br />
+#功能		:获取用户是否有资料制作权限<br />
+#参数		:无<br />
+#返回值		:用户名<br />
+#使用例子	:$h-&gt;GetUserCAMMakePriv();<br />
+sub GetUserCAMMakePriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -165,16 +165,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserCAMCreatePriv
-#功能		:获取用户是否有料号新建权限
-#参数		:无
-#返回值		:布尔值
-#使用例子	:$h-&gt;GetUserCAMCreatePriv();
-sub GetUserCAMCreatePriv{
+#名字		:GetUserCAMCreatePriv<br />
+#功能		:获取用户是否有料号新建权限<br />
+#参数		:无<br />
+#返回值		:布尔值<br />
+#使用例子	:$h-&gt;GetUserCAMCreatePriv();<br />
+sub GetUserCAMCreatePriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -186,16 +186,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserCAMCopyPriv
-#功能		:获取用户是否有料号复制权限
-#参数		:无
-#返回值		:布尔值
-#使用例子	:$h-&gt;GetUserCAMCopyPriv();
-sub GetUserCAMCopyPriv{
+#名字		:GetUserCAMCopyPriv<br />
+#功能		:获取用户是否有料号复制权限<br />
+#参数		:无<br />
+#返回值		:布尔值<br />
+#使用例子	:$h-&gt;GetUserCAMCopyPriv();<br />
+sub GetUserCAMCopyPriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -207,16 +207,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserCAMRenamePriv
-#功能		:获取用户是否有料号重命名权限
-#参数		:无
-#返回值		:布尔值
-#使用例子	:$h-&gt;GetUserCAMRenamePriv();
-sub GetUserCAMRenamePriv{
+#名字		:GetUserCAMRenamePriv<br />
+#功能		:获取用户是否有料号重命名权限<br />
+#参数		:无<br />
+#返回值		:布尔值<br />
+#使用例子	:$h-&gt;GetUserCAMRenamePriv();<br />
+sub GetUserCAMRenamePriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -228,17 +228,17 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 
 <p>
-#名字		:GetUserCAMCheckListPriv
-#功能		:获取用户是否有运行CheckList检测权限
-#参数		:无
-#返回值		:布尔值
-#使用例子	:$h-&gt;GetUserCAMCheckListPriv();
-sub GetUserCAMCheckListPriv{
+#名字		:GetUserCAMCheckListPriv<br />
+#功能		:获取用户是否有运行CheckList检测权限<br />
+#参数		:无<br />
+#返回值		:布尔值<br />
+#使用例子	:$h-&gt;GetUserCAMCheckListPriv();<br />
+sub GetUserCAMCheckListPriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -250,16 +250,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserGenesislibSavePriv
-#功能		:获取用户是否有genesislib保存权限
-#参数		:无
-#返回值		:布尔值
-#使用例子	:$h-&gt;GetUserGenesislibSavePriv();
-sub GetUserGenesislibSavePriv{
+#名字		:GetUserGenesislibSavePriv<br />
+#功能		:获取用户是否有genesislib保存权限<br />
+#参数		:无<br />
+#返回值		:布尔值<br />
+#使用例子	:$h-&gt;GetUserGenesislibSavePriv();<br />
+sub GetUserGenesislibSavePriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -271,16 +271,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserGenesisV10SavePriv
-#功能		:获取用户是否genesisV10.0保存权限
-#参数		:无
-#返回值		:布尔值
-#使用例子	:$h-&gt;GetUserGenesisV10SavePriv();
-sub GetUserGenesisV10SavePriv{
+#名字		:GetUserGenesisV10SavePriv<br />
+#功能		:获取用户是否genesisV10.0保存权限<br />
+#参数		:无<br />
+#返回值		:布尔值<br />
+#使用例子	:$h-&gt;GetUserGenesisV10SavePriv();<br />
+sub GetUserGenesisV10SavePriv{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -292,16 +292,16 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-#名字		:GetUserCName
-#功能		:获取用户的中文姓名
-#参数		:无
-#返回值		:布尔值
-#使用例子	:$h-&gt;GetUserCName();
-sub GetUserCName{
+#名字		:GetUserCName<br />
+#功能		:获取用户的中文姓名<br />
+#参数		:无<br />
+#返回值		:布尔值<br />
+#使用例子	:$h-&gt;GetUserCName();<br />
+sub GetUserCName{<br />
 </p>
 <blockquote>
 my $self = shift;
@@ -313,12 +313,12 @@ my \(data = \)self-&gt;FetchrowArray($sqlCmd);
 return $data-&gt;[0]-&gt;[0];
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-1;
-_<em>END</em>_
+1;<br />
+_<em>END</em>_<br />
 </p>
 
 
@@ -345,8 +345,6 @@ _<em>END</em>_
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

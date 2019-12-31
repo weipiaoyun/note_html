@@ -16,115 +16,115 @@
 <body>
 
 <p>
-ucfirst: 第一个字母改成大些
+ucfirst: 第一个字母改成大些<br />
 </p>
 
 <p>
-use Data::Dumper;
-print Dumper \%cxt;
-print Dumper \$data #Dumper为一个函数
+use Data::Dumper;<br />
+print Dumper \%cxt;<br />
+print Dumper \$data #Dumper为一个函数<br />
 </p>
 
 <p>
-chomp (my $hostName = <code>hostname</code>);
+chomp (my $hostName = <code>hostname</code>);<br />
 </p>
 
 <p>
-Chomp命令，如果是标量，如果最后一行是空行，其会咬掉，如果非空行，不作任何操作。如果是数组，它会检测每个标量的最后一行，如果是空行，就咬掉。返回值：如果咬掉一个标量的空行，就返回1，如果咬掉10个标量的空行，就返回10，没咬，就返回0.只能咬掉最后一个\n
+Chomp命令，如果是标量，如果最后一行是空行，其会咬掉，如果非空行，不作任何操作。如果是数组，它会检测每个标量的最后一行，如果是空行，就咬掉。返回值：如果咬掉一个标量的空行，就返回1，如果咬掉10个标量的空行，就返回10，没咬，就返回0.只能咬掉最后一个\n<br />
 </p>
 
 <p>
-用do执行文件，而不是用perl执行文件，注意用our全局变量
+用do执行文件，而不是用perl执行文件，注意用our全局变量<br />
 </p>
 <h1 id="toc_1">substr</h1><HR SIZE=1>
 <p>
-substr("$string", 0, 2);#表示从第零个开始，截取2个字符！/cut
-\(s=substr("perl5",2,2);        #这时\)s="rl";
-\(s=substr("perl5",2);         #这时\)s="rl5";如果不指定个数，则，到最后
-\(s=substr("perl5",-2,2);        #这时\)s="l5";
+substr("$string", 0, 2);#表示从第零个开始，截取2个字符！/cut<br />
+\(s=substr("perl5",2,2);        #这时\)s="rl";<br />
+\(s=substr("perl5",2);         #这时\)s="rl5";如果不指定个数，则，到最后<br />
+\(s=substr("perl5",-2,2);        #这时\)s="l5";<br />
 </p>
 
 
 <h1 id="toc_2">index</h1><HR SIZE=1>
 <p>
-从左往右找到第一个字符的位置(序号)
+从左往右找到第一个字符的位置(序号)<br />
 </p>
 
 <h1 id="toc_3">rindex</h1><HR SIZE=1>
 <p>
-从右往左找到第一个字符的位置(序号)
-rindex( $string, "/" );
+从右往左找到第一个字符的位置(序号)<br />
+rindex( $string, "/" );<br />
 </p>
 
 <p>
-有利于截取字符串
+有利于截取字符串<br />
 </p>
 
 
 <h2 id="toc_3.1">转换大小写</h2>
 <p>
-uc()把所有的小写转换成大写
-lc()把所有的大写转换成小写
+uc()把所有的小写转换成大写<br />
+lc()把所有的大写转换成小写<br />
 </p>
 
 
 
 <h2 id="toc_3.2">foreach grep map</h2>
 <p>
-这三个都会逐个取值(取数组里面的值)。
-map和grep不同的地方在于map是处理后的值赋值给新的数组，而grep只是过滤数组。(一个是处理，一个是过滤)，grep里面有个判断。
+这三个都会逐个取值(取数组里面的值)。<br />
+map和grep不同的地方在于map是处理后的值赋值给新的数组，而grep只是过滤数组。(一个是处理，一个是过滤)，grep里面有个判断。<br />
 </p>
 <h3 id="toc_3.2.1">grep过滤，map获取新数组</h3>
 
 <p>
-grep现有列表，挑选出新列表。循环给值，符合赋值。组成数组。(参数为一个判断(通常正则)，一个数组)。标量上下文，个数。列表上下文，数组。
-map, 现有列表<code>延展出</code>新列表。map的意义在于获得新列表，最好不要在里面修改值，也是两个参数，一个是处理表达式，一个是数组。
-map,值为列表或列表个数, 循环给值，变为列表
-map，转换数组到hash
-map ({list1} list2); #值是list1的列表或list1的列表个数。list1如果用大括号括住就不能使用逗号，当list1只有一个元素的时候，可以用大括号，也可以使用逗号。多个的时候只能是大括号。list2可以是@a1, @a2, @a3等多个<code>数组</code>组成的列表
-@selected = grep EXPR, @input;
-@selected = map { if (EXPR) { $_ } } @input;
-my @files1 = map { /(.*)\.txt$/ } @files;#如果匹配，则返回的时圆括号里面的内容。
+grep现有列表，挑选出新列表。循环给值，符合赋值。组成数组。(参数为一个判断(通常正则)，一个数组)。标量上下文，个数。列表上下文，数组。<br />
+map, 现有列表<code>延展出</code>新列表。map的意义在于获得新列表，最好不要在里面修改值，也是两个参数，一个是处理表达式，一个是数组。<br />
+map,值为列表或列表个数, 循环给值，变为列表<br />
+map，转换数组到hash<br />
+map ({list1} list2); #值是list1的列表或list1的列表个数。list1如果用大括号括住就不能使用逗号，当list1只有一个元素的时候，可以用大括号，也可以使用逗号。多个的时候只能是大括号。list2可以是@a1, @a2, @a3等多个<code>数组</code>组成的列表<br />
+@selected = grep EXPR, @input;<br />
+@selected = map { if (EXPR) { $_ } } @input;<br />
+my @files1 = map { /(.*)\.txt$/ } @files;#如果匹配，则返回的时圆括号里面的内容。<br />
 </p>
 
 <p>
-需要一个列表推演到另外一个列表，用map
-筛选列表元素时，用grep函数。
-遍历需要修改变量，用foreach
+需要一个列表推演到另外一个列表，用map<br />
+筛选列表元素时，用grep函数。<br />
+遍历需要修改变量，用foreach<br />
 </p>
 
 <p>
-常用
-1，求出数组中不一样的
-my @bb;
-my %diff;
-my @diff = grep (!\(diff{\)_}++, @bb);
+常用<br />
+1，求出数组中不一样的<br />
+my @bb;<br />
+my %diff;<br />
+my @diff = grep (!\(diff{\)_}++, @bb);<br />
 </p>
 
 <p>
-2,求数组中两个以上的
-my @array;
-my %same;
-my @same = grep (\(same{\)_}++, @array);
+2,求数组中两个以上的<br />
+my @array;<br />
+my %same;<br />
+my @same = grep (\(same{\)_}++, @array);<br />
 </p>
 
 <p>
-3，求某个值是不是数组的元素
-if (exists \(h-&gt;{\)type}{$layerName})
+3，求某个值是不是数组的元素<br />
+if (exists \(h-&gt;{\)type}{$layerName})<br />
 </p>
 
 <h1 id="toc_4">两数组交集，并集，补集</h1><HR SIZE=1>
 <p>
-#!/usr/bin/perl -w
-use Genesis;
-my $f = new Genesis;
-my @a=("a","b","c","d","e");
-my @b=("b","g","f","e");
+#!/usr/bin/perl -w<br />
+use Genesis;<br />
+my $f = new Genesis;<br />
+my @a=("a","b","c","d","e");<br />
+my @b=("b","g","f","e");<br />
 </p>
 
 <p>
-my %a=map{$_=&gt;1} @a;
-my %b=map{$_=&gt;1} @b;
+my %a=map{$_=&gt;1} @a;<br />
+my %b=map{$_=&gt;1} @b;<br />
 </p>
 
 <ol>
@@ -133,7 +133,7 @@ my %b=map{$_=&gt;1} @b;
 
 </ol>
 <p>
-@A = grep( \(a{\)_}, @b ) ;
+@A = grep( \(a{\)_}, @b ) ;<br />
 </p>
 
 <ol>
@@ -142,8 +142,8 @@ my %b=map{$_=&gt;1} @b;
 
 </ol>
 <p>
-@B1=grep(!exists \(a{\)_}, @b);
-@B2=grep(!exists \(b{\)_}, @a);
+@B1=grep(!exists \(a{\)_}, @b);<br />
+@B2=grep(!exists \(b{\)_}, @a);<br />
 </p>
 
 <ol>
@@ -152,34 +152,34 @@ my %b=map{$_=&gt;1} @b;
 
 </ol>
 <p>
-%C=map {$_=&gt;1} @a,@b;
-@C=keys %C;
+%C=map {$_=&gt;1} @a,@b;<br />
+@C=keys %C;<br />
 </p>
 
 <p>
-$f-&gt;PAUSE("a:@A,b1:@B1, b2:@B2, c:@C");
+$f-&gt;PAUSE("a:@A,b1:@B1, b2:@B2, c:@C");<br />
 </p>
 
 <p>
-$a{abcd} = 1;
+$a{abcd} = 1;<br />
 </p>
 
 <p>
-if (defined $a{abcd}){
-	$f-&gt;PAUSE("ok");
-}
-else{
-	$f-&gt;PAUSE("no");
-}
+if (defined $a{abcd}){<br />
+	$f-&gt;PAUSE("ok");<br />
+}<br />
+else{<br />
+	$f-&gt;PAUSE("no");<br />
+}<br />
 </p>
 
 <p>
-if (exists $a{abcd}){
-	$f-&gt;PAUSE("ok");
-}
-else{
-	$f-&gt;PAUSE("no");
-}
+if (exists $a{abcd}){<br />
+	$f-&gt;PAUSE("ok");<br />
+}<br />
+else{<br />
+	$f-&gt;PAUSE("no");<br />
+}<br />
 </p>
 
 
@@ -206,8 +206,6 @@ else{
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

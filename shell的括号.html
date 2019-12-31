@@ -16,30 +16,30 @@
 <body>
 
 <p>
-1，\(｛｝界定变量范围，例如\)VAR将将打印出VAR变量的值，如果我要打印VAR的值加上AA，而$VARAA将打印VARAA的值，所以要VAR有个界定。
-2，$()里面必须是命令,叫做立即转换为，和``是一样的，里面执行的结果立即转为。
-3，()和｛｝，里面放的都是一连串的命令，都是对这些命令进行执行，有点像script，区别：
-	A：()对里面的一连串命令重新打开一个子shell执行，而｛｝用的是当前shell
-	B:()最后一个命令可以不用分号，｛｝最后一个命令须放分号
-	C：()命令不用空格和命令隔开，｛｝要用空格和命令隔开。
-	D：()和｛｝里面不该面外面重定向，外面影响里面重定向。
+1，\(｛｝界定变量范围，例如\)VAR将将打印出VAR变量的值，如果我要打印VAR的值加上AA，而$VARAA将打印VARAA的值，所以要VAR有个界定。<br />
+2，$()里面必须是命令,叫做立即转换为，和``是一样的，里面执行的结果立即转为。<br />
+3，()和｛｝，里面放的都是一连串的命令，都是对这些命令进行执行，有点像script，区别：<br />
+	A：()对里面的一连串命令重新打开一个子shell执行，而｛｝用的是当前shell<br />
+	B:()最后一个命令可以不用分号，｛｝最后一个命令须放分号<br />
+	C：()命令不用空格和命令隔开，｛｝要用空格和命令隔开。<br />
+	D：()和｛｝里面不该面外面重定向，外面影响里面重定向。<br />
 </p>
 
 
 <p>
-4，$(())，处理算术运算
+4，$(())，处理算术运算<br />
 </p>
 <h1 id="toc_1">其它:</h1><HR SIZE=1>
 <p>
-4.\({var:-string},\){var:+string},\({var:=string},\){var:?string}
+4.\({var:-string},\){var:+string},\({var:=string},\){var:?string}<br />
 </p>
 
 <p>
-5.$((exp))
+5.$((exp))<br />
 </p>
 
 <p>
-6.\((var%pattern),\)(var%%pattern),\((var#pattern),\)(var##pattern)
+6.\((var%pattern),\)(var%%pattern),\((var#pattern),\)(var##pattern)<br />
 </p>
 <blockquote>
 现在来一一详细介绍：
@@ -64,51 +64,51 @@ echo $var
 </blockquote>
 
 <p>
-1
+1<br />
 </p>
 
 <p>
-$ ls
+$ ls<br />
 </p>
 
 <p>
-2
+2<br />
 </p>
 
 <p>
-a b c
+a b c<br />
 </p>
 
 <p>
-3
+3<br />
 </p>
 
 <p>
-\( echo \)(ls)
+\( echo \)(ls)<br />
 </p>
 
 <p>
-4
+4<br />
 </p>
 
 <p>
-a b c
+a b c<br />
 </p>
 
 <p>
-5
+5<br />
 </p>
 
 <p>
-$ echo <code>ls</code>
+$ echo <code>ls</code><br />
 </p>
 
 <p>
-6
+6<br />
 </p>
 
 <p>
-a b c
+a b c<br />
 </p>
 <blockquote>
 3）一串的命令执行()和{}
@@ -118,35 +118,35 @@ a b c
 </blockquote>
 
 <p>
-A,()只是对一串命令重新开一个子shell进行执行
+A,()只是对一串命令重新开一个子shell进行执行<br />
 </p>
 
 <p>
-B,{}对一串命令在当前shell执行
+B,{}对一串命令在当前shell执行<br />
 </p>
 
 <p>
-C,()和{}都是把一串的命令放在括号里面，并且命令之间用;号隔开
+C,()和{}都是把一串的命令放在括号里面，并且命令之间用;号隔开<br />
 </p>
 
 <p>
-D,()最后一个命令可以不用分号
+D,()最后一个命令可以不用分号<br />
 </p>
 
 <p>
-E,{}最后一个命令要用分号
+E,{}最后一个命令要用分号<br />
 </p>
 
 <p>
-F,{}的第一个命令和左括号之间必须要有一个空格
+F,{}的第一个命令和左括号之间必须要有一个空格<br />
 </p>
 
 <p>
-G,()里的各命令不必和括号有空格
+G,()里的各命令不必和括号有空格<br />
 </p>
 
 <p>
-H,()和{}中括号里面的某个命令的重定向只影响该命令，但括号外的重定向则影响到括号里的所有命令
+H,()和{}中括号里面的某个命令的重定向只影响该命令，但括号外的重定向则影响到括号里的所有命令<br />
 </p>
 <blockquote>
 4）几种特殊的替换结构：\({var:-string},\){var:+string},\({var:=string},\){var:?string}
@@ -189,259 +189,259 @@ C,\({var:?string}替换规则为：若变量var不为空，则用变量var的值
 </blockquote>
 
 <p>
-01
+01<br />
 </p>
 
 <p>
-[root@root shell]# var=testcase
+[root@root shell]# var=testcase<br />
 </p>
 
 <p>
-02
+02<br />
 </p>
 
 <p>
-[root@root shell]# echo $var
+[root@root shell]# echo $var<br />
 </p>
 
 <p>
-03
+03<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 <p>
-04
+04<br />
 </p>
 
 <p>
-[root@root shell]# echo ${var%s*e} 从最右边删除最短匹配
+[root@root shell]# echo ${var%s*e} 从最右边删除最短匹配<br />
 </p>
 
 <p>
-05
+05<br />
 </p>
 
 <p>
-testca
+testca<br />
 </p>
 
 <p>
-06
+06<br />
 </p>
 
 <p>
-[root@root shell]# echo $var
+[root@root shell]# echo $var<br />
 </p>
 
 <p>
-07
+07<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 <p>
-08
+08<br />
 </p>
 
 <p>
-[root@root shell]# echo ${var%%s*e} 从最右边删除最长匹配
+[root@root shell]# echo ${var%%s*e} 从最右边删除最长匹配<br />
 </p>
 
 <p>
-09
+09<br />
 </p>
 
 <p>
-te
+te<br />
 </p>
 
 <p>
-10
+10<br />
 </p>
 
 <p>
-[root@root shell]# echo $var  变量没有改变
+[root@root shell]# echo $var  变量没有改变<br />
 </p>
 
 <p>
-11
+11<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 <p>
-12
+12<br />
 </p>
 
 <p>
-[root@root shell]# echo ${var#?e} 从最左边删除最短匹配
+[root@root shell]# echo ${var#?e} 从最左边删除最短匹配<br />
 </p>
 
 <p>
-13
+13<br />
 </p>
 
 <p>
-stcase
+stcase<br />
 </p>
 
 <p>
-14
+14<br />
 </p>
 
 <p>
-[root@root shell]# echo $var
+[root@root shell]# echo $var<br />
 </p>
 
 <p>
-15
+15<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 <p>
-16
+16<br />
 </p>
 
 <p>
-[root@root shell]# echo ${var#*e}  从最左边删除最短匹配
+[root@root shell]# echo ${var#*e}  从最左边删除最短匹配<br />
 </p>
 
 <p>
-17
+17<br />
 </p>
 
 <p>
-stcase
+stcase<br />
 </p>
 
 <p>
-18
+18<br />
 </p>
 
 <p>
-[root@root shell]# echo $var
+[root@root shell]# echo $var<br />
 </p>
 
 <p>
-19
+19<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 <p>
-20
+20<br />
 </p>
 
 <p>
-[root@root shell]# echo ${var##*e} 从最左边删除最长匹配，即删除所有
+[root@root shell]# echo ${var##*e} 从最左边删除最长匹配，即删除所有<br />
 </p>
 
 <p>
-21
+21<br />
 </p>
 
 <p>
-[root@root shell]# echo $var
+[root@root shell]# echo $var<br />
 </p>
 
 <p>
-22
+22<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 <p>
-23
+23<br />
 </p>
 
 <p>
-[root@root shell]# echo ${var##*s} 从最左边删除最长匹配
+[root@root shell]# echo ${var##*s} 从最左边删除最长匹配<br />
 </p>
 
 <p>
-24
+24<br />
 </p>
 
 <p>
-e
+e<br />
 </p>
 
 <p>
-25
+25<br />
 </p>
 
 <p>
-[root@root shell]# echo $var
+[root@root shell]# echo $var<br />
 </p>
 
 <p>
-26
+26<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 <p>
-27
+27<br />
 </p>
 
 <p>
-[root@root shell]# echo ${var#test} 删除test
+[root@root shell]# echo ${var#test} 删除test<br />
 </p>
 
 <p>
-28
+28<br />
 </p>
 
 <p>
-case
+case<br />
 </p>
 
 <p>
-29
+29<br />
 </p>
 
 <p>
-[root@root shell]# echo $var
+[root@root shell]# echo $var<br />
 </p>
 
 <p>
-30
+30<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 <p>
-31
+31<br />
 </p>
 
 <p>
-[root@root shell]# echo ${var#tests} 没有匹配
+[root@root shell]# echo ${var#tests} 没有匹配<br />
 </p>
 
 <p>
-32
+32<br />
 </p>
 
 <p>
-testcase
+testcase<br />
 </p>
 
 
@@ -468,8 +468,6 @@ testcase
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

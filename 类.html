@@ -49,7 +49,7 @@
 <li><a href="#toc_8">引用</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <h1 id="toc_1">常用类 </h1><HR SIZE=1>
 <p>
 <a href="加解密.html">加解密</a>
@@ -62,199 +62,199 @@
 
 <h1 id="toc_2">EXCEL </h1><HR SIZE=1>
 <p>
-epplus
+epplus<br />
 </p>
 
 
 <p>
-值
+值<br />
 </p>
 <blockquote>
 简单类
 </blockquote>
 <p>
-	枚举类
-	结构类
-	可为null类
-引用
+	枚举类<br />
+	结构类<br />
+	可为null类<br />
+引用<br />
 </p>
 <blockquote>
 类类型
 </blockquote>
 <p>
-	接口类型
-	数组类型
-	委托类型(方法的引用)
+	接口类型<br />
+	数组类型<br />
+	委托类型(方法的引用)<br />
 </p>
 
 <p>
-有五类是用户可自定义的：类类型，接口类型，接口类型，枚举类型，委托类型。
+有五类是用户可自定义的：类类型，接口类型，接口类型，枚举类型，委托类型。<br />
 </p>
 
 
 <p>
-类是一种数据结构
+类是一种数据结构<br />
 </p>
 <h2 id="toc_2.1">数据类型</h2>
 <p>
-sbyte
-byte
-int uint
-short ushort
-long ulong
-char 
-float
-double
-decimal(精度更高)
-bool
+sbyte<br />
+byte<br />
+int uint<br />
+short ushort<br />
+long ulong<br />
+char <br />
+float<br />
+double<br />
+decimal(精度更高)<br />
+bool<br />
 </p>
 
 <p>
-在C#使用的数据类型中，按引用的存储有：
-	类
-	字符串
-	接口
-	数组
-	代表
+在C#使用的数据类型中，按引用的存储有：<br />
+	类<br />
+	字符串<br />
+	接口<br />
+	数组<br />
+	代表<br />
 </p>
 	
 
 <h2 id="toc_2.2">泛型</h2>
 <h3 id="toc_2.2.1">泛型类</h3>
 <p>
-在创建对象或者调用方法的时候，临时传递过去的类型
+在创建对象或者调用方法的时候，临时传递过去的类型<br />
 </p>
 
 <p>
-泛型类，
-在定义类的时候的占位符
+泛型类，<br />
+在定义类的时候的占位符<br />
 </p>
 
 
 
 <p>
-类是面向对象的程序设计的基本构成模块
-类是一种数据结构
+类是面向对象的程序设计的基本构成模块<br />
+类是一种数据结构<br />
 </p>
 
 <p>
-类是一种数据结构(数据类型)，这种数据结构可以包含数据成员、函数成员等类型。其中数据成员类型有常量和事件；函数成员类型有方法、属性和索引器等。
+类是一种数据结构(数据类型)，这种数据结构可以包含数据成员、函数成员等类型。其中数据成员类型有常量和事件；函数成员类型有方法、属性和索引器等。<br />
 </p>
 
 	
 <p>
-基本封装结构: 类和结构
+基本封装结构: 类和结构<br />
 </p>
 
 <p>
-类(抽象的数据类型：桌子) 对象就是实例
+类(抽象的数据类型：桌子) 对象就是实例<br />
 </p>
 <h1 id="toc_3">类的修饰符有abstract、internal、new、private、protected、public或sealed关键字</h1><HR SIZE=1>
 <p>
-private&lt;protected/internal&lt;public   
+private&lt;protected/internal&lt;public   <br />
 </p>
     
 <p>
-  这个很明显了。   
+  这个很明显了。   <br />
 </p>
     
 <p>
-  关键是protected和internal的问题。   
+  关键是protected和internal的问题。   <br />
 </p>
     
 <p>
-  protected限定的是只有在继承的子类中才可以访问，可以跨程序集   
+  protected限定的是只有在继承的子类中才可以访问，可以跨程序集   <br />
 </p>
     
 <p>
-  internal限定的是只有在同一个程序集中才可以访问，可以跨类   
+  internal限定的是只有在同一个程序集中才可以访问，可以跨类   <br />
 </p>
     
 <p>
-  所以它们是有点交叉的。   
+  所以它们是有点交叉的。   <br />
 </p>
     
 <p>
-  当一个CLASS是ITERNAL的时候，要求其所有的成员的限定范围不能大于internal。   
+  当一个CLASS是ITERNAL的时候，要求其所有的成员的限定范围不能大于internal。   <br />
 </p>
     
 <p>
-  所以，当一个INTERNAL的CLASS写PROTECTED的时候，就需要两个限定符了：   
+  所以，当一个INTERNAL的CLASS写PROTECTED的时候，就需要两个限定符了：   <br />
 </p>
     
 <p>
-  internal   protected   
+  internal   protected   <br />
 </p>
     
 <p>
-  这样，限定了访问范围是：本程序集、继承的子类。   
+  这样，限定了访问范围是：本程序集、继承的子类。   <br />
 </p>
     
 <p>
-  因此，关系是：   
+  因此，关系是：   <br />
 </p>
     
 <p>
-  private&lt;internal   protected&lt;internal/protected&lt;public   
+  private&lt;internal   protected&lt;internal/protected&lt;public   <br />
 </p>
     
 <p>
-  internal和protected的具体范围大小就不能准确的界顶了。
+  internal和protected的具体范围大小就不能准确的界顶了。<br />
 </p>
   
 
 <p>
-不能对多行注释进行嵌套
+不能对多行注释进行嵌套<br />
 </p>
 
 <p>
-C#组成：空白，C#关键字，字面值，标识符；
+C#组成：空白，C#关键字，字面值，标识符；<br />
 </p>
 
 <p>
-using关键字，用于导入名称空间
+using关键字，用于导入名称空间<br />
 </p>
 
 <p>
-C#的应用程序入口是Main();
+C#的应用程序入口是Main();<br />
 </p>
 
 <p>
-组合不是继承。组合是指一个对象使用另一个对象
+组合不是继承。组合是指一个对象使用另一个对象<br />
 </p>
 
 <p>
-常量全部大写
+常量全部大写<br />
 </p>
 
 
 <h3 id="toc_3.0.1">Byte数组</h3>
 <p>
-MD5的转换，传递的是Byte类型的。而不是字符串类型。一个字节一个字节传递。一个自符串可能由多个字节组成。
+MD5的转换，传递的是Byte类型的。而不是字符串类型。一个字节一个字节传递。一个自符串可能由多个字节组成。<br />
 </p>
 
 <p>
-+号有表示连接字符串的意思
++号有表示连接字符串的意思<br />
 </p>
 
 
 <p>
-把.net framework分为common language runtime(CLR) 和类库
-MSDN 微软的文档库
-数据结构：结构体、枚举
+把.net framework分为common language runtime(CLR) 和类库<br />
+MSDN 微软的文档库<br />
+数据结构：结构体、枚举<br />
 </p>
 
 <p>
-所以常量和变量都必须先声明类型
+所以常量和变量都必须先声明类型<br />
 </p>
 
 <p>
-两种类型
-	值类型：值为固定长度的数据，存储在堆栈中。包括简单类型、枚举类型和结构类型等。
+两种类型<br />
+	值类型：值为固定长度的数据，存储在堆栈中。包括简单类型、枚举类型和结构类型等。<br />
 </p>
 	
 <p>
-		简单类型：整数类型
+		简单类型：整数类型<br />
 </p>
 <blockquote>
 布尔类型
@@ -262,75 +262,75 @@ MSDN 微软的文档库
 </blockquote>
 					
 <p>
-		常量申明:modifiers const type  
-		modifiers:new、public、protected、internal、private
-		type:sbyte、byte、short、ushort、int、uint、long、ulong、char、float、double、decimal、bool、string
-	引用类型：值存储在堆中。包括类类型、数组类型和接口类型等。
+		常量申明:modifiers const type  <br />
+		modifiers:new、public、protected、internal、private<br />
+		type:sbyte、byte、short、ushort、int、uint、long、ulong、char、float、double、decimal、bool、string<br />
+	引用类型：值存储在堆中。包括类类型、数组类型和接口类型等。<br />
 </p>
 	
 
 <p>
-类型转换：
-	隐式转换。实际上就是从低精度的数值类型向高精度的数值类型转换
-		第一是两种类型彼此兼容，第二是目标类型的取值范围要大于源类型。
-	显式转换(强制类型转换，即隐式转换不行时)。
-	使用命令的显示转换。
+类型转换：<br />
+	隐式转换。实际上就是从低精度的数值类型向高精度的数值类型转换<br />
+		第一是两种类型彼此兼容，第二是目标类型的取值范围要大于源类型。<br />
+	显式转换(强制类型转换，即隐式转换不行时)。<br />
+	使用命令的显示转换。<br />
 </p>
 	
 <p>
-	所有的类型都能够转换成string类型，调用ToString()。
+	所有的类型都能够转换成string类型，调用ToString()。<br />
 </p>
 	
 <p>
-隐式转换的类型有隐式数值转换、隐式枚举转换和隐式引用转换；其发生的场合也包括函数调用、表达式计算和分配等。
+隐式转换的类型有隐式数值转换、隐式枚举转换和隐式引用转换；其发生的场合也包括函数调用、表达式计算和分配等。<br />
 </p>
 	
 <p>
-结构体和枚举
-结构：可以帮助我们一次性声明多个不同类型的变量。结构里面的不叫变量，而是叫字段，变量只装一个值，字段可以装多个值
+结构体和枚举<br />
+结构：可以帮助我们一次性声明多个不同类型的变量。结构里面的不叫变量，而是叫字段，变量只装一个值，字段可以装多个值<br />
 </p>
 
 <p>
-枚举类型的变量跟int类型和string类型互相转换。
-当转换一个枚举中没有的值的时候，不会抛异常，而是直接将数字显示出来。
-枚举对值可控，作为参数更安全
-枚举其实左边是枚举，右边是int。
+枚举类型的变量跟int类型和string类型互相转换。<br />
+当转换一个枚举中没有的值的时候，不会抛异常，而是直接将数字显示出来。<br />
+枚举对值可控，作为参数更安全<br />
+枚举其实左边是枚举，右边是int。<br />
 </p>
 
 <h3 id="toc_3.0.2">装箱和拆箱</h3>
 <p>
-object
-object是所有类型的父类。所有类型都可以转换成object，转换的过程称为装箱。object再转换成强类型，称为拆箱。
+object<br />
+object是所有类型的父类。所有类型都可以转换成object，转换的过程称为装箱。object再转换成强类型，称为拆箱。<br />
 </p>
 
 <p>
-每一个对象有一个空间。存储变量和成员。同一类的所有对象的方法只有一个副本，所有类共享那个方法，不会为每一个对象创建空间存储方法。
+每一个对象有一个空间。存储变量和成员。同一类的所有对象的方法只有一个副本，所有类共享那个方法，不会为每一个对象创建空间存储方法。<br />
 </p>
 
 <p>
-对象：对象可以作为参数和返回值。相似的类对象之间进行自动类型转换。
+对象：对象可以作为参数和返回值。相似的类对象之间进行自动类型转换。<br />
 </p>
 
 <h2 id="toc_3.1">DataRow</h2>
 <p>
-System.Data.DataTable中一行的数据，存的是每个字段的值
-1，字段(列)：Columns.非公共成员._list
-2，值(行)：Rows.非公共成员._list
+System.Data.DataTable中一行的数据，存的是每个字段的值<br />
+1，字段(列)：Columns.非公共成员._list<br />
+2，值(行)：Rows.非公共成员._list<br />
 </p>
 
 <h2 id="toc_3.2">DataTable</h2>
 <p>
-System.Data 表示内存中数据的一个表。
+System.Data 表示内存中数据的一个表。<br />
 </p>
 
 <h2 id="toc_3.3">Dictionary</h2>
 <p>
-健值对
+健值对<br />
 </p>
 
 <h2 id="toc_3.4">StringBuider</h2>
 <p>
-可变字符字符串，本质就是一个字符串，里面的@变量是一个不定的变量，可以根据情况赋值。
+可变字符字符串，本质就是一个字符串，里面的@变量是一个不定的变量，可以根据情况赋值。<br />
 </p>
 
 
@@ -354,92 +354,92 @@ System.Data 表示内存中数据的一个表。
 <h1 id="toc_5">泛型</h1><HR SIZE=1>
 
 <p>
-泛型方法，泛型委托。
-CLR允许引用类型、值类型、或接口中定义泛型方法。不支持泛型枚举类型
+泛型方法，泛型委托。<br />
+CLR允许引用类型、值类型、或接口中定义泛型方法。不支持泛型枚举类型<br />
 </p>
 
 <p>
-Func&lt;Int32,Int32,String&gt; f7 = (n1, n2) =&gt; {Int32 sum = n1 + n2, return sum.Tostring();}
+Func&lt;Int32,Int32,String&gt; f7 = (n1, n2) =&gt; {Int32 sum = n1 + n2, return sum.Tostring();}<br />
 </p>
 
 <h2 id="toc_5.1">泛型修饰符in和out</h2>
 <p>
-使用在泛型委托或者是接口中
-in逆变，父传子，out协变，子传父
+使用在泛型委托或者是接口中<br />
+in逆变，父传子，out协变，子传父<br />
 </p>
 
 <p>
-1，OO世界里，可以安全地把子类的应用赋值给父类的引用。
-2，
-public delegate T MyFuncA&lt;T&gt;();//不支持逆变与协变
-public delegate T MyFuncB&lt;out T&gt;();//支持协变
+1，OO世界里，可以安全地把子类的应用赋值给父类的引用。<br />
+2，<br />
+public delegate T MyFuncA&lt;T&gt;();//不支持逆变与协变<br />
+public delegate T MyFuncB&lt;out T&gt;();//支持协变<br />
 </p>
 
 <p>
-3，委托和接口也是类型，如果传递的泛型不同，则表示不同的类型。如果不支持协变和逆变，则两个类型对象是不可以赋值的，也就是不可变。
+3，委托和接口也是类型，如果传递的泛型不同，则表示不同的类型。如果不支持协变和逆变，则两个类型对象是不可以赋值的，也就是不可变。<br />
 </p>
 
 <p>
-4，当前仅支持接口和委托的逆变与协变 ，不支持类和方法。但数组也有协变性。
+4，当前仅支持接口和委托的逆变与协变 ，不支持类和方法。但数组也有协变性。<br />
 </p>
 
 <p>
-5，值类型不参与逆变与协变。
+5，值类型不参与逆变与协变。<br />
 </p>
 
 <p>
-6，协变和逆变指的是参数和返回值的赋值。不管协变还是逆变，都是子类引用赋值给父类引用。
-	协变：out，返回值，泛型子类对象赋值给父类对象。执行父类对象，实际执行子类对象的方法。返回参数由执行子类对象方法后返回。
-	逆变：in，参数，泛型父类对象赋值给子类对象。执行子类对象，实际执行父类对象的方法。参数由子类对象向父类传递。
+6，协变和逆变指的是参数和返回值的赋值。不管协变还是逆变，都是子类引用赋值给父类引用。<br />
+	协变：out，返回值，泛型子类对象赋值给父类对象。执行父类对象，实际执行子类对象的方法。返回参数由执行子类对象方法后返回。<br />
+	逆变：in，参数，泛型父类对象赋值给子类对象。执行子类对象，实际执行父类对象的方法。参数由子类对象向父类传递。<br />
 </p>
 
 <p>
-原理：在泛型上添加in关键字作为修饰符，那么这个反省参数就只能作为方法的输入参数。只写，只入不出，out反之。
+原理：在泛型上添加in关键字作为修饰符，那么这个反省参数就只能作为方法的输入参数。只写，只入不出，out反之。<br />
 </p>
 
 <p>
-父类里面的是原式，子类里面的是变式。
-in逆变，只写，只传递参数过去，不返回值。
-out ，只读，只返回值，不传递参数过去。
+父类里面的是原式，子类里面的是变式。<br />
+in逆变，只写，只传递参数过去，不返回值。<br />
+out ，只读，只返回值，不传递参数过去。<br />
 </p>
 
 <h1 id="toc_6">类型</h1><HR SIZE=1>
 <p>
-引用类型(类)
-值类型(引用)
-接口类型
-委托类型
+引用类型(类)<br />
+值类型(引用)<br />
+接口类型<br />
+委托类型<br />
 </p>
 
 <p>
-CLR禁止开放类型(具有泛型类型参数的类型)的任何实例。
-CLR禁止构造接口类型的实例
+CLR禁止开放类型(具有泛型类型参数的类型)的任何实例。<br />
+CLR禁止构造接口类型的实例<br />
 </p>
 
 
 <p>
-所有类继承了system.object类，包含四个实例方法：ToString，Equals, GetHashCode，GetType
+所有类继承了system.object类，包含四个实例方法：ToString，Equals, GetHashCode，GetType<br />
 </p>
 
 
 <h1 id="toc_7">多进程进行 </h1><HR SIZE=1>
 <p>
-c# backgroundworker类
+c# backgroundworker类<br />
 </p>
 
 <h2 id="toc_7.1">类型转换</h2>
 <p>
-convert类型转换
-1、类型如果相兼容的两个变量，可以使用自动类型转换或者强制类型转换，
-但是，如果两个类型的变量不兼容，比如 string与int或者string 与double，
-这个时候我们可以使用一个叫做Convert的转换工厂进行转换。
-注意：使用Convert进行类型转换，也需要满足一个条件：
-面儿上必须要过的去。前提是这两个类型要兼容，当string类型转换成枚举类型的时候报语法错误。
+convert类型转换<br />
+1、类型如果相兼容的两个变量，可以使用自动类型转换或者强制类型转换，<br />
+但是，如果两个类型的变量不兼容，比如 string与int或者string 与double，<br />
+这个时候我们可以使用一个叫做Convert的转换工厂进行转换。<br />
+注意：使用Convert进行类型转换，也需要满足一个条件：<br />
+面儿上必须要过的去。前提是这两个类型要兼容，当string类型转换成枚举类型的时候报语法错误。<br />
 </p>
 
 <h1 id="toc_8">引用</h1><HR SIZE=1>
 <p>
-引用必定有类型，不然其只是一个地址，无法知道值域。
+引用必定有类型，不然其只是一个地址，无法知道值域。<br />
 </p>
 
 
@@ -466,8 +466,6 @@ convert类型转换
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

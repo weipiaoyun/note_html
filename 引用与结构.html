@@ -16,62 +16,62 @@
 <body>
 
 <p>
-	在perl里面不管是引用还是指针还是间接引用都统称引用。
+	在perl里面不管是引用还是指针还是间接引用都统称引用。<br />
 </p>
 	
 <p>
-	引用是地址，引用是标量。
+	引用是地址，引用是标量。<br />
 </p>
 
 <p>
-	引用包含的信息有两个，一个是数据藏在什么地方，一个是藏的数据什么类型。标量，数组，哈希，指针，子例程的类型分别为scalar，array，hash，ref，code
+	引用包含的信息有两个，一个是数据藏在什么地方，一个是藏的数据什么类型。标量，数组，哈希，指针，子例程的类型分别为scalar，array，hash，ref，code<br />
 </p>
 
 <p>
-	取变量的地址在变量的前面加上反斜杠。
+	取变量的地址在变量的前面加上反斜杠。<br />
 </p>
 
 <p>
-	要取出指针所指值，使用两个\(,一级指针使用2个\),n级指针使用n+1个$.
+	要取出指针所指值，使用两个\(,一级指针使用2个\),n级指针使用n+1个$.<br />
 </p>
 
 <p>
-	使用引用的时候先取中间的\(值，算出后算外面的值。比如\)\(b,首先肯定b是个指针变量。然后取出b里面的地址。然后b地址所对应的值就是该值。又如\)\(b[0],先算\)b，取出地址。然后b地址所对应的数组里面的第0个值就是该值。@$b[2, 3],取出b地址后，取出该地址对应的数组的第二个和第三个值。
+	使用引用的时候先取中间的\(值，算出后算外面的值。比如\)\(b,首先肯定b是个指针变量。然后取出b里面的地址。然后b地址所对应的值就是该值。又如\)\(b[0],先算\)b，取出地址。然后b地址所对应的数组里面的第0个值就是该值。@$b[2, 3],取出b地址后，取出该地址对应的数组的第二个和第三个值。<br />
 </p>
 
 <p>
-	利用引用，可以使用一个标量表示多量的数组和哈希，这样就可以调用多个数组或哈希结构的函数。如果是多个数组或者哈希同时作为参数传递时会全部以列表的形式赋值给@_，这只是普通的长列表，无法区分谁是谁的。
+	利用引用，可以使用一个标量表示多量的数组和哈希，这样就可以调用多个数组或哈希结构的函数。如果是多个数组或者哈希同时作为参数传递时会全部以列表的形式赋值给@_，这只是普通的长列表，无法区分谁是谁的。<br />
 </p>
 
 <p>
-	只要出现两个以上的类型标识符,后面的变量就是引用。只要是引用就代表一个标量值，不管是数组的还是哈希的引用。任何其他标量可以的其都可以。
+	只要出现两个以上的类型标识符,后面的变量就是引用。只要是引用就代表一个标量值，不管是数组的还是哈希的引用。任何其他标量可以的其都可以。<br />
 </p>
 	
 <p>
-	第一个类型表示符表示的是整体变量最终结果的类型。如$\(b,@\)b,%$b最终结果是分别是标量，数序和哈希。
+	第一个类型表示符表示的是整体变量最终结果的类型。如$\(b,@\)b,%$b最终结果是分别是标量，数序和哈希。<br />
 </p>
 	
 <p>
-	结构和引用一样，也是标量。存的也是地址。
-	直接大括号是哈希的引用
+	结构和引用一样，也是标量。存的也是地址。<br />
+	直接大括号是哈希的引用<br />
 </p>
 	
 <p>
-	-&gt;解引用操作符。
+	-&gt;解引用操作符。<br />
 </p>
 	
 
 <p>
-\(self-&gt;{matrix}{\)layer}{row} 
-\(self-&gt;{matrix}的值是引用，指向键为gto，gtl等的哈希地址。\)self-&gt;{matrix}{gto}的值是引用，指向row, type, polarity, side等的的哈希地址。哈希和数组地址存放多个元素。标量地址哈希键地址存放一个元素。(\(self-&gt;{matrix}时匿名哈希，\)self-&gt;{matrix}{\(Layer}也是匿名哈希，\)self-&gt;{matrix}{$layer}{row}最后一个{}表时元素值)
+\(self-&gt;{matrix}{\)layer}{row} <br />
+\(self-&gt;{matrix}的值是引用，指向键为gto，gtl等的哈希地址。\)self-&gt;{matrix}{gto}的值是引用，指向row, type, polarity, side等的的哈希地址。哈希和数组地址存放多个元素。标量地址哈希键地址存放一个元素。(\(self-&gt;{matrix}时匿名哈希，\)self-&gt;{matrix}{\(Layer}也是匿名哈希，\)self-&gt;{matrix}{$layer}{row}最后一个{}表时元素值)<br />
 </p>
 
 
 <p>
-	哈希的值只能是标量，要么是数值，要么是地址。哈希上地址和值的集合。值也有可能是地址。
-哈希的键为有名地址，键值才是值，\(aa, @bb, %cc，\)dd{ee}中的aa，bb，cc，dd, ee和键都是地址。
-哈希在某种程度上也可以看成数组
-哈希就是引用
+	哈希的值只能是标量，要么是数值，要么是地址。哈希上地址和值的集合。值也有可能是地址。<br />
+哈希的键为有名地址，键值才是值，\(aa, @bb, %cc，\)dd{ee}中的aa，bb，cc，dd, ee和键都是地址。<br />
+哈希在某种程度上也可以看成数组<br />
+哈希就是引用<br />
 </p>
 
 
@@ -98,8 +98,6 @@
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -48,15 +48,15 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
 <a href="tmp linux command.html">tmp linux command</a>
 </p>
 
 
 <p>
-system-config-users
-system-config-samba
+system-config-users<br />
+system-config-samba<br />
 </p>
 <h1 id="toc_1">常用命令 </h1><HR SIZE=1>
 <table>
@@ -120,356 +120,356 @@ p，不改变原来的属性
 
 
 <p>
-#!/bin/bash
-#通过sed自动删除文件分发垃圾桶里面修改时间超过60天的文件
-find /space/FileServer/trash -type f -mtime +60 -print | sed 's/^/\/bin\/rm -rf "/g' | sed 's/$/"/g' | bash
+#!/bin/bash<br />
+#通过sed自动删除文件分发垃圾桶里面修改时间超过60天的文件<br />
+find /space/FileServer/trash -type f -mtime +60 -print | sed 's/^/\/bin\/rm -rf "/g' | sed 's/$/"/g' | bash<br />
 </p>
 
 
 <p>
-Cat：查看文件内容
-Chmod：改变权限。
-Cp：拷贝
--r，拷贝目录时使用
--f，若已经存在相同名字，先删除后拷贝
--a，按原状全部复制过去。
-Chown：改变文件的拥有者，只有root才可改变文件的拥有者。
+Cat：查看文件内容<br />
+Chmod：改变权限。<br />
+Cp：拷贝<br />
+-r，拷贝目录时使用<br />
+-f，若已经存在相同名字，先删除后拷贝<br />
+-a，按原状全部复制过去。<br />
+Chown：改变文件的拥有者，只有root才可改变文件的拥有者。<br />
 </p>
 
 <p>
-Ls：列表命令。
--a，
-Pwd：查看当前目录，该命令后会显示出该目录的绝对路径。有时会根据shell
-不同，pwd可能被其他命令所取代。
-参数：
--c，如果没有更改，不会有任何操作，如果有更改，将显示更改后的结果
--f，忽略错误讯息，不提示
-Rm：删除文档
-Rmdir：删除空目录
-Mv：移动文档
-Mkdir:创建目录
-More：查看文件的内容
-Df –h: 查看磁盘内容
-Read a：read读取的时候，如果多个变量，则根据空格来区分。如果按enter，那么直接赋值给下一个变量。超出变量若还输入变量，将赋值给最后一个变量。
-Expr：计算器命令，当是乘号的时候要用反斜杠
-Cut命令：cut –c2表示截取第二个char，cut –c2-表示截取第二个到最后一个char
-Du –sh ./LDI 检测占用多少空间
-grep -R "str" * #星号*表示的是查找全部文件，查看带有某字符串的文件
-grep -R "str" * .* 
-find / -name my* -print
-find /usr -atime 3 –print
-会从 /usr 目录开始往下找，找最近3天之内存取过的文件。
-find /doc -user jacky -name 'j*' –print
+Ls：列表命令。<br />
+-a，<br />
+Pwd：查看当前目录，该命令后会显示出该目录的绝对路径。有时会根据shell<br />
+不同，pwd可能被其他命令所取代。<br />
+参数：<br />
+-c，如果没有更改，不会有任何操作，如果有更改，将显示更改后的结果<br />
+-f，忽略错误讯息，不提示<br />
+Rm：删除文档<br />
+Rmdir：删除空目录<br />
+Mv：移动文档<br />
+Mkdir:创建目录<br />
+More：查看文件的内容<br />
+Df –h: 查看磁盘内容<br />
+Read a：read读取的时候，如果多个变量，则根据空格来区分。如果按enter，那么直接赋值给下一个变量。超出变量若还输入变量，将赋值给最后一个变量。<br />
+Expr：计算器命令，当是乘号的时候要用反斜杠<br />
+Cut命令：cut –c2表示截取第二个char，cut –c2-表示截取第二个到最后一个char<br />
+Du –sh ./LDI 检测占用多少空间<br />
+grep -R "str" * #星号*表示的是查找全部文件，查看带有某字符串的文件<br />
+grep -R "str" * .* <br />
+find / -name my* -print<br />
+find /usr -atime 3 –print<br />
+会从 /usr 目录开始往下找，找最近3天之内存取过的文件。<br />
+find /doc -user jacky -name 'j*' –print<br />
 <a href="linux find.html">linux find</a>
-find /doc \( -name 'ja*' -o- -name 'ma*' \) –print
-会从 /doc 目录开始往下找，找寻文件名是 ja 开头或者 ma开头的文件。
-find /doc -name '*bak' -exec rm {} \;
+find /doc \( -name 'ja*' -o- -name 'ma*' \) –print<br />
+会从 /doc 目录开始往下找，找寻文件名是 ja 开头或者 ma开头的文件。<br />
+find /doc -name '*bak' -exec rm {} \;<br />
 </p>
 
 <h2 id="toc_1.1">查找版本号</h2>
 <p>
-more /etc/issue
+more /etc/issue<br />
 </p>
 
 <p>
-vncserver
+vncserver<br />
 </p>
 
 
 
 <h1 id="toc_2">设置默认的shell为csh </h1><HR SIZE=1>
 <p>
-which　csh
-chsh -s /bin/csh
+which　csh<br />
+chsh -s /bin/csh<br />
 </p>
 
 
 
 <p>
-在图形界面按ctrl+alt+f2到f6可以进入不同的工作台，在这里面不能用/sbin/init 5命令进入图形界面，可以用ctrl+alt+f1返回图形界面，返回不了时，可以试用ctrl+alt+f7
+在图形界面按ctrl+alt+f2到f6可以进入不同的工作台，在这里面不能用/sbin/init 5命令进入图形界面，可以用ctrl+alt+f1返回图形界面，返回不了时，可以试用ctrl+alt+f7<br />
 </p>
 
 <p>
-在图形界面按ctrl+alt+backspace注销
+在图形界面按ctrl+alt+backspace注销<br />
 </p>
 
 <p>
-/sbin/init 1重启只能重启到终端模式，如果要进入图形界面模式可以用/sbin/init 5命令
+/sbin/init 1重启只能重启到终端模式，如果要进入图形界面模式可以用/sbin/init 5命令<br />
 </p>
 
 
 <p>
-在linux中，&amp;和&amp;&amp;,|和||介绍如下：
+在linux中，&amp;和&amp;&amp;,|和||介绍如下：<br />
 </p>
 
 <p>
-&amp;  表示任务在后台执行，如要在后台运行redis-server,则有  redis-server &amp;
+&amp;  表示任务在后台执行，如要在后台运行redis-server,则有  redis-server &amp;<br />
 </p>
 
 <p>
-&amp;&amp; 表示前一条命令执行成功时，才执行后一条命令 ，如 echo '1‘ &amp;&amp; echo '2'    
+&amp;&amp; 表示前一条命令执行成功时，才执行后一条命令 ，如 echo '1‘ &amp;&amp; echo '2'    <br />
 </p>
 
 <p>
-| 表示管道，上一条命令的输出，作为下一条命令参数，如 echo 'yes' | wc -l
+| 表示管道，上一条命令的输出，作为下一条命令参数，如 echo 'yes' | wc -l<br />
 </p>
 
 <p>
-|| 表示上一条命令执行失败后，才执行下一条命令，如 cat nofile || echo "fail"
+|| 表示上一条命令执行失败后，才执行下一条命令，如 cat nofile || echo "fail"<br />
 </p>
 
 <p>
-vncviewer
+vncviewer<br />
 </p>
 
 <p>
-which perl
+which perl<br />
 </p>
 
 <p>
-sed -i
+sed -i<br />
 </p>
 
 <p>
-groupmod
-usermode
+groupmod<br />
+usermode<br />
 </p>
 
 <p>
-systemctl
+systemctl<br />
 </p>
 
 <p>
-dmesg
+dmesg<br />
 </p>
 
 
 <h1 id="toc_3">linux</h1><HR SIZE=1>
 <p>
-find -maxdepth 2 -type d -exec mkdir -p /mnt/zh_pesvr_bak/
+find -maxdepth 2 -type d -exec mkdir -p /mnt/zh_pesvr_bak/<br />
 </p>
 
 <p>
-find -mtime +1000 -type f -exec mv -f {} /mnt/zh_pesvr/{} \;
+find -mtime +1000 -type f -exec mv -f {} /mnt/zh_pesvr/{} \;<br />
 </p>
 
 <p>
-find ./ -mtime -1 -empty -exec rm -rf {} \;
+find ./ -mtime -1 -empty -exec rm -rf {} \;<br />
 </p>
 
 <p>
-/usr/sbin/lsof -i :80 | awk '{print $2}' | xargs kill -9 ""
+/usr/sbin/lsof -i :80 | awk '{print $2}' | xargs kill -9 ""<br />
 </p>
 
 <p>
-查看80端口使用情况/usr/sbin/lsof
+查看80端口使用情况/usr/sbin/lsof<br />
 </p>
 
 <p>
-cat /etc/services 查看服务器默认端口列表信息
+cat /etc/services 查看服务器默认端口列表信息<br />
 </p>
 
 
 <p>
-站点标题mytest
+站点标题mytest<br />
 </p>
 
 <p>
-用户名 lw
+用户名 lw<br />
 </p>
 
 <p>
-find ./ -exec egrep "establishing|data" {} \; -print
+find ./ -exec egrep "establishing|data" {} \; -print<br />
 </p>
 
 <p>
-chcon -R -h -t httpd_sys_content_t ./www
+chcon -R -h -t httpd_sys_content_t ./www<br />
 </p>
 
 <p>
-ls -Z
+ls -Z<br />
 </p>
 
 <p>
-setsebool httpd_enable_homedirs on
+setsebool httpd_enable_homedirs on<br />
 </p>
 
 <p>
-/usr/sbin/semanage fcontext -l |　grep '/var/www'
+/usr/sbin/semanage fcontext -l |　grep '/var/www'<br />
 </p>
 
 <p>
-/usr/sbin/restorecond -Rv /space/www
+/usr/sbin/restorecond -Rv /space/www<br />
 </p>
 
 <p>
-/usr/sbin/lsof -i :80 | awk '{print $2}' | xargs echo ""
-/usr/sbin/lsof -i :80 | awk '{print $2}' | xargs kill ""
+/usr/sbin/lsof -i :80 | awk '{print $2}' | xargs echo ""<br />
+/usr/sbin/lsof -i :80 | awk '{print $2}' | xargs kill ""<br />
 </p>
 
 <h2 id="toc_3.1">查看linux内核版本</h2>
 <p>
-uname -a 可以查看位数，内核，主机名
+uname -a 可以查看位数，内核，主机名<br />
 </p>
 
 <h2 id="toc_3.2">切换模式</h2>
 <p>
-Alt+Ctrl+(F1-F6)进入命令模式，Alt+Ctrl+F7进入图形界面
-Alt+Ctrl+Backspacd注销linux
+Alt+Ctrl+(F1-F6)进入命令模式，Alt+Ctrl+F7进入图形界面<br />
+Alt+Ctrl+Backspacd注销linux<br />
 </p>
 
 <h2 id="toc_3.3">锁</h2>
 <p>
-use Fcntl qw(:DEFAULT :flock);
-sub writeLog {
-	my $time = strftime("%Y-%m-%d %H:%M:%S", localtime(time));
+use Fcntl qw(:DEFAULT :flock);<br />
+sub writeLog {<br />
+	my $time = strftime("%Y-%m-%d %H:%M:%S", localtime(time));<br />
 </p>
 
 <p>
-	#写入料号内日志
-	open my \(FH, "&gt;&gt;", \)jobLog or die "can't open the file \(jobLog \)!\n";
-	flock($FH, LOCK_EX);
-	print \(FH \)time, "\t", @_, "\n";
-	flock($FH, LOCK_UN);
-	close $FH;
+	#写入料号内日志<br />
+	open my \(FH, "&gt;&gt;", \)jobLog or die "can't open the file \(jobLog \)!\n";<br />
+	flock($FH, LOCK_EX);<br />
+	print \(FH \)time, "\t", @_, "\n";<br />
+	flock($FH, LOCK_UN);<br />
+	close $FH;<br />
 </p>
 
 <p>
-	#写入idb日志
-	open my \(FH, "&gt;&gt;", \)idbLog or die "can't open the file \(idbLog \)!\n";
-	flock($FH, LOCK_EX);
-	print \(FH \)time, "\t", @_, "\n";
-	flock($FH, LOCK_UN);
-	close $FH;
-}
+	#写入idb日志<br />
+	open my \(FH, "&gt;&gt;", \)idbLog or die "can't open the file \(idbLog \)!\n";<br />
+	flock($FH, LOCK_EX);<br />
+	print \(FH \)time, "\t", @_, "\n";<br />
+	flock($FH, LOCK_UN);<br />
+	close $FH;<br />
+}<br />
 </p>
 
 <p>
-flock，文件锁
-LOCK_EX:排它锁，只要上锁，其它事务就不能上任何锁。
-LOCK_SH:共享锁，读锁。对文件进行了读锁，其它事务可以同时对文件进行读锁。只要存在读锁，写锁就不能执行。只有等全部读锁解除，才能进行写锁。
-@_
+flock，文件锁<br />
+LOCK_EX:排它锁，只要上锁，其它事务就不能上任何锁。<br />
+LOCK_SH:共享锁，读锁。对文件进行了读锁，其它事务可以同时对文件进行读锁。只要存在读锁，写锁就不能执行。只有等全部读锁解除，才能进行写锁。<br />
+@_<br />
 </p>
 
 <p>
-在写入文件的时候要使用排它锁，确定写入正确
+在写入文件的时候要使用排它锁，确定写入正确<br />
 </p>
 
 <h2 id="toc_3.4">批处理命令</h2>
 <p>
-批量dos转换unix
-find . -type f -exec dos2unix {} \;
+批量dos转换unix<br />
+find . -type f -exec dos2unix {} \;<br />
 </p>
 
 <h2 id="toc_3.5">查找大于500M的文件</h2>
 <p>
-find / -xdev -size +500M -exec ls -l {} \;
+find / -xdev -size +500M -exec ls -l {} \;<br />
 </p>
 
 <h2 id="toc_3.6">ssh</h2>
 <p>
-ssh 192.168.8.111 -p 1863 -lroot
--frontlime
+ssh 192.168.8.111 -p 1863 -lroot<br />
+-frontlime<br />
 </p>
 
 <h2 id="toc_3.7">服务开机启动与禁用</h2>
 <p>
-查看自动状态
-/sbin/chkconfig iptables --list
-/sbin/chkconfig iptables off
+查看自动状态<br />
+/sbin/chkconfig iptables --list<br />
+/sbin/chkconfig iptables off<br />
 </p>
 
 <p>
-service 和 chkconfig
-/sbin/service 其实就是对/etc/rc.d/init.d/里面的程序执行一遍。马上执行。/sbin/service network 执行/etc/rc.d/init.d里面的脚本。如果把network拷贝一个networklinwei，一样可以用/sbin/service networklinwei执行
+service 和 chkconfig<br />
+/sbin/service 其实就是对/etc/rc.d/init.d/里面的程序执行一遍。马上执行。/sbin/service network 执行/etc/rc.d/init.d里面的脚本。如果把network拷贝一个networklinwei，一样可以用/sbin/service networklinwei执行<br />
 </p>
 
 <p>
-/sbin/chkconfig 其实就是在/etc/rc.d/rcn.d里面的脚本连接删掉，添加，修改而已。重启后执行。
-chkconfig off 把S改为K。
-chkconfig on 把K改为S。
+/sbin/chkconfig 其实就是在/etc/rc.d/rcn.d里面的脚本连接删掉，添加，修改而已。重启后执行。<br />
+chkconfig off 把S改为K。<br />
+chkconfig on 把K改为S。<br />
 </p>
 
 <p>
-只要是/etc/rc.d/init.d有脚本，就可以用/sbin/service执行，可以用/sbin/chkconfig添加rcn.d软链接，可以用/sbin/chkconfig 设置开机启动和关闭
+只要是/etc/rc.d/init.d有脚本，就可以用/sbin/service执行，可以用/sbin/chkconfig添加rcn.d软链接，可以用/sbin/chkconfig 设置开机启动和关闭<br />
 </p>
 
 <h2 id="toc_3.8">查看linux的发行版本</h2>
 <p>
-cat /etc/redhat-release
+cat /etc/redhat-release<br />
 </p>
 
 <h2 id="toc_3.9">用户管理</h2>
 <p>
-system-config-users
+system-config-users<br />
 </p>
 
 <h2 id="toc_3.10">VNC管理</h2>
 <p>
-vnc的配置文件
-vim /etc/sysconfig/vncserver
-vim ~/.vnc/xstartup
+vnc的配置文件<br />
+vim /etc/sysconfig/vncserver<br />
+vim ~/.vnc/xstartup<br />
 </p>
 
 <h2 id="toc_3.11">linux远程桌面</h2>
 <p>
-rdesktop -u d018002063 -p hcsystem -a 16 -g 1275x970 192.168.122.2
+rdesktop -u d018002063 -p hcsystem -a 16 -g 1275x970 192.168.122.2<br />
 </p>
 
 <h2 id="toc_3.12">远程数据同步工具</h2>
 <p>
-rsync
+rsync<br />
 </p>
 
 <h2 id="toc_3.13">防火墙管理</h2>
 <p>
-system-config-firewall
+system-config-firewall<br />
 </p>
 
 <h2 id="toc_3.14">查看物理逻辑空间</h2>
 <p>
-pvdisplay (physical volume)
-lvdisplay (logical volume)
+pvdisplay (physical volume)<br />
+lvdisplay (logical volume)<br />
 </p>
 
 <h2 id="toc_3.15">查看linux端口号</h2>
 <p>
-查看ssh的端口号 netstat -panl | grep ssh
-查看端口号被什么占用 lsof -i :1863
+查看ssh的端口号 netstat -panl | grep ssh<br />
+查看端口号被什么占用 lsof -i :1863<br />
 </p>
 
 
 <h2 id="toc_3.16">压缩与解压tgz</h2>
 <p>
-1，tar  -zcvf  aa.tar.gz 
-2, tar  -zxvf aa.tar.gz 
+1，tar  -zcvf  aa.tar.gz <br />
+2, tar  -zxvf aa.tar.gz <br />
 </p>
 
 <h2 id="toc_3.17">查看文件大小的命令</h2>
 <p>
-Du –sh ./input
+Du –sh ./input<br />
 </p>
 
 <h2 id="toc_3.18">查看磁盘空间</h2>
 <p>
-df -h
-fdisk
-cat /proc/patitions
+df -h<br />
+fdisk<br />
+cat /proc/patitions<br />
 </p>
 
 <h2 id="toc_3.19">查看文件的最后2行</h2>
 <p>
-Tail  -2 tmp
+Tail  -2 tmp<br />
 </p>
 
 <h2 id="toc_3.20">查看环境变量</h2>
 <p>
-setenv    
+setenv    <br />
 </p>
 
 <h2 id="toc_3.21">编辑linux自动执行</h2>
 <p>
-Crontab –e
+Crontab –e<br />
 </p>
 
 <p>
@@ -477,475 +477,475 @@ Crontab –e
 </p>
 
 <p>
-找指令用type或者是which <code>看啥指令type，which</code>
-反斜后直enter继续。<code>反斜直en是继续。</code>
-PATH是路径的变量，可以多个值。比如PATH等于C文件夹，D文件夹。
+找指令用type或者是which <code>看啥指令type，which</code><br />
+反斜后直enter继续。<code>反斜直en是继续。</code><br />
+PATH是路径的变量，可以多个值。比如PATH等于C文件夹，D文件夹。<br />
 </p>
 
 <p>
-su 
-　　su命令是最基本的命令之一，常用于不同用户间切换。例如，如果登录为 user1，要切换为user2，只要用如下命令： 
-　　$su user2 
-　　然后系统提示输入user2口令，输入正确的口令之后就可以切换到user2。完成之后就可以用exit命令返回到user1。 
-　　su命令的常见用法是变成根用户或超级用户。如果发出不带用户名的su命令 ，则系统提示输入根口令，输入之后则可切换为根用户。 
-　　如果登录为根用户，则可以用su命令成为系统上任何用户而不需要口令。 
-　　pwd 
-　　pwd命令也是最常用最基本的命令之一，用于显示用户当前所在的目录。 
-　　cd 
-　　cd命令不仅显示当前状态，还改变当前状态，它的用发跟dos下的cd命令基本一致。 
-　　cd ..可进入上一层目录 
-　　cd -可进入上一个进入的目录 
-　　cd ~可进入用户的home目录 
-　　ls 
-　　ls命令跟dos下的dir命令一样，用于显示当前目录的内容。 
-　　如果想取得详细的信息，可用ls -l命令， 这样就可以显示目录内容的详细信息。 
-　　如果目录下的文件太多，用一屏显示不了，可以用ls -l |more分屏显示 。 
-　　find 
-	Find命令介绍
-Find是查找文件的命令，使用情况如下：1，要查找具有某一特征的文件，这特征有可能是文件的权限，文件的属主，文件的长度，文件的类型等。2，查找只知道名字不知道地方的文件。
+su <br />
+　　su命令是最基本的命令之一，常用于不同用户间切换。例如，如果登录为 user1，要切换为user2，只要用如下命令： <br />
+　　$su user2 <br />
+　　然后系统提示输入user2口令，输入正确的口令之后就可以切换到user2。完成之后就可以用exit命令返回到user1。 <br />
+　　su命令的常见用法是变成根用户或超级用户。如果发出不带用户名的su命令 ，则系统提示输入根口令，输入之后则可切换为根用户。 <br />
+　　如果登录为根用户，则可以用su命令成为系统上任何用户而不需要口令。 <br />
+　　pwd <br />
+　　pwd命令也是最常用最基本的命令之一，用于显示用户当前所在的目录。 <br />
+　　cd <br />
+　　cd命令不仅显示当前状态，还改变当前状态，它的用发跟dos下的cd命令基本一致。 <br />
+　　cd ..可进入上一层目录 <br />
+　　cd -可进入上一个进入的目录 <br />
+　　cd ~可进入用户的home目录 <br />
+　　ls <br />
+　　ls命令跟dos下的dir命令一样，用于显示当前目录的内容。 <br />
+　　如果想取得详细的信息，可用ls -l命令， 这样就可以显示目录内容的详细信息。 <br />
+　　如果目录下的文件太多，用一屏显示不了，可以用ls -l |more分屏显示 。 <br />
+　　find <br />
+	Find命令介绍<br />
+Find是查找文件的命令，使用情况如下：1，要查找具有某一特征的文件，这特征有可能是文件的权限，文件的属主，文件的长度，文件的类型等。2，查找只知道名字不知道地方的文件。<br />
 </p>
 
 <p>
-	Find命令格式
-其格式为：find path_name –options [-option –exec -ok]，其中的path_name查找路径，如果不提供参数，那么其默认是当前路径。
+	Find命令格式<br />
+其格式为：find path_name –options [-option –exec -ok]，其中的path_name查找路径，如果不提供参数，那么其默认是当前路径。<br />
 </p>
 
 <p>
-	Find命令的-option
--name，在省略该选项的情况下，只在path_name路径下查找，不会在path_name子路径下查找。所以一般情况下加上-name。
-　　find命令用于查找文件。这个命令可以按文件名、建立或修改日期、所有者(通常是建立文件的用户)、文件长度或文件类型进行搜索。 
-　　find命令的基本结构如下： 
-　　$find 
-　　其中指定从哪个目录开始搜索。指定搜索条件。表示找到文件怎么处理。一般来说，要用-print动作，显示 整个文件路径和名称。如果没有这个动作，则find命令进行所要搜索而不显示结果，等于白费劲。 
-　　例如，要搜索系统上所有名称为ye的文件，可用如下命令： 
-　　$find / -name ye -print 
-　　这样就可以显示出系统上所有名称为ye的文件。 
-　　tar 
-　　tar最初用于建立磁带备份系统，目前广泛用于建立文件发布档案。可用如下方法建立tar档案： 
-　　$tar cvf 
-　　例如，如果要将当前目录中所有文件存档到ye.tar中，可用如下命令： 
-　　$tar cvf ye.tar <strong>.</strong> 
-　　要浏览档案内容，将c选项变成t。如果要浏览ye.tar档案中的内容，可用如下命令： 
-　　$tar tvf ye.tar 
-　　要取出档案内的内容，将c选项变成x。如果要将ye.tar档案中的内容取到当前目录中，可用如下命令： 
-　　$tar xvf ye.tar 
-　　gzip 
-　　gzip命令用于压缩文件。 例如，如果要将ye.txt文件压缩，可用如下命令： 
-　　$gzip ye.txt 
-　　这样就可以压缩文件并在文件名后面加上gz扩展名，变成文件ye.txt.gz。 
-　　解压缩文件可用gzip -d命令实现： 
-　　$gzip -d ye.txt.gz 
-　　这样就可以解压缩文件并删除gz扩展名。除此之外还可以用gunzip命令来解 压缩文件，效果跟用gzip -d命令一样。 
-　　旧版的tar命令不压缩档案，可用gzip压缩。例如： 
-　　$tar cvf ye.tar *.txt 
-　　$gzip ye.tar 
-　　则可建立压缩档案ye.tar.gz。 
-　　新版的tar可以直接访问和建立gzip压缩的tar档案，只要在tar命令中加上z 选项就可以了。例如： 
-　　$tar czvf ye.tar *.txt 
-　　生成压缩档案ye.tar.gz， 
-　　$tar tzvf ye.tar *.txt 
-　　显示压缩档案ye.tar.gz的内容，而 
-　　$tar xzvf ye.tar *.txt 
-　　取出压缩档案ye.tar.gz的内容。 
-　　mkdir 
-　　这个命令很简单，跟dos的md命令用法几乎一样，用于建立目录。 
-　　cp 
-　　cp命令用于复制文件或目录。 
-　　cp命令可以一次复制多个文件，例如： 
-　　$cp *.txt *.doc *.bak /home 
-　　将当前目录中扩展名为txt、doc和bak的文件全部复制到/home目录中。 
-　　如果要复制整个目录及其所有子目录，可以用cp -R命令。 
-　　rm 
-　　rm命令用于删除文件或目录。 
-　　rm命令会强制删除文件，如果想要在删除时提示确认，可用rm -i命令。 
-　　如果要删除目录，可用rm -r命令。rm -r命令在删除目录时，每删除一个文件或目录都会显示提示，如果目录太大，响应每个提示是不现实的。这时可以用 rm -rf命令来强制删除目录，这样即使用了-i标志也当无效处理。 
-　　mv 
-　　mv命令用于移动文件和更名文件。例如： 
-　　$mv ye.txt /home 
-　　将当前目录下的ye.txt文件移动到/home目录下， 
-　　$mv ye.txt ye1.txt 
-　　将ye.txt文件改名为ye1.txt。 
-　　类似于跟cp命令，mv命令也可以一次移动多个文件，在此不再赘叙。 
-　　reboot 
-　　重启命令，不必多说。 
-　　halt 
-　　关机命令，不必多说。 
-　　扫盲行动之二：轻松安装、卸载Linux软件 
-　　以下三篇文单大部分内容是雷同的，懒得整理，所以全放上来了！！ 
-　　第一篇： 
-　　Linux下软件的安装与卸载 
-　　在Windows下安装软件时，只需运行软件的安装程序（setup、install等）或者用zip等解压缩软件解开即可安装，运行反安装程序（uninstall、unware、“卸载”等）就能将软件清除干净，完全图形化的操作界面，简单到只要用鼠标一直点击“下一步”就可以了。而 Linux好象就不一样了，很多的初学者都抱怨在Linux下安装和卸载软件非常地困难，没有像使用Windows时那么直观。其实在Linux下安装和卸载软件也非常简单，同样也有安装向导或解压安装的方式，不相同的只不过是除了二进制形式的软件分发外，还有许许多多以源代码形式分发的软件包，下面就来详细地讲一讲这些软件的安装与卸载： 
-　　一、二进制分发软件包的安装与卸载 
-　　Linux软件的二进制分发是指事先已经编译好二进制形式的软件包的发布形式，其优点是安装使用容易，缺点则是缺乏灵活性，如果该软件包是为特定的硬件/操作系统平台编译的，那它就不能在另外的平台或环境下正确执行。 
-　　1、*.rpm形式的二进制软件包 
-　　安装：rpm -ivh *.rpm 
-　　卸载：rpm -e packgename 
-　　说明：RPM（RedHat Packge Manager）是RedHat公司出的软件包管理器，使用它可以很容易地对rpm形式的软件包进行安装、升级、卸载、验证、查询等操作，安装简单，而卸载时也可以将软件安装在多处目录中的文件删除干净，因此推荐初学者尽可能使用rpm形式的软件包。rpm的参数中-i是安装，-v是校验，-h是用散列符显示安装进度，*.rpm是软件包的文件名（这里的*.rpm特指*.src.rpm以外的以rpm为后缀的文件）；参数-e是删除软件包， packgename是软件包名，与软件包的文件名有所区别，它往往是文件名中位于版本号前面的字符串，例如apache-3.1.12- i386.rpm和apache-devel-3.1.12-i386.rpm是软件包文件名，它们的软件包名称分别是apache和apache- devel。更多的rpm参数请自行参看手册页：man rpm。 
-　　如果你不喜欢在字符界面下安装或卸载这些软件包，完全可以在X-Window下使用图形界面的软件包管理程序，如glint、xrpm这样的图形接口，或者是KDE的kpackge等，这样对软件包的安装、升级、卸载、验证和查询就可以通过点击鼠标来轻松完成。 
-　　2、*.tar.gz/<strong>.tgz、</strong>.bz2形式的二进制软件包 
-　　安装：tar zxvf *.tar.gz 或 tar yxvf *.bz2 
-　　卸载：手动删除 
-　　说明：*.tar.gz/*.bz2形式的二进制软件包是用tar工具来打包、用gzip/bzip2压缩的，安装时直接解包即可。对于解压后只有单一目录的软件，卸载时用命令“rm -rf 软件目录名”；如果解压后文件分散在多处目录中，则必须一一手动删除（稍麻烦），想知道解压时向系统中安装了哪些文件，可以用命令“tar ztvf *.tar.gz”/“tar ytvf *.bz2”获取清单。tar的参数z是调用gzip解压，x是解包，v是校验，f是显示结果，y是调用bzip2解压，t是列出包的文件清单。更多的参数请参看手册页：man tar。 
-　　如果你更喜欢图形界面的操作，可以在X-Window下使用KDE的ArK压缩档案管理工具。 
-　　3、提供安装程序的软件包 
-　　这类软件包已经提供了安装脚本或二进制的安装向导程序（setup、install、install.sh等），只需运行它就可以完成软件的安装；而卸载时也相应地提供了反安装的脚本或程序。例如SUN公司的StarOffice办公软件套件就使用名为setup的安装程序，而且在软件安装后提供反安装的功能，目前这种类型的软件包还比较少，因其安装与卸载的方式与Windows软件一样，所以就无需多讲了。 
-</p>
-
-
-
-
-<p>
-二、源代码分发软件包的安装与卸载 
-　　Linux软件的源代码分发是指提供了该软件所有程序源代码的发布形式，需要用户自己编译成可执行的二进制代码并进行安装，其优点是配置灵活，可以随意去掉或保留某些功能/模块，适应多种硬件/操作系统平台及编译环境，缺点是难度较大，一般不适合初学者使用。 
-　　1、*.src.rpm形式的源代码软件包 
-　　安装：rpm -rebuild *.src.rpm 
-　　cd /usr/src/dist/RPMS 
-　　rpm -ivh *.rpm 
-　　卸载：rpm -e packgename 
-　　说明：rpm --rebuild *.src.rpm命令将源代码编译并在/usr/src/dist/RPMS下生成二进制的rpm包，然后再安装该二进制包即可。packgename如前所述。 
-　　2、*.tar.gz/<strong>.tgz、</strong>.bz2形式的源代码软件包 
-　　安装：tar zxvf *.tar.gz 或 tar yxvf *.bz2 先解压 
-　　然后进入解压后的目录： 
-　　./configure 配置 
-　　make 编译 
-　　make install 安装 
-　　卸载：make uninstall 或 手动删除 
-　　说明：建议解压后先阅读说明文件，可以了解安装有哪些需求，有必要时还需改动编译配置。有些软件包的源代码在编译安装后可以用make install命令来进行卸载，如果不提供此功能，则软件的卸载必须手动删除。由于软件可能将文件分散地安装在系统的多个目录中，往往很难把它删除干净，那你应该在编译前进行配置，指定软件将要安装到目标路径：./configure --prefix=目录名，这样可以使用“rm -rf 软件目录名”命令来进行干净彻底的卸载。与其它安装方式相比，需要用户自己编译安装是最难的，它适合于使用Linux已有一定经验的人，一般不推荐初学者使用。 
-　　关于Linux下软件的安装与卸载lanche已经讲了这么多，但可能还会有人问怎么知道一个tar.gz/bz2包是二进制文件包呢还是源代码包？如果你用过压缩工具就会明白，压缩包未必就是软件，它也可能是备份的许多图片，也可能是打包在一起的普通资料，要分辨它到底是什么最好的办法就是查看包里的文件清单，使用命令tar ztvf *.tar.gz / tar ytvf <strong>.bz2或者在X-Window下使用图形化的ArK压缩档案管理工具都可以，源代码包里的文件往往会含有种种源代码文件，头文件</strong>.h、c代码源文件 <strong>.c、C++代码源文件</strong>.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为 bin的目录（仅有少数例外）。原来这么简单呀，还不快点自己试试！ 
+	Find命令的-option<br />
+-name，在省略该选项的情况下，只在path_name路径下查找，不会在path_name子路径下查找。所以一般情况下加上-name。<br />
+　　find命令用于查找文件。这个命令可以按文件名、建立或修改日期、所有者(通常是建立文件的用户)、文件长度或文件类型进行搜索。 <br />
+　　find命令的基本结构如下： <br />
+　　$find <br />
+　　其中指定从哪个目录开始搜索。指定搜索条件。表示找到文件怎么处理。一般来说，要用-print动作，显示 整个文件路径和名称。如果没有这个动作，则find命令进行所要搜索而不显示结果，等于白费劲。 <br />
+　　例如，要搜索系统上所有名称为ye的文件，可用如下命令： <br />
+　　$find / -name ye -print <br />
+　　这样就可以显示出系统上所有名称为ye的文件。 <br />
+　　tar <br />
+　　tar最初用于建立磁带备份系统，目前广泛用于建立文件发布档案。可用如下方法建立tar档案： <br />
+　　$tar cvf <br />
+　　例如，如果要将当前目录中所有文件存档到ye.tar中，可用如下命令： <br />
+　　$tar cvf ye.tar <strong>.</strong> <br />
+　　要浏览档案内容，将c选项变成t。如果要浏览ye.tar档案中的内容，可用如下命令： <br />
+　　$tar tvf ye.tar <br />
+　　要取出档案内的内容，将c选项变成x。如果要将ye.tar档案中的内容取到当前目录中，可用如下命令： <br />
+　　$tar xvf ye.tar <br />
+　　gzip <br />
+　　gzip命令用于压缩文件。 例如，如果要将ye.txt文件压缩，可用如下命令： <br />
+　　$gzip ye.txt <br />
+　　这样就可以压缩文件并在文件名后面加上gz扩展名，变成文件ye.txt.gz。 <br />
+　　解压缩文件可用gzip -d命令实现： <br />
+　　$gzip -d ye.txt.gz <br />
+　　这样就可以解压缩文件并删除gz扩展名。除此之外还可以用gunzip命令来解 压缩文件，效果跟用gzip -d命令一样。 <br />
+　　旧版的tar命令不压缩档案，可用gzip压缩。例如： <br />
+　　$tar cvf ye.tar *.txt <br />
+　　$gzip ye.tar <br />
+　　则可建立压缩档案ye.tar.gz。 <br />
+　　新版的tar可以直接访问和建立gzip压缩的tar档案，只要在tar命令中加上z 选项就可以了。例如： <br />
+　　$tar czvf ye.tar *.txt <br />
+　　生成压缩档案ye.tar.gz， <br />
+　　$tar tzvf ye.tar *.txt <br />
+　　显示压缩档案ye.tar.gz的内容，而 <br />
+　　$tar xzvf ye.tar *.txt <br />
+　　取出压缩档案ye.tar.gz的内容。 <br />
+　　mkdir <br />
+　　这个命令很简单，跟dos的md命令用法几乎一样，用于建立目录。 <br />
+　　cp <br />
+　　cp命令用于复制文件或目录。 <br />
+　　cp命令可以一次复制多个文件，例如： <br />
+　　$cp *.txt *.doc *.bak /home <br />
+　　将当前目录中扩展名为txt、doc和bak的文件全部复制到/home目录中。 <br />
+　　如果要复制整个目录及其所有子目录，可以用cp -R命令。 <br />
+　　rm <br />
+　　rm命令用于删除文件或目录。 <br />
+　　rm命令会强制删除文件，如果想要在删除时提示确认，可用rm -i命令。 <br />
+　　如果要删除目录，可用rm -r命令。rm -r命令在删除目录时，每删除一个文件或目录都会显示提示，如果目录太大，响应每个提示是不现实的。这时可以用 rm -rf命令来强制删除目录，这样即使用了-i标志也当无效处理。 <br />
+　　mv <br />
+　　mv命令用于移动文件和更名文件。例如： <br />
+　　$mv ye.txt /home <br />
+　　将当前目录下的ye.txt文件移动到/home目录下， <br />
+　　$mv ye.txt ye1.txt <br />
+　　将ye.txt文件改名为ye1.txt。 <br />
+　　类似于跟cp命令，mv命令也可以一次移动多个文件，在此不再赘叙。 <br />
+　　reboot <br />
+　　重启命令，不必多说。 <br />
+　　halt <br />
+　　关机命令，不必多说。 <br />
+　　扫盲行动之二：轻松安装、卸载Linux软件 <br />
+　　以下三篇文单大部分内容是雷同的，懒得整理，所以全放上来了！！ <br />
+　　第一篇： <br />
+　　Linux下软件的安装与卸载 <br />
+　　在Windows下安装软件时，只需运行软件的安装程序（setup、install等）或者用zip等解压缩软件解开即可安装，运行反安装程序（uninstall、unware、“卸载”等）就能将软件清除干净，完全图形化的操作界面，简单到只要用鼠标一直点击“下一步”就可以了。而 Linux好象就不一样了，很多的初学者都抱怨在Linux下安装和卸载软件非常地困难，没有像使用Windows时那么直观。其实在Linux下安装和卸载软件也非常简单，同样也有安装向导或解压安装的方式，不相同的只不过是除了二进制形式的软件分发外，还有许许多多以源代码形式分发的软件包，下面就来详细地讲一讲这些软件的安装与卸载： <br />
+　　一、二进制分发软件包的安装与卸载 <br />
+　　Linux软件的二进制分发是指事先已经编译好二进制形式的软件包的发布形式，其优点是安装使用容易，缺点则是缺乏灵活性，如果该软件包是为特定的硬件/操作系统平台编译的，那它就不能在另外的平台或环境下正确执行。 <br />
+　　1、*.rpm形式的二进制软件包 <br />
+　　安装：rpm -ivh *.rpm <br />
+　　卸载：rpm -e packgename <br />
+　　说明：RPM（RedHat Packge Manager）是RedHat公司出的软件包管理器，使用它可以很容易地对rpm形式的软件包进行安装、升级、卸载、验证、查询等操作，安装简单，而卸载时也可以将软件安装在多处目录中的文件删除干净，因此推荐初学者尽可能使用rpm形式的软件包。rpm的参数中-i是安装，-v是校验，-h是用散列符显示安装进度，*.rpm是软件包的文件名（这里的*.rpm特指*.src.rpm以外的以rpm为后缀的文件）；参数-e是删除软件包， packgename是软件包名，与软件包的文件名有所区别，它往往是文件名中位于版本号前面的字符串，例如apache-3.1.12- i386.rpm和apache-devel-3.1.12-i386.rpm是软件包文件名，它们的软件包名称分别是apache和apache- devel。更多的rpm参数请自行参看手册页：man rpm。 <br />
+　　如果你不喜欢在字符界面下安装或卸载这些软件包，完全可以在X-Window下使用图形界面的软件包管理程序，如glint、xrpm这样的图形接口，或者是KDE的kpackge等，这样对软件包的安装、升级、卸载、验证和查询就可以通过点击鼠标来轻松完成。 <br />
+　　2、*.tar.gz/<strong>.tgz、</strong>.bz2形式的二进制软件包 <br />
+　　安装：tar zxvf *.tar.gz 或 tar yxvf *.bz2 <br />
+　　卸载：手动删除 <br />
+　　说明：*.tar.gz/*.bz2形式的二进制软件包是用tar工具来打包、用gzip/bzip2压缩的，安装时直接解包即可。对于解压后只有单一目录的软件，卸载时用命令“rm -rf 软件目录名”；如果解压后文件分散在多处目录中，则必须一一手动删除（稍麻烦），想知道解压时向系统中安装了哪些文件，可以用命令“tar ztvf *.tar.gz”/“tar ytvf *.bz2”获取清单。tar的参数z是调用gzip解压，x是解包，v是校验，f是显示结果，y是调用bzip2解压，t是列出包的文件清单。更多的参数请参看手册页：man tar。 <br />
+　　如果你更喜欢图形界面的操作，可以在X-Window下使用KDE的ArK压缩档案管理工具。 <br />
+　　3、提供安装程序的软件包 <br />
+　　这类软件包已经提供了安装脚本或二进制的安装向导程序（setup、install、install.sh等），只需运行它就可以完成软件的安装；而卸载时也相应地提供了反安装的脚本或程序。例如SUN公司的StarOffice办公软件套件就使用名为setup的安装程序，而且在软件安装后提供反安装的功能，目前这种类型的软件包还比较少，因其安装与卸载的方式与Windows软件一样，所以就无需多讲了。 <br />
 </p>
 
 
 
 
 <p>
-第二篇： 
-　　如何安装Linux的软件 
-　　在windows下安装软件大家都觉得很容易，只要双击setup或是install的图标，然后跟着向导一步一步的按提示做就可以了，但是在linux 下安装软件就不像windows下那样容易了，有时你找到的是没有编译过的软件源码，那就更加的麻烦了，这里就介绍一下如何安装linux的软件啦！ 
-　　linux下的软件一般都是经过压缩的，主要的格式有这几种：rpm、tar、tar.gz、tgz等。所以首先拿到软件后第一件事就是解压缩。 
-　　一、在xwindow下以rpm格式的软件安装比较容易，只要在把鼠标移到文件上单击右键，在弹出的菜单里会有专门的三项（只有在右键单击rpm文件才会出现）show info，upgrade和install，这三项的意思大家都很清楚了，我就不多说了。rpm格式说了，接着就是tar，tar.gz，tgz等，在 xwindow下双击这些格式的文件就会自动解压缩的，是解压缩而不是像rpm那样有install选项的，install文件会在你解压缩后才出现，不过这里我要先说一下，在你双击install前建议先好好看一下readme，因为你所要安装这些软件可能是没有编译的，所以看一下会比较好。 
-　　二、说完了xwindow下的安装和解压缩，接着说在文本模式下如何解压缩和安装，还有编译源码了。首先说rpm的，以root身份登陆后（用其他的身份登陆也可以但有些软件就不能被安装）键入rpm －i你所要解压缩的文件＋扩展名（当然是rpm）也不是很难吧，这里我要说的是“－i”意思是install，如果你想要卸载或是要执行其他的指令就打 rpm －－help，看电脑给你的提示吧，为了照顾那些E文不太好的人我这里就写几个常用的参数：－e：卸载相关的应用程序，－U（注意是大写）：升级软件包，－pql：列出rpm软件包的相关信息，－qf：查找指定文件属于哪个软件包。至于那些其他格式的软件则可以用gunzip，gzip，tar和 unzip等指令来解压缩，然后再运行install。通过解包后会得到一些文件，然后进入刚才解压缩后文件目录用“ls －F －color”指令看一下所得到的文件，一般有两种情况：第一种是文件为已经编译好的程序（无须再编译了）用上面的察看文件命令会以带“＊”标记的亮绿色显示；第二种则是需要由你自己编译的源代码。得到的是源代码的话，就需要我们自己编译来得到可运行的程序。编译源代码听到编译是不是就吓到你了呢，其实说穿了也就加上几句话而已，对初学者是有些困难想用好的操作系统就需要学习嘛，等你学会了在MM前露一手的时候想想吧……，在编译之前先要认真的阅读一下 readme文档，老鸟们就不需要了吧，等你阅读完了以后就执行 
-　　./configure 
-　　make 
-　　make install（只有Root身份才能执行此命令），编译完成之后便会在当前目录或src子目录下得到软件的可执行程序。 
-　　介绍完了，大家是不是觉的RPM的软件安装比较容易一点呢，但我个人意见初学者还是多选择RPM格式以外的软件，因为通过编译软件的源码可以为你以后编译内核打下一定的基础。（上海 张国荣） 
-　　第三篇： 
-　　轻松安装、卸载Linux软件 
-　　Linux软件的安装和卸载一直是困扰许多新用户的难题。在Windows中，我们可以使用软件自带的安装卸载程序或在控制面板中的“添加/删除程序”来实现。与其相类似，在Linux下有一个功能强大的软件安装卸载工具，名为RPM。它可以用来建立、安装、查询、更新、卸载软件。该工具是在命令行下使用的。在Shell的提示符后输入rpm，就可获得该命令的帮助信息。 
-　　软件的安装 
-　　Linux下软件的安装主要有两种不同的形式。第一种安装文件名为xxx.tar.gz；另一种安装文件名为xxx.i386.rpm。以第一种方式发行的软件多为以源码形式发送的；第二种方式则是直接以二进制形式发送的。 
-　　对于第一种，安装方法如下： 
-　　1.首先，将安装文件拷贝至你的目录中。例如，如果你是以root身份登录上的，就将软件拷贝至/root中。 
-　　#cp xxx.tar.gz /root 
-　　2.由于该文件是被压缩并打包的,应对其解压缩。命令为： 
-　　#tar xvzf filename.tar.gz 
-　　3.执行该命令后，安装文件按路径，解压缩在当前目录下。用ls命令可以看到解压缩后的文件。通常在解压缩后产生的文件中，有“Install”的文件。该文件为纯文本文件，详细讲述了该软件包的安装方法。 
-　　4.执行解压缩后产生的一个名为configure的可执行脚本程序。它是用于检查系统是否有编译时所需的库，以及库的版本是否满足编译的需要等安装所需要的系统信息。为随后的编译工作做准备。命令为：#./configure。 
-　　5.检查通过后，将生成用于编译的MakeFile文件。此时，可以开始进行编译了。编译的过程视软件的规模和计算机性能的不同，所耗费的时间也不同。命令为：#make。 
-　　6.成功编译后，键入如下的命令开始安装： 
-　　#make install 
-　　7.安装完毕，应清除编译过程中产生的临时文件和配置过程中产生的文件。键入如下命令： 
-　　#make clean 
-　　#make distclean 
-　　至此，软件的安装结束。 
-　　对于第二种，其安装方法要简单得多。 
-　　同第一种方式一样，将安装文件拷贝至你的目录中。然后使用rpm来安装该文件。命令如下： 
-　　#rpm -i filename.i386.rpm 
-　　rpm将自动将安装文件解包，并将软件安装到缺省的目录下。并将软件的安装信息注册到rpm的数据库中。参数i的作用是使rpm进入安装模式。 
-　　软件的卸载 
-　　1.软件的卸载主要是使用rpm来进行的。卸载软件首先要知道软件包在系统中注册的名称。键入命令： 
-　　#rpm -q -a 
-　　即可查询到当前系统中安装的所有的软件包。 
-　　2.确定了要卸载的软件的名称，就可以开始实际卸载该软件了。键入如下命令即可卸载软件： 
-　　#rpm -e [package name] 
-　　参数e的作用是使rpm进入卸载模式。对名为[package name]的软件包进行卸载。由于系统中各个软件包之间相互有依赖关系。如果因存在依赖关系而不能卸载，rpm将给予提示并停止卸载。你可以使用如下的命令来忽略依赖关系，直接开始卸载： 
-　　#rpm -e [package name] -nodeps 
-　　忽略依赖关系的卸载可能会导致系统中其它的一些软件无法使用。 
-　　补充： 
-　　如果是以.bin结尾的二进制软件，可以用以下方法安装（以so-6_0-beta-bin-linux-zh-Tw1.bin为例）： 
-　　在so-6_0-beta-bin-linux-zh-Tw1.bin所在文件夹下运行模拟终端 
-　　输入： 
-　　./so-6_0-beta-bin-linux-zh-Tw1.bin 
-　　并按回车！ 
-　　当然也可以输入： 
-　　./so 再用[Tab]键补全 
-　　（./表示当前目录，如果终端不在该软件所在目录下打开，则在软件名前尚需输入相应的路径。） 
-　　如果在图形界面，也可直接单击（或双击，视具体的鼠标设置而定）进行安装！ 
-　　扫盲行动之三：LINUX的目录树 
-　　/bin bin是binary的缩写。这个目录是对UNIX系统习惯的沿袭，存放着使用者最经常使用的命令。例如：cp,ls,cat。 
-　　/boot 这里存放的是启动LINUX时使用的一些核心文件。 
-　　/dev dev是device(设备)的缩写。这个目录下是所有LINUX的外部设备，其功能类似DOS下的.sys和Win下的.vxd。在LINUX中设备和文件是用同种方法访问的。例如:/dev/hda代表第一个物理IDE硬盘。 
-　　/etc 这个目录用来存放所有的系统管理所需要的配置文件和子目录。 
-　　/home 用户的主目录，比如说有个用户叫wang，那他的主目录就是/home/wang也可以用~wang表示，说到这里，打个岔，你现应该明白在我们访问一些个人网页(如<a href="http://www.netease.net/~zhangjia)的时候，~zhangjia就是表示访问">http://www.netease.net/~zhangjia)的时候，~zhangjia就是表示访问</a> www.netease.net站点中的用户zhangjia的用户主目录。 
-　　如果这个网站的操作系统是LINUX，那就是表示/home/zhangjia。 
-　　/lib 这个目录里存放着系统最基本的动态链接共享库，其作用类似于Windows里的.dll文件。几乎所有的应用程序都需要用到这些共享库。 
-　　/lost+found 这个目录平时是空的，当系统不正常关机后，这里就成了一些无家可归的文件的避难所。对了，有点类似于DOS下的.chk文件。 
-　　/mnt 这个目录是空的，系统提供这个目录是让用户临时挂载别的文件系统。 
-　　/proc 这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。也就是说，这个目录的内容不在硬盘上而是在内存里啊！？ 
-　　/root 系统管理员，也叫作超级权限者的用户主目录。当然系统的拥有者，总要有些特权啊！ 
-　　/sbin s就是Super User的意思，也就是说这里存放的是一些系统管理员使用的系统管理程序。 
-　　/tmp 这个目录不用说，一定是用来存放一些临时文件的地方了。 
-　　/usr 这是个最庞大的目录，我们要用到的很多应用程序和文件几乎都存放在这个目录下。具体来说： 
-　　/usr/X11R6 存放X-Windows的目录； 
-　　/usr/bin 存放着许多应用程序； 
-　　/usr/sbin 给超级用户使用的一些管理程序就放在这； 
-　　/usr/doc 这就是LINUX文档的大本营； 
-　　/usr/include LINUX下开发和编译应用程序需要的头文件，在这找； 
-　　/usr/lib 存放一些常用的动态链接共享库和静态档案库； 
-　　/usr/local 这是提供给一般用户的/usr目录，在这安装软件最适合； 
-　　/usr/man man是什么，对了是帮助。这里就是帮助文档目录啊！ 
-　　/usr/src LINUX开放的源代码，就存在这个目录，爱好者们别放过哦！ 
-　　/var 这个目录中存放着那些不断在扩充着的东西，为了保持/usr的相对稳定，那些经常被修改的目录可以放在这个目录下，实际上许多系统管理员都是这样干的。顺带说一下系统的日志文件就在/var/log目录中。 
-　　这里列出了最常见的目录，根据LINUX发行套件的不同，目录结构也是有一定差别的。还有你自己建立的目录，我当然不知是存什么的。希望上面的文字能使你在大脑里留下了LINUX的全景图，以便大家深入掌握LINUX的其它方方面面。 
-</p>
-
-
-<p>
-扫盲行动之四：GRUB三步通 
-　　朋友，你装好linux后是不是每次启动后系统就默认进入到linux，想让它变成windows吗？请修改你的引导装入器吧（当然它不止这个功能）！由于现在的linux都喜欢用GRUB来引导，LILO已越来越少用了，所以我在这里主要给大家讲讲GRUB这个东东！！ 
-　　################## 
-　　# GRUB的优点 # 
-　　################## 
-　　GRUB 是引导装入器(boot loader) -- 它负责装入内核并引导 Linux 系统。GRUB 还可以引导其它操作系统，如 FreeBSD、NetBSD、OpenBSD、GNU HURD 和 DOS，以及 Windows 95、98、NT 和 2000。尽管引导操作系统看上去是件平凡且琐碎的任务，但它实际上很重要。如果引导装入器不能很好地完成工作或者不具有弹性，那么就可能锁住系统，而无法引导计算机。另外，好的引导装入器可以给您灵活性，让您可以在计算机上安装多个操作系统，而不必处理不必要的麻烦。 
-　　GRUB 是一个很棒的boot loader。它有许多功能，可以使引导过程变得非常可靠。例如，它可以直接从 FAT、minix、FFS、ext2 或 ReiserFS 分区读取 Linux 内核。这就意味着无论怎样它总能找到内核。另外，GRUB 有一个特殊的交互式控制台方式，可以让您手工装入内核并选择引导分区。这个功能是无价的：假设 GRUB 菜单配置不正确，但仍可以引导系统。哦，对了 -- GRUB 还有一个彩色引导菜单。 
-　　更令人惊讶的是，这是一个自由软件！！！ 
-　　################## 
-　　# GRUB菜单 # 
-　　################## 
-　　先来看一个例子，这是位于/boot/grub/目录下的menu.lst文件。 
-　　此文件将在开机是产生一个菜单，包含有Debian linux,Windows2000,RedHat linux和 Mandrake linux,共四个选择项。我一共分了8个区，一个fat16（0x6），一个ntfs（0x7），三个ext2fs分区（0x83），一个swap分区（0x82）。ntfs用来装win2000，三个ext2fs装了三个linux，c盘fat16分区没有装任何东西。 
-　　＃例子由此开始 
-　　＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ 
-　　＃ ＃ 
-　　＃ 一个GRUB configure 的例子 ＃ 
-　　＃ ＃ 
-　　＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ 
-　　timeout 10 
-　　default 2 
-　　# --&gt; Debian linux &lt;-- 
-　　title Debian linux 
-　　root (hd0,2) 
-　　kernel /boot/vmlinuz-2.2.18 root=/dev/hda3 ro 
-　　initrd /boot/initrd-2.2.18.gz 
-　　# --&gt; Debian END &lt;-- 
-　　# --&gt; Windows 菜单选项 &lt;-- 
-　　title Windows2000 
-　　root (hd0,0) 
-　　chainloader +1 
-　　# --&gt; Winddows 结束 &lt;-- 
-　　# --&gt; RedHat linux 菜单选项 &lt;-- 
-　　title RedHat linux 
-　　root (hd0,8) 
-　　chainloader +1 # 在硬盘主引导分区装了lilo，所以也用了chainloader。 
-　　# --&gt; RedHat linux 结束 &lt;-- 
-　　# --&gt; Mandrake linux 菜单选项 &lt;-- 
-　　title Mandrake linux 
-　　root (hd0,5) 
-　　kernel /boot/vmlinuz-2.4.3-20mdk root=/dev/hda6 ro 
-　　initrd /boot/initrd-2.4.3-20mdk.img 
-　　# --&gt; Mandrake linux 结束 &lt;-- 
-　　＃例子到此结束 
-　　以符号井＂＃＂开头的行表示被注释掉，没有任何意义。 
-　　timeout表示默认等待的时间，这儿是10秒钟。超过10秒，用户还没有作出选择的话，系统将自动选择默认的操作系统。 
-　　默认的操作系统就是由default控制的。default后加一个数字n，表明是第n＋1个。需要注意的是，GRUB中，计数是从0开始的，第一个硬盘是hd0，第一个软驱是fd0，等等。所以，default 2 表示默认的操作系统在这儿是 Redhat linux。 
-　　接下来，正如你所想象的，title表示的是“Debian linux”菜单项。root (hd0,2)表示第一个硬盘,第三个分区。这儿的root 于linux的root分区及其不同，此root非彼root也！ 
-　　在 Linux 中，当谈到 "root" 文件系统时，通常是指主 Linux 分区。但是，GRUB 有它自己的 root 分区定义。GRUB 的 root 分区是保存 Linux 内核的分区。这可能是您的正式 root 文件系统，也可能不是。我们讨论的是 GRUB，需要指定 GRUB 的 root 分区。进入 root 分区时，GRUB 将把这个分区安装成只读型，这样就可以从该分区中装入 Linux 内核。GRUB 的一个很“酷”的功能是它可以读取本机的 FAT、FFS、minix、ext2 和 ReiserFS 分区。 
-　　到目前为止，您可能会感到一点疑惑，因为 GRUB 所使用的硬盘／分区命名约定与 Linux 使用的命名约定不同。在 Linux 中，第一个硬盘的第五个分区称作 "hda5"。而 GRUB 把这个分区称作 "(hd0,4)"。GRUB 对硬盘和分区的编号都是从 0 开始计算。另外，硬盘和分区都用逗号分隔，整个表达式用括号括起。现在，可以发现如果要引导 Linux 硬盘 hda5，应输入 "root (hd0,4)"。 
-　　知道了内核在哪儿，还要具体指出哪个文件是内核文件，这就是kernel的工作。 
-　　kernel /boot/vmlinuz-2.2.18 root=/dev/hda3 ro说明/boot/vmlinuz-2.2.18 就是要载入的内核。后面的都是传递给内核的参数。root=/dev/hda3就是linux的硬盘分区表示法，ro是以readonly的意思。 
-　　initrd用来初始的linux image，并设置相应的参数。 
-　　是不是感觉很简单啊！再来看一看windows的定义段吧。 
-　　这里，我添加了一项来引导 Windows2000。要完成此操作，GRUB 使用了“链式装入器”(chainloader)。链式装入器从分区 (hd0,0) 的引导记录中装入 win2000 自己的引导装入器，然后引导它。这就是这种技术叫做链式装入的原因 -- 它创建了一个从引导装入器到另一个的链。这种链式装入技术可以用于引导任何版本的 DOS 或 Windows。 
-　　我的RedHat linux在硬盘主引导分区装了lilo，所以也用了chainloader。 
-　　GRUB的配置文件要简单就这么简单，如果你要更个性化一点，试一试把“color light-gray/blue ”加在default语句的下面，下一次启动GRUB时，看看有什么变化，再试一试“color light-blue/red",惊喜吗？ 有趣吧! 
-　　###################### 
-　　# GRUB的交互性 # 
-　　###################### 
-　　GRUB 最好的优点之一就是其强健的设计 -- 在不断使用它时请别忘了这点。如果更新内核或更改它在磁盘上的位置，不必重新安装 GRUB。事实上，如有必要，只要更新 menu.lst 文件即可，一切将保持正常。 
-　　只有少数情况下，才需要将 GRUB 引导装入器重新安装到引导记录。首先，如果更改 GRUB root 分区的分区类型（例如，从 ext2 改成 ReiserFS），则需要重新安装。或者，如果更新 /boot/grub 中的 stage1 和 stage2 文件，由于它们来自更新版本的 GRUB，很有可能要重新安装引导装入器。其它情况下，可以不必理睬！ 
-　　GRUB的最大的特点就是交互性特别强。在开机时，按一下“c”，将进入GRUB 控制台。显示如下： 
-　　GRUB version 0.5.96.1 (640K lower / 3072K upper memory) 
-　　[ Minimal BASH-like line editing is supported. For the first word, TAB 
-　　lists possible command completions. Anywhere else TAB lists the possible 
-　　completions of a device/filename. ] 
-　　grub&gt; 
-　　欢迎使用 GRUB 控制台。现在，再研究命令： 
-　　我将通过GRUB 控制台绕过lilo来启动RedHat linux， 
-　　grub&gt; root (h 
-　　现在，按一次 Tab 键。如果系统中有多个硬盘，GRUB 将显示可能完成的列表，从 "hd0" 开始。如果只有一个硬盘，GRUB 将插入 "hd0,"。如果有多个硬盘，继续进行，在 ("hd2") 中输入名称并在名称后紧跟着输入逗号，但不要按 Enter 键。部分完成的 root 命令看起来如下： 
-　　grub&gt; root (hd0, 
-　　现在，继续操作，再按一次 Tab 键。GRUB 将显示特定硬盘上所有分区的列表，以及它们的文件系统类型。在我的系统中，按 Tab 键时得到以下列表： 
-　　grub&gt; root (hd0, (tab，按tab一下键) 
-　　Possible partitions are: 
-　　Partition num: 0, Filesystem type is fat, partition type 0x6 
-　　Partition num: 2, Filesystem type is ext2fs, partition type 0x83 
-　　Partition num: 4, Filesystem type unknown, partition type 0x7 
-　　Partition num: 5, Filesystem type is ext2fs, partition type 0x83 
-　　Partition num: 6, Filesystem type is fat, partition type 0xb 
-　　Partition num: 7, Filesystem type is fat, partition type 0xb 
-　　Partition num: 8, Filesystem type is ext2fs, partition type 0x83 
-　　Partition num: 9, Filesystem type unknown, partition type 0x82 
-　　如您所见，GRUB 的交互式硬盘和分区名称实现功能非常有条理。这些，只需要好好理解 GRUB 新奇的硬盘和分区命名语法，然后就可以继续操作了 
-　　grub&gt; root (hd0,8) 
-　　现在已安装了 root 文件系统，到装入内核的时候了 
-　　grub&gt; kernel /boot/vmlinuz-2.4.2 root=/dev/hda5 ro 
-　　[Linux-bzImage, setup=0x1200, size=0xe1a30] 
-　　您已经安装了 root 文件系统并装入了内核。现在，可以引导了。只要输入 "boot"，Linux 引导过程就将开始。是不是很cool啊，GRUB的menu.lst更像一个linux下的脚本程序。 
-　　##################### 
-　　# GRUB启动盘 # 
-　　##################### 
-　　要制作引导盘，需执行一些简单的步骤。首先，在新的软盘上创建 ext2 文件系统。然后，将其安装，并将一些 GRUB 文件复制到该文件系统，最后运行 "grub" 程序，它将负责设置软盘的引导扇区。准备好了吗？ 
-　　将一张空盘插入 1.44MB 软驱，输入： 
-　　# mke2fs /dev/fd0 
-　　创建了 ext2 文件系统后，需要安装该文件系统： 
-　　# mount /dev/fd0 /mnt/floppy 
-　　现在，需要创建一些目录，并将一些关键文件（原先安装 GRUB 时已安装了这些文件）复制到软盘： 
-　　# mkdir /mnt/floppy/boot 
-　　# mkdir /mnt/floppy/boot/grub 
-　　# cp /boot/grub/stage1 /mnt/floppy/boot/grub 
-　　# cp /boot/grub/stage2 /mnt/floppy/boot/grub 
-　　再有一个步骤，就能得到可用的引导盘。 
-　　在linux bash中，从 root 用户运行“grub”，该程序非常有趣并值得注意，因为它实际上是 GRUB 引导装入器的半功能性版本。尽管 Linux 已经启动并正在运行，您仍可以运行 GRUB 并执行某些任务，而且其界面与使用 GRUB 引导盘或将 GRUB 安装到硬盘 MBR 时看到的界面(即GRUB控制台)完全相同。 
-　　在 grub&gt; 提示符处，输入： 
-　　grub&gt; root (fd0) 
-　　grub&gt; setup (fd0) 
-　　grub&gt; quit 
-　　现在，引导盘完成了。 
-　　如果要把GRUB装到硬盘上，也很容易。这个过程几乎与引导盘安装过程一样。首先，需要决定哪个硬盘分区将成为 root GRUB 分区。在这个分区上，创建 /boot/grub 目录，并将 stage1 和 stage2 文件复制到该目录中，可以通过重新引导系统并使用引导盘，或者使用驻留版本的 GRUB 来执行后一步操作。在这两种情况下，启动 GRUB，并用 root 命令指定 root 分区。例如，如果将 stage1 和 stage2 文件复制到 hda5 的 /boot/grub 目录中，应输入 "root (hd0,4)"。接着，决定在哪里安装 GRUB -- 在硬盘的 MBR，或者如果与 GRUB 一起使用另一个“主”引导装入器，则安装在特定分区的引导记录中。如果安装到 MBR，则可以指定整个磁盘而不必指定分区，如下（对于 hda）： 
-　　grub&gt; setup (hd0) 
-　　如果要将 GRUB 安装到 /dev/hda5 的引导记录中，应输入： 
-　　grub&gt; setup (hd0,4) 
-　　现在，已安装 GRUB。引导系统时，应该立即以 GRUB 的控制台方式结束（如果安装到 MBR）。现在，应创建引导菜单，这样就不必在每次引导系统时都输入那些命令。 
-　　小结：在这里只是介绍了 GRUB 的一部分。例如，可以使用 GRUB 来执行网络引导，引导 BSD 文件系统，或更多操作。另外，GRUB 有许多配置和安全性命令也很有用。如需所有 GRUB 功能的完整描述，请阅读 GRUB 出色的 GNU 文档。只要在 bash 提示中输入 "info grub" 就可以阅读该文档 
-　　扫盲行动之五：在Linux中共享Windows系统资源 
-　　在一部电脑上装有Linux和Windows的用户，可能需要在Linux中用到包括软盘、光盘以及Windows分区中的文件，如当你在Windows操作系统中上网，却下载了Linux的应用软件的时候。下面我就向大家详细介绍这方面的知识和具体的应用。 
+二、源代码分发软件包的安装与卸载 <br />
+　　Linux软件的源代码分发是指提供了该软件所有程序源代码的发布形式，需要用户自己编译成可执行的二进制代码并进行安装，其优点是配置灵活，可以随意去掉或保留某些功能/模块，适应多种硬件/操作系统平台及编译环境，缺点是难度较大，一般不适合初学者使用。 <br />
+　　1、*.src.rpm形式的源代码软件包 <br />
+　　安装：rpm -rebuild *.src.rpm <br />
+　　cd /usr/src/dist/RPMS <br />
+　　rpm -ivh *.rpm <br />
+　　卸载：rpm -e packgename <br />
+　　说明：rpm --rebuild *.src.rpm命令将源代码编译并在/usr/src/dist/RPMS下生成二进制的rpm包，然后再安装该二进制包即可。packgename如前所述。 <br />
+　　2、*.tar.gz/<strong>.tgz、</strong>.bz2形式的源代码软件包 <br />
+　　安装：tar zxvf *.tar.gz 或 tar yxvf *.bz2 先解压 <br />
+　　然后进入解压后的目录： <br />
+　　./configure 配置 <br />
+　　make 编译 <br />
+　　make install 安装 <br />
+　　卸载：make uninstall 或 手动删除 <br />
+　　说明：建议解压后先阅读说明文件，可以了解安装有哪些需求，有必要时还需改动编译配置。有些软件包的源代码在编译安装后可以用make install命令来进行卸载，如果不提供此功能，则软件的卸载必须手动删除。由于软件可能将文件分散地安装在系统的多个目录中，往往很难把它删除干净，那你应该在编译前进行配置，指定软件将要安装到目标路径：./configure --prefix=目录名，这样可以使用“rm -rf 软件目录名”命令来进行干净彻底的卸载。与其它安装方式相比，需要用户自己编译安装是最难的，它适合于使用Linux已有一定经验的人，一般不推荐初学者使用。 <br />
+　　关于Linux下软件的安装与卸载lanche已经讲了这么多，但可能还会有人问怎么知道一个tar.gz/bz2包是二进制文件包呢还是源代码包？如果你用过压缩工具就会明白，压缩包未必就是软件，它也可能是备份的许多图片，也可能是打包在一起的普通资料，要分辨它到底是什么最好的办法就是查看包里的文件清单，使用命令tar ztvf *.tar.gz / tar ytvf <strong>.bz2或者在X-Window下使用图形化的ArK压缩档案管理工具都可以，源代码包里的文件往往会含有种种源代码文件，头文件</strong>.h、c代码源文件 <strong>.c、C++代码源文件</strong>.cc/*.cpp等；而二进制包里的文件则会有可执行文件（与软件同名的往往是主执行文件），标志是其所在路径含有名为 bin的目录（仅有少数例外）。原来这么简单呀，还不快点自己试试！ <br />
 </p>
 
 
 
 
 <p>
-一、装载（mount） 
-　　（一）准备知识 
-　　在Linux系统中想要使用软驱的话，要先把它们装载到系统中，装载指令mount的格式如下： 
-　　mount －t 文件系统类型 设备文件名 装载目录 
-　　1．文件系统类型 
-　　文件系统类型一般来说就是分区格式，依操作系统的不同而不同。下面将Linux系统支持的文件系统类型择要分列如表一： 
-　　2．设备文件名 
-　　在Linux系统中，各个驱动器设备的命名和Windows中的规则（如A：、C：等）有很大的区别。所有的系统硬件设备都可以在/dev目录下找到对应的设备文件名。例如/dev/mouse就用来表示系统中的鼠标。磁盘驱动器的各个不同分区所对应的设备文件名列表如表二： 
-　　假设第一个IDE硬盘驱动器被分成数个分区，通常，第一个分区可以肯定其设备文件名为/dev/hda1，但其它分区的设备文件名就不是可以依次类推得到的（特别是当用户使用了诸如PTM之类的磁盘分区工具的时候）。如果你想要知道硬盘各分区所对应的设备文件名，可以在控制台下执行cfdisk的指令，则各分区对应的设备文件名就可以一目了然了。 
-　　3．装载目录 
-　　通常我们都会在/mnt目录下面为需要装载的磁盘驱动器创建一个目录，不过这并不意味着它们不可以被装载于其它未被使用的目录中。再者，所谓装载目录，并不是将被装载的磁盘驱动器整个复制到本地，而仅仅是在本地提供一个装载点用以联系其它需要装载的磁盘驱动器。 
-　　Linux系统对字符的大小写是敏感的，但是在Windows中就不是这样。而当你装载一个Windows系统中的驱动器后，对其上的文件操作时，字符的大小写就变得不敏感了，这意味着用户不可以在装载的Windows驱动器的同一目录中建立这么两个文件：ABC.TXT和abc.txt，因为在 Windows系统中，它们代表同一个文件。 
-　　（二）装载实例 
-　　1．装载软盘 
-　　首先在/mnt目录下为软磁盘创建一个目录floppy（有时Linux系统在安装的时候已经为你做了这一步）： 
-　　mkdir /mnt/floppy 
-　　接着用装载指令将软盘中的内容装载到这一目录中： 
-　　mount －t msdos /dev/fd0 /mnt/floppy 
-　　此后你就可以在/mnt/floppy下完全访问到软磁盘中的内容了。当然你亦可以用vfat这一文件系统类型代替msdos以使你能正确访问到软盘上的长文件名字，或者是用ext2代替它以使你可以访问到Linux文件格式的软盘。 
-　　2．装载FAT 32格式的C盘 
-　　在/mnt目录下为之创建一个目录winc（winc以及其他的装载目录是笔者的假设，你可以用自己喜欢的其他合法字符去命名这些目录）： 
-　　mkdir /mnt/winc 
-　　用装载指令将C盘内容装载入该目录： 
-　　mount －t vfat /dev/hda1 /mnt/winc 
-　　3．装载光盘 
-　　在/mnt目录下为你的光盘驱动器创建一个目录cdrom（有的Linux系统安装时已为你完成了这件事）： 
-　　mkdir /mnt/cdrom 
-　　如果你的光盘驱动器安装在primary slave上，设备文件名就是/dev/hdb；如果安装在secondary master上，设备文件名就是/dev/hdc。假设你的光盘驱动器挂在secondary master，就用下面的装载指令： 
-　　mount －t iso9600 /dev/hdc /mnt/cdrom 
-　　由于Linux版本的不同，你所用的系统或者会使用这样的指令来装载光盘： 
-　　mount /dev/cdrom 
-　　或mount /mnt/cdrom 
-　　二、卸载（umount） 
-　　如果你已经用指令将软盘装载进相应目录，就不要直接将它们从软驱中取出来，否则可能会导致信息丢失；已经装载的光盘驱动器更是会令面板上的弹出键暂时失效以阻止你将光盘直接取出。 
-　　在你取出它们之前，首先要确定已经没有用户对它们进行访问操作，包括没有工作窗口处在该磁盘驱动器被装载的目录。卸载指令的格式如下： 
-　　umount 卸载目录名 
-　　如用户想要卸载软盘，可以用如下指令： 
-　　umount /mnt/floppy 
-　　三、进阶使用 
-　　（一）为装载指令增加简捷的形式 
-　　用户可以在系统的配置文件/etc/fstab中指定一些常用的需要装载的驱动器，以便用更简捷的指令来装载它们，下面给出一个添加Windows系统的C盘进配置文件的例子：用文件编辑工具vi（也可以用其它你熟悉的文件编辑工具）打开/etc/fstab，我们会看到系统已经为根目录“/”、软磁盘驱动器、光盘驱动器等指定了文件系统类型和设备文件名以及装载目录（可能会因为所用的Linux版本不同，被指定的驱动器会有出入，不过用户可以参照下面的例子做出改动）。你既可以改变它们的预设值，也可以在其中添加新的驱动器。用箭头将光标移到最后一行，将下面一行加入文件： 
-　　/dev/hda1 /mnt/winc vfat defaults 0 0 
-　　如果还想装载硬盘内的其它分区，可以依次加入。完成后保存文件并退出。不要忘记相应的创建目录/mnt/winc。此后你就可以用如下指令装载Windows系统的C盘了： 
-　　mount /mnt/winc 
-　　（二）启动时自动装载磁盘驱动器 
-　　用户可能会希望系统在启动时可以将你惯用的磁盘驱动器（如硬盘中的Windows分区或者是光盘驱动器）自动装载，以减轻每次启动后都要手动装载的麻烦。你可以用以下方法实现自动装载的功能： 
-　　用文件编辑工具打开/etc/fstab，将刚才我们加入的那一行中的defaults改成auto，如： 
-　　/dev/hda1 /mnt/winc vfat auto 0 0 
-　　对于其它想在启动时就装载的磁盘驱动器，都可以将defaults改成auto。需要注意的是，对于硬盘上的Linux分区（包括ext2和swap）并不需要作出这样的改动。 
-　　重新启动系统以后，在/mnt/winc目录下，你就可以看到系统在启动时就装载好的Windows系统的C盘了。 
-　　四、使用Mtools 
-　　在Linux中想要共享Windows系统资源，除了上面介绍的装载（mount）命令之外，还有一组名为Mtools的软件包可以实现这一功能。和大多数实用工具一样，Mtools软件包亦是Linux系统默认的安装套件。你可以在<a href="http://mtools.ltnb.lu/下载到它的最">http://mtools.ltnb.lu/下载到它的最</a> ?...?.7.tar.gz。 
-　　（一）Mtools命令 
-　　对于熟悉DOS命令的用户来说，Mtools命令会让他们感觉到像回到了DOS的世界。在下面的表格中我们可以看出它们有多么相似： 
-　　很显然，Mtools命令是简单地在DOS命令前加上了一个m前缀，功能还是和在DOS下一样的。须要注意的是，更改目录路径在DOS命令中可以有 cd和chdir两种命令格式，但是在Mtools中只有mcd一种格式。类似的在Mtools中没有对应的命令还有mkdir、rmdir、 rename等等。 
-　　（二）mtools.conf文档的配置 
-　　因为Mtools是一个仿真DOS命令的软件包，所以它也保存着DOS系统下的磁盘驱动器概念。Mtools不但可以实现A盘 、B盘、 C盘的概念，对于一些特殊驱动器（如ZIP驱动器）更有专门的命令（mzip）以让用户方便地进行操作。在默认的环境下，A盘和B盘分别对应着两个软盘驱动器（如果有的话），N盘则对应着DOSMU启动盘的镜像文件。 
-　　我们可以通过修改/etc/mtools.conf文档来改变默认的配置，当然在做出修改之前你仍要对Linux下的设备文件名有相当的认识才行（请参考上一期本版有关设备及其文件名的介绍）。假设你的机器有一个1.44MB软驱（A），硬盘挂在第一个IDE接口的主位置上，在第一个分区（C盘）中安装有Windows操作系统，光驱挂在第二个IDE接口的主位置上（D盘），以及SCSI盘等，则可以对mtools.conf文档简单配置如下： 
-　　mtools.conf 
-　　drive a: file=″/dev/fd0″ exclusive 1.44m 
-　　drive c: file=″/dev/hda1″ 
-　　drive d: file=″/dev/hdc″ 
-　　drive X: file=″/dev/rdsk/c0t5d0s2″ partition=4 scsi=1 nodelay 
-　　（三）Mtools命令的使用 
-　　Mtools的命令系统和DOS有很多相似之处，比如在命令后面可以加不同的参数以实现更为丰富的功能（Mtools命令的参数使用方法是在命令后面加“－&lt;参数&gt;”，你可以把它想象成用“－”代替了DOS命令使用的“/”），可以使用通配符“?”和“＊”。更为方便的是，使用 Mtools不需要事先装载（mount）和事后卸载（umount）。 
-　　下面我们以目录列表命令mdir为例作说明(想知道其它命令的使用格式和更多的可用参数可以用man 命令查看相关帮助系统)。mdir的功能是对DOS目录和其中的文档进行列表操作。命令格式如下： 
-　　mdir [－/] [－f] [－w] [－a] [－X] msdosfile [msdosfile] 
-　　各命令参数的功能分述如下： 
-　　/：输出当前路径下的所有目录和文档，相当于DOS命令dir中的“s”参数； 
-　　f：列表时不尝试计算当前分区的自由空间，对于大硬盘来说，这样做可以节省一些读入和扫描分区表（FAT）的时间； 
-　　w：列表时在一行中显示多个目录文档，这种输出格式将不显示文档的大小和创建时间，相当于DOS命令dir中的“w”参数； 
-　　a：列出隐藏的目录文档； 
-　　X：简要列表， 列出路径名而不列出其它附加的信息。 
-　　一些具体的应用实例： 
-　　1．列表A盘下的所有目录文档（不包括隐藏的目录文档） 
-　　mdir －/ a: 
-　　2．列表C盘Windows目录下含有“abc”的目录文档 
-　　mdir c:/windows/＊abc＊ 
-　　或者mdir c:windows＊Abc＊ 
-　　注：在Mtools命令中，/和是可以混用的。又因为列表的是DOS系统下的文档，对大小写并不敏感，所以“abc”和“Abc”在这里是等价的。而通配符“＊”的用法和DOS命令亦有所不同。
+第二篇： <br />
+　　如何安装Linux的软件 <br />
+　　在windows下安装软件大家都觉得很容易，只要双击setup或是install的图标，然后跟着向导一步一步的按提示做就可以了，但是在linux 下安装软件就不像windows下那样容易了，有时你找到的是没有编译过的软件源码，那就更加的麻烦了，这里就介绍一下如何安装linux的软件啦！ <br />
+　　linux下的软件一般都是经过压缩的，主要的格式有这几种：rpm、tar、tar.gz、tgz等。所以首先拿到软件后第一件事就是解压缩。 <br />
+　　一、在xwindow下以rpm格式的软件安装比较容易，只要在把鼠标移到文件上单击右键，在弹出的菜单里会有专门的三项（只有在右键单击rpm文件才会出现）show info，upgrade和install，这三项的意思大家都很清楚了，我就不多说了。rpm格式说了，接着就是tar，tar.gz，tgz等，在 xwindow下双击这些格式的文件就会自动解压缩的，是解压缩而不是像rpm那样有install选项的，install文件会在你解压缩后才出现，不过这里我要先说一下，在你双击install前建议先好好看一下readme，因为你所要安装这些软件可能是没有编译的，所以看一下会比较好。 <br />
+　　二、说完了xwindow下的安装和解压缩，接着说在文本模式下如何解压缩和安装，还有编译源码了。首先说rpm的，以root身份登陆后（用其他的身份登陆也可以但有些软件就不能被安装）键入rpm －i你所要解压缩的文件＋扩展名（当然是rpm）也不是很难吧，这里我要说的是“－i”意思是install，如果你想要卸载或是要执行其他的指令就打 rpm －－help，看电脑给你的提示吧，为了照顾那些E文不太好的人我这里就写几个常用的参数：－e：卸载相关的应用程序，－U（注意是大写）：升级软件包，－pql：列出rpm软件包的相关信息，－qf：查找指定文件属于哪个软件包。至于那些其他格式的软件则可以用gunzip，gzip，tar和 unzip等指令来解压缩，然后再运行install。通过解包后会得到一些文件，然后进入刚才解压缩后文件目录用“ls －F －color”指令看一下所得到的文件，一般有两种情况：第一种是文件为已经编译好的程序（无须再编译了）用上面的察看文件命令会以带“＊”标记的亮绿色显示；第二种则是需要由你自己编译的源代码。得到的是源代码的话，就需要我们自己编译来得到可运行的程序。编译源代码听到编译是不是就吓到你了呢，其实说穿了也就加上几句话而已，对初学者是有些困难想用好的操作系统就需要学习嘛，等你学会了在MM前露一手的时候想想吧……，在编译之前先要认真的阅读一下 readme文档，老鸟们就不需要了吧，等你阅读完了以后就执行 <br />
+　　./configure <br />
+　　make <br />
+　　make install（只有Root身份才能执行此命令），编译完成之后便会在当前目录或src子目录下得到软件的可执行程序。 <br />
+　　介绍完了，大家是不是觉的RPM的软件安装比较容易一点呢，但我个人意见初学者还是多选择RPM格式以外的软件，因为通过编译软件的源码可以为你以后编译内核打下一定的基础。（上海 张国荣） <br />
+　　第三篇： <br />
+　　轻松安装、卸载Linux软件 <br />
+　　Linux软件的安装和卸载一直是困扰许多新用户的难题。在Windows中，我们可以使用软件自带的安装卸载程序或在控制面板中的“添加/删除程序”来实现。与其相类似，在Linux下有一个功能强大的软件安装卸载工具，名为RPM。它可以用来建立、安装、查询、更新、卸载软件。该工具是在命令行下使用的。在Shell的提示符后输入rpm，就可获得该命令的帮助信息。 <br />
+　　软件的安装 <br />
+　　Linux下软件的安装主要有两种不同的形式。第一种安装文件名为xxx.tar.gz；另一种安装文件名为xxx.i386.rpm。以第一种方式发行的软件多为以源码形式发送的；第二种方式则是直接以二进制形式发送的。 <br />
+　　对于第一种，安装方法如下： <br />
+　　1.首先，将安装文件拷贝至你的目录中。例如，如果你是以root身份登录上的，就将软件拷贝至/root中。 <br />
+　　#cp xxx.tar.gz /root <br />
+　　2.由于该文件是被压缩并打包的,应对其解压缩。命令为： <br />
+　　#tar xvzf filename.tar.gz <br />
+　　3.执行该命令后，安装文件按路径，解压缩在当前目录下。用ls命令可以看到解压缩后的文件。通常在解压缩后产生的文件中，有“Install”的文件。该文件为纯文本文件，详细讲述了该软件包的安装方法。 <br />
+　　4.执行解压缩后产生的一个名为configure的可执行脚本程序。它是用于检查系统是否有编译时所需的库，以及库的版本是否满足编译的需要等安装所需要的系统信息。为随后的编译工作做准备。命令为：#./configure。 <br />
+　　5.检查通过后，将生成用于编译的MakeFile文件。此时，可以开始进行编译了。编译的过程视软件的规模和计算机性能的不同，所耗费的时间也不同。命令为：#make。 <br />
+　　6.成功编译后，键入如下的命令开始安装： <br />
+　　#make install <br />
+　　7.安装完毕，应清除编译过程中产生的临时文件和配置过程中产生的文件。键入如下命令： <br />
+　　#make clean <br />
+　　#make distclean <br />
+　　至此，软件的安装结束。 <br />
+　　对于第二种，其安装方法要简单得多。 <br />
+　　同第一种方式一样，将安装文件拷贝至你的目录中。然后使用rpm来安装该文件。命令如下： <br />
+　　#rpm -i filename.i386.rpm <br />
+　　rpm将自动将安装文件解包，并将软件安装到缺省的目录下。并将软件的安装信息注册到rpm的数据库中。参数i的作用是使rpm进入安装模式。 <br />
+　　软件的卸载 <br />
+　　1.软件的卸载主要是使用rpm来进行的。卸载软件首先要知道软件包在系统中注册的名称。键入命令： <br />
+　　#rpm -q -a <br />
+　　即可查询到当前系统中安装的所有的软件包。 <br />
+　　2.确定了要卸载的软件的名称，就可以开始实际卸载该软件了。键入如下命令即可卸载软件： <br />
+　　#rpm -e [package name] <br />
+　　参数e的作用是使rpm进入卸载模式。对名为[package name]的软件包进行卸载。由于系统中各个软件包之间相互有依赖关系。如果因存在依赖关系而不能卸载，rpm将给予提示并停止卸载。你可以使用如下的命令来忽略依赖关系，直接开始卸载： <br />
+　　#rpm -e [package name] -nodeps <br />
+　　忽略依赖关系的卸载可能会导致系统中其它的一些软件无法使用。 <br />
+　　补充： <br />
+　　如果是以.bin结尾的二进制软件，可以用以下方法安装（以so-6_0-beta-bin-linux-zh-Tw1.bin为例）： <br />
+　　在so-6_0-beta-bin-linux-zh-Tw1.bin所在文件夹下运行模拟终端 <br />
+　　输入： <br />
+　　./so-6_0-beta-bin-linux-zh-Tw1.bin <br />
+　　并按回车！ <br />
+　　当然也可以输入： <br />
+　　./so 再用[Tab]键补全 <br />
+　　（./表示当前目录，如果终端不在该软件所在目录下打开，则在软件名前尚需输入相应的路径。） <br />
+　　如果在图形界面，也可直接单击（或双击，视具体的鼠标设置而定）进行安装！ <br />
+　　扫盲行动之三：LINUX的目录树 <br />
+　　/bin bin是binary的缩写。这个目录是对UNIX系统习惯的沿袭，存放着使用者最经常使用的命令。例如：cp,ls,cat。 <br />
+　　/boot 这里存放的是启动LINUX时使用的一些核心文件。 <br />
+　　/dev dev是device(设备)的缩写。这个目录下是所有LINUX的外部设备，其功能类似DOS下的.sys和Win下的.vxd。在LINUX中设备和文件是用同种方法访问的。例如:/dev/hda代表第一个物理IDE硬盘。 <br />
+　　/etc 这个目录用来存放所有的系统管理所需要的配置文件和子目录。 <br />
+　　/home 用户的主目录，比如说有个用户叫wang，那他的主目录就是/home/wang也可以用~wang表示，说到这里，打个岔，你现应该明白在我们访问一些个人网页(如<a href="http://www.netease.net/~zhangjia)的时候，~zhangjia就是表示访问">http://www.netease.net/~zhangjia)的时候，~zhangjia就是表示访问</a> www.netease.net站点中的用户zhangjia的用户主目录。 <br />
+　　如果这个网站的操作系统是LINUX，那就是表示/home/zhangjia。 <br />
+　　/lib 这个目录里存放着系统最基本的动态链接共享库，其作用类似于Windows里的.dll文件。几乎所有的应用程序都需要用到这些共享库。 <br />
+　　/lost+found 这个目录平时是空的，当系统不正常关机后，这里就成了一些无家可归的文件的避难所。对了，有点类似于DOS下的.chk文件。 <br />
+　　/mnt 这个目录是空的，系统提供这个目录是让用户临时挂载别的文件系统。 <br />
+　　/proc 这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。也就是说，这个目录的内容不在硬盘上而是在内存里啊！？ <br />
+　　/root 系统管理员，也叫作超级权限者的用户主目录。当然系统的拥有者，总要有些特权啊！ <br />
+　　/sbin s就是Super User的意思，也就是说这里存放的是一些系统管理员使用的系统管理程序。 <br />
+　　/tmp 这个目录不用说，一定是用来存放一些临时文件的地方了。 <br />
+　　/usr 这是个最庞大的目录，我们要用到的很多应用程序和文件几乎都存放在这个目录下。具体来说： <br />
+　　/usr/X11R6 存放X-Windows的目录； <br />
+　　/usr/bin 存放着许多应用程序； <br />
+　　/usr/sbin 给超级用户使用的一些管理程序就放在这； <br />
+　　/usr/doc 这就是LINUX文档的大本营； <br />
+　　/usr/include LINUX下开发和编译应用程序需要的头文件，在这找； <br />
+　　/usr/lib 存放一些常用的动态链接共享库和静态档案库； <br />
+　　/usr/local 这是提供给一般用户的/usr目录，在这安装软件最适合； <br />
+　　/usr/man man是什么，对了是帮助。这里就是帮助文档目录啊！ <br />
+　　/usr/src LINUX开放的源代码，就存在这个目录，爱好者们别放过哦！ <br />
+　　/var 这个目录中存放着那些不断在扩充着的东西，为了保持/usr的相对稳定，那些经常被修改的目录可以放在这个目录下，实际上许多系统管理员都是这样干的。顺带说一下系统的日志文件就在/var/log目录中。 <br />
+　　这里列出了最常见的目录，根据LINUX发行套件的不同，目录结构也是有一定差别的。还有你自己建立的目录，我当然不知是存什么的。希望上面的文字能使你在大脑里留下了LINUX的全景图，以便大家深入掌握LINUX的其它方方面面。 <br />
+</p>
+
+
+<p>
+扫盲行动之四：GRUB三步通 <br />
+　　朋友，你装好linux后是不是每次启动后系统就默认进入到linux，想让它变成windows吗？请修改你的引导装入器吧（当然它不止这个功能）！由于现在的linux都喜欢用GRUB来引导，LILO已越来越少用了，所以我在这里主要给大家讲讲GRUB这个东东！！ <br />
+　　################## <br />
+　　# GRUB的优点 # <br />
+　　################## <br />
+　　GRUB 是引导装入器(boot loader) -- 它负责装入内核并引导 Linux 系统。GRUB 还可以引导其它操作系统，如 FreeBSD、NetBSD、OpenBSD、GNU HURD 和 DOS，以及 Windows 95、98、NT 和 2000。尽管引导操作系统看上去是件平凡且琐碎的任务，但它实际上很重要。如果引导装入器不能很好地完成工作或者不具有弹性，那么就可能锁住系统，而无法引导计算机。另外，好的引导装入器可以给您灵活性，让您可以在计算机上安装多个操作系统，而不必处理不必要的麻烦。 <br />
+　　GRUB 是一个很棒的boot loader。它有许多功能，可以使引导过程变得非常可靠。例如，它可以直接从 FAT、minix、FFS、ext2 或 ReiserFS 分区读取 Linux 内核。这就意味着无论怎样它总能找到内核。另外，GRUB 有一个特殊的交互式控制台方式，可以让您手工装入内核并选择引导分区。这个功能是无价的：假设 GRUB 菜单配置不正确，但仍可以引导系统。哦，对了 -- GRUB 还有一个彩色引导菜单。 <br />
+　　更令人惊讶的是，这是一个自由软件！！！ <br />
+　　################## <br />
+　　# GRUB菜单 # <br />
+　　################## <br />
+　　先来看一个例子，这是位于/boot/grub/目录下的menu.lst文件。 <br />
+　　此文件将在开机是产生一个菜单，包含有Debian linux,Windows2000,RedHat linux和 Mandrake linux,共四个选择项。我一共分了8个区，一个fat16（0x6），一个ntfs（0x7），三个ext2fs分区（0x83），一个swap分区（0x82）。ntfs用来装win2000，三个ext2fs装了三个linux，c盘fat16分区没有装任何东西。 <br />
+　　＃例子由此开始 <br />
+　　＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ <br />
+　　＃ ＃ <br />
+　　＃ 一个GRUB configure 的例子 ＃ <br />
+　　＃ ＃ <br />
+　　＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃ <br />
+　　timeout 10 <br />
+　　default 2 <br />
+　　# --&gt; Debian linux &lt;-- <br />
+　　title Debian linux <br />
+　　root (hd0,2) <br />
+　　kernel /boot/vmlinuz-2.2.18 root=/dev/hda3 ro <br />
+　　initrd /boot/initrd-2.2.18.gz <br />
+　　# --&gt; Debian END &lt;-- <br />
+　　# --&gt; Windows 菜单选项 &lt;-- <br />
+　　title Windows2000 <br />
+　　root (hd0,0) <br />
+　　chainloader +1 <br />
+　　# --&gt; Winddows 结束 &lt;-- <br />
+　　# --&gt; RedHat linux 菜单选项 &lt;-- <br />
+　　title RedHat linux <br />
+　　root (hd0,8) <br />
+　　chainloader +1 # 在硬盘主引导分区装了lilo，所以也用了chainloader。 <br />
+　　# --&gt; RedHat linux 结束 &lt;-- <br />
+　　# --&gt; Mandrake linux 菜单选项 &lt;-- <br />
+　　title Mandrake linux <br />
+　　root (hd0,5) <br />
+　　kernel /boot/vmlinuz-2.4.3-20mdk root=/dev/hda6 ro <br />
+　　initrd /boot/initrd-2.4.3-20mdk.img <br />
+　　# --&gt; Mandrake linux 结束 &lt;-- <br />
+　　＃例子到此结束 <br />
+　　以符号井＂＃＂开头的行表示被注释掉，没有任何意义。 <br />
+　　timeout表示默认等待的时间，这儿是10秒钟。超过10秒，用户还没有作出选择的话，系统将自动选择默认的操作系统。 <br />
+　　默认的操作系统就是由default控制的。default后加一个数字n，表明是第n＋1个。需要注意的是，GRUB中，计数是从0开始的，第一个硬盘是hd0，第一个软驱是fd0，等等。所以，default 2 表示默认的操作系统在这儿是 Redhat linux。 <br />
+　　接下来，正如你所想象的，title表示的是“Debian linux”菜单项。root (hd0,2)表示第一个硬盘,第三个分区。这儿的root 于linux的root分区及其不同，此root非彼root也！ <br />
+　　在 Linux 中，当谈到 "root" 文件系统时，通常是指主 Linux 分区。但是，GRUB 有它自己的 root 分区定义。GRUB 的 root 分区是保存 Linux 内核的分区。这可能是您的正式 root 文件系统，也可能不是。我们讨论的是 GRUB，需要指定 GRUB 的 root 分区。进入 root 分区时，GRUB 将把这个分区安装成只读型，这样就可以从该分区中装入 Linux 内核。GRUB 的一个很“酷”的功能是它可以读取本机的 FAT、FFS、minix、ext2 和 ReiserFS 分区。 <br />
+　　到目前为止，您可能会感到一点疑惑，因为 GRUB 所使用的硬盘／分区命名约定与 Linux 使用的命名约定不同。在 Linux 中，第一个硬盘的第五个分区称作 "hda5"。而 GRUB 把这个分区称作 "(hd0,4)"。GRUB 对硬盘和分区的编号都是从 0 开始计算。另外，硬盘和分区都用逗号分隔，整个表达式用括号括起。现在，可以发现如果要引导 Linux 硬盘 hda5，应输入 "root (hd0,4)"。 <br />
+　　知道了内核在哪儿，还要具体指出哪个文件是内核文件，这就是kernel的工作。 <br />
+　　kernel /boot/vmlinuz-2.2.18 root=/dev/hda3 ro说明/boot/vmlinuz-2.2.18 就是要载入的内核。后面的都是传递给内核的参数。root=/dev/hda3就是linux的硬盘分区表示法，ro是以readonly的意思。 <br />
+　　initrd用来初始的linux image，并设置相应的参数。 <br />
+　　是不是感觉很简单啊！再来看一看windows的定义段吧。 <br />
+　　这里，我添加了一项来引导 Windows2000。要完成此操作，GRUB 使用了“链式装入器”(chainloader)。链式装入器从分区 (hd0,0) 的引导记录中装入 win2000 自己的引导装入器，然后引导它。这就是这种技术叫做链式装入的原因 -- 它创建了一个从引导装入器到另一个的链。这种链式装入技术可以用于引导任何版本的 DOS 或 Windows。 <br />
+　　我的RedHat linux在硬盘主引导分区装了lilo，所以也用了chainloader。 <br />
+　　GRUB的配置文件要简单就这么简单，如果你要更个性化一点，试一试把“color light-gray/blue ”加在default语句的下面，下一次启动GRUB时，看看有什么变化，再试一试“color light-blue/red",惊喜吗？ 有趣吧! <br />
+　　###################### <br />
+　　# GRUB的交互性 # <br />
+　　###################### <br />
+　　GRUB 最好的优点之一就是其强健的设计 -- 在不断使用它时请别忘了这点。如果更新内核或更改它在磁盘上的位置，不必重新安装 GRUB。事实上，如有必要，只要更新 menu.lst 文件即可，一切将保持正常。 <br />
+　　只有少数情况下，才需要将 GRUB 引导装入器重新安装到引导记录。首先，如果更改 GRUB root 分区的分区类型（例如，从 ext2 改成 ReiserFS），则需要重新安装。或者，如果更新 /boot/grub 中的 stage1 和 stage2 文件，由于它们来自更新版本的 GRUB，很有可能要重新安装引导装入器。其它情况下，可以不必理睬！ <br />
+　　GRUB的最大的特点就是交互性特别强。在开机时，按一下“c”，将进入GRUB 控制台。显示如下： <br />
+　　GRUB version 0.5.96.1 (640K lower / 3072K upper memory) <br />
+　　[ Minimal BASH-like line editing is supported. For the first word, TAB <br />
+　　lists possible command completions. Anywhere else TAB lists the possible <br />
+　　completions of a device/filename. ] <br />
+　　grub&gt; <br />
+　　欢迎使用 GRUB 控制台。现在，再研究命令： <br />
+　　我将通过GRUB 控制台绕过lilo来启动RedHat linux， <br />
+　　grub&gt; root (h <br />
+　　现在，按一次 Tab 键。如果系统中有多个硬盘，GRUB 将显示可能完成的列表，从 "hd0" 开始。如果只有一个硬盘，GRUB 将插入 "hd0,"。如果有多个硬盘，继续进行，在 ("hd2") 中输入名称并在名称后紧跟着输入逗号，但不要按 Enter 键。部分完成的 root 命令看起来如下： <br />
+　　grub&gt; root (hd0, <br />
+　　现在，继续操作，再按一次 Tab 键。GRUB 将显示特定硬盘上所有分区的列表，以及它们的文件系统类型。在我的系统中，按 Tab 键时得到以下列表： <br />
+　　grub&gt; root (hd0, (tab，按tab一下键) <br />
+　　Possible partitions are: <br />
+　　Partition num: 0, Filesystem type is fat, partition type 0x6 <br />
+　　Partition num: 2, Filesystem type is ext2fs, partition type 0x83 <br />
+　　Partition num: 4, Filesystem type unknown, partition type 0x7 <br />
+　　Partition num: 5, Filesystem type is ext2fs, partition type 0x83 <br />
+　　Partition num: 6, Filesystem type is fat, partition type 0xb <br />
+　　Partition num: 7, Filesystem type is fat, partition type 0xb <br />
+　　Partition num: 8, Filesystem type is ext2fs, partition type 0x83 <br />
+　　Partition num: 9, Filesystem type unknown, partition type 0x82 <br />
+　　如您所见，GRUB 的交互式硬盘和分区名称实现功能非常有条理。这些，只需要好好理解 GRUB 新奇的硬盘和分区命名语法，然后就可以继续操作了 <br />
+　　grub&gt; root (hd0,8) <br />
+　　现在已安装了 root 文件系统，到装入内核的时候了 <br />
+　　grub&gt; kernel /boot/vmlinuz-2.4.2 root=/dev/hda5 ro <br />
+　　[Linux-bzImage, setup=0x1200, size=0xe1a30] <br />
+　　您已经安装了 root 文件系统并装入了内核。现在，可以引导了。只要输入 "boot"，Linux 引导过程就将开始。是不是很cool啊，GRUB的menu.lst更像一个linux下的脚本程序。 <br />
+　　##################### <br />
+　　# GRUB启动盘 # <br />
+　　##################### <br />
+　　要制作引导盘，需执行一些简单的步骤。首先，在新的软盘上创建 ext2 文件系统。然后，将其安装，并将一些 GRUB 文件复制到该文件系统，最后运行 "grub" 程序，它将负责设置软盘的引导扇区。准备好了吗？ <br />
+　　将一张空盘插入 1.44MB 软驱，输入： <br />
+　　# mke2fs /dev/fd0 <br />
+　　创建了 ext2 文件系统后，需要安装该文件系统： <br />
+　　# mount /dev/fd0 /mnt/floppy <br />
+　　现在，需要创建一些目录，并将一些关键文件（原先安装 GRUB 时已安装了这些文件）复制到软盘： <br />
+　　# mkdir /mnt/floppy/boot <br />
+　　# mkdir /mnt/floppy/boot/grub <br />
+　　# cp /boot/grub/stage1 /mnt/floppy/boot/grub <br />
+　　# cp /boot/grub/stage2 /mnt/floppy/boot/grub <br />
+　　再有一个步骤，就能得到可用的引导盘。 <br />
+　　在linux bash中，从 root 用户运行“grub”，该程序非常有趣并值得注意，因为它实际上是 GRUB 引导装入器的半功能性版本。尽管 Linux 已经启动并正在运行，您仍可以运行 GRUB 并执行某些任务，而且其界面与使用 GRUB 引导盘或将 GRUB 安装到硬盘 MBR 时看到的界面(即GRUB控制台)完全相同。 <br />
+　　在 grub&gt; 提示符处，输入： <br />
+　　grub&gt; root (fd0) <br />
+　　grub&gt; setup (fd0) <br />
+　　grub&gt; quit <br />
+　　现在，引导盘完成了。 <br />
+　　如果要把GRUB装到硬盘上，也很容易。这个过程几乎与引导盘安装过程一样。首先，需要决定哪个硬盘分区将成为 root GRUB 分区。在这个分区上，创建 /boot/grub 目录，并将 stage1 和 stage2 文件复制到该目录中，可以通过重新引导系统并使用引导盘，或者使用驻留版本的 GRUB 来执行后一步操作。在这两种情况下，启动 GRUB，并用 root 命令指定 root 分区。例如，如果将 stage1 和 stage2 文件复制到 hda5 的 /boot/grub 目录中，应输入 "root (hd0,4)"。接着，决定在哪里安装 GRUB -- 在硬盘的 MBR，或者如果与 GRUB 一起使用另一个“主”引导装入器，则安装在特定分区的引导记录中。如果安装到 MBR，则可以指定整个磁盘而不必指定分区，如下（对于 hda）： <br />
+　　grub&gt; setup (hd0) <br />
+　　如果要将 GRUB 安装到 /dev/hda5 的引导记录中，应输入： <br />
+　　grub&gt; setup (hd0,4) <br />
+　　现在，已安装 GRUB。引导系统时，应该立即以 GRUB 的控制台方式结束（如果安装到 MBR）。现在，应创建引导菜单，这样就不必在每次引导系统时都输入那些命令。 <br />
+　　小结：在这里只是介绍了 GRUB 的一部分。例如，可以使用 GRUB 来执行网络引导，引导 BSD 文件系统，或更多操作。另外，GRUB 有许多配置和安全性命令也很有用。如需所有 GRUB 功能的完整描述，请阅读 GRUB 出色的 GNU 文档。只要在 bash 提示中输入 "info grub" 就可以阅读该文档 <br />
+　　扫盲行动之五：在Linux中共享Windows系统资源 <br />
+　　在一部电脑上装有Linux和Windows的用户，可能需要在Linux中用到包括软盘、光盘以及Windows分区中的文件，如当你在Windows操作系统中上网，却下载了Linux的应用软件的时候。下面我就向大家详细介绍这方面的知识和具体的应用。 <br />
 </p>
 
 
 
 
 <p>
-五、在Windows系统中共享Linux系统的文档 
-　　无论对于刚接触Linux的新手还是对之已经熟悉的高手，恐怕都免不了想在Windows系统中调阅Linux系统的文档。这可以使用在Windows系统下观看Linux分区的小软件（如fsdext2等）。这里再向各位推荐两种可以实现这种功能的小软件。 
-　　(一)Linuxindos 
-　　Linuxindos是一个不到500KB的小程序，笔者找到的版本是Beta 0.9的DEMO版，用户可以在<a href="http://best.163.com/～linux/soft/下...褂靡卜浅＜虻ァ?">http://best.163.com/～linux/soft/下...褂靡卜浅＜虻ァ?</a> 
-　　在Windows系统下将linuxindos.zip解压到硬盘目录，用户就会看到一个带着企鹅图标的可执行程序LiD95Demo.exe。启动程序后，会出现一个接口非常简单的窗口，当用户挑选一个含有Linux系统文档的磁盘驱动器以后，Linux分区中的所有文档就会显示出来，左边窗口列出的是Linux分区中的目录，而右窗口就列出了目录内的文档，感觉就像在Windows的资源管理器中一样。 
-　　(二）Explore2fs 
-　　这是一个更为小巧的自由软件，大小约308KB，用户也可以在<a href="http://best.163.com/～linux/soft/下...ows系统分区中。">http://best.163.com/～linux/soft/下...ows系统分区中。</a> 
-　　在右边视窗中选择好文档后，按下鼠标右键可以选择相应的操作，“Export file”是直接导出文档，而“Export to Text”则是除去文档的分隔符后导出和TEXT兼容的文本文档。　 
-　　扫盲行动之六：Linux下其它格式文件系统的自动挂装 
-　　不同的操作系统使用不同的文件系统格式，MS-DOS支持FAT16文件系统，Windows98支持FAT16、FAT32文件系统， WindowsNT支持FAT16、NTFS文件系统，Windows2000则支持FAT16、FAT32、NTFS三种文件系统格式，而Linux差不多支持所有的文件系统格式，但一般使用ext2文件系统。 
-　　对于普通的PC用户，使用的大多是Microsoft的windows98操作系统，如果想同时使用Linux操作系统的话，一般使用多重启动。这时，用户可能希望在Linux下访问Windows文件，比如原来Windows下的mp3、电影等等。通常，有多种方法实现Linux下对其它文件系统的访问，下面就以在Linux下对Windows98文件系统的访问为例进行介绍： 
-　　（一）在安装Linux时进行设置。由于Linux和Windows98两种操作系统使用不同的文件格式，所以在Windows98下安装Linux 必须为Linux建立单独的分区，安装过程中有设置分区的步骤，此时，不但可以建立Linux分区，还可以对原FAT文件系统进行挂装，因为Linux把磁盘设备也看成是特殊的文件，这时如果为Windows98操作系统的逻辑分区C、D分别设立如/DOSC、/DOSD的挂装点，那么在安装完Linux 后就可以在/DOSC、/DOSD目录下访问原来C、D分区上的文件了。 
-　　（二）如果在安装时没有为Windows98分区设立挂装点，也可以在安装完成后进入Linux运行mount命令（必须以root身份登录）挂装，mount命令的具体格式是： 
-　　mount〔-afFhnrvVm〕〔-l&lt;标签&gt;〕〔-o&lt;选项&gt;〕〔-t&lt;文件系统&gt;〕〔设备名称〕〔挂入点〕 
-　　比如，用户的Windows98在系统IDE设备上的第一个分区上，如果要将它挂装在/DOSC下，可以使用下面的命令： 
-　　mount -t vfat /dev/hda1 /dosc 
-　　使用mount挂装设备时会记录信息在/etc/mtab文件中，运行unmount命令时将记录清除。 
-　　（三）手动修改/etc/fstab文件。/etc/fstab文件的内容被用来在Linux 下自动挂装各种文件系统，文件中的每一行都提供了一种设备的信息，这种设备可以被挂装在Linux文件系统下的一个目录中。在Linux启动过程中， init进程执行一个脚本文件，该脚本调用带有-a参数的mount命令，用mount来读/etc/fstab，并挂装所有列出的文件系统（带 noauto选项的除外）。下面是一个典型的/etc/fstab文件(其中Windows98安装在第一块硬盘上，Linux安装在第二块硬盘上)： 
-　　ABEL=/ / ext2 defaults 1 1 
-　　/dev/hda1 /dosc vfat defaults 0 0 
-　　/dev/fd0 /mnt/floppy auto noauto,owner 0 0 
-　　none /proc proc defaults 0 0 
-　　none /devpts devpts sid=5,mode=620 0 0 
-　　/dev/hdb5 swap swap defaults 0 0 
-　　/dev/cdrom /mnt/cdrom iso9660 noauto,owner,kud2ure 0/0 
-　　/etc/fstab文件的第一列是设备名，第二列是挂装点，第三列表示在设备上的文件系统的类型，第四列是应用于特定设备的一组选项，通常为 defaults，表示的含义有：这个设备在引导阶段被挂装、只有root用户可以挂装它、挂装后可以进行读或写操作，此选项如是noauto，则表示引导时该设备不会被自动挂装，而user选项表示任何用户都可以挂装该设备。以上面的etc/fstab文件为例，如果想在Linux下挂装 Windows98操作系统的D分区(假设挂装点为/dosd)，则可以在上文件中加入一行： 
-　　/dev/hda5 /dosd vfat defaults 0 0 
-　　然后存盘，重新启动后就可以访问Windows98操作系统的D分区了。 
-　　补充：fstab 栏位说明 
-　　第一栏(fs_spec)： 实际的 device 名称 
-　　第二栏(fs_file)： 对应到的目录结构(mount point) 
-　　第三栏(fs_vfstype)：该 partition 的档案系统，常见的有： 
-　　minix、ext、ext2、msdos、iso9660、nfs、swap 
-　　第四栏(fs_mntops)： 在 mount 时的参数 
-　　第五栏(fs_freq)： 在使用 dump 时是否记录，不需要则输入0 
-　　第六栏(fs_passno)： 决定在开机时执行 fsck 的先后顺序
+一、装载（mount） <br />
+　　（一）准备知识 <br />
+　　在Linux系统中想要使用软驱的话，要先把它们装载到系统中，装载指令mount的格式如下： <br />
+　　mount －t 文件系统类型 设备文件名 装载目录 <br />
+　　1．文件系统类型 <br />
+　　文件系统类型一般来说就是分区格式，依操作系统的不同而不同。下面将Linux系统支持的文件系统类型择要分列如表一： <br />
+　　2．设备文件名 <br />
+　　在Linux系统中，各个驱动器设备的命名和Windows中的规则（如A：、C：等）有很大的区别。所有的系统硬件设备都可以在/dev目录下找到对应的设备文件名。例如/dev/mouse就用来表示系统中的鼠标。磁盘驱动器的各个不同分区所对应的设备文件名列表如表二： <br />
+　　假设第一个IDE硬盘驱动器被分成数个分区，通常，第一个分区可以肯定其设备文件名为/dev/hda1，但其它分区的设备文件名就不是可以依次类推得到的（特别是当用户使用了诸如PTM之类的磁盘分区工具的时候）。如果你想要知道硬盘各分区所对应的设备文件名，可以在控制台下执行cfdisk的指令，则各分区对应的设备文件名就可以一目了然了。 <br />
+　　3．装载目录 <br />
+　　通常我们都会在/mnt目录下面为需要装载的磁盘驱动器创建一个目录，不过这并不意味着它们不可以被装载于其它未被使用的目录中。再者，所谓装载目录，并不是将被装载的磁盘驱动器整个复制到本地，而仅仅是在本地提供一个装载点用以联系其它需要装载的磁盘驱动器。 <br />
+　　Linux系统对字符的大小写是敏感的，但是在Windows中就不是这样。而当你装载一个Windows系统中的驱动器后，对其上的文件操作时，字符的大小写就变得不敏感了，这意味着用户不可以在装载的Windows驱动器的同一目录中建立这么两个文件：ABC.TXT和abc.txt，因为在 Windows系统中，它们代表同一个文件。 <br />
+　　（二）装载实例 <br />
+　　1．装载软盘 <br />
+　　首先在/mnt目录下为软磁盘创建一个目录floppy（有时Linux系统在安装的时候已经为你做了这一步）： <br />
+　　mkdir /mnt/floppy <br />
+　　接着用装载指令将软盘中的内容装载到这一目录中： <br />
+　　mount －t msdos /dev/fd0 /mnt/floppy <br />
+　　此后你就可以在/mnt/floppy下完全访问到软磁盘中的内容了。当然你亦可以用vfat这一文件系统类型代替msdos以使你能正确访问到软盘上的长文件名字，或者是用ext2代替它以使你可以访问到Linux文件格式的软盘。 <br />
+　　2．装载FAT 32格式的C盘 <br />
+　　在/mnt目录下为之创建一个目录winc（winc以及其他的装载目录是笔者的假设，你可以用自己喜欢的其他合法字符去命名这些目录）： <br />
+　　mkdir /mnt/winc <br />
+　　用装载指令将C盘内容装载入该目录： <br />
+　　mount －t vfat /dev/hda1 /mnt/winc <br />
+　　3．装载光盘 <br />
+　　在/mnt目录下为你的光盘驱动器创建一个目录cdrom（有的Linux系统安装时已为你完成了这件事）： <br />
+　　mkdir /mnt/cdrom <br />
+　　如果你的光盘驱动器安装在primary slave上，设备文件名就是/dev/hdb；如果安装在secondary master上，设备文件名就是/dev/hdc。假设你的光盘驱动器挂在secondary master，就用下面的装载指令： <br />
+　　mount －t iso9600 /dev/hdc /mnt/cdrom <br />
+　　由于Linux版本的不同，你所用的系统或者会使用这样的指令来装载光盘： <br />
+　　mount /dev/cdrom <br />
+　　或mount /mnt/cdrom <br />
+　　二、卸载（umount） <br />
+　　如果你已经用指令将软盘装载进相应目录，就不要直接将它们从软驱中取出来，否则可能会导致信息丢失；已经装载的光盘驱动器更是会令面板上的弹出键暂时失效以阻止你将光盘直接取出。 <br />
+　　在你取出它们之前，首先要确定已经没有用户对它们进行访问操作，包括没有工作窗口处在该磁盘驱动器被装载的目录。卸载指令的格式如下： <br />
+　　umount 卸载目录名 <br />
+　　如用户想要卸载软盘，可以用如下指令： <br />
+　　umount /mnt/floppy <br />
+　　三、进阶使用 <br />
+　　（一）为装载指令增加简捷的形式 <br />
+　　用户可以在系统的配置文件/etc/fstab中指定一些常用的需要装载的驱动器，以便用更简捷的指令来装载它们，下面给出一个添加Windows系统的C盘进配置文件的例子：用文件编辑工具vi（也可以用其它你熟悉的文件编辑工具）打开/etc/fstab，我们会看到系统已经为根目录“/”、软磁盘驱动器、光盘驱动器等指定了文件系统类型和设备文件名以及装载目录（可能会因为所用的Linux版本不同，被指定的驱动器会有出入，不过用户可以参照下面的例子做出改动）。你既可以改变它们的预设值，也可以在其中添加新的驱动器。用箭头将光标移到最后一行，将下面一行加入文件： <br />
+　　/dev/hda1 /mnt/winc vfat defaults 0 0 <br />
+　　如果还想装载硬盘内的其它分区，可以依次加入。完成后保存文件并退出。不要忘记相应的创建目录/mnt/winc。此后你就可以用如下指令装载Windows系统的C盘了： <br />
+　　mount /mnt/winc <br />
+　　（二）启动时自动装载磁盘驱动器 <br />
+　　用户可能会希望系统在启动时可以将你惯用的磁盘驱动器（如硬盘中的Windows分区或者是光盘驱动器）自动装载，以减轻每次启动后都要手动装载的麻烦。你可以用以下方法实现自动装载的功能： <br />
+　　用文件编辑工具打开/etc/fstab，将刚才我们加入的那一行中的defaults改成auto，如： <br />
+　　/dev/hda1 /mnt/winc vfat auto 0 0 <br />
+　　对于其它想在启动时就装载的磁盘驱动器，都可以将defaults改成auto。需要注意的是，对于硬盘上的Linux分区（包括ext2和swap）并不需要作出这样的改动。 <br />
+　　重新启动系统以后，在/mnt/winc目录下，你就可以看到系统在启动时就装载好的Windows系统的C盘了。 <br />
+　　四、使用Mtools <br />
+　　在Linux中想要共享Windows系统资源，除了上面介绍的装载（mount）命令之外，还有一组名为Mtools的软件包可以实现这一功能。和大多数实用工具一样，Mtools软件包亦是Linux系统默认的安装套件。你可以在<a href="http://mtools.ltnb.lu/下载到它的最">http://mtools.ltnb.lu/下载到它的最</a> ?...?.7.tar.gz。 <br />
+　　（一）Mtools命令 <br />
+　　对于熟悉DOS命令的用户来说，Mtools命令会让他们感觉到像回到了DOS的世界。在下面的表格中我们可以看出它们有多么相似： <br />
+　　很显然，Mtools命令是简单地在DOS命令前加上了一个m前缀，功能还是和在DOS下一样的。须要注意的是，更改目录路径在DOS命令中可以有 cd和chdir两种命令格式，但是在Mtools中只有mcd一种格式。类似的在Mtools中没有对应的命令还有mkdir、rmdir、 rename等等。 <br />
+　　（二）mtools.conf文档的配置 <br />
+　　因为Mtools是一个仿真DOS命令的软件包，所以它也保存着DOS系统下的磁盘驱动器概念。Mtools不但可以实现A盘 、B盘、 C盘的概念，对于一些特殊驱动器（如ZIP驱动器）更有专门的命令（mzip）以让用户方便地进行操作。在默认的环境下，A盘和B盘分别对应着两个软盘驱动器（如果有的话），N盘则对应着DOSMU启动盘的镜像文件。 <br />
+　　我们可以通过修改/etc/mtools.conf文档来改变默认的配置，当然在做出修改之前你仍要对Linux下的设备文件名有相当的认识才行（请参考上一期本版有关设备及其文件名的介绍）。假设你的机器有一个1.44MB软驱（A），硬盘挂在第一个IDE接口的主位置上，在第一个分区（C盘）中安装有Windows操作系统，光驱挂在第二个IDE接口的主位置上（D盘），以及SCSI盘等，则可以对mtools.conf文档简单配置如下： <br />
+　　mtools.conf <br />
+　　drive a: file=″/dev/fd0″ exclusive 1.44m <br />
+　　drive c: file=″/dev/hda1″ <br />
+　　drive d: file=″/dev/hdc″ <br />
+　　drive X: file=″/dev/rdsk/c0t5d0s2″ partition=4 scsi=1 nodelay <br />
+　　（三）Mtools命令的使用 <br />
+　　Mtools的命令系统和DOS有很多相似之处，比如在命令后面可以加不同的参数以实现更为丰富的功能（Mtools命令的参数使用方法是在命令后面加“－&lt;参数&gt;”，你可以把它想象成用“－”代替了DOS命令使用的“/”），可以使用通配符“?”和“＊”。更为方便的是，使用 Mtools不需要事先装载（mount）和事后卸载（umount）。 <br />
+　　下面我们以目录列表命令mdir为例作说明(想知道其它命令的使用格式和更多的可用参数可以用man 命令查看相关帮助系统)。mdir的功能是对DOS目录和其中的文档进行列表操作。命令格式如下： <br />
+　　mdir [－/] [－f] [－w] [－a] [－X] msdosfile [msdosfile] <br />
+　　各命令参数的功能分述如下： <br />
+　　/：输出当前路径下的所有目录和文档，相当于DOS命令dir中的“s”参数； <br />
+　　f：列表时不尝试计算当前分区的自由空间，对于大硬盘来说，这样做可以节省一些读入和扫描分区表（FAT）的时间； <br />
+　　w：列表时在一行中显示多个目录文档，这种输出格式将不显示文档的大小和创建时间，相当于DOS命令dir中的“w”参数； <br />
+　　a：列出隐藏的目录文档； <br />
+　　X：简要列表， 列出路径名而不列出其它附加的信息。 <br />
+　　一些具体的应用实例： <br />
+　　1．列表A盘下的所有目录文档（不包括隐藏的目录文档） <br />
+　　mdir －/ a: <br />
+　　2．列表C盘Windows目录下含有“abc”的目录文档 <br />
+　　mdir c:/windows/＊abc＊ <br />
+　　或者mdir c:windows＊Abc＊ <br />
+　　注：在Mtools命令中，/和是可以混用的。又因为列表的是DOS系统下的文档，对大小写并不敏感，所以“abc”和“Abc”在这里是等价的。而通配符“＊”的用法和DOS命令亦有所不同。<br />
+</p>
+
+
+
+
+<p>
+五、在Windows系统中共享Linux系统的文档 <br />
+　　无论对于刚接触Linux的新手还是对之已经熟悉的高手，恐怕都免不了想在Windows系统中调阅Linux系统的文档。这可以使用在Windows系统下观看Linux分区的小软件（如fsdext2等）。这里再向各位推荐两种可以实现这种功能的小软件。 <br />
+　　(一)Linuxindos <br />
+　　Linuxindos是一个不到500KB的小程序，笔者找到的版本是Beta 0.9的DEMO版，用户可以在<a href="http://best.163.com/～linux/soft/下...褂靡卜浅＜虻ァ?">http://best.163.com/～linux/soft/下...褂靡卜浅＜虻ァ?</a> <br />
+　　在Windows系统下将linuxindos.zip解压到硬盘目录，用户就会看到一个带着企鹅图标的可执行程序LiD95Demo.exe。启动程序后，会出现一个接口非常简单的窗口，当用户挑选一个含有Linux系统文档的磁盘驱动器以后，Linux分区中的所有文档就会显示出来，左边窗口列出的是Linux分区中的目录，而右窗口就列出了目录内的文档，感觉就像在Windows的资源管理器中一样。 <br />
+　　(二）Explore2fs <br />
+　　这是一个更为小巧的自由软件，大小约308KB，用户也可以在<a href="http://best.163.com/～linux/soft/下...ows系统分区中。">http://best.163.com/～linux/soft/下...ows系统分区中。</a> <br />
+　　在右边视窗中选择好文档后，按下鼠标右键可以选择相应的操作，“Export file”是直接导出文档，而“Export to Text”则是除去文档的分隔符后导出和TEXT兼容的文本文档。　 <br />
+　　扫盲行动之六：Linux下其它格式文件系统的自动挂装 <br />
+　　不同的操作系统使用不同的文件系统格式，MS-DOS支持FAT16文件系统，Windows98支持FAT16、FAT32文件系统， WindowsNT支持FAT16、NTFS文件系统，Windows2000则支持FAT16、FAT32、NTFS三种文件系统格式，而Linux差不多支持所有的文件系统格式，但一般使用ext2文件系统。 <br />
+　　对于普通的PC用户，使用的大多是Microsoft的windows98操作系统，如果想同时使用Linux操作系统的话，一般使用多重启动。这时，用户可能希望在Linux下访问Windows文件，比如原来Windows下的mp3、电影等等。通常，有多种方法实现Linux下对其它文件系统的访问，下面就以在Linux下对Windows98文件系统的访问为例进行介绍： <br />
+　　（一）在安装Linux时进行设置。由于Linux和Windows98两种操作系统使用不同的文件格式，所以在Windows98下安装Linux 必须为Linux建立单独的分区，安装过程中有设置分区的步骤，此时，不但可以建立Linux分区，还可以对原FAT文件系统进行挂装，因为Linux把磁盘设备也看成是特殊的文件，这时如果为Windows98操作系统的逻辑分区C、D分别设立如/DOSC、/DOSD的挂装点，那么在安装完Linux 后就可以在/DOSC、/DOSD目录下访问原来C、D分区上的文件了。 <br />
+　　（二）如果在安装时没有为Windows98分区设立挂装点，也可以在安装完成后进入Linux运行mount命令（必须以root身份登录）挂装，mount命令的具体格式是： <br />
+　　mount〔-afFhnrvVm〕〔-l&lt;标签&gt;〕〔-o&lt;选项&gt;〕〔-t&lt;文件系统&gt;〕〔设备名称〕〔挂入点〕 <br />
+　　比如，用户的Windows98在系统IDE设备上的第一个分区上，如果要将它挂装在/DOSC下，可以使用下面的命令： <br />
+　　mount -t vfat /dev/hda1 /dosc <br />
+　　使用mount挂装设备时会记录信息在/etc/mtab文件中，运行unmount命令时将记录清除。 <br />
+　　（三）手动修改/etc/fstab文件。/etc/fstab文件的内容被用来在Linux 下自动挂装各种文件系统，文件中的每一行都提供了一种设备的信息，这种设备可以被挂装在Linux文件系统下的一个目录中。在Linux启动过程中， init进程执行一个脚本文件，该脚本调用带有-a参数的mount命令，用mount来读/etc/fstab，并挂装所有列出的文件系统（带 noauto选项的除外）。下面是一个典型的/etc/fstab文件(其中Windows98安装在第一块硬盘上，Linux安装在第二块硬盘上)： <br />
+　　ABEL=/ / ext2 defaults 1 1 <br />
+　　/dev/hda1 /dosc vfat defaults 0 0 <br />
+　　/dev/fd0 /mnt/floppy auto noauto,owner 0 0 <br />
+　　none /proc proc defaults 0 0 <br />
+　　none /devpts devpts sid=5,mode=620 0 0 <br />
+　　/dev/hdb5 swap swap defaults 0 0 <br />
+　　/dev/cdrom /mnt/cdrom iso9660 noauto,owner,kud2ure 0/0 <br />
+　　/etc/fstab文件的第一列是设备名，第二列是挂装点，第三列表示在设备上的文件系统的类型，第四列是应用于特定设备的一组选项，通常为 defaults，表示的含义有：这个设备在引导阶段被挂装、只有root用户可以挂装它、挂装后可以进行读或写操作，此选项如是noauto，则表示引导时该设备不会被自动挂装，而user选项表示任何用户都可以挂装该设备。以上面的etc/fstab文件为例，如果想在Linux下挂装 Windows98操作系统的D分区(假设挂装点为/dosd)，则可以在上文件中加入一行： <br />
+　　/dev/hda5 /dosd vfat defaults 0 0 <br />
+　　然后存盘，重新启动后就可以访问Windows98操作系统的D分区了。 <br />
+　　补充：fstab 栏位说明 <br />
+　　第一栏(fs_spec)： 实际的 device 名称 <br />
+　　第二栏(fs_file)： 对应到的目录结构(mount point) <br />
+　　第三栏(fs_vfstype)：该 partition 的档案系统，常见的有： <br />
+　　minix、ext、ext2、msdos、iso9660、nfs、swap <br />
+　　第四栏(fs_mntops)： 在 mount 时的参数 <br />
+　　第五栏(fs_freq)： 在使用 dump 时是否记录，不需要则输入0 <br />
+　　第六栏(fs_passno)： 决定在开机时执行 fsck 的先后顺序<br />
 </p>
 
 
@@ -972,8 +972,6 @@ Find是查找文件的命令，使用情况如下：1，要查找具有某一特
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

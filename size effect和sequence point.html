@@ -16,32 +16,32 @@
 <body>
 
 <p>
-写表达式应遵循的原则一：在两个Sequence Point之间，同一个变量的值只允许被改变一次。
+写表达式应遵循的原则一：在两个Sequence Point之间，同一个变量的值只允许被改变一次。<br />
 </p>
 
 <p>
-如果在两个Sequence Point之间既要读一个变量的值又要改它的值，只有在读写顺序确定的情况下才可以这么写。
+如果在两个Sequence Point之间既要读一个变量的值又要改它的值，只有在读写顺序确定的情况下才可以这么写。<br />
 </p>
 
 <p>
-序列点是规定必存在的
-两序列点间的某一变量只能修改一次，因为只有在序列点过后，该值才能确定。而执行顺序是不确定的
+序列点是规定必存在的<br />
+两序列点间的某一变量只能修改一次，因为只有在序列点过后，该值才能确定。而执行顺序是不确定的<br />
 </p>
 
 <p>
-sequence point位于
-	(1)每个完整表达式结束
-			变量初始化
-			表达式语句
-			return语句表达式
-			条件，循环，switch
-			控制表达式
-	(2)运算符，第一个对象计算之后
-	(3)函数体之前
+sequence point位于<br />
+	(1)每个完整表达式结束<br />
+			变量初始化<br />
+			表达式语句<br />
+			return语句表达式<br />
+			条件，循环，switch<br />
+			控制表达式<br />
+	(2)运算符，第一个对象计算之后<br />
+	(3)函数体之前<br />
 </p>
 
 <p>
-	注意：一个对象至多只能被表达式修改一次。
+	注意：一个对象至多只能被表达式修改一次。<br />
 </p>
 
 
@@ -68,8 +68,6 @@ sequence point位于
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

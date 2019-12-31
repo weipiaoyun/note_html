@@ -53,19 +53,19 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <p>
-基本信息：
-	1，捞取genesis的数据同步。
-	2，结构确认。
-	3，填写基本参数(ERP同步)：全局参数，产品信息。
+基本信息：<br />
+	1，捞取genesis的数据同步。<br />
+	2，结构确认。<br />
+	3，填写基本参数(ERP同步)：全局参数，产品信息。<br />
 </p>
 
 
 <h2 id="toc_0.1">获取userID</h2>
 <p>
-string userId = Config.GetConfigStr("UserNo");
+string userId = Config.GetConfigStr("UserNo");<br />
 <a href="钻孔.html">钻孔</a>
 <a href="菲林.html">菲林</a>
 <a href="流程.html">流程</a>
@@ -76,41 +76,41 @@ string userId = Config.GetConfigStr("UserNo");
 </p>
 
 <p>
-新建DevExpress v13.1 Template Gallery-&gt;选择Simple Ribbon UI Application 名字为UI
+新建DevExpress v13.1 Template Gallery-&gt;选择Simple Ribbon UI Application 名字为UI<br />
 </p>
 
 <p>
-在UI下面添加-&gt;新建项-》DevExpress v13.1 Template Gallery-&gt;选择xtraForm 创建一个login
-	把FormBorderStyle设为None
+在UI下面添加-&gt;新建项-》DevExpress v13.1 Template Gallery-&gt;选择xtraForm 创建一个login<br />
+	把FormBorderStyle设为None<br />
 </p>
 
 
 <p>
-在解决方案
+在解决方案<br />
 </p>
 
 <h1 id="toc_1">NavBarItem</h1><HR SIZE=1>
 <p>
-动态添加NavBarItem
-Main-&gt;AutoLoad-&gt;Init-&gt;TreeviewInvoke
+动态添加NavBarItem<br />
+Main-&gt;AutoLoad-&gt;Init-&gt;TreeviewInvoke<br />
 </p>
 
 <p>
-在TreeviewInvoke点击项目后，调用另外一个窗口
+在TreeviewInvoke点击项目后，调用另外一个窗口<br />
 </p>
 
 <h2 id="toc_1.1">自定义控件Ctl.Pub.SqlTreeView.cs</h2>
 <p>
-1，右击，添加，新建项。用户控件。
-2，在工具箱里面拖一个TreeView
-3,把OptionsView设置成ShowColumns=False   不显示列名
-4，在TreeList小三角，单击TreeView，也就是TreeList任务里面，Run Designer可以添加列和设置属性，在小三角Nodes Editor里面可以编辑节点。
-5,自定义属性和方法等
+1，右击，添加，新建项。用户控件。<br />
+2，在工具箱里面拖一个TreeView<br />
+3,把OptionsView设置成ShowColumns=False   不显示列名<br />
+4，在TreeList小三角，单击TreeView，也就是TreeList任务里面，Run Designer可以添加列和设置属性，在小三角Nodes Editor里面可以编辑节点。<br />
+5,自定义属性和方法等<br />
 </p>
 
 <h2 id="toc_1.2">lookUpEdit</h2>
 <p>
-EditValue = 1001	Text = 集团
+EditValue = 1001	Text = 集团<br />
 </p>
 <blockquote>
 lookupedit.properties.valuemember = 实际要用的字段;   //相当于editvalue
@@ -122,149 +122,149 @@ lookupedit.properties.datasource = 数据源;
 
 <h3 id="toc_1.2.1">表</h3>
 <p>
-图形界面
-通过进来后T_sys_FrmMsP有父的Guid_, 通过父的Guid_，点击后T_sys_FrmMsC可以找到有哪些子的Guid_, 通过点击子的Guid_后可以通过[T_sys_FrmUiFormConfig]图形界面的配置找到对应的配置信息。从而找到UI(ui有另外的Guid_)的Guid_, 通过UI的Guid_获取其它控件或其它的Guid_
+图形界面<br />
+通过进来后T_sys_FrmMsP有父的Guid_, 通过父的Guid_，点击后T_sys_FrmMsC可以找到有哪些子的Guid_, 通过点击子的Guid_后可以通过[T_sys_FrmUiFormConfig]图形界面的配置找到对应的配置信息。从而找到UI(ui有另外的Guid_)的Guid_, 通过UI的Guid_获取其它控件或其它的Guid_<br />
 </p>
 
 <p>
-T_sys_FrmMsP-&gt;T_sys_FrmMsC-&gt;[T_sys_FrmUi]-&gt;[T_sys_FrmUiFormConfig]
+T_sys_FrmMsP-&gt;T_sys_FrmMsC-&gt;[T_sys_FrmUi]-&gt;[T_sys_FrmUiFormConfig]<br />
 </p>
 	
 <p>
-通过T_sys_FrmUiFormConfig(Guid_为[T_sys_FrmMsC]的Guid_,UIGuid_为[T_sys_FrmUi]的Guid_)把ui和Ms连接起来
+通过T_sys_FrmUiFormConfig(Guid_为[T_sys_FrmMsC]的Guid_,UIGuid_为[T_sys_FrmUi]的Guid_)把ui和Ms连接起来<br />
 </p>
 
 <p>
-[T_sys_FrmUi] -&gt; [T_sys_FrmUiCTL] 容器表 -&gt;[T_sys_FrmUiCTL] 该容器里面的组表 -&gt;[T_sys_FrmUiGroupConfig]-&gt; [T_sys_FrmUiGroupMod] 组里面的modle
+[T_sys_FrmUi] -&gt; [T_sys_FrmUiCTL] 容器表 -&gt;[T_sys_FrmUiCTL] 该容器里面的组表 -&gt;[T_sys_FrmUiGroupConfig]-&gt; [T_sys_FrmUiGroupMod] 组里面的modle<br />
 </p>
 
 <p>
-T_sys_FrmUiCTL-&gt;T_sys_FrmUiGroupConfig
+T_sys_FrmUiCTL-&gt;T_sys_FrmUiGroupConfig<br />
 </p>
 
 <p>
-[T_sys_FrmUiGroupMod]的guid_为 T_sys_FrmUiCTL的 CtlGuid
+[T_sys_FrmUiGroupMod]的guid_为 T_sys_FrmUiCTL的 CtlGuid<br />
 </p>
 
 <p>
-[T_sys_FrmUiCmbConfig] 的Guid_为T_sys_FrmUiCTL的 CtlGuid
+[T_sys_FrmUiCmbConfig] 的Guid_为T_sys_FrmUiCTL的 CtlGuid<br />
 </p>
 
 
 <h2 id="toc_1.3">配置sqlAutoPanel</h2>
 <p>
-[T_sys_FrmUiCTL]产生一个控件的Guid_(CTL的Guid_)(也就是sqlAutoPanel的Guid_),该表主要作用是把UI和sqlAutoPanel的guid连接起来
--&gt;T_sys_FrmUiGroupConfig	sqlAutoPanel的参数设置
--&gt;T_sys_FrmUiGroupMod	小控件(text combox等)
+[T_sys_FrmUiCTL]产生一个控件的Guid_(CTL的Guid_)(也就是sqlAutoPanel的Guid_),该表主要作用是把UI和sqlAutoPanel的guid连接起来<br />
+-&gt;T_sys_FrmUiGroupConfig	sqlAutoPanel的参数设置<br />
+-&gt;T_sys_FrmUiGroupMod	小控件(text combox等)<br />
 </p>
 
 <h2 id="toc_1.4">配置sqlGridContorl</h2>
 <p>
-1，[T_sys_FrmUiCTL] 添加个容器Guid_(界面里面的Guid_),
-2,添加Guid_到 T_sys_FrmUiDgvConfig
-3，[T_sys_FrmUiDgvConfig] 在datagridview里面把上面的容器Guid_添加上去
-4，添加列(字段)[T_sys_FrmUiDgvColumnConfig]
-5，要自动加载
-6, 如果要可编辑，this.sqlGridControl1.View_.OptionsBehavior.Editable = true;
+1，[T_sys_FrmUiCTL] 添加个容器Guid_(界面里面的Guid_),<br />
+2,添加Guid_到 T_sys_FrmUiDgvConfig<br />
+3，[T_sys_FrmUiDgvConfig] 在datagridview里面把上面的容器Guid_添加上去<br />
+4，添加列(字段)[T_sys_FrmUiDgvColumnConfig]<br />
+5，要自动加载<br />
+6, 如果要可编辑，this.sqlGridControl1.View_.OptionsBehavior.Editable = true;<br />
 </p>
 
 <h3 id="toc_1.4.1">配置sqlGridContorl的com(Combobox)，LookUpEdit</h3>
 <h4 id="toc_1.4.1.1" class="justcenter">设置datagridview</h4>
 <p>
-	1，[T_sys_FrmUiDgvColumnConfig]的ColumnType字段改为LookUpEdit
-	2，[T_sys_FrmUiDgvColumnConfig]的IsReadOnly改为False
+	1，[T_sys_FrmUiDgvColumnConfig]的ColumnType字段改为LookUpEdit<br />
+	2，[T_sys_FrmUiDgvColumnConfig]的IsReadOnly改为False<br />
 </p>
 <h4 id="toc_1.4.1.2" class="justcenter">设置combobox</h4>
 <p>
-	3，T_sys_FrmUiDgvCmbConfig 查出列表和combox显示的属性
+	3，T_sys_FrmUiDgvCmbConfig 查出列表和combox显示的属性<br />
 </p>
 	
 <h1 id="toc_2">配置RibbonControl</h1><HR SIZE=1>
 <p>
-[T_sys_FrmUiPageConfig]
+[T_sys_FrmUiPageConfig]<br />
 </p>
 
 <p>
-SqlRibbonControl.Load-&gt;获取GetRibbonPageList
-SqlRibbonPageControl.Load-&gt;获取GetRibbonPageGroupList
-SqlRibbonPageGroupControl.Load-&gt;获取GetRibbonPageItemList(ItemList 里面有btn txt dateEdot checkEdit cboEdit等)
+SqlRibbonControl.Load-&gt;获取GetRibbonPageList<br />
+SqlRibbonPageControl.Load-&gt;获取GetRibbonPageGroupList<br />
+SqlRibbonPageGroupControl.Load-&gt;获取GetRibbonPageItemList(ItemList 里面有btn txt dateEdot checkEdit cboEdit等)<br />
 </p>
 
 <p>
-界面里面通过SqlRibbonControl，类里面SqlRibbonPageControl-&gt;SqlRibbonPageGroupControl-&gt;Items(button, text)
+界面里面通过SqlRibbonControl，类里面SqlRibbonPageControl-&gt;SqlRibbonPageGroupControl-&gt;Items(button, text)<br />
 </p>
 
 <p>
-SqlRibbonControl里面有SqlRibbonPageControl对象的方法
-SqlRibbonPageControl里面有SqlRibbonPageGroupControl对象的方法(里面获取ItemList)
+SqlRibbonControl里面有SqlRibbonPageControl对象的方法<br />
+SqlRibbonPageControl里面有SqlRibbonPageGroupControl对象的方法(里面获取ItemList)<br />
 </p>
 
 
 <h3 id="toc_2.0.1">如果字段的列名不对</h3>
 <p>
-1，是否调用Auto.load
-2,	数据库里面是否配置好字段名、
-3，是否Guid_和数据库里面的匹配
+1，是否调用Auto.load<br />
+2,	数据库里面是否配置好字段名、<br />
+3，是否Guid_和数据库里面的匹配<br />
 </p>
 <h2 id="toc_2.1">导航父 [T_sys_FrmMsP] child</h2>
 <p>
-有订单管理模块，系统管理模块，工具管理模块，公用模块
+有订单管理模块，系统管理模块，工具管理模块，公用模块<br />
 </p>
 <h2 id="toc_2.2">导航子Item [T_sys_FrmMsC] child</h2>
 <p>
-在系统管理等里面的子模块，包括权限管理等
+在系统管理等里面的子模块，包括权限管理等<br />
 </p>
 
 <h2 id="toc_2.3">[T_sys_FrmUiGroupMod]</h2>
 <p>
-图形界面组的模式的项目 系统管理，权限管理
+图形界面组的模式的项目 系统管理，权限管理<br />
 </p>
 
 <h2 id="toc_2.4">T_sys_UserListDepartment</h2>
 <p>
-部门/小组列表
+部门/小组列表<br />
 </p>
 
 <p>
-[T_sys_FrmUi] UI主配置文件
+[T_sys_FrmUi] UI主配置文件<br />
 </p>
 
 <p>
-[T_sys_FrmUiCTL] UI 自配置文件	
-	通过CTL的Guid_获取DgvColumnConfig
+[T_sys_FrmUiCTL] UI 自配置文件	<br />
+	通过CTL的Guid_获取DgvColumnConfig<br />
 </p>
 
 <p>
-[T_sys_FrmUiDgvColumnConfig] dataGridView 的列配置
+[T_sys_FrmUiDgvColumnConfig] dataGridView 的列配置<br />
 </p>
 
 
 <p>
-[T_ppe_MakeModuleNo]料号表
+[T_ppe_MakeModuleNo]料号表<br />
 </p>
 
 
 
 <h2 id="toc_2.5">用户控件</h2>
 <p>
-SqlAutoPanel：负责获取需要添加的用户控件，添加控件
+SqlAutoPanel：负责获取需要添加的用户控件，添加控件<br />
 </p>
 
 <h2 id="toc_2.6">系统窗体-权限</h2>
 <p>
-在权限窗体加载时候执行初始化窗体(包括SqlAutoPanel等窗体的加载)
+在权限窗体加载时候执行初始化窗体(包括SqlAutoPanel等窗体的加载)<br />
 </p>
 
 
 <p>
-	84031
-	49732 
+	84031<br />
+	49732 <br />
 </p>
 	
 <h1 id="toc_3">问题 </h1><HR SIZE=1>
 <h2 id="toc_3.1">找不到水晶报表 </h2>
 <p>
-找不到水晶报表。可以在工具-&gt;NuGet包管理器-》管理解决方案的NuGet程序包里面搜索
+找不到水晶报表。可以在工具-&gt;NuGet包管理器-》管理解决方案的NuGet程序包里面搜索<br />
 </p>
 
 
@@ -291,8 +291,6 @@ SqlAutoPanel：负责获取需要添加的用户控件，添加控件
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

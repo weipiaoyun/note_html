@@ -22,100 +22,100 @@
 <li><a href="#toc_3">实验</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
 <a href="对象思维.html">对象思维</a>
 </p>
 
 <h1 id="toc_1">类 </h1><HR SIZE=1>
 <p>
-public,公有，全都可以访问。
-private，自己和友元可以访问。
-protect，自己，友元，派生可以访问。
+public,公有，全都可以访问。<br />
+private，自己和友元可以访问。<br />
+protect，自己，友元，派生可以访问。<br />
 </p>
 
 <p>
-private和protect的不同在于：派生.其实protect就是为了能够继承，而且又能保证子类不对外开放，即该函数不能作为外部接口，只能作为自己使用。
+private和protect的不同在于：派生.其实protect就是为了能够继承，而且又能保证子类不对外开放，即该函数不能作为外部接口，只能作为自己使用。<br />
 </p>
 
 <h1 id="toc_2">在继承的时候各个意思</h1><HR SIZE=1>
 
 <p>
-	(1)所有的private只能是自己可以访问，不管你是谁
-	(2)public继承说明公有继承，就是除了private的东西其他子类可以访问，而且对于子类来说public对应的就是public，protect对应的就是protect。
-	(3)protect继承，和public不同之处在于，子类继承下来以后对于他是protect的。也就是外部不能访问子类了
-	(4)private继承，和public，protect不同在于，子类继承下来以后对于他是private的。只有他自己可以访问，其他的人一律不行。
+	(1)所有的private只能是自己可以访问，不管你是谁<br />
+	(2)public继承说明公有继承，就是除了private的东西其他子类可以访问，而且对于子类来说public对应的就是public，protect对应的就是protect。<br />
+	(3)protect继承，和public不同之处在于，子类继承下来以后对于他是protect的。也就是外部不能访问子类了<br />
+	(4)private继承，和public，protect不同在于，子类继承下来以后对于他是private的。只有他自己可以访问，其他的人一律不行。<br />
 </p>
 	
 
 <p>
-	this指针一般用于当前对象自身。
+	this指针一般用于当前对象自身。<br />
 </p>
 
 <p>
-	什么是子对象，就是该成员是另一个对象的成员。
+	什么是子对象，就是该成员是另一个对象的成员。<br />
 </p>
 
 
 <h1 id="toc_3">实验</h1><HR SIZE=1>
 <p>
-#include &lt;stdio.h&gt; 
-#include &lt;stdlib.h&gt; 
+#include &lt;stdio.h&gt; <br />
+#include &lt;stdlib.h&gt; <br />
 </p>
 
 <p>
-class ClassA {
-private:
-	int a;
-	int b;
+class ClassA {<br />
+private:<br />
+	int a;<br />
+	int b;<br />
 </p>
 
 <p>
-public:
-	void Public_Funtion(void)
-	{
-		printf("%s\n", "Funtion in A of");		
-	}
+public:<br />
+	void Public_Funtion(void)<br />
+	{<br />
+		printf("%s\n", "Funtion in A of");		<br />
+	}<br />
 </p>
 
 
 <p>
-protected:
-	void Protected_Funtion(void)
-	{
-		printf("%s\n", "Funtion in protected");
+protected:<br />
+	void Protected_Funtion(void)<br />
+	{<br />
+		printf("%s\n", "Funtion in protected");<br />
 </p>
 	
 <p>
-	}
-};
+	}<br />
+};<br />
 </p>
 
 <p>
-class ClassB : public /* protect */ClassA{
-private:
+class ClassB : public /* protect */ClassA{<br />
+private:<br />
 </p>
 	
 <p>
-public:
-	void Public_Funtion_B(void)
-	{
-		printf("%s\n", "Funtion in punilc of B");
-		Protected_Funtion();
-	}
+public:<br />
+	void Public_Funtion_B(void)<br />
+	{<br />
+		printf("%s\n", "Funtion in punilc of B");<br />
+		Protected_Funtion();<br />
+	}<br />
 </p>
 
 <p>
-};
-void main() 
-{ 
-	ClassB A;
-	A.Public_Funtion_B();
-}
+};<br />
+void main() <br />
+{ <br />
+	ClassB A;<br />
+	A.Public_Funtion_B();<br />
+}<br />
 </p>
 
 <p>
-protect和public继承都行。
+protect和public继承都行。<br />
 </p>
 
 <p>
@@ -156,8 +156,6 @@ protect和public继承都行。
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

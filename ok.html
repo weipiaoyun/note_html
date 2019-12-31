@@ -16,33 +16,33 @@
 <body>
 
 <p>
-q:
-q/
-:/Ex
-:reg
-:ju
-.重复
-:reg a,b 查a到b的寄存器
-:messages
-d/text
-C
-S
-D
-:%norm jdd                  : 隔行删除
-:g!/^dd/d                   : 删除不含字串\'dd\'的行
-:g/PAUSE/d					:删除含有PAUSE的行
-:g!/^dd/d                   : 删除不含字串\'dd\'的行
-:v/^dd/d                    : 同上 # 译释：v == g!，就是不匹配
-:g/{pattern}/{cmd} 就是全局找到匹配的行
-g/fred/,/joe/s/fred/joe/gic
-fred , joe
+q:<br />
+q/<br />
+:/Ex<br />
+:reg<br />
+:ju<br />
+.重复<br />
+:reg a,b 查a到b的寄存器<br />
+:messages<br />
+d/text<br />
+C<br />
+S<br />
+D<br />
+:%norm jdd                  : 隔行删除<br />
+:g!/^dd/d                   : 删除不含字串\'dd\'的行<br />
+:g/PAUSE/d					:删除含有PAUSE的行<br />
+:g!/^dd/d                   : 删除不含字串\'dd\'的行<br />
+:v/^dd/d                    : 同上 # 译释：v == g!，就是不匹配<br />
+:g/{pattern}/{cmd} 就是全局找到匹配的行<br />
+g/fred/,/joe/s/fred/joe/gic<br />
+fred , joe<br />
 </p>
 
 <p>
-g/pattern/cmd
-这个g命令式在文中查找pattern，然后对找到的这些行执行cmd命令；注意：cmd应用的范围是找到行
-cmd命令有很多，比如d，删除命令；c，删除并且进入insert模式；s，替换命令，这个用的多，例如g/test/s/aaa/bbb/ 在文中查找包含test的行，并且把该行中的aaa替换成bbb,也可以把aaa省略，
-g/test/s//bbb/,这时候表示的是把test替换成bbb指令
+g/pattern/cmd<br />
+这个g命令式在文中查找pattern，然后对找到的这些行执行cmd命令；注意：cmd应用的范围是找到行<br />
+cmd命令有很多，比如d，删除命令；c，删除并且进入insert模式；s，替换命令，这个用的多，例如g/test/s/aaa/bbb/ 在文中查找包含test的行，并且把该行中的aaa替换成bbb,也可以把aaa省略，<br />
+g/test/s//bbb/,这时候表示的是把test替换成bbb指令<br />
 </p>
 
 
@@ -69,8 +69,6 @@ g/test/s//bbb/,这时候表示的是把test替换成bbb指令
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

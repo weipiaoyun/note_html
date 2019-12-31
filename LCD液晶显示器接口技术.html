@@ -17,13 +17,13 @@
 
 <h1 id="toc_1">组成:</h1><HR SIZE=1>
 <p>
-	(1)指令寄存器，存放一些清除显示，光标移位等的指令，要把指令码写到指令寄存器中
-	(2)数据寄存器
-	(3)忙标志，RS为0，RW为1，E为1，表示读是不是忙，忙还是不忙由数据线DB7输出。BF = 0,表示不忙。
-	(4)地址计数器
-	(5)显示数据寄存器（DD RAM）80 * 8的RAM,用来存储显示数据代码
-	(6)字符发生器
-	(7)时序发生电路
+	(1)指令寄存器，存放一些清除显示，光标移位等的指令，要把指令码写到指令寄存器中<br />
+	(2)数据寄存器<br />
+	(3)忙标志，RS为0，RW为1，E为1，表示读是不是忙，忙还是不忙由数据线DB7输出。BF = 0,表示不忙。<br />
+	(4)地址计数器<br />
+	(5)显示数据寄存器（DD RAM）80 * 8的RAM,用来存储显示数据代码<br />
+	(6)字符发生器<br />
+	(7)时序发生电路<br />
 </p>
 
 
@@ -50,38 +50,38 @@ E 读写使能引脚,注意：要下降沿锁定数据。一定要锁存数据�
 
 <h2 id="toc_3.1">写命令步骤</h2>
 <p>
-1，检查lcd是不是忙
-2，告诉cpu要写命令了
-3，把写寄存器打开
-4，把数据清空
-5，把命令写进去
-6，使能读写引脚，高电平有效，用下降沿锁定数据。
+1，检查lcd是不是忙<br />
+2，告诉cpu要写命令了<br />
+3，把写寄存器打开<br />
+4，把数据清空<br />
+5，把命令写进去<br />
+6，使能读写引脚，高电平有效，用下降沿锁定数据。<br />
 </p>
 
 <p>
-void WriteCommand(uint8 command)//向LCD写命令
-{
-	CheckBusy();
-	IO0CLR=RS;
-	IO0CLR=RW;
-	IO0CLR=0xff;//将低8位清空，低8位要传输命令过去
-	IO0SET=command;
-	IO0SET=E;//高电平有效，下降沿锁定数据
-	IO0CLR=E;
-}
+void WriteCommand(uint8 command)//向LCD写命令<br />
+{<br />
+	CheckBusy();<br />
+	IO0CLR=RS;<br />
+	IO0CLR=RW;<br />
+	IO0CLR=0xff;//将低8位清空，低8位要传输命令过去<br />
+	IO0SET=command;<br />
+	IO0SET=E;//高电平有效，下降沿锁定数据<br />
+	IO0CLR=E;<br />
+}<br />
 </p>
 
 <h2 id="toc_3.2">lcd初始化</h2>
 <p>
-	lcd的初始化就是写命令控制屏幕的格式，比如说是一行显示还是两行显示。控制光标，光标闪烁还是不闪烁。
+	lcd的初始化就是写命令控制屏幕的格式，比如说是一行显示还是两行显示。控制光标，光标闪烁还是不闪烁。<br />
 </p>
 
 <h2 id="toc_3.3">指令系统</h2>
 <p>
-	(1)清屏，空码写入DD RAM ,光标闪烁归home位
-	(2)光标复位,AC指向第一个字符位上
-	(3)模式设置，I/D是AC的修改方式，即光标的移动方式左移还是右移。S表示是否允许画面滚动。S = 0，禁止滚动
-	(4)显示开关控制，BCD分别是画面，光标和闪烁。
+	(1)清屏，空码写入DD RAM ,光标闪烁归home位<br />
+	(2)光标复位,AC指向第一个字符位上<br />
+	(3)模式设置，I/D是AC的修改方式，即光标的移动方式左移还是右移。S表示是否允许画面滚动。S = 0，禁止滚动<br />
+	(4)显示开关控制，BCD分别是画面，光标和闪烁。<br />
 </p>
 
 
@@ -108,8 +108,6 @@ void WriteCommand(uint8 command)//向LCD写命令
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

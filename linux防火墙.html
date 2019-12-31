@@ -16,64 +16,64 @@
 <body>
 
 <p>
-iptables的规则
-简单来说，iptables防火墙是由一系列的规则(rule)组成，一个数据请求进来，会依次和这些规则进行比较，如果正好符合规则的定义，那这个数据请求要么会被接收ACCEPT，要么被拒绝DRIP。如果不符合任何规则的定义，最后缺省的规则会被应用。
+iptables的规则<br />
+简单来说，iptables防火墙是由一系列的规则(rule)组成，一个数据请求进来，会依次和这些规则进行比较，如果正好符合规则的定义，那这个数据请求要么会被接收ACCEPT，要么被拒绝DRIP。如果不符合任何规则的定义，最后缺省的规则会被应用。<br />
 </p>
 
 <p>
-Iptables [-ttable] COMMAND chain CRETIRIA -j ACTION
+Iptables [-ttable] COMMAND chain CRETIRIA -j ACTION<br />
 </p>
 
 <p>
-分为三种类型
--ttable有三种选项：filter，nat 和managle
+分为三种类型<br />
+-ttable有三种选项：filter，nat 和managle<br />
 </p>
 
 
 <p>
-vi /etc/sysconfig/iptables
-*filter #过滤器
-#filter包括input forward output三种类型
+vi /etc/sysconfig/iptables<br />
+*filter #过滤器<br />
+#filter包括input forward output三种类型<br />
 </p>
 
 <p>
-#input：输入
-:INPUT ACCEPT [0:0]
+#input：输入<br />
+:INPUT ACCEPT [0:0]<br />
 </p>
 
 <p>
-#output：输出
-:OUTPUT ACCEPT [0:0]
+#output：输出<br />
+:OUTPUT ACCEPT [0:0]<br />
 </p>
 
 <p>
-#forward：转换
-:FORWARD ACCEPT[0:0]
+#forward：转换<br />
+:FORWARD ACCEPT[0:0]<br />
 </p>
 
 <p>
--A FORWARD -i eth1 -o eth1 -j ACCEPT
+-A FORWARD -i eth1 -o eth1 -j ACCEPT<br />
 </p>
 
 <p>
-*nat #network address  translation
-#同filter表一样，nat表也有三条缺省的"链"(chains)
+*nat #network address  translation<br />
+#同filter表一样，nat表也有三条缺省的"链"(chains)<br />
 </p>
 
 <p>
-:PREROUTING ACCEPT[0:0]
-:POSTROUTING ACCEPT[0:0]
-:OUTPUT ACCEPT[0:0]
--A POSTROUTING -s 192.168.8.0/24 -d 172.18.100.104 -o eth0 -j SNAT -to--source 172.18.100.1
+:PREROUTING ACCEPT[0:0]<br />
+:POSTROUTING ACCEPT[0:0]<br />
+:OUTPUT ACCEPT[0:0]<br />
+-A POSTROUTING -s 192.168.8.0/24 -d 172.18.100.104 -o eth0 -j SNAT -to--source 172.18.100.1<br />
 </p>
 
 <p>
--j SNAT：源网络地址转换，SNAT就是重写包的源IP地址(代理)
-系统先路由——&gt;再过滤（FORWARD)——&gt;最后才进行POSTROUTING SNAT地址翻译
+-j SNAT：源网络地址转换，SNAT就是重写包的源IP地址(代理)<br />
+系统先路由——&gt;再过滤（FORWARD)——&gt;最后才进行POSTROUTING SNAT地址翻译<br />
 </p>
 
 <p>
-*COMMIT #
+*COMMIT #<br />
 </p>
 
 
@@ -100,8 +100,6 @@ vi /etc/sysconfig/iptables
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

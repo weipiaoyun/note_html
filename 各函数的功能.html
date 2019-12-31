@@ -322,15 +322,15 @@ IntExt
 </table>
 
 <p>
-解释：工作之前要叫醒各个任务。这个任务交给TASDCREATE（建立任务）.叫醒了以后由start宣布开始执行任务（叫醒可以在任何时候，呵呵，除了中断服务中）。最高优先级的任务开始工作。如果任务累了，或者其他情况，需要休息，向TIMEDLY申请延迟。休息时间已到，由TIMETISK出来叫刚才休息的任务开始工作了。如果任务在过程中用到某些资源。但资源没有。只能等待，这时sempend boxpend或qpend就出来了，记录他们没完成任务，缺乏资源。就算是任务正在工作，中断一来就可以让他停下来，让中断工作。除非把中断关了。就是不允许有中断。在中断工作的过程中可能准备好了某些可以使别人从挂起状态进入就绪状态的资源。中断完成了，又谁继续工作呢？要看全部的任务，谁的优先级最高，而且已经准备好了（进入就绪状态了）的就工作。如果都没准备好，就由idle task玩游戏（玩的是计算东西）去吧，它是最低优先级的。
+解释：工作之前要叫醒各个任务。这个任务交给TASDCREATE（建立任务）.叫醒了以后由start宣布开始执行任务（叫醒可以在任何时候，呵呵，除了中断服务中）。最高优先级的任务开始工作。如果任务累了，或者其他情况，需要休息，向TIMEDLY申请延迟。休息时间已到，由TIMETISK出来叫刚才休息的任务开始工作了。如果任务在过程中用到某些资源。但资源没有。只能等待，这时sempend boxpend或qpend就出来了，记录他们没完成任务，缺乏资源。就算是任务正在工作，中断一来就可以让他停下来，让中断工作。除非把中断关了。就是不允许有中断。在中断工作的过程中可能准备好了某些可以使别人从挂起状态进入就绪状态的资源。中断完成了，又谁继续工作呢？要看全部的任务，谁的优先级最高，而且已经准备好了（进入就绪状态了）的就工作。如果都没准备好，就由idle task玩游戏（玩的是计算东西）去吧，它是最低优先级的。<br />
 </p>
 
 
 <p>
-中间过程还用到几个任务
-1，任务控制块，负责记录其他任务的状态，干了多少事都要有记录。
-2，任务调度，任务不会说总是在cpu旁边等，每个任务都有自己的住所，任务不工作的时候可能会住所了，而叫任务的工作就有任务调度负责。OSSCHED。当然也可以禁止调度。任务可以叫LOCk申请不调度，由unlocd恢复可以调度。这两个人必须成对出现。一个处理申请，一个处理恢复。调度器的每次调度时间应该是固定的，这样才能精确算时间。时间是宝贵的。
-3，统计运行时间。告诉用户使用了多少时间。
+中间过程还用到几个任务<br />
+1，任务控制块，负责记录其他任务的状态，干了多少事都要有记录。<br />
+2，任务调度，任务不会说总是在cpu旁边等，每个任务都有自己的住所，任务不工作的时候可能会住所了，而叫任务的工作就有任务调度负责。OSSCHED。当然也可以禁止调度。任务可以叫LOCk申请不调度，由unlocd恢复可以调度。这两个人必须成对出现。一个处理申请，一个处理恢复。调度器的每次调度时间应该是固定的，这样才能精确算时间。时间是宝贵的。<br />
+3，统计运行时间。告诉用户使用了多少时间。<br />
 </p>
 
 
@@ -357,8 +357,6 @@ IntExt
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

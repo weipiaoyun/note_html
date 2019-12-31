@@ -34,75 +34,75 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <p>
- 0452282
- 0004797
- 0003369 
- 0002958
+ 0452282<br />
+ 0004797<br />
+ 0003369 <br />
+ 0002958<br />
 </p>
  
 <p>
- 3044538
+ 3044538<br />
 </p>
 <h1 id="toc_1" class="justcenter">获取料号名</h1><HR SIZE=1>
 <p>
- private EngSys.MODEL.Pub.Ppe.Job.Model_CurrentJob CurrentJob = EngSys.MODEL.MODEL_Main.CurrentJob;
+ private EngSys.MODEL.Pub.Ppe.Job.Model_CurrentJob CurrentJob = EngSys.MODEL.MODEL_Main.CurrentJob;<br />
 </p>
  
 <p>
- Application.StartupPath
+ Application.StartupPath<br />
 </p>
 <h1 id="toc_2">功能</h1><HR SIZE=1>
 <p>
-1，从genesis捞钻孔信息。(钻带信息(钻带类型，原稿的最小孔径，钻带名，从什么层到什么层)，钻孔信息表T_Pub_DrillInfo(原稿的，处理过的)。)
-2，自动设置公差
-3，自动计算钻嘴(补偿钻孔，补偿钻孔规则表。孔属于压接孔，pth孔，槽孔，表面处理方式等条件决定补偿大小 T_Pub_DrillComp)。
-4，添加工具孔(不一样的板，自动添加不一样的工具孔，不一样的客户，不一样的工具孔 T_Pub_DrillCustTol)
-5，排刀
-6，上传
-7，实现AB拼版
-8，导出钻孔
+1，从genesis捞钻孔信息。(钻带信息(钻带类型，原稿的最小孔径，钻带名，从什么层到什么层)，钻孔信息表T_Pub_DrillInfo(原稿的，处理过的)。)<br />
+2，自动设置公差<br />
+3，自动计算钻嘴(补偿钻孔，补偿钻孔规则表。孔属于压接孔，pth孔，槽孔，表面处理方式等条件决定补偿大小 T_Pub_DrillComp)。<br />
+4，添加工具孔(不一样的板，自动添加不一样的工具孔，不一样的客户，不一样的工具孔 T_Pub_DrillCustTol)<br />
+5，排刀<br />
+6，上传<br />
+7，实现AB拼版<br />
+8，导出钻孔<br />
 </p>
 <h2 id="toc_2.1">如何实现</h2>
 
 <h1 id="toc_3">显示的数据</h1><HR SIZE=1>
 <p>
-1, 基础数据
-	本厂编号
-	料号层数
-	最终客户
-	产品类型
-	成品板厚
-	流程类型
-	表面处理
-	产品阶数
-	Core张数
-	Coupon数
-	单端差分个数
-	PnlA留边X，pnlA留边Y
-	PnlA宽，pnlA长
-	PnlB留边X，pnlB留边Y
-	PnlA宽，pnlA长
-	PnlA/Set,PnlB/Set,
-	Set/Pcs
-	特殊流程需要的钻孔，如大板V-cut等	
+1, 基础数据<br />
+	本厂编号<br />
+	料号层数<br />
+	最终客户<br />
+	产品类型<br />
+	成品板厚<br />
+	流程类型<br />
+	表面处理<br />
+	产品阶数<br />
+	Core张数<br />
+	Coupon数<br />
+	单端差分个数<br />
+	PnlA留边X，pnlA留边Y<br />
+	PnlA宽，pnlA长<br />
+	PnlB留边X，pnlB留边Y<br />
+	PnlA宽，pnlA长<br />
+	PnlA/Set,PnlB/Set,<br />
+	Set/Pcs<br />
+	特殊流程需要的钻孔，如大板V-cut等	<br />
 </p>
 
 <p>
-2，钻带信息
-3，钻孔信息
+2，钻带信息<br />
+3，钻孔信息<br />
 </p>
 
 <h2 id="toc_3.1">如何展现</h2>
 
 <h1 id="toc_4">存数据</h1><HR SIZE=1>
 <p>
-1，从genesis捞出来的数据 [T_Pub_DrillInfoOrg]
-	T_Pub_DrillLayerOrg 钻带信息表
-		[OrderGuid_] 料号的Guid_(每个钻带有个身份证)
-	[T_Pub_DrillInfoOrg] 原始钻孔信息
-		 [Guid4DrillOrg_] 钻带的GUId_
+1，从genesis捞出来的数据 [T_Pub_DrillInfoOrg]<br />
+	T_Pub_DrillLayerOrg 钻带信息表<br />
+		[OrderGuid_] 料号的Guid_(每个钻带有个身份证)<br />
+	[T_Pub_DrillInfoOrg] 原始钻孔信息<br />
+		 [Guid4DrillOrg_] 钻带的GUId_<br />
 </p>
 <ul>
 <li>
@@ -111,18 +111,18 @@
 </ul>
 	
 <p>
-2，基本信息数据
-	T_Pub_DrillBaseInfo
-	钻孔需要的基本信息，如set里面的pcs数
-3，需要显示的字段信息
-4，要显示的钻带信息表
-	[T_Pub_DrillInfo]
-		[Guid4DrillOrg_] 钻带的Guid_
-5，生产尺寸钻咀信息表
-6，成品尺寸钻咀信息表
-7, 厂内钻孔补偿规则表
-8，客户钻孔补偿规则表
-8，工具孔表
+2，基本信息数据<br />
+	T_Pub_DrillBaseInfo<br />
+	钻孔需要的基本信息，如set里面的pcs数<br />
+3，需要显示的字段信息<br />
+4，要显示的钻带信息表<br />
+	[T_Pub_DrillInfo]<br />
+		[Guid4DrillOrg_] 钻带的Guid_<br />
+5，生产尺寸钻咀信息表<br />
+6，成品尺寸钻咀信息表<br />
+7, 厂内钻孔补偿规则表<br />
+8，客户钻孔补偿规则表<br />
+8，工具孔表<br />
 </p>
 
 <h2 id="toc_4.1">如何存储</h2>
@@ -130,7 +130,7 @@
 
 <h2 id="toc_4.2">钻孔主表字段</h2>
 <p>
-钻带	刀序	类型	属性	成品孔径 孔径公差+ 孔径公差-	槽长	槽长公差+ 槽长公差- 角度 角度+	角度-	深度	深度+	深度-	钻刀咀	钻槽长	Pcs孔数	Set孔数	A板孔数	B板孔数	备注
+钻带	刀序	类型	属性	成品孔径 孔径公差+ 孔径公差-	槽长	槽长公差+ 槽长公差- 角度 角度+	角度-	深度	深度+	深度-	钻刀咀	钻槽长	Pcs孔数	Set孔数	A板孔数	B板孔数	备注<br />
 </p>
 <blockquote>
 ,[Guid4DrillLayer_]
@@ -167,7 +167,7 @@
 
 <h2 id="toc_4.3">钻孔信息CTL Guid_</h2>
 <p>
-753c7f7a-71f1-e511-8c4e-78acc03d06a8
+753c7f7a-71f1-e511-8c4e-78acc03d06a8<br />
 </p>
 
 
@@ -194,8 +194,6 @@
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

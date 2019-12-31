@@ -16,7 +16,7 @@
 <body>
 
 <p>
-#/*************************************************** 
+#/*************************************************** <br />
 </p>
 <ol>
 <li>
@@ -39,8 +39,8 @@
 
 </ol>
 <p>
-#***************************************************/
-package Priver;
+#***************************************************/<br />
+package Priver;<br />
 </p>
 
 <ol>
@@ -49,25 +49,25 @@ package Priver;
 
 </ol>
 <p>
-use strict;
-use utf8;
-use Exporter;
-our @ISA = qw(Exporter);
+use strict;<br />
+use utf8;<br />
+use Exporter;<br />
+our @ISA = qw(Exporter);<br />
 </p>
 
 <p>
-#设置程式名称
-my $appname = 'Priver';
+#设置程式名称<br />
+my $appname = 'Priver';<br />
 </p>
 
 <p>
-#设置版本号
-my $version = 1.0;
+#设置版本号<br />
+my $version = 1.0;<br />
 </p>
 
 <p>
-#sub new
-#{
+#sub new<br />
+#{<br />
 </p>
 <ol>
 <li>
@@ -81,7 +81,7 @@ return $self;
 
 </ol>
 <p>
-#}
+#}<br />
 </p>
 
 <ol>
@@ -90,7 +90,7 @@ return $self;
 
 </ol>
 <p>
-#
+#<br />
 </p>
 <ol>
 <li>
@@ -107,17 +107,17 @@ return $self;
 
 </ol>
 <p>
-#
-sub getUserPriver{
-	my (\(self,\)username,\(privRemark,\)logPath) = @_;
-	my $boolValue = 'TRUE';
-	my $logtxt ;
+#<br />
+sub getUserPriver{<br />
+	my (\(self,\)username,\(privRemark,\)logPath) = @_;<br />
+	my $boolValue = 'TRUE';<br />
+	my $logtxt ;<br />
 </p>
 
 <p>
-	if ( "" eq $logPath){
-		\(logPath = "MSWin32" eq \)^O ? "c:/tmp/hc_log" : "/tmp/hc_log" ;
-	}
+	if ( "" eq $logPath){<br />
+		\(logPath = "MSWin32" eq \)^O ? "c:/tmp/hc_log" : "/tmp/hc_log" ;<br />
+	}<br />
 </p>
 	
 <ol>
@@ -133,33 +133,33 @@ sub getUserPriver{
 </ol>
 
 <p>
-	\(logtxt = "*********** info : 接连数据库-获取用户代号对应的ID---SQL: \)sql";
-	\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+	\(logtxt = "*********** info : 接连数据库-获取用户代号对应的ID---SQL: \)sql";<br />
+	\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');<br />
 </p>
 
 <p>
-	my \(userID = \)self-&gt;FetchrowArrayref($sql);
-	$self-&gt;disconnect();
+	my \(userID = \)self-&gt;FetchrowArrayref($sql);<br />
+	$self-&gt;disconnect();<br />
 </p>
 
 <p>
-	if ("ARRAY" ne ref($userID)) {
+	if ("ARRAY" ne ref($userID)) {<br />
 </p>
 		
 <p>
-		\(logtxt = "*********** error : 获取用户代号对应的ID失败---".ref(\)userID)." 数据库返回值不ARRAY";
-		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+		\(logtxt = "*********** error : 获取用户代号对应的ID失败---".ref(\)userID)." 数据库返回值不ARRAY";<br />
+		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');<br />
 </p>
 
 <p>
-		$boolValue = "FALSE";
-		return $boolValue;
-	}
+		$boolValue = "FALSE";<br />
+		return $boolValue;<br />
+	}<br />
 </p>
 
 <p>
-	\(userID-&gt;[0][0] = "p".\)userID-&gt;[0][0];
-	$userID-&gt;[0][0] .= ";";
+	\(userID-&gt;[0][0] = "p".\)userID-&gt;[0][0];<br />
+	$userID-&gt;[0][0] .= ";";<br />
 </p>
 
 <ol>
@@ -175,55 +175,55 @@ sub getUserPriver{
 </ol>
 
 <p>
-	\(logtxt = "*********** info : 接连数据库-获取操作用户的权限---SQL: \)sql";
-	\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+	\(logtxt = "*********** info : 接连数据库-获取操作用户的权限---SQL: \)sql";<br />
+	\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');<br />
 </p>
 
 <p>
-	my \(userPriv = \)self-&gt;FetchrowArrayref($sql);
-	$self-&gt;disconnect();
+	my \(userPriv = \)self-&gt;FetchrowArrayref($sql);<br />
+	$self-&gt;disconnect();<br />
 </p>
 
 <p>
-	if ("ARRAY" ne ref($userPriv)) {
+	if ("ARRAY" ne ref($userPriv)) {<br />
 </p>
 		
 <p>
-		\(logtxt = "*********** error : 获取操作用户的权限失败---".ref(\)userPriv)." 数据库返回值不ARRAY";
-		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+		\(logtxt = "*********** error : 获取操作用户的权限失败---".ref(\)userPriv)." 数据库返回值不ARRAY";<br />
+		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');<br />
 </p>
 
 <p>
-		$boolValue = "FALSE";
-		return $boolValue;
+		$boolValue = "FALSE";<br />
+		return $boolValue;<br />
 </p>
 
 <p>
-	}
+	}<br />
 </p>
 
 <p>
-	if ( index(\(userPriv-&gt;[0][0],\)userID-&gt;[0][0]) &lt; 0 ) {
+	if ( index(\(userPriv-&gt;[0][0],\)userID-&gt;[0][0]) &lt; 0 ) {<br />
 </p>
 
 <p>
-		\(logtxt = "*********** error : 用户ID值-- \"\)userID-&gt;[0][0]\" 不在用户权限-- \"$userPriv-&gt;[0][0]\" 中";
-		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');
+		\(logtxt = "*********** error : 用户ID值-- \"\)userID-&gt;[0][0]\" 不在用户权限-- \"$userPriv-&gt;[0][0]\" 中";<br />
+		\(self-&gt;WriteFile("\)logPath","$logtxt",'&gt;&gt;encoding(utf8)');<br />
 </p>
 
 <p>
-		$boolValue = "FALSE";
-		return $boolValue;
-	}
+		$boolValue = "FALSE";<br />
+		return $boolValue;<br />
+	}<br />
 </p>
 
 <p>
-	return $boolValue;
-}
+	return $boolValue;<br />
+}<br />
 </p>
 
 <p>
-1;
+1;<br />
 </p>
 
 
@@ -250,8 +250,6 @@ sub getUserPriver{
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

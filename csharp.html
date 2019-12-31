@@ -26,6 +26,9 @@
 </ul>
 <li><a href="#toc_2">插件 </a>
 <li><a href="#toc_3">concept </a>
+<ul>
+<li><a href="#toc_3.1">The Concept of SynchronizationContext </a>
+</ul>
 <li><a href="#toc_4">项目列表 </a>
 <li><a href="#toc_5">控件组件 </a>
 <li><a href="#toc_6">编程 </a>
@@ -51,7 +54,7 @@
 <li><a href="#toc_13">文档 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 
 <p>
@@ -60,8 +63,8 @@
 
 <h1 id="toc_1">框架 </h1><HR SIZE=1>
 <p>
-EF框架
-ORM框架
+EF框架<br />
+ORM框架<br />
 </p>
 <h2 id="toc_1.1">Asp.NET ABP </h2>
 <h3 id="toc_1.1.1">Token Based Authentication </h3>
@@ -69,15 +72,18 @@ ORM框架
 
 <h1 id="toc_2">插件 </h1><HR SIZE=1>
 <p>
-cefsharp  访问网页
+cefsharp  访问网页<br />
 </p>
 
 <h1 id="toc_3">concept </h1><HR SIZE=1>
 <p>
-CLR  common language runtime
-FCL  Framework class library
+CLR  common language runtime<br />
+FCL  Framework class library<br />
 </p>
-
+<h2 id="toc_3.1">The Concept of SynchronizationContext </h2>
+<p>
+<a href="https://msdn.microsoft.com/en-us/magazine/gg598924.aspx">https://msdn.microsoft.com/en-us/magazine/gg598924.aspx</a>
+</p>
 
 <p>
 <a href="WPF.html">WPF</a>
@@ -135,7 +141,7 @@ FCL  Framework class library
 
 <h3 id="toc_7.3.2">静态和实例 </h3>
 <p>
-静态类不能创建对象
+静态类不能创建对象<br />
 </p>
 <blockquote>
 如果一个静态方法，则里面调用的方法要么是属于某个类的方法，要么是属于静态方法，不能是同一个类里面的非静态方法。
@@ -153,19 +159,19 @@ static共用，静态分配的，有两种情况：
 </ol>
 
 <p>
-静态字段和静态构造方法：
-不会经常变化而又频繁使用的数据，两点同时存在时使用。
+静态字段和静态构造方法：<br />
+不会经常变化而又频繁使用的数据，两点同时存在时使用。<br />
 </p>
 
 <p>
-静态方法：公用的处理函数
-牵涉到数据共享,静态变量的函数要尽量少用静态函数。
-静态方法是可以放心使用的，静态变量要小心使用
+静态方法：公用的处理函数<br />
+牵涉到数据共享,静态变量的函数要尽量少用静态函数。<br />
+静态方法是可以放心使用的，静态变量要小心使用<br />
 </p>
 
 <h3 id="toc_7.3.3">索引器 </h3>
 <p>
-索引器(Indexer)是C#引入的一个新型的类成员，它使得类中的对象可以像数组那样方便、直观的被引用，索引器非常类似于属性，但索引器可以有参数列表，且只能作用在实例对象上，而不能在类上直接作用。定义了索引器的类可以让您像访问数组一样的使用 [ ] 运算符访问类的成员。（当然高级的应用还有很多，比如说可以把数组通过索引器映射出去等等）
+索引器(Indexer)是C#引入的一个新型的类成员，它使得类中的对象可以像数组那样方便、直观的被引用，索引器非常类似于属性，但索引器可以有参数列表，且只能作用在实例对象上，而不能在类上直接作用。定义了索引器的类可以让您像访问数组一样的使用 [ ] 运算符访问类的成员。（当然高级的应用还有很多，比如说可以把数组通过索引器映射出去等等）<br />
 </p>
 
 <h1 id="toc_8">关键字 </h1><HR SIZE=1>
@@ -211,7 +217,7 @@ ref可以以参数形式传递到函数中。out不可以。
 
 <h1 id="toc_13">文档 </h1><HR SIZE=1>
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/CLR via C\#-English.pdf"download=\"文件名.txt\">点击下载:【CLR via C\#-English.pdf】</a></div>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/CLR via C\#-English.pdf"download=\"文件名.txt\">点击下载:【CLR via C\#-English.pdf】</a></div><br />
 </p>
 
 
@@ -243,8 +249,6 @@ ref可以以参数形式传递到函数中。out不可以。
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

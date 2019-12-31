@@ -16,46 +16,46 @@
 <body>
 
 <p>
-在C#中使用关键字 abstract 来定义抽象类和抽象方法。
+在C#中使用关键字 abstract 来定义抽象类和抽象方法。<br />
 </p>
 
 <p>
-不能初始化的类被叫做抽象类，它们只提供部分实现，但是另一个类可以继承它并且能创建它们
-的实例。
-"一个包含一个或多个纯虚函数的类叫抽象类，抽象类不能被实例化，进一步
-一个抽象类只能通过接口和作为其它类的基类使用."- C++ Programming Language by Stroustrup Chapter13.2
+不能初始化的类被叫做抽象类，它们只提供部分实现，但是另一个类可以继承它并且能创建它们<br />
+的实例。<br />
+"一个包含一个或多个纯虚函数的类叫抽象类，抽象类不能被实例化，进一步<br />
+一个抽象类只能通过接口和作为其它类的基类使用."- C++ Programming Language by Stroustrup Chapter13.2<br />
 </p>
 
 <p>
-抽象类能够被用于类，方法，属性，索引器和事件，使用abstract 在一个类声明中表示该类倾向要作为其它类的基类
-成员被标示成abstract，或被包含进一个抽象类，必须被其派生类实现。
+抽象类能够被用于类，方法，属性，索引器和事件，使用abstract 在一个类声明中表示该类倾向要作为其它类的基类<br />
+成员被标示成abstract，或被包含进一个抽象类，必须被其派生类实现。<br />
 </p>
 
 <p>
-复制代码
-abstract class ShapesClass
-{
-	abstract public int Area();
-}
+复制代码<br />
+abstract class ShapesClass<br />
+{<br />
+	abstract public int Area();<br />
+}<br />
 </p>
 
 <p>
-class Square : ShapesClass
-{
-	int x, y;
-	// Not providing an Area method results
-	// in a compile-time error.
-	public override int Area()
-	{
-		return x * y;
-	}
-}
-复制代码
+class Square : ShapesClass<br />
+{<br />
+	int x, y;<br />
+	// Not providing an Area method results<br />
+	// in a compile-time error.<br />
+	public override int Area()<br />
+	{<br />
+		return x * y;<br />
+	}<br />
+}<br />
+复制代码<br />
 </p>
 
 <p>
-例如，一个包含非抽象方法的抽象类：
-复制代码
+例如，一个包含非抽象方法的抽象类：<br />
+复制代码<br />
 </p>
 <blockquote>
 abstract class MyAbs
@@ -81,19 +81,19 @@ mc.NonAbMethod(); // Displays 'Non-Abstract Method'
 }
 </blockquote>
 <p>
-复制代码
+复制代码<br />
 </p>
 
 
 <p>
-一个抽象类可以包含抽象和非抽象方法，当一个类继承于抽象类，那么这个派生类必须实现所有的
-的基类抽象方法。
+一个抽象类可以包含抽象和非抽象方法，当一个类继承于抽象类，那么这个派生类必须实现所有的<br />
+的基类抽象方法。<br />
 </p>
 
 <p>
-一个抽象方法是一个没有方法体的方法。
-复制代码
- abstract class MyAbs
+一个抽象方法是一个没有方法体的方法。<br />
+复制代码<br />
+ abstract class MyAbs<br />
 </p>
 <blockquote>
 {
@@ -121,18 +121,18 @@ mc.AbMethod();
 }
 </blockquote>
 <p>
-复制代码
+复制代码<br />
 </p>
 
 
 <p>
-但是通过声明派生类也为抽象，我们可以避免所有或特定的虚方法的实现，
-这就是抽象类的部分实现。
+但是通过声明派生类也为抽象，我们可以避免所有或特定的虚方法的实现，<br />
+这就是抽象类的部分实现。<br />
 </p>
 
 <p>
-复制代码
-abstract class MyAbs
+复制代码<br />
+abstract class MyAbs<br />
 </p>
 <blockquote>
 {
@@ -166,17 +166,17 @@ mc.AbMethod2();
 }
 </blockquote>
 <p>
-复制代码
+复制代码<br />
 </p>
 
 <p>
-在C#中，一个抽象类能够继承另一个非抽象类，另外，继承了基类的方法，添加新的
-抽象和非抽象方法是可行的。
+在C#中，一个抽象类能够继承另一个非抽象类，另外，继承了基类的方法，添加新的<br />
+抽象和非抽象方法是可行的。<br />
 </p>
 
 <p>
-复制代码
- class MyClass1 // Non-Abstract class
+复制代码<br />
+ class MyClass1 // Non-Abstract class<br />
 </p>
 <blockquote>
 {
@@ -207,15 +207,15 @@ mc.AbMethod1();
 }
 </blockquote>
 <p>
-复制代码
+复制代码<br />
 </p>
 
 <p>
-一个抽象类也能从一个接口来实现，这种情况，我们必须为所有的方法提供方法体，这些方法是来自接口
+一个抽象类也能从一个接口来实现，这种情况，我们必须为所有的方法提供方法体，这些方法是来自接口<br />
 </p>
 
 <p>
-复制代码
+复制代码<br />
 </p>
 <blockquote>
 interface IInterface
@@ -243,13 +243,13 @@ mc.Method1();
 </blockquote>
 
 <p>
-复制代码
- 我们不能把关键字abstract 和 sealed 一起用在C#中，因为一个密封类不能够被抽象。
+复制代码<br />
+ 我们不能把关键字abstract 和 sealed 一起用在C#中，因为一个密封类不能够被抽象。<br />
 </p>
 
 <p>
-复制代码
- abstract class MyAbs
+复制代码<br />
+ abstract class MyAbs<br />
 </p>
 <blockquote>
 {
@@ -278,99 +278,99 @@ ma1.AbMethod2();
 }
 </blockquote>
 <p>
-复制代码
+复制代码<br />
 </p>
 
 <p>
-抽象方法有以下特征：
+抽象方法有以下特征：<br />
 </p>
 
 <p>
-1.一个抽象方法可以看作是一个虚函数。
+1.一个抽象方法可以看作是一个虚函数。<br />
 </p>
 
 <p>
-2.抽象方法的声明只能在抽象类中。
+2.抽象方法的声明只能在抽象类中。<br />
 </p>
 
 <p>
-3.因为抽象方法声明只提供一个无实现的方式，没有方法体
+3.因为抽象方法声明只提供一个无实现的方式，没有方法体<br />
 </p>
 
 <p>
-4.方法体的实现被覆写方法提供，覆写方法是一个非抽象类的成员。
+4.方法体的实现被覆写方法提供，覆写方法是一个非抽象类的成员。<br />
 </p>
 
 <p>
-5.抽象属性的行为和抽象方法相像，除了不同的声明形式。
+5.抽象属性的行为和抽象方法相像，除了不同的声明形式。<br />
 </p>
 
 <p>
-6.在一个静态属性中使用abstract 是一个错误。
+6.在一个静态属性中使用abstract 是一个错误。<br />
 </p>
 <blockquote>
 *一个抽象属性能够通过派生类使用 override 实现.
 </blockquote>
 
 <p>
-对于抽象类：
+对于抽象类：<br />
 </p>
 
 <p>
-一个抽象类必须为所有的接口成员提供实现
-一个用于实现接口的抽象类可能把接口方法安排到抽象方法上。例如
+一个抽象类必须为所有的接口成员提供实现<br />
+一个用于实现接口的抽象类可能把接口方法安排到抽象方法上。例如<br />
 </p>
 
 <p>
-复制代码
-interface I 
-{
+复制代码<br />
+interface I <br />
+{<br />
 </p>
 <blockquote>
 void M();
 </blockquote>
 <p>
-}
-abstract class C: I 
-{
+}<br />
+abstract class C: I <br />
+{<br />
 </p>
 <blockquote>
 public abstract void M();
 </blockquote>
 <p>
-}
+}<br />
 </p>
 
 <p>
-复制代码
+复制代码<br />
 </p>
 
 <p>
-抽象类具有以下特征：
+抽象类具有以下特征：<br />
 </p>
 
 <p>
-1.抽象类不能被实例化。
+1.抽象类不能被实例化。<br />
 </p>
 
 <p>
-2.抽象类可以包含抽象方法和访问器
+2.抽象类可以包含抽象方法和访问器<br />
 </p>
 
 <p>
-3.不能把抽象类用密封(sealed)来修饰，那就意味着类不能被继承，这违反抽象类被继承的原则。
+3.不能把抽象类用密封(sealed)来修饰，那就意味着类不能被继承，这违反抽象类被继承的原则。<br />
 </p>
 
 <p>
-4.一个派生于一个抽象类的非抽象类必须包括所有的继承来的抽象方法和访问器的实现
+4.一个派生于一个抽象类的非抽象类必须包括所有的继承来的抽象方法和访问器的实现<br />
 </p>
 
 <p>
-5.在方法和属性中使用abstract 关键字意味着包含它们的实现。
+5.在方法和属性中使用abstract 关键字意味着包含它们的实现。<br />
 </p>
 
 <p>
-未完待续......
+未完待续......<br />
 </p>
 
 
@@ -397,8 +397,6 @@ public abstract void M();
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

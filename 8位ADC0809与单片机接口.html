@@ -17,37 +17,37 @@
 
 <h1 id="toc_1">各个端口的作用及怎么使用</h1><HR SIZE=1>
 <p>
-名字		作用		有效		有效后硬件会不会处理
-ALE		锁存地址信号	上升沿		不处理，一直保持低电平，等待下一个上升沿
-START		控制开始时间	下降沿		转换期间ST为低电平
-EOC		开始后10us变低结束变高	高	
+名字		作用		有效		有效后硬件会不会处理<br />
+ALE		锁存地址信号	上升沿		不处理，一直保持低电平，等待下一个上升沿<br />
+START		控制开始时间	下降沿		转换期间ST为低电平<br />
+EOC		开始后10us变低结束变高	高	<br />
 </p>
 
 
 <h2 id="toc_1.1">怎么使用</h2>
 <p>
-1，选通道
-2，开始
-3，
+1，选通道<br />
+2，开始<br />
+3，<br />
 </p>
 
 
 <h2 id="toc_1.2">注意：</h2>
 <p>
-MOVX这条指令就已经把地址送给了缓冲器，然后缓冲器关闭了。
+MOVX这条指令就已经把地址送给了缓冲器，然后缓冲器关闭了。<br />
 </p>
 
 
 <p>
-处理的过程，首先出现的是地址（只是一个数字，抽象化为地址）。送地址其实是选通某一个通路。利用了MOVX在一开始送地址，送的地址我们可以设，但选择的是另外的东东。
+处理的过程，首先出现的是地址（只是一个数字，抽象化为地址）。送地址其实是选通某一个通路。利用了MOVX在一开始送地址，送的地址我们可以设，但选择的是另外的东东。<br />
 </p>
 
 
 
 <h4 id="toc_1.2.0.1">问题</h4>
 <p>
-正脉冲和付脉冲触发有什么不同。
-为什么查询方式就要关中断。
+正脉冲和付脉冲触发有什么不同。<br />
+为什么查询方式就要关中断。<br />
 </p>
 
 
@@ -74,8 +74,6 @@ MOVX这条指令就已经把地址送给了缓冲器，然后缓冲器关闭了�
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

@@ -16,18 +16,18 @@
 <body>
 
 <p>
-DBI是数据库接口，DBD是数据库驱动
-DBI和DBD是配套使用的。
-DBI是通用接口
-DBD是具体的不同数据库的实现
-估计你的DBD没有安装成功。（依赖mysql客户端）
-DBD-ODBC 为 Perl 的 DBI::DBD 提供了 ODBC 驱动的功能，允许 Perl 程序通过它访问各种 ODBC 数据源。在 Unix 平台上支持 unixODBC 和 iODBC。
+DBI是数据库接口，DBD是数据库驱动<br />
+DBI和DBD是配套使用的。<br />
+DBI是通用接口<br />
+DBD是具体的不同数据库的实现<br />
+估计你的DBD没有安装成功。（依赖mysql客户端）<br />
+DBD-ODBC 为 Perl 的 DBI::DBD 提供了 ODBC 驱动的功能，允许 Perl 程序通过它访问各种 ODBC 数据源。在 Unix 平台上支持 unixODBC 和 iODBC。<br />
 </p>
 
 
 
 <p>
-各种语言和开发环境访问数据库有各种不同的方式，比如可以用C和数据库提供的API接口来进行访问，也可以用JDBC、ODBC、ADO等封装好的统一接口来进行访问。Perl访问数据库最常用的包是DBI，可以在www.cpan.org找到。另外还需要安装对应数据库的驱动包，例如DBD::MySQL、DBD::Oracle、DBD::Sybase或者DBD::ODBC等。具体的安装方法请参考上期文章，在此就不赘述了。
+各种语言和开发环境访问数据库有各种不同的方式，比如可以用C和数据库提供的API接口来进行访问，也可以用JDBC、ODBC、ADO等封装好的统一接口来进行访问。Perl访问数据库最常用的包是DBI，可以在www.cpan.org找到。另外还需要安装对应数据库的驱动包，例如DBD::MySQL、DBD::Oracle、DBD::Sybase或者DBD::ODBC等。具体的安装方法请参考上期文章，在此就不赘述了。<br />
 </p>
 
 
@@ -36,158 +36,158 @@ DBD-ODBC 为 Perl 的 DBI::DBD 提供了 ODBC 驱动的功能，允许 Perl 程�
 
 
 <p>
-1. 介质下载
+1. 介质下载<br />
 www.cpan.org打开cpan的主页，然后点击search.cpan.org，搜索DBI和DBD::Oracle
--rw-r--r--   1 oracle  oinstall    592307 Apr  5 00:58 DBI-1.633.tar.gz
--rw-r--r--   1 oracle  oinstall    452537 Apr  5 01:02 DBD-Oracle-1.75_2.tar.gz
-2. 安装DBD::Oracle
-[root@ora10g DBI-1.633]# perl Makefile.PL
+-rw-r--r--   1 oracle  oinstall    592307 Apr  5 00:58 DBI-1.633.tar.gz<br />
+-rw-r--r--   1 oracle  oinstall    452537 Apr  5 01:02 DBD-Oracle-1.75_2.tar.gz<br />
+2. 安装DBD::Oracle<br />
+[root@ora10g DBI-1.633]# perl Makefile.PL<br />
 </p>
 
 <p>
-*** Your LANG environment variable is set to 'en_US.UTF-8'
-*** This may cause problems for some perl installations.
-*** If you get test failures, please try again with LANG unset.
-*** If that then works, please email dbi-dev@perl.org with details
-*** including the output of 'perl -V'
+*** Your LANG environment variable is set to 'en_US.UTF-8'<br />
+*** This may cause problems for some perl installations.<br />
+*** If you get test failures, please try again with LANG unset.<br />
+*** If that then works, please email dbi-dev@perl.org with details<br />
+*** including the output of 'perl -V'<br />
 </p>
 
 <p>
-Your perl was compiled with gcc (version 4.4.6 20120305 (Red Hat 4.4.6-4)), okay.
-Creating test wrappers for DBD::Gofer:
-t/zvg_01basics.t
-t/zvg_02dbidrv.t
-t/zvg_03handle.t
-t/zvg_04mods.t
-t/zvg_05concathash.t
-t/zvg_06attrs.t
-t/zvg_07kids.t
-t/zvg_08keeperr.t
-t/zvg_09trace.t
-t/zvg_10examp.t 
-[root@ora10g DBI-1.633]# make
-[root@ora10g DBI-1.633]# make test
-Files=182, Tests=0,  5 wallclock secs ( 0.40 usr  0.40 sys +  2.67 cusr  0.75 csys =  4.22 CPU)
-Result: FAIL
-Failed 176/182 test programs. 0/0 subtests failed.
-make: *** [test_dynamic] Error 2
-[root@ora10g DBI-1.633]# make install
-[root@ora10g perl_script]# chmod u+x list.pl
-[root@ora10g perl_script]# ./list.pl
-DBI          --  1.633
-Perl         --  5.10.1
-说明DBI已经安装好了。
-3. 下载并安装相关oracle软件包
-下载地址：<a href="http://www.oracle.com/technetwork/topics/linuxsoft-082809.html">http://www.oracle.com/technetwork/topics/linuxsoft-082809.html</a>
-因为我的Oracle版本是10.2.0.5，所以下载10205的客户端软件包
--rw-r--r--   1 oracle  oinstall    745257 Apr  9 05:39 oracle-instantclient-sqlplus-10.2.0.5-1.i386.rpm
--rw-r--r--   1 oracle  oinstall  32883472 Apr  9 05:40 oracle-instantclient-basic-10.2.0.5-1.i386.rpm
--rw-r--r--   1 oracle  oinstall    289726 Apr  9 05:43 oracle-instantclient-devel-10.2.0.5-1.i386.rpm
-[root@ora10g opt]# rpm -ivh oracle-instantclient-basic-10.2.0.5-1.i386.rpm
-Preparing...                       ########################################### [100%]
-   1:oracle-instantclient-ba########################################### [100%]
-[root@ora10g opt]# rpm -ivh oracle-instantclient-devel-10.2.0.5-1.i386.rpm
-Preparing...                       ########################################### [100%]
-   1:oracle-instantclient-de########################################### [100%]
-[root@ora10g opt]# rpm -ivh oracle-instantclient-sqlplus-10.2.0.5-1.i386.rpm
-Preparing...                      ########################################### [100%]
-   1:oracle-instantclient-sq########################################### [100%]
-4. 安装DBD-Oracle
---关闭监听，数据库
-[root@ora10g DBD-Oracle-1.75_2]# export ORACLE_HOME=/u01/oracle/product/10.2.0/db_1
-[root@ora10g DBD-Oracle-1.75_2]# export LD_LIBRARY_PATH=/u01/oracle/product/10.2.0/db_1/lib:/lib:/usr/lib:/usr/local/lib
-[root@ora10g DBD-Oracle-1.75_2]# perl Makefile.PL
-Using DBI 1.633 (for perl 5.010001 on i386-linux-thread-multi) installed in /usr/local/lib/perl5/auto/DBI/
-Configuring DBD::Oracle for perl 5.010001 on linux (i386-linux-thread-multi)
+Your perl was compiled with gcc (version 4.4.6 20120305 (Red Hat 4.4.6-4)), okay.<br />
+Creating test wrappers for DBD::Gofer:<br />
+t/zvg_01basics.t<br />
+t/zvg_02dbidrv.t<br />
+t/zvg_03handle.t<br />
+t/zvg_04mods.t<br />
+t/zvg_05concathash.t<br />
+t/zvg_06attrs.t<br />
+t/zvg_07kids.t<br />
+t/zvg_08keeperr.t<br />
+t/zvg_09trace.t<br />
+t/zvg_10examp.t <br />
+[root@ora10g DBI-1.633]# make<br />
+[root@ora10g DBI-1.633]# make test<br />
+Files=182, Tests=0,  5 wallclock secs ( 0.40 usr  0.40 sys +  2.67 cusr  0.75 csys =  4.22 CPU)<br />
+Result: FAIL<br />
+Failed 176/182 test programs. 0/0 subtests failed.<br />
+make: *** [test_dynamic] Error 2<br />
+[root@ora10g DBI-1.633]# make install<br />
+[root@ora10g perl_script]# chmod u+x list.pl<br />
+[root@ora10g perl_script]# ./list.pl<br />
+DBI          --  1.633<br />
+Perl         --  5.10.1<br />
+说明DBI已经安装好了。<br />
+3. 下载并安装相关oracle软件包<br />
+下载地址：<a href="http://www.oracle.com/technetwork/topics/linuxsoft-082809.html<br">http://www.oracle.com/technetwork/topics/linuxsoft-082809.html<br</a> />
+因为我的Oracle版本是10.2.0.5，所以下载10205的客户端软件包<br />
+-rw-r--r--   1 oracle  oinstall    745257 Apr  9 05:39 oracle-instantclient-sqlplus-10.2.0.5-1.i386.rpm<br />
+-rw-r--r--   1 oracle  oinstall  32883472 Apr  9 05:40 oracle-instantclient-basic-10.2.0.5-1.i386.rpm<br />
+-rw-r--r--   1 oracle  oinstall    289726 Apr  9 05:43 oracle-instantclient-devel-10.2.0.5-1.i386.rpm<br />
+[root@ora10g opt]# rpm -ivh oracle-instantclient-basic-10.2.0.5-1.i386.rpm<br />
+Preparing...                       ########################################### [100%]<br />
+   1:oracle-instantclient-ba########################################### [100%]<br />
+[root@ora10g opt]# rpm -ivh oracle-instantclient-devel-10.2.0.5-1.i386.rpm<br />
+Preparing...                       ########################################### [100%]<br />
+   1:oracle-instantclient-de########################################### [100%]<br />
+[root@ora10g opt]# rpm -ivh oracle-instantclient-sqlplus-10.2.0.5-1.i386.rpm<br />
+Preparing...                      ########################################### [100%]<br />
+   1:oracle-instantclient-sq########################################### [100%]<br />
+4. 安装DBD-Oracle<br />
+--关闭监听，数据库<br />
+[root@ora10g DBD-Oracle-1.75_2]# export ORACLE_HOME=/u01/oracle/product/10.2.0/db_1<br />
+[root@ora10g DBD-Oracle-1.75_2]# export LD_LIBRARY_PATH=/u01/oracle/product/10.2.0/db_1/lib:/lib:/usr/lib:/usr/local/lib<br />
+[root@ora10g DBD-Oracle-1.75_2]# perl Makefile.PL<br />
+Using DBI 1.633 (for perl 5.010001 on i386-linux-thread-multi) installed in /usr/local/lib/perl5/auto/DBI/<br />
+Configuring DBD::Oracle for perl 5.010001 on linux (i386-linux-thread-multi)<br />
 </p>
 
 <p>
-If you encounter any problem, a collection of troubleshooting
-guides are available under lib/DBD/Oracle/Troubleshooting.
-'DBD::Oracle::Troubleshooting' is the general troubleshooting
-guide, while platform-specific troubleshooting hints
-live in their labelled sub-document (e.g., Win32
-hints are gathered in 'lib/DBD/Oracle/Troubleshooting/Win32.pod').
+If you encounter any problem, a collection of troubleshooting<br />
+guides are available under lib/DBD/Oracle/Troubleshooting.<br />
+'DBD::Oracle::Troubleshooting' is the general troubleshooting<br />
+guide, while platform-specific troubleshooting hints<br />
+live in their labelled sub-document (e.g., Win32<br />
+hints are gathered in 'lib/DBD/Oracle/Troubleshooting/Win32.pod').<br />
 </p>
 
 <p>
-Installing on a linux, Ver#2.6
-Using Oracle in /u01/oracle/product/10.2.0/db_1
-DEFINE _SQLPLUS_RELEASE = "1002000500" (CHAR)
-Oracle version 10.2.0.5 (10.2)
-Found direct-link candidates: libclntsh.so
-Oracle sysliblist: -ldl -lm -lpthread -lnsl -lirc
-Found header files in /u01/oracle/product/10.2.0/db_1/rdbms/public.
-Your LD_LIBRARY_PATH env var is set to '/u01/oracle/product/10.2.0/db_1/lib:/lib:/usr/lib:/usr/local/lib'
+Installing on a linux, Ver#2.6<br />
+Using Oracle in /u01/oracle/product/10.2.0/db_1<br />
+DEFINE _SQLPLUS_RELEASE = "1002000500" (CHAR)<br />
+Oracle version 10.2.0.5 (10.2)<br />
+Found direct-link candidates: libclntsh.so<br />
+Oracle sysliblist: -ldl -lm -lpthread -lnsl -lirc<br />
+Found header files in /u01/oracle/product/10.2.0/db_1/rdbms/public.<br />
+Your LD_LIBRARY_PATH env var is set to '/u01/oracle/product/10.2.0/db_1/lib:/lib:/usr/lib:/usr/local/lib'<br />
 </p>
 
 <p>
-client_version=10.2
-</p>
-
-
-<p>
-DEFINE= -Wall -Wno-comment -DUTF8_SUPPORT -DORA_OCI_VERSION=\"10.2.0.5\" -DORA_OCI_102
+client_version=10.2<br />
 </p>
 
 
 <p>
-Checking for functioning wait.ph
+DEFINE= -Wall -Wno-comment -DUTF8_SUPPORT -DORA_OCI_VERSION=\"10.2.0.5\" -DORA_OCI_102<br />
 </p>
 
 
 <p>
-System: perl5.010001 linux x86-022.build.eng.bos.redhat.com 2.6.18-308.16.1.el5 #1 smp tue sep 18 07:21:07 edt 2012 i686 i686 i386 gnulinux
-Compiler:   gcc -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m32 -march=i686 -mtune=atom -fasynchronous-unwind-tables -D_REENTRANT -D_GNU_SOURCE -fno-strict-aliasing -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
-Linker:     /usr/bin/ld
-Sysliblist: -ldl -lm -lpthread -lnsl -lirc
-Linking with -lclntsh.
+Checking for functioning wait.ph<br />
+</p>
+
+
+<p>
+System: perl5.010001 linux x86-022.build.eng.bos.redhat.com 2.6.18-308.16.1.el5 #1 smp tue sep 18 07:21:07 edt 2012 i686 i686 i386 gnulinux<br />
+Compiler:   gcc -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m32 -march=i686 -mtune=atom -fasynchronous-unwind-tables -D_REENTRANT -D_GNU_SOURCE -fno-strict-aliasing -pipe -fstack-protector -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64<br />
+Linker:     /usr/bin/ld<br />
+Sysliblist: -ldl -lm -lpthread -lnsl -lirc<br />
+Linking with -lclntsh.<br />
 </p>
 
 <p>
-Checking if your kit is complete...
-Looks good
-LD_RUN_PATH=/u01/oracle/product/10.2.0/db_1/lib
-Using DBD::Oracle 1.75_2.
-Using DBD::Oracle 1.75_2.
-Using DBI 1.633 (for perl 5.010001 on i386-linux-thread-multi) installed in /usr/local/lib/perl5/auto/DBI/
-Writing Makefile for DBD::Oracle
-[root@ora10g DBD-Oracle-1.75_2]#make
-[root@ora10g DBD-Oracle-1.75_2]# make test
-Result: FAIL
-Failed 38/38 test programs. 0/0 subtests failed.
-make: *** [test_dynamic] Error 2 
-[root@ora10g DBD-Oracle-1.75_2]# make install
-[root@ora10g ~]# cd perl_script/
-[root@ora10g perl_script]# cat list.pl
-#!/usr/bin/perl
-use strict;
-use ExtUtils::Installed;
-my $inst= ExtUtils::Installed-&gt;new();
-my @modules = $inst-&gt;modules();
-foreach(@modules)
-{
+Checking if your kit is complete...<br />
+Looks good<br />
+LD_RUN_PATH=/u01/oracle/product/10.2.0/db_1/lib<br />
+Using DBD::Oracle 1.75_2.<br />
+Using DBD::Oracle 1.75_2.<br />
+Using DBI 1.633 (for perl 5.010001 on i386-linux-thread-multi) installed in /usr/local/lib/perl5/auto/DBI/<br />
+Writing Makefile for DBD::Oracle<br />
+[root@ora10g DBD-Oracle-1.75_2]#make<br />
+[root@ora10g DBD-Oracle-1.75_2]# make test<br />
+Result: FAIL<br />
+Failed 38/38 test programs. 0/0 subtests failed.<br />
+make: *** [test_dynamic] Error 2 <br />
+[root@ora10g DBD-Oracle-1.75_2]# make install<br />
+[root@ora10g ~]# cd perl_script/<br />
+[root@ora10g perl_script]# cat list.pl<br />
+#!/usr/bin/perl<br />
+use strict;<br />
+use ExtUtils::Installed;<br />
+my $inst= ExtUtils::Installed-&gt;new();<br />
+my @modules = $inst-&gt;modules();<br />
+foreach(@modules)<br />
+{<br />
 </p>
 <blockquote>
 my \(ver = \)inst-&gt;version($_) || "???";
 printf("%-12s --  %s\n", \(_, \)ver);  
 </blockquote>
 <p>
-}
-exit;
-[root@ora10g perl_script]# ./list.pl
-DBD::Oracle  --  1.75_2
-DBI          --  1.633
-Perl         --  5.10.1
-说明DBI和DBD已经安装好了。
+}<br />
+exit;<br />
+[root@ora10g perl_script]# ./list.pl<br />
+DBD::Oracle  --  1.75_2<br />
+DBI          --  1.633<br />
+Perl         --  5.10.1<br />
+说明DBI和DBD已经安装好了。<br />
 </p>
 
 <p>
-Oracle11g下安装DBD
-1.安装linux_11gR2_examples软件包
-2.设置环境变量
-3.安装DBD::Oracle
-4.检查安装
+Oracle11g下安装DBD<br />
+1.安装linux_11gR2_examples软件包<br />
+2.设置环境变量<br />
+3.安装DBD::Oracle<br />
+4.检查安装<br />
 </p>
 
 
@@ -254,8 +254,6 @@ $dbh-&gt;disconnect;
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

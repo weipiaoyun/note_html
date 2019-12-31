@@ -16,155 +16,155 @@
 <body>
 
 <p>
-#!/usr/bin/perl
-#源码名称: UI.pm
-#功能描述: 为TK界面提供颜色配置
-#开发单位: 集团工程系统开发部
-#作者    : 王葛
-#开发日期: 2014.7.2
-#版本号  : 1.0
+#!/usr/bin/perl<br />
+#源码名称: UI.pm<br />
+#功能描述: 为TK界面提供颜色配置<br />
+#开发单位: 集团工程系统开发部<br />
+#作者    : 王葛<br />
+#开发日期: 2014.7.2<br />
+#版本号  : 1.0<br />
 </p>
 
 <p>
-package UI;
-use strict;
-use warnings;
-require Exporter;
-our @ISA = qw(Exporter);
+package UI;<br />
+use strict;<br />
+use warnings;<br />
+require Exporter;<br />
+our @ISA = qw(Exporter);<br />
 </p>
 
 <p>
-our $VERSION = 1.0;
+our $VERSION = 1.0;<br />
 </p>
 
 <p>
-#tb_col 标题背景颜色
-sub tb_col{
-	my (\(self,\)tb_col) = @_;
-	\(self-&gt;{_tb_col} = \)tb_col,if defined $tb_col;
-	return $self-&gt;{_tb_col};
-}
+#tb_col 标题背景颜色<br />
+sub tb_col{<br />
+	my (\(self,\)tb_col) = @_;<br />
+	\(self-&gt;{_tb_col} = \)tb_col,if defined $tb_col;<br />
+	return $self-&gt;{_tb_col};<br />
+}<br />
 </p>
 
 <p>
-#hb_col 高亮背景颜色
-sub hb_col{
-	my (\(self,\)hb_col) = @_;
-	\(self-&gt;{_hb_col} = \)hb_col,if defined $hb_col;
-	return $self-&gt;{_hb_col};
-}
+#hb_col 高亮背景颜色<br />
+sub hb_col{<br />
+	my (\(self,\)hb_col) = @_;<br />
+	\(self-&gt;{_hb_col} = \)hb_col,if defined $hb_col;<br />
+	return $self-&gt;{_hb_col};<br />
+}<br />
 </p>
 
 <p>
-#tf_col 标题字体颜色
-sub tf_col{
-	my (\(self,\)tf_col) = @_;
-	\(self-&gt;{_tf_col} = \)tf_col,if defined $tf_col;
-	return $self-&gt;{_tf_col};
-}
+#tf_col 标题字体颜色<br />
+sub tf_col{<br />
+	my (\(self,\)tf_col) = @_;<br />
+	\(self-&gt;{_tf_col} = \)tf_col,if defined $tf_col;<br />
+	return $self-&gt;{_tf_col};<br />
+}<br />
 </p>
 
 <p>
-#nb_col 默认背景颜色
-sub nb_col{
-	my (\(self,\)nb_col) = @_;
-	\(self-&gt;{_nb_col} = \)nb_col,if defined $nb_col;
-	return $self-&gt;{_nb_col};
-}
+#nb_col 默认背景颜色<br />
+sub nb_col{<br />
+	my (\(self,\)nb_col) = @_;<br />
+	\(self-&gt;{_nb_col} = \)nb_col,if defined $nb_col;<br />
+	return $self-&gt;{_nb_col};<br />
+}<br />
 </p>
 
 <p>
-#lb_col 标签背景颜色
-sub lb_col{
-	my (\(self,\)lb_col) = @_;
-	\(self-&gt;{_lb_col} = \)lb_col,if defined $lb_col;
-	return $self-&gt;{_lb_col};
-}
+#lb_col 标签背景颜色<br />
+sub lb_col{<br />
+	my (\(self,\)lb_col) = @_;<br />
+	\(self-&gt;{_lb_col} = \)lb_col,if defined $lb_col;<br />
+	return $self-&gt;{_lb_col};<br />
+}<br />
 </p>
 
 <p>
-#sb_col 标签背景颜色
-sub sb_col{
-	my (\(self,\)sb_col) = @_;
-	\(self-&gt;{_sb_col} = \)sb_col,if defined $sb_col;
-	return $self-&gt;{_sb_col};
-}
+#sb_col 标签背景颜色<br />
+sub sb_col{<br />
+	my (\(self,\)sb_col) = @_;<br />
+	\(self-&gt;{_sb_col} = \)sb_col,if defined $sb_col;<br />
+	return $self-&gt;{_sb_col};<br />
+}<br />
 </p>
 
 <p>
-#nf_col 标签背景颜色
-sub nf_col{
-	my (\(self,\)nf_col) = @_;
-	\(self-&gt;{_nf_col} = \)nf_col,if defined $nf_col;
-	return $self-&gt;{_nf_col};
-}
+#nf_col 标签背景颜色<br />
+sub nf_col{<br />
+	my (\(self,\)nf_col) = @_;<br />
+	\(self-&gt;{_nf_col} = \)nf_col,if defined $nf_col;<br />
+	return $self-&gt;{_nf_col};<br />
+}<br />
 </p>
 
 <p>
-#t_font 标题字体
-sub t_font{
-	my (\(self,\)t_font) = @_;
-	\(self-&gt;{_t_font} = \)t_font,if defined $t_font;
-	return $self-&gt;{_t_font};
-}
+#t_font 标题字体<br />
+sub t_font{<br />
+	my (\(self,\)t_font) = @_;<br />
+	\(self-&gt;{_t_font} = \)t_font,if defined $t_font;<br />
+	return $self-&gt;{_t_font};<br />
+}<br />
 </p>
 
 <p>
-#n_font 默认字体
-sub n_font{
-	my (\(self,\)n_font) = @_;
-	\(self-&gt;{_n_font} = \)n_font,if defined $n_font;
-	return $self-&gt;{_n_font};
-}
+#n_font 默认字体<br />
+sub n_font{<br />
+	my (\(self,\)n_font) = @_;<br />
+	\(self-&gt;{_n_font} = \)n_font,if defined $n_font;<br />
+	return $self-&gt;{_n_font};<br />
+}<br />
 </p>
 
 <p>
-#wb_col 标题背景颜色
-sub wb_col{
-	my (\(self,\)wb_col) = @_;
-	\(self-&gt;{_wb_col} = \)wb_col,if defined $wb_col;
-	return $self-&gt;{_wb_col};
-}
+#wb_col 标题背景颜色<br />
+sub wb_col{<br />
+	my (\(self,\)wb_col) = @_;<br />
+	\(self-&gt;{_wb_col} = \)wb_col,if defined $wb_col;<br />
+	return $self-&gt;{_wb_col};<br />
+}<br />
 </p>
 
 <p>
-#wf_col 标题背景颜色
-sub wf_col{
-	my (\(self,\)wf_col) = @_;
-	\(self-&gt;{_wf_col} = \)wf_col,if defined $wf_col;
-	return $self-&gt;{_wf_col};
-}
+#wf_col 标题背景颜色<br />
+sub wf_col{<br />
+	my (\(self,\)wf_col) = @_;<br />
+	\(self-&gt;{_wf_col} = \)wf_col,if defined $wf_col;<br />
+	return $self-&gt;{_wf_col};<br />
+}<br />
 </p>
 
 <p>
-#logo 默认logo文件位置
-sub logo{
-	my (\(self,\)logo) = @_;
-	\(self-&gt;{_logo} = \)logo,if defined $logo;
-	return $self-&gt;{_logo};
-}
+#logo 默认logo文件位置<br />
+sub logo{<br />
+	my (\(self,\)logo) = @_;<br />
+	\(self-&gt;{_logo} = \)logo,if defined $logo;<br />
+	return $self-&gt;{_logo};<br />
+}<br />
 </p>
 
 <p>
-#clogo 默认logo文件位置
-sub clogo{
-	my (\(self,\)clogo) = @_;
-	\(self-&gt;{_clogo} = \)clogo,if defined $clogo;
-	return $self-&gt;{_clogo};
-}
+#clogo 默认logo文件位置<br />
+sub clogo{<br />
+	my (\(self,\)clogo) = @_;<br />
+	\(self-&gt;{_clogo} = \)clogo,if defined $clogo;<br />
+	return $self-&gt;{_clogo};<br />
+}<br />
 </p>
 
 <p>
-#icon 默认icon文件位置
-sub icon{
-	my (\(self,\)icon) = @_;
-	\(self-&gt;{_icon} = \)icon,if defined $icon;
-	return $self-&gt;{_icon};
-}
+#icon 默认icon文件位置<br />
+sub icon{<br />
+	my (\(self,\)icon) = @_;<br />
+	\(self-&gt;{_icon} = \)icon,if defined $icon;<br />
+	return $self-&gt;{_icon};<br />
+}<br />
 </p>
 
 <p>
-1;
+1;<br />
 </p>
 
 
@@ -191,8 +191,6 @@ sub icon{
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

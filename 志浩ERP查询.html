@@ -16,147 +16,147 @@
 <body>
 
 <p>
-工艺流程表 34
+工艺流程表 34<br />
 </p>
 
 <p>
---查有卤无卤
-select d25.manu_part_number,d278.PARAMETER_NAME,d279.*
-  from data0279 d279
-INNER JOIN  data0025 d25 ON d279.source_ptr = d25.rkey 
-INNER JOIN  data0278 AS D278 ON D278.RKEY = D279.PARAMETER_PTR
-WHERE d25.MANU_PART_NUMBER='TE4A2563A0'
-AND d278.PARAMETER_NAME = 'LMT_H'
+--查有卤无卤<br />
+select d25.manu_part_number,d278.PARAMETER_NAME,d279.*<br />
+  from data0279 d279<br />
+INNER JOIN  data0025 d25 ON d279.source_ptr = d25.rkey <br />
+INNER JOIN  data0278 AS D278 ON D278.RKEY = D279.PARAMETER_PTR<br />
+WHERE d25.MANU_PART_NUMBER='TE4A2563A0'<br />
+AND d278.PARAMETER_NAME = 'LMT_H'<br />
 </p>
 
 
 
 <p>
---否
---深蓝
---浅蓝
---棕色
---红色
---银色
---亮黑
---哑黑
---白色
---黄色
---亚黑
+--否<br />
+--深蓝<br />
+--浅蓝<br />
+--棕色<br />
+--红色<br />
+--银色<br />
+--亮黑<br />
+--哑黑<br />
+--白色<br />
+--黄色<br />
+--亚黑<br />
 </p>
 
 <p>
---黑字
---灰字
---黄字
+--黑字<br />
+--灰字<br />
+--黄字<br />
 </p>
 
 <p>
---MI信息
---是否添加MI信息框
+--MI信息<br />
+--是否添加MI信息框<br />
 </p>
 
 <p>
---角度
+--角度<br />
 </p>
 
 <p>
---镜像
-</p>
-
-
-<p>
---查防焊油墨颜色
+--镜像<br />
 </p>
 
 
 <p>
-select d278.PARAMETER_NAME,d494.* from data0494 d494
-INNER JOIN  data0278 AS D278 ON D278.RKEY = d494.PARAMETER_PTR
-INNER JOIN data0025 d25 ON d494.custpart_ptr = d25.rkey 
-WHERE  d25.manu_part_number = 'TE4A2563A0'
-AND d278.PARAMETER_NAME = 'SM_COLOR'
-AND D494.step_number=
-</p>
-
-<p>
-(
-select D38.STEP_NUMBER from data0038 d38
-INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
-INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
-WHERE d25.manu_part_number = 'TE4A2563A0'
-AND D34.DEPT_CODE = 'SM_EXP'
-)
-</p>
-
-<p>
---查文字颜色
-</p>
-
-<p>
-select d278.PARAMETER_NAME,d494.* from data0494 d494
-INNER JOIN  data0278 AS D278 ON D278.RKEY = d494.PARAMETER_PTR
-INNER JOIN data0025 d25 ON d494.custpart_ptr = d25.rkey 
-WHERE  d25.manu_part_number = 'TE4A2563A0'
-AND d278.PARAMETER_NAME = 'SO_COLOUR'
-</p>
-
-<p>
---查沉银
-select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
-INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
-INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
-WHERE d25.manu_part_number = 'TE4A2563A0'
-AND D34.DEPT_CODE = 'GY'
+--查防焊油墨颜色<br />
 </p>
 
 
 <p>
---查沉锡
-select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
-INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
-INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
-WHERE d25.manu_part_number = 'TE4A2563A0'
-AND D34.DEPT_CODE = 'Imsn'
+select d278.PARAMETER_NAME,d494.* from data0494 d494<br />
+INNER JOIN  data0278 AS D278 ON D278.RKEY = d494.PARAMETER_PTR<br />
+INNER JOIN data0025 d25 ON d494.custpart_ptr = d25.rkey <br />
+WHERE  d25.manu_part_number = 'TE4A2563A0'<br />
+AND d278.PARAMETER_NAME = 'SM_COLOR'<br />
+AND D494.step_number=<br />
 </p>
 
 <p>
---查有铅
-select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
-INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
-INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
-WHERE d25.manu_part_number = 'TE4A2563A0'
-AND D34.DEPT_CODE = 'HAL(IPB)'
+(<br />
+select D38.STEP_NUMBER from data0038 d38<br />
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY<br />
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey <br />
+WHERE d25.manu_part_number = 'TE4A2563A0'<br />
+AND D34.DEPT_CODE = 'SM_EXP'<br />
+)<br />
 </p>
 
 <p>
---查无铅
-select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
-INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
-INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
-WHERE d25.manu_part_number = 'TEHB100360D0'
-AND D34.DEPT_CODE = 'HAL(EPB)'
+--查文字颜色<br />
 </p>
 
 <p>
---查碳油
-select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
-INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
-INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
-WHERE d25.manu_part_number = 'TE4A2563A0'
-AND D34.DEPT_CODE = 'CIP'
+select d278.PARAMETER_NAME,d494.* from data0494 d494<br />
+INNER JOIN  data0278 AS D278 ON D278.RKEY = d494.PARAMETER_PTR<br />
+INNER JOIN data0025 d25 ON d494.custpart_ptr = d25.rkey <br />
+WHERE  d25.manu_part_number = 'TE4A2563A0'<br />
+AND d278.PARAMETER_NAME = 'SO_COLOUR'<br />
 </p>
 
 <p>
---查蓝胶
+--查沉银<br />
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38<br />
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY<br />
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey <br />
+WHERE d25.manu_part_number = 'TE4A2563A0'<br />
+AND D34.DEPT_CODE = 'GY'<br />
+</p>
+
+
+<p>
+--查沉锡<br />
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38<br />
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY<br />
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey <br />
+WHERE d25.manu_part_number = 'TE4A2563A0'<br />
+AND D34.DEPT_CODE = 'Imsn'<br />
 </p>
 
 <p>
-select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38
-INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY
-INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey 
-WHERE d25.manu_part_number = 'TE4A2563A0'
-AND D34.DEPT_CODE = 'PSM'
+--查有铅<br />
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38<br />
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY<br />
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey <br />
+WHERE d25.manu_part_number = 'TE4A2563A0'<br />
+AND D34.DEPT_CODE = 'HAL(IPB)'<br />
+</p>
+
+<p>
+--查无铅<br />
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38<br />
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY<br />
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey <br />
+WHERE d25.manu_part_number = 'TEHB100360D0'<br />
+AND D34.DEPT_CODE = 'HAL(EPB)'<br />
+</p>
+
+<p>
+--查碳油<br />
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38<br />
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY<br />
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey <br />
+WHERE d25.manu_part_number = 'TE4A2563A0'<br />
+AND D34.DEPT_CODE = 'CIP'<br />
+</p>
+
+<p>
+--查蓝胶<br />
+</p>
+
+<p>
+select D34.DEPT_NAME,D34.DEPT_CODE, d38.* from data0038 d38<br />
+INNER JOIN Data0034 AS d34 ON D38.DEPT_PTR = D34.RKEY<br />
+INNER JOIN data0025 d25 ON d38.source_ptr = d25.rkey <br />
+WHERE d25.manu_part_number = 'TE4A2563A0'<br />
+AND D34.DEPT_CODE = 'PSM'<br />
 </p>
 
 
@@ -183,8 +183,6 @@ AND D34.DEPT_CODE = 'PSM'
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

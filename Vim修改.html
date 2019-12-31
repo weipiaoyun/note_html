@@ -16,19 +16,19 @@
 <body>
 
 <p>
-C替换到行尾
-s是替换一个字，S是替换一行。
-J是两行合并
-D删除到最后
-:%s/\(\n\)\@&lt;!$\n\(\n\)\@!/\r\r/在行与行之间插入空行
-'&lt;,'&gt;s#/#\#g
+C替换到行尾<br />
+s是替换一个字，S是替换一行。<br />
+J是两行合并<br />
+D删除到最后<br />
+:%s/\(\n\)\@&lt;!$\n\(\n\)\@!/\r\r/在行与行之间插入空行<br />
+'&lt;,'&gt;s#/#\#g<br />
 </p>
 
 <p>
-g/^\s*$/d
-经实验，可以删除包括空白，Tab，空白和Tab交错的所有空行。
-“ayy，复制到存储器a，”ap，从存储器里面粘帖出来    
-:% s/\r//g  #删除^M.
+g/^\s*$/d<br />
+经实验，可以删除包括空白，Tab，空白和Tab交错的所有空行。<br />
+“ayy，复制到存储器a，”ap，从存储器里面粘帖出来    <br />
+:% s/\r//g  #删除^M.<br />
 </p>
 
 
@@ -55,8 +55,6 @@ g/^\s*$/d
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

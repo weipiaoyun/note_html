@@ -17,75 +17,75 @@
 
 <h1 id="toc_1">本质</h1><HR SIZE=1>
 <p>
-就是同步串行移位寄存器
-不管怎样，记住主机占主动权，编程的命令主要都是主机的。从SPI怎么把数据读出来呢？因为是一个SPI是移位寄存器，你只要送数据过去，就可以读取里面的数据，至于读什么数据，你得先让主SPI发送命令过去。
+就是同步串行移位寄存器<br />
+不管怎样，记住主机占主动权，编程的命令主要都是主机的。从SPI怎么把数据读出来呢？因为是一个SPI是移位寄存器，你只要送数据过去，就可以读取里面的数据，至于读什么数据，你得先让主SPI发送命令过去。<br />
 </p>
 
 <p>
-SPI不用器件选通地址。而是用CS来表示从机。
+SPI不用器件选通地址。而是用CS来表示从机。<br />
 </p>
 <h1 id="toc_2">用途</h1><HR SIZE=1>
 <p>
-是个协议，用来通信的，和E2PROME等
+是个协议，用来通信的，和E2PROME等<br />
 </p>
 
 <h1 id="toc_3">4管脚</h1><HR SIZE=1>
 <p>
-1和2，是MOSI和MISO
+1和2，是MOSI和MISO<br />
 </p>
 
 <p>
-3，SCK，由主机发送
+3，SCK，由主机发送<br />
 </p>
 
 <p>
-4，SS，因为SPI不能通过数据线译码选择外围器件。所以如果扩展多个SPI的时候。用IO口连CS片选来选通哪个外围器件。由主机发送,当SS的作用：相当于一个总开关，当SS为低电平的时候才有通信，如果SS都是高电平的，那么数据线都是高阻态的。CPHA = 0时，是前沿采样，那么SCK只要一跳变，那么就立即采样锁存。所以在SS的变为低电平到SCK的一次跳变之间必须有足够的时间。让数据保存下来。
+4，SS，因为SPI不能通过数据线译码选择外围器件。所以如果扩展多个SPI的时候。用IO口连CS片选来选通哪个外围器件。由主机发送,当SS的作用：相当于一个总开关，当SS为低电平的时候才有通信，如果SS都是高电平的，那么数据线都是高阻态的。CPHA = 0时，是前沿采样，那么SCK只要一跳变，那么就立即采样锁存。所以在SS的变为低电平到SCK的一次跳变之间必须有足够的时间。让数据保存下来。<br />
 </p>
 
 <p>
-有2种NSS模式：
-●软件NSS模式：可以通过设置SPI_CR1寄存器的SSM位来使能这种模式。在这种模式下NSS引脚可以用作它用，而内部NSS信号电平可以通过写SPI_CR1的SSI位来驱动
+有2种NSS模式：<br />
+●软件NSS模式：可以通过设置SPI_CR1寄存器的SSM位来使能这种模式。在这种模式下NSS引脚可以用作它用，而内部NSS信号电平可以通过写SPI_CR1的SSI位来驱动<br />
 </p>
 
 <p>
-● 硬件NSS模式，分两种情况：
-由硬件决定，当设置为主SPI和SSOE位置位时NSS会由硬件自动拉低。
-─NSS输出被使能：当STM32F10xxx工作为主SPI，并且NSS输出已经通过SPI_CR2寄存器的SSOE位使能，这时NSS引脚被拉低，所有NSS引脚与这个主SPI的NSS引脚相连并配置为硬件NSS的SPI设备，将自动变成从SPI设备。当一个SPI设备需要发送广播数据，它必须拉低NSS信号，以通知所有其它的设备它是主设备；如果它不能拉低NSS，这意味着总线上有另外一个主设备在通信，这时将产生一个硬件失败错误(HardFault)。
+● 硬件NSS模式，分两种情况：<br />
+由硬件决定，当设置为主SPI和SSOE位置位时NSS会由硬件自动拉低。<br />
+─NSS输出被使能：当STM32F10xxx工作为主SPI，并且NSS输出已经通过SPI_CR2寄存器的SSOE位使能，这时NSS引脚被拉低，所有NSS引脚与这个主SPI的NSS引脚相连并配置为硬件NSS的SPI设备，将自动变成从SPI设备。当一个SPI设备需要发送广播数据，它必须拉低NSS信号，以通知所有其它的设备它是主设备；如果它不能拉低NSS，这意味着总线上有另外一个主设备在通信，这时将产生一个硬件失败错误(HardFault)。<br />
 </p>
 
 <p>
-通过SSOE把置1，然后就会自动把NSS拉低，拉低了就是通知其他SPI，我是主机，我要进行通信。
+通过SSOE把置1，然后就会自动把NSS拉低，拉低了就是通知其他SPI，我是主机，我要进行通信。<br />
 </p>
 
 <p>
-故：主机占有决定权。
+故：主机占有决定权。<br />
 </p>
 
 <p>
-注意：
-1. 在改变CPOL/CPHA位之前，必须清除SPE位将SPI禁止。
-2. 主和从必须配置成相同的时序模式。
-3.SCK的空闲状态必须和SPI_CR1寄存器指定的极性一致(CPOL为’1’时，空闲时应上拉SCK为高电平；CPOL为’0’时，空闲时应下拉SCK为低电平)。
-4. 数据帧格式(8位或16位)由SPI_CR1寄存器的DFF位选择，并且决定发送/接收的数据长度。
+注意：<br />
+1. 在改变CPOL/CPHA位之前，必须清除SPE位将SPI禁止。<br />
+2. 主和从必须配置成相同的时序模式。<br />
+3.SCK的空闲状态必须和SPI_CR1寄存器指定的极性一致(CPOL为’1’时，空闲时应上拉SCK为高电平；CPOL为’0’时，空闲时应下拉SCK为低电平)。<br />
+4. 数据帧格式(8位或16位)由SPI_CR1寄存器的DFF位选择，并且决定发送/接收的数据长度。<br />
 </p>
 <h1 id="toc_4">传输的模式</h1><HR SIZE=1>
 <p>
-主要是按什么时候采样锁存数据，和什么电平表示空闲忙状态。主要是CPOL和CPHA来决定。
-CPOL：表示的是SCK空闲时是高电平的还是低电平的，CPOL为0表示的就是SCK空闲时是低电平的。
+主要是按什么时候采样锁存数据，和什么电平表示空闲忙状态。主要是CPOL和CPHA来决定。<br />
+CPOL：表示的是SCK空闲时是高电平的还是低电平的，CPOL为0表示的就是SCK空闲时是低电平的。<br />
 </p>
 
 <p>
-CPHA：是前沿还是后沿采样锁存数据。0是前沿采样锁存，后沿输出。
+CPHA：是前沿还是后沿采样锁存数据。0是前沿采样锁存，后沿输出。<br />
 </p>
 
 
 <p>
-CS = 0时启动。也就是主机和从机握手了。active
-CS = 1是停止。
+CS = 0时启动。也就是主机和从机握手了。active<br />
+CS = 1是停止。<br />
 </p>
 
 <p>
-写完一个字节后，写允许又锁住了。
+写完一个字节后，写允许又锁住了。<br />
 </p>
 
 
@@ -112,8 +112,6 @@ CS = 1是停止。
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

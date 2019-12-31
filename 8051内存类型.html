@@ -16,28 +16,28 @@
 <body>
 
 <p>
-如何理解#define XBYTE ((unsigned char volatile xdata * 
-8051 特有的内存型态
+如何理解#define XBYTE ((unsigned char volatile xdata * <br />
+8051 特有的内存型态<br />
 </p>
 
 <p>
-code 以 MOVC @A+DPTR 读取的程序内存
-data 可以直接存取的内部数据存储器
-idata 以 Mov @Rn 存取的内部数据存储器
-bdata 可以位寻址（Bit Addressable）的内部存储器
-xdata 以 MOVX @DPTR 存取的外部数据存储器
-pdata 以 MOVX @Rn 存取的外部数据存储器
+code 以 MOVC @A+DPTR 读取的程序内存<br />
+data 可以直接存取的内部数据存储器<br />
+idata 以 Mov @Rn 存取的内部数据存储器<br />
+bdata 可以位寻址（Bit Addressable）的内部存储器<br />
+xdata 以 MOVX @DPTR 存取的外部数据存储器<br />
+pdata 以 MOVX @Rn 存取的外部数据存储器<br />
 </p>
 
 <p>
-特殊资料型态
+特殊资料型态<br />
 </p>
 
 <p>
-bit 一般位（bit）变量
-sbit 绝对寻址的位（bit）变量
-语法
-sbit my_flag = location; （location 范围从 0x00 ~ 0x7F
+bit 一般位（bit）变量<br />
+sbit 绝对寻址的位（bit）变量<br />
+语法<br />
+sbit my_flag = location; （location 范围从 0x00 ~ 0x7F<br />
 </p>
 
 
@@ -64,8 +64,6 @@ sbit my_flag = location; （location 范围从 0x00 ~ 0x7F
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

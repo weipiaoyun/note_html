@@ -46,7 +46,7 @@
 <li><a href="#toc_11">待处理 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">vimwiki配置 </h1><HR SIZE=1>
 <p>
@@ -185,6 +185,14 @@ gl#
 在normal模式，按Alt+left/right可以更改table的列。<br />
 </p>
 
+<p>
+在v模式，按i\可以选中当前单元格<br />
+</p>
+
+<p>
+在i模式下按Ctl+Tab或Shift+Tab切换单元格。<br />
+</p>
+
 
 <h2 id="toc_7.2">查找 </h2>
 <ul>
@@ -257,8 +265,7 @@ nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;2-LeftMouse&gt; :call vimwiki#base#fol
 四个空格缩进的内容会被转成blockquote
 </blockquote>
   
-<pre>
- class="brush:php"
+<pre class="brush:php">
 这中间的内容会被放到一个 pre 里，适合贴代码。
 上面的 class 是可选的，一般用来安排代码高亮。
 事实上，这一块代码展示就是放在了一个 pre 里。
@@ -341,9 +348,10 @@ d:\vim\vim\vimfiles\autoload\vimwiki\html.vim<br />
 一级标题后面添加横线：let line = line.'<HR SIZE=1>'
 
 <li>
-html和vimwiki的换行格式一样。默认情况下不换行。函数 process_tag_para里面"call add(lines, a:line)更改为call add(lines, a:line.'<br />')
+html和vimwiki的换行格式一样。默认情况下不换行。函数 process_tag_para里面"call add(lines, a:line)增加判断，如果是普通的行则更改为：call add(lines, a:line.'<br />')。判断函数为：s:is_add_br(a:line)
 
 </ol>
+ 
 
 
 <h2 id="toc_10.4">html 合并单元格 </h2>
@@ -383,13 +391,6 @@ h
 </table>
 
 <h1 id="toc_11">待处理 </h1><HR SIZE=1>
-<ol>
-<li>
-怎么才能按快捷键切换表格
-
-<li>
-
-</ol>
 
 
 <div class="foot">
@@ -415,8 +416,6 @@ h
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

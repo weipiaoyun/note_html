@@ -16,55 +16,55 @@
 <body>
 
 <p>
-1，事件
-	事件包括消息，消息邮箱，消息队列等等。
+1，事件<br />
+	事件包括消息，消息邮箱，消息队列等等。<br />
 </p>
 
 <p>
-	任务与任务之间的通信就是通过事件，
+	任务与任务之间的通信就是通过事件，<br />
 </p>
 
 <p>
-	有一个事件控制块。有一个表，表表示的是状态。
+	有一个事件控制块。有一个表，表表示的是状态。<br />
 </p>
 
 
 
 <p>
-注意：
-	创建任务并没有执行任务，创建完了以后由操作系统调度任务，按优先级调度。
+注意：<br />
+	创建任务并没有执行任务，创建完了以后由操作系统调度任务，按优先级调度。<br />
 </p>
 
 <p>
-	有一个全局的我的事件消息，控制着全部需要消息的任务
+	有一个全局的我的事件消息，控制着全部需要消息的任务<br />
 </p>
 
 
 <p>
-任务的创建(其实就是任务控制块和堆栈的创建)有哪些动作
+任务的创建(其实就是任务控制块和堆栈的创建)有哪些动作<br />
 </p>
 
 <p>
-	1，关中断，因为在中断里面不允许创建任务
-	2，看任务控制块指针组(按优先级排列的指向任务控制之块的指针)
-	3，任务堆栈的初始化。
-	4，任务控制块初始化
-	5，成功任务计数器加1，不成功就放弃该任务
+	1，关中断，因为在中断里面不允许创建任务<br />
+	2，看任务控制块指针组(按优先级排列的指向任务控制之块的指针)<br />
+	3，任务堆栈的初始化。<br />
+	4，任务控制块初始化<br />
+	5，成功任务计数器加1，不成功就放弃该任务<br />
 </p>
 
 <p>
-	任务每一个时钟滴答就会检查一下已就绪的最高优先级别的任务，注意，如果任务正在延时，那么它是处于等待状态的。
+	任务每一个时钟滴答就会检查一下已就绪的最高优先级别的任务，注意，如果任务正在延时，那么它是处于等待状态的。<br />
 </p>
 	
 <h1 id="toc_1" class="justcenter">问题</h1><HR SIZE=1>
 <p>
-	任务间是怎样发送接受事件的。(怎样通信的)
-		答：通过对一个表格的操作。对表格操作的同时还会对改变就绪表。使相应的任务进入就绪或者等待状态。
+	任务间是怎样发送接受事件的。(怎样通信的)<br />
+		答：通过对一个表格的操作。对表格操作的同时还会对改变就绪表。使相应的任务进入就绪或者等待状态。<br />
 </p>
 		
 
 <p>
-	第七个消息邮箱里面为什么接受的先是6
+	第七个消息邮箱里面为什么接受的先是6<br />
 </p>
 
 
@@ -91,8 +91,6 @@
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

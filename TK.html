@@ -16,62 +16,62 @@
 <body>
 
 <p>
--expand只是占用的位置扩展了，而真正的部件没有扩展。fill是扩大填充部件，只在占有的位置上扩大填充部件。
+-expand只是占用的位置扩展了，而真正的部件没有扩展。fill是扩大填充部件，只在占有的位置上扩大填充部件。<br />
 </p>
 <h1 id="toc_1">Tk</h1><HR SIZE=1>
 
 <h2 id="toc_1.1">$$sw-&gt;update();</h2>
 <p>
-创建一个窗口在内存，用$mw引用查找。
-把各个参数放在$mw所指窗口
-调用MainLoop循环窗口等待enent中断
+创建一个窗口在内存，用$mw引用查找。<br />
+把各个参数放在$mw所指窗口<br />
+调用MainLoop循环窗口等待enent中断<br />
 </p>
 
 
 <p>
-当产生了窗口后，程序循环与窗口有关的语句，不断更新参数。要执行其它，只能通过事件触发调用子程序。
+当产生了窗口后，程序循环与窗口有关的语句，不断更新参数。要执行其它，只能通过事件触发调用子程序。<br />
 </p>
 
 <p>
-########Frame放在以pack的形式MainWindow上面(产生一个Frame 放在$f引用里面)
-\(f = \)mw-&gt;Frame(-borderwidth =&gt; 10, -relief =&gt; 'groove')
-	-&gt;pack(-side =&gt; 'bottom', -expand =&gt; 1, -fill =&gt;'both');
+########Frame放在以pack的形式MainWindow上面(产生一个Frame 放在$f引用里面)<br />
+\(f = \)mw-&gt;Frame(-borderwidth =&gt; 10, -relief =&gt; 'groove')<br />
+	-&gt;pack(-side =&gt; 'bottom', -expand =&gt; 1, -fill =&gt;'both');<br />
 </p>
 
 <p>
-#####到目前为止$f只是赋值，没有解引用
-在同一个里面是从左到右，在不同个里面是按顺序从上到下
-\(f1-&gt;Label(-text =&gt; '-top')-&gt;grid(\)f1-&gt;Entry(-textvariable =&gt; \$top),
-$f1-&gt;Label(-text =&gt; '-topspring'),  
-\(f1-&gt;Entry(-textvariable =&gt; \\)topspring), 
--sticky =&gt; 'w', -padx =&gt; 2, -pady =&gt; 5);
+#####到目前为止$f只是赋值，没有解引用<br />
+在同一个里面是从左到右，在不同个里面是按顺序从上到下<br />
+\(f1-&gt;Label(-text =&gt; '-top')-&gt;grid(\)f1-&gt;Entry(-textvariable =&gt; \$top),<br />
+$f1-&gt;Label(-text =&gt; '-topspring'),  <br />
+\(f1-&gt;Entry(-textvariable =&gt; \\)topspring), <br />
+-sticky =&gt; 'w', -padx =&gt; 2, -pady =&gt; 5);<br />
 </p>
 
 <p>
-\(f1-&gt;Label(-text =&gt; '-bottom')-&gt;grid(\)f1-&gt;Entry(-textvariable =&gt; \$bottom), 
-	$f1-&gt;Label(-text =&gt; '-bottomspring'), 
-	\(f1-&gt;Entry(-textvariable =&gt; \\)bottomspring), 
-	-sticky =&gt; 'w', -padx =&gt; 2, -pady =&gt; 5);
+\(f1-&gt;Label(-text =&gt; '-bottom')-&gt;grid(\)f1-&gt;Entry(-textvariable =&gt; \$bottom), <br />
+	$f1-&gt;Label(-text =&gt; '-bottomspring'), <br />
+	\(f1-&gt;Entry(-textvariable =&gt; \\)bottomspring), <br />
+	-sticky =&gt; 'w', -padx =&gt; 2, -pady =&gt; 5);<br />
 </p>
 
 
 <p>
-#######以form的形式产生一个Button，把地址赋值给引用button
-\(button = \)f-&gt;Button(-text =&gt; "Go!", -command =&gt; \&amp;reForm)-&gt;form;
-############解引用formforget，取消显示button引用的form。
-$button-&gt;formForget;
-##############启用button地址的form
-$button-&gt;form(-top =&gt; '%10', -bottom =&gt; '%50', -right=&gt; '%50', -left=&gt; '%10');
+#######以form的形式产生一个Button，把地址赋值给引用button<br />
+\(button = \)f-&gt;Button(-text =&gt; "Go!", -command =&gt; \&amp;reForm)-&gt;form;<br />
+############解引用formforget，取消显示button引用的form。<br />
+$button-&gt;formForget;<br />
+##############启用button地址的form<br />
+$button-&gt;form(-top =&gt; '%10', -bottom =&gt; '%50', -right=&gt; '%50', -left=&gt; '%10');<br />
 </p>
 
 <p>
-	variable,执行命令
-MW
-	Dialog(会话，对话框)；
+	variable,执行命令<br />
+MW<br />
+	Dialog(会话，对话框)；<br />
 </p>
 	
 <p>
-一个Label和Entry组成一个框架
+一个Label和Entry组成一个框架<br />
 <a href="geometry manager.html">geometry manager</a>
 <a href="widgets.html">widgets</a>
 <a href="Tk menu.html">Tk menu</a>
@@ -79,31 +79,31 @@ MW
 
 
 <p>
-$mw-&gt;withdraw;#隐藏
+$mw-&gt;withdraw;#隐藏<br />
 </p>
 
 <p>
-$mw-&gt;deiconify();
-$mw-&gt;raise();
-$mw-&gt;minsize(800， 600);
-$mw-&gt;protocol("WM_DELITE_WINDOW", \&amp;onOut);
-$mw-&gt;attributes(-tomost=&gt;"yes");#是否始终置顶
+$mw-&gt;deiconify();<br />
+$mw-&gt;raise();<br />
+$mw-&gt;minsize(800， 600);<br />
+$mw-&gt;protocol("WM_DELITE_WINDOW", \&amp;onOut);<br />
+$mw-&gt;attributes(-tomost=&gt;"yes");#是否始终置顶<br />
 </p>
 
 <p>
-$mw-&gt;Photo('testPhoto', -file =&gt; 'D:/pnl.jpeg');
-$mw-&gt;Label(-image =&gt; 'testPhoto')-&gt;grid;
-</p>
-
-
-<p>
-$tl-&gt;deiconify( );
-$tl-&gt;raise( );#重新显示隐藏的窗口
+$mw-&gt;Photo('testPhoto', -file =&gt; 'D:/pnl.jpeg');<br />
+$mw-&gt;Label(-image =&gt; 'testPhoto')-&gt;grid;<br />
 </p>
 
 
 <p>
-my \(blue = \)mw-&gt;ItemStyle('text', -foreground =&gt; 'blue',-font =&gt; 'courier 8');
+$tl-&gt;deiconify( );<br />
+$tl-&gt;raise( );#重新显示隐藏的窗口<br />
+</p>
+
+
+<p>
+my \(blue = \)mw-&gt;ItemStyle('text', -foreground =&gt; 'blue',-font =&gt; 'courier 8');<br />
 </p>
 
 
@@ -130,8 +130,6 @@ my \(blue = \)mw-&gt;ItemStyle('text', -foreground =&gt; 'blue',-font =&gt; 'cou
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

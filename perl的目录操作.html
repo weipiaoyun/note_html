@@ -16,56 +16,56 @@
 <body>
 
 <p>
-perl目录操作，
-创建目录句柄指向要操作的目录。 打开目录句柄使用 opendir ；
-opendir dirhandle,directory ;
-例：取某目录下文件的列表：
-opendir (e,'E:\娱乐\music\阿杜')|| die"can't open e: $!" ;
-@files=readdir e; 
-closedir(e) ;
+perl目录操作，<br />
+创建目录句柄指向要操作的目录。 打开目录句柄使用 opendir ；<br />
+opendir dirhandle,directory ;<br />
+例：取某目录下文件的列表：<br />
+opendir (e,'E:\娱乐\music\阿杜')|| die"can't open e: $!" ;<br />
+@files=readdir e; <br />
+closedir(e) ;<br />
 </p>
 
 <p>
-for(\(index=0;\)index&lt;@files ;$index++){
-   print "@files[$index]\n" ;
-}
-#输出指定目录下的所有文件（该目录不包含子目录）。
+for(\(index=0;\)index&lt;@files ;$index++){<br />
+   print "@files[$index]\n" ;<br />
+}<br />
+#输出指定目录下的所有文件（该目录不包含子目录）。<br />
 </p>
 
 <p>
-创建目录：mkdir
-mkdir('d:\test',0755)||die "can't create directory: $!" ;
+创建目录：mkdir<br />
+mkdir('d:\test',0755)||die "can't create directory: $!" ;<br />
 </p>
 
 <p>
-删除目录  rmdir
-rmdir('d:\perl\wzj')||die "can't remove diretory: $!";  #删除之前目录必须为空。
+删除目录  rmdir<br />
+rmdir('d:\perl\wzj')||die "can't remove diretory: $!";  #删除之前目录必须为空。<br />
 </p>
 
 <p>
-在某一目录内找指定文件：
-例：在d盘下找311.txt
-use strict ;
-use File::Find ;
-sub wanted{
-  if ($_ eq "311.txt"){
+在某一目录内找指定文件：<br />
+例：在d盘下找311.txt<br />
+use strict ;<br />
+use File::Find ;<br />
+sub wanted{<br />
+  if ($_ eq "311.txt"){<br />
 </p>
 <blockquote>
 print $File::Find::name ;
 print "\n" ;
 </blockquote>
 <p>
-  }
-}
-find \&amp;wanted ,"d:/";
+  }<br />
+}<br />
+find \&amp;wanted ,"d:/";<br />
 </p>
 
 <p>
-列出指定目录下所有的文件，包含子目录的内容：
-use strict ;
-use File::Find ;
-sub wanted{
-   if (-f $File::Find::name){    #判断传入的是文件而不是目录。
+列出指定目录下所有的文件，包含子目录的内容：<br />
+use strict ;<br />
+use File::Find ;<br />
+sub wanted{<br />
+   if (-f $File::Find::name){    #判断传入的是文件而不是目录。<br />
 </p>
 <blockquote>
 print "remove $File::Find::name ";
@@ -78,20 +78,20 @@ print "\n";
 
 </ol>
 <p>
-}
+}<br />
 </p>
 
 <p>
-find \&amp;wanted,'E:\nero\Content' ;
-查找指定目录下某类型文件：
-例：查找e盘下所有exe文件
+find \&amp;wanted,'E:\nero\Content' ;<br />
+查找指定目录下某类型文件：<br />
+例：查找e盘下所有exe文件<br />
 </p>
 
 <p>
-use strict ;
-use File::Find ;
-sub wanted{
-   if (-f $File::Find::name){
+use strict ;<br />
+use File::Find ;<br />
+sub wanted{<br />
+   if (-f $File::Find::name){<br />
 </p>
 <blockquote>
 if (\(File::Find::name =~/\.exe\)/i){
@@ -107,70 +107,70 @@ print "\n";
 
 </ol>
 <p>
-}
+}<br />
 </p>
 
 <p>
-find \&amp;wanted,'E://' ;
+find \&amp;wanted,'E://' ;<br />
 </p>
 
 <p>
-文件复制
-use File::Copy ;
-use strict ;
-copy("d:/book/三国演义.txt","d:/book/aa")||warn "could not copy files :$!" ;
-#将d:/book/三国演义.txt复制到d:/book/aa下
+文件复制<br />
+use File::Copy ;<br />
+use strict ;<br />
+copy("d:/book/三国演义.txt","d:/book/aa")||warn "could not copy files :$!" ;<br />
+#将d:/book/三国演义.txt复制到d:/book/aa下<br />
 </p>
 
 <p>
-文件移动
-use File::Copy ;
-use strict ;
-move("d:/book/ss.txt","d:/book/aa")||warn "could not copy files :$!" ;
+文件移动<br />
+use File::Copy ;<br />
+use strict ;<br />
+move("d:/book/ss.txt","d:/book/aa")||warn "could not copy files :$!" ;<br />
 </p>
 
 <p>
-文件改名
-use File::Copy ;
-use strict ;
-rename("d:/perl/tt.txt","d:/perl/tttttt.txt");
-#将d:/perl/tt.txt改名为d:/perl/tttttt.txt
+文件改名<br />
+use File::Copy ;<br />
+use strict ;<br />
+rename("d:/perl/tt.txt","d:/perl/tttttt.txt");<br />
+#将d:/perl/tt.txt改名为d:/perl/tttttt.txt<br />
 </p>
 
 <p>
-查看文件大小
-my \(size = -s \)fileName;
+查看文件大小<br />
+my \(size = -s \)fileName;<br />
 </p>
 
 
 <p>
-open F, "1.txt" or die $!;#把以上内容放到1.txt
-@array=&lt;F&gt;;foreach(@array){if(/T(\d)\dC/ or /T(\d)\d+\(/){s/\)1/1/;} print "$_";}
+open F, "1.txt" or die $!;#把以上内容放到1.txt<br />
+@array=&lt;F&gt;;foreach(@array){if(/T(\d)\dC/ or /T(\d)\d+\(/){s/\)1/1/;} print "$_";}<br />
 </p>
 
 <h2 id="toc_0.1">perl文件处理</h2>
 <p>
-use File::stat; #可以获取文件的状态。
-my $time = stat('/genesis')-&gt;mtime; #获取文件最后修改的时间。stat的参数是路径
+use File::stat; #可以获取文件的状态。<br />
+my $time = stat('/genesis')-&gt;mtime; #获取文件最后修改的时间。stat的参数是路径<br />
 </p>
 
 <p>
-readdir 后面的必须是代表文件夹的句柄(多个数值);故得先打开文件，然后才读取文件。需要注意的是，读取文件夹里面的内容是相对于当前文件夹的路径名。如果要使用该路径名的时候，为了避免发生错误，加上决定路径。还有，readdir一次只能读取一个。
-如 my \(time = stat("\)dir/\(file");而不是用my \)time = stat("$file");#其中的file是readdir的结果。
+readdir 后面的必须是代表文件夹的句柄(多个数值);故得先打开文件，然后才读取文件。需要注意的是，读取文件夹里面的内容是相对于当前文件夹的路径名。如果要使用该路径名的时候，为了避免发生错误，加上决定路径。还有，readdir一次只能读取一个。<br />
+如 my \(time = stat("\)dir/\(file");而不是用my \)time = stat("$file");#其中的file是readdir的结果。<br />
 </p>
 
 <p>
-#获取当前文件所在文件夹
-use File::Basename;
-\(h-&gt;{currentDirName} = dirname(\)h-&gt;{currentFilePath});
+#获取当前文件所在文件夹<br />
+use File::Basename;<br />
+\(h-&gt;{currentDirName} = dirname(\)h-&gt;{currentFilePath});<br />
 </p>
 
 <p>
-创建文件夹：
-my $perms = 0775;
-if (! -e $dir ) {
-	mkdir \(dir,oct(\)perms);
-}
+创建文件夹：<br />
+my $perms = 0775;<br />
+if (! -e $dir ) {<br />
+	mkdir \(dir,oct(\)perms);<br />
+}<br />
 </p>
 
 
@@ -197,8 +197,6 @@ if (! -e $dir ) {
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

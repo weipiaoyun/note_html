@@ -21,59 +21,59 @@
 </ul>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <h2 id="toc_0.1">安装DBI，</h2>
 <p>
-修改IP，包括有192的和172(连接ERP)的
+修改IP，包括有192的和172(连接ERP)的<br />
 1,配置yum源<a href="yum源.html">yum源</a>
-搜索DBI进行安装
-	A database access API for perl
-	Easy-to-use OO interface to DBI
+搜索DBI进行安装<br />
+	A database access API for perl<br />
+	Easy-to-use OO interface to DBI<br />
 </p>
 	
 <p>
-搜Makemaker
-	安装create a module makefile
+搜Makemaker<br />
+	安装create a module makefile<br />
 </p>
 	
 
 <p>
-搜crypto/libgcrypt
-	安装Development files for libgcrypt package
+搜crypto/libgcrypt<br />
+	安装Development files for libgcrypt package<br />
 </p>
 	
 <p>
-2,拷贝odbc.tgz，installODBC.csh，connectSql-linux.pl到/opt
+2,拷贝odbc.tgz，installODBC.csh，connectSql-linux.pl到/opt<br />
 </p>
 
 <p>
-3,安装odbc
+3,安装odbc<br />
 </p>
 
 <p>
-4,修改配置文件/etc/odbc.ini 注意172.18.0.8，东莞的是18
+4,修改配置文件/etc/odbc.ini 注意172.18.0.8，东莞的是18<br />
 </p>
 
 <p>
-Server=172.18.0.8
+Server=172.18.0.8<br />
 </p>
 
 <p>
-perl -e "use DBD::ODBC"
+perl -e "use DBD::ODBC"<br />
 </p>
 
 <p>
-more odbc.ini   /usr/local/etc/odbc.ini   /etc/odbc.ini
-more odbcinst.ini
-ln -s /usr/local/lib/libodbc.so.1.0.0 /lib64/libodbc.so.1.0.0
-ln -s /usr/local/lib/libodbcinst.so.1.0.0 /lib64/libodbcinst.so.1.0.0
+more odbc.ini   /usr/local/etc/odbc.ini   /etc/odbc.ini<br />
+more odbcinst.ini<br />
+ln -s /usr/local/lib/libodbc.so.1.0.0 /lib64/libodbc.so.1.0.0<br />
+ln -s /usr/local/lib/libodbcinst.so.1.0.0 /lib64/libodbcinst.so.1.0.0<br />
 </p>
 
 <p>
-####安装缺少的依赖包, ldd以后，对not found的包进行安装
-问题已解决
-原因是libsqora.so.11.1依赖的包没有，
-使用如下命令查看依赖关系
+####安装缺少的依赖包, ldd以后，对not found的包进行安装<br />
+问题已解决<br />
+原因是libsqora.so.11.1依赖的包没有，<br />
+使用如下命令查看依赖关系<br />
 </p>
 <ol>
 <li>
@@ -81,31 +81,31 @@ ldd /usr/lib/oracle/11.2/client64/lib/libsqora.so.11.1
 
 </ol>
 <p>
-linux-vdso.so.1 =&gt;  (0x00007fff99b1d000)
-libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007fbcb52f1000)
-libm.so.6 =&gt; /lib64/libm.so.6 (0x00007fbcb506c000)
-libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x00007fbcb4e4f000)
-libnsl.so.1 =&gt; /lib64/libnsl.so.1 (0x00007fbcb4c36000)
-libclntsh.so.11.1 =&gt; /usr/lib/oracle/11.2/client64/lib/libclntsh.so.11.1 (0x00007fbcb22c6000)
-libodbcinst.so.1 =&gt; not found (0x00007fbcb20b5000)
-libc.so.6 =&gt; /lib64/libc.so.6 (0x00007fbcb1d23000)
-/lib64/ld-linux-x86-64.so.2 (0x000000393aa00000)
-libnnz11.so =&gt; /usr/lib/oracle/11.2/client64/lib/libnnz11.so (0x00007fbcb1955000)
-libaio.so.1 =&gt; /lib64/libaio.so.1 (0x00007fbcb1754000)
-libltdl.so.7 =&gt; /usr/lib64/libltdl.so.7 (0x00007fbcb154b000)
-使用如下命令查找libodbcinst.so.1的位置
-#find / -name libodbcinst*
-/usr/lib64/libodbcinst.so
-/usr/lib64/libodbcinst.so.2
-/usr/lib64/libodbcinst.so.2.0.0
-/usr/lib/libodbcinst.so
-/usr/lib/libodbcinst.so.2
-/usr/lib/libodbcinst.so.2.0.0
-确实没有libodbcinst.so.1
-将/usr/lib64/libodbcinst.so.2、/usr/lib/libodbcinst.so.2分别复制
-#cp /usr/lib/libodbcinst.so.2 /usr/lib/libodbcinst.so.1
-#cp/usr/lib64/libodbcinst.so.2 /usr/lib64/libodbcinst.so.1
-重新运行验证命令即可
+linux-vdso.so.1 =&gt;  (0x00007fff99b1d000)<br />
+libdl.so.2 =&gt; /lib64/libdl.so.2 (0x00007fbcb52f1000)<br />
+libm.so.6 =&gt; /lib64/libm.so.6 (0x00007fbcb506c000)<br />
+libpthread.so.0 =&gt; /lib64/libpthread.so.0 (0x00007fbcb4e4f000)<br />
+libnsl.so.1 =&gt; /lib64/libnsl.so.1 (0x00007fbcb4c36000)<br />
+libclntsh.so.11.1 =&gt; /usr/lib/oracle/11.2/client64/lib/libclntsh.so.11.1 (0x00007fbcb22c6000)<br />
+libodbcinst.so.1 =&gt; not found (0x00007fbcb20b5000)<br />
+libc.so.6 =&gt; /lib64/libc.so.6 (0x00007fbcb1d23000)<br />
+/lib64/ld-linux-x86-64.so.2 (0x000000393aa00000)<br />
+libnnz11.so =&gt; /usr/lib/oracle/11.2/client64/lib/libnnz11.so (0x00007fbcb1955000)<br />
+libaio.so.1 =&gt; /lib64/libaio.so.1 (0x00007fbcb1754000)<br />
+libltdl.so.7 =&gt; /usr/lib64/libltdl.so.7 (0x00007fbcb154b000)<br />
+使用如下命令查找libodbcinst.so.1的位置<br />
+#find / -name libodbcinst*<br />
+/usr/lib64/libodbcinst.so<br />
+/usr/lib64/libodbcinst.so.2<br />
+/usr/lib64/libodbcinst.so.2.0.0<br />
+/usr/lib/libodbcinst.so<br />
+/usr/lib/libodbcinst.so.2<br />
+/usr/lib/libodbcinst.so.2.0.0<br />
+确实没有libodbcinst.so.1<br />
+将/usr/lib64/libodbcinst.so.2、/usr/lib/libodbcinst.so.2分别复制<br />
+#cp /usr/lib/libodbcinst.so.2 /usr/lib/libodbcinst.so.1<br />
+#cp/usr/lib64/libodbcinst.so.2 /usr/lib64/libodbcinst.so.1<br />
+重新运行验证命令即可<br />
 </p>
 
 
@@ -132,8 +132,6 @@ libltdl.so.7 =&gt; /usr/lib64/libltdl.so.7 (0x00007fbcb154b000)
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

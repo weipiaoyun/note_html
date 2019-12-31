@@ -20,76 +20,76 @@
 <li><a href="#toc_1">添加邮票孔 </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">添加邮票孔 </h1><HR SIZE=1>
 <p>
-AF=[(x-x0)<sup><small>2+(kx+b-y0)</small></sup>2]<sup><small>1/2=2/5*(5)</small></sup>1/2
+AF=[(x-x0)<sup><small>2+(kx+b-y0)</small></sup>2]<sup><small>1/2=2/5*(5)</small></sup>1/2<br />
 </p>
 
 <p>
-假定直线上的两个点a和b，以及一个空间点c
-则c在ab直线上垂足d可以这样算：
+假定直线上的两个点a和b，以及一个空间点c<br />
+则c在ab直线上垂足d可以这样算：<br />
 </p>
 
 <p>
-float abx = b.x - a.x;
-float aby = b.y - a.y;
-float acx = c.x - a.x;
-float acy = c.y - a.y;
-float f = (abx*acx+aby*acy )/(abx*abx+aby*aby);  // 注意ab必须是直线上的两个不同点
-d.x = a.x + f*abx;
-d.y = a.y + f*aby;
-</p>
-
-
-<p>
-y=-(1/k)(x-a)+b
-</p>
-
-<p>
-(x-x0)<sup><small>2+(kx+b-y0)</small></sup>2 - s^2 = 0;
-</p>
-
-<p>
-int S1 = b - y0;
-(x-x0)<sup><small>2+(kx+S1)</small></sup>2 - s^2 = 0;
-</p>
-
-<p>
-(x<sup><small>2-2*x0*x+x0</small></sup>2)+(k<sup><small>2*x</small></sup>2 + 2kS1x + S1<sup><small>2) - s</small></sup>2 = 0;
-</p>
-
-<p>
-(k<sup><small>2 + 1)*x</small></sup>2 + (-2*x0 + 2kS1)x + x0<sup><small>2 + S1</small></sup>2 - s^2 = 0;
-</p>
-
-<p>
-求出x1，y1
+float abx = b.x - a.x;<br />
+float aby = b.y - a.y;<br />
+float acx = c.x - a.x;<br />
+float acy = c.y - a.y;<br />
+float f = (abx*acx+aby*acy )/(abx*abx+aby*aby);  // 注意ab必须是直线上的两个不同点<br />
+d.x = a.x + f*abx;<br />
+d.y = a.y + f*aby;<br />
 </p>
 
 
 <p>
-直线率为k
-y=-(1/k)(x-a)+b
-AF=[(x+1)<sup><small>2+(2x+2)</small></sup>2]<sup><small>1/2=2/5*(5)</small></sup>1/2
+y=-(1/k)(x-a)+b<br />
 </p>
 
 <p>
-lot卡只是过数用。
-单件，1000
-报数不报到lot卡
-订单1000
+(x-x0)<sup><small>2+(kx+b-y0)</small></sup>2 - s^2 = 0;<br />
+</p>
+
+<p>
+int S1 = b - y0;<br />
+(x-x0)<sup><small>2+(kx+S1)</small></sup>2 - s^2 = 0;<br />
+</p>
+
+<p>
+(x<sup><small>2-2*x0*x+x0</small></sup>2)+(k<sup><small>2*x</small></sup>2 + 2kS1x + S1<sup><small>2) - s</small></sup>2 = 0;<br />
+</p>
+
+<p>
+(k<sup><small>2 + 1)*x</small></sup>2 + (-2*x0 + 2kS1)x + x0<sup><small>2 + S1</small></sup>2 - s^2 = 0;<br />
+</p>
+
+<p>
+求出x1，y1<br />
 </p>
 
 
 <p>
-10.80.13.55
-10.30.1.135
+直线率为k<br />
+y=-(1/k)(x-a)+b<br />
+AF=[(x+1)<sup><small>2+(2x+2)</small></sup>2]<sup><small>1/2=2/5*(5)</small></sup>1/2<br />
 </p>
 
 <p>
-5 * x^2 + 
+lot卡只是过数用。<br />
+单件，1000<br />
+报数不报到lot卡<br />
+订单1000<br />
+</p>
+
+
+<p>
+10.80.13.55<br />
+10.30.1.135<br />
+</p>
+
+<p>
+5 * x^2 + <br />
 </p>
 
 
@@ -116,8 +116,6 @@ lot卡只是过数用。
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

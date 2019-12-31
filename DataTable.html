@@ -25,17 +25,17 @@
 <li><a href="#toc_4">对某一行的某一字段赋值</a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 <h2 id="toc_0.1">DataTable</h2>
 <p>
-是一个临时保存数据的网格虚拟表(表示内存中数据的一个表）
+是一个临时保存数据的网格虚拟表(表示内存中数据的一个表）<br />
 </p>
 
 
 <h1 id="toc_1">DataTable DataSet DataView</h1><HR SIZE=1>
 <p>
-如果以数据库来打比方，DataSet就是一个功能简单的数据库，是多个表(DataTable)的集合，DataTable就是对应数
-据库中的表，而DataView则对应数据库中的视图(View)。
+如果以数据库来打比方，DataSet就是一个功能简单的数据库，是多个表(DataTable)的集合，DataTable就是对应数<br />
+据库中的表，而DataView则对应数据库中的视图(View)。<br />
 </p>
 
 
@@ -43,22 +43,22 @@
 
 <h1 id="toc_2">添加列</h1><HR SIZE=1>
 <p>
-dt.Columns.Add("newColumn");
-dtListAll.Columns.Add("_Name", typeof(string));
+dt.Columns.Add("newColumn");<br />
+dtListAll.Columns.Add("_Name", typeof(string));<br />
 </p>
 
 <h1 id="toc_3">筛选</h1><HR SIZE=1>
 <p>
-DataRow[] dr = dt.Select(string.Format("{0}='{1}'", "ApplyGuid_", pGuid));
+DataRow[] dr = dt.Select(string.Format("{0}='{1}'", "ApplyGuid_", pGuid));<br />
 </p>
 
 <h1 id="toc_4">对某一行的某一字段赋值</h1><HR SIZE=1>
 <p>
-dt.Rows[i]["newColumn"] = "aa"
+dt.Rows[i]["newColumn"] = "aa"<br />
 </p>
 
 <p>
-注：第几列有字段名，而第几行没有名字，只能用序号
+注：第几列有字段名，而第几行没有名字，只能用序号<br />
 </p>
 <blockquote>
 一、DataTable简介    
@@ -186,7 +186,7 @@ System.IO.TextWriter tw = new System.IO.StringWriter();
 //if TableName is empty, WriteXml() will throw Exception.                 
 </blockquote>
 <p>
-dtNeedCoveret.TableName=dtNeedCoveret.TableName.Length==0?"Table_AX":dtNeedCoveret.TableName;
+dtNeedCoveret.TableName=dtNeedCoveret.TableName.Length==0?"Table_AX":dtNeedCoveret.TableName;<br />
 </p>
 <blockquote>
 dtNeedCoveret.WriteXml(tw);
@@ -228,8 +228,6 @@ return dtReturn;
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

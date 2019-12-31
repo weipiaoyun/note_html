@@ -81,11 +81,11 @@ CRC
 </table>
  
 <p>
-　　从上表的比较我们可以看到，MODBUS的ASCII协议和RTU协议相比，MODBUS ASCII协议拥有开始和结束标记，而MODBUS RTU却没有，所以ASCII协议的程序中对数据包的处理能更加方便。MODBUS ASCII协议的DATA域传输的都是可见的ASCII字符，因此在调试阶段就显得更加直观，另外它的LRC校验程序也比较容易编写，这些都是MODBUS ASCII的优点。MODBUS ASCII的主要缺点是传输效率低，因为它传输的都是可见的ASCII字符，原来用RTU传输的数据每一个字节，用ASCII的话都要把这个字节拆分两个字节，比如RTU传输一个十六进制数0xF9，ASCII就需要传输字符'F'和字符'9'，对应的ASCII码0x46和0x39两个字节，这样它的传输的效率肯定就比RTU低。所以一般来说，如果所需要传输的数据量较小可以考虑使用ASCII协议，如果所需传输的数据量比较大，最好能使用RTU协议。
+　　从上表的比较我们可以看到，MODBUS的ASCII协议和RTU协议相比，MODBUS ASCII协议拥有开始和结束标记，而MODBUS RTU却没有，所以ASCII协议的程序中对数据包的处理能更加方便。MODBUS ASCII协议的DATA域传输的都是可见的ASCII字符，因此在调试阶段就显得更加直观，另外它的LRC校验程序也比较容易编写，这些都是MODBUS ASCII的优点。MODBUS ASCII的主要缺点是传输效率低，因为它传输的都是可见的ASCII字符，原来用RTU传输的数据每一个字节，用ASCII的话都要把这个字节拆分两个字节，比如RTU传输一个十六进制数0xF9，ASCII就需要传输字符'F'和字符'9'，对应的ASCII码0x46和0x39两个字节，这样它的传输的效率肯定就比RTU低。所以一般来说，如果所需要传输的数据量较小可以考虑使用ASCII协议，如果所需传输的数据量比较大，最好能使用RTU协议。<br />
 </p>
 
 <p>
-　　另外，由于ASCII协议有开始标志和结束标志，所以一个数据包之间的各字节间的传输间隔时间可以大于1秒，而MODBUS RTU方式下，由于没有规定开始和结束标记，所以协议规定每两个字节之间发送或者接收的时间间隔不能超过3.5倍字符传输时间。如果两个字符时间间隔超过了3.5倍的字符传输时间，就认为一帧数据已经接收，新的一帧数据传输开始，所以RTU方式下两个字节间传输间隔有时间要求。MODBUS 的ASCII和RTU两种协议的这一区别可能决定某些应用场合只能选用其中一种协议。
+　　另外，由于ASCII协议有开始标志和结束标志，所以一个数据包之间的各字节间的传输间隔时间可以大于1秒，而MODBUS RTU方式下，由于没有规定开始和结束标记，所以协议规定每两个字节之间发送或者接收的时间间隔不能超过3.5倍字符传输时间。如果两个字符时间间隔超过了3.5倍的字符传输时间，就认为一帧数据已经接收，新的一帧数据传输开始，所以RTU方式下两个字节间传输间隔有时间要求。MODBUS 的ASCII和RTU两种协议的这一区别可能决定某些应用场合只能选用其中一种协议。<br />
 </p>
 
 
@@ -112,8 +112,6 @@ CRC
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

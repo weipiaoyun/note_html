@@ -16,12 +16,12 @@
 <body>
 
 <p>
-数据存储器
-有256个字节，前128个字节是真正的RAM区，后128个字节是idata区，和特殊功能寄存器的有相同的地址，只不过访问的方式不同。特殊功能寄存器的是直接寻址的。在物理上两个是分开的。
+数据存储器<br />
+有256个字节，前128个字节是真正的RAM区，后128个字节是idata区，和特殊功能寄存器的有相同的地址，只不过访问的方式不同。特殊功能寄存器的是直接寻址的。在物理上两个是分开的。<br />
 </p>
 
 <p>
-前128个字节：	(1)00H到1FH 32个工作寄存器，有四个工作寄存器组，每个寄存器有8个(可以用符号表示，也可以用单元地址表示)
+前128个字节：	(1)00H到1FH 32个工作寄存器，有四个工作寄存器组，每个寄存器有8个(可以用符号表示，也可以用单元地址表示)<br />
 </p>
 <blockquote>
 (2)20H到2FH 位寻址区(注意：位寻址区的每个位可以进行位寻址，共有8个字节的空间)。共有16*8个即地址从00H-7FH共有128个位，都可以进行位操作。
@@ -31,7 +31,7 @@
 </blockquote>
 				
 <p>
-后128个字节：	离散分布21个SFR，地址后面0或者8的就是可以进行位操作的。专用寄存器在SFR里面。
+后128个字节：	离散分布21个SFR，地址后面0或者8的就是可以进行位操作的。专用寄存器在SFR里面。<br />
 <a href="专用寄存器.html">专脫眉拇忙脝梅</a>
 </p>
 
@@ -59,8 +59,6 @@
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

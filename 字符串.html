@@ -19,89 +19,89 @@
 
 字符串相当于地址。字符串里面的值是一个数组形式的值，一般用首元素的指针代表该数组，代表该字符串。
 <p>
-#include &lt;stdio.h&gt;
+#include &lt;stdio.h&gt;<br />
 </p>
 
 <p>
-int main(int argc, const char *argv[])
-{
-	char *s;
-	s = "haha";
-	printf("%c\n", *s);
+int main(int argc, const char *argv[])<br />
+{<br />
+	char *s;<br />
+	s = "haha";<br />
+	printf("%c\n", *s);<br />
 </p>
 
 <p>
-	return 0;
-}
+	return 0;<br />
+}<br />
 </p>
 
 <p>
-*s = h。
+*s = h。<br />
 </p>
 
 字符串的字面值用首元素指针表示，要找到字符串的值就从该指针开始找，一直到/n结束。注，指针没有完全指出整个字符串，只是指出该字符串的首地址。当然只要知道首地址，我们就可以知道该字符串，以为我们知道在/n这个地方结束。
 
 <p>
-理解字符串，首地址到/n的组合。我们只需知道首地址。所以，字符串就是首地址（首个字符的地址）。
+理解字符串，首地址到/n的组合。我们只需知道首地址。所以，字符串就是首地址（首个字符的地址）。<br />
 </p>
 
 <p>
-正因为字符串的字面值相当于地址，所以只能读，不能改，不能作为左值
-</p>
-
-
-<p>
-一个字符串字面值准确地初始化一个字符数组，最好的办法是不指定数组的长度，而让编译器自动计算：
-char str[] = "Hello, world.\n";
+正因为字符串的字面值相当于地址，所以只能读，不能改，不能作为左值<br />
 </p>
 
 
 <p>
-通过下标访问字符串组成的数组可以代替一堆case分支判断，这样就可以把每个case里重复的代码（printf调用）提取出来
+一个字符串字面值准确地初始化一个字符数组，最好的办法是不指定数组的长度，而让编译器自动计算：<br />
+char str[] = "Hello, world.\n";<br />
 </p>
 
 
 <p>
-写代码最重要的是选择正确的数据结构来组织信息，设计控制流程和算法尚在其次
+通过下标访问字符串组成的数组可以代替一堆case分支判断，这样就可以把每个case里重复的代码（printf调用）提取出来<br />
 </p>
 
 
 <p>
-。具体来说，通过下标访问字符串组成的数组可以代替一堆case分支判断，这样就可以把每个case里重复的代码（printf调用）提取出来，从而又一次达到了“提取公因式”的效果。这种方法称为数据驱动的编程（Data-driven Programming），写代码最重要的是选择正确的数据结构来组织信息，设计控制流程和算法尚在其次，只要数据结构选择得正确，其它代码自然而然就变得容易理解和维护了，就
+写代码最重要的是选择正确的数据结构来组织信息，设计控制流程和算法尚在其次<br />
+</p>
+
+
+<p>
+。具体来说，通过下标访问字符串组成的数组可以代替一堆case分支判断，这样就可以把每个case里重复的代码（printf调用）提取出来，从而又一次达到了“提取公因式”的效果。这种方法称为数据驱动的编程（Data-driven Programming），写代码最重要的是选择正确的数据结构来组织信息，设计控制流程和算法尚在其次，只要数据结构选择得正确，其它代码自然而然就变得容易理解和维护了，就<br />
 </p>
 
 字符串常量可以把它理解为数值，当它复制给地址是才分配空间存储它。
 
 
 <p>
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+#include &lt;stdio.h&gt;<br />
+#include &lt;string.h&gt;<br />
 </p>
 
 
 <p>
-int main(int argc, const char *argv[])
-{
-	unsigned char *a;
-	unsigned char *b;
-	a = "abc";
-	b = (a + 1);
-	*a = 'd';
-	printf("%c\n", *b);
+int main(int argc, const char *argv[])<br />
+{<br />
+	unsigned char *a;<br />
+	unsigned char *b;<br />
+	a = "abc";<br />
+	b = (a + 1);<br />
+	*a = 'd';<br />
+	printf("%c\n", *b);<br />
 </p>
 
 <p>
-	return 0;
-}
+	return 0;<br />
+}<br />
 </p>
 
 
 <p>
-*a不行，为什么，是因为字符串是常量数组吗？
+*a不行，为什么，是因为字符串是常量数组吗？<br />
 </p>
 
 <p>
-"abc"是指针常量。字符串也是常量，在编译链接的时候就已经决定好了。a = “abc”；是把指针常量给了一个指针变量。a可以改变，但是字符串里面的值不能改变
+"abc"是指针常量。字符串也是常量，在编译链接的时候就已经决定好了。a = “abc”；是把指针常量给了一个指针变量。a可以改变，但是字符串里面的值不能改变<br />
 </p>
 
 
@@ -128,8 +128,6 @@ int main(int argc, const char *argv[])
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

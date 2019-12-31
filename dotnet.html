@@ -50,7 +50,7 @@
 <li><a href="#toc_11">.NET Core vs .NET Framework - What's difference </a>
 </ul>
 </div>
-<div class="content" style="margin-left:20%;padding:1px 16px;height:1000px;">
+<div class="content">
 
 <h1 id="toc_1">框架 </h1><HR SIZE=1>
 <h2 id="toc_1.1">ABP框架 </h2>
@@ -67,44 +67,44 @@
 
 <h2 id="toc_2.2">ASP.NET </h2>
 <p>
-和.NET Framework 一起发行的原始的ASP.NET实现
-ASP.NET 包括了ASP.NET implementation 和 ASP.NET Core
+和.NET Framework 一起发行的原始的ASP.NET实现<br />
+ASP.NET 包括了ASP.NET implementation 和 ASP.NET Core<br />
 </p>
 
 <h2 id="toc_2.3">ASP.NET Core </h2>
 <p>
-跨平台，高性能，开源的ASP.NET。其生成与.NET Core
+跨平台，高性能，开源的ASP.NET。其生成与.NET Core<br />
 </p>
 
 <h2 id="toc_2.4">Assembly </h2>
 <p>
-A .dll/.exe file
+A .dll/.exe file<br />
 </p>
 
 <h2 id="toc_2.5">CLR </h2>
 <p>
-Common Language Runtime
-真正的意义取决于上下文。通常指.NET Framework runtime.
-内存分配和管理
-不仅执行apps，而且用JIT编译器即时生成和编译代码。
-微软的CLR 只适用于windows。
+Common Language Runtime<br />
+真正的意义取决于上下文。通常指.NET Framework runtime.<br />
+内存分配和管理<br />
+不仅执行apps，而且用JIT编译器即时生成和编译代码。<br />
+微软的CLR 只适用于windows。<br />
 </p>
 
 <h2 id="toc_2.6">CoreCLR </h2>
 <p>
-.NET Core CLR
-CoreCLR is also a virtual machine with JIT and code execution capabilities.
+.NET Core CLR<br />
+CoreCLR is also a virtual machine with JIT and code execution capabilities.<br />
 </p>
 
 <h2 id="toc_2.7">CoreFX </h2>
 <p>
-.NET Core Base Class Library(BCL )
+.NET Core Base Class Library(BCL )<br />
 </p>
 
 <h2 id="toc_2.8">CoreRT </h2>
 <p>
-In constrast to the CLR/CoreCLR, CoreRT is not a virtual machine. It doesn't include the JIT.
-However, include the GC and the ability for runtime type identification.(RTTI)
+In constrast to the CLR/CoreCLR, CoreRT is not a virtual machine. It doesn't include the JIT.<br />
+However, include the GC and the ability for runtime type identification.(RTTI)<br />
 </p>
 
 
@@ -155,19 +155,19 @@ However, include the GC and the ability for runtime type identification.(RTTI)
 
 <h1 id="toc_10">测试项目 </h1><HR SIZE=1>
 <p>
-安装  Microsoft.EntityFrameworkCore
+安装  Microsoft.EntityFrameworkCore<br />
 </p>
 
 
 <p>
-执行命令  Add-Migration "InitialCreate"
-Install-Package Microsoft.EntityFrameworkCore.Tools
-更新数据库 PM&gt; update-database   执行这个命令后，数据库会增加一个Database。会自动建表。
+执行命令  Add-Migration "InitialCreate"<br />
+Install-Package Microsoft.EntityFrameworkCore.Tools<br />
+更新数据库 PM&gt; update-database   执行这个命令后，数据库会增加一个Database。会自动建表。<br />
 </p>
 
 
 <p>
-右击Controllers-&gt;添加-&gt;控制器-&gt;选择【视图使用 Entity Framework 的MVC控制器】-&gt;模型类选择Employee-&gt;数据上下文类选择EmployeeContext-&gt;自动产生下面的EmployeeController 控制器名称-&gt;点击添加。
+右击Controllers-&gt;添加-&gt;控制器-&gt;选择【视图使用 Entity Framework 的MVC控制器】-&gt;模型类选择Employee-&gt;数据上下文类选择EmployeeContext-&gt;自动产生下面的EmployeeController 控制器名称-&gt;点击添加。<br />
 </p>
 
 
@@ -177,7 +177,7 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 
 
 <p>
-将Create方法改为AddOrEdit方法
+将Create方法改为AddOrEdit方法<br />
 </p>
 
 <h2 id="toc_10.1">报错 </h2>
@@ -189,23 +189,23 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 </ol>
 	
 <p>
-解决办法：安装 Microsoft.Net.Compilers 
+解决办法：安装 Microsoft.Net.Compilers <br />
 </p>
 
 <p>
-An error occurred while accessing the IWebHost on class 'Program'. Continuing without the application service provider. Error: Could not parse the JSON file. Error on line number '12': ''.
-Unable to create an object of type 'EmployeeContext'. For the different patterns supported at design time, see <a href="https://go.microsoft.com/fwlink/?linkid=851728">https://go.microsoft.com/fwlink/?linkid=851728</a>
+An error occurred while accessing the IWebHost on class 'Program'. Continuing without the application service provider. Error: Could not parse the JSON file. Error on line number '12': ''.<br />
+Unable to create an object of type 'EmployeeContext'. For the different patterns supported at design time, see <a href="https://go.microsoft.com/fwlink/?linkid=851728<br">https://go.microsoft.com/fwlink/?linkid=851728<br</a> />
 </p>
 
 
 <p>
-错误原因：JSON有问题
+错误原因：JSON有问题<br />
 </p>
 
 
 
 <p>
-table-hover
+table-hover<br />
 </p>
 
 
@@ -272,8 +272,6 @@ dependencies
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>

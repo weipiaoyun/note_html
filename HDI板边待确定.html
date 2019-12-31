@@ -16,103 +16,103 @@
 <body>
 
 <p>
-先读取防呆，如果有，则用防呆数据。
+先读取防呆，如果有，则用防呆数据。<br />
 </p>
 
 <p>
-注意panel-in可能会覆盖掉内层的symbol
+注意panel-in可能会覆盖掉内层的symbol<br />
 </p>
 
 <p>
-抓取涨缩系数
+抓取涨缩系数<br />
 </p>
 
 <p>
-PE
-100314
+PE<br />
+100314<br />
 </p>
 
 <p>
-bkh100541
-100550a0(两边比较宰) 假三阶
-120059
-100592(三阶)
-100552(假三阶)
-82128(假三阶)
-100552(假三阶)
-82128(正片)
-81965(上面只有三层镭射，下面两层镭射)
-100589(两个埋孔层)
-100405e0，找不到合适的打靶数据
-100494a0(找不到合适的打靶数据) <code>极限值</code>
-100498下面多了一个打靶不知干什么的
-100498b0尺寸太小
-81528 不符合冲孔条件
-45683 拼板尺寸小于400x500
-62922 正片
-63001 正片
-63083 正片
-100606真三阶
-100497 真三阶
-100633 6L
-46264 假HDI
-46134 假HDI
-bk62920a1 喷锡板
+bkh100541<br />
+100550a0(两边比较宰) 假三阶<br />
+120059<br />
+100592(三阶)<br />
+100552(假三阶)<br />
+82128(假三阶)<br />
+100552(假三阶)<br />
+82128(正片)<br />
+81965(上面只有三层镭射，下面两层镭射)<br />
+100589(两个埋孔层)<br />
+100405e0，找不到合适的打靶数据<br />
+100494a0(找不到合适的打靶数据) <code>极限值</code><br />
+100498下面多了一个打靶不知干什么的<br />
+100498b0尺寸太小<br />
+81528 不符合冲孔条件<br />
+45683 拼板尺寸小于400x500<br />
+62922 正片<br />
+63001 正片<br />
+63083 正片<br />
+100606真三阶<br />
+100497 真三阶<br />
+100633 6L<br />
+46264 假HDI<br />
+46134 假HDI<br />
+bk62920a1 喷锡板<br />
 </p>
 
 <p>
-内层铺铜形式，和边角流胶口
+内层铺铜形式，和边角流胶口<br />
 </p>
 <h2 id="toc_0.1">待做</h2>
 <p>
-注意备用靶和正常靶symbol不同
-靶标symbol先按原来的制作，待checklist等完成后切入
-同心圆避开SR 2个mm
+注意备用靶和正常靶symbol不同<br />
+靶标symbol先按原来的制作，待checklist等完成后切入<br />
+同心圆避开SR 2个mm<br />
 </p>
 
 <h2 id="toc_0.2">和原来的板边不同</h2>
 <p>
-1，右边的out-mark symbol底层本来没有，但次外层和gtl层都有，现已添加
-2，选化层会根据erp，如果erp要求选化，而没有选化层，则提示。
-3，如果不满足60%，则注意移动靶标，防呆
-4，注意备用防焊ccd放在镭射靶标上面
-5，阻抗条身边的铺铜
-6，假hdi板跟原来不一样
-7，埋孔和Auth在一起，和第一个靶标重叠
-8, 防焊半自动孔注意，1，原来的板边按原来的算，现在的板边 2,移动要上下移动，不要左右移动
-9，选化层
-10，正片板边
-11, 切片孔
-12，经纬向
+1，右边的out-mark symbol底层本来没有，但次外层和gtl层都有，现已添加<br />
+2，选化层会根据erp，如果erp要求选化，而没有选化层，则提示。<br />
+3，如果不满足60%，则注意移动靶标，防呆<br />
+4，注意备用防焊ccd放在镭射靶标上面<br />
+5，阻抗条身边的铺铜<br />
+6，假hdi板跟原来不一样<br />
+7，埋孔和Auth在一起，和第一个靶标重叠<br />
+8, 防焊半自动孔注意，1，原来的板边按原来的算，现在的板边 2,移动要上下移动，不要左右移动<br />
+9，选化层<br />
+10，正片板边<br />
+11, 切片孔<br />
+12，经纬向<br />
 </p>
 
 <h2 id="toc_0.3">丝印孔防呆</h2>
 <p>
-如果core小于2，则丝印孔可以直接取最大值
-如果core大于2，因为有熔合块，需考虑同心圆
+如果core小于2，则丝印孔可以直接取最大值<br />
+如果core大于2，因为有熔合块，需考虑同心圆<br />
 </p>
 
 <p>
-同心圆先考虑长边角落，然后短边角落，然后长边ccd上面
+同心圆先考虑长边角落，然后短边角落，然后长边ccd上面<br />
 </p>
 
 <p>
-1,如果x或y留边足够的话，不用考虑同心圆
-2，如果ccd长度+镭射长度+同心圆长度 &gt; 
-if (xliu &gt; 14 or yliu &gt; 14) {
-	不用考虑同心圆
-		if ($)
-}
-else{
-	if (ccdLength + leserLength + tongXinYuanLength &gt; 最值的话) {
-		1，同心圆放在短边，
-		2，孔的最大间距根据ccd长 + 镭射长
-	}
-	else {
-		1，同心圆放在长边
-		2，孔的最大间距根据ccd长 + 镭射长 + 同心圆长
-	}
-}
+1,如果x或y留边足够的话，不用考虑同心圆<br />
+2，如果ccd长度+镭射长度+同心圆长度 &gt; <br />
+if (xliu &gt; 14 or yliu &gt; 14) {<br />
+	不用考虑同心圆<br />
+		if ($)<br />
+}<br />
+else{<br />
+	if (ccdLength + leserLength + tongXinYuanLength &gt; 最值的话) {<br />
+		1，同心圆放在短边，<br />
+		2，孔的最大间距根据ccd长 + 镭射长<br />
+	}<br />
+	else {<br />
+		1，同心圆放在长边<br />
+		2，孔的最大间距根据ccd长 + 镭射长 + 同心圆长<br />
+	}<br />
+}<br />
 </p>
 
 
@@ -139,8 +139,6 @@ else{
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
-<script type="text/javascript" src="scripts/codeStyleScript/.js"></script>
 <script type="text/javascript">
 	SyntaxHighlighter.all()
 </script>
