@@ -31,33 +31,37 @@
 		overflow: scroll;
 	}
 
+
+
+	/*刚进来的时候，所有的menu不显示,只显示一级目录*/
+	.menu1 ul{
+		display: none;
+	}
+	.menu2 ul{
+		display: none;
+	}
+	.menu3 ul{
+		display: none;
+	}
+
+	.menu4 ul{
+		display: none;
+	}
+	.menu5 ul{
+		display: none;
+	}
+
+	.menu6 ul{
+		display: none;
+	}
+
 	/*.toc>ul>li{
 	font-weight:bold;
 	}*/
 
 }
 
-/*刚进来的时候，所有的menu不显示,只显示一级目录*/
-.menu1 ul{
-	display: none;
-}
-.menu2 ul{
-	display: none;
-}
-.menu3 ul{
-	display: none;
-}
 
-.menu4 ul{
-	display: none;
-}
-.menu5 ul{
-	display: none;
-}
-
-.menu6 ul{
-	display: none;
-}
 
 
 /*每一级标题设置属性*/
@@ -81,6 +85,7 @@
 	color: #8aa3cd;
 }
 
+/*如果不加，列表前面会出现点*/
 .toc li{
 	text-align: left;
 	list-style: none;

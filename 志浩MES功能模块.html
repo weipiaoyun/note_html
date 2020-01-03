@@ -52,6 +52,7 @@
 <li class="menu1"><a href="#toc_6">智能物流 </a>
 <ul>
 <li class="menu2"><a href="#toc_6.1">AGV到前处理胜宏解决方案 </a>
+<li class="menu2"><a href="#toc_6.2">AGV和上下板机对接方案 </a>
 </ul>
 <li class="menu1"><a href="#toc_7">智能仓储 </a>
 <ul>
@@ -251,6 +252,29 @@ agv到了站点，发信息给系统<br />
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/裁磨—前处理AGV操作流程.pptx"download=\"文件名.txt\">点击下载:【裁磨—前处理AGV操作流程.pptx】</a></div><br />
 </p>
+
+
+<h2 id="toc_6.2">AGV和上下板机对接方案 </h2>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/上板机与MES_PLC交互自动化.xlsx"download=\"文件名.txt\">点击下载:【上板机与MES_PLC交互自动化.xlsx】</a></div><br />
+</p>
+
+<ol>
+<li>
+服务不停扫PLC地址D1001(左状态位)和D1002(右状态位)，如果为0或2(0表示无架，2表示有架无板)，调用AGV接口，并把状态给接口。
+
+<li>
+AGV到达的时候，写PLC地址D1003(左边)，或D1004(右边)。该接口为/api/EAP/Equipment/AgvArrived?machine={machine}&amp;location={location}"
+
+<ul>
+<li>
+machine:上下板机设备编码
+
+<li>
+location：左边上板机还是右边上板机 
+
+</ul>
+</ol>
 
 <h1 id="toc_7">智能仓储 </h1><HR SIZE=1>
 <p>

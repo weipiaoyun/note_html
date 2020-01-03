@@ -99,34 +99,6 @@ for(i=0;i<img.length;i++){
 }
 
 
-var backButton=$('.back_to_top');
-
-    
-
-    function backToTop() {
-        $('html,body').animate({
-            scrollTop: 0
-        }, 800);
-    }
-    backButton.on('click', backToTop);
- 
-var div1=document.getElementById('back_to_topA');
-    $(window).on('scroll', function () {/*当滚动条的垂直位置大于浏览器所能看到的页面的那部分的高度时，回到顶部按钮就显示 */
-		//滚动的时候检测，如果电脑端，直接返回
-		var nnn = url.search(/mysite/);
-		if(nnn > 0){
-			div1.style.display = "none";
-			return;
-		} else {
-		} 
-
-        if ($(window).scrollTop() > $(window).height())
-            backButton.fadeIn();
-        else
-            backButton.fadeOut();
-
-
-    });
 
 
 /*返回首页根据地址不同返回不同*/
