@@ -1,0 +1,120 @@
+/*toc的属性*/
+.toc {
+	height: 100%;
+	/*padding-top:20px;*/
+	font-size:18px;
+	background-color: #2e3254;
+}
+
+
+/*清空所有的背景颜色*/
+.toc * {
+	background:none;
+	list-style:none;
+}
+
+
+/*当屏幕大小大于800*/
+@media screen and (min-width:800px) {
+	/*左边15%的宽度*/
+	.content {
+		margin-left:18%;padding:1px 16px;height:100%;
+	}
+
+	.toc>ul{
+		margin:0;
+		list-style-type: none;
+		width: 18%;
+		background-color: #f1f1f1;
+		position: fixed;
+		height: 100%;
+		overflow: scroll;
+	}
+
+	/*.toc>ul>li{
+	font-weight:bold;
+	}*/
+
+}
+
+/*刚进来的时候，所有的menu不显示,只显示一级目录*/
+.menu1 ul{
+	display: none;
+}
+.menu2 ul{
+	display: none;
+}
+.menu3 ul{
+	display: none;
+}
+
+.menu4 ul{
+	display: none;
+}
+.menu5 ul{
+	display: none;
+}
+
+.menu6 ul{
+	display: none;
+}
+
+
+/*每一级标题设置属性*/
+.toc .menu1{
+	padding: 5px 0px 0px 5px;
+}
+
+.toc .menu2{
+	padding-left: 30px;
+	font-size: 16px;
+	color: #8aa3cd;
+}
+.toc .menu3{
+	padding-left: 30px;
+	font-size: 15px;
+	color: #8aa3cd;
+}
+.toc .menu4{
+	padding-left: 30px;
+	font-size: 14px;
+	color: #8aa3cd;
+}
+
+.toc li{
+	text-align: left;
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+	
+
+/*
+.toc li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+*/
+
+
+
+/*a标签设置*/
+.toc a{
+	display: block;
+	padding: 16px 0;
+	color: #5f78a2;
+	text-decoration: none;
+}
+
+/*鼠标经过的时候颜色更改*/
+.toc a:hover{
+	color: #007FC8;
+}
+
+/*按下按钮的那个标签颜色和大小更改*/
+.active>a{
+	color: #1c9dff;
+	/*font-size: 20px;*/
+}
+
+

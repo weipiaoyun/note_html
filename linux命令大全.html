@@ -4,6 +4,7 @@
 
 <link rel="Stylesheet" type="text/css" href="style.css">
 <link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
@@ -17,34 +18,34 @@
 
 <div class="toc">
 <ul>
-<li><a href="#toc_1">常用命令 </a>
+<li class="menu1"><a href="#toc_1">常用命令 </a>
 <ul>
-<li><a href="#toc_1.1">查找版本号</a>
+<li class="menu2"><a href="#toc_1.1">查找版本号</a>
 </ul>
-<li><a href="#toc_2">设置默认的shell为csh </a>
-<li><a href="#toc_3">linux</a>
+<li class="menu1"><a href="#toc_2">设置默认的shell为csh </a>
+<li class="menu1"><a href="#toc_3">linux</a>
 <ul>
-<li><a href="#toc_3.1">查看linux内核版本</a>
-<li><a href="#toc_3.2">切换模式</a>
-<li><a href="#toc_3.3">锁</a>
-<li><a href="#toc_3.4">批处理命令</a>
-<li><a href="#toc_3.5">查找大于500M的文件</a>
-<li><a href="#toc_3.6">ssh</a>
-<li><a href="#toc_3.7">服务开机启动与禁用</a>
-<li><a href="#toc_3.8">查看linux的发行版本</a>
-<li><a href="#toc_3.9">用户管理</a>
-<li><a href="#toc_3.10">VNC管理</a>
-<li><a href="#toc_3.11">linux远程桌面</a>
-<li><a href="#toc_3.12">远程数据同步工具</a>
-<li><a href="#toc_3.13">防火墙管理</a>
-<li><a href="#toc_3.14">查看物理逻辑空间</a>
-<li><a href="#toc_3.15">查看linux端口号</a>
-<li><a href="#toc_3.16">压缩与解压tgz</a>
-<li><a href="#toc_3.17">查看文件大小的命令</a>
-<li><a href="#toc_3.18">查看磁盘空间</a>
-<li><a href="#toc_3.19">查看文件的最后2行</a>
-<li><a href="#toc_3.20">查看环境变量</a>
-<li><a href="#toc_3.21">编辑linux自动执行</a>
+<li class="menu2"><a href="#toc_3.1">查看linux内核版本</a>
+<li class="menu2"><a href="#toc_3.2">切换模式</a>
+<li class="menu2"><a href="#toc_3.3">锁</a>
+<li class="menu2"><a href="#toc_3.4">批处理命令</a>
+<li class="menu2"><a href="#toc_3.5">查找大于500M的文件</a>
+<li class="menu2"><a href="#toc_3.6">ssh</a>
+<li class="menu2"><a href="#toc_3.7">服务开机启动与禁用</a>
+<li class="menu2"><a href="#toc_3.8">查看linux的发行版本</a>
+<li class="menu2"><a href="#toc_3.9">用户管理</a>
+<li class="menu2"><a href="#toc_3.10">VNC管理</a>
+<li class="menu2"><a href="#toc_3.11">linux远程桌面</a>
+<li class="menu2"><a href="#toc_3.12">远程数据同步工具</a>
+<li class="menu2"><a href="#toc_3.13">防火墙管理</a>
+<li class="menu2"><a href="#toc_3.14">查看物理逻辑空间</a>
+<li class="menu2"><a href="#toc_3.15">查看linux端口号</a>
+<li class="menu2"><a href="#toc_3.16">压缩与解压tgz</a>
+<li class="menu2"><a href="#toc_3.17">查看文件大小的命令</a>
+<li class="menu2"><a href="#toc_3.18">查看磁盘空间</a>
+<li class="menu2"><a href="#toc_3.19">查看文件的最后2行</a>
+<li class="menu2"><a href="#toc_3.20">查看环境变量</a>
+<li class="menu2"><a href="#toc_3.21">编辑linux自动执行</a>
 </ul>
 </ul>
 </div>
@@ -295,7 +296,7 @@ setsebool httpd_enable_homedirs on<br />
 </p>
 
 <p>
-/usr/sbin/semanage fcontext -l |　grep '/var/www'<br />
+/usr/sbin/semanage fcontext -l |　grep '/var/www'
 </p>
 
 <p>
@@ -675,7 +676,7 @@ Find是查找文件的命令，使用情况如下：1，要查找具有某一特
 　　/boot 这里存放的是启动LINUX时使用的一些核心文件。 <br />
 　　/dev dev是device(设备)的缩写。这个目录下是所有LINUX的外部设备，其功能类似DOS下的.sys和Win下的.vxd。在LINUX中设备和文件是用同种方法访问的。例如:/dev/hda代表第一个物理IDE硬盘。 <br />
 　　/etc 这个目录用来存放所有的系统管理所需要的配置文件和子目录。 <br />
-　　/home 用户的主目录，比如说有个用户叫wang，那他的主目录就是/home/wang也可以用~wang表示，说到这里，打个岔，你现应该明白在我们访问一些个人网页(如<a href="http://www.netease.net/~zhangjia)的时候，~zhangjia就是表示访问">http://www.netease.net/~zhangjia)的时候，~zhangjia就是表示访问</a> www.netease.net站点中的用户zhangjia的用户主目录。 <br />
+　　/home 用户的主目录，比如说有个用户叫wang，那他的主目录就是/home/wang也可以用~wang表示，说到这里，打个岔，你现应该明白在我们访问一些个人网页(如<a href="http://www.netease.net/~zhangjia)的时候，~zhangjia就是表示访问">http://www.netease.net/~zhangjia)的时候，~zhangjia就是表示访问</a> www.netease.net站点中的用户zhangjia的用户主目录。 
 　　如果这个网站的操作系统是LINUX，那就是表示/home/zhangjia。 <br />
 　　/lib 这个目录里存放着系统最基本的动态链接共享库，其作用类似于Windows里的.dll文件。几乎所有的应用程序都需要用到这些共享库。 <br />
 　　/lost+found 这个目录平时是空的，当系统不正常关机后，这里就成了一些无家可归的文件的避难所。对了，有点类似于DOS下的.chk文件。 <br />
@@ -875,7 +876,7 @@ Find是查找文件的命令，使用情况如下：1，要查找具有某一特
 　　对于其它想在启动时就装载的磁盘驱动器，都可以将defaults改成auto。需要注意的是，对于硬盘上的Linux分区（包括ext2和swap）并不需要作出这样的改动。 <br />
 　　重新启动系统以后，在/mnt/winc目录下，你就可以看到系统在启动时就装载好的Windows系统的C盘了。 <br />
 　　四、使用Mtools <br />
-　　在Linux中想要共享Windows系统资源，除了上面介绍的装载（mount）命令之外，还有一组名为Mtools的软件包可以实现这一功能。和大多数实用工具一样，Mtools软件包亦是Linux系统默认的安装套件。你可以在<a href="http://mtools.ltnb.lu/下载到它的最">http://mtools.ltnb.lu/下载到它的最</a> ?...?.7.tar.gz。 <br />
+　　在Linux中想要共享Windows系统资源，除了上面介绍的装载（mount）命令之外，还有一组名为Mtools的软件包可以实现这一功能。和大多数实用工具一样，Mtools软件包亦是Linux系统默认的安装套件。你可以在<a href="http://mtools.ltnb.lu/下载到它的最">http://mtools.ltnb.lu/下载到它的最</a> ?...?.7.tar.gz。 
 　　（一）Mtools命令 <br />
 　　对于熟悉DOS命令的用户来说，Mtools命令会让他们感觉到像回到了DOS的世界。在下面的表格中我们可以看出它们有多么相似： <br />
 　　很显然，Mtools命令是简单地在DOS命令前加上了一个m前缀，功能还是和在DOS下一样的。须要注意的是，更改目录路径在DOS命令中可以有 cd和chdir两种命令格式，但是在Mtools中只有mcd一种格式。类似的在Mtools中没有对应的命令还有mkdir、rmdir、 rename等等。 <br />
@@ -913,10 +914,10 @@ Find是查找文件的命令，使用情况如下：1，要查找具有某一特
 五、在Windows系统中共享Linux系统的文档 <br />
 　　无论对于刚接触Linux的新手还是对之已经熟悉的高手，恐怕都免不了想在Windows系统中调阅Linux系统的文档。这可以使用在Windows系统下观看Linux分区的小软件（如fsdext2等）。这里再向各位推荐两种可以实现这种功能的小软件。 <br />
 　　(一)Linuxindos <br />
-　　Linuxindos是一个不到500KB的小程序，笔者找到的版本是Beta 0.9的DEMO版，用户可以在<a href="http://best.163.com/～linux/soft/下...褂靡卜浅＜虻ァ?">http://best.163.com/～linux/soft/下...褂靡卜浅＜虻ァ?</a> <br />
+　　Linuxindos是一个不到500KB的小程序，笔者找到的版本是Beta 0.9的DEMO版，用户可以在<a href="http://best.163.com/～linux/soft/下...褂靡卜浅＜虻ァ?">http://best.163.com/～linux/soft/下...褂靡卜浅＜虻ァ?</a> 
 　　在Windows系统下将linuxindos.zip解压到硬盘目录，用户就会看到一个带着企鹅图标的可执行程序LiD95Demo.exe。启动程序后，会出现一个接口非常简单的窗口，当用户挑选一个含有Linux系统文档的磁盘驱动器以后，Linux分区中的所有文档就会显示出来，左边窗口列出的是Linux分区中的目录，而右窗口就列出了目录内的文档，感觉就像在Windows的资源管理器中一样。 <br />
 　　(二）Explore2fs <br />
-　　这是一个更为小巧的自由软件，大小约308KB，用户也可以在<a href="http://best.163.com/～linux/soft/下...ows系统分区中。">http://best.163.com/～linux/soft/下...ows系统分区中。</a> <br />
+　　这是一个更为小巧的自由软件，大小约308KB，用户也可以在<a href="http://best.163.com/～linux/soft/下...ows系统分区中。">http://best.163.com/～linux/soft/下...ows系统分区中。</a> 
 　　在右边视窗中选择好文档后，按下鼠标右键可以选择相应的操作，“Export file”是直接导出文档，而“Export to Text”则是除去文档的分隔符后导出和TEXT兼容的文本文档。　 <br />
 　　扫盲行动之六：Linux下其它格式文件系统的自动挂装 <br />
 　　不同的操作系统使用不同的文件系统格式，MS-DOS支持FAT16文件系统，Windows98支持FAT16、FAT32文件系统， WindowsNT支持FAT16、NTFS文件系统，Windows2000则支持FAT16、FAT32、NTFS三种文件系统格式，而Linux差不多支持所有的文件系统格式，但一般使用ext2文件系统。 <br />
@@ -964,6 +965,7 @@ Find是查找文件的命令，使用情况如下：1，要查找具有某一特
 © <span id="year">2018</span> 
 </p>
 <script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>

@@ -20,7 +20,6 @@ th {background-color: #f0f0f0;}
 hr {border: none; border-top: 1px solid #ccc; width: 100%;}
 del {text-decoration: line-through; color: #777777;}
 a { margin-top: 1em; margin-bottom: 1em;  padding-left: 0.5em;}
-.toc li {list-style-type: none;}
 .todo {font-weight: bold; background-color: #f0ece8; color: #a03020;}
 .justleft {text-align: left;}
 .justright {text-align: right;}
@@ -136,14 +135,9 @@ ul {
 /*多级列表第二级列表的颜色换一个。*/
 ul>li>ul>li {
   background: lightblue;
-  padding: 0px;
+  padding: 8px;
 }
 
-/*标题的无序列表*/
-.toc ul, .toc li,.toc  ol {
-	list-style:none;
-	background-color:transparent;
-}
 
 img {
 	border: none;
@@ -154,27 +148,6 @@ p {
   overflow: auto;
 }
 
-/*
-        *{margin:0;padding:0;}
-        .toc ul{width:300px;position:absolute;background:#DADADA;list-style:none;}
-        .toc li{width:300px;position: relative;padding:5px}
-        .toc li>ul{left:300px;top: 0;}
-        .toc li:hover>ul{display: block;}
-		.toc {
-			margin:0;
-			padding:0;
-			float:left;
-		}
-
-		.content {
-			float:left;
-			  overflow: auto;
-		}
-		*/
-
-
-
-
 a {
   display: block;
   padding: 8px 1px;
@@ -182,23 +155,12 @@ a {
   text-decoration: none;
 }
 
-.toc a {
-  display: block;
-  color: #000;
-  background:none;
-  padding: 8px 16px;
-  text-decoration: none;
-}
 
 body {
 	border:0;
   margin: 0;
 }
 
-li a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
 
 
 
@@ -212,35 +174,13 @@ li a:hover:not(.active) {
 }
 
 
-.toc>ul{
-  list-style-type: none;
-  width: none;
-  background-color: none;
-  position: none;
-  height: none;
-  overflow: none;
-	margin:none;
-}
-
 .content {
-	margin-left:none;padding:none;height:none;
+	margin-left:none;
+	margin-left:0px;
+	width:100%;
 }
 
-@media screen and (min-width:800px) {
-.toc>ul{
-  list-style-type: none;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: scroll;
-	margin:0;
-}
 
-.content {
-	margin-left:20%;padding:1px 16px;height:1000px;
-}
-
-}
 
 /*返回首页*/
 #returnIndex {
@@ -272,3 +212,19 @@ img {
     max-height: 100%;
 
 }
+
+
+       *{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+}
+
+/*
+html,body{
+height: 100%;
+}
+*/
+
+

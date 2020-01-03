@@ -4,6 +4,7 @@
 
 <link rel="Stylesheet" type="text/css" href="style.css">
 <link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
@@ -44,7 +45,7 @@ use HTTP::Request::Common;  <br />
   
 <p>
 $agent=new LWP::UserAgent;  <br />
-$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a>  <br />
+$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a>  
 $request-&gt;header('User-Agent'=&gt;'Mozilla/5.0 (Windows NT 5.1; rv:10.0.1) Gecko/20100101 Firefox/10.0.1');  <br />
 $request-&gt;header('Accept-Encoding'=&gt;'gzip, deflate');  <br />
 </p>
@@ -69,7 +70,7 @@ $agent = LWP::UserAgent-&gt;new;<br />
 </p>
 
 <p>
-\(response = \)agent-&gt;post("<a href="http://localhost:8080/springtest/fileupload",'Content_Type'">http://localhost:8080/springtest/fileupload",'Content_Type'</a> =&gt; 'multipart/form-data; boundary=----------------------', Content =&gt; [<br />
+\(response = \)agent-&gt;post("<a href="http://localhost:8080/springtest/fileupload",'Content_Type'">http://localhost:8080/springtest/fileupload",'Content_Type'</a> =&gt; 'multipart/form-data; boundary=----------------------', Content =&gt; [
 "user_id"=&gt;"05C30167EA3B4F76AE0D8A4ADB984679",<br />
 'pic' =&gt; ["dir"]<br />
 #]);<br />
@@ -86,7 +87,7 @@ post<br />
 use LWP<br />
 require HTTP::Headers;<br />
 $agent = LWP::UserAgent-&gt;new;<br />
-\(response = \)agent-&gt;post("<a href="http://localhost:8080/service/store/storeSend",">http://localhost:8080/service/store/storeSend",</a> [ "user_id" =&gt; "05C30167EA3B4F76AE0D8A4ADB984679" , "bno" =&gt; "bnotest001"]);<br />
+\(response = \)agent-&gt;post("<a href="http://localhost:8080/service/store/storeSend",">http://localhost:8080/service/store/storeSend",</a> [ "user_id" =&gt; "05C30167EA3B4F76AE0D8A4ADB984679" , "bno" =&gt; "bnotest001"]);
 get<br />
 </p>
 
@@ -98,7 +99,7 @@ use LWP;<br />
 
 <p>
 $agent = LWP::UserAgent-&gt;new;<br />
-\(response = \)agent-&gt;get("<a href="http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");<br">http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");<br</a> />
+\(response = \)agent-&gt;get("<a href="http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");">http://istg.xxxx.com/service/store/storeorder/sendandreceive?userid=23812164&amp;deliveryids=&amp;cmd_type=0");</a>
 </p>
 
 <p>
@@ -123,7 +124,7 @@ my $cookies = HTTP::Cookies-&gt;new();<br />
 $cookies-&gt;set_cookie(0,'JSESSIONID', 'A9D5B373B86ACDB04914DEC83E3DA40E','/','store.sf-express.com',80,0,0,86400,0);<br />
 \(agent-&gt;cookie_jar(\)cookies);<br />
 $agent-&gt;cookie_jar({ 'STORE'=&gt;'STORE_POOL_CNSZ01_49_130_8080', 'JSESSIONID'=&gt; '84BCF81B536D5CB13AFA48E31ACAA6B6' });<br />
-\(response = \)agent-&gt;get("<a href="http://store.sf-xxxxx.com/html/admin/user_list.html");<br">http://store.sf-xxxxx.com/html/admin/user_list.html");<br</a> />
+\(response = \)agent-&gt;get("<a href="http://store.sf-xxxxx.com/html/admin/user_list.html");">http://store.sf-xxxxx.com/html/admin/user_list.html");</a>
 </p>
 
 <p>
@@ -151,7 +152,7 @@ my @netscape_like_headers = (<br />
 'Accept-Encoding' =&gt; 'gzip',<br />
 'Accept' =&gt;<br />
 "image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, image/png, <strong>/</strong>",);<br />
-\(response = \)agent-&gt;get("<a href="http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);<br">http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);<br</a> />
+\(response = \)agent-&gt;get("<a href="http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);">http://store.xxxxxx.com/servlet/storeAction?actionType=list",@netscape_like_headers);</a>
 </p>
 
 <p>
@@ -174,7 +175,7 @@ use HTTP::Request::Common;  <br />
   
 <p>
 $agent=new LWP::UserAgent;  <br />
-$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a>  <br />
+$request=POST('<a href="http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);">http://localhost:8080/wm/ab',[name=&gt;'zhangsan']);</a>  
 $request-&gt;header('User-Agent'=&gt;'Mozilla/5.0 (Windows NT 5.1; rv:10.0.1) Gecko/20100101 Firefox/10.0.1');  <br />
 $request-&gt;header('Accept-Encoding'=&gt;'gzip, deflate');  <br />
 </p>
@@ -202,6 +203,7 @@ print $response-&gt;content;  <br />
 © <span id="year">2018</span> 
 </p>
 <script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>

@@ -4,6 +4,7 @@
 
 <link rel="Stylesheet" type="text/css" href="style.css">
 <link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
@@ -27,7 +28,7 @@ DBD-ODBC 为 Perl 的 DBI::DBD 提供了 ODBC 驱动的功能，允许 Perl 程�
 
 
 <p>
-各种语言和开发环境访问数据库有各种不同的方式，比如可以用C和数据库提供的API接口来进行访问，也可以用JDBC、ODBC、ADO等封装好的统一接口来进行访问。Perl访问数据库最常用的包是DBI，可以在www.cpan.org找到。另外还需要安装对应数据库的驱动包，例如DBD::MySQL、DBD::Oracle、DBD::Sybase或者DBD::ODBC等。具体的安装方法请参考上期文章，在此就不赘述了。<br />
+各种语言和开发环境访问数据库有各种不同的方式，比如可以用C和数据库提供的API接口来进行访问，也可以用JDBC、ODBC、ADO等封装好的统一接口来进行访问。Perl访问数据库最常用的包是DBI，可以在www.cpan.org找到。另外还需要安装对应数据库的驱动包，例如DBD::MySQL、DBD::Oracle、DBD::Sybase或者DBD::ODBC等。具体的安装方法请参考上期文章，在此就不赘述了。
 </p>
 
 
@@ -78,7 +79,7 @@ DBI          --  1.633<br />
 Perl         --  5.10.1<br />
 说明DBI已经安装好了。<br />
 3. 下载并安装相关oracle软件包<br />
-下载地址：<a href="http://www.oracle.com/technetwork/topics/linuxsoft-082809.html<br">http://www.oracle.com/technetwork/topics/linuxsoft-082809.html<br</a> />
+下载地址：<a href="http://www.oracle.com/technetwork/topics/linuxsoft-082809.html">http://www.oracle.com/technetwork/topics/linuxsoft-082809.html</a>
 因为我的Oracle版本是10.2.0.5，所以下载10205的客户端软件包<br />
 -rw-r--r--   1 oracle  oinstall    745257 Apr  9 05:39 oracle-instantclient-sqlplus-10.2.0.5-1.i386.rpm<br />
 -rw-r--r--   1 oracle  oinstall  32883472 Apr  9 05:40 oracle-instantclient-basic-10.2.0.5-1.i386.rpm<br />
@@ -246,6 +247,7 @@ $dbh-&gt;disconnect;
 © <span id="year">2018</span> 
 </p>
 <script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>

@@ -4,6 +4,7 @@
 
 <link rel="Stylesheet" type="text/css" href="style.css">
 <link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
@@ -17,10 +18,10 @@
 
 <div class="toc">
 <ul>
-<li><a href="#toc_0.1">创建新用户</a>
-<li><a href="#toc_0.2">添加组</a>
-<li><a href="#toc_0.3">遇到的问题</a>
-<li><a href="#toc_0.4">如何用图形界面管理组和用户</a>
+<li class="menu2"><a href="#toc_0.1">创建新用户</a>
+<li class="menu2"><a href="#toc_0.2">添加组</a>
+<li class="menu2"><a href="#toc_0.3">遇到的问题</a>
+<li class="menu2"><a href="#toc_0.4">如何用图形界面管理组和用户</a>
 </ul>
 </ul>
 </div>
@@ -409,7 +410,7 @@ users::20:root,sam<br />
 赋予普通用户特别权限[sudo命令]<br />
 在Linux系统中，管理员往往不止一人，若每位管理员都用root身份进行管理工作，根本无法弄清晰谁该做什么。所以最佳的方式是：管理员创建一些普通用户，分配一部分系统管理工作给他们。<br />
 由于su 对转换到终极权限用户root后，权限的无限制性，所以su并不能担任多个管理员所管理的系统。如果用su 来转换到终极用户来管理系统，也不能明确哪些工作是由哪个管理员进行的操作。特别是对于服务器的 管理有多人参和管理时，最佳是针对每个管理员的技术特长和管理范围，并且有针对性的下放给权限，并且约定其使用哪些工具来完成和其相关的工作，这时我们就 有必要用到 sudo。通过sudo，我们能把某些终极权限有针对性的下放，并且不必普通用户知道root密码，所以sudo 相对于权限无限制性的su来说，还是比较安全的，所以sudo 也能被称为受限制的su ；另外sudo 是需要授权许可的，所以也被称为授权许可的su；sudo 执行命令的流程是当前用户转换到root（或其他指定转换到的用户），然后以root（或其他指定的转换到的用户）身份执行命令，执行完成后，直接退回到当前用户；而这些的前提是要通过sudo的设置文件/etc/sudoers来进行授权；<br />
-我们不能使用su让他们直接变成root，因为这些用户都必须知道root的密码，这种方法非常不安全，而且也不符合我们的分工需求。一般的做法是利用权限的设置，依工作性质分类，让特别身份的用户成为同一个工作组，并设置工作组权限。例如：要wwwadm这位用户负责管理网站数据，一般Apache Web Server的进程httpd的所有者是www，你能设置用户wwwadm和www为同一工作组，并设置Apache默认存放网页录 /usr/local/httpd/htdocs的工作组权限为可读、可写、可执行，这样属于此工作组的每位用户就能进行网页的管理了。<br />
+我们不能使用su让他们直接变成root，因为这些用户都必须知道root的密码，这种方法非常不安全，而且也不符合我们的分工需求。一般的做法是利用权限的设置，依工作性质分类，让特别身份的用户成为同一个工作组，并设置工作组权限。例如：要wwwadm这位用户负责管理网站数据，一般Apache Web Server的进程httpd的所有者是www，你能设置用户wwwadm和www为同一工作组，并设置Apache默认存放网页录 /usr/local/httpd/htdocs的工作组权限为可读、可写、可执行，这样属于此工作组的每位用户就能进行网页的管理了。
 但这并不是最佳的解决办法，例如管理员想授予一个普通用户关机的权限，这时使用上述的办法就不是非常最佳。这时你也许会想，我只让这个用户能以root身份执行 shutdown命令就行了。完全没错，可惜在通常的Linux系统中无法实现这一功能，不过已有了工具能实现这样的功能??sudo。<br />
 sudo 通过维护一个特权到用户名映射的数据库将特权分配给不同的用户，这些特权可由数据库中所列的一些不同的命令来识别。为了获得某一特权项，有资格的用户只需简单地在命令行输入sudo和命令名之后，按照提示再次输入口令。例如，sudo允许普通用户格式化磁盘，不过却没有赋予其他的root用户特权。<br />
 注：sudo的初衷是：为了让一个普通用户执行root的命令。当第一次使用sudo的时候会提示输入密码。<br />
@@ -534,6 +535,7 @@ chgrp user time.txt设置文件所属组<br />
 © <span id="year">2018</span> 
 </p>
 <script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>

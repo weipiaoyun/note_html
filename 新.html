@@ -4,6 +4,7 @@
 
 <link rel="Stylesheet" type="text/css" href="style.css">
 <link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
@@ -17,29 +18,29 @@
 
 <div class="toc">
 <ul>
-<li><a href="#toc_1">12. 命令行中的 Vi 模式 </a>
-<li><a href="#toc_2">normal 执行普通命令(它是一个命令行命令)</a>
-<li><a href="#toc_3">execute 执行命令行命令</a>
-<li><a href="#toc_4">选择</a>
-<li><a href="#toc_5">normal</a>
-<li><a href="#toc_6">执行当前文件脚本</a>
-<li><a href="#toc_7">10. 重复操作</a>
-<li><a href="#toc_8">Select mode change Visual mode</a>
+<li class="menu1"><a href="#toc_1">12. 命令行中的 Vi 模式 </a>
+<li class="menu1"><a href="#toc_2">normal 执行普通命令(它是一个命令行命令)</a>
+<li class="menu1"><a href="#toc_3">execute 执行命令行命令</a>
+<li class="menu1"><a href="#toc_4">选择</a>
+<li class="menu1"><a href="#toc_5">normal</a>
+<li class="menu1"><a href="#toc_6">执行当前文件脚本</a>
+<li class="menu1"><a href="#toc_7">10. 重复操作</a>
+<li class="menu1"><a href="#toc_8">Select mode change Visual mode</a>
 <ul>
-<li><a href="#toc_8.1">附加到一个register (就是用大写的register名字啦！)</a>
+<li class="menu2"><a href="#toc_8.1">附加到一个register (就是用大写的register名字啦！)</a>
 </ul>
-<li><a href="#toc_9">合并</a>
-<li><a href="#toc_10">善用寄存器</a>
-<li><a href="#toc_11">命令行翻阅历史</a>
-<li><a href="#toc_12">查找记录</a>
-<li><a href="#toc_13">复制，粘贴</a>
+<li class="menu1"><a href="#toc_9">合并</a>
+<li class="menu1"><a href="#toc_10">善用寄存器</a>
+<li class="menu1"><a href="#toc_11">命令行翻阅历史</a>
+<li class="menu1"><a href="#toc_12">查找记录</a>
+<li class="menu1"><a href="#toc_13">复制，粘贴</a>
 <ul>
-<li><a href="#toc_13.1">Act Repeat Reverse</a>
-<li><a href="#toc_13.2">Find andReplace</a>
-<li><a href="#toc_13.3">在某个范围内使用normal mode command</a>
-<li><a href="#toc_13.4">窗口分割</a>
+<li class="menu2"><a href="#toc_13.1">Act Repeat Reverse</a>
+<li class="menu2"><a href="#toc_13.2">Find andReplace</a>
+<li class="menu2"><a href="#toc_13.3">在某个范围内使用normal mode command</a>
+<li class="menu2"><a href="#toc_13.4">窗口分割</a>
 </ul>
-<li><a href="#toc_14">########################################################################################################################</a>
+<li class="menu1"><a href="#toc_14">########################################################################################################################</a>
 </ul>
 </div>
 <div class="content">
@@ -910,7 +911,7 @@ ROT13 是一种简单的编码，它把字母分成前后两组，每组13个，
 
 </ol>
 <p>
-:h 42            : 也可以访问 <a href="http://www.google.com/search?q=42<br">http://www.google.com/search?q=42<br</a> />
+:h 42            : 也可以访问 <a href="http://www.google.com/search?q=42">http://www.google.com/search?q=42</a>
 </p>
 <blockquote>
 : 第一个结果就是 News. Douglas Adams 1952 - 2001.
@@ -1199,7 +1200,7 @@ _vimrc基础
 
 </ol>
 <p>
-:nmap ,f :update&lt;CR&gt;:silent !start c:\\progra~1\\intern~1\\iexplore.exe <a href="file://%:p<br">file://%:p<br</a> />
+:nmap ,f :update&lt;CR&gt;:silent !start c:\\progra~1\\intern~1\\iexplore.exe <a href="file://%:p">file://%:p</a>
 </p>
 <ol>
 <li>
@@ -1225,8 +1226,8 @@ _vimrc基础
 
 </ol>
 <p>
-:cmap ,r  :Nread <a href="ftp://209.51.134.122/public_html/index.html<br">ftp://209.51.134.122/public_html/index.html<br</a> />
-:cmap ,w  :Nwrite <a href="ftp://209.51.134.122/public_html/index.html<br">ftp://209.51.134.122/public_html/index.html<br</a> />
+:cmap ,r  :Nread <a href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</a>
+:cmap ,w  :Nwrite <a href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</a>
 </p>
 <ol>
 <li>
@@ -1237,7 +1238,7 @@ cmap是命令(command)模式绑定
 
 </ol>
 <p>
-gvim <a href="ftp://209.51.134.122/public_html/index.html<br">ftp://209.51.134.122/public_html/index.html<br</a> />
+gvim <a href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</a>
 </p>
 <ol>
 <li>
@@ -2223,9 +2224,9 @@ map Y y$        让 Y 和 D 一样, 要不然 Y 的本意和 yy 一样.
 </blockquote>
 <p>
 VI高级命令集锦及VIM应用实例<br />
-作者：  转自：<a href="http://linux-down.kmip.net/">http://linux-down.kmip.net/</a>  本文已被阅读：5 次<br />
+作者：  转自：<a href="http://linux-down.kmip.net/">http://linux-down.kmip.net/</a>  本文已被阅读：5 次
 *****************************************************************************<br />
-本文由正泰linux <a href="http://linux-down.kmip.net">http://linux-down.kmip.net</a> 搜集，整理，如需转载，请注明出处！<br />
+本文由正泰linux <a href="http://linux-down.kmip.net">http://linux-down.kmip.net</a> 搜集，整理，如需转载，请注明出处！
 本站有大量的linux电子教程，软件，技术文档，欢迎大家访问！站长阿泰qq：253222170<br />
 ******************************************************************************<br />
 VI高级命令集锦及VIM应用实例<br />
@@ -2366,12 +2367,12 @@ sed \'s/string1/string2/gp\' file1 &gt; file2<br />
 25<br />
 在插入模式下ctrl+p，自动补齐剩余单词，以赖规则：tags，以有的单词等等<br />
 *****************************************************************************<br />
-本文由正泰linux <a href="http://linux-down.kmip.net">http://linux-down.kmip.net</a> 搜集，整理，如需转载，请注明出处！<br />
+本文由正泰linux <a href="http://linux-down.kmip.net">http://linux-down.kmip.net</a> 搜集，整理，如需转载，请注明出处！
 本站有大量的linux电子教程，软件，技术文档，欢迎大家访问！站长阿泰qq：253222170<br />
 ******************************************************************************<br />
 当今世界，文本编辑器种类繁多，大有\"乱花渐欲迷人眼\"之势。中国有句古语：手巧不如家什妙，作为IT业的专业人士，选择一款优秀的编辑软件至关重要。笔者认为：LINUX下的VIM※以其强大的功能和无穷的魅力将使您终生受益。<br />
 作者:闫石 (iloveibm@163.com)<br />
-来自:<a href="http://www-900.ibm.com/developerWorks/cn/linux/l-tip-prompt/tip15/index.shtml<br">http://www-900.ibm.com/developerWorks/cn/linux/l-tip-prompt/tip15/index.shtml<br</a> />
+来自:<a href="http://www-900.ibm.com/developerWorks/cn/linux/l-tip-prompt/tip15/index.shtml">http://www-900.ibm.com/developerWorks/cn/linux/l-tip-prompt/tip15/index.shtml</a>
 由于被广泛移植，无论是PC机的DOS和WINDOWS，还是RISC/6000的AIX，乃至于IBM的大型机S/390，都能见到VIM的身影。然而，对于初学者，VIM的用户界面与使用方法非常不符合常规，甚至认为它比较混乱，无所适从。事实上，VIM编辑器是专门为经验丰富的用户设计的，它的界面和使用方法提供了更快的速度和更强的功能。对于熟知它的用户，VIM的许多特性节省了时间和击键次数，并可以完成一些其他编辑器无法完成的功能。<br />
 学习的最好方法是实践，唯有如此，才能真正掌握其中的精髓。文中列举的实例，都是笔者在实际工作中遇到的，具有一定的代表性，请大家在阅读的过程中仔细体会。<br />
 好了，现在让我们共同畅游神奇的VIM的世界！<br />
@@ -2777,7 +2778,7 @@ Shi.Xi 120638780214006 1978/02/14 female<br />
 </p>
 
 <p>
-&lt;P&gt;※ VIM 意为 VI Improved ，与VI99%向下兼容。而且，VIM提供了许多VI不具备的功能，内置了诸多函数，因此，建议有经验的VI用户对VIM有所了解，您会发现，转向VIM 是明智之举。欲查询有关VIM的资料，请参考 &lt;A href=\"<a href="http://www.vim.org/\"&gt;&lt;FONT">http://www.vim.org/\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://www.vim.org&lt;/FONT&gt;&lt;/A&gt;<br">http://www.vim.org&lt;/FONT&gt;&lt;/A&gt;<br</a> />
+&lt;P&gt;※ VIM 意为 VI Improved ，与VI99%向下兼容。而且，VIM提供了许多VI不具备的功能，内置了诸多函数，因此，建议有经验的VI用户对VIM有所了解，您会发现，转向VIM 是明智之举。欲查询有关VIM的资料，请参考 &lt;A href=\"<a href="http://www.vim.org/\"&gt;&lt;FONT">http://www.vim.org/\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://www.vim.org&lt;/FONT&gt;&lt;/A&gt;">http://www.vim.org&lt;/FONT&gt;&lt;/A&gt;</a>
 </p>
 
 <p>
@@ -2786,17 +2787,17 @@ Shi.Xi 120638780214006 1978/02/14 female<br />
 
 <p>
 &lt;P&gt;作者简介<br />
-闫石，工程师。您可以通过电子邮件：&lt;A href=\"<a href="mailto:iloveibm@163.com\"&gt;&lt;FONT">mailto:iloveibm@163.com\"&gt;&lt;FONT</a> color=#0000ff&gt;iloveibm@163.com&lt;/FONT&gt;&lt;/A&gt; 或者 &lt;A href=\"<a href="mailto:yan-shi@sino-com.com\"&gt;&lt;FONT">mailto:yan-shi@sino-com.com\"&gt;&lt;FONT</a> color=#0000ff&gt;yan-shi@sino-com.com&lt;/FONT&gt;&lt;/A&gt; 和他联系。<br />
+闫石，工程师。您可以通过电子邮件：&lt;A href=\"<a href="mailto:iloveibm@163.com\"&gt;&lt;FONT">mailto:iloveibm@163.com\"&gt;&lt;FONT</a> color=#0000ff&gt;iloveibm@163.com&lt;/FONT&gt;&lt;/A&gt; 或者 &lt;A href=\"<a href="mailto:yan-shi@sino-com.com\"&gt;&lt;FONT">mailto:yan-shi@sino-com.com\"&gt;&lt;FONT</a> color=#0000ff&gt;yan-shi@sino-com.com&lt;/FONT&gt;&lt;/A&gt; 和他联系。
 </p>
 
 <p>
 &lt;P&gt;附录A:一个用vi作表单的在线教程<br />
-&lt;A href=\"<a href="http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/linux-onlinecourse-bytitle/9F896668D7EB5CA948256A710030E157?OpenDocument\"&gt;&lt;FONT">http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/linux-onlinecourse-bytitle/9F896668D7EB5CA948256A710030E157?OpenDocument\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/linux-onlinecourse-bytitle/9F896668D7EB5CA948256A710030E157?OpenDocument&lt;/FONT&gt;&lt;/A&gt;<br">http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/linux-onlinecourse-bytitle/9F896668D7EB5CA948256A710030E157?OpenDocument&lt;/FONT&gt;&lt;/A&gt;<br</a> />
+&lt;A href=\"<a href="http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/linux-onlinecourse-bytitle/9F896668D7EB5CA948256A710030E157?OpenDocument\"&gt;&lt;FONT">http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/linux-onlinecourse-bytitle/9F896668D7EB5CA948256A710030E157?OpenDocument\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/linux-onlinecourse-bytitle/9F896668D7EB5CA948256A710030E157?OpenDocument&lt;/FONT&gt;&lt;/A&gt;">http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/linux-onlinecourse-bytitle/9F896668D7EB5CA948256A710030E157?OpenDocument&lt;/FONT&gt;&lt;/A&gt;</a>
 </p>
 
 <p>
 &lt;P&gt;附录B:vi 命令常见问题解答<br />
-&lt;A href=\"<a href="http://www.linuxsir.com/bbs/showthread.php?s=&amp;amp;threadid=23957\"&gt;&lt;FONT">http://www.linuxsir.com/bbs/showthread.php?s=&amp;amp;threadid=23957\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://www.linuxsir.com/bbs/showthread.php?s=&amp;amp;threadid=23957&lt;/FONT&gt;&lt;/A&gt;<br">http://www.linuxsir.com/bbs/showthread.php?s=&amp;amp;threadid=23957&lt;/FONT&gt;&lt;/A&gt;<br</a> />
+&lt;A href=\"<a href="http://www.linuxsir.com/bbs/showthread.php?s=&amp;amp;threadid=23957\"&gt;&lt;FONT">http://www.linuxsir.com/bbs/showthread.php?s=&amp;amp;threadid=23957\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://www.linuxsir.com/bbs/showthread.php?s=&amp;amp;threadid=23957&lt;/FONT&gt;&lt;/A&gt;">http://www.linuxsir.com/bbs/showthread.php?s=&amp;amp;threadid=23957&lt;/FONT&gt;&lt;/A&gt;</a>
 附录C:命令行下在线教程:<br />
 运行vimtutor即可学习!<br />
 </p>
@@ -3046,7 +3047,7 @@ vi -r将把所有可能恢复的文件都列出来.<br />
 <p>
 &lt;P&gt;3.6 - 有没有办法缩写文本?<br />
 当然了. 这可是vi呀,它能做任何事情!<br />
-:ab email &lt;A href=\"<a href="mailto:ellidz@midway.uchicago.edu\"&gt;&lt;FONT">mailto:ellidz@midway.uchicago.edu\"&gt;&lt;FONT</a> color=#0000ff&gt;ellidz@midway.uchicago.edu&lt;/FONT&gt;&lt;/A&gt; 可以在你敲完email后,把那个没有缩写<br />
+:ab email &lt;A href=\"<a href="mailto:ellidz@midway.uchicago.edu\"&gt;&lt;FONT">mailto:ellidz@midway.uchicago.edu\"&gt;&lt;FONT</a> color=#0000ff&gt;ellidz@midway.uchicago.edu&lt;/FONT&gt;&lt;/A&gt; 可以在你敲完email后,把那个没有缩写
 的文本插入到文件中. :una email取消缩写.<br />
 </p>
 
@@ -3378,7 +3379,7 @@ novice,tagstack等等)<br />
 : empty register \"q\"<br />
 <hr />
 \" Useful tricks<br />
-\"&lt;A href=\"<a href="mailto:ayy@a\"&gt;&lt;FONT">mailto:ayy@a\"&gt;&lt;FONT</a> color=#0000ff&gt;ayy@a&lt;/FONT&gt;&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : execute \"Vim command\" in a text file<br />
+\"&lt;A href=\"<a href="mailto:ayy@a\"&gt;&lt;FONT">mailto:ayy@a\"&gt;&lt;FONT</a> color=#0000ff&gt;ayy@a&lt;/FONT&gt;&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : execute \"Vim command\" in a text file
 yy@\"&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : same thing using unnamed register<br />
 u@.&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : execute command JUST typed in<br />
 <hr />
@@ -3479,13 +3480,13 @@ Pick the second block: ctrl-v move c ctrl-o \"aP &amp;lt;esc&amp;gt;<br />
 :set browsedir=buffer&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : Maki GUI File Open use current directory<br />
 <hr />
 \" launching Win IE<br />
-:nmap ,f :update&amp;lt;CR&amp;gt;:silent !start c:\\progra~1\\intern~1\\iexplore.exe &lt;A href=\"<a href="file://%:p&lt;CR/\"&gt;&lt;FONT">file://%:p&lt;CR/\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="file://%:p&amp;lt;CR&lt;/FONT&gt;&lt;/A&gt;&amp;gt;<br">file://%:p&amp;lt;CR&lt;/FONT&gt;&lt;/A&gt;&amp;gt;<br</a> />
+:nmap ,f :update&amp;lt;CR&amp;gt;:silent !start c:\\progra~1\\intern~1\\iexplore.exe &lt;A href=\"<a href="file://%:p&lt;CR/\"&gt;&lt;FONT">file://%:p&lt;CR/\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="file://%:p&amp;lt;CR&lt;/FONT&gt;&lt;/A&gt;&amp;gt;">file://%:p&amp;lt;CR&lt;/FONT&gt;&lt;/A&gt;&amp;gt;</a>
 :nmap ,i :update&amp;lt;CR&amp;gt;: !start c:\\progra~1\\intern~1\\iexplore.exe &amp;lt;cWORD&amp;gt;&amp;lt;CR&amp;gt;<br />
 <hr />
 \" FTPing from VIM<br />
-cmap ,r&amp;nbsp; :Nread &lt;A href=\"<a href="ftp://209.51.134.122/public_html/index.html\"&gt;&lt;FONT">ftp://209.51.134.122/public_html/index.html\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="ftp://209.51.134.122/public_html/index.html&lt;/FONT&gt;&lt;/A&gt;<br">ftp://209.51.134.122/public_html/index.html&lt;/FONT&gt;&lt;/A&gt;<br</a> />
-cmap ,w&amp;nbsp; :Nwrite &lt;A href=\"<a href="ftp://209.51.134.122/public_html/index.html\"&gt;&lt;FONT">ftp://209.51.134.122/public_html/index.html\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="ftp://209.51.134.122/public_html/index.html&lt;/FONT&gt;&lt;/A&gt;<br">ftp://209.51.134.122/public_html/index.html&lt;/FONT&gt;&lt;/A&gt;<br</a> />
-gvim &lt;A href=\"<a href="ftp://www.somedomain.com/index.html\"&gt;&lt;FONT">ftp://www.somedomain.com/index.html\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="ftp://www.somedomain.com/index.html&lt;/FONT&gt;&lt;/A&gt;">ftp://www.somedomain.com/index.html&lt;/FONT&gt;&lt;/A&gt;</a> # uses netrw.vim<br />
+cmap ,r&amp;nbsp; :Nread &lt;A href=\"<a href="ftp://209.51.134.122/public_html/index.html\"&gt;&lt;FONT">ftp://209.51.134.122/public_html/index.html\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="ftp://209.51.134.122/public_html/index.html&lt;/FONT&gt;&lt;/A&gt;">ftp://209.51.134.122/public_html/index.html&lt;/FONT&gt;&lt;/A&gt;</a>
+cmap ,w&amp;nbsp; :Nwrite &lt;A href=\"<a href="ftp://209.51.134.122/public_html/index.html\"&gt;&lt;FONT">ftp://209.51.134.122/public_html/index.html\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="ftp://209.51.134.122/public_html/index.html&lt;/FONT&gt;&lt;/A&gt;">ftp://209.51.134.122/public_html/index.html&lt;/FONT&gt;&lt;/A&gt;</a>
+gvim &lt;A href=\"<a href="ftp://www.somedomain.com/index.html\"&gt;&lt;FONT">ftp://www.somedomain.com/index.html\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="ftp://www.somedomain.com/index.html&lt;/FONT&gt;&lt;/A&gt;">ftp://www.somedomain.com/index.html&lt;/FONT&gt;&lt;/A&gt;</a> # uses netrw.vim
 <hr />
 \" appending to registers (use CAPITAL)<br />
 \" yank 5 lines into \"a\" then add a further 5<br />
@@ -3602,7 +3603,7 @@ map&amp;nbsp;&amp;nbsp; &amp;lt;f11&amp;gt; \"qyy:let @q=@q.\"zzz\"<br />
 :h :r&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : help for :ex command<br />
 :h CTRL-R&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : normal mode<br />
 :h /\\r&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : what\'s \\r in a regexp (matches a &amp;lt;CR&amp;gt;)<br />
-:h &lt;A href=\"<a href="file://zs/\"&gt;&lt;FONT">file://zs/\"&gt;&lt;FONT</a> color=#0000ff&gt;\\\\zs&lt;/FONT&gt;&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : double up backslash to find \\zs in help<br />
+:h &lt;A href=\"<a href="file://zs/\"&gt;&lt;FONT">file://zs/\"&gt;&lt;FONT</a> color=#0000ff&gt;\\\\zs&lt;/FONT&gt;&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : double up backslash to find \\zs in help
 :h i_CTRL-R&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : help for say &amp;lt;C-R&amp;gt; in insert mode<br />
 :h c_CTRL-R&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : help for say &amp;lt;C-R&amp;gt; in command mode<br />
 :h v_CTRL-V&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; : visual mode<br />
@@ -3675,7 +3676,7 @@ qqmnYP`n^Aq&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp
 \" increment existing numbers to end of file (type &amp;lt;c-a&amp;gt; as 5 characters)<br />
 :.,$g/^\\d/exe \"normal! \\&amp;lt;c-a&amp;gt;\"<br />
 \" advanced incrementing<br />
-&lt;A href=\"<a href="http://vim.sourceforge.net/tip_view.php?tip_id=150\"&gt;&lt;FONT">http://vim.sourceforge.net/tip_view.php?tip_id=150\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://vim.sourceforge.net/tip_view.php?tip_id=150&lt;/FONT&gt;&lt;/A&gt;<br">http://vim.sourceforge.net/tip_view.php?tip_id=150&lt;/FONT&gt;&lt;/A&gt;<br</a> />
+&lt;A href=\"<a href="http://vim.sourceforge.net/tip_view.php?tip_id=150\"&gt;&lt;FONT">http://vim.sourceforge.net/tip_view.php?tip_id=150\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://vim.sourceforge.net/tip_view.php?tip_id=150&lt;/FONT&gt;&lt;/A&gt;">http://vim.sourceforge.net/tip_view.php?tip_id=150&lt;/FONT&gt;&lt;/A&gt;</a>
 <hr />
 \" advanced incrementing (really useful)<br />
 \" put following in _vimrc<br />
@@ -3715,7 +3716,7 @@ amenu&amp;nbsp; Modeline.Insert\\ a\\ VIM\\ modeline &amp;lt;Esc&amp;gt;&amp;lt;
 \" A function to save word under cursor to a file<br />
 function! SaveWord()<br />
 &amp;nbsp;&amp;nbsp; normal yiw<br />
-&amp;nbsp;&amp;nbsp; exe \':!echo &lt;A href=\"<a href="mailto:\'.@0.\'\"&gt;&lt;FONT">mailto:\'.@0.\'\"&gt;&lt;FONT</a> color=#0000ff&gt;\'.@0.\'&lt;/FONT&gt;&lt;/A&gt; &amp;gt;&amp;gt; word.txt\'<br />
+&amp;nbsp;&amp;nbsp; exe \':!echo &lt;A href=\"<a href="mailto:\'.@0.\'\"&gt;&lt;FONT">mailto:\'.@0.\'\"&gt;&lt;FONT</a> color=#0000ff&gt;\'.@0.\'&lt;/FONT&gt;&lt;/A&gt; &amp;gt;&amp;gt; word.txt\'
 endfunction<br />
 map ,p :call SaveWord()<br />
 <hr />
@@ -3850,7 +3851,7 @@ g&amp;lt;C-G&amp;gt;<br />
 <hr />
 \" reproduce previous line word by word<br />
 imap ]&amp;nbsp; @@@&amp;lt;ESC&amp;gt;hhkyWjl?@@@&amp;lt;CR&amp;gt;P/@@@&amp;lt;CR&amp;gt;3s<br />
-nmap ] &lt;A href=\"<a href="mailto:i@@@&lt;ESC&gt;hhkyWjl?@@@&lt;CR&gt;P/@@@&lt;CR&gt;3s\"&gt;&lt;FONT">mailto:i@@@&lt;ESC&gt;hhkyWjl?@@@&lt;CR&gt;P/@@@&lt;CR&gt;3s\"&gt;&lt;FONT</a> color=#0000ff&gt;i@@@&amp;lt;ESC&amp;gt;hhkyWjl?@@@&amp;lt;CR&amp;gt;P/@@@&amp;lt;CR&amp;gt;3s&lt;/FONT&gt;&lt;/A&gt;<br />
+nmap ] &lt;A href=\"<a href="mailto:i@@@&lt;ESC&gt;hhkyWjl?@@@&lt;CR&gt;P/@@@&lt;CR&gt;3s\"&gt;&lt;FONT">mailto:i@@@&lt;ESC&gt;hhkyWjl?@@@&lt;CR&gt;P/@@@&lt;CR&gt;3s\"&gt;&lt;FONT</a> color=#0000ff&gt;i@@@&amp;lt;ESC&amp;gt;hhkyWjl?@@@&amp;lt;CR&amp;gt;P/@@@&amp;lt;CR&amp;gt;3s&lt;/FONT&gt;&lt;/A&gt;
 \" Programming keys depending on file type<br />
 :autocmd bufenter *.tex map &amp;lt;F1&amp;gt; :!latex %&amp;lt;CR&amp;gt;<br />
 :autocmd bufenter *.tex map &amp;lt;F2&amp;gt; :!xdvi -hush %&amp;lt;.dvi&amp;amp;&amp;lt;CR&amp;gt;<br />
@@ -3871,18 +3872,18 @@ vim -c \":%s%s*%Cyrnfr)fcbafbe[Oenz(Zbbyranne%|:%s)[[()])-)Ig|norm Vg?\"<br />
 <hr />
 _<em>END</em>_<br />
 <hr />
-If you liked these please return to &lt;A href=\"<a href="http://www.vim.org/\"&gt;&lt;FONT">http://www.vim.org/\"&gt;&lt;FONT</a> color=#0000ff&gt;www.vim.org&lt;/FONT&gt;&lt;/A&gt;<br />
+If you liked these please return to &lt;A href=\"<a href="http://www.vim.org/\"&gt;&lt;FONT">http://www.vim.org/\"&gt;&lt;FONT</a> color=#0000ff&gt;www.vim.org&lt;/FONT&gt;&lt;/A&gt;
 and vote for this tip (It does encourage me!!)<br />
 Tip 305<br />
 <hr />
 Please email any errors, tips etc to<br />
-&lt;A href=\"<a href="mailto:david@rayninfo.co.uk\"&gt;&lt;FONT">mailto:david@rayninfo.co.uk\"&gt;&lt;FONT</a> color=#0000ff&gt;david@rayninfo.co.uk&lt;/FONT&gt;&lt;/A&gt;<br />
+&lt;A href=\"<a href="mailto:david@rayninfo.co.uk\"&gt;&lt;FONT">mailto:david@rayninfo.co.uk\"&gt;&lt;FONT</a> color=#0000ff&gt;david@rayninfo.co.uk&lt;/FONT&gt;&lt;/A&gt;
 <hr />
-updated version at &lt;A href=\"<a href="http://www.rayninfo.co.uk/vimtips.html\"&gt;&lt;FONT">http://www.rayninfo.co.uk/vimtips.html\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://www.rayninfo.co.uk/vimtips.html&lt;/FONT&gt;&lt;/A&gt;<br">http://www.rayninfo.co.uk/vimtips.html&lt;/FONT&gt;&lt;/A&gt;<br</a> />
+updated version at &lt;A href=\"<a href="http://www.rayninfo.co.uk/vimtips.html\"&gt;&lt;FONT">http://www.rayninfo.co.uk/vimtips.html\"&gt;&lt;FONT</a> color=#0000ff&gt;<a href="http://www.rayninfo.co.uk/vimtips.html&lt;/FONT&gt;&lt;/A&gt;">http://www.rayninfo.co.uk/vimtips.html&lt;/FONT&gt;&lt;/A&gt;</a>
 <hr />
 \" Information Sources<br />
 <hr />
-&lt;A href=\"<a href="http://www.vim.org/\"&gt;&lt;FONT">http://www.vim.org/\"&gt;&lt;FONT</a> color=#0000ff&gt;www.vim.org&lt;/FONT&gt;&lt;/A&gt;<br />
+&lt;A href=\"<a href="http://www.vim.org/\"&gt;&lt;FONT">http://www.vim.org/\"&gt;&lt;FONT</a> color=#0000ff&gt;www.vim.org&lt;/FONT&gt;&lt;/A&gt;
 comp.editors \"VIM\" newsgroup<br />
 groups.yahoo.com/group/vim \"VIM\" specific newsgroup<br />
 VIM Webring<br />
@@ -3984,7 +3985,7 @@ Foot note 3: Commands used with :g are ex commands, so a help search should<br /
 
 <p>
 &lt;P&gt;Additional Notes<br />
-&amp;nbsp;&lt;A href=\"<a href="mailto:david@tvis.co.uk\"&gt;&lt;FONT">mailto:david@tvis.co.uk\"&gt;&lt;FONT</a> color=#0000ff&gt;david@tvis.co.uk&lt;/FONT&gt;&lt;/A&gt;, March 28, 2002 7:10<br />
+&amp;nbsp;&lt;A href=\"<a href="mailto:david@tvis.co.uk\"&gt;&lt;FONT">mailto:david@tvis.co.uk\"&gt;&lt;FONT</a> color=#0000ff&gt;david@tvis.co.uk&lt;/FONT&gt;&lt;/A&gt;, March 28, 2002 7:10
 Thanx Karma for extending my g// knowledge<br />
 </p>
 
@@ -4239,7 +4240,7 @@ v/./        对所有的空行执行后面 3 个命令<br />
 ※ 修改:·sk8 于 Jan 23 19:56:07 修改本文·[FROM:  218.88.205.178]<br />
 ※ 来源:·BBS 水木清华站 smth.edu.cn·[FROM: 218.88.205.178]<br />
 vim使用技巧(1)<br />
-本文参考了vim官方网站的文档<a href="http://www.vim.org/tips/index.php。为了查找方便起见，文中的技巧编号沿用原文档中的编号。<br">http://www.vim.org/tips/index.php。为了查找方便起见，文中的技巧编号沿用原文档中的编号。<br</a> />
+本文参考了vim官方网站的文档<a href="http://www.vim.org/tips/index.php。为了查找方便起见，文中的技巧编号沿用原文档中的编号。">http://www.vim.org/tips/index.php。为了查找方便起见，文中的技巧编号沿用原文档中的编号。</a>
 1. 使用 * 键可以向后搜索光标所在位置的单词。反之，使用 # 键可以向前搜索光标所在位置的单词。第一次使用 * 或者 # 进行搜索之后，则可以使用 N 或 Shift-N 继续进行搜索。另外，如果设置了hlsearch选项（:set hlsearch）的话，那么使用 * Shift-N 则可以标记当前的单词为高亮显示。<br />
 2. 经常会遇到这样的情况，就是在命令行上输入含有一个长长的路径的命令 vi /home/username/linux/src/dir1/dir2/dir3/srcfile.c，编辑结束之后发现需要编辑同一目录下的另一个文件，这时不得不在vi中重新输入长长的路径。而将下面的脚本放在vimrc文件（Unix下为~/.vimrc，Windows下为_vimrc）中即可快速输入路径：<br />
 \"   Edit another file in the same directory as the current file<br />
@@ -5642,7 +5643,7 @@ Tip #330: how to stop auto indenting<br />
 如果想在vim里面达到这个效果,在vimrc中加入一下两行:<br />
 au BufWinEnter *. exe \'set list listchars=tab:\\|\\ \'<br />
 au BufWinEnter *. exe \'command Seetab :set list listchars=tab:\\|\\ \'<br />
-当你编程序时, 就会达到这个效果. 源自:<a href="http://www.vim.org/tips/tip.php?tip_id=460<br">http://www.vim.org/tips/tip.php?tip_id=460<br</a> />
+当你编程序时, 就会达到这个效果. 源自:<a href="http://www.vim.org/tips/tip.php?tip_id=460">http://www.vim.org/tips/tip.php?tip_id=460</a>
 用法:<br />
 当你不想看到对齐线时 在vim的normal模式下 :set nolist<br />
 如果你想看到对齐线时 在vim的normal模式下 :Seetab<br />
@@ -8017,6 +8018,7 @@ Vim编辑器可以记录上几次的错误以及在屏幕最后一行显示的�
 © <span id="year">2018</span> 
 </p>
 <script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>

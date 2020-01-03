@@ -4,6 +4,7 @@
 
 <link rel="Stylesheet" type="text/css" href="style.css">
 <link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
@@ -158,7 +159,7 @@ abc|efg表示的是abc或者efg。|的优先级比较低。<br />
 　　验证是否含有^%&amp;'',;=?\("等字符：“[^%&amp;'',;=?\)x22]+” <br />
 　　只能输入汉字：“^[u4e00-u9fa5],{0,}$” <br />
 　　验证Email地址：“^w+[-+.]w+)<strong>@w+([-.]w+)</strong>.w+([-.]w+)*$” <br />
-　　验证InternetURL：“^<a href="http://([w-]+.)+[w-]+(/[w-./?%&amp;=]*)?\(”">http://([w-]+.)+[w-]+(/[w-./?%&amp;=]*)?\)”</a> <br />
+　　验证InternetURL：“^<a href="http://([w-]+.)+[w-]+(/[w-./?%&amp;=]*)?\(”">http://([w-]+.)+[w-]+(/[w-./?%&amp;=]*)?\)”</a> 
 　　验证电话号码：“^((d{3,4})|d{3,4}-)?d{7,8}$” <br />
 　　正确格式为：“XXXX-XXXXXXX”，“XXXX-XXXXXXXX”，“XXX-XXXXXXX”， <br />
 　　“XXX-XXXXXXXX”，“XXXXXXX”，“XXXXXXXX”。 <br />
@@ -172,7 +173,7 @@ abc|efg表示的是abc或者efg。|的优先级比较低。<br />
 　　匹配HTML标记的正则表达式：/&lt;(.<strong>)&gt;.</strong>|&lt;(.*) /&gt;/ <br />
 　　匹配首尾空格的正则表达式：(^s*)|(s*$) <br />
 　　匹配Email地址的正则表达式：w+([-+.]w+)<strong>@w+([-.]w+)</strong>.w+([-.]w+)* <br />
-　　匹配网址URL的正则表达式：<a href="http://([w-]+.)+[w-]+(/[w-">http://([w-]+.)+[w-]+(/[w-</a> ./?%&amp;=]*)? <br />
+　　匹配网址URL的正则表达式：<a href="http://([w-]+.)+[w-]+(/[w-">http://([w-]+.)+[w-]+(/[w-</a> ./?%&amp;=]*)? 
 　　(1)应用：计算字符串的长度（一个双字节字符长度计2，ASCII字符计1） <br />
 　　String.prototype.len=function(){return this.replace([^x00-xff]/g,"aa").length;} <br />
 　　(2)应用：javascript中没有像vbscript那样的trim函数，我们就可以利用这个表达式来实现 <br />
@@ -194,7 +195,7 @@ abc|efg表示的是abc或者efg。|的优先级比较低。<br />
 　　} <br />
 　　} <br />
 　　(4)应用：从URL地址中提取文件名的javascript程序 <br />
-　　s="<a href="http://www.9499.net/page1.htm";">http://www.9499.net/page1.htm";</a> <br />
+　　s="<a href="http://www.9499.net/page1.htm";">http://www.9499.net/page1.htm";</a> 
 　　s=s.replace(/(.<strong>/){0,}([^.]+).</strong>/ig,"$2") ;//Page1.htm <br />
 　　(5)应用：利用正则表达式限制网页表单里的文本框输入内容 <br />
 　　用正则表达式限制只能输入中文：onkeyup="value=value.replace(/[<sup><small>u4E00-u9FA5]/g,'') "onbeforepaste="clipboardData.setData(''text'',clipboardData.getData(''text'').replace(/[</small></sup>u4E00-u9FA5]/g,''))" <br />
@@ -863,6 +864,7 @@ Global<br />
 © <span id="year">2018</span> 
 </p>
 <script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
 <script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
