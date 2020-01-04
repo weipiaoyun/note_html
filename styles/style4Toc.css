@@ -32,7 +32,6 @@
 	}
 
 
-
 	/*刚进来的时候，所有的menu不显示,只显示一级目录*/
 	.menu1 ul{
 		display: none;

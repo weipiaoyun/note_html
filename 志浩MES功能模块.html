@@ -53,19 +53,23 @@
 <ul>
 <li class="menu2"><a href="#toc_6.1">AGV到前处理胜宏解决方案 </a>
 <li class="menu2"><a href="#toc_6.2">AGV和上下板机对接方案 </a>
+<li class="menu2"><a href="#toc_6.3">AGV站点 </a>
 </ul>
 <li class="menu1"><a href="#toc_7">智能仓储 </a>
 <ul>
 <li class="menu2"><a href="#toc_7.1">IQC(Incoming Quality Control) 来料质量控制 </a>
-<li class="menu2"><a href="#toc_7.2">出库 </a>
-<li class="menu2"><a href="#toc_7.3">WCS系统 </a>
+<li class="menu2"><a href="#toc_7.2">包装入库 </a>
+<li class="menu2"><a href="#toc_7.3">出库 </a>
+<li class="menu2"><a href="#toc_7.4">WCS系统 </a>
 </ul>
 <li class="menu1"><a href="#toc_8">计划管理 </a>
 <ul>
 <li class="menu2"><a href="#toc_8.1">生产计划 </a>
 <li class="menu2"><a href="#toc_8.2">排产 </a>
 <ul>
-<li class="menu3"><a href="#toc_8.2.1">工作中心 </a>
+<li class="menu3"><a href="#toc_8.2.1">手动排单 </a>
+<li class="menu3"><a href="#toc_8.2.2">理想自动排单 </a>
+<li class="menu3"><a href="#toc_8.2.3">工作中心 </a>
 </ul>
 <li class="menu2"><a href="#toc_8.3">产能 </a>
 </ul>
@@ -74,33 +78,32 @@
 <li class="menu2"><a href="#toc_9.1">生产信息中心 </a>
 <li class="menu2"><a href="#toc_9.2">板的信息 </a>
 </ul>
-<li class="menu1"><a href="#toc_10">设备管理 </a>
+<li class="menu1"><a href="#toc_10">质量管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_10.1">代码注释 </a>
-<li class="menu2"><a href="#toc_10.2">参数采集 </a>
+<li class="menu2"><a href="#toc_10.1">岗位资格认证 </a>
 </ul>
-<li class="menu1"><a href="#toc_11">江西志浩参数采集服务 </a>
+<li class="menu1"><a href="#toc_11">设备管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_11.1">AOI </a>
-<li class="menu2"><a href="#toc_11.2">裁磨线 </a>
-<li class="menu2"><a href="#toc_11.3">XRAY </a>
-<li class="menu2"><a href="#toc_11.4">Q? </a>
+<li class="menu2"><a href="#toc_11.1">代码注释 </a>
+<li class="menu2"><a href="#toc_11.2">参数采集 </a>
 </ul>
-<li class="menu1"><a href="#toc_12">配方下发 </a>
+<li class="menu1"><a href="#toc_12">江西志浩参数采集服务 </a>
 <ul>
-<li class="menu2"><a href="#toc_12.1">电镀 </a>
+<li class="menu2"><a href="#toc_12.1">AOI </a>
+<li class="menu2"><a href="#toc_12.2">裁磨线 </a>
+<li class="menu2"><a href="#toc_12.3">XRAY </a>
+<li class="menu2"><a href="#toc_12.4">Q? </a>
 </ul>
-<li class="menu1"><a href="#toc_13">设备统计 </a>
-<li class="menu1"><a href="#toc_14">包装入库 </a>
+<li class="menu1"><a href="#toc_13">配方下发 </a>
+<ul>
+<li class="menu2"><a href="#toc_13.1">电镀 </a>
+</ul>
+<li class="menu1"><a href="#toc_14">设备统计 </a>
 <li class="menu1"><a href="#toc_15">信息中心 </a>
 <li class="menu1"><a href="#toc_16">生产类型 </a>
 <li class="menu1"><a href="#toc_17">看板管理 </a>
 <ul>
 <li class="menu2"><a href="#toc_17.1">Redis </a>
-<ul>
-<li class="menu3"><a href="#toc_17.1.1">时代峰峻 </a>
-</ul>
-<li class="menu2"><a href="#toc_17.2">路上的风景 </a>
 </ul>
 <li class="menu1"><a href="#toc_18">华为要求 </a>
 </ul>
@@ -276,13 +279,25 @@ location：左边上板机还是右边上板机
 </ul>
 </ol>
 
+<h2 id="toc_6.3">AGV站点 </h2>
+<p>
+生产管理 =&gt; 暂存区管理<br />
+</p>
+
 <h1 id="toc_7">智能仓储 </h1><HR SIZE=1>
 <p>
 收料-&gt;IQC-&gt;入库<br />
 发料-&gt;调拨-&gt;盘点<br />
 </p>
 <h2 id="toc_7.1">IQC(Incoming Quality Control) 来料质量控制 </h2>
-<h2 id="toc_7.2">出库 </h2>
+
+<h2 id="toc_7.2">包装入库 </h2>
+<p>
+每块板包装之前都要有二维码。<br />
+大包装绑定小包装，小包装绑定里面的每块板。<br />
+</p>
+
+<h2 id="toc_7.3">出库 </h2>
 <p>
 备料<br />
 </p>
@@ -305,7 +320,7 @@ location：左边上板机还是右边上板机
 WMS&lt;=&gt;WCS&lt;=&gt;MES<br />
 </p>
 
-<h2 id="toc_7.3">WCS系统 </h2>
+<h2 id="toc_7.4">WCS系统 </h2>
 <ol>
 <li>
 原物料仓
@@ -335,7 +350,36 @@ MES 通过WCS系统下发指令(存货，取货，运货)<br />
 </p>
 
 <h2 id="toc_8.2">排产 </h2>
-<h3 id="toc_8.2.1">工作中心 </h3>
+<h3 id="toc_8.2.1">手动排单 </h3>
+<ol>
+<li>
+本工序的标准产能。今天能做多少板。
+
+<li>
+查出所有的在线WIP，先排本工序结存。
+
+<li>
+看交期优先级，生产总量
+
+<li>
+按交期找前工序派单。比如钻孔，前工序可能是压合，AOI，或开料(开料钻)
+
+</ol>
+
+<h3 id="toc_8.2.2">理想自动排单 </h3>
+<ol>
+<li>
+只能从前往后排。不能反着排。否则后面的会根据前面的变而变。
+
+<li>
+按时间标准排(也有可能是按标准产能排。)
+
+<li>
+排单不是所有的流程都排，是重要的流程需要排。
+
+</ol>
+
+<h3 id="toc_8.2.3">工作中心 </h3>
 <p>
 工作中心可以是车间，可以是一条线。排机的时候可以排到工作中心，也可以排到线。<br />
 生产排机<br />
@@ -360,6 +404,24 @@ MES 通过WCS系统下发指令(存货，取货，运货)<br />
 <li>
 实际排了多少，待排多少
 
+<li>
+WIP按流程拿，不是按工序拿。
+
+<li>
+标准产能按流程排，放工作中心。
+
+<li>
+钻孔要看开料，内层AOI，压合工序，不是看流程。
+
+<li>
+工作中心绑定工艺流程和设备。
+
+<li>
+某个料号的停留时间。
+
+<li>
+某个工序的结存数据。
+
 </ol>
 
 <h2 id="toc_8.3">产能 </h2>
@@ -379,31 +441,71 @@ MES 通过WCS系统下发指令(存货，取货，运货)<br />
 叠构信息，品质管理，包装信息，返修信息<br />
 </p>
 
+<h1 id="toc_10">质量管理 </h1><HR SIZE=1>
+<h2 id="toc_10.1">岗位资格认证 </h2>
+<p>
+认证<br />
+一岗一表<br />
+岗位资格认证<br />
+</p>
+
+<p>
+关联设备，关联工序<br />
+</p>
+
+<ol>
+<li>
+资格认证(添加岗位编码对应岗位。)
+
+<li>
+认证授权(员工对应岗位)
+
+<li>
+岗位授权(岗位绑定设备)
+
+</ol>
+
+<ol>
+<li>
+人关联岗位(岗位资格认证)。可以基于用户授权(某个用户有哪些岗位授权)，可以基于认证授权(某个岗位有哪些用户有权限)。
+
+<li>
+岗位关联设备。
+
+<li>
+流程对应技能认证。
+
+<li>
+产品没有绑定认证是所有人都能跑。
+
+</ol>
 
 
-<h1 id="toc_10">设备管理 </h1><HR SIZE=1>
-<h2 id="toc_10.1">代码注释 </h2>
+
+
+<h1 id="toc_11">设备管理 </h1><HR SIZE=1>
+<h2 id="toc_11.1">代码注释 </h2>
 <p>
 IPLCConnect 暂时没什么用。<br />
 IPLCOperate 在PLCConnect的里面使用。每个不同类型的PLC都继承该接口。PLCConnect在使用的时候可以对不同类型的PLC进行操作。<br />
 </p>
 
-<h2 id="toc_10.2">参数采集 </h2>
+<h2 id="toc_11.2">参数采集 </h2>
 <ol>
 <li>
-OPC 协议
+OPC UA 协议
 
 <li>
 采集上来的数据进行数据发布，通知其它的系统。
 
 </ol>
 
-<h1 id="toc_11">江西志浩参数采集服务 </h1><HR SIZE=1>
+<h1 id="toc_12">江西志浩参数采集服务 </h1><HR SIZE=1>
 <p>
 <a href="江西志浩参数采集服务.html">江西志浩参数采集服务</a>
 </p>
 
-<h2 id="toc_11.1">AOI </h2>
+<h2 id="toc_12.1">AOI </h2>
 <p>
 AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件。AOI扫描会加上喷印码。<br />
 </p>
@@ -428,9 +530,9 @@ VRS输出，和AOI机比对，生成误报率
 
 </ol>
 
-<h2 id="toc_11.2">裁磨线 </h2>
+<h2 id="toc_12.2">裁磨线 </h2>
 
-<h2 id="toc_11.3">XRAY </h2>
+<h2 id="toc_12.3">XRAY </h2>
 <ol>
 <li>
 怎么采集涨缩值
@@ -441,14 +543,14 @@ VRS输出，和AOI机比对，生成误报率
 </ol>
 
 
-<h2 id="toc_11.4">Q? </h2>
+<h2 id="toc_12.4">Q? </h2>
 <p>
 #OPC 协议的UA和DA (UA不需要设置DCOM)<br />
 </p>
 
-<h1 id="toc_12">配方下发 </h1><HR SIZE=1>
+<h1 id="toc_13">配方下发 </h1><HR SIZE=1>
 
-<h2 id="toc_12.1">电镀 </h2>
+<h2 id="toc_13.1">电镀 </h2>
 <ol>
 <li>
 电镀面积
@@ -467,16 +569,11 @@ VRS输出，和AOI机比对，生成误报率
 
 </ol>
 
-<h1 id="toc_13">设备统计 </h1><HR SIZE=1>
+<h1 id="toc_14">设备统计 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/设备统计.xlsx"download=\"文件名.txt\">点击下载:【设备统计.xlsx】</a></div><br />
 </p>
 
-<h1 id="toc_14">包装入库 </h1><HR SIZE=1>
-<p>
-每块板包装之前都要有二维码。<br />
-大包装绑定小包装，小包装绑定里面的每块板。<br />
-</p>
 
 
 
@@ -544,12 +641,6 @@ WIP，趋势图，库存，<br />
 
 </ol>
 
-<h3 id="toc_17.1.1">时代峰峻 </h3>
-<p>
-了设计费<br />
-</p>
-<h2 id="toc_17.2">路上的风景 </h2>
- 
  
 <h1 id="toc_18">华为要求 </h1><HR SIZE=1>
 <ol>
