@@ -1,0 +1,366 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>协变和逆变</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">特点 </a>
+<li class="menu1"><a href="#toc_2">协变 </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">协变的使用特例 </a>
+<ul>
+<li class="menu3"><a href="#toc_2.1.1">可以使委托的返回值返回更高级的派生类型obj </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_3">逆变 </a>
+<ul>
+<li class="menu2"><a href="#toc_3.1">逆变的使用特例 </a>
+<ul>
+<li class="menu3"><a href="#toc_3.1.1">可以使委托的参数类型接收更少的派生类型 </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_4">为什么不能既是协变又是逆变 </a>
+<ul>
+<li class="menu2"><a href="#toc_4.1">为什么object=&gt;string不可以 </a>
+</ul>
+<li class="menu1"><a href="#toc_5">假设可以即是协变又是逆变 </a>
+</ul>
+</div>
+<div class="content">
+
+<h1 id="toc_1">特点 </h1><HR SIZE=1>
+<ul>
+<li>
+必须是泛型的接口或委托才有协变和逆变 
+
+<li>
+不管是协变，逆变都有个转换过程。且都是子类强制转换为父类。
+
+<li>
+不可用于值类型的，只能是引用类型。如string可以，int不可以。
+
+</ul>
+
+
+<h1 id="toc_2">协变 </h1><HR SIZE=1>
+<p>
+公式：IFoo&lt;父类&gt; = IFoo&lt;子类&gt;；<br />
+如 IEq&lt;Person&gt; = IEq&lt;Student&gt;;   <br />
+</p>
+
+<ol>
+<li>
+对象是student的。 IEq&lt;Person&gt;和IEq&lt;Student&gt;指向同一对象。执行是student，返回是student。返回的结果转换成person。
+
+</ol>
+
+<h2 id="toc_2.1">协变的使用特例 </h2>
+<h3 id="toc_2.1.1">可以使委托的返回值返回更高级的派生类型obj </h3>
+<p>
+IEnumerable&lt;out T&gt;<br />
+</p>
+
+<p>
+假设我们有个Animal类，如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+    public class Animal
+    {
+        public string Name { get; set; }
+    }
+</pre>
+
+<p>
+然后一个Cat类，继承于animal，如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+	public class Cat : Animal
+    {
+
+    }
+</pre>
+
+<p>
+一个Fish类，继承于animal，如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+	public class Fish : Animal
+    {
+
+    }
+</pre>
+
+<p>
+假设打印所有的animal的功能，我们都可以放在一个方法里面。而不需要针对Cat增加一个打印功能，针对fish的增加一个打印功能。<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+void PrintAnimals(IEnumerable&lt;Animal&gt; animals) {
+  for(var animal in animals)
+    Console.WriteLine(animal.Name);
+}
+</pre>
+
+
+<p>
+以下打印名字都可以通过PrintAnimals方法打印名字。<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+PrintAnimals(new List&lt;Animal&gt; { new Animal() { Name = "animal" } });
+PrintAnimals(new List&lt;Cat&gt; { new Cat() { Name = "cat" } });
+PrintAnimals(new List&lt;Fish&gt; { new Fish() { Name = "fish" } });
+</pre>
+
+
+<p>
+这里IEnumerable&lt;Cat&gt; 传递给IEnumerable&lt;Animal&gt;<br />
+</p>
+
+<p>
+注意，这里的PrintAnimals方法不会产生任何的问题。<br />
+因为它只是从一个集合中读出所有的动物名字。用猫的集合作为参数也是可以的。因为所有的猫都是动物。<br />
+</p>
+
+<h1 id="toc_3">逆变 </h1><HR SIZE=1>
+<p>
+公式：IBar&lt;子类&gt; = IBar&lt;父类&gt;；<br />
+如：IEq&lt;Student&gt; = IEq&lt;Person&gt;;<br />
+</p>
+<ol>
+<li>
+对象是Person的。IEq&lt;Person&gt;和IEq&lt;Student&gt;也是指向同一对象。执行的是person的，参数由student传递给person，会进行转换。
+
+</ol>
+
+
+<h2 id="toc_3.1">逆变的使用特例 </h2>
+<h3 id="toc_3.1.1">可以使委托的参数类型接收更少的派生类型 </h3>
+
+
+<p>
+我们先定义一个可逆变接口。<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+//比较两个对象是否相等。
+public interface IMyEquatable&lt;in T&gt;
+{
+    // 返回 this 是否与 other 相等
+    bool Eq(T other);
+}
+</pre>
+
+<p>
+然后我们定义一个名为Has的扩展方法。它会调用Eq判断两个对象是否相等。<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public static class EnumerableExtension
+{
+    // 判断 source 是否包含 item
+    public static bool Has&lt;T&gt;(this IEnumerable&lt;T&gt; source, T item)
+        where T : IMyEquatable&lt;T&gt;
+    {
+        foreach (T i in source)
+        {
+            if (i.Eq(item))
+                return true;
+        }
+        return false;
+    }
+}
+</pre>
+
+
+<p>
+假设我们希望 Person 和它的所有的子类都通过 Name 属性的值判断是否相等，就会让 Person 实现 IMyEquatable&lt;T&gt; 接口，它的子类只要继承 Person 类就好：<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public class Person : IMyEquatable&lt;Person&gt;
+{
+    public string Name { get; set; }
+    public bool Eq(Person other)
+    {
+        return this.Name == other.Name;
+    }
+}
+public class Student : Person
+{
+    public int Grade { get; set; }
+}
+public class Teacher : Person
+{
+    public int Level { get; set; }
+}
+</pre>
+
+<p>
+假如我们可以公用父类的方法去判断两个人是否同一个人。<br />
+student和teacher就不需要重写该比较方法。维护方便。<br />
+</p>
+
+
+<p>
+这样，Person 的子类列表，例如 IList&lt;Student&gt;，也可以使用 Has() 方法：<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+Student jcl = new Student { Name = "Jing", Grade = 2 };    // 景春雷
+Student jcldd = new Student { Name = "Jing", Grade = 1 };  // 景春雷的弟弟
+IList&lt;Student&gt; stus = new List&lt;Student&gt;();
+stus.Add(jcl);
+stus.Add(jcldd);
+Console.WriteLine(stus.Has(jcldd)); // 输出：True
+</pre>
+
+<p>
+以上最后一行：<br />
+</p>
+<ul>
+<li>
+stus.Has(jcldd) 相当于 Has&lt;Student&gt;(sts, jcldd)
+
+<li>
+要求泛型参数实现 IMyEquatable&lt;Student&gt; 接口，但是 Student 没有实现IMyEquatable&lt;Student&gt; 接口。
+
+<li>
+不过它继承了父类实现的 IMyEquatable&lt;Person&gt; 接口
+
+<li>
+且IMyEquatable&lt;in T&gt; 的泛型参数被声明成了逆变的
+
+<li>
+也就是允许从 IMyEquatable&lt;Person&gt; 到 IMyEquatable&lt;Student&gt; 的隐式转换
+
+</ul>
+
+<p>
+<strong>子类可以统一用父类的接口方法去执行，维护起来更加方便</strong><br />
+</p>
+
+<h1 id="toc_4">为什么不能既是协变又是逆变 </h1><HR SIZE=1>
+<p>
+	<strong>为了类型安全。防止转换错误</strong><br />
+</p>
+	
+<h2 id="toc_4.1">为什么object=&gt;string不可以 </h2>
+	
+<p>
+	如下代码：object是父类，string是子类。object=&gt;string是不安全的。编译器会报错。<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+		    string testString1 = "test1";
+            object testObj = testString1;
+            string testString2 = testObj;//该地方编译器不通过。
+</pre>
+<p>
+	但是，将如上代码如果将第3行更改为如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+		    string testString2 = testObj as string;
+</pre>
+	
+<p>
+	<strong>编译通过。所以object=&gt;string不是不可以，而是为了安全，编译器不让通过。在确定安全的情况下可以强制转换。</strong> 这也是我们期望的 <strong>编译器能为我们类型安全检查</strong><br />
+</p>
+	
+<ul>
+<li>
+只有子类型到父类型的隐式转换是类型安全的。
+
+<li>
+父类向子类转换是不安全的 <strong>希望编译器是无法通过编译的</strong>
+
+<li>
+父类转子类，在确认可以的情况下，可以显式转换。
+
+</ul>
+
+<h1 id="toc_5">假设可以即是协变又是逆变 </h1><HR SIZE=1>
+<p>
+假如我们的接口是协变，又是逆变<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+	  // 伪代码
+public interface ISomeInterface&lt;out in T&gt;
+{
+    T GetAnItem();
+    void SetAnItem(T v);
+}
+</pre>
+<p>
+以上，我们可能会这样使用。<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+ ISomeInterface&lt;Student&gt; istu = null;
+ISomeInterface&lt;Person&gt; iperson = null;
+iperson = istu; //iperson 实际是一个 ISomeInterface&lt;Student&gt;的对象。
+Person p = iperson.GetAnItem(); // 将一个 Student 对象赋值给一个 Person 类型的变量，没问题
+iperson.SetAnItem(new Person()); // 将一个 Person  对象赋值给一个 Student 类型的变量，不安全！
+</pre>
+
+
+<p>
+因为<br />
+	iperson 实际是一个 ISomeInterface&lt;Student&gt;的对象<br />
+	并且，ISomeInterface&lt;Student&gt; 返回的是student的对象。<br />
+所以 返回的student赋值给Person。没有问题。<br />
+</p>
+
+<p>
+但是<br />
+	上面第5行实际传入的是person的对象。<br />
+	而，iperson 实际是一个 ISomeInterface&lt;Student&gt;的对象。<br />
+所以实际是传person对象，实际执行的是 ISomeInterface&lt;Student&gt;.SetAnItem(Student)。<br />
+</p>
+
+<p>
+所以 这个时候是person参数传递给student参数。这个时候我们希望是不通过的。<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

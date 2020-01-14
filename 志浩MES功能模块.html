@@ -53,7 +53,12 @@
 <ul>
 <li class="menu2"><a href="#toc_6.1">AGV到前处理胜宏解决方案 </a>
 <li class="menu2"><a href="#toc_6.2">AGV和上下板机对接方案 </a>
-<li class="menu2"><a href="#toc_6.3">AGV站点 </a>
+<li class="menu2"><a href="#toc_6.3">AGV接口 </a>
+<ul>
+<li class="menu3"><a href="#toc_6.3.1">AGV地图 </a>
+<li class="menu3"><a href="#toc_6.3.2">上料前调用接口是否可以上料 </a>
+</ul>
+<li class="menu2"><a href="#toc_6.4">AGV站点 </a>
 </ul>
 <li class="menu1"><a href="#toc_7">智能仓储 </a>
 <ul>
@@ -89,10 +94,11 @@
 </ul>
 <li class="menu1"><a href="#toc_12">江西志浩参数采集服务 </a>
 <ul>
-<li class="menu2"><a href="#toc_12.1">AOI </a>
-<li class="menu2"><a href="#toc_12.2">裁磨线 </a>
-<li class="menu2"><a href="#toc_12.3">XRAY </a>
-<li class="menu2"><a href="#toc_12.4">Q? </a>
+<li class="menu2"><a href="#toc_12.1">扫描器绑定采集设备 </a>
+<li class="menu2"><a href="#toc_12.2">AOI </a>
+<li class="menu2"><a href="#toc_12.3">裁磨线 </a>
+<li class="menu2"><a href="#toc_12.4">XRAY </a>
+<li class="menu2"><a href="#toc_12.5">Q? </a>
 </ul>
 <li class="menu1"><a href="#toc_13">配方下发 </a>
 <ul>
@@ -279,7 +285,22 @@ location：左边上板机还是右边上板机
 </ul>
 </ol>
 
-<h2 id="toc_6.3">AGV站点 </h2>
+<h2 id="toc_6.3">AGV接口 </h2>
+<h3 id="toc_6.3.1">AGV地图 </h3>
+<p>
+<a href="http://10.80.10.1:8099/api/LCTS/GetAGVMapInfoList">http://10.80.10.1:8099/api/LCTS/GetAGVMapInfoList</a>
+</p>
+
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/前处理+钻孔车间AGV运行路线图-Model.pdf"download=\"文件名.txt\">点击下载:【前处理+钻孔车间AGV运行路线图-Model.pdf】</a></div><br />
+</p>
+
+<h3 id="toc_6.3.2">上料前调用接口是否可以上料 </h3>
+<p>
+/api/EAP/Equipment/IsAgvIn?machine={machine}&amp;location={location}<br />
+</p>
+
+<h2 id="toc_6.4">AGV站点 </h2>
 <p>
 生产管理 =&gt; 暂存区管理<br />
 </p>
@@ -505,7 +526,18 @@ OPC UA 协议
 <a href="江西志浩参数采集服务.html">江西志浩参数采集服务</a>
 </p>
 
-<h2 id="toc_12.1">AOI </h2>
+<h2 id="toc_12.1">扫描器绑定采集设备 </h2>
+<p>
+扫描器-&gt;设备维护读码器名称<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/saomiaoqi.png" /></div><br />
+</p>
+
+<p>
+对应的是如下生产信息中心的线体设备：<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/1578307810.png" /></div><br />
+</p>
+
+<h2 id="toc_12.2">AOI </h2>
 <p>
 AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件。AOI扫描会加上喷印码。<br />
 </p>
@@ -530,9 +562,9 @@ VRS输出，和AOI机比对，生成误报率
 
 </ol>
 
-<h2 id="toc_12.2">裁磨线 </h2>
+<h2 id="toc_12.3">裁磨线 </h2>
 
-<h2 id="toc_12.3">XRAY </h2>
+<h2 id="toc_12.4">XRAY </h2>
 <ol>
 <li>
 怎么采集涨缩值
@@ -543,7 +575,7 @@ VRS输出，和AOI机比对，生成误报率
 </ol>
 
 
-<h2 id="toc_12.4">Q? </h2>
+<h2 id="toc_12.5">Q? </h2>
 <p>
 #OPC 协议的UA和DA (UA不需要设置DCOM)<br />
 </p>

@@ -16,6 +16,20 @@
 </head>
 <body>
 
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">base </a>
+<li class="menu1"><a href="#toc_2">this </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">this表示扩展方法 </a>
+<ul>
+<li class="menu3"><a href="#toc_2.1.1">扩展方法特点 </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_3">using </a>
+</ul>
+</div>
+<div class="content">
 <p>
 <a href="public private protect.html">public private protect</a>
 </p>
@@ -29,9 +43,51 @@ base 关键字用于从派生类中访问基类的成员：<br />
 
 
 <h1 id="toc_2">this </h1><HR SIZE=1>
+<h2 id="toc_2.1">this表示扩展方法 </h2>
 <p>
-<a href="扩展方法.html">扩展方法</a>的参数修饰符<br />
+类中没有此方法。为此类添加一个方法。如下为string添加一个扩展方法。<br />
 </p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public static class StringExtension
+{
+	public staticvoid Foo(this string s)
+	{
+	  Console.WriteLine("Foo invoked for {0}",s);
+	}
+}
+</pre>
+
+
+<p>
+“扩展方法被定义为静态方法，但它们是通过实例方法语法进行调用的。 它们的第一个参数指定该方法作用于哪个类型，并且该参数以 this 修饰符为前缀。”<br />
+</p>
+
+<h3 id="toc_2.1.1">扩展方法特点 </h3>
+<ul>
+<li>
+类必须静态的，可以像实例方法一样进行调用
+
+<li>
+方法必须静态的
+
+<li>
+方法的第一个参数表示的是要扩展的类型，且前面必须加this关键字。
+
+<li>
+调用的时候按实例方法进行调用
+
+<li>
+调用同名中实际定义的方法优先级要高于扩展方法。
+
+<li>
+扩展方法能够向现有类型“添加”方法，而无需创建新的派生类型
+
+<li>
+扩展方法与其扩展的类之间并没有什么本质的联系，所以扩展方法不能访问相应类的私有字段和私有方法
+
+</ul>
+
+
 
 <h1 id="toc_3">using </h1><HR SIZE=1>
 <p>

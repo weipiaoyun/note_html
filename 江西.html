@@ -42,11 +42,12 @@
 <li class="menu3"><a href="#toc_2.4.2">体系文件路径 </a>
 </ul>
 </ul>
-<li class="menu1"><a href="#toc_3">棕化 </a>
-<li class="menu1"><a href="#toc_4">添加采集的机器到Redis </a>
-<li class="menu1"><a href="#toc_5">查询采集数据 </a>
-<li class="menu1"><a href="#toc_6">查询MI叠构 </a>
-<li class="menu1"><a href="#toc_7">岗位资格认证 </a>
+<li class="menu1"><a href="#toc_3">点表 </a>
+<li class="menu1"><a href="#toc_4">棕化 </a>
+<li class="menu1"><a href="#toc_5">添加采集的机器到Redis </a>
+<li class="menu1"><a href="#toc_6">查询采集数据 </a>
+<li class="menu1"><a href="#toc_7">查询MI叠构 </a>
+<li class="menu1"><a href="#toc_8">岗位资格认证 </a>
 </ul>
 </div>
 <div class="content">
@@ -277,8 +278,16 @@ database=CIMOMJXZH<br />
 \\172.19.10.1\体系文件\3.三级文件\电镀部\外层碱性蚀刻<br />
 </p>
 
+<h1 id="toc_3">点表 </h1><HR SIZE=1>
 
-<h1 id="toc_3">棕化 </h1><HR SIZE=1>
+<p>
+D20 运行状态 short<br />
+D2204 用水数据-&gt;总纯水量 int<br />
+D2200 用水数据-&gt;总市水量 int<br />
+D2014 用电数据-&gt;总耗电量 float<br />
+</p>
+
+<h1 id="toc_4">棕化 </h1><HR SIZE=1>
 <p>
 0 停机<br />
 1， 保养维护<br />
@@ -291,7 +300,7 @@ database=CIMOMJXZH<br />
 </p>
 
 
-<h1 id="toc_4">添加采集的机器到Redis </h1><HR SIZE=1>
+<h1 id="toc_5">添加采集的机器到Redis </h1><HR SIZE=1>
 <p>
 {<br />
 </p>
@@ -323,7 +332,7 @@ database=CIMOMJXZH<br />
 
 
 
-<h1 id="toc_5">查询采集数据 </h1><HR SIZE=1>
+<h1 id="toc_6">查询采集数据 </h1><HR SIZE=1>
 <pre>
 /****** Script for SelectTopNRows command from SSMS  ******/
 SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b.CADDRESS_NAME,a.CGET_ID, a.CDATA_VALUE
@@ -343,13 +352,13 @@ SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b
 </pre>
 
 
-<h1 id="toc_6">查询MI叠构 </h1><HR SIZE=1>
+<h1 id="toc_7">查询MI叠构 </h1><HR SIZE=1>
 <pre>
 SELECT * FROM dbo.TBL_MI_STACK_INFO WHERE CMANU_PART_NUMBER = 'BFK0E0600042A0' AND CSTATE = 'A' ORDER BY CNUM 
 </pre>
 
 
-<h1 id="toc_7">岗位资格认证 </h1><HR SIZE=1>
+<h1 id="toc_8">岗位资格认证 </h1><HR SIZE=1>
 <pre>
 select c.CCERTIFICATION_CODE from TBL_BD_QUALIFIED_AUZ a 
 inner join TBL_SYS_USER b

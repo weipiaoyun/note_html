@@ -71,9 +71,18 @@ for(i=0;i<a.length;i++){
 	}
 }
 
+/*更改图片路径*/
 for(i=0;i<img.length;i++){
 	//var id_value=img[i].getAttribute("id").replace("toc_","");
 	//
+	
+	/*本地不替换*/
+	var nnn = url.search(/mysite/);
+	if(nnn > 0){
+		break;
+	} else {
+	} 
+
 	var backgroundImageRegex=/file\:\/\/\/D\:\\vim\\vim\\mysite\\note\/images\/(.*)/;
 	var backgroundImageRegex=/.*images\/(.*)/;
 	var backgroundFileRegex=/.*Doc\/(.*)/;

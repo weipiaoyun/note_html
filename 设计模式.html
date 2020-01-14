@@ -16,6 +16,25 @@
 </head>
 <body>
 
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">三层架构 </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">界面层(UL)</a>
+<li class="menu2"><a href="#toc_1.2">业务逻辑层(BLL)</a>
+<li class="menu2"><a href="#toc_1.3">数据访问层(DAL)</a>
+<li class="menu2"><a href="#toc_1.4">实体类库(model)</a>
+<li class="menu2"><a href="#toc_1.5">IUserDAL</a>
+</ul>
+<li class="menu1"><a href="#toc_2">Dependency Inversion principle </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">定义 </a>
+<li class="menu2"><a href="#toc_2.2">关联概念 </a>
+</ul>
+<li class="menu1"><a href="#toc_3">Service Locator pattern with Code Examples </a>
+</ul>
+</div>
+<div class="content">
 <h1 id="toc_1">三层架构 </h1><HR SIZE=1>
 <h2 id="toc_1.1">界面层(UL)</h2>
 <p>
@@ -49,6 +68,56 @@ Model在各层参数传递<br />
 <p>
 <a href="单例模式.html">单例模式</a>
 </p>
+
+
+<h1 id="toc_2">Dependency Inversion principle </h1><HR SIZE=1>
+
+<h2 id="toc_2.1">定义 </h2>
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/抽象.png" /></div><br />
+</p>
+
+<ul>
+<li>
+高层模块和底层模块不应该有依赖。
+
+<li>
+细节依赖抽象，而非抽象依赖细节。
+
+</ul>
+
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/IPLC.png" /></div><br />
+</p>
+
+<ul>
+<li>
+如上图，面向的是接口编程。而不是实现的编程。
+
+<li>
+增加或修改底层不用修改顶层的方法。维护简单。
+
+<li>
+顶层的连接PLC通过接口IPLC间接和底层的三菱，西门子发生关系。大大降低高层修改的概率。
+
+</ul>
+
+<h2 id="toc_2.2">关联概念 </h2>
+<p>
+传递依赖关系有三种方式，以上的例子中使用的方法是接口传递，另外还有两种传递方式：构造方法传递和setter方法传递，相信用过Spring框架的，对依赖的传递方式一定不会陌生。<br />
+在实际编程中，我们一般需要做到如下3点：<br />
+(1)低层模块尽量都要有抽象类或接口，或者两者都有。<br />
+(2)变量的声明类型尽量是抽象类或接口。<br />
+(3)使用继承时遵循里氏替换原则。<br />
+　　依赖倒置原则的核心就是要我们面向接口编程，理解了面向接口编程，也就理解了依赖倒置。<br />
+</p>
+
+<h1 id="toc_3">Service Locator pattern with Code Examples </h1><HR SIZE=1>
+<ul>
+<li>
+The goal of this pattern is to improve the modularity of your application by removing the dependency between the client and the implementation of an interface.
+
+</ul>
 
 
 <div class="foot">
