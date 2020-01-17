@@ -19,37 +19,39 @@
 <div class="toc">
 <ul>
 <li class="menu1"><a href="#toc_1">概念 </a>
-<li class="menu1"><a href="#toc_2">框架 </a>
+<li class="menu1"><a href="#toc_2">How to Loosely Coupled </a>
+<li class="menu1"><a href="#toc_3">Design Principle VS Design Pattern </a>
+<li class="menu1"><a href="#toc_4">框架 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">ABP框架 </a>
-<li class="menu2"><a href="#toc_2.2">domain to be updated without unloading the application domain </a>
+<li class="menu2"><a href="#toc_4.1">ABP框架 </a>
+<li class="menu2"><a href="#toc_4.2">domain to be updated without unloading the application domain </a>
 <ul>
-<li class="menu3"><a href="#toc_2.2.1">Hot Swapping Custom Configurations in ASP.net Core Using IOptionsSnapshot </a>
+<li class="menu3"><a href="#toc_4.2.1">Hot Swapping Custom Configurations in ASP.net Core Using IOptionsSnapshot </a>
 </ul>
 </ul>
-<li class="menu1"><a href="#toc_3">.NET Glossary </a>
+<li class="menu1"><a href="#toc_5">.NET Glossary </a>
 <ul>
-<li class="menu2"><a href="#toc_3.1">AOT </a>
-<li class="menu2"><a href="#toc_3.2">ASP.NET </a>
-<li class="menu2"><a href="#toc_3.3">ASP.NET Core </a>
-<li class="menu2"><a href="#toc_3.4">Assembly </a>
-<li class="menu2"><a href="#toc_3.5">CLR </a>
-<li class="menu2"><a href="#toc_3.6">CoreCLR </a>
-<li class="menu2"><a href="#toc_3.7">CoreFX </a>
-<li class="menu2"><a href="#toc_3.8">CoreRT </a>
+<li class="menu2"><a href="#toc_5.1">AOT </a>
+<li class="menu2"><a href="#toc_5.2">ASP.NET </a>
+<li class="menu2"><a href="#toc_5.3">ASP.NET Core </a>
+<li class="menu2"><a href="#toc_5.4">Assembly </a>
+<li class="menu2"><a href="#toc_5.5">CLR </a>
+<li class="menu2"><a href="#toc_5.6">CoreCLR </a>
+<li class="menu2"><a href="#toc_5.7">CoreFX </a>
+<li class="menu2"><a href="#toc_5.8">CoreRT </a>
 </ul>
-<li class="menu1"><a href="#toc_4">异常处理 </a>
-<li class="menu1"><a href="#toc_5">编程语言 </a>
-<li class="menu1"><a href="#toc_6">组件 </a>
-<li class="menu1"><a href="#toc_7">开发软件 </a>
-<li class="menu1"><a href="#toc_8">数据库 </a>
-<li class="menu1"><a href="#toc_9">设计模式 </a>
-<li class="menu1"><a href="#toc_10">SOLID Principle </a>
-<li class="menu1"><a href="#toc_11">测试项目 </a>
+<li class="menu1"><a href="#toc_6">异常处理 </a>
+<li class="menu1"><a href="#toc_7">编程语言 </a>
+<li class="menu1"><a href="#toc_8">组件 </a>
+<li class="menu1"><a href="#toc_9">开发软件 </a>
+<li class="menu1"><a href="#toc_10">数据库 </a>
+<li class="menu1"><a href="#toc_11">设计模式 </a>
+<li class="menu1"><a href="#toc_12">SOLID Principle </a>
+<li class="menu1"><a href="#toc_13">测试项目 </a>
 <ul>
-<li class="menu2"><a href="#toc_11.1">报错 </a>
+<li class="menu2"><a href="#toc_13.1">报错 </a>
 </ul>
-<li class="menu1"><a href="#toc_12">.NET Core vs .NET Framework - What's difference </a>
+<li class="menu1"><a href="#toc_14">.NET Core vs .NET Framework - What's difference </a>
 </ul>
 </div>
 <div class="content">
@@ -60,6 +62,16 @@
 <a href="托管和非托管.html">托管和非托管</a>
 </p>
 
+<h1 id="toc_2">How to Loosely Coupled </h1><HR SIZE=1>
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/Loosely Coupleed.jpg" /></div><br />
+</p>
+
+<h1 id="toc_3">Design Principle VS Design Pattern </h1><HR SIZE=1>
+
+<p>
+<a href="https://www.tutorialsteacher.com/online-test/ioc-test">https://www.tutorialsteacher.com/online-test/ioc-test</a>
+</p>
 
 <table>
 <tr>
@@ -84,41 +96,106 @@ web 应用程序框架
 <a href="ABP框架.html">ABP框架</a>
 </td>
 </tr>
+<tr>
+<td>
+IoC
+</td>
+<td>
+Inversion of Control
+</td>
+<td>
+<a href="IoC.html">IoC</a>
+</td>
+</tr>
+<tr>
+<td>
+IoC containers
+</td>
+<td>
+Inversion of Control
+</td>
+<td>
+<a href="IoC Container.html">IoC Container</a>
+</td>
+</tr>
+<tr>
+<td>
+DIP
+</td>
+<td>
+Dependency Inversion Principle
+</td>
+<td>
+<a href="SOLID Principle.html">SOLID Principle</a>
+</td>
+</tr>
+<tr>
+<td>
+DI
+</td>
+<td>
+Dependency Injection
+</td>
+<td>
+<a href="Dependency Injection.html">Dependency Injection</a>
+</td>
+</tr>
+<tr>
+<td>
+Unity container
+</td>
+<td>
+Dependency Injection
+</td>
+<td>
+<a href="Ioc.html">Ioc</a>
+</td>
+</tr>
 </table>
 
-<h1 id="toc_2">框架 </h1><HR SIZE=1>
-<h2 id="toc_2.1">ABP框架 </h2>
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/Ioc.jpg" /></div><br />
+</p>
+
+<ul>
+<li>
+DI and DIP aimed to achieve Loose coupling
+
+</ul>
+
+<h1 id="toc_4">框架 </h1><HR SIZE=1>
+<h2 id="toc_4.1">ABP框架 </h2>
 <p>
 <a href="ABP框架.html">ABP框架</a>
 </p>
 
-<h2 id="toc_2.2">domain to be updated without unloading the application domain </h2>
-<h3 id="toc_2.2.1">Hot Swapping Custom Configurations in ASP.net Core Using IOptionsSnapshot </h3>
+<h2 id="toc_4.2">domain to be updated without unloading the application domain </h2>
+<h3 id="toc_4.2.1">Hot Swapping Custom Configurations in ASP.net Core Using IOptionsSnapshot </h3>
 <p>
 <a href="https://dotnetcoretutorials.com/2017/01/01/hot-swapping-custom-configurations-asp-net-core-using-ioptionssnapshot/">https://dotnetcoretutorials.com/2017/01/01/hot-swapping-custom-configurations-asp-net-core-using-ioptionssnapshot/</a>
 <a href="https://docs.microsoft.com/en-us/dotnet/framework/app-domains/shadow-copy-assemblies?redirectedfrom=MSDN">https://docs.microsoft.com/en-us/dotnet/framework/app-domains/shadow-copy-assemblies?redirectedfrom=MSDN</a>
 </p>
 
-<h1 id="toc_3">.NET Glossary </h1><HR SIZE=1>
-<h2 id="toc_3.1">AOT </h2>
+<h1 id="toc_5">.NET Glossary </h1><HR SIZE=1>
+<h2 id="toc_5.1">AOT </h2>
 
-<h2 id="toc_3.2">ASP.NET </h2>
+<h2 id="toc_5.2">ASP.NET </h2>
 <p>
 和.NET Framework 一起发行的原始的ASP.NET实现<br />
 ASP.NET 包括了ASP.NET implementation 和 ASP.NET Core<br />
 </p>
 
-<h2 id="toc_3.3">ASP.NET Core </h2>
+<h2 id="toc_5.3">ASP.NET Core </h2>
 <p>
 跨平台，高性能，开源的ASP.NET。其生成与.NET Core<br />
 </p>
 
-<h2 id="toc_3.4">Assembly </h2>
+<h2 id="toc_5.4">Assembly </h2>
 <p>
 A .dll/.exe file<br />
 </p>
 
-<h2 id="toc_3.5">CLR </h2>
+<h2 id="toc_5.5">CLR </h2>
 <p>
 Common Language Runtime<br />
 真正的意义取决于上下文。通常指.NET Framework runtime.<br />
@@ -127,18 +204,18 @@ Common Language Runtime<br />
 微软的CLR 只适用于windows。<br />
 </p>
 
-<h2 id="toc_3.6">CoreCLR </h2>
+<h2 id="toc_5.6">CoreCLR </h2>
 <p>
 .NET Core CLR<br />
 CoreCLR is also a virtual machine with JIT and code execution capabilities.<br />
 </p>
 
-<h2 id="toc_3.7">CoreFX </h2>
+<h2 id="toc_5.7">CoreFX </h2>
 <p>
 .NET Core Base Class Library(BCL )<br />
 </p>
 
-<h2 id="toc_3.8">CoreRT </h2>
+<h2 id="toc_5.8">CoreRT </h2>
 <p>
 In constrast to the CLR/CoreCLR, CoreRT is not a virtual machine. It doesn't include the JIT.<br />
 However, include the GC and the ability for runtime type identification.(RTTI)<br />
@@ -147,48 +224,48 @@ However, include the GC and the ability for runtime type identification.(RTTI)<b
 
 
 
-<h1 id="toc_4">异常处理 </h1><HR SIZE=1>
+<h1 id="toc_6">异常处理 </h1><HR SIZE=1>
 <ol>
 <li>
 调用的dll版本是否为同一个版本。
 
 </ol>
  
-<h1 id="toc_5">编程语言 </h1><HR SIZE=1>
+<h1 id="toc_7">编程语言 </h1><HR SIZE=1>
 <p>
 <a href="csharp.html">csharp</a>
 <a href="vb.net.html">vb.net</a>
 <a href="ASP.NET.html">ASP.NET</a>
 </p>
 
-<h1 id="toc_6">组件 </h1><HR SIZE=1>
+<h1 id="toc_8">组件 </h1><HR SIZE=1>
 <p>
 <a href="dev.html">dev</a>
 </p>
 
-<h1 id="toc_7">开发软件 </h1><HR SIZE=1>
+<h1 id="toc_9">开发软件 </h1><HR SIZE=1>
 <p>
 <a href="VS.html">VS</a>
 </p>
 
-<h1 id="toc_8">数据库 </h1><HR SIZE=1>
+<h1 id="toc_10">数据库 </h1><HR SIZE=1>
 <p>
 <a href="数据库操作.html">数据库操作</a>
 </p>
 
-<h1 id="toc_9">设计模式 </h1><HR SIZE=1>
+<h1 id="toc_11">设计模式 </h1><HR SIZE=1>
 <p>
 <a href="设计模式.html">设计模式</a>
 </p>
 
-<h1 id="toc_10">SOLID Principle </h1><HR SIZE=1>
+<h1 id="toc_12">SOLID Principle </h1><HR SIZE=1>
 
 <p>
 <a href="SOLID Principle.html">SOLID Principle</a>
 </p>
 
 
-<h1 id="toc_11">测试项目 </h1><HR SIZE=1>
+<h1 id="toc_13">测试项目 </h1><HR SIZE=1>
 <p>
 安装  Microsoft.EntityFrameworkCore<br />
 </p>
@@ -215,7 +292,7 @@ Install-Package Microsoft.EntityFrameworkCore.Tools<br />
 将Create方法改为AddOrEdit方法<br />
 </p>
 
-<h2 id="toc_11.1">报错 </h2>
+<h2 id="toc_13.1">报错 </h2>
 <ol>
 <li>
 未能使用“Csc”任务的输入参数初始化该任务。
@@ -244,7 +321,7 @@ table-hover<br />
 </p>
 
 
-<h1 id="toc_12">.NET Core vs .NET Framework - What's difference </h1><HR SIZE=1>
+<h1 id="toc_14">.NET Core vs .NET Framework - What's difference </h1><HR SIZE=1>
 
 
 

@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>SOLID Principle</title>
+<title>ABP module system</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,54 +18,22 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Interface Segregation Principle </a>
-<li class="menu1"><a href="#toc_2">Open/Closed Principle </a>
-<li class="menu1"><a href="#toc_3">LisKov Substitution Principle </a>
-<li class="menu1"><a href="#toc_4">Dependency Inversion Principle </a>
+<li class="menu1"><a href="#toc_1">模块的定义 </a>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">Interface Segregation Principle </h1><HR SIZE=1>
 <p>
-ensures that you design your interfaces so that clients don’t depend on parts of the interface.<br />
-</p>
-
-<h1 id="toc_2">Open/Closed Principle </h1><HR SIZE=1>
-<ul>
-<li>
-you use one or more interfaces to ensure that your component is open for extension but closed for modification.
-
-</ul>
-
-
-<h1 id="toc_3">LisKov Substitution Principle </h1><HR SIZE=1>
-<ul>
-<li>
-requires you to implement your interfaces in a way that you can replace its implementations without changing the code that uses the interface.
-
-<li>
-
-
-</ul>
-
-<h1 id="toc_4" class="justcenter">Dependency Inversion Principle </h1><HR SIZE=1>
-<ul>
-<li>
-you need to introduce an interface as an abstraction between a higher and a lower level component to split the dependency between both components.
-
-<li>
-
-
-</ul>
- 
-
-<p>
-Which principle suggests "High-level modules should not depend on low-level modules. Both should depend on abstraction. Abstractions should not depend on details. Details should depend on abstractions."<br />
+为了构建模块和组合模块以形成一个应用软件，ABP提供了一个基础设施。一个模块可以依赖于另一个的模块。通常而言，一个程序集被认为是一个模块。如果你创建的应用程序超过一个程序集。建议你对每一个程序集创建一个模块定义。<br />
 </p>
 
 <p>
-What are the types of Dependency Injections?<br />
+这个模块系统目前专注于服务端，而不是客户端。<br />
+</p>
+
+<h1 id="toc_1">模块的定义 </h1><HR SIZE=1>
+<p>
+模块继承在ABP package的AbpModule<br />
 </p>
 
 

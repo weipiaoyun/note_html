@@ -26,12 +26,13 @@
 <li class="menu2"><a href="#toc_1.4">实体类库(model)</a>
 <li class="menu2"><a href="#toc_1.5">IUserDAL</a>
 </ul>
-<li class="menu1"><a href="#toc_2">Dependency Inversion principle </a>
+<li class="menu1"><a href="#toc_2">Dependency Injection </a>
+<li class="menu1"><a href="#toc_3">Dependency Inversion principle </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">定义 </a>
-<li class="menu2"><a href="#toc_2.2">关联概念 </a>
+<li class="menu2"><a href="#toc_3.1">定义 </a>
+<li class="menu2"><a href="#toc_3.2">关联概念 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">Service Locator pattern with Code Examples </a>
+<li class="menu1"><a href="#toc_4">Service Locator pattern with Code Examples </a>
 </ul>
 </div>
 <div class="content">
@@ -70,9 +71,14 @@ Model在各层参数传递<br />
 </p>
 
 
-<h1 id="toc_2">Dependency Inversion principle </h1><HR SIZE=1>
+<h1 id="toc_2">Dependency Injection </h1><HR SIZE=1>
+<p>
+<a href="Dependency Injection.html">Dependency Injection</a>
+</p>
 
-<h2 id="toc_2.1">定义 </h2>
+<h1 id="toc_3">Dependency Inversion principle </h1><HR SIZE=1>
+
+<h2 id="toc_3.1">定义 </h2>
 <p>
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/抽象.png" /></div><br />
 </p>
@@ -102,7 +108,7 @@ Model在各层参数传递<br />
 
 </ul>
 
-<h2 id="toc_2.2">关联概念 </h2>
+<h2 id="toc_3.2">关联概念 </h2>
 <p>
 传递依赖关系有三种方式，以上的例子中使用的方法是接口传递，另外还有两种传递方式：构造方法传递和setter方法传递，相信用过Spring框架的，对依赖的传递方式一定不会陌生。<br />
 在实际编程中，我们一般需要做到如下3点：<br />
@@ -112,7 +118,7 @@ Model在各层参数传递<br />
 　　依赖倒置原则的核心就是要我们面向接口编程，理解了面向接口编程，也就理解了依赖倒置。<br />
 </p>
 
-<h1 id="toc_3">Service Locator pattern with Code Examples </h1><HR SIZE=1>
+<h1 id="toc_4">Service Locator pattern with Code Examples </h1><HR SIZE=1>
 <ul>
 <li>
 The goal of this pattern is to improve the modularity of your application by removing the dependency between the client and the implementation of an interface.

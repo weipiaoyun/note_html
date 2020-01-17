@@ -27,6 +27,9 @@
 <li class="menu1"><a href="#toc_3">追溯和过数 </a>
 <ul>
 <li class="menu2"><a href="#toc_3.1">江西志浩全流程品质追溯方案 </a>
+<ul>
+<li class="menu3"><a href="#toc_3.1.1">全流程追溯 </a>
+</ul>
 <li class="menu2"><a href="#toc_3.2">过数 </a>
 <li class="menu2"><a href="#toc_3.3">Recipe and trace ability </a>
 </ul>
@@ -91,6 +94,7 @@
 <ul>
 <li class="menu2"><a href="#toc_11.1">代码注释 </a>
 <li class="menu2"><a href="#toc_11.2">参数采集 </a>
+<li class="menu2"><a href="#toc_11.3">设备报警管理 </a>
 </ul>
 <li class="menu1"><a href="#toc_12">江西志浩参数采集服务 </a>
 <ul>
@@ -104,14 +108,15 @@
 <ul>
 <li class="menu2"><a href="#toc_13.1">电镀 </a>
 </ul>
-<li class="menu1"><a href="#toc_14">设备统计 </a>
-<li class="menu1"><a href="#toc_15">信息中心 </a>
-<li class="menu1"><a href="#toc_16">生产类型 </a>
-<li class="menu1"><a href="#toc_17">看板管理 </a>
+<li class="menu1"><a href="#toc_14">能源管理 </a>
+<li class="menu1"><a href="#toc_15">设备统计 </a>
+<li class="menu1"><a href="#toc_16">信息中心 </a>
+<li class="menu1"><a href="#toc_17">生产类型 </a>
+<li class="menu1"><a href="#toc_18">看板管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_17.1">Redis </a>
+<li class="menu2"><a href="#toc_18.1">Redis </a>
 </ul>
-<li class="menu1"><a href="#toc_18">华为要求 </a>
+<li class="menu1"><a href="#toc_19">华为要求 </a>
 </ul>
 </div>
 <div class="content">
@@ -155,6 +160,11 @@ WMS(智能物流，智能仓储) =&gt;<br />
 <p>
 过数是通过Lot来过数<br />
 追溯是有些通过单件追溯，有些通过Lot追溯<br />
+</p>
+
+<h3 id="toc_3.1.1">全流程追溯 </h3>
+<p>
+华计关心的是可以追溯到每一个站的信息。通过二维码绑定所有的信息。<br />
 </p>
 
 <h2 id="toc_3.2">过数 </h2>
@@ -499,6 +509,9 @@ WIP按流程拿，不是按工序拿。
 <li>
 产品没有绑定认证是所有人都能跑。
 
+<li>
+一条线只有一个岗位编号，但可以有多个员工工号。
+
 </ol>
 
 
@@ -518,6 +531,56 @@ OPC UA 协议
 
 <li>
 采集上来的数据进行数据发布，通知其它的系统。
+
+</ol>
+
+<h2 id="toc_11.3">设备报警管理 </h2>
+<ol>
+<li>
+可以查到异常品的报警记录
+
+<li>
+设备异常的等级。
+
+</ol>
+
+<p>
+设备的异常等级是通过IQPS设定的规则判断，规则又工艺提供。<br />
+</p>
+
+<p>
+如果发现有设备异常，我们可以有如下操作。<br />
+</p>
+<ul>
+<li>
+发信息到相关人员的手机上。(看有没有内部通信的App，只限于公司内部使用的)
+
+<li>
+通过IQPS走流程。
+
+<li>
+直接停上板机。阻止板子流入。
+
+</ul>
+
+<p>
+如，发现液位超低<br />
+</p>
+<ol>
+<li>
+启动流程
+
+<li>
+筛选范围，找出哪些料号的，哪个lot的，哪些条码的有问题。
+
+<li>
+我们可以追踪到每个板什么时候进去的，什么时候出来的。
+
+<li>
+如果没有走完流程，处理好，上下板机不可启动。
+
+<li>
+设备异常信息，怎么去关闭这个信息。
 
 </ol>
 
@@ -601,7 +664,12 @@ VRS输出，和AOI机比对，生成误报率
 
 </ol>
 
-<h1 id="toc_14">设备统计 </h1><HR SIZE=1>
+<h1 id="toc_14">能源管理 </h1><HR SIZE=1>
+<p>
+智能水表，用水数据，用电数据。<br />
+</p>
+
+<h1 id="toc_15">设备统计 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/设备统计.xlsx"download=\"文件名.txt\">点击下载:【设备统计.xlsx】</a></div><br />
 </p>
@@ -609,7 +677,7 @@ VRS输出，和AOI机比对，生成误报率
 
 
 
-<h1 id="toc_15">信息中心 </h1><HR SIZE=1>
+<h1 id="toc_16">信息中心 </h1><HR SIZE=1>
 <p>
 条码采集器<br />
 	绑定设备编码。采集到条码后，把最新的EAP采集的数据ID绑定。<br />
@@ -630,7 +698,7 @@ VRS输出，和AOI机比对，生成误报率
 EAP<br />
 </p>
 
-<h1 id="toc_16">生产类型 </h1><HR SIZE=1>
+<h1 id="toc_17">生产类型 </h1><HR SIZE=1>
 
 
 <p>
@@ -642,7 +710,7 @@ BOM数据<br />
 一岗一表(点检表，五确认)<br />
 </p>
 
-<h1 id="toc_17">看板管理 </h1><HR SIZE=1>
+<h1 id="toc_18">看板管理 </h1><HR SIZE=1>
 <p>
 产量，质量，稼动率，人员情况，设备的保养时间<br />
 WIP，趋势图，库存，<br />
@@ -665,8 +733,43 @@ WIP，趋势图，库存，<br />
 计划做多少，实际做多少。<br />
 </p>
 
+<p>
+看板分为三个等级：<br />
+</p>
+<ol>
+<li>
+工厂级
 
-<h2 id="toc_17.1">Redis </h2>
+<li>
+车间级
+
+<li>
+单线级的。
+
+</ol>
+
+<p>
+两种类型：<br />
+</p>
+<ul>
+<li>
+水平线那种类型的
+
+<li>
+类似AOI，钻孔那种类型的。
+
+</ul>
+
+<ul>
+<li>
+趋势图
+
+<li>
+颜色管理
+
+</ul>
+
+<h2 id="toc_18.1">Redis </h2>
 <ol>
 <li>
 降低带宽和减少浪费数据库服务器资源
@@ -674,7 +777,7 @@ WIP，趋势图，库存，<br />
 </ol>
 
  
-<h1 id="toc_18">华为要求 </h1><HR SIZE=1>
+<h1 id="toc_19">华为要求 </h1><HR SIZE=1>
 <ol>
 <li>
 物料先进先出

@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>Dependency Injection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">Introduction </a>
+<li class="menu1"><a href="#toc_2">what do I gain from using DI/IoC? </a>
+<li class="menu1"><a href="#toc_3">Are there resons I wouldn't want to use DI/IoC? </a>
+<li class="menu1"><a href="#toc_4">解决办法 </a>
+<ul>
+<li class="menu2"><a href="#toc_4.1">Constructor Injection Pattern </a>
+<li class="menu2"><a href="#toc_4.2">Property Injection pattern </a>
+</ul>
+<li class="menu1"><a href="#toc_5">Dependency Injection frameworks </a>
+<li class="menu1"><a href="#toc_6">DI frameworks </a>
+<li class="menu1"><a href="#toc_7">ABP Dependency Injection Infrastructure </a>
+<ul>
+<li class="menu2"><a href="#toc_7.1">Registering Dependencies </a>
+<li class="menu2"><a href="#toc_7.2">Conventional Registrations </a>
+</ul>
+<li class="menu1"><a href="#toc_8">Helper Interface </a>
+</ul>
+</div>
+<div class="content">
+
+<h1 id="toc_1">Introduction </h1><HR SIZE=1>
+<ul>
+<li>
+Is a Design pattern
+
+<li>
+describing how objects acquire their dependencies. 
+
+<li>
+often facilitated by <a href="IoC.html">IoC</a>(Inversion of Control) container,which is used at runtime.
+
+<li>
+当对象实例化的时候解决和注入依赖项。
+
+</ul>
+
+
+<h1 id="toc_2">what do I gain from using DI/IoC? </h1><HR SIZE=1>
+<p>
+可以为中大型项目提供很多的好处<br />
+</p>
+<ul>
+<li>
+DI可以显著地降低components and their dependencies的coupling。
+
+<li>
+DI鼓励工程师使用 <strong>组件或继承</strong> 。从而使得实现(如接口的实现)更加灵活。
+
+<li>
+IoC可以使得可以通过配置文档完成临时的替换实现，甚至有时候可以在运行时完成实现的替换。
+
+<li>
+DI可以轻松的支持<a href="N-Tier.html">N-Tier</a>achitectures.
+
+</ul>
+
+<h1 id="toc_3">Are there resons I wouldn't want to use DI/IoC? </h1><HR SIZE=1>
+
+
+
+<p>
+看下面的例子<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public class PersonAppService
+{
+    private IPersonRepository _personRepository;
+
+    public PersonAppService()
+    {
+        _personRepository = new PersonRepository();            
+    }
+
+    public void CreatePerson(string name, int age)
+    {
+        var person = new Person { Name = name, Age = age };
+        _personRepository.Insert(person);
+    }
+}
+</pre>
+
+
+<p>
+第7行有问题。<br />
+</p>
+<ul>
+<li>
+Components should depend on interfaces rather than concrete implementations
+
+<li>
+This can not work with other implementations
+
+<li>
+we may want to create more than one class that implements IPersonRepository。we would have to change  the classes that depend on IPersonRepository.
+
+</ul>
+
+
+<p>
+为了解决这写问题。我们把上面的第七行改为如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+	  _personRepository = PersonRepositoryFactory.Create();            
+</pre>
+
+
+<p>
+Creation problems已经解决。因为PersonAppService不知道如何创建IPersonRepository的实现。它已经和PersonRepository implementation的实现独立出来。<br />
+</p>
+
+<p>
+但仍然有下面的问题。<br />
+</p>
+<ul>
+<li>
+这个时候PersonAppService 取决于PersonRepositoryFactory。这个更能让人接受。但仍然有强依赖性。
+
+<li>
+为每一个依赖或每一个repository写一个actory class/method是乏味的。
+
+<li>
+并且，很难测试，因为让PersonAppService 使用IPersonRepository接口的实现是困难的。
+
+</ul>
+
+<h1 id="toc_4">解决办法 </h1><HR SIZE=1>
+<h2 id="toc_4.1">Constructor Injection Pattern </h2>
+<p>
+如上的将构造函数改为如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+    public PersonAppService(IPersonRepository personRepository)
+    {
+        _personRepository = personRepository;
+    }
+</pre>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+var repository = new PersonRepository();
+var personService = new PersonAppService(repository);
+personService.CreatePerson("John Doe", 32);
+</pre>
+
+
+
+
+<p>
+Constructor Injection 是将对象和类独立开的很好的方法。但是上面的代码仍然有一些问题。<br />
+</p>
+
+<ul>
+<li>
+创建PersonAppService变得繁琐。它有4个依赖项。我们必须创建4个对象，通过它们传递给PersonAppService的构造函数。
+
+<li>
+依赖的类可能有其他的依赖项。比如这里的PersonRepository可能有依赖项。所以我们不仅需要创建PersonAppService的所有依赖项。而且需要创建所有依赖项的依赖项，一直递归。我们甚至有可能创建不了一个对象，因为这个依赖的地图太复杂了。
+
+</ul>
+
+<p>
+幸运的是，我们有自动管理依赖项的Dependency Injection frameworks。<br />
+</p>
+
+<h2 id="toc_4.2">Property Injection pattern </h2>
+
+<p>
+constructor injection pattern 是提供类依赖的很好的方法。使用这种方法，没有提供依赖项，创建不了类的实例。但是，这个方法需要明确地定义类的要求是什么，才能使其正确地工作。<br />
+</p>
+
+<p>
+但是，还有一种情况，类依赖于其他的类，但如果没有这个依赖的类，它也能工作。<br />
+比如登录系统，一个类没有登陆也可以工作。但是如果提供给它一个logger，它可以写logs。这种情况，你可以定义一个公共的属性依赖项，而不是在构造函数中获取它。<br />
+</p>
+
+<p>
+我们重写上面的PersonAppService类。添加一个Property Injection pattern。<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public class PersonAppService
+{
+    public ILogger Logger { get; set; }
+
+    private IPersonRepository _personRepository;
+
+    public PersonAppService(IPersonRepository personRepository)
+    {
+        _personRepository = personRepository;
+        Logger = NullLogger.Instance;
+    }
+
+    public void CreatePerson(string name, int age)
+    {
+        Logger.Debug("Inserting a new person to database with name = " + name);
+        var person = new Person { Name = name, Age = age };
+        _personRepository.Insert(person);
+        Logger.Debug("Successfully inserted!");
+    }
+}
+</pre>
+
+<p>
+第10行的NullLogger.Instance是实现ILogger的单例对象。但是，它没有做任何事情。它不写任何的logs。虽然它是实现了ILogger，但里面的方法是空的，所以不写logs。<br />
+</p>
+
+<p>
+如果在你创建了PersonAppService 对象后，你改了Logger属性。PersonAppService 可以写log。如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+var personService = new PersonAppService(new PersonRepository());
+personService.Logger = new Log4NetLogger();
+personService.CreatePerson("John Doe", 32);
+</pre>
+
+<p>
+假设Log4NetLogger实现了ILogger，并且，它使用Log4Net写logs。使得PersonAppService可以真正地写logs(而不是啥都没有的空函数)。如果我们没有设置Logger属性的话，它就不会有写日志的功能。<br />
+</p>
+<ul>
+<li>
+我们可以说ILogger是PersonAppService的 <strong>optional dependency</strong> (可选的依赖项)
+
+<li>
+几乎所有的 <strong>Dependency Injection frameworks</strong> 支持 <strong>Property Injection pattern</strong>
+
+</ul>
+
+<h1 id="toc_5">Dependency Injection frameworks </h1><HR SIZE=1>
+<ul>
+<li>
+有很多的 <strong>Dependency Injection frameworks</strong> 支持自动解决依赖项。
+
+<li>
+它们可以创建所有依赖项的对象，还可以递归地创建依赖项的依赖项，。
+
+<li>
+只需要简单地用constructor&amp;property injection patterns 创建对象。DI framework(Dependency Injection)将会处理剩余的部分。
+
+<li>
+好的应用程序甚至应该是和DI framework 独立开来的。在你的整个应用程序中，只有一小部分的代码会和DI framework 明确的交互。
+
+<li>
+ASP.NET Boilerplate Dependency Injection使用的是<a href="Castle Windsor.html">Castle Windsor</a> 
+
+</ul>
+
+<h1 id="toc_6">DI frameworks </h1><HR SIZE=1>
+<p>
+还有一些其它的DI framework。Unity, Ninject, StructureMap, and Autofac. Castle Windsor<br />
+</p>
+
+<h1 id="toc_7">ABP Dependency Injection Infrastructure </h1><HR SIZE=1>
+<p>
+ABP 使用DI framework 基本上都是隐形的。它也通过如下最好的习惯和约定帮你写应用程序。<br />
+</p>
+
+<h2 id="toc_7.1">Registering Dependencies </h2>
+<p>
+在ABP里，可以使用不同方法注册你的类到DI System。在大多情况下，conventional registration will be sufficient.<br />
+</p>
+
+<h2 id="toc_7.2">Conventional Registrations </h2>
+<p>
+ABP通过约定自动注册所有的Repositories，Domain Services, Application Services，MVC Controllers，Web API Controllers。例如，你可能有IPersonAppService接口和实现它的PersonAppService 类。如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public interface IPersonAppService : IApplicationService
+{
+    //...
+}
+
+public class PersonAppService : IPersonAppService
+{
+    //...
+}
+</pre>
+
+<p>
+因为PersonAppService实现了IApplicationService的接口(它只是空接口，啥都没有)，所以ABP会自动地注册它。它只是被 <strong>短暂</strong> 地 注册。这意味着每次使用，它都会被创建。当你用constructor injection 注入IPersonAppService interface到类的时候。PersonAppService 这个类的对象会自动地创建并且会传递给constructor。<br />
+</p>
+
+<p>
+命名的约定非常重要。比如，你可以改变PersonAppService为MyPersonAppService。或者是其他的有'PersonAppService'后缀的名字。<br />
+</p>
+
+<p>
+因为'PersonAppService'后缀的类和IPersonAppService接口有相同的后缀名，所以'PersonAppService'后缀名称的类会注册到IPersonAppService。。但是，如果你将名字改为没有'PersonAppService'后缀的名称。它就不能自动地注册到IPersonAppService 。而是使用self-registration(不是interface)，这种情况下，你需要手动的注册它。<br />
+</p>
+
+<p>
+ABP可以通过约定注册程序集，非常简单。<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+</pre>
+
+<p>
+Assembly.GetExecutingAssembly()获取包含该代码的程序集。你可以传其他的程序集到RegisterAssemblyByConvention 这个方法。这个一般将会在模块初始化的时候执行。请看<a href="ABP module system.html">ABP module system</a>获取更多的信息。<br />
+</p>
+
+<p>
+你可以通过实现IConventionalRegisterer 接口写自己的约定注册类。然后在你的类中调用IocManager.AddConventionalRegisterer方法。你应该在你的模块的初始化之前添加它。<br />
+</p>
+
+<h1 id="toc_8">Helper Interface </h1><HR SIZE=1>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>
