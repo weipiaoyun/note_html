@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>Razor Pages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">get Start 创建项目，文件解释 </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">在新建项目里面新加一个model </a>
+</ul>
+<li class="menu1"><a href="#toc_2">Examine the project files </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">Pages folder </a>
+<li class="menu2"><a href="#toc_2.2">wwwroot folder </a>
+<li class="menu2"><a href="#toc_2.3">appSetting.json </a>
+<li class="menu2"><a href="#toc_2.4">Program.cs </a>
+<li class="menu2"><a href="#toc_2.5">Startup.cs </a>
+</ul>
+</ul>
+</div>
+<div class="content">
+
+<p>
+A Razor Page is very similar to <strong>ASP.NET MVC’s view component</strong>. It has basically same syntax and functionality as MVC.<br />
+</p>
+
+<p>
+The key difference between Razor pages and MVC is that <br />
+the model and controller code is also included within the Razor Page itself.<br />
+</p>
+
+<h1 id="toc_1">get Start 创建项目，文件解释 </h1><HR SIZE=1>
+<p>
+<a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.1&amp;tabs=visual-studio">https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.1&amp;tabs=visual-studio</a>
+</p>
+
+
+<ul>
+<li>
+默认的是sqlserver数据库。
+
+</ul>
+
+<h2 id="toc_1.1">在新建项目里面新加一个model </h2>
+<ol>
+<li>
+在RazorPagesMovie解决方案下面创建Models文件夹。并在下面创建一个Movie这个model。
+
+<li>
+在Pages下创建Movies文件夹。在下面右击添加[新搭建机架的项目]。然后在通用-&gt;Razor页面里面选择[使用实体框架生成Razor页面(CRUD)]。点击添加。选在刚创建的movie model。数据上下文点击加号。默认。添加。
+
+</ol>
+
+<p>
+自动添加的文件<br />
+</p>
+<ul>
+<li>
+Pages/Movie下面自动添加了CDDEI开头的五个html文件。
+
+<li>
+解决方案下新增了Data文件夹。并增加了RazorPagesMovieContext类。
+
+<li>
+增加了appsettings.json配置文件，里面可以配置数据库。
+
+<li>
+在startup里面的ConfigureServices里面增加了service.AddDbContext，增加访问数据库的上下文。
+
+<li>
+如果想看数据库和表内容，切换到sql server。更改appsettings.json;<strong>Data Source=(local);uid=sa;pwd=123456;DataBase=RazorPagesTest1"</strong>
+
+</ul>
+
+<h1 id="toc_2">Examine the project files </h1><HR SIZE=1>
+
+<h2 id="toc_2.1">Pages folder </h2>
+<p>
+Contains Razor pages and supporting files. Each Razor page is a pair of files: <br />
+</p>
+<ul>
+<li>
+.cshtml file that contains HTML markup with C# code using Razor syntax.
+
+<li>
+.cshtml.cs file that contains C# code that handles page events.
+
+</ul>
+
+<p>
+<strong>Supporting files have names that begin with an underscore</strong> For example, the _Layout.cshtml file configures UI elements common to all pages.This file sets up the navigation menu at the top of the page and the copyright notice at the bottom of the page.<br />
+</p>
+
+
+<h2 id="toc_2.2">wwwroot folder </h2>
+<p>
+Contains static files, such as HTML files, JavaScript files, and CSS files. For more information, see Static files in ASP.NET Core.For more information, see Static files in ASP.NET Core.<br />
+</p>
+
+<h2 id="toc_2.3">appSetting.json </h2>
+<p>
+Contains configuration data, such as connection strings.see Configuration in ASP.NET Core.<br />
+</p>
+
+<h2 id="toc_2.4">Program.cs </h2>
+<p>
+Contains the entry point for the program. For more information, see .NET Generic Host.<br />
+</p>
+
+<h2 id="toc_2.5">Startup.cs </h2>
+<p>
+Contains code that configures app behavior. For more information, see App startup in ASP.NET Core.<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

@@ -36,6 +36,7 @@
 <li class="menu2"><a href="#toc_5.1">前处理读码查询 </a>
 <li class="menu2"><a href="#toc_5.2">读码器数据表 </a>
 <li class="menu2"><a href="#toc_5.3">条码绑定料号 </a>
+<li class="menu2"><a href="#toc_5.4">查看设备的数据是否有采集 </a>
 </ul>
 <li class="menu1"><a href="#toc_6">Recipe </a>
 <ul>
@@ -148,6 +149,20 @@ TBL_SFC_LOT_PANEL
 
 </ul>
 </ul>
+
+
+<h2 id="toc_5.4">查看设备的数据是否有采集 </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b.CADDRESS_NAME,a.CGET_ID, a.CDATA_VALUE
+  FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
+  left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.cid
+  left join TBL_EAP_EQUIPMENT c on b.CEQUIPMENT_ID = c.CID
+
+  WHERE  c.CEQUIPMENT_NAME LIKE '%HDI%沉铜%'
+   order by a.CDATETIME_CREATED desc
+</pre>
+
 
 <h1 id="toc_6">Recipe </h1><HR SIZE=1>
 <h2 id="toc_6.1">压机Recipe </h2>

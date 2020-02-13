@@ -18,30 +18,37 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">IP地址 </a>
-<li class="menu1"><a href="#toc_2">拼板序列号 </a>
-<li class="menu1"><a href="#toc_3">保护菲林 </a>
-<li class="menu1"><a href="#toc_4">硬板 </a>
+<li class="menu1"><a href="#toc_1">IP地址和密码 </a>
 <ul>
-<li class="menu2"><a href="#toc_4.1">genesis料号 </a>
-<li class="menu2"><a href="#toc_4.2">问题 </a>
+<li class="menu2"><a href="#toc_1.1">软板IP </a>
 </ul>
-<li class="menu1"><a href="#toc_5">软板 </a>
+<li class="menu1"><a href="#toc_2">服务器开机 </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">Mysql错误处理 </a>
+</ul>
+<li class="menu1"><a href="#toc_3">拼板序列号 </a>
+<li class="menu1"><a href="#toc_4">保护菲林 </a>
+<li class="menu1"><a href="#toc_5">硬板 </a>
 <ul>
 <li class="menu2"><a href="#toc_5.1">genesis料号 </a>
-<li class="menu2"><a href="#toc_5.2">虚拟机</a>
-<li class="menu2"><a href="#toc_5.3">华硕客户(7271,7325,7009,7347,7346,7340)</a>
+<li class="menu2"><a href="#toc_5.2">问题 </a>
 </ul>
-<li class="menu1"><a href="#toc_6">通过socket更新周期 </a>
-<li class="menu1"><a href="#toc_7">东莞MES </a>
+<li class="menu1"><a href="#toc_6">软板 </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">IP地址 </a>
+<li class="menu2"><a href="#toc_6.1">genesis料号 </a>
+<li class="menu2"><a href="#toc_6.2">虚拟机</a>
+<li class="menu2"><a href="#toc_6.3">华硕客户(7271,7325,7009,7347,7346,7340)</a>
+</ul>
+<li class="menu1"><a href="#toc_7">通过socket更新周期 </a>
+<li class="menu1"><a href="#toc_8">东莞MES </a>
+<ul>
+<li class="menu2"><a href="#toc_8.1">IP地址 </a>
 </ul>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">IP地址 </h1><HR SIZE=1>
+<h1 id="toc_1">IP地址和密码 </h1><HR SIZE=1>
 <p>
 172.18.3.231<br />
 255.255.0.0<br />
@@ -93,17 +100,83 @@ ERP文员账号
 *963.0
 </td>
 </tr>
+<tr>
+<td>
+VPN
+</td>
+<td>
+113.108.243.171
+</td>
+<td>
+uw
+</td>
+<td>
+qtjm8899
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.1">软板IP </h2>
+<table>
+<tr>
+<th>
+名词
+</th>
+<th>
+IP
+</th>
+<th>
+账号
+</th>
+<th>
+密码
+</th>
+</tr>
+<tr>
+<td>
+ERP
+</td>
+<td>
+172.18.9.9
+</td>
+<td>
+820578
+</td>
+<td>
+BFF48F5AE684E
+</td>
+</tr>
 </table>
 
 
 
-<h1 id="toc_2">拼板序列号 </h1><HR SIZE=1>
+<h1 id="toc_2">服务器开机 </h1><HR SIZE=1>
+<ul>
+<li>
+2.240先断电，F1重启修复，F1进去，开完机后 <strong>重新设置时间</strong> 然后重新启动sql服务。
+
+<li>
+mysql和gnd服务都在172.18.100.1的虚拟机里面。
+
+</ul>
+
+<h2 id="toc_2.1">Mysql错误处理 </h2>
+<p>
+错误： Another MySQL daemon already running with the same unix socket.<br />
+</p>
+
+<p>
+命令： mv /var/lib/mysql/mysql.sock /var/lib/mysql/mysql.sock.bak<br />
+</p>
+
+
+<h1 id="toc_3">拼板序列号 </h1><HR SIZE=1>
 <p>
 所有的排序转化为按x排序。<br />
 如果x相同，则y从小到大的x往右移动一点。从而实现所有按x排序。<br />
 </p>
 
-<h1 id="toc_3">保护菲林 </h1><HR SIZE=1>
+<h1 id="toc_4">保护菲林 </h1><HR SIZE=1>
 <ol>
 <li>
 删除层。在in2b上面建bh_gtl,在gbl上面建bh_gbl。
@@ -122,14 +195,14 @@ ERP文员账号
 
 </ol>
 
-<h1 id="toc_4">硬板 </h1><HR SIZE=1>
+<h1 id="toc_5">硬板 </h1><HR SIZE=1>
 <p>
 <a href="genesis脚本位置.html">genesis脚本位置</a>
 <a href="genesis脚本整理.html">genesis脚本整理</a>
 <a href="后补参数.html">后补参数</a>
 </p>
 
-<h2 id="toc_4.1">genesis料号 </h2>
+<h2 id="toc_5.1">genesis料号 </h2>
 <ul>
 <li>
 vcut 62606
@@ -142,15 +215,15 @@ ab板：bm100633a2
 
 </ul>
 
-<h2 id="toc_4.2">问题 </h2>
+<h2 id="toc_5.2">问题 </h2>
 <p>
 su dgeq<br />
 cd ~<br />
 perl parserMail.pl<br />
 </p>
 
-<h1 id="toc_5">软板 </h1><HR SIZE=1>
-<h2 id="toc_5.1">genesis料号 </h2>
+<h1 id="toc_6">软板 </h1><HR SIZE=1>
+<h2 id="toc_6.1">genesis料号 </h2>
 <p>
 set2里面有set1，set1里面有pcs<br />
 21557<br />
@@ -165,7 +238,7 @@ set2里面有set1，set1里面有pcs<br />
 东莞linux的服务器的超级用户密码：-DGsystem-<br />
 </p>
 
-<h2 id="toc_5.2">虚拟机</h2>
+<h2 id="toc_6.2">虚拟机</h2>
 <p>
 windows Server2003账号密码：Administrator，WZinformation<br />
 数据库账号密码：ems， 112233<br />
@@ -175,10 +248,10 @@ windows Server2003账号密码：Administrator，WZinformation<br />
 gen100 -frontlime<br />
 </p>
 
-<h2 id="toc_5.3">华硕客户(7271,7325,7009,7347,7346,7340)</h2>
+<h2 id="toc_6.3">华硕客户(7271,7325,7009,7347,7346,7340)</h2>
 
 
-<h1 id="toc_6">通过socket更新周期 </h1><HR SIZE=1>
+<h1 id="toc_7">通过socket更新周期 </h1><HR SIZE=1>
 <ul>
 <li>
  /genesis/sys/scripts/.hj/server/config.ini里面添加一行 updateWeek=updateWeek.pl
@@ -192,8 +265,8 @@ gen100 -frontlime<br />
 </ul>
 	
 
-<h1 id="toc_7">东莞MES </h1><HR SIZE=1>
-<h2 id="toc_7.1">IP地址 </h2>
+<h1 id="toc_8">东莞MES </h1><HR SIZE=1>
+<h2 id="toc_8.1">IP地址 </h2>
 
 <table>
 <tr>

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>Entity Framework</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">Entity Framework Core </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">Getting Started with EF Core </a>
+</ul>
+<li class="menu1"><a href="#toc_2">Entity Framework Core tools reference </a>
+<li class="menu1"><a href="#toc_3">问题处理 </a>
+<ul>
+<li class="menu2"><a href="#toc_3.1">Microsoft.EntityFrameworkCore.Tools版本不对 </a>
+</ul>
+</ul>
+</div>
+<div class="content">
+
+<p>
+Entity Framework is an object-relational mapper (O/RM) that enables  .NET developers to work with a database using .NET objects。<br />
+</p>
+
+<h1 id="toc_1">Entity Framework Core </h1><HR SIZE=1>
+
+<h2 id="toc_1.1">Getting Started with EF Core </h2>
+<ol>
+<li>
+新建一个.net Core控制台应用程序。名字为：EFGetStarted 
+
+<li>
+Install EF Core sqlserver支持.在Tools &gt; NuGet Package Manager &gt; Package Manager Console包管理终端运行 <strong>Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 3.1.1</strong>
+
+<li>
+在PMC(Package Manager Console)里面添加EFCore工具，执行命令 <strong>Install-Package Microsoft.EntityFrameworkCore.Tools</strong> 使得如下的Add-Migration和Update-Database命令在PMC里面可以找到命令。
+
+<li>
+添加Migration，执行命令 <strong>Add-Migration InitialCreate</strong> 。其中的InitialCreate名字可以更换。
+
+<li>
+然后执行数据库操作，执行命令 <strong>Update-Database</strong>
+
+<li>
+如果要更新表，更改完model后(可以删除和添加)，重新运行第4，第5步骤即可。第4步的名字需要更换。
+
+</ol>
+
+<h1 id="toc_2">Entity Framework Core tools reference </h1><HR SIZE=1>
+<ul>
+<li>
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+<li>
+Update-Package Microsoft.EntityFrameworkCore.Tools
+
+<li>
+Get-Help about_EntityFrameworkCore
+
+</ul>
+
+<h1 id="toc_3">问题处理 </h1><HR SIZE=1>
+<h2 id="toc_3.1">Microsoft.EntityFrameworkCore.Tools版本不对 </h2>
+<ol>
+<li>
+Install the latest .NET Core SDK.
+
+<li>
+Update Visual Studio to the latest version. <strong>Update-Package Microsoft.EntityFrameworkCore.Tools</strong>
+
+<li>
+Edit the .csproj file so that it includes a package reference to the latest tools package, as shown earlier.
+
+</ol>
+
+<p>
+编辑如下<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/EntityFrameworkCoreTools.png" /></div><br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

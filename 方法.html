@@ -16,6 +16,20 @@
 </head>
 <body>
 
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">参数传递 </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">out和ref 传递引用</a>
+</ul>
+<li class="menu1"><a href="#toc_2">扩展方法 </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">参数</a>
+</ul>
+<li class="menu1"><a href="#toc_3">静态方法和非静态方法 </a>
+</ul>
+</div>
+<div class="content">
 <p>
 <a href="特殊函数.html">特殊函数</a>
 <a href="匿名函数.html">匿名函数</a>
@@ -163,6 +177,14 @@ params可变参数必须是形参列表中的最后一个元素。<br />
 
 <p>
 重载:同一个函数，在不同场合，表现行为不同<br />
+</p>
+
+
+<h1 id="toc_3">静态方法和非静态方法 </h1><HR SIZE=1>
+<p>
+静态成员在加载类的时候就会被加载, 并通过类进行访问.<br />
+非静态成员在对象实例化时被创建, 通过对象来进行访问.<br />
+根据静态和非静态成员创建时的方式不同, 导致一个类的所有实例的同一静态变量的值是同一个. 同一个类的不同实例的同一非静态变量的值可以是不同的值. 所以你在写项目的时候, 是否可以考虑, 如果类的所有实例的一个参数都为同一个值得话, 给弄成static的好一些?<br />
 </p>
 
 

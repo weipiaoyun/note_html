@@ -20,13 +20,14 @@
 <ul>
 <li class="menu2"><a href="#toc_0.1">InvokeRequired 和 Invoke</a>
 </ul>
-<li class="menu1"><a href="#toc_1">并行和并发(看CPU)</a>
-<li class="menu1"><a href="#toc_2">C# 线程 </a>
+<li class="menu1"><a href="#toc_1">线程的异步 </a>
+<li class="menu1"><a href="#toc_2">并行和并发(看CPU)</a>
+<li class="menu1"><a href="#toc_3">C# 线程 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">前台线程和后台线程 </a>
+<li class="menu2"><a href="#toc_3.1">前台线程和后台线程 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">终止线程 </a>
-<li class="menu1"><a href="#toc_4">线程池 </a>
+<li class="menu1"><a href="#toc_4">终止线程 </a>
+<li class="menu1"><a href="#toc_5">线程池 </a>
 </ul>
 </div>
 <div class="content">
@@ -81,7 +82,21 @@
 	进程:正在运行的程序。一次cpu只能执行一次线程，cup足够快，多个线程同时执行，但每次执行一部分(时间片)。所以看不出来是分开执行的。<br />
 </p>
 	
-<h1 id="toc_1">并行和并发(看CPU)</h1><HR SIZE=1>
+
+<h1 id="toc_1">线程的异步 </h1><HR SIZE=1>
+<p>
+异步是相对一同步而言，同步是等待执行完后再执行。异步是两个任务不互相影响，可以同时执行。<br />
+</p>
+
+<p>
+<strong>多线程是实现异步的一种方式</strong> 多线程不等于异步。异步可以有其它的实现方式。如I/O接口和内存的交互，不需要经过CPU。<br />
+</p>
+
+<p>
+学习网：<br />
+<a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model">https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model</a>
+</p>
+<h1 id="toc_2">并行和并发(看CPU)</h1><HR SIZE=1>
 <p>
 	并行和并发是一种<code>运行方式</code>，一个是只有一个CPU，某一时刻只能运行一个线程。一个是多个cpu，某一时刻可以同时运行线程。<br />
 	<code>并发</code>：单cpu系统中，系统在某一时刻只能让一个线程运行，线程的并发大多以时间片轮巡为主。但无论如何，要通过不断切换需要运行的线程，让其运行的方式，叫做并发。<br />
@@ -89,19 +104,19 @@
 </p>
 	
 
-<h1 id="toc_2">C# 线程 </h1><HR SIZE=1>
+<h1 id="toc_3">C# 线程 </h1><HR SIZE=1>
 <p>
 作用<br />
 合理分配cpu<br />
 </p>
-<h2 id="toc_2.1">前台线程和后台线程 </h2>
+<h2 id="toc_3.1">前台线程和后台线程 </h2>
 <p>
 默认是<code>前台线程</code><br />
 <code>前台线程</code>都运行完，应用程序才结束。<br />
 <code>后台线程</code>应用程序不考虑后台线程。结束后后台线程自动结束。<br />
 </p>
 
-<h1 id="toc_3">终止线程 </h1><HR SIZE=1>
+<h1 id="toc_4">终止线程 </h1><HR SIZE=1>
 <p>
 Abort方法和Interrupt都是用来终止线程的<br />
 </p>
@@ -117,7 +132,7 @@ Abort方法和Interrupt都是用来终止线程的<br />
 
 
 
-<h1 id="toc_4">线程池 </h1><HR SIZE=1>
+<h1 id="toc_5">线程池 </h1><HR SIZE=1>
 <p>
 作用：减少反复创建线程对象所带来的性能开销<br />
 开辟一个内存空间(池)，里面放着众多未死亡的线程。<br />

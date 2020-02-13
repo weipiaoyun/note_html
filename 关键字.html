@@ -27,6 +27,7 @@
 </ul>
 </ul>
 <li class="menu1"><a href="#toc_3">using </a>
+<li class="menu1"><a href="#toc_4">async/await </a>
 </ul>
 </div>
 <div class="content">
@@ -93,6 +94,150 @@ public static class StringExtension
 <p>
 	1，可以使用using给名称空间取个别名。<br />
 	2，使用using后，不必使用全限定名称。<br />
+</p>
+
+
+<h1 id="toc_4">async/await </h1><HR SIZE=1>
+<p>
+async和await是C#异步的实现。<br />
+如下代码：<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace AsyncTest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Test test = new Test();
+            test.MyMethodAsync();
+            Console.WriteLine("come back");
+            Thread.Sleep(1000 * 4);
+            Console.WriteLine("看看我");
+            Thread.Sleep(1000 * 20);
+            Console.WriteLine("Hello World!");
+        }
+    }
+
+    public class Test
+    {
+        public async Task MyMethodAsync()
+        {
+            //and now we call await on the task 
+            LongRunningOperationAsync("E1");
+
+            Task&lt;int&gt; longRunningTask1 = LongRunningOperationAsync("E2");
+            // independent work which doesn't need the result of LongRunningOperationAsync can be done here
+
+            //and now we call await on the task 
+            int result1 = await longRunningTask1;
+            //use the result 
+            Console.WriteLine(result1);
+        }
+
+
+        public async Task&lt;int&gt; LongRunningOperationAsync(string parm) // assume we return an int from this long running operation 
+        {
+            Console.WriteLine(parm + "start");
+            Console.WriteLine(DateTime.Now);
+
+            // This block takes 1 second to run because all
+            // 5 tasks are running simultaneously
+            /*the first block is doing exactly that. It starts all the tasks immediately
+             * (the Task.Delay lines) and sets them off to the side.
+             * The code will pause on the await a line until the 1 second
+             * delay is done before going to the next line. Since b, c, d, and e all
+             * started executing at almost the exact same time as a (due to lack of the await), 
+             * they should finish at roughly the same time in this case. */
+            {
+                var a = Task.Delay(1000);//烤面包;
+                var b = Task.Delay(1000);//炸油条;
+                var c = Task.Delay(1000);//煮豆浆;
+                var d = Task.Delay(1000);
+                var e = Task.Delay(1000);
+
+                await a;
+                await b;
+                await c;
+                await d;
+                await e;
+            }
+
+            Console.WriteLine(DateTime.Now);
+
+            // This block takes 5 seconds to run because each "await"
+            // pauses the code until the task finishes
+            /*
+            the second block is starting a task and
+            waiting for it to finish(that is what await does)
+            before starting the subsequent tasks.Each iteration of this takes 1 second.
+            The await is pausing the program and waiting for the result before continuing.
+            This is the main difference between the first and second blocks.
+            */
+            {
+                await Task.Delay(1000);
+                await Task.Delay(1000);
+                await Task.Delay(1000);
+                await Task.Delay(1000);
+                await Task.Delay(1000);
+            }
+            Console.WriteLine(DateTime.Now);
+
+
+            Console.WriteLine("parm" + parm);
+            await Task.Delay(1000); // 1 second delay
+            Console.WriteLine(parm + "end");
+            return 1;
+        }
+
+    }
+}
+
+</pre>
+
+<p>
+如上：<br />
+一个Test类，有两个方法MyMethodAsync和LongRunningOperationAsync。这两个方法都是异步的。<br />
+</p>
+
+<p>
+当执行MyMethodAsync这个的时候<br />
+</p>
+<ol>
+<li>
+在第26行调用LongRunningOperationAsync。因为这个方法是异步的，所以，在执行这个方法的时候遇到await关键字的会返回继续执行第28行。
+
+<li>
+第28行，同样调用LongRunningOperationAsync，同样遇到await关键字的时候会返回到32行。32行遇到await，等待第28行的任务执行完。这个时候因为遇到了await，所以该方法需要返回了。返回到main的13行继续执行。因为MyMethodAsync方法申明了是异步的，所以main里面在执行其它任务的时候会不停地检测MyMethodAsync里面的await是否ok了(我们会不停地检测是否煮好豆浆，面包等)。如果ok了，我们会去MyMethodAsync继续执行。
+
+<li>
+因为LongRunningOperationAsync也是申明了异步的，所以，在执行了该函数后会一直检测await是否执行完，直到执行完。
+
+</ol>
+
+
+<p>
+在看看上面的LongRunningOperationAsync方法里面的延时1s的任务。<br />
+</p>
+<ul>
+<li>
+第52行执行完后，这个任务已经开始了。33行也是。32行到36行的执行是一起运行的。到了38行的时候告诉主程序，这里要等待了。等待的过程中32到36行的任务一直在执行的。所以38行到43行的顺序没有关系，38行到43行都是知识告诉主程序，我的这几个任务需要等待执行完后才能执行 <strong>这个方法下面的任务</strong> 注意等待的时候可以执行这个方法外面的东西，这个await后面的任务就需要await指令指定的任务完成后才能继续。如第6
+
+</ul>
+
+
+<p>
+如果B函数调用有async的A函数。<br />
+*async是告诉编译器这个A函数是异步函数，里面肯定有await，遇到await的时候可以返回B函数继续执行自己任务，同时不停监测await任务是否执行完，监测到执行完后需要切换到这个A函数继续执行(B任务先暂停)。<br />
+</p>
+
+<p>
+<strong>await后面的肯定是一个任务Task</strong><br />
 </p>
 
 

@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>ASP.NETCORE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">Configure </a>
+<li class="menu1"><a href="#toc_2">startup class </a>
+<li class="menu1"><a href="#toc_3">host </a>
+<li class="menu1"><a href="#toc_4">CreateWebHostBuilder </a>
+<li class="menu1"><a href="#toc_5">ServiceCollection </a>
+<li class="menu1"><a href="#toc_6">特性 </a>
+<li class="menu1"><a href="#toc_7">源码 </a>
+<ul>
+<li class="menu2"><a href="#toc_7.1">extensions-master </a>
+</ul>
+</ul>
+</div>
+<div class="content">
+
+<p>
+管道<br />
+</p>
+
+<p>
+RequestDelegate //一个步骤或多个步骤<br />
+</p>
+
+
+<p>
+ConfigureServices -&gt; Configure<br />
+</p>
+
+<h1 id="toc_1">Configure </h1><HR SIZE=1>
+<p>
+The Configure method is used to specify how the app responds to HTTP requests.<br />
+</p>
+
+<h1 id="toc_2">startup class </h1><HR SIZE=1>
+<p>
+startup里面告诉ksel 怎么处理请求。<br />
+configure services<br />
+configure our middleware <br />
+configure our configuration<br />
+configure the app's request pipeline<br />
+</p>
+
+<h1 id="toc_3">host </h1><HR SIZE=1>
+<p>
+is an effectively object<br />
+</p>
+
+<h1 id="toc_4">CreateWebHostBuilder </h1><HR SIZE=1>
+<p>
+builder is like a factory.<br />
+</p>
+
+
+<p>
+IWebHostBuilder is a factory<br />
+</p>
+
+<p>
+AOP的程序设计方式。<br />
+</p>
+
+
+<p>
+ConfigureService是自己配置的依赖注入。<br />
+</p>
+
+<p>
+容器的注入是在Configure之前<br />
+</p>
+
+<p>
+Run的时候会调用管道，Configure配置管道内容。<br />
+</p>
+
+<h1 id="toc_5">ServiceCollection </h1><HR SIZE=1>
+<p>
+serviceCollection是内置在Asp.NetCore内置的全新的容器。<br />
+</p>
+
+<p>
+控制反转+依赖主任。<br />
+</p>
+
+<p>
+容器除了能生成对象。还能做很多事。<br />
+</p>
+<ul>
+<li>
+AOP面向切面编程
+
+<li>
+生命周期管理。
+
+</ul>
+
+<p>
+ServiceCollection只支持构造函数注入，不支持属性等注入。<br />
+</p>
+
+<p>
+可选用autoFac<br />
+</p>
+
+
+<p>
+Startup.cs里面是一些配置，配置管道等。<br />
+</p>
+
+<p>
+方法-&gt;类-&gt;全局注册。<br />
+</p>
+
+<p>
+AOP：<br />
+</p>
+<ul>
+<li>
+不破坏封装的情况下扩展功能
+
+<li>
+集中管理
+
+</ul>
+
+
+<h1 id="toc_6">特性 </h1><HR SIZE=1>
+<p>
+特性的依赖注入。<br />
+特性是编译时确定的。构造函数只能传递常亮<br />
+特性不能传变量的。只能传常量。<br />
+</p>
+
+
+<p>
+serviceProvider是一个容器，可以创建容器。<br />
+容器的实例可以构造对象，就可以依赖注入。<br />
+</p>
+
+
+<p>
+所有的Filter都会继承IFilterFactor<br />
+</p>
+
+<p>
+空接口是为了标识，标识他是一个Filter。<br />
+</p>
+
+
+<p>
+WebHost.cs<br />
+	ConfigureWebDefaults<br />
+</p>
+	
+<h1 id="toc_7">源码 </h1><HR SIZE=1>
+<h2 id="toc_7.1">extensions-master </h2>
+<p>
+<a href="https://github.com/dotnet/extensions/blob/master/docs/BuildFromSource.md">https://github.com/dotnet/extensions/blob/master/docs/BuildFromSource.md</a>
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

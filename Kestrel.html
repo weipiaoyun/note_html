@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>SOLID Principle</title>
+<title>Kestrel</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,62 +18,65 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Interface Segregation Principle </a>
-<li class="menu1"><a href="#toc_2">Open/Closed Principle </a>
-<li class="menu1"><a href="#toc_3">LisKov Substitution Principle </a>
-<li class="menu1"><a href="#toc_4">Dependency Inversion Principle </a>
+<li class="menu1"><a href="#toc_1">Why Kestrel Webserver when we have IIS/Nginx/Apache? </a>
+<li class="menu1"><a href="#toc_2">How to use Kestrel? </a>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">Interface Segregation Principle </h1><HR SIZE=1>
 <p>
-ensures that you design your interfaces so that clients don’t depend on parts of the interface.<br />
+Asp.Net Core applications run Kestrel webserver as in-process server to handle web request<br />
 </p>
 
-<h1 id="toc_2">Open/Closed Principle </h1><HR SIZE=1>
 <ul>
 <li>
-you use one or more interfaces to ensure that your component is open for extension but closed for modification.
+Kestrel is an open source, cross platform, light weight and a <strong>default webserver</strong> used for Asp.Net Core applications.
+
+<li>
+By default, all Asp.Net core project templates include Kestrel webserver when we create new Asp.Net Core Projects.
+
+<li>
+webserver that does not have every advanced features of webservers like IIS, Nginx, Apache, etc has，Because it's very light weight.
+
+<li>
+Due to its lightweight nature, Kestrel provides better request processing performance to Asp.Net Core applications
 
 </ul>
-
-
-<h1 id="toc_3">LisKov Substitution Principle </h1><HR SIZE=1>
-<ul>
-<li>
-requires you to implement your interfaces in a way that you can replace its implementations without changing the code that uses the interface.
-
-<li>
-
-
-</ul>
-
-<h1 id="toc_4">Dependency Inversion Principle </h1><HR SIZE=1>
-<ul>
-<li>
-you need to introduce an interface as an abstraction between a higher and a lower level component to split the dependency between both components.
-
-<li>
-
-
-</ul>
- 
-<ol>
-<li>
-High-level modules should not depend on low-level modules. Both should depend on the abstraction.
-
-<li>
-Abstractions should not depend on details. Details should depend on abstractions.
-
-</ol>
 
 <p>
-Which principle suggests "High-level modules should not depend on low-level modules. Both should depend on abstraction. Abstractions should not depend on details. Details should depend on abstractions."<br />
+Some features of Kestrel<br />
 </p>
 
+<ul>
+<li>
+Kestrel does not support multiple applications sharing same port similar to IIS where applications are differentiated by host header value.
+
+<li>
+Kestrel is cross platform, runs in Windows, LINUX and Mac.
+
+<li>
+strel webserver supports SSL.
+
+</ul>
+
+<h1 id="toc_1">Why Kestrel Webserver when we have IIS/Nginx/Apache? </h1><HR SIZE=1>
+<ul>
+<li>
+IIS is a windows-only webserver.
+
+<li>
+If using Nginx, Apache.each webserver has a different Startup configurations,this will make Asp.Net Core applications have different Startup mechanisms.
+
+</ul>
+
+
+<h1 id="toc_2">How to use Kestrel? </h1><HR SIZE=1>
+
+
+
 <p>
-What are the types of Dependency Injections?<br />
+UseIISIntegration() : <br />
+	Every Asp.Net Core application requires <strong>a Host process</strong> to start Kestrel webserver。and initialize application for request processing。Calling UseIISIntegration() integrates Kestrel with IIS webserver<br />
 </p>
 
 

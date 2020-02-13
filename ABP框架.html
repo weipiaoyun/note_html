@@ -21,15 +21,17 @@
 <li class="menu1"><a href="#toc_1">NLayer Architecture </a>
 <ul>
 <li class="menu2"><a href="#toc_1.1">DDD </a>
+<li class="menu2"><a href="#toc_1.2">Presentation Layer </a>
 </ul>
-<li class="menu1"><a href="#toc_2">Concept </a>
+<li class="menu1"><a href="#toc_2">Module Definition </a>
+<li class="menu1"><a href="#toc_3">Concept </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">dependency injection </a>
+<li class="menu2"><a href="#toc_3.1">dependency injection </a>
 <ul>
-<li class="menu3"><a href="#toc_2.1.1">constructor injection </a>
-<li class="menu3"><a href="#toc_2.1.2">Property Injection </a>
+<li class="menu3"><a href="#toc_3.1.1">constructor injection </a>
+<li class="menu3"><a href="#toc_3.1.2">Property Injection </a>
 </ul>
-<li class="menu2"><a href="#toc_2.2">Service Locator pattern </a>
+<li class="menu2"><a href="#toc_3.2">Service Locator pattern </a>
 </ul>
 </ul>
 </div>
@@ -92,16 +94,47 @@ There are four fundamental layers in Domain Driven Design<br />
 </ul>
 
 
+<h2 id="toc_1.2">Presentation Layer </h2>
+<p>
+ASP.NET [Core] MVC (Model-View-Controller) can be considered to be the presentation layer<br />
+It include<br />
+</p>
+<ul>
+<li>
+Localization
+
+<li>
+Navication
+
+<li>
+Object Mapping
+
+<li>
+Caching
+
+<li>
+Configuration Management
+
+<li>
+oAudit Logging
+
+</ul>
+
+
+<h1 id="toc_2">Module Definition </h1><HR SIZE=1>
+<p>
+Acme.SimpleTaskApp.Tests-&gt;SimpleTaskAppTestModule<br />
+</p>
 
 
 
-<h1 id="toc_2">Concept </h1><HR SIZE=1>
+<h1 id="toc_3">Concept </h1><HR SIZE=1>
 <p>
 <a href="Application Services.html">Application Services</a>
 <a href="presentation layer.html">presentation layer</a>
 </p>
 
-<h2 id="toc_2.1">dependency injection </h2>
+<h2 id="toc_3.1">dependency injection </h2>
 <ul>
 <li>
 Dependency injection is a <a href="software design pattern.html">software design pattern</a>
@@ -110,11 +143,11 @@ Dependency injection is a <a href="software design pattern.html">software design
 <p>
 <a href="Dependency Injection.html">Dependency Injection</a>
 </p>
-<h3 id="toc_2.1.1">constructor injection </h3>
+<h3 id="toc_3.1.1">constructor injection </h3>
 
-<h3 id="toc_2.1.2">Property Injection </h3>
+<h3 id="toc_3.1.2">Property Injection </h3>
 
-<h2 id="toc_2.2">Service Locator pattern </h2>
+<h2 id="toc_3.2">Service Locator pattern </h2>
 
 
 <div class="foot">

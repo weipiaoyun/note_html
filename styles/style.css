@@ -175,9 +175,9 @@ body {
 .content {
 	margin-left:none;
 	margin-left:0px;
-	width:100%;
+	/*下面的100%不能加，否则当宽度太大的时候左右需要拖动*/
+	/*width:100%;*/
 }
-
 
 
 /*返回首页*/

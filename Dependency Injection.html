@@ -18,27 +18,39 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Introduction </a>
-<li class="menu1"><a href="#toc_2">what do I gain from using DI/IoC? </a>
-<li class="menu1"><a href="#toc_3">Are there resons I wouldn't want to use DI/IoC? </a>
-<li class="menu1"><a href="#toc_4">解决办法 </a>
+<li class="menu1"><a href="#toc_1">Concept </a>
+<li class="menu1"><a href="#toc_2">利用扩展方法注册额外的服务 </a>
+<li class="menu1"><a href="#toc_3">Introduction </a>
+<li class="menu1"><a href="#toc_4">what do I gain from using DI/IoC? </a>
+<li class="menu1"><a href="#toc_5">Are there resons I wouldn't want to use DI/IoC? </a>
+<li class="menu1"><a href="#toc_6">The Dependency Injection pattern involves 3 types of classes. </a>
+<li class="menu1"><a href="#toc_7">Types of Dependency Injection </a>
+<li class="menu1"><a href="#toc_8">解决办法 </a>
 <ul>
-<li class="menu2"><a href="#toc_4.1">Constructor Injection Pattern </a>
-<li class="menu2"><a href="#toc_4.2">Property Injection pattern </a>
+<li class="menu2"><a href="#toc_8.1">Constructor Injection Pattern </a>
+<li class="menu2"><a href="#toc_8.2">Property Injection pattern </a>
 </ul>
-<li class="menu1"><a href="#toc_5">Dependency Injection frameworks </a>
-<li class="menu1"><a href="#toc_6">DI frameworks </a>
-<li class="menu1"><a href="#toc_7">ABP Dependency Injection Infrastructure </a>
+<li class="menu1"><a href="#toc_9">Dependency Injection frameworks </a>
+<li class="menu1"><a href="#toc_10">DI frameworks </a>
+<li class="menu1"><a href="#toc_11">ABP Dependency Injection Infrastructure </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">Registering Dependencies </a>
-<li class="menu2"><a href="#toc_7.2">Conventional Registrations </a>
+<li class="menu2"><a href="#toc_11.1">Registering Dependencies </a>
+<li class="menu2"><a href="#toc_11.2">Conventional Registrations </a>
 </ul>
-<li class="menu1"><a href="#toc_8">Helper Interface </a>
+<li class="menu1"><a href="#toc_12">Helper Interface </a>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">Introduction </h1><HR SIZE=1>
+<h1 id="toc_1">Concept </h1><HR SIZE=1>
+<p>
+ dependency tree, dependency graph, or object graph.<br />
+</p>
+ 
+
+<h1 id="toc_2" class="justcenter">利用扩展方法注册额外的服务 </h1><HR SIZE=1>
+
+<h1 id="toc_3">Introduction </h1><HR SIZE=1>
 <ul>
 <li>
 Is a Design pattern
@@ -52,10 +64,19 @@ often facilitated by <a href="IoC.html">IoC</a>(Inversion of Control) container,
 <li>
 当对象实例化的时候解决和注入依赖项。
 
+<li>
+Dependency Injiction(DI) is a design pattern used to implement IoC.
+
+<li>
+It allows the creation of dependent objects outside of a class and provides those objects to a class through different ways
+
+<li>
+Using DI, we move the creation and binding of the dependent objects outside of the class that depends on them.
+
 </ul>
 
 
-<h1 id="toc_2">what do I gain from using DI/IoC? </h1><HR SIZE=1>
+<h1 id="toc_4">what do I gain from using DI/IoC? </h1><HR SIZE=1>
 <p>
 可以为中大型项目提供很多的好处<br />
 </p>
@@ -74,9 +95,33 @@ DI可以轻松的支持<a href="N-Tier.html">N-Tier</a>achitectures.
 
 </ul>
 
-<h1 id="toc_3">Are there resons I wouldn't want to use DI/IoC? </h1><HR SIZE=1>
+<h1 id="toc_5">Are there resons I wouldn't want to use DI/IoC? </h1><HR SIZE=1>
 
 
+<h1 id="toc_6">The Dependency Injection pattern involves 3 types of classes. </h1><HR SIZE=1>
+<p>
+Client Class: The client class (dependent class) is a class which depends on the service class<br />
+Service Class: The service class (dependency) is a class that provides service to the client class.<br />
+Injector Class: The injector class injects the service class object into the client class.<br />
+</p>
+
+<p>
+The following figure illustrates the relationship between these classes:<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/DI.png" /></div><br />
+</p>
+
+<h1 id="toc_7">Types of Dependency Injection </h1><HR SIZE=1>
+<p>
+Constructor Injection: In the constructor injection, the injector supplies the service (dependency) through the client class constructor.<br />
+</p>
+
+<p>
+Property Injection: In the property injection (aka the Setter Injection), the injector supplies the dependency through a public property of the client class.<br />
+</p>
+
+<p>
+Method Injection: In this type of injection, the client class implements an interface which declares the method(s) to supply the dependency and the injector uses this interface to supply the dependency to the client class.<br />
+</p>
 
 <p>
 看下面的例子<br />
@@ -143,8 +188,8 @@ Creation problems已经解决。因为PersonAppService不知道如何创建IPers
 
 </ul>
 
-<h1 id="toc_4">解决办法 </h1><HR SIZE=1>
-<h2 id="toc_4.1">Constructor Injection Pattern </h2>
+<h1 id="toc_8">解决办法 </h1><HR SIZE=1>
+<h2 id="toc_8.1">Constructor Injection Pattern </h2>
 <p>
 如上的将构造函数改为如下：<br />
 </p>
@@ -181,7 +226,7 @@ Constructor Injection 是将对象和类独立开的很好的方法。但是上�
 幸运的是，我们有自动管理依赖项的Dependency Injection frameworks。<br />
 </p>
 
-<h2 id="toc_4.2">Property Injection pattern </h2>
+<h2 id="toc_8.2">Property Injection pattern </h2>
 
 <p>
 constructor injection pattern 是提供类依赖的很好的方法。使用这种方法，没有提供依赖项，创建不了类的实例。但是，这个方法需要明确地定义类的要求是什么，才能使其正确地工作。<br />
@@ -244,7 +289,7 @@ personService.CreatePerson("John Doe", 32);
 
 </ul>
 
-<h1 id="toc_5">Dependency Injection frameworks </h1><HR SIZE=1>
+<h1 id="toc_9">Dependency Injection frameworks </h1><HR SIZE=1>
 <ul>
 <li>
 有很多的 <strong>Dependency Injection frameworks</strong> 支持自动解决依赖项。
@@ -263,22 +308,22 @@ ASP.NET Boilerplate Dependency Injection使用的是<a href="Castle Windsor.html
 
 </ul>
 
-<h1 id="toc_6">DI frameworks </h1><HR SIZE=1>
+<h1 id="toc_10">DI frameworks </h1><HR SIZE=1>
 <p>
 还有一些其它的DI framework。Unity, Ninject, StructureMap, and Autofac. Castle Windsor<br />
 </p>
 
-<h1 id="toc_7">ABP Dependency Injection Infrastructure </h1><HR SIZE=1>
+<h1 id="toc_11">ABP Dependency Injection Infrastructure </h1><HR SIZE=1>
 <p>
 ABP 使用DI framework 基本上都是隐形的。它也通过如下最好的习惯和约定帮你写应用程序。<br />
 </p>
 
-<h2 id="toc_7.1">Registering Dependencies </h2>
+<h2 id="toc_11.1">Registering Dependencies </h2>
 <p>
 在ABP里，可以使用不同方法注册你的类到DI System。在大多情况下，conventional registration will be sufficient.<br />
 </p>
 
-<h2 id="toc_7.2">Conventional Registrations </h2>
+<h2 id="toc_11.2">Conventional Registrations </h2>
 <p>
 ABP通过约定自动注册所有的Repositories，Domain Services, Application Services，MVC Controllers，Web API Controllers。例如，你可能有IPersonAppService接口和实现它的PersonAppService 类。如下：<br />
 </p>
@@ -322,7 +367,7 @@ Assembly.GetExecutingAssembly()获取包含该代码的程序集。你可以传�
 你可以通过实现IConventionalRegisterer 接口写自己的约定注册类。然后在你的类中调用IocManager.AddConventionalRegisterer方法。你应该在你的模块的初始化之前添加它。<br />
 </p>
 
-<h1 id="toc_8">Helper Interface </h1><HR SIZE=1>
+<h1 id="toc_12">Helper Interface </h1><HR SIZE=1>
 
 
 <div class="foot">

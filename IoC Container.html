@@ -16,6 +16,15 @@
 </head>
 <body>
 
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">Unity Container </a>
+<li class="menu1"><a href="#toc_2">Register </a>
+<li class="menu1"><a href="#toc_3">Resolve </a>
+<li class="menu1"><a href="#toc_4">How Unity container performs constructor injection </a>
+</ul>
+</div>
+<div class="content">
 <ul>
 <li>
  IoC container is a framework used to manage <strong>automatic dependency injection</strong> throughout the application
@@ -26,7 +35,182 @@
 <li>
 We cannot achieve loosely coupled classes by using IoC alone.Along with IoC, we also need to use DIP, DI and IoC container
 
+<li>
+IoC Container (= DI Container)  is a framework for implementing automatic dependency injection
+
+<li>
+It manages object creation and it's life-time, and also injects dependencies to the class.
+
+<li>
+This is done so that we don't have to create and manage objects manually.
+
 </ul>
+
+<p>
+<strong>Register</strong>: The container must know which dependency to instantiate when it encounters a particular type. This process is called registration. Basically, it must include some way to register type-mapping.<br />
+<strong>Resolve</strong>: When using the IoC container, we don't need to create objects manually. The container does it for us. This is called resolution. The container must include some methods to resolve the specified type; the container creates an object of the specified type, injects the required dependencies if any and returns the object.<br />
+<strong>Dispose</strong>: The container must manage the lifetime of the dependent objects. Most IoC containers include different lifetimemanagers to manage an object's lifecycle and dispose it.<br />
+</p>
+
+
+<h1 id="toc_1">Unity Container </h1><HR SIZE=1>
+<p>
+Every IoC  container must provide a way to<br />
+</p>
+<ol>
+<li>
+register
+
+<li>
+resolve
+
+</ol>
+<p>
+dependencies.<br />
+</p>
+
+<p>
+Unity container provides the <strong>RegisterType()</strong> and <strong>Resolve()</strong> methods for this.<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public interface ICar
+{
+    int Run();
+}
+
+public class BMW : ICar
+{
+    private int _miles = 0;
+
+    public int Run()
+    {
+        return ++_miles;
+    }
+}
+
+public class Ford : ICar
+{
+    private int _miles = 0;
+
+    public int Run()
+    {
+        return ++_miles;
+    }
+}
+
+public class Audi : ICar
+{
+    private int _miles = 0;
+
+    public int Run()
+    {
+        return ++_miles;
+    }
+
+}
+public class Driver
+{
+    private ICar _car = null;
+
+    public Driver(ICar car)
+    {
+        _car = car;
+    }
+
+    public void RunCar()
+    {
+        Console.WriteLine("Running {0} - {1} mile ", _car.GetType().Name, _car.Run());
+    }
+}
+</pre>
+
+<p>
+如上：Driver Class就像是公共的方法。比如我们调用PLC的也是。只针对一个类，传递不一样的Instance。执行的结果不一样。上面的我们可以如下定义。<br />
+</p>
+
+<p>
+假如是一个宝马<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+Driver driver = new Driver(new BMW());
+
+driver.RunCar();
+</pre>
+<p>
+假如是一个奥迪<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+Driver driver = new Driver(new Audi());
+
+driver.RunCar();
+</pre>
+
+<p>
+上面的例子，我们创建了一个宝马或者是奥迪对象传给Driver。我们手动注入了Driver的依赖项。现在，我们将通过使用Unity container理解不一样的方式注册和解决依赖项。<br />
+</p>
+
+<p>
+需要使用Unity container，我们首先需要创建它的一个对象。你可以使用实现了IUnityContainer接口的任何的类创建对象。<br />
+</p>
+
+<p>
+Unity container已经有了一个实现了IUnityContainer接口的类。如果你需要扩展这个container。你可以创建自己的自定义类(必须实现IUnityContainer接口)。<br />
+</p>
+
+<p>
+我们实例一个UnityContainer对象。<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+IUnityContainer container = new UnityContainer();
+</pre>
+
+<p>
+或者<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+var container = new UnityContainer();
+</pre>
+
+<p>
+接着，我们需要类型映射。<br />
+</p>
+
+<h1 id="toc_2">Register </h1><HR SIZE=1>
+<p>
+在Unity resolves 依赖项之前，我们需要使用container register 这个类型映射。以便为给定的给定的类型创建正确的对象。使用RegisterType()方法进行类型映射。一般配置为，为哪个接口或者是基类实例化哪个对象。(哪个接口 =(指向) 哪个类)；如下，我们定义一个对象，并注册类型映射。<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+IUnityContainer container = new UnityContainer();
+
+container.RegisterType&lt;ICar, BMW&gt;();
+</pre>
+
+<p>
+现在在注册之后，我们可以使用Resolve()这个方法了。<br />
+</p>
+
+<h1 id="toc_3">Resolve </h1><HR SIZE=1>
+<p>
+Unity创建指定类的对象，并使用resolve()方法自动注入依赖项。上面，我们已经用ICar 注册了BMW，现在我们可以使用Unity container实例化Driver 对象。不需要使用上面的new关键字创建。<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+IUnityContainer container = new UnityContainer();
+container.RegisterType&lt;ICar, BMW&gt;();// Map ICar with BMW 
+
+//Resolves dependencies and returns the Driver object 
+Driver drv = container.Resolve&lt;Driver&gt;(); 
+drv.RunCar();
+</pre>
+
+<p>
+如上，使用container.Resolve&lt;Driver&gt;()创建了Driver类的对象。<br />
+如上第4行，需要创建Driver Class的对象。因为Driver Class依赖于ICar。所以找到上面的第2行发现ICar是BWM绑定的。所以它会在后台自动的创建一个BWM对象赋值给ICar，再传递给Driver类创建Driver对象。<br />
+</p>
+
+<h1 id="toc_4">How Unity container performs constructor injection </h1><HR SIZE=1>
 
 
 <div class="foot">

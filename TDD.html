@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>SOLID Principle</title>
+<title>TDD</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,62 +18,42 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Interface Segregation Principle </a>
-<li class="menu1"><a href="#toc_2">Open/Closed Principle </a>
-<li class="menu1"><a href="#toc_3">LisKov Substitution Principle </a>
-<li class="menu1"><a href="#toc_4">Dependency Inversion Principle </a>
+<li class="menu1"><a href="#toc_1">TDD </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">some clarification about TDD </a>
+<li class="menu2"><a href="#toc_1.2">NSubstitute </a>
+</ul>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">Interface Segregation Principle </h1><HR SIZE=1>
+
+<h1 id="toc_1">TDD </h1><HR SIZE=1>
 <p>
-ensures that you design your interfaces so that clients don’t depend on parts of the interface.<br />
+The primary goal of TDD is to make the code clearer, simple and bug-free.<br />
 </p>
 
-<h1 id="toc_2">Open/Closed Principle </h1><HR SIZE=1>
+<h2 id="toc_1.1">some clarification about TDD </h2>
 <ul>
 <li>
-you use one or more interfaces to ensure that your component is open for extension but closed for modification.
+TDD neither about "Testing" nor about "Design"
+
+<li>
+TDD does not mean "write some of the tests, then build a system that passes the tests"
+
+<li>
+TDD does not mean "do lots of Testing"
 
 </ul>
 
 
-<h1 id="toc_3">LisKov Substitution Principle </h1><HR SIZE=1>
-<ul>
-<li>
-requires you to implement your interfaces in a way that you can replace its implementations without changing the code that uses the interface.
-
-<li>
-
-
-</ul>
-
-<h1 id="toc_4">Dependency Inversion Principle </h1><HR SIZE=1>
-<ul>
-<li>
-you need to introduce an interface as an abstraction between a higher and a lower level component to split the dependency between both components.
-
-<li>
-
-
-</ul>
- 
-<ol>
-<li>
-High-level modules should not depend on low-level modules. Both should depend on the abstraction.
-
-<li>
-Abstractions should not depend on details. Details should depend on abstractions.
-
-</ol>
-
+<h2 id="toc_1.2">NSubstitute </h2>
 <p>
-Which principle suggests "High-level modules should not depend on low-level modules. Both should depend on abstraction. Abstractions should not depend on details. Details should depend on abstractions."<br />
+why we picked NSubstitute<br />
 </p>
 
 <p>
-What are the types of Dependency Injections?<br />
+<a href="https://weareadaptive.com/2014/09/30/why-nsubstitute/">https://weareadaptive.com/2014/09/30/why-nsubstitute/</a>
 </p>
 
 
