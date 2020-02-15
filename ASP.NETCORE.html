@@ -18,23 +18,56 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Configure </a>
-<li class="menu1"><a href="#toc_2">startup class </a>
-<li class="menu1"><a href="#toc_3">host </a>
-<li class="menu1"><a href="#toc_4">CreateWebHostBuilder </a>
-<li class="menu1"><a href="#toc_5">ServiceCollection </a>
-<li class="menu1"><a href="#toc_6">特性 </a>
-<li class="menu1"><a href="#toc_7">源码 </a>
+<li class="menu1"><a href="#toc_1">source code </a>
+<li class="menu1"><a href="#toc_2">program.cs </a>
+<li class="menu1"><a href="#toc_3">Configure </a>
+<li class="menu1"><a href="#toc_4">startup class </a>
+<li class="menu1"><a href="#toc_5">web host </a>
+<li class="menu1"><a href="#toc_6">CreateWebHostBuilder </a>
+<li class="menu1"><a href="#toc_7">ServiceCollection </a>
+<li class="menu1"><a href="#toc_8">特性 </a>
+<li class="menu1"><a href="#toc_9">源码 </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">extensions-master </a>
+<li class="menu2"><a href="#toc_9.1">extensions-master </a>
+</ul>
+<li class="menu1"><a href="#toc_10">Middleware </a>
+<ul>
+<li class="menu2"><a href="#toc_10.1">增加middleware F1 </a>
+<ul>
+<li class="menu3"><a href="#toc_10.1.1">Middle的生成过程 </a>
+<li class="menu3"><a href="#toc_10.1.2">Middleware的执行过程 </a>
+</ul>
+<li class="menu2"><a href="#toc_10.2">增加middleware F2 </a>
+<li class="menu2"><a href="#toc_10.3">F1和F2比较 </a>
+</ul>
+<li class="menu1"><a href="#toc_11">Log </a>
+<li class="menu1"><a href="#toc_12">配置 </a>
+<ul>
+<li class="menu2"><a href="#toc_12.1">配置静态文件 </a>
+</ul>
+<li class="menu1"><a href="#toc_13">publish and deloy </a>
+<ul>
+<li class="menu2"><a href="#toc_13.1">kestrel </a>
+<li class="menu2"><a href="#toc_13.2">IIS </a>
+<ul>
+<li class="menu3"><a href="#toc_13.2.1">ASP.NET Core IIS Module download </a>
+</ul>
 </ul>
 </ul>
 </div>
 <div class="content">
 
+<h1 id="toc_1">source code </h1><HR SIZE=1>
 <p>
+<a href="https://github.com/dotnet/aspnetcore/tree/1480b998660d2f77d0605376eefab6a83474ce07">https://github.com/dotnet/aspnetcore/tree/1480b998660d2f77d0605376eefab6a83474ce07</a>
+</p>
+
+<p>
+<strong>all the .NET Core applications basically are console applications.</strong><br />
 管道<br />
 </p>
+
+
 
 <p>
 RequestDelegate //一个步骤或多个步骤<br />
@@ -44,13 +77,26 @@ RequestDelegate //一个步骤或多个步骤<br />
 <p>
 ConfigureServices -&gt; Configure<br />
 </p>
+<h1 id="toc_2">program.cs </h1><HR SIZE=1>
+<ul>
+<li>
+It is the entry point of our app,where we configure the Web host.
 
-<h1 id="toc_1">Configure </h1><HR SIZE=1>
+<li>
+The program class configures the application infrastructure like Web host, logging, Dependency injection container, IIS integration, etc.
+
+</ul>
+
+<p>
+<strong>The main purpose of the Program class is to configure the applications infrastructure.</strong><br />
+</p>
+
+<h1 id="toc_3">Configure </h1><HR SIZE=1>
 <p>
 The Configure method is used to specify how the app responds to HTTP requests.<br />
 </p>
 
-<h1 id="toc_2">startup class </h1><HR SIZE=1>
+<h1 id="toc_4">startup class </h1><HR SIZE=1>
 <p>
 startup里面告诉ksel 怎么处理请求。<br />
 configure services<br />
@@ -59,12 +105,33 @@ configure our configuration<br />
 configure the app's request pipeline<br />
 </p>
 
-<h1 id="toc_3">host </h1><HR SIZE=1>
+<h1 id="toc_5">web host </h1><HR SIZE=1>
 <p>
 is an effectively object<br />
 </p>
 
-<h1 id="toc_4">CreateWebHostBuilder </h1><HR SIZE=1>
+<p>
+The Web host is responsible for starting the app and running it<br />
+</p>
+<ul>
+<li>
+It is created when the application starts.  
+
+<li>
+Web host creates a server, which listens for the HTTP requests.  
+
+<li>
+It configures the request pipeline (or middleware pipeline). 
+
+<li>
+It sets up DI container, where we add our services. 
+
+<li>
+Managing the lifetime of the services
+
+</ul>
+
+<h1 id="toc_6">CreateWebHostBuilder </h1><HR SIZE=1>
 <p>
 builder is like a factory.<br />
 </p>
@@ -91,7 +158,7 @@ ConfigureService是自己配置的依赖注入。<br />
 Run的时候会调用管道，Configure配置管道内容。<br />
 </p>
 
-<h1 id="toc_5">ServiceCollection </h1><HR SIZE=1>
+<h1 id="toc_7">ServiceCollection </h1><HR SIZE=1>
 <p>
 serviceCollection是内置在Asp.NetCore内置的全新的容器。<br />
 </p>
@@ -142,7 +209,7 @@ AOP：<br />
 </ul>
 
 
-<h1 id="toc_6">特性 </h1><HR SIZE=1>
+<h1 id="toc_8">特性 </h1><HR SIZE=1>
 <p>
 特性的依赖注入。<br />
 特性是编译时确定的。构造函数只能传递常亮<br />
@@ -170,10 +237,283 @@ WebHost.cs<br />
 	ConfigureWebDefaults<br />
 </p>
 	
-<h1 id="toc_7">源码 </h1><HR SIZE=1>
-<h2 id="toc_7.1">extensions-master </h2>
+<h1 id="toc_9">源码 </h1><HR SIZE=1>
+<h2 id="toc_9.1">extensions-master </h2>
 <p>
 <a href="https://github.com/dotnet/extensions/blob/master/docs/BuildFromSource.md">https://github.com/dotnet/extensions/blob/master/docs/BuildFromSource.md</a>
+</p>
+
+<h1 id="toc_10">Middleware </h1><HR SIZE=1>
+
+<h2 id="toc_10.1">增加middleware F1 </h2>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+
+            app.Use(
+            //middleware1
+            next =&gt;
+            {
+                Console.WriteLine("Middleware 1 out");
+                //RequestDelegate1    执行public RequestDelegate Build()方法后，最后返回的就是这个RequestDelegate。在某个地方调用的时候会传递一个context。
+                return new RequestDelegate(
+                   async context =&gt;
+                    {
+                        await context.Response.WriteAsync("This is Middleware 1 start");
+                        await next.Invoke(context);
+                        await context.Response.WriteAsync("This is Middleware 1 end");
+                    });
+            }
+            );
+            app.Use(
+             //middle2
+            next =&gt;
+            {
+                Console.WriteLine("Middleware 2 out");
+                return new RequestDelegate(
+                   async context =&gt;
+                   {
+                       await context.Response.WriteAsync("This is Middleware 2 start");
+                       await next.Invoke(context);
+                       await context.Response.WriteAsync("This is Middleware 2 end");
+                   });
+            });
+            app.Use(
+                //传递一个方法过去，返回一个方法
+                next =&gt;
+                {
+                    Console.WriteLine("Middleware 3 out");
+                    //这个方法需要返回 RequestDelegate 类型的方法|委托， 这个委托 传一个context，返回一个Task
+                    return new RequestDelegate(
+                       //这个
+                       async context =&gt;
+                       {
+                           await context.Response.WriteAsync("This is Middleware 3 start");
+                           //await next.Invoke(context);//404
+                           await context.Response.WriteAsync("This is Middleware 3 end");
+                       });
+                }
+            );
+
+</pre>
+
+
+<p>
+如上，增加了三个middleware。<br />
+</p>
+
+<h3 id="toc_10.1.1">Middle的生成过程 </h3>
+<p>
+如下代码生成Middleware<br />
+</p>
+
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public RequestDelegate Build()
+{
+	RequestDelegate app = context =&gt;
+	{
+		// If we reach the end of the pipeline, but we have an endpoint, then something unexpected has happened.
+		// This could happen if user code sets an endpoint, but they forgot to add the UseEndpoint middleware.
+		var endpoint = context.GetEndpoint();
+		var endpointRequestDelegate = endpoint?.RequestDelegate;
+		if (endpointRequestDelegate != null)
+		{
+			var message =
+				$"The request reached the end of the pipeline without executing the endpoint: '{endpoint.DisplayName}'. " +
+				$"Please register the EndpointMiddleware using '{nameof(IApplicationBuilder)}.UseEndpoints(...)' if using " +
+				$"routing.";
+			throw new InvalidOperationException(message);
+		}
+
+		context.Response.StatusCode = 404;
+		return Task.CompletedTask;
+	};
+
+	foreach (var component in _components.Reverse())
+	{
+		app = component(app);
+	}
+
+	return app;
+}
+
+ private readonly IList&lt;Func&lt;RequestDelegate, RequestDelegate&gt;&gt; _components = new List&lt;Func&lt;RequestDelegate, RequestDelegate&gt;&gt;();
+
+
+
+ public IApplicationBuilder Use(Func&lt;RequestDelegate, RequestDelegate&gt; middleware)
+        {
+            _components.Add(middleware);
+            return this;
+        }
+
+
+</pre>
+
+<p>
+看如下图片<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/AspNetCoreMiddleWare2.jpg" /></div><br />
+</p>
+
+<p>
+app.Use的方法其实就是代码第36行。往_componentList里面添加中间件。<br />
+</p>
+
+<p>
+在代码的第22行，首先会对所有的中间件翻转顺序，然后执行生成。<br />
+</p>
+<ol>
+<li>
+首先执行的是middleware3，传递的是返回404的RequesDelegate。这个时候会执行第33行的打印Middleware3.返回一个Middleware3的Rd3，也就是任务3.
+
+<li>
+任务3的Task3/RequesDelegate3会传递给任务2，执行middleware2.和3一样。
+
+<li>
+如上执行middleware1.最后返回的是middleware1里面的RequestDelegate1。
+
+</ol>
+
+<h3 id="toc_10.1.2">Middleware的执行过程 </h3>
+<p>
+执行RequetDelegate1，就是执行Task1.<br />
+</p>
+<ol>
+<li>
+线执行RequestDelegate1,在执行RequestDelegate1的时候因为有里面有上面生成的时候传递过来的RequestDelegate2的引用。所以可以通过next去执行RequestDelegate2。
+
+<li>
+执行RequestDelegate2的时候，可以和RequestDelegate1一样。调用RequestDelegate3.
+
+</ol>
+
+<p>
+调用的顺序如下图：<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/AspNetCoreMiddleWare1.jpg" /></div><br />
+</p>
+
+<h2 id="toc_10.2">增加middleware F2 </h2>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+        app.Use(async (context, next) =&gt;
+            {
+                await context.Response.WriteAsync("This is Middleware 4 start");
+                var cultureQuery = context.Request.Query["culture"];
+                if (!string.IsNullOrWhiteSpace(cultureQuery))
+                {
+                    var culture = new CultureInfo(cultureQuery);
+
+                    CultureInfo.CurrentCulture = culture;
+                    CultureInfo.CurrentUICulture = culture;
+                }
+
+                // Call the next delegate/middleware in the pipeline
+                await next();
+                await context.Response.WriteAsync("This is Middleware 4 end");
+            });
+</pre>
+
+
+<p>
+这个方法主要做两个工作：<br />
+</p>
+<ul>
+<li>
+增加中间件内容，所以需要context参数。
+
+<li>
+调用下一个中间件的Task。这个方法已经封装写好了。
+
+</ul>
+   
+<p>
+源码如下：<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+public static IApplicationBuilder Use(this IApplicationBuilder app, Func&lt;HttpContext, Func&lt;Task&gt;, Task&gt; middleware)
+{
+	//返回IApplicationBuilder
+	return app.Use(
+		//这里会正式添加一个middleware， 传第一个RequestDelegate，返回一个RequestDelegate。把这个方法添加到List里面。
+		next =&gt;
+		{
+			//相当于new 一个new RequestDelegate( 传递context过去，返回 Task
+			return context =&gt;
+			{
+				Func&lt;Task&gt; simpleNext = () =&gt; next(context);
+
+				//这里会执行middleware函数，middleware函数参数两个，contex和Func&lt;Task&gt;类型的委托，会返回Task。这个Task相当于RequestDelegate需要的返回值。
+				return middleware(context, simpleNext);
+			};
+		});
+}
+</pre>
+
+
+<p>
+代码和F1是一样的。只是执行的内容(middleware的内容，执行下一个middleware的内容）统一在上面的第14行执行。<br />
+第14行传的参数就是F2定义的参数。<br />
+</p>
+
+
+<h2 id="toc_10.3">F1和F2比较 </h2>
+<p>
+F1比较容易理解逻辑。 <strong>就是传过来一个RequestDelegate(调用下一个middleware)。返回一个RequestDelegate，(需要上一个middleware调用)</strong><br />
+<strong>比如上面的middleware2，middleware3传递过来一个RequestDelegate，在执行这个的时候需要调用的。同时要返回一个RequestDelegate，传给middleware1，middleware1执行的时候需要调用。</strong><br />
+</p>
+
+<p>
+F2只需要关心业务，按照Delegate的签名定义个方法(需要处理的内容)，传递context，最后执行下下一个middleware的task即可。<br />
+</p>
+
+
+<h1 id="toc_11">Log </h1><HR SIZE=1>
+<p>
+To create logs, use an ILogger&lt;TCategoryName&gt; object. In a web app or hosted service, get an ILogger from dependency injection (DI). In non-host console apps, use the LoggerFactory to create an ILogger.<br />
+</p>
+
+<h1 id="toc_12">配置 </h1><HR SIZE=1>
+<h2 id="toc_12.1">配置静态文件 </h2>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+app.UseStaticFiles(new StaticFileOptions()
+{
+	FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot"))
+});
+</pre>
+
+
+
+<h1 id="toc_13">publish and deloy </h1><HR SIZE=1>
+<h2 id="toc_13.1">kestrel </h2>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+dotnet RazorPage1.dll --urls="http://*:5177" --ip="172.18.3.231" --port=5177
+</pre>
+
+
+
+<h2 id="toc_13.2">IIS </h2>
+<p>
+1.发布我们上一篇建好的ASP.NET Core API项目，然后选择IIS，新建一项发布配置<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/AspNetCorePublishIIS.png" /></div><br />
+</p>
+
+<p>
+2、发布方法选择文件系统，然后设置一个发布路径<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/AspNetCorePublishIIS1.png" /></div><br />
+</p>
+
+<p>
+3、配置文件可以根据你线上、线下的环境进行选择，因为是基于.NET Core，所以目标框架为netcoreapp1.1，然后保存发布即可<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/ASPNetCorePublishIIS3.png" /></div><br />
+</p>
+
+<p>
+4、当然了，你还可以基于CLI的Publish命令进行发布，只需切换到Light.API根目录下，输入以下命令即可<br />
+</p>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+dotnet publish --framework netcoreapp1.1 --output "E:\Publish" --configuration Release
+</pre>
+
+<h3 id="toc_13.2.1">ASP.NET Core IIS Module download </h3>
+<p>
+<a href="https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-aspnetcore-3.1.1-windows-hosting-bundle-installer">https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-aspnetcore-3.1.1-windows-hosting-bundle-installer</a>
 </p>
 
 
