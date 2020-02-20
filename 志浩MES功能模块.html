@@ -73,6 +73,10 @@
 <li class="menu1"><a href="#toc_8">计划管理 </a>
 <ul>
 <li class="menu2"><a href="#toc_8.1">生产计划 </a>
+<ul>
+<li class="menu3"><a href="#toc_8.1.1">排产工序维护 </a>
+<li class="menu3"><a href="#toc_8.1.2">生产计划排产 </a>
+</ul>
 <li class="menu2"><a href="#toc_8.2">排产 </a>
 <ul>
 <li class="menu3"><a href="#toc_8.2.1">手动排单 </a>
@@ -90,40 +94,46 @@
 <ul>
 <li class="menu2"><a href="#toc_10.1">岗位资格认证 </a>
 </ul>
-<li class="menu1"><a href="#toc_11">设备管理 </a>
+<li class="menu1"><a href="#toc_11">报废管理 </a>
+<li class="menu1"><a href="#toc_12">设备管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_11.1">代码注释 </a>
-<li class="menu2"><a href="#toc_11.2">参数采集 </a>
-<li class="menu2"><a href="#toc_11.3">设备报警管理 </a>
+<li class="menu2"><a href="#toc_12.1">代码注释 </a>
+<li class="menu2"><a href="#toc_12.2">参数采集 </a>
+<li class="menu2"><a href="#toc_12.3">设备报警管理 </a>
 </ul>
-<li class="menu1"><a href="#toc_12">江西志浩参数采集服务 </a>
+<li class="menu1"><a href="#toc_13">江西志浩参数采集服务 </a>
 <ul>
-<li class="menu2"><a href="#toc_12.1">扫描器绑定采集设备 </a>
-<li class="menu2"><a href="#toc_12.2">AOI </a>
-<li class="menu2"><a href="#toc_12.3">裁磨线 </a>
-<li class="menu2"><a href="#toc_12.4">XRAY </a>
-<li class="menu2"><a href="#toc_12.5">Q? </a>
+<li class="menu2"><a href="#toc_13.1">扫描器绑定采集设备 </a>
+<li class="menu2"><a href="#toc_13.2">AOI </a>
+<li class="menu2"><a href="#toc_13.3">裁磨线 </a>
+<li class="menu2"><a href="#toc_13.4">XRAY </a>
+<li class="menu2"><a href="#toc_13.5">Q? </a>
 </ul>
-<li class="menu1"><a href="#toc_13">配方下发 </a>
+<li class="menu1"><a href="#toc_14">配方下发 </a>
 <ul>
-<li class="menu2"><a href="#toc_13.1">电镀 </a>
+<li class="menu2"><a href="#toc_14.1">电镀 </a>
 </ul>
-<li class="menu1"><a href="#toc_14">能源管理 </a>
-<li class="menu1"><a href="#toc_15">设备统计 </a>
-<li class="menu1"><a href="#toc_16">信息中心 </a>
-<li class="menu1"><a href="#toc_17">生产类型 </a>
-<li class="menu1"><a href="#toc_18">看板管理 </a>
+<li class="menu1"><a href="#toc_15">能源管理 </a>
+<li class="menu1"><a href="#toc_16">设备统计 </a>
+<li class="menu1"><a href="#toc_17">信息中心 </a>
+<li class="menu1"><a href="#toc_18">生产类型 </a>
+<li class="menu1"><a href="#toc_19">看板管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_18.1">Redis </a>
+<li class="menu2"><a href="#toc_19.1">Redis </a>
 </ul>
-<li class="menu1"><a href="#toc_19">华为要求 </a>
-<li class="menu1"><a href="#toc_20">文档管理 </a>
+<li class="menu1"><a href="#toc_20">华为要求 </a>
+<li class="menu1"><a href="#toc_21">文档管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_20.1">MES系统项目汇总(和ERP区分) </a>
+<li class="menu2"><a href="#toc_21.1">MES系统项目汇总(和ERP区分) </a>
 </ul>
 </ul>
 </div>
 <div class="content">
+
+<p>
+MI状态MES显示。只有MI审核完才可以投料。<br />
+三级是作业文件，四级文件是点检表。<br />
+</p>
 
 <h1 id="toc_1">CIMOM </h1><HR SIZE=1>
 <h2 id="toc_1.1">CIMON的配置和框架笔记 </h2>
@@ -144,7 +154,7 @@ WMS(智能物流，智能仓储) =&gt;<br />
 计划排产(APS)  =&gt;<br />
 供应商协同(SRM)  =&gt;<br />
 生产管理  =&gt;<br />
-质量管理 =&gt;<br />
+质量管理(QM) =&gt;<br />
 设备连接(EAP 配方下发，参数采集) =&gt;<br />
 设备资产管理(EAM)=&gt;<br />
 能源管理 =&gt;<br />
@@ -380,9 +390,11 @@ MES 通过WCS系统下发指令(存货，取货，运货)<br />
 <h1 id="toc_8">计划管理 </h1><HR SIZE=1>
 
 <h2 id="toc_8.1">生产计划 </h2>
+<h3 id="toc_8.1.1">排产工序维护 </h3>
 <p>
-生产计划排产<br />
+排产前工序维护。本工序如果需要排料号，可以从哪些前工序有的料号排过来。<br />
 </p>
+<h3 id="toc_8.1.2">生产计划排产 </h3>
 
 <h2 id="toc_8.2">排产 </h2>
 <h3 id="toc_8.2.1">手动排单 </h3>
@@ -522,15 +534,17 @@ WIP按流程拿，不是按工序拿。
 多个人员 对应一个岗位，一个岗位绑定多台设备。<br />
 </p>
 
+<h1 id="toc_11">报废管理 </h1><HR SIZE=1>
 
-<h1 id="toc_11">设备管理 </h1><HR SIZE=1>
-<h2 id="toc_11.1">代码注释 </h2>
+
+<h1 id="toc_12">设备管理 </h1><HR SIZE=1>
+<h2 id="toc_12.1">代码注释 </h2>
 <p>
 IPLCConnect 暂时没什么用。<br />
 IPLCOperate 在PLCConnect的里面使用。每个不同类型的PLC都继承该接口。PLCConnect在使用的时候可以对不同类型的PLC进行操作。<br />
 </p>
 
-<h2 id="toc_11.2">参数采集 </h2>
+<h2 id="toc_12.2">参数采集 </h2>
 <ol>
 <li>
 OPC UA 协议
@@ -540,7 +554,7 @@ OPC UA 协议
 
 </ol>
 
-<h2 id="toc_11.3">设备报警管理 </h2>
+<h2 id="toc_12.3">设备报警管理 </h2>
 <ol>
 <li>
 可以查到异常品的报警记录
@@ -590,12 +604,12 @@ OPC UA 协议
 
 </ol>
 
-<h1 id="toc_12">江西志浩参数采集服务 </h1><HR SIZE=1>
+<h1 id="toc_13">江西志浩参数采集服务 </h1><HR SIZE=1>
 <p>
 <a href="江西志浩参数采集服务.html">江西志浩参数采集服务</a>
 </p>
 
-<h2 id="toc_12.1">扫描器绑定采集设备 </h2>
+<h2 id="toc_13.1">扫描器绑定采集设备 </h2>
 <p>
 扫描器-&gt;设备维护读码器名称<br />
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/saomiaoqi.png" /></div><br />
@@ -606,7 +620,7 @@ OPC UA 协议
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/1578307810.png" /></div><br />
 </p>
 
-<h2 id="toc_12.2">AOI </h2>
+<h2 id="toc_13.2">AOI </h2>
 <p>
 AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件。AOI扫描会加上喷印码。<br />
 </p>
@@ -631,9 +645,9 @@ VRS输出，和AOI机比对，生成误报率
 
 </ol>
 
-<h2 id="toc_12.3">裁磨线 </h2>
+<h2 id="toc_13.3">裁磨线 </h2>
 
-<h2 id="toc_12.4">XRAY </h2>
+<h2 id="toc_13.4">XRAY </h2>
 <ol>
 <li>
 怎么采集涨缩值
@@ -644,14 +658,14 @@ VRS输出，和AOI机比对，生成误报率
 </ol>
 
 
-<h2 id="toc_12.5">Q? </h2>
+<h2 id="toc_13.5">Q? </h2>
 <p>
 #OPC 协议的UA和DA (UA不需要设置DCOM)<br />
 </p>
 
-<h1 id="toc_13">配方下发 </h1><HR SIZE=1>
+<h1 id="toc_14">配方下发 </h1><HR SIZE=1>
 
-<h2 id="toc_13.1">电镀 </h2>
+<h2 id="toc_14.1">电镀 </h2>
 <ol>
 <li>
 电镀面积
@@ -670,12 +684,12 @@ VRS输出，和AOI机比对，生成误报率
 
 </ol>
 
-<h1 id="toc_14">能源管理 </h1><HR SIZE=1>
+<h1 id="toc_15">能源管理 </h1><HR SIZE=1>
 <p>
 智能水表，用水数据，用电数据。<br />
 </p>
 
-<h1 id="toc_15">设备统计 </h1><HR SIZE=1>
+<h1 id="toc_16">设备统计 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/设备统计.xlsx"download=\"文件名.txt\">点击下载:【设备统计.xlsx】</a></div><br />
 </p>
@@ -683,7 +697,7 @@ VRS输出，和AOI机比对，生成误报率
 
 
 
-<h1 id="toc_16">信息中心 </h1><HR SIZE=1>
+<h1 id="toc_17">信息中心 </h1><HR SIZE=1>
 <p>
 条码采集器<br />
 	绑定设备编码。采集到条码后，把最新的EAP采集的数据ID绑定。<br />
@@ -704,7 +718,7 @@ VRS输出，和AOI机比对，生成误报率
 EAP<br />
 </p>
 
-<h1 id="toc_17">生产类型 </h1><HR SIZE=1>
+<h1 id="toc_18">生产类型 </h1><HR SIZE=1>
 
 
 <p>
@@ -716,7 +730,7 @@ BOM数据<br />
 一岗一表(点检表，五确认)<br />
 </p>
 
-<h1 id="toc_18">看板管理 </h1><HR SIZE=1>
+<h1 id="toc_19">看板管理 </h1><HR SIZE=1>
 <p>
 产量，质量，稼动率，人员情况，设备的保养时间<br />
 WIP，趋势图，库存，<br />
@@ -775,7 +789,7 @@ WIP，趋势图，库存，<br />
 
 </ul>
 
-<h2 id="toc_18.1">Redis </h2>
+<h2 id="toc_19.1">Redis </h2>
 <ol>
 <li>
 降低带宽和减少浪费数据库服务器资源
@@ -783,7 +797,7 @@ WIP，趋势图，库存，<br />
 </ol>
 
  
-<h1 id="toc_19">华为要求 </h1><HR SIZE=1>
+<h1 id="toc_20">华为要求 </h1><HR SIZE=1>
 <ol>
 <li>
 物料先进先出
@@ -796,8 +810,8 @@ WIP，趋势图，库存，<br />
 
 </ol>
 
-<h1 id="toc_20">文档管理 </h1><HR SIZE=1>
-<h2 id="toc_20.1">MES系统项目汇总(和ERP区分) </h2>
+<h1 id="toc_21">文档管理 </h1><HR SIZE=1>
+<h2 id="toc_21.1">MES系统项目汇总(和ERP区分) </h2>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/MES系统项目汇总表-2020.xlsx"download=\"文件名.txt\">点击下载:【MES系统项目汇总表-2020.xlsx】</a></div><br />
 </p>

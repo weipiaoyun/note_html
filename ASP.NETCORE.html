@@ -53,9 +53,55 @@
 <li class="menu3"><a href="#toc_13.2.1">ASP.NET Core IIS Module download </a>
 </ul>
 </ul>
+<li class="menu1"><a href="#toc_14">常用变量 </a>
+<li class="menu1"><a href="#toc_15">待看 </a>
 </ul>
 </div>
 <div class="content">
+
+<p>
+CreateDefaultBuilder的时候内置一个service.provider.里面就一个GetService。用来创建实例的。<br />
+</p>
+
+<p>
+CreateDefaultBuilder会初始化一下serviceprovider，这就是一个容器。会把Startup注册进去。<br />
+</p>
+
+<p>
+Builder的时候会到ConfigureService执行一下。<br />
+</p>
+
+<p>
+看CreateSErviceProvider方法源码。<br />
+</p>
+
+<p>
+ConfigureWebHostDefault里面会指定kestrel服务器。<br />
+</p>
+
+
+<p>
+CreateWebDefault -&gt;CreateServiceProvider <br />
+</p>
+
+<p>
+services.Add    HostingEnviromnment    _hostBuilderContext<br />
+内置了<br />
+默认注入和ConfigureService 都在Congiue之前<br />
+</p>
+
+<p>
+Scoped ，一个请求一个实例，多个请求是多个实例<br />
+</p>
+
+
+<p>
+IOC做的事依赖注入，控制反转<br />
+IOC不包括业务，它是第三方组件。<br />
+生命周期管理<br />
+面向切面的AOP编程。<br />
+</p>
+
 
 <h1 id="toc_1">source code </h1><HR SIZE=1>
 <p>
@@ -104,6 +150,40 @@ configure our middleware <br />
 configure our configuration<br />
 configure the app's request pipeline<br />
 </p>
+
+<p>
+Startup是destrel和MVC的关联<br />
+</p>
+
+<p>
+配置Host的时候线执行startup里面的依赖注入<br />
+</p>
+
+<p>
+configure需要在host build执行的时候才会调用。<br />
+</p>
+
+
+<p>
+管道经过后处理了一些列的步骤。从HttpRequest-&gt;HttpResponse<br />
+</p>
+
+<p>
+httpContext既包括了httpRequest又包括了HttpRespnResponse<br />
+</p>
+
+<p>
+HttpContext-&gt;Action<br />
+</p>
+
+<p>
+RequestDelegate就是一步骤或多个 步骤<br />
+</p>
+
+<p>
+管道的主角是RequesDelegate<br />
+</p>
+
 
 <h1 id="toc_5">web host </h1><HR SIZE=1>
 <p>
@@ -390,6 +470,10 @@ app.Use的方法其实就是代码第36行。往_componentList里面添加中间
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/AspNetCoreMiddleWare1.jpg" /></div><br />
 </p>
 
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/114.gif" /></div><br />
+</p>
+
 <h2 id="toc_10.2">增加middleware F2 </h2>
 <pre &lt;pre  name="code" class="brush: csharp"&gt;>
         app.Use(async (context, next) =&gt;
@@ -514,6 +598,26 @@ dotnet publish --framework netcoreapp1.1 --output "E:\Publish" --configuration R
 <h3 id="toc_13.2.1">ASP.NET Core IIS Module download </h3>
 <p>
 <a href="https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-aspnetcore-3.1.1-windows-hosting-bundle-installer">https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-aspnetcore-3.1.1-windows-hosting-bundle-installer</a>
+</p>
+
+
+<h1 id="toc_14">常用变量 </h1><HR SIZE=1>
+
+<p>
+string url = context.Request.Path.Value;<br />
+如果<a href="https://localhost:5001/Image/liuyan.jpg">https://localhost:5001/Image/liuyan.jpg</a> 值为/Image/liuyan.jpg
+</p>
+
+<p>
+string urlReferrer = context.Request.Headers["Referer"].ToString();<br />
+<a href="https://localhost:5001/movie">https://localhost:5001/movie</a>   值为<a href="https://localhost:5001/movie">https://localhost:5001/movie</a>
+</p>
+
+
+<h1 id="toc_15">待看 </h1><HR SIZE=1>
+<p>
+referer<br />
+referer是空的说明是单独在请求这个图片<br />
 </p>
 
 
