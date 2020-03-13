@@ -56,6 +56,10 @@
 </ul>
 </ul>
 <li class="menu1"><a href="#toc_4">AOI </a>
+<ul>
+<li class="menu2"><a href="#toc_4.1">AOI处理流程 </a>
+<li class="menu2"><a href="#toc_4.2">AOI数据采集+自动解析料号+二维码位置需求 </a>
+</ul>
 <li class="menu1"><a href="#toc_5">压合到镭射 </a>
 <li class="menu1"><a href="#toc_6">环球镭射 </a>
 <li class="menu1"><a href="#toc_7">机械钻孔 </a>
@@ -409,8 +413,34 @@ PCS   3位<br />
 </p>
 
 <h1 id="toc_4">AOI </h1><HR SIZE=1>
+<h2 id="toc_4.1">AOI处理流程 </h2>
 <p>
-<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/AOI数据采集说明+自动解析料号+二维码位置需求.rar"download=\"文件名.txt\">点击下载:【AOI数据采集说明+自动解析料号+二维码位置需求.rar】</a></div><br />
+AOI扫描后到VRS修补，参数的采集在VRS确认后输出到文本文件。AOI扫描会加上喷印码。<br />
+</p>
+<ol>
+<li>
+可以在AOI里面加上扫描器，扫描到条码后和喷印码绑定。采集的时候可以根据喷印码找到条码。
+
+<li>
+也可以在VRS里面添加扫描器。
+
+<li>
+缺陷地图 缺陷坐标生成。1，由供应商提供。2，供应商提供数据，展示由我们做
+
+<li>
+AOI扫描pnl条码，绑定喷印明码，输出
+
+<li>
+VRS输出，和AOI机比对，生成误报率
+
+<li>
+打叉板位置。修板位置。
+
+</ol>
+
+<h2 id="toc_4.2">AOI数据采集+自动解析料号+二维码位置需求 </h2>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西志浩数据采集说明+自动解析料号+二维码位置需求.rar"download=\"文件名.txt\">点击下载:【江西志浩数据采集说明+自动解析料号+二维码位置需求.rar】</a></div><br />
 </p>
 
 <h1 id="toc_5">压合到镭射 </h1><HR SIZE=1>

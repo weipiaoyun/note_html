@@ -18,38 +18,42 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">添加字典 </a>
-<li class="menu1"><a href="#toc_2">添加用户 </a>
+<li class="menu1"><a href="#toc_1">导出Excel和打印数据 </a>
+<li class="menu1"><a href="#toc_2">添加字典 </a>
+<li class="menu1"><a href="#toc_3">添加用户 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">中间件数据库配置 </a>
+<li class="menu2"><a href="#toc_3.1">中间件数据库配置 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">启动程序 </a>
-<li class="menu1"><a href="#toc_4">更新文件 </a>
+<li class="menu1"><a href="#toc_4">启动程序 </a>
+<li class="menu1"><a href="#toc_5">更新文件 </a>
 <ul>
-<li class="menu2"><a href="#toc_4.1">生成的路径在如下配置 </a>
+<li class="menu2"><a href="#toc_5.1">生成的路径在如下配置 </a>
 </ul>
-<li class="menu1"><a href="#toc_5">功能模块 </a>
-<li class="menu1"><a href="#toc_6">上传代码 </a>
-<li class="menu1"><a href="#toc_7">上传插件 </a>
+<li class="menu1"><a href="#toc_6">功能模块 </a>
+<li class="menu1"><a href="#toc_7">上传代码 </a>
+<li class="menu1"><a href="#toc_8">上传插件 </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">上传到服务器端，中间件 </a>
-<li class="menu2"><a href="#toc_7.2">上传客户端 </a>
+<li class="menu2"><a href="#toc_8.1">上传到服务器端，中间件 </a>
+<li class="menu2"><a href="#toc_8.2">上传客户端 </a>
 </ul>
-<li class="menu1"><a href="#toc_8">异常 </a>
-<li class="menu1"><a href="#toc_9">program </a>
+<li class="menu1"><a href="#toc_9">异常 </a>
+<li class="menu1"><a href="#toc_10">program </a>
 <ul>
-<li class="menu2"><a href="#toc_9.1">EAP </a>
+<li class="menu2"><a href="#toc_10.1">EAP </a>
 </ul>
-<li class="menu1"><a href="#toc_10">连接PLC </a>
-<li class="menu1"><a href="#toc_11">代码 </a>
+<li class="menu1"><a href="#toc_11">连接PLC </a>
+<li class="menu1"><a href="#toc_12">代码 </a>
 <ul>
-<li class="menu2"><a href="#toc_11.1">过滤方法 </a>
+<li class="menu2"><a href="#toc_12.1">过滤方法 </a>
 </ul>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">添加字典 </h1><HR SIZE=1>
+<h1 id="toc_1">导出Excel和打印数据 </h1><HR SIZE=1>
+
+
+<h1 id="toc_2">添加字典 </h1><HR SIZE=1>
 <p>
 Infrastructure.TBL_SYS_DICTIONARY dic = GetDictionaryByCode("DLINK_IP");<br />
 if (dic == null || string.IsNullOrEmpty(dic.CDIC_VALUE))<br />
@@ -76,7 +80,7 @@ if (dicDalLinkIp == null || string.IsNullOrEmpty(dicDalLinkIp.CDIC_VALUE))<br />
 </p>
 
 
-<h1 id="toc_2">添加用户 </h1><HR SIZE=1>
+<h1 id="toc_3">添加用户 </h1><HR SIZE=1>
 <p>
 用户管理-&gt;新增-&gt;输入基本属性-&gt;关联运营组织<br />
 </p>
@@ -86,12 +90,12 @@ if (dicDalLinkIp == null || string.IsNullOrEmpty(dicDalLinkIp.CDIC_VALUE))<br />
 </p>
 
 
-<h2 id="toc_2.1">中间件数据库配置 </h2>
+<h2 id="toc_3.1">中间件数据库配置 </h2>
 <p>
 e:\CIMOM\05.Server\Release Assemblies\Config\<br />
 </p>
 
-<h1 id="toc_3">启动程序 </h1><HR SIZE=1>
+<h1 id="toc_4">启动程序 </h1><HR SIZE=1>
 <p>
 客户端：E:\CIMOM\10.Client\bin\Debug\Startup.exe<br />
 服务器：E:\CIMOM\05.Server\Release Assemblies\Startup.exe<br />
@@ -101,7 +105,7 @@ e:\CIMOM\05.Server\Release Assemblies\Config\<br />
 客户端：解压Debug<br />
 服务器，解压Release Assemblies.rar<br />
 </p>
-<h1 id="toc_4">更新文件 </h1><HR SIZE=1>
+<h1 id="toc_5">更新文件 </h1><HR SIZE=1>
 <p>
 更新文件：E:\CIMOM\10.Client\bin\Debug<br />
 </p>
@@ -123,7 +127,7 @@ e:\CIMOM\05.Server\Release Assemblies\Config\<br />
 </p>
 
 
-<h2 id="toc_4.1">生成的路径在如下配置 </h2>
+<h2 id="toc_5.1">生成的路径在如下配置 </h2>
 <p>
 e:\CIMOM\10.Client\bin\Debug\WorkBench.config <br />
 </p>
@@ -137,47 +141,47 @@ e:\CIMOM\10.Client\bin\Debug\WorkBench.config <br />
 e:\CIMOM\10.Client\Plugins\<br />
 </p>
 
-<h1 id="toc_5">功能模块 </h1><HR SIZE=1>
+<h1 id="toc_6">功能模块 </h1><HR SIZE=1>
 <p>
 配方名称和参数列表在同一个表。配方名称的其它参数为空。<br />
 </p>
 
 
-<h1 id="toc_6">上传代码 </h1><HR SIZE=1>
+<h1 id="toc_7">上传代码 </h1><HR SIZE=1>
 <p>
 1，团队资源管理器-&gt;主页-&gt;源代码管理器-&gt;选择05.server, Plugins-&gt;右击-&gt;将项增加到文件夹-&gt;选择要增加的文件夹。<br />
 </p>
 
-<h1 id="toc_7">上传插件 </h1><HR SIZE=1>
-<h2 id="toc_7.1">上传到服务器端，中间件 </h2>
+<h1 id="toc_8">上传插件 </h1><HR SIZE=1>
+<h2 id="toc_8.1">上传到服务器端，中间件 </h2>
 <p>
 系统配置-&gt;服务器插件管理<br />
 </p>
 
-<h2 id="toc_7.2">上传客户端 </h2>
+<h2 id="toc_8.2">上传客户端 </h2>
 <p>
 e:\CIMOM\10.Client\bin\Debug\Upload.exe<br />
 注意选项选择：E:\CIMOM\10.Client\bin\Debug<br />
 </p>
 
 
-<h1 id="toc_8">异常 </h1><HR SIZE=1>
+<h1 id="toc_9">异常 </h1><HR SIZE=1>
 <p>
 CI.Common 的引用异常。<br />
 =======<br />
 </p>
-<h1 id="toc_9">program </h1><HR SIZE=1>
-<h2 id="toc_9.1">EAP </h2>
+<h1 id="toc_10">program </h1><HR SIZE=1>
+<h2 id="toc_10.1">EAP </h2>
 <p>
 具体参数列表=&gt;RecipeCollection<br />
 </p>
 
 
-<h1 id="toc_10">连接PLC </h1><HR SIZE=1>
+<h1 id="toc_11">连接PLC </h1><HR SIZE=1>
 
 
-<h1 id="toc_11">代码 </h1><HR SIZE=1>
-<h2 id="toc_11.1">过滤方法 </h2>
+<h1 id="toc_12">代码 </h1><HR SIZE=1>
+<h2 id="toc_12.1">过滤方法 </h2>
 <p>
 Query-&gt;GetAll<br />
 </p>

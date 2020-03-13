@@ -21,27 +21,44 @@
 <li class="menu1"><a href="#toc_1">BD 基础数据 </a>
 <ul>
 <li class="menu2"><a href="#toc_1.1">BIZ(Business业务) </a>
+<li class="menu2"><a href="#toc_1.2">查询MI叠构 </a>
+<li class="menu2"><a href="#toc_1.3">料号表 </a>
 </ul>
-<li class="menu1"><a href="#toc_2">EAP </a>
+<li class="menu1"><a href="#toc_2">APS 超级计划排程 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">AOI </a>
+<li class="menu2"><a href="#toc_2.1">特急料号维护表 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">SFC 生产管理 </a>
-<li class="menu1"><a href="#toc_4">Sys 系统 </a>
+<li class="menu1"><a href="#toc_3">EAM 设备管理 </a>
+<li class="menu1"><a href="#toc_4">EAP </a>
 <ul>
-<li class="menu2"><a href="#toc_4.1">删除菜单 </a>
+<li class="menu2"><a href="#toc_4.1">读写PLC接口的记录 </a>
+<li class="menu2"><a href="#toc_4.2">AOI </a>
+<li class="menu2"><a href="#toc_4.3">设备异常等级管理 </a>
+<li class="menu2"><a href="#toc_4.4">开启设备异常流程 </a>
 </ul>
-<li class="menu1"><a href="#toc_5">Tracibility </a>
+<li class="menu1"><a href="#toc_5">QM质量管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_5.1">前处理读码查询 </a>
-<li class="menu2"><a href="#toc_5.2">读码器数据表 </a>
-<li class="menu2"><a href="#toc_5.3">条码绑定料号 </a>
-<li class="menu2"><a href="#toc_5.4">查看设备的数据是否有采集 </a>
+<li class="menu2"><a href="#toc_5.1">报废管理 </a>
 </ul>
-<li class="menu1"><a href="#toc_6">Recipe </a>
+<li class="menu1"><a href="#toc_6">SFC 生产管理 </a>
+<li class="menu1"><a href="#toc_7">Sys 系统 </a>
 <ul>
-<li class="menu2"><a href="#toc_6.1">压机Recipe </a>
+<li class="menu2"><a href="#toc_7.1">删除菜单 </a>
+<li class="menu2"><a href="#toc_7.2">工厂 </a>
+<li class="menu2"><a href="#toc_7.3">数据字典 </a>
 </ul>
+<li class="menu1"><a href="#toc_8">Tracibility </a>
+<ul>
+<li class="menu2"><a href="#toc_8.1">前处理读码查询 </a>
+<li class="menu2"><a href="#toc_8.2">读码器数据表 </a>
+<li class="menu2"><a href="#toc_8.3">条码绑定料号 </a>
+<li class="menu2"><a href="#toc_8.4">查看设备的数据采集 </a>
+</ul>
+<li class="menu1"><a href="#toc_9">Recipe </a>
+<ul>
+<li class="menu2"><a href="#toc_9.1">压机Recipe </a>
+</ul>
+<li class="menu1"><a href="#toc_10">岗位资格认证 </a>
 </ul>
 </div>
 <div class="content">
@@ -49,14 +66,43 @@
 <h1 id="toc_1">BD 基础数据 </h1><HR SIZE=1>
 <h2 id="toc_1.1">BIZ(Business业务) </h2>
 
-<h1 id="toc_2">EAP </h1><HR SIZE=1>
+<h2 id="toc_1.2">查询MI叠构 </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT * FROM dbo.TBL_MI_STACK_INFO WHERE CMANU_PART_NUMBER = 'BFK0E0600042A0' AND CSTATE = 'A' ORDER BY CNUM 
+</pre>
+
+
+<h2 id="toc_1.3">料号表 </h2>
+<p>
+TBL_BD_ROUTE<br />
+</p>
+
+
+
+<h1 id="toc_2">APS 超级计划排程 </h1><HR SIZE=1>
+<h2 id="toc_2.1">特急料号维护表 </h2>
+<p>
+[TBL_APS_URGENJOB_MANAGE]<br />
+</p>
+
+<h1 id="toc_3">EAM 设备管理 </h1><HR SIZE=1>
+<p>
+[TBL_EAM_EQUIPMENT]<br />
+</p>
+
+<h1 id="toc_4">EAP </h1><HR SIZE=1>
 <p>
 [TBL_EAP_COGNEX] 康耐视主表。绑定IP地址，设备编码，工艺流程等。<br />
 </p>
 
 
+<h2 id="toc_4.1">读写PLC接口的记录 </h2>
+<p>
+TBL_EAP_PLC_CONNECT<br />
+</p>
 
-<h2 id="toc_2.1">AOI </h2>
+
+<h2 id="toc_4.2">AOI </h2>
 <p>
 TBL_EAP_AOI_DATA<br />
 </p>
@@ -69,14 +115,30 @@ TBL_EAP_AOI_DATA<br />
 喷印码，料号名，机器名，条码。<br />
 </p>
 
-<h1 id="toc_3">SFC 生产管理 </h1><HR SIZE=1>
+<h2 id="toc_4.3">设备异常等级管理 </h2>
+<p>
+[TBL_EAP_EQUIPMENT_ADDRESS_VALMAG]<br />
+</p>
+
+<h2 id="toc_4.4">开启设备异常流程 </h2>
+<p>
+[TBL_EAP_EQUIPMENT_START_DEVICE_EXCEPTPROCESS]<br />
+</p>
+
+<h1 id="toc_5">QM质量管理 </h1><HR SIZE=1>
+<h2 id="toc_5.1">报废管理 </h2>
+<p>
+[TBL_QM_SM_DATA]<br />
+</p>
+
+<h1 id="toc_6">SFC 生产管理 </h1><HR SIZE=1>
 <p>
 [TBL_SFC_PROCESS_PARAMS] 工艺参数表，采集器扫描到二维码后绑定二维码和工艺参数。<br />
 </p>
 
 
-<h1 id="toc_4">Sys 系统 </h1><HR SIZE=1>
-<h2 id="toc_4.1">删除菜单 </h2>
+<h1 id="toc_7">Sys 系统 </h1><HR SIZE=1>
+<h2 id="toc_7.1">删除菜单 </h2>
 <pre  name="code" class="brush: sql">
 
 /****** Script for SelectTopNRows command from SSMS  ******/
@@ -106,9 +168,20 @@ SELECT TOP (1000) [CID]
   FROM [CIMOMJXZH].[dbo].[TBL_SFC_PROCESS_PARAMS]
 </pre>
 
+<h2 id="toc_7.2">工厂 </h2>
+<p>
+[TBL_SYS_ENTERPRISE]<br />
+</p>
 
-<h1 id="toc_5">Tracibility </h1><HR SIZE=1>
-<h2 id="toc_5.1">前处理读码查询 </h2>
+
+<h2 id="toc_7.3">数据字典 </h2>
+<p>
+[TBL_SYS_MODULE]<br />
+[TBL_SYS_DICTIONARY]<br />
+</p>
+
+<h1 id="toc_8">Tracibility </h1><HR SIZE=1>
+<h2 id="toc_8.1">前处理读码查询 </h2>
 
 <pre  name="code" class="brush: sql">
 select distinct CSFC from TBL_SFC_ACTIVITY_LOG 
@@ -118,7 +191,7 @@ CSFC in
 (select distinct CPANEL_SERIAL from TBL_SFC_LOT_PANEL where CITEM_CODE='BFR0Z0600131A0.I23' and CDATETIME_CREATED&gt;'2019-12-24')
 </pre>
 
-<h2 id="toc_5.2">读码器数据表 </h2>
+<h2 id="toc_8.2">读码器数据表 </h2>
 <ul>
 <li>
 TBL_SFC_ACTIVITY_LOG 
@@ -138,7 +211,7 @@ TBL_SFC_ACTIVITY_LOG
 </ul>
 </ul>
 
-<h2 id="toc_5.3">条码绑定料号 </h2>
+<h2 id="toc_8.3">条码绑定料号 </h2>
 <ul>
 <li>
 TBL_SFC_LOT_PANEL
@@ -151,9 +224,10 @@ TBL_SFC_LOT_PANEL
 </ul>
 
 
-<h2 id="toc_5.4">查看设备的数据是否有采集 </h2>
+<h2 id="toc_8.4">查看设备的数据采集 </h2>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
 /****** Script for SelectTopNRows command from SSMS  ******/
+--根据设备名称查
 SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b.CADDRESS_NAME,a.CGET_ID, a.CDATA_VALUE
   FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
   left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.cid
@@ -161,15 +235,56 @@ SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b
 
   WHERE  c.CEQUIPMENT_NAME LIKE '%HDI%沉铜%'
    order by a.CDATETIME_CREATED desc
+   
+   --根据设备编号查
+   /****** Script for SelectTopNRows command from SSMS  ******/
+SELECT  top  1000  a.CDATETIME_CREATED, c.CEQUIPMENT_CODE , c.CEQUIPMENT_NAME, b.CADDRESS_NAME,a.CGET_ID, a.CDATA_VALUE
+  FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
+  left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.cid
+  left join TBL_EAP_EQUIPMENT c on b.CEQUIPMENT_ID = c.CID
+  --WHERE c.CEQUIPMENT_CODE = 'GME-PRE-002'
+   order by a.CDATETIME_CREATED desc
+   
+--根据设备地址查
+   SELECT TOP 1000 a.CDATETIME_CREATED, b.CADDRESS_NAME, b.CADDRESS_CODE, b.CDATA_TYPE, a.CDATA_VALUE
+FROM [CIMOMJXZH].[dbo].[TBL_EAP_EQUIPMENT_DATA] a
+left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.CID
+--where b.CADDRESS_CODE in ('D2035','D2835', 'D2052', 'D300')
+order by a.CDATETIME_CREATED desc
 </pre>
 
 
-<h1 id="toc_6">Recipe </h1><HR SIZE=1>
-<h2 id="toc_6.1">压机Recipe </h2>
+
+
+<h1 id="toc_9">Recipe </h1><HR SIZE=1>
+<h2 id="toc_9.1">压机Recipe </h2>
 <p>
 [LAUFFER_RECIPE].[dbo].[Load_Data] 压机的配方表<br />
 [TBL_SFC_LAM_LOT_BARCODE]	压合的锣卡二维码表<br />
 </p>
+
+
+<h1 id="toc_10">岗位资格认证 </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+select c.CCERTIFICATION_CODE from TBL_BD_QUALIFIED_AUZ a 
+inner join TBL_SYS_USER b
+on  a.CUSER_ID=b.CID
+inner join TBL_BD_QUALIFIED_CERTIFICATE c on
+a.CCERTIFICATION_ID=c.CID 
+inner join TBL_SYS_DICTIONARY d on  c.CCERTIFICATION_ATTR=d.CID 
+where b.CUSER_NAME = 'J300572'
+
+
+
+select count(*)
+ from TBL_BD_QUALIFIED_JOBS a
+inner join TBL_EAM_EQUIPMENT b on a.CEQUIPMENT_ID=b.CID
+inner join TBL_BD_QUALIFIED_CERTIFICATE c on  a.CCERTIFICATION_ID=c.CID
+inner join TBL_SYS_DICTIONARY d on  c.CCERTIFICATION_ATTR=d.CID
+where CCERTIFICATION_CODE = 'FQC-005'
+and CEQUIPMENT_CODE = 'FAE-DRL-003'
+
+</pre>
 
 
 <div class="foot">

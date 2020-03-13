@@ -18,52 +18,58 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">软件 </a>
-<li class="menu1"><a href="#toc_2">表 </a>
+<li class="menu1"><a href="#toc_1">C# 插件 </a>
+<li class="menu1"><a href="#toc_2">软件 </a>
+<li class="menu1"><a href="#toc_3">表 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">自定义表类型 </a>
+<li class="menu2"><a href="#toc_3.1">自定义表类型 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">数据库根据mdf还原 </a>
-<li class="menu1"><a href="#toc_4">压缩日志备份数据库 </a>
-<li class="menu1"><a href="#toc_5">SQL服务的启动</a>
-<li class="menu1"><a href="#toc_6">SQL函数 </a>
+<li class="menu1"><a href="#toc_4">数据库根据mdf还原 </a>
+<li class="menu1"><a href="#toc_5">压缩日志备份数据库 </a>
+<li class="menu1"><a href="#toc_6">SQL服务的启动</a>
+<li class="menu1"><a href="#toc_7">SQL函数 </a>
 <ul>
-<li class="menu2"><a href="#toc_6.1">对查询出来的数据进行编号分页 </a>
-<li class="menu2"><a href="#toc_6.2">for xml path </a>
+<li class="menu2"><a href="#toc_7.1">对查询出来的数据进行编号分页 </a>
+<li class="menu2"><a href="#toc_7.2">for xml path </a>
 <ul>
-<li class="menu3"><a href="#toc_6.2.1">改变节点名称 </a>
-<li class="menu3"><a href="#toc_6.2.2">改变节点 </a>
+<li class="menu3"><a href="#toc_7.2.1">改变节点名称 </a>
+<li class="menu3"><a href="#toc_7.2.2">改变节点 </a>
 </ul>
 </ul>
-<li class="menu1"><a href="#toc_7">新建数据库服务器sa 无法登陆。 </a>
-<li class="menu1"><a href="#toc_8">无法用ip登录 </a>
-<li class="menu1"><a href="#toc_9">转移数据库 </a>
-<li class="menu1"><a href="#toc_10">转移维护计划 </a>
-<li class="menu1"><a href="#toc_11">更改系统密码后sql无法登录 </a>
+<li class="menu1"><a href="#toc_8">新建数据库服务器sa 无法登陆。 </a>
+<li class="menu1"><a href="#toc_9">无法用ip登录 </a>
+<li class="menu1"><a href="#toc_10">转移数据库 </a>
+<li class="menu1"><a href="#toc_11">转移维护计划 </a>
+<li class="menu1"><a href="#toc_12">更改系统密码后sql无法登录 </a>
 <ul>
-<li class="menu2"><a href="#toc_11.1">如何添加链接服务器</a>
+<li class="menu2"><a href="#toc_12.1">如何添加链接服务器</a>
 </ul>
-<li class="menu1"><a href="#toc_12">添加维护计划，执行T-SQL语句 </a>
-<li class="menu1"><a href="#toc_13">如何备份数据库到网络盘 </a>
-<li class="menu1"><a href="#toc_14">知道字段，查找表</a>
-<li class="menu1"><a href="#toc_15">禁止在 .NET Framework 中执行用户代码。启用 "clr enabled" 配置选项。</a>
+<li class="menu1"><a href="#toc_13">添加维护计划，执行T-SQL语句 </a>
+<li class="menu1"><a href="#toc_14">如何备份数据库到网络盘 </a>
+<li class="menu1"><a href="#toc_15">知道字段，查找表</a>
+<li class="menu1"><a href="#toc_16">禁止在 .NET Framework 中执行用户代码。启用 "clr enabled" 配置选项。</a>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">软件 </h1><HR SIZE=1>
+<h1 id="toc_1">C# 插件 </h1><HR SIZE=1>
+<p>
+<a href="SqlSugar.html">SqlSugar</a>
+</p>
+
+<h1 id="toc_2">软件 </h1><HR SIZE=1>
 <p>
 SSMS-Setup-CHS<br />
 </p>
 
-<h1 id="toc_2">表 </h1><HR SIZE=1>
-<h2 id="toc_2.1">自定义表类型 </h2>
+<h1 id="toc_3">表 </h1><HR SIZE=1>
+<h2 id="toc_3.1">自定义表类型 </h2>
 <p>
 存储过程可以直接传递整个表过去。<br />
 数据库-&gt;可编程性-》类型-》用户定义表类型。<br />
 </p>
 
-<h1 id="toc_3">数据库根据mdf还原 </h1><HR SIZE=1>
+<h1 id="toc_4">数据库根据mdf还原 </h1><HR SIZE=1>
 <ol>
 <li>
 右击数据库，附加，选择mdf。选择还原。
@@ -73,7 +79,7 @@ SSMS-Setup-CHS<br />
 
 </ol>
 
-<h1 id="toc_4">压缩日志备份数据库 </h1><HR SIZE=1>
+<h1 id="toc_5">压缩日志备份数据库 </h1><HR SIZE=1>
 <p>
 右击-》属性-》选项-》恢复模式改为简单<br />
 任务-》收缩-》文件-》文件类型选择日志-》确定<br />
@@ -81,13 +87,13 @@ SSMS-Setup-CHS<br />
 右击-》属性-》选项-》恢复模式改为完整<br />
 </p>
 
-<h1 id="toc_5">SQL服务的启动</h1><HR SIZE=1>
+<h1 id="toc_6">SQL服务的启动</h1><HR SIZE=1>
 <p>
 所有程序-&gt;Microsoft SQL Server 2008 R2-&gt;配置工具-&gt;SQL Server 配置管理器<br />
 </p>
-<h1 id="toc_6">SQL函数 </h1><HR SIZE=1>
+<h1 id="toc_7">SQL函数 </h1><HR SIZE=1>
 
-<h2 id="toc_6.1">对查询出来的数据进行编号分页 </h2>
+<h2 id="toc_7.1">对查询出来的数据进行编号分页 </h2>
 <p>
  ROW_NUMBER() OVER ( ORDER BY ApplyTime)<br />
 </p>
@@ -96,17 +102,17 @@ SSMS-Setup-CHS<br />
 SELECT  ROW_NUMBER() OVER ( ORDER BY ApplyTime) AS NUMBER,  *   FROM [EngSys].[dbo].[T_WF_FilmOrderDetialInfo]<br />
 </p>
   
-<h2 id="toc_6.2">for xml path </h2>
+<h2 id="toc_7.2">for xml path </h2>
 <p>
 把查询的结果已xml的形式输出  for xml path<br />
 </p>
 
-<h3 id="toc_6.2.1">改变节点名称 </h3>
+<h3 id="toc_7.2.1">改变节点名称 </h3>
 <p>
 for xml path ('user')， path 后传入字符串参数<br />
 select jobName_ from [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] t where jobName_ = 'bk100971b0'for xml path('')<br />
 </p>
-<h3 id="toc_6.2.2">改变节点 </h3>
+<h3 id="toc_7.2.2">改变节点 </h3>
 <p>
 select ';'+jobName_ from [EngSys].[dbo].[T_WF_FilmOrderDetialInfo] t where jobName_ = 'bk100971b0'for xml path('')<br />
 </p>
@@ -117,27 +123,27 @@ UNION all<br />
 IsNull<br />
 </p>
 
-<h1 id="toc_7">新建数据库服务器sa 无法登陆。 </h1><HR SIZE=1>
+<h1 id="toc_8">新建数据库服务器sa 无法登陆。 </h1><HR SIZE=1>
 <p>
 1，服务器-》属性，安全性选择SQL Server 和windows身份验证模式；连接-》允许远程连接到此服务器。<br />
 2，安全性-&gt;登陆名-》sa-&gt;属性-常规-》把强制实施密码策略取消<br />
 3，放火墙-&gt;例外-》添加端口-&gt;名称sql-》端口号：1433<br />
 </p>
 
-<h1 id="toc_8">无法用ip登录 </h1><HR SIZE=1>
+<h1 id="toc_9">无法用ip登录 </h1><HR SIZE=1>
 <p>
 sql ServerConfiguration Manager(数据库服务管理)-&gt;把SqlServer网络配置的Tcp/ip的已禁用改为已启用。然后重启sqlserver。<br />
 </p>
 
 
-<h1 id="toc_9">转移数据库 </h1><HR SIZE=1>
+<h1 id="toc_10">转移数据库 </h1><HR SIZE=1>
 <p>
 1，如果是本机，可以直接备份数据库，把备份的数据库还原即可<br />
 2，在目的服务器建立同样名称的数据库，右击新建的数据库-》任务-》导入数据(只能导入表和视图)<br />
 3，存储过程需要右击源数据库，点击任务-》生成脚本-》把存储过程生成脚本，然后在目的数据库里面运行<br />
 </p>
 
-<h1 id="toc_10">转移维护计划 </h1><HR SIZE=1>
+<h1 id="toc_11">转移维护计划 </h1><HR SIZE=1>
 <ol>
 <li>
 连接服务器，服务器的类型选择Integration services
@@ -162,13 +168,13 @@ sql ServerConfiguration Manager(数据库服务管理)-&gt;把SqlServer网络配
 
 </ol>
   
-<h1 id="toc_11">更改系统密码后sql无法登录 </h1><HR SIZE=1>
+<h1 id="toc_12">更改系统密码后sql无法登录 </h1><HR SIZE=1>
 <p>
 SqlServer服务-&gt;右击属性-选择登录-&gt;把密码修改<br />
 </p>
 
 
-<h2 id="toc_11.1">如何添加链接服务器</h2>
+<h2 id="toc_12.1">如何添加链接服务器</h2>
 <p>
 点开服务器对象-&gt;点开链接服务器-&gt;右击新建链接服务器-&gt;<br />
 在常规里面填写<br />
@@ -184,7 +190,7 @@ SqlServer服务-&gt;右击属性-选择登录-&gt;把密码修改<br />
 	1，本地登录(ems本地的账号登录，或者sa)，远程用户(链接服务器的用户)，远程密码<br />
 	2，使用此安全上下文建立连接，远程登录为远程用户，远程密码(不使用也可以)<br />
 </p>
-<h1 id="toc_12">添加维护计划，执行T-SQL语句 </h1><HR SIZE=1>
+<h1 id="toc_13">添加维护计划，执行T-SQL语句 </h1><HR SIZE=1>
 <p>
 对象资源管理器(数据库服务器)-&gt;管理-&gt;维护计划-》右击，新建维护计划。填写名称-》填写作业计划属性。<br />
 生成子计划。查看-》工具箱-“执行 T-SQL 语句”任务<br />
@@ -192,7 +198,7 @@ SqlServer服务-&gt;右击属性-选择登录-&gt;把密码修改<br />
 </p>
 
 
-<h1 id="toc_13">如何备份数据库到网络盘 </h1><HR SIZE=1>
+<h1 id="toc_14">如何备份数据库到网络盘 </h1><HR SIZE=1>
 <p>
 use  Master<br />
 go<br />
@@ -327,7 +333,7 @@ backup database EngSys to disk='H:\testDB.bak' with init<br />
 <a href="菲林还原.html">菲林还原</a>
 </p>
 
-<h1 id="toc_14">知道字段，查找表</h1><HR SIZE=1>
+<h1 id="toc_15">知道字段，查找表</h1><HR SIZE=1>
 <p>
 select * from sysobjects  where id in (select id from syscolumns where name='RT_NUM')<br />
 select a.name as TableName,b.name as ColName From sysobjects a<br />
@@ -335,7 +341,7 @@ inner join syscolumns b on (a.id=b.id)<br />
 where a.xtype='U' and b.name='字段'<br />
 </p>
 
-<h1 id="toc_15">禁止在 .NET Framework 中执行用户代码。启用 "clr enabled" 配置选项。</h1><HR SIZE=1>
+<h1 id="toc_16">禁止在 .NET Framework 中执行用户代码。启用 "clr enabled" 配置选项。</h1><HR SIZE=1>
 <p>
 exec sp_configure 'show advanced options', '0';<br />
 go<br />
