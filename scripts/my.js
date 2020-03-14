@@ -72,6 +72,7 @@ for(i=0;i<a.length;i++){
 }
 
 /*更改图片路径*/
+var url = window.location.href;
 for(i=0;i<img.length;i++){
 	//var id_value=img[i].getAttribute("id").replace("toc_","");
 	//
@@ -112,7 +113,6 @@ for(i=0;i<img.length;i++){
 
 /*返回首页根据地址不同返回不同*/
 var div=document.getElementById('returnIndexA');
-	 var url = window.location.href;
 	 var nnn = url.search(/weipiaoyun/);
 	 if(nnn > 0){
 		 div.href="https://weipiaoyun.github.io/note_html/笔记整理.html";
