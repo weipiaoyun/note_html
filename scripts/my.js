@@ -73,6 +73,7 @@ for(i=0;i<a.length;i++){
 
 /*更改图片路径*/
 var url = window.location.href;
+
 for(i=0;i<img.length;i++){
 	//var id_value=img[i].getAttribute("id").replace("toc_","");
 	//
