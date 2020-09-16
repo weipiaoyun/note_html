@@ -76,6 +76,24 @@ Which principle suggests "High-level modules should not depend on low-level modu
 What are the types of Dependency Injections?<br />
 </p>
 
+<p>
+依赖倒置以后，底层的变化不会影响到高层。<br />
+</p>
+
+<p>
+依赖抽象是因为抽象是比较稳定的，而细节是经常变化的。<br />
+</p>
+
+<p>
+抽象不能实例化。但是我们的程序又不要细节(不要new实例)。所以加个IOC容器，第三方控件处理。  IOC决定了细节怎么实现的。<br />
+依赖倒置，倒置了依赖关系，依赖于抽象，而不依赖细节了。<br />
+控制反转(交给了第三方)<br />
+</p>
+
+<p>
+IOC container 是实现IOC和DIP的产物<br />
+</p>
+
 
 <div class="foot">
 <button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>

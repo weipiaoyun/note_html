@@ -18,91 +18,461 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">BD 基础数据 </a>
+<li class="menu1"><a href="#toc_1">所有表功能 </a>
+<li class="menu1"><a href="#toc_2">表关系 </a>
+<li class="menu1"><a href="#toc_3">术语 </a>
+<li class="menu1"><a href="#toc_4">数据表备份 </a>
 <ul>
-<li class="menu2"><a href="#toc_1.1">BIZ(Business业务) </a>
-<li class="menu2"><a href="#toc_1.2">查询MI叠构 </a>
-<li class="menu2"><a href="#toc_1.3">料号表 </a>
+<li class="menu2"><a href="#toc_4.1">菜单和权限备份 </a>
 </ul>
-<li class="menu1"><a href="#toc_2">APS 超级计划排程 </a>
+<li class="menu1"><a href="#toc_5">BD 基础数据 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">特急料号维护表 </a>
-</ul>
-<li class="menu1"><a href="#toc_3">EAM 设备管理 </a>
-<li class="menu1"><a href="#toc_4">EAP </a>
+<li class="menu2"><a href="#toc_5.1">BIZ(Business业务) </a>
+<li class="menu2"><a href="#toc_5.2">角色管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_4.1">读写PLC接口的记录 </a>
-<li class="menu2"><a href="#toc_4.2">AOI </a>
-<li class="menu2"><a href="#toc_4.3">设备异常等级管理 </a>
-<li class="menu2"><a href="#toc_4.4">开启设备异常流程 </a>
+<li class="menu3"><a href="#toc_5.2.1">检查用户是否有某个角色 </a>
 </ul>
-<li class="menu1"><a href="#toc_5">QM质量管理 </a>
+<li class="menu2"><a href="#toc_5.3">用户管理 </a>
 <ul>
-<li class="menu2"><a href="#toc_5.1">报废管理 </a>
+<li class="menu3"><a href="#toc_5.3.1">检测用户是否属于某个工厂 </a>
+<li class="menu3"><a href="#toc_5.3.2">用户是否在某个工序 </a>
+<li class="menu3"><a href="#toc_5.3.3">查出某个人的所在工序 </a>
 </ul>
-<li class="menu1"><a href="#toc_6">SFC 生产管理 </a>
-<li class="menu1"><a href="#toc_7">Sys 系统 </a>
+<li class="menu2"><a href="#toc_5.4">全局参数和参数指针 </a>
+<li class="menu2"><a href="#toc_5.5">流程和工序 </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">删除菜单 </a>
-<li class="menu2"><a href="#toc_7.2">工厂 </a>
-<li class="menu2"><a href="#toc_7.3">数据字典 </a>
+<li class="menu3"><a href="#toc_5.5.1">根据流程找工序 </a>
 </ul>
-<li class="menu1"><a href="#toc_8">Tracibility </a>
+<li class="menu2"><a href="#toc_5.6">查询MI叠构 </a>
+<li class="menu2"><a href="#toc_5.7">料号表 </a>
 <ul>
-<li class="menu2"><a href="#toc_8.1">前处理读码查询 </a>
-<li class="menu2"><a href="#toc_8.2">读码器数据表 </a>
-<li class="menu2"><a href="#toc_8.3">条码绑定料号 </a>
-<li class="menu2"><a href="#toc_8.4">查看设备的数据采集 </a>
+<li class="menu3"><a href="#toc_5.7.1">查询产品类型 </a>
 </ul>
-<li class="menu1"><a href="#toc_9">Recipe </a>
+<li class="menu2"><a href="#toc_5.8">料号对应的所有流程 </a>
 <ul>
-<li class="menu2"><a href="#toc_9.1">压机Recipe </a>
+<li class="menu3"><a href="#toc_5.8.1">查具有发料流程的料号 </a>
 </ul>
-<li class="menu1"><a href="#toc_10">岗位资格认证 </a>
+</ul>
+<li class="menu1"><a href="#toc_6">市场订单 </a>
+<li class="menu1"><a href="#toc_7">计划管理 </a>
+<ul>
+<li class="menu2"><a href="#toc_7.1">获取在线作业 </a>
+<li class="menu2"><a href="#toc_7.2">计划投产 </a>
+<li class="menu2"><a href="#toc_7.3">外发管理 </a>
+<ul>
+<li class="menu3"><a href="#toc_7.3.1">外发更改供应商 </a>
+<li class="menu3"><a href="#toc_7.3.2">获取报表信息 </a>
+</ul>
+<li class="menu2"><a href="#toc_7.4">外发查询 </a>
+</ul>
+<li class="menu1"><a href="#toc_8">APS 超级计划排程 </a>
+<ul>
+<li class="menu2"><a href="#toc_8.1">特急料号维护表 </a>
+</ul>
+<li class="menu1"><a href="#toc_9">EAM 设备管理 </a>
+<li class="menu1"><a href="#toc_10">EAP </a>
+<ul>
+<li class="menu2"><a href="#toc_10.1">读写PLC接口的记录 </a>
+<li class="menu2"><a href="#toc_10.2">AOI </a>
+<li class="menu2"><a href="#toc_10.3">设备异常等级管理 </a>
+<li class="menu2"><a href="#toc_10.4">开启设备异常流程 </a>
+</ul>
+<li class="menu1"><a href="#toc_11">QM质量管理 </a>
+<ul>
+<li class="menu2"><a href="#toc_11.1">报废管理 </a>
+<ul>
+<li class="menu3"><a href="#toc_11.1.1">报废获取在线作业单 </a>
+<li class="menu3"><a href="#toc_11.1.2">外层报废作业单获取内层预报废数据 </a>
+</ul>
+<li class="menu2"><a href="#toc_11.2">报废汇总 </a>
+</ul>
+<li class="menu1"><a href="#toc_12">SFC 生产管理 </a>
+<ul>
+<li class="menu2"><a href="#toc_12.1">更改作业单状态为待入仓 </a>
+<li class="menu2"><a href="#toc_12.2">合卡 </a>
+<li class="menu2"><a href="#toc_12.3">获取在线WIP </a>
+<li class="menu2"><a href="#toc_12.4">过数 </a>
+<ul>
+<li class="menu3"><a href="#toc_12.4.1">MI流程有更改，更改流程和步骤号 </a>
+<li class="menu3"><a href="#toc_12.4.2">根据步骤号和作业单号获取工序名称，工序代码 </a>
+<li class="menu3"><a href="#toc_12.4.3">当前过数工序到下一个过数之前的所有非过数工序 </a>
+<li class="menu3"><a href="#toc_12.4.4">按作业单查出配料单号 </a>
+<li class="menu3"><a href="#toc_12.4.5">指定步骤号，配料单号，查所有的作业单号，按作业单顺序排序 </a>
+<li class="menu3"><a href="#toc_12.4.6">返工过数 </a>
+<ul>
+<li class="menu4"><a href="#toc_12.4.6.1">更改为在线返工 </a>
+<li class="menu4"><a href="#toc_12.4.6.2">根据作业单号获取返工过数所有流程 </a>
+<li class="menu4"><a href="#toc_12.4.6.3">根据作业单号获取在线返工在返工之前的流程名称和流程代码 </a>
+<li class="menu4"><a href="#toc_12.4.6.4">获取返工过数的下一个工序 </a>
+<li class="menu4"><a href="#toc_12.4.6.5">查找在线返工问题 </a>
+<li class="menu4"><a href="#toc_12.4.6.6">获取返工前流程 </a>
+</ul>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_13">Sys 系统管理 </a>
+<ul>
+<li class="menu2"><a href="#toc_13.1">删除菜单 </a>
+<li class="menu2"><a href="#toc_13.2">工厂 </a>
+<li class="menu2"><a href="#toc_13.3">数据字典 </a>
+</ul>
+<li class="menu1"><a href="#toc_14">Tracibility </a>
+<ul>
+<li class="menu2"><a href="#toc_14.1">前处理读码查询 </a>
+<li class="menu2"><a href="#toc_14.2">读码器数据表 </a>
+<li class="menu2"><a href="#toc_14.3">条码绑定料号 </a>
+<li class="menu2"><a href="#toc_14.4">查看设备的数据采集 </a>
+</ul>
+<li class="menu1"><a href="#toc_15">Recipe </a>
+<ul>
+<li class="menu2"><a href="#toc_15.1">压机Recipe </a>
+</ul>
+<li class="menu1"><a href="#toc_16">岗位资格认证 </a>
+<li class="menu1"><a href="#toc_17">sqlsugar </a>
+<ul>
+<li class="menu2"><a href="#toc_17.1">嵌套查找 </a>
+<li class="menu2"><a href="#toc_17.2">用sql语句更新表字段 </a>
+<li class="menu2"><a href="#toc_17.3">某个字段不更新 </a>
+<li class="menu2"><a href="#toc_17.4">执行存储过程 </a>
+<li class="menu2"><a href="#toc_17.5">某个字段忽略 </a>
+</ul>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">BD 基础数据 </h1><HR SIZE=1>
-<h2 id="toc_1.1">BIZ(Business业务) </h2>
+<p>
+GME-WF1-001<br />
+</p>
 
-<h2 id="toc_1.2">查询MI叠构 </h2>
+<h1 id="toc_1">所有表功能 </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+--配料单
+SELECT * FROM dbo.TBL_PLAN_FEEDING
+--作业单
+SELECT * FROM dbo.TBL_PLAN_JOB_TICKET
+--投料超投审核
+SELECT * FROM dbo.TBL_PLAN_AUDIT
+--外发申请
+SELECT * FROM dbo.TBL_PLAN_EXTERNAL_PROCESS
+--订单投料订录表
+SELECT * FROM TBL_PLAN_ORDER_NOTES
+--返工作业单
+SELECT * FROM TBL_PLAN_REWORK
+--生产前作业单分配记录
+SELECT * FROM TBL_PLAN_PRE_ASSIGN_RECORD
+--生产前作业单分配明细
+SELECT * FROM TBL_PLAN_PRE_ASSIGN_DETAIL
+--投产批次配额明细表
+SELECT * FROM TBL_PLAN_QUOTE
+--外发料号表
+SELECT * FROM TBL_PLAN_EXTERNAL_PROCESS_JOBLIST
+--外发收货表
+SELECT * FROM TBL_PLAN_EXTERNAL_PROCESS_INPORT
+--外发收货详细表
+SELECT * FROM TBL_PLAN_EXTERNAL_PROCESS_INPORT_DETAIL
+--在线作业单
+SELECT * FROM TBL_PLAN_JOB_TICKET_ONLINE
+--作业单管理记录
+SELECT * FROM TBL_PLAN_JOB_TICKET_LOG
+--过数记录表
+SELECT * FROM dbo.TBL_SFC_WORKNUMBER_FLOW
+--报废表
+SELECT * FROM dbo.TBL_QM_SM_DATA
+--报废明细表
+SELECT * FROM dbo.TBL_QM_SM_DATA_DETAIL
+--内层预报废表
+SELECT * FROM dbo.TBL_QM_SM_DATA_IN
+--返工订单表
+SELECT * FROM dbo.TBL_REWORK_ORDER
+--返工流程主表
+SELECT * FROM dbo.TBL_REWORK_PROCESS
+--返工流程明细表
+SELECT * FROM dbo.TBL_REWORK_PROCESS_DTL
+--返工流程参数表
+SELECT * FROM dbo.TBL_REWORK_PROCESS_PARAM
+</pre>
+
+
+<h1 id="toc_2">表关系 </h1><HR SIZE=1>
+<p>
+配料单表-&gt;市场订单表-&gt;作业单表-&gt;在线表<br />
+</p>
+
+<p>
+配料单表：TBL_PLAN_FEEDING  =&gt; 492<br />
+</p>
+
+<p>
+订单表： TBL_PLUS_ORDER =&gt; 60       TBL_PLAN_FEEDING.CSO_NO = TBL_PLUS_ORDER.CSALES_ORDER<br />
+</p>
+
+<p>
+配料单&lt;- CUT_NO -&gt;作业单表<br />
+</p>
+
+<p>
+作业单表 TBL_PLAN_JOB_TICKET 06<br />
+</p>
+
+<p>
+在线表 TBL_PLAN_JOB_TICKET_ONLINE 56<br />
+</p>
+
+
+<h1 id="toc_3">术语 </h1><HR SIZE=1>
+<p>
+产品部件指针 25表<br />
+</p>
+
+<h1 id="toc_4">数据表备份 </h1><HR SIZE=1>
+<h2 id="toc_4.1">菜单和权限备份 </h2>
+<p>
+备份两个表<br />
+TBL_SYS_MODULE<br />
+[TBL_SYS_ROLE_PERMISSION_MAP]<br />
+</p>
+
+<h1 id="toc_5">BD 基础数据 </h1><HR SIZE=1>
+<h2 id="toc_5.1">BIZ(Business业务) </h2>
+
+<h2 id="toc_5.2">角色管理 </h2>
+
+<h3 id="toc_5.2.1">检查用户是否有某个角色 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  select * from  TBL_SYS_USER_ROLE_MAP a
+  left join [TBL_SYS_ROLE]  b  on a.CROLE_ID = b.CID
+  left join TBL_SYS_USER c on a.CUSER_ID = C.CID
+  where b.CROLE_DESCRIPTION = '过数权限'
+  and c.CUSER_NAME = 'lw'
+
+</pre>
+
+
+
+<h2 id="toc_5.3">用户管理 </h2>
+<h3 id="toc_5.3.1">检测用户是否属于某个工厂 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  select * from [TBL_SYS_USER_ORG_MAP] a
+  left join  TBL_SYS_USER b on a.CUSER_ID = b.CID
+  left join [TBL_SYS_ORGANIZATION] c on a.CORG_ID = c.CID
+  where b.CUSER_NAME = 'lw' and c.CORG_CODE = 'J0001'
+
+</pre>
+
+<h3 id="toc_5.3.2">用户是否在某个工序 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+select * from TBL_SYS_USER_OPERATION_MAP a
+left join  TBL_SYS_USER b on a.CUSER_ID = b.CID
+left join [TBL_BD_OPERATION] c on a.COPERATION_ID = c.CID
+where b.CUSER_NAME = 'lw' and (c.COPERATION_CODE = 'PTP' or c.COPERATION_CNAME = '开料')
+
+</pre>
+
+
+<h3 id="toc_5.3.3">查出某个人的所在工序 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT c.COPERATION_CNAME, c.COPERATION_CODE FROM dbo.TBL_SYS_USER a
+LEFT JOIN dbo.TBL_SYS_USER_OPERATION_MAP b ON b.CUSER_ID = a.CID
+LEFT JOIN dbo.TBL_BD_OPERATION c ON b.COPERATION_ID = c.CID
+WHERE a.CUSER_NAME = 'lw'
+</pre>
+
+<h2 id="toc_5.4">全局参数和参数指针 </h2>
+<p>
+TBL_MI_GLOBAL_PARAMETER<br />
+TBL_BD_TECHNICS_PARAM<br />
+</p>
+
+<h2 id="toc_5.5">流程和工序 </h2>
+<h3 id="toc_5.5.1">根据流程找工序 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  select b.COPERATION_CODE,b.COPERATION_CNAME from TBL_BD_PROCESS a
+  left join TBL_BD_OPERATION b
+  on a.CPROCESS_OPERATION_ID = b.CID
+  where CPROCESS_CODE = 'VPP1'
+</pre>
+
+
+
+<h2 id="toc_5.6">查询MI叠构 </h2>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
 SELECT * FROM dbo.TBL_MI_STACK_INFO WHERE CMANU_PART_NUMBER = 'BFK0E0600042A0' AND CSTATE = 'A' ORDER BY CNUM 
 </pre>
 
 
-<h2 id="toc_1.3">料号表 </h2>
+<h2 id="toc_5.7">料号表 </h2>
 <p>
-TBL_BD_ROUTE<br />
+TBL_MI_JOB_INFO<br />
+</p>
+
+<h3 id="toc_5.7.1">查询产品类型 </h3>
+<ul>
+<li>
+维护地方：基础数据-&gt;产品档案-&gt;产品分类
+
+</ul>
+<p>
+TBL_MI_JOB_INFO.CPROD_CODE_PTR == TBL_BD_ITEM_FORM.CTYPE_CODE<br />
 </p>
 
 
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  --料号表的产品代码指针指向类型代码
+  SELECT  TOP 100 a.CPROD_CODE_PTR,* FROM  dbo.TBL_MI_JOB_INFO  a
+  inner JOIN dbo.TBL_BD_ITEM_FORM  b ON a.CPROD_CODE_PTR = b.CTYPE_CODE
+</pre>
 
-<h1 id="toc_2">APS 超级计划排程 </h1><HR SIZE=1>
-<h2 id="toc_2.1">特急料号维护表 </h2>
+
+<h2 id="toc_5.8">料号对应的所有流程 </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT TOP 100  process.CPROCESS_STEP_NUMBER, bdProcess.* FROM TBL_MI_PROCESS process  --料号ID对应的流程ID
+INNER JOIN TBL_BD_PROCESS bdProcess ON process.CPROCESS_PTR = bdProcess.CID 
+WHERE
+process.CMANU_PART_NUMBER = 'BGP0I0800150A0.I67'
+ORDER BY process.CDATETIME_CREATED DESC 
+
+</pre>
+
+
+<h3 id="toc_5.8.1">查具有发料流程的料号 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT TOP 100  * FROM TBL_MI_PROCESS process  --料号ID对应的流程ID
+INNER JOIN TBL_BD_ROUTE  --料号表
+route ON CROUTE_ID = route.CID --流程表
+INNER JOIN TBL_BD_PROCESS bdProcess ON process.CPROCESS_PTR = bdProcess.CID 
+
+WHERE
+-- process.CMANU_PART_NUMBER LIKE '%800150%' AND
+ bdprocess.CPROCESS_NAME = '发料'
+ORDER BY process.CDATETIME_CREATED DESC
+</pre>
+
+
+<h1 id="toc_6">市场订单 </h1><HR SIZE=1>
+<p>
+[TBL_PLUS_ORDER] 市场的订单U9获取。<br />
+	CPARTS_ORDERED 订单数量(PCS数量)<br />
+</p>
+	
+<h1 id="toc_7">计划管理 </h1><HR SIZE=1>
+<h2 id="toc_7.1">获取在线作业 </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  SELECT b.CWORK_ORDER_NUMBER,
+  b.CID,
+  a.CSTEP,
+  c.CMANU_PART_DESC,
+  c.CMANU_PART_NUMBER,
+  c.CSOURCE_PART_NUMNER,a.CORG_CODE, d.CORG_NAME,a.CQTY_BACKLOG,a.CPANELS,e.CPROCESS_CODE, e.CPROCESS_NAME, b.CQUAN_REJ , f.CPARAMETER_VALUE
+  ,b.CWTYPE
+  , * 
+  FROM dbo.TBL_PLAN_JOB_TICKET_ONLINE a
+  inner JOIN dbo.TBL_PLAN_JOB_TICKET b ON a.CWO_PTR = b.CID
+  inner JOIN dbo.TBL_MI_JOB_INFO c ON b.CBOM_PTR = c.CID
+  LEFT JOIN dbo.TBL_SYS_ORGANIZATION d ON b.CORG_CODE = d.CORG_CODE
+  LEFT JOIN dbo.TBL_BD_PROCESS e ON a.CDEPT_PTR = e.CID
+  LEFT  JOIN dbo.TBL_MI_GLOBAL_PARAMETER f ON f.CMANU_PART_NUMBER = c.CMANU_PART_NUMBER AND f.CPARAMETER_PTR = '8241ED87DD894B5B8306FDA1B042042E'
+  INNER JOIN dbo.TBL_PLAN_FEEDING g ON b.CCUT_NO = g.CCUT_NO
+</pre>
+
+
+
+<h2 id="toc_7.2">计划投产 </h2>
+<p>
+TBL_PLAN_FEEDING 配料单表和投料表是同一个表。对应ERP492<br />
+</p>
+
+
+<h2 id="toc_7.3">外发管理 </h2>
+
+
+<h3 id="toc_7.3.1">外发更改供应商 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  UPDATE [TBL_PLAN_EXTERNAL_PROCESS] SET CSUPP_NAME = '德汇金' WHERE CCODE = 'GE2007270003'
+</pre>
+
+
+<h3 id="toc_7.3.2">获取报表信息 </h3>
+
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+    SELECT  c.CSUPP_NAME,CONVERT(varchar(100), c.CENT_DATA, 23) AS CENT_DATA, a.CCODE,c.CEMPL_PTR, c.CDEPT_NAME,CONVERT(varchar(100), c.CDATETIME_CREATED, 23) AS CDATETIME_CREATED, MANU_PART_NUMBER,a.CSTANDARD, a.CUNIT_NAME,b.CMANU_PART_DESC, sum (CQUANTITY) AS CQUANTITY ,a.CREMARTK   FROM 
+  TBL_PLAN_EXTERNAL_PROCESS_JOBLIST  a
+  LEFT JOIN  dbo.TBL_MI_JOB_INFO b ON a.MANU_PART_NUMBER = b.CMANU_PART_NUMBER
+  LEFT JOIN TBL_PLAN_EXTERNAL_PROCESS c ON a.CCODE = c.CCODE
+  WHERE a.CCODE = 'FE2005270001'
+  GROUP BY  MANU_PART_NUMBER, b.CMANU_PART_DESC,a.CUNIT_NAME,a.CCODE,c.CSUPP_NAME,c.CDEPT_NAME,c.CDATETIME_CREATED,a.CSTANDARD,a.CREMARTK,c.CENT_DATA,c.CEMPL_PTR
+</pre>
+
+
+<h2 id="toc_7.4">外发查询 </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  SELECT  c.CSUPP_NAME,CONVERT(varchar(100), c.CENT_DATA, 23) AS CENT_DATA, a.CCODE,c.CEMPL_PTR, c.CDEPT_NAME,CONVERT(varchar(100), c.CDATETIME_CREATED, 23) AS CDATETIME_CREATED, a.MANU_PART_NUMBER,a.CSTANDARD, a.CUNIT_NAME,b.CMANU_PART_DESC, 
+  SUM (CQUANTITY) AS CQUANTITY ,
+  --d.DELIVER_NUMBER,
+  a.CRECEVIED_QTY,
+  a.CRETURN_QTY,
+  a.CREJECT_QTY,
+  a.CAREA_SQM
+  FROM 
+  TBL_PLAN_EXTERNAL_PROCESS_JOBLIST  a
+  LEFT JOIN  dbo.TBL_MI_JOB_INFO b ON a.MANU_PART_NUMBER = b.CMANU_PART_NUMBER
+  LEFT JOIN TBL_PLAN_EXTERNAL_PROCESS c ON a.CCODE = c.CCODE
+ -- LEFT JOIN dbo.TBL_PLAN_EXTERNAL_PROCESS_INPORT_DETAIL d ON d.CCODE = c.CCODE AND d.MANU_PART_NUMBER = a.MANU_PART_NUMBER
+  --WHERE a.CCODE = 'FE2005270001'
+  GROUP BY  a.MANU_PART_NUMBER, 
+  b.CMANU_PART_DESC,a.CUNIT_NAME,
+  a.CCODE,c.CSUPP_NAME,c.CDEPT_NAME,
+  c.CDATETIME_CREATED,a.CSTANDARD,
+c.CENT_DATA,c.CEMPL_PTR,
+  a.CRECEVIED_QTY,
+  a.CRETURN_QTY,
+  a.CREJECT_QTY,
+  a.CAREA_SQM
+</pre>
+
+
+
+<h1 id="toc_8">APS 超级计划排程 </h1><HR SIZE=1>
+<h2 id="toc_8.1">特急料号维护表 </h2>
 <p>
 [TBL_APS_URGENJOB_MANAGE]<br />
 </p>
 
-<h1 id="toc_3">EAM 设备管理 </h1><HR SIZE=1>
+
+<h1 id="toc_9">EAM 设备管理 </h1><HR SIZE=1>
 <p>
 [TBL_EAM_EQUIPMENT]<br />
 </p>
 
-<h1 id="toc_4">EAP </h1><HR SIZE=1>
+<h1 id="toc_10">EAP </h1><HR SIZE=1>
 <p>
 [TBL_EAP_COGNEX] 康耐视主表。绑定IP地址，设备编码，工艺流程等。<br />
 </p>
 
 
-<h2 id="toc_4.1">读写PLC接口的记录 </h2>
+<h2 id="toc_10.1">读写PLC接口的记录 </h2>
 <p>
 TBL_EAP_PLC_CONNECT<br />
 </p>
 
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT *
+  FROM [CIMOMJXZH].[dbo].[TBL_EAP_PLC_CONNECT] ORDER BY CDATETIME_CREATED desc
+</pre>
 
-<h2 id="toc_4.2">AOI </h2>
+<p>
+高多层前处理上下下板机plc记录<br />
+</p>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT *
+  FROM [CIMOMJXZH].[dbo].[TBL_EAP_PLC_CONNECT] 
+ WHERE CEQUIPMENT_CODE = 'GME-IDF-008-SXBJ'
+  AND ( CDATA_ADDRESS = 'D1003' OR CDATA_ADDRESS = 'D1004')
+  ORDER BY CDATETIME_CREATED desc
+</pre>
+
+
+
+<h2 id="toc_10.2">AOI </h2>
 <p>
 TBL_EAP_AOI_DATA<br />
 </p>
@@ -115,30 +485,508 @@ TBL_EAP_AOI_DATA<br />
 喷印码，料号名，机器名，条码。<br />
 </p>
 
-<h2 id="toc_4.3">设备异常等级管理 </h2>
+<h2 id="toc_10.3">设备异常等级管理 </h2>
 <p>
 [TBL_EAP_EQUIPMENT_ADDRESS_VALMAG]<br />
 </p>
 
-<h2 id="toc_4.4">开启设备异常流程 </h2>
+<h2 id="toc_10.4">开启设备异常流程 </h2>
 <p>
 [TBL_EAP_EQUIPMENT_START_DEVICE_EXCEPTPROCESS]<br />
 </p>
 
-<h1 id="toc_5">QM质量管理 </h1><HR SIZE=1>
-<h2 id="toc_5.1">报废管理 </h2>
+<h1 id="toc_11">QM质量管理 </h1><HR SIZE=1>
+<h2 id="toc_11.1">报废管理 </h2>
 <p>
 [TBL_QM_SM_DATA]<br />
 </p>
 
-<h1 id="toc_6">SFC 生产管理 </h1><HR SIZE=1>
+
+
+<h3 id="toc_11.1.1">报废获取在线作业单 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  SELECT b.CWORK_ORDER_NUMBER,
+  b.CID,
+  a.CSTEP,
+  c.CMANU_PART_DESC,
+  c.CMANU_PART_NUMBER,
+  c.CSOURCE_PART_NUMNER,a.CORG_CODE, d.CORG_NAME,a.CQTY_BACKLOG,a.CPANELS,e.CPROCESS_CODE, e.CPROCESS_NAME, b.CQUAN_REJ , f.CPARAMETER_VALUE
+  ,b.CWTYPE
+  , * 
+  FROM dbo.TBL_PLAN_JOB_TICKET_ONLINE a
+  inner JOIN dbo.TBL_PLAN_JOB_TICKET b ON a.CWO_PTR = b.CID
+  inner JOIN dbo.TBL_MI_JOB_INFO c ON b.CBOM_PTR = c.CID
+  LEFT JOIN dbo.TBL_SYS_ORGANIZATION d ON b.CORG_CODE = d.CORG_CODE
+  LEFT JOIN dbo.TBL_BD_PROCESS e ON a.CDEPT_PTR = e.CID
+  LEFT  JOIN dbo.TBL_MI_GLOBAL_PARAMETER f ON f.CMANU_PART_NUMBER = c.CMANU_PART_NUMBER AND f.CPARAMETER_PTR = '6846D7D123444419AC16201ACEA1612A'
+  INNER JOIN dbo.TBL_PLAN_FEEDING g ON b.CCUT_NO = g.CCUT_NO
+
+</pre>
+
+
+<h3 id="toc_11.1.2">外层报废作业单获取内层预报废数据 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+	SELECT b.CWORK_ORDER_NUMBER ,d.CMANU_PART_NUMBER,e.CWORK_ORDER_NUMBER, * FROM dbo.TBL_QM_SM_DATA_IN  a
+	left JOIN  TBL_PLAN_JOB_TICKET  b ON a.CWORK_NO = b.CWORK_ORDER_NUMBER
+	left JOIN TBL_PLAN_PRE_ASSIGN_DETAIL  c ON c.CSOURCE_PTR = b.CID
+	LEFT JOIN dbo.TBL_MI_JOB_INFO d ON d.CID = b.CBOM_PTR
+	LEFT JOIN TBL_PLAN_JOB_TICKET e ON e.cid = c.CWO_PTR
+		WHERE e.CWORK_ORDER_NUMBER IS NOT NULL 
+	WHERE e.CWORK_ORDER_NUMBER = 'B0023983-0-04-03'
+</pre>
+
+<h2 id="toc_11.2">报废汇总 </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+            --按日期
+			--SELECT  CONVERT(varchar, D58.CDATETIME_CREATED,23) as code,'空列' as name,
+			--按月份
+			--SELECT CONVERT(varchar,year(D58.CDATETIME_CREATED)*100+month(D58.CDATETIME_CREATED),23) as code,'空列' as name,
+			--按责任工序
+			--SELECT    D34.COPERATION_CODE as code,D34.COPERATION_CNAME as name,
+			--按缺陷
+			--SELECT   D39.CNG_CODE as code,D39.CNG_NAME as name, D39.CNG_DESC AS descirbe,
+			--产品类型
+			--SELECT   PERCENT D08.CITEM_TYPE_CODE as code,D08.CITEM_TYPE_NAME as name,
+			--按客户
+			--SELECT  D10.CUSTOMER_CODE as code,D10.CUSTOMER_NAME as name,
+			--按产品
+			SELECT TOP 100 PERCENT D25.CMANU_PART_NUMBER as code,D25.CMANU_PART_DESC as name,
+          SUM(D58.CQTY_PCS_APPLY) AS qty_total,
+          ROUND(SUM(D58.CQTY_PCS_APPLY*D06.CPNL_L*D06.CPNL_W*0.000001/D06.CPARTS_PER_PANEL),2) AS sqft_total_bb, --含板边报废面积
+          ROUND(SUM(D58.CQTY_PCS_APPLY* D25.CUNIT_SQ),2) AS sqft_total  --报废面积
+          --ROUND(SUM(D58.CQTY_PCS_APPLY*D06.CPNL_L*D06.CPNL_W*0.000001/D06.CPARTS_PER_PANEL/dbo.GetParentNum(D25.rkey)),2) as top_sqft_total_bb,--含板边顶层报废面积
+          --ROUND(SUM(D58.CQTY_PCS_APPLY * D25.CUNIT_SQ/GetParentNum(D25.rkey)),2) as top_sqft_total --顶层报废面积
+          FROM
+          TBL_QM_SM_DATA  D58
+          INNER JOIN TBL_BD_NG_CODE  D39 ON D58.CDEFECT_CODE = D39.CNG_CODE  --缺陷代码
+          INNER JOIN TBL_BD_OPERATION  D34  ON D58.CCODE_REPONSIBILITY=D34.COPERATION_CODE 
+          INNER JOIN TBL_PLAN_JOB_TICKET D06 ON D58.CWORK_NO=D06.CWORK_ORDER_NUMBER 
+          INNER JOIN TBL_PLAN_FEEDING D492 ON D06.CCUT_NO=D492.CCUT_NO 
+          INNER JOIN TBL_MI_JOB_INFO D25 ON  D06.CBOM_PTR=D25.CRKEY 
+          INNER JOIN TBL_BD_CUSTOMER D10 ON D25.CCUSTOMER_PTR=D10.CUSTOMER_CODE    --客户
+           INNER JOIN  TBL_BD_ITEM_TYPE  D08 ON D25.CPROD_CODE_PTR=D08.CITEM_TYPE_CODE --产品类别
+                --INNER JOIN Data0007 ON Data0008.pr_grp_Pointer=Data0007.RKEY 
+
+            WHERE D58.CSTATE = 'A'
+            --AND D58.CDATETIME_CREATED &gt; @startDate and D58.CDATETIME_CREATED &lt; @endDate 
+
+			--按日期
+          --GROUP BY CONVERT(varchar,D58.CDATETIME_CREATED,23)
+         -- ORDER BY CONVERT(varchar,D58.CDATETIME_CREATED,23)
+
+		 --按月份
+		  --GROUP BY DATEPART(yy,D58.CDATETIME_CREATED) * 100 + DATEPART(mm,D58.CDATETIME_CREATED) 
+		  --ORDER BY DATEPART(yy,D58.CDATETIME_CREATED) * 100 + DATEPART(mm,D58.CDATETIME_CREATED) 
+
+
+		  --按责任工序
+		 -- GROUP BY D34.COPERATION_CODE,D34.COPERATION_CNAME
+		  --ORDER BY ROUND(SUM(D58.CQTY_PCS_APPLY * D25.CUNIT_SQ), 2) DESC 
+
+		  --按缺陷
+		  --GROUP BY D39.CNG_CODE,D39.CNG_NAME,D39.CNG_DESC
+		  --ORDER BY ROUND(SUM(D58.CQTY_PCS_APPLY* D25.CUNIT_SQ), 2) DESC 
+
+		  --产品类型
+		  --GROUP BY D08.CITEM_TYPE_CODE,D08.CITEM_TYPE_NAME 
+		  --ORDER BY ROUND(SUM(D58.CQTY_PCS_APPLY* D25.CUNIT_SQ), 2) DESC 
+
+		  --按客户
+		  --GROUP BY D10.CUSTOMER_CODE,D10.CUSTOMER_NAME 
+		  --ORDER BY ROUND(SUM(D58.CQTY_PCS_APPLY* D25.CUNIT_SQ), 2) DESC 
+
+		  --按产品
+		  GROUP BY D25.CMANU_PART_NUMBER,D25.CMANU_PART_DESC 
+		  ORDER BY ROUND(SUM(D58.CQTY_PCS_APPLY* D25.CUNIT_SQ), 2) DESC 
+</pre>
+
+
+
+
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+select 
+CONVERT(varchar, a.CDATETIME_CREATED,23) as CDATETIME_CREATED_DAY,
+            CONVERT(varchar,year(a.CDATETIME_CREATED)*100+month(a.CDATETIME_CREATED),23) as CDATETIME_CREATED_MONTH,a.CCODE_REPONSIBILITY,
+            a.CNAME_REPONSITILITY,a.CDEFECT_CODE ,a.CDEFECT_DESCRIBE,j.CITEM_TYPE_CODE,d.CMANU_PART_NUMBER,d.CMANU_PART_DESC,
+            j.CITEM_TYPE_NAME,D10.CUSTOMER_CODE, SUM(a.CQTY_PCS_APPLY) AS Cqty_total,
+            SUM(a.CQTY_PCS_APPLY*b.CPNL_L*b.CPNL_W*0.000001/b.CPARTS_PER_PANEL) AS Csqft_total_bb, --含板边报废面积
+            SUM(a.CQTY_PCS_APPLY* d.CUNIT_SQ) AS Csqft_total --报废面积
+ from TBL_QM_SM_DATA a inner join TBL_PLAN_JOB_TICKET b on a.CWORK_NO=b.CWORK_ORDER_NUMBER 
+left join TBL_PLAN_JOB_TICKET_ONLINE c on c.CWO_PTR=b.CID left join TBL_MI_JOB_INFO d on b.CBOM_PTR=d.CID
+left join TBL_SYS_ORGANIZATION e on b.CORG_CODE=e.CORG_CODE left join TBL_BD_PROCESS f on c.CDEPT_PTR = f.CID
+left join TBL_MI_GLOBAL_PARAMETER g on g.CMANU_PART_NUMBER = d.CMANU_PART_NUMBER and g.CPARAMETER_PTR='6846D7D123444419AC16201ACEA1612A'
+left join TBL_PLAN_FEEDING h on b.CCUT_NO=h.CCUT_NO left join TBL_PLUS_ORDER i on h.CSO_NO=i.CSALES_ORDER 
+left join TBL_BD_ITEM_TYPE j on d.CPROD_CODE_PTR=j.CITEM_TYPE_CODE left join TBL_BD_ITEM_FORM k on j.CITEM_TYPE_CODE=k.CTYPE_CODE
+left JOIN TBL_BD_CUSTOMER D10 ON d.CCUSTOMER_PTR=D10.CUSTOMER_CODE
+WHERE a.CSTATE = 'A'
+            AND a.CDATETIME_CREATED &gt; '2020/7/1 08:00:00' and a.CDATETIME_CREATED &lt; '2020/7/30 20:00:00' 
+   AND a.CORG_CODE = 'J0001' 
+   GROUP BY a.CCODE_REPONSIBILITY,a.CNAME_REPONSITILITY,d.CMANU_PART_NUMBER,d.CMANU_PART_DESC,D10.CUSTOMER_CODE,
+            j.CITEM_TYPE_CODE,j.CITEM_TYPE_NAME,a.CDEFECT_CODE ,a.CDEFECT_DESCRIBE,DATEPART(yy, a.CDATETIME_CREATED) * 100 + DATEPART(mm, a.CDATETIME_CREATED),
+            CONVERT(varchar, a.CDATETIME_CREATED, 23)
+            ORDER BY CONVERT(varchar, a.CDATETIME_CREATED,23) DESC
+</pre>
+
+
+
+<h1 id="toc_12">SFC 生产管理 </h1><HR SIZE=1>
 <p>
 [TBL_SFC_PROCESS_PARAMS] 工艺参数表，采集器扫描到二维码后绑定二维码和工艺参数。<br />
 </p>
 
 
-<h1 id="toc_7">Sys 系统 </h1><HR SIZE=1>
-<h2 id="toc_7.1">删除菜单 </h2>
+<h2 id="toc_12.1">更改作业单状态为待入仓 </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  UPDATE TBL_PLAN_JOB_TICKET SET CPROD_STATUS  = 5 WHERE cid IN(
+  SELECT b.cid FROM dbo.TBL_PLAN_JOB_TICKET_ONLINE a
+  LEFT JOIN dbo.TBL_PLAN_JOB_TICKET b ON a.CWO_PTR = b.CID
+  LEFT JOIN dbo.TBL_MI_JOB_INFO c ON b.CBOM_PTR = c.CID
+  WHERE c.CMANU_PART_NUMBER = 'BGR0I0200186A2')
+</pre>
+
+
+<h2 id="toc_12.2">合卡 </h2>
+<p>
+合卡详细信息：TBL_PLAN_PRE_ASSIGN_DETAIL<br />
+	一个CWO_PTR(外层或次外层作业单号)，可能多个内层作业单号(CSOURCE_PTR)<br />
+</p>
+	
+
+
+	
+<p>
+合卡记录：TBL_PLAN_PRE_ASSIGN_RECORD<br />
+</p>
+
+<h2 id="toc_12.3">获取在线WIP </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT DISTINCT
+	   D06.CPANEL_A_B AS PANEL_A_B,
+       ROUND(d25.CUNIT_SQ * D56.CQTY_BACKLOG, 4) AS Qty_SMQ,
+       D06.CWTYPE AS wtype06,
+       d34.CPROCESS_CODE AS DEPT_CODE,
+       d34.CPROCESS_NAME AS DEPT_NAME,
+       d34.CID AS deptptr,
+       D06.CQUAN_SCH AS QUAN_SCH,
+       D56.CFLOW_NO AS FLOW_NO,
+       D06.CWORK_ORDER_NUMBER AS WORK_ORDER_NUMBER,
+       D06.CPROD_STATUS AS PROD_STATUS,
+       D06.CQUAN_REJ AS QUAN_REJ,
+       DATEDIFF(MINUTE, D56.CINTIME, GETDATE()) / 60.00 AS TimeDiff,
+       D06.CQUAN_PROD AS QUAN_PROD,
+       D56.CINTIME AS INTIME,
+       d25.CPARENT_PTR AS PARENT_PTR,
+       D06.CPANELS AS PANELS,
+       D56.CPANELS AS PNL_ONLine,
+       D06.CBOM_PTR AS BOM_PTR,
+       d25.CMANU_PART_NUMBER AS MANU_PART_NUMBER,
+       d25.CMANU_PART_DESC AS MANU_PART_DESC,
+       D56.CSTEP AS STEP,
+       D56.CID AS d56_rkey,
+       D56.CWTYPE AS WTYPE,
+       d25.CSAMPLE_NR AS SAMPLE_NR,
+       D06.CSCH_COMPL_DATE AS SCH_COMPL_DATE,
+       D06.CPARTS_PER_PANEL AS PARTS_PER_PANEL,
+       D06.CPARTS_PER_PANEL AS PCS_IN_PNL,
+       D56.CQTY_BACKLOG AS QTY_BACKLOG,
+       D56.CTO_BE_STOCKED AS TO_BE_STOCKED,
+       D56.CDEPT_PTR AS DEPT_PTR,
+       D492.CSO_NO AS SO_NO,
+       D492.CCUT_NO AS CUT_NO,
+       D08.CTYPE_NAME AS PRODUCT_NAME,
+	   D60.CCUSTOMER AS CUST_CODE,
+       D06.CDATETIME_CREATED AS ENT_DATETIME,
+       d25.CUNIT_SQ AS unit_sq,
+       CASE
+           WHEN D06.CPARTS_PER_PANEL &lt;&gt; 0 THEN
+               D06.CPNL_L * D06.CPNL_W * 0.000001 / D06.CPARTS_PER_PANEL
+           ELSE
+               0
+       END AS unit_sq_includingBoader,
+       D56.CQTY_BACKLOG * d25.CUNIT_SQ AS prod_Square,
+       CASE
+           WHEN D06.CPARTS_PER_PANEL &lt;&gt; 0 THEN
+               D56.CQTY_BACKLOG * (D06.CPNL_L * D06.CPNL_W * 0.000001) / D06.CPARTS_PER_PANEL
+           ELSE
+               0
+       END AS prod_Square_includingBoader,
+       CASE D06.CPROD_STATUS
+           WHEN 3 THEN
+               '生产中'
+           WHEN 4 THEN
+               '外发生产'
+           WHEN 5 THEN
+               '待入仓'
+           WHEN 6 THEN
+               '待分配'
+           WHEN 103 THEN
+               '生产中暂缓'
+           ELSE
+               ''
+       END AS prod_Status_CN,
+       CASE ISNULL(D56.CWTYPE, 0)
+           WHEN 0 THEN
+               ''
+           ELSE
+               '是'
+       END AS OnlineStatus_Old,
+       D60.CSO_OLDNEW AS so_oldnew,
+       D60.CSO_TP AS sotp,
+       D492.CQTY_REJECT - (D492.CISSUED_QTY - D492.CORD_REQ_QTY) * 0.5 AS QTYREJECT,
+       d15.CORG_NAME AS FacNm,
+       d25.CID AS rkey25,
+       D492.CQTY_REJECT - (D492.CISSUED_QTY - D492.CORD_REQ_QTY) AS QTYREJECT_1,
+       CASE D06.CWTYPE
+           WHEN 0 THEN
+               '正常'
+           WHEN 1 THEN
+               '被拆分'
+           WHEN 2 THEN
+               '待返工'
+           WHEN 3 THEN
+               '返工'
+           WHEN 4 THEN
+               '待报废'
+           WHEN 5 THEN
+               '已报废'
+           ELSE
+               ''
+       END AS OnlineStatus,
+       CASE ISNULL(D56.CPUT_TYPE, 0)
+           WHEN 0 THEN
+               ''
+           ELSE
+               '是'
+       END AS ReCheck,
+       D10_2.CUSTOMER_CODE AS ORIG_CUSTOMER,
+       d25.CLAYERS AS LAYERS,
+       D08.CGROUPS_NAME AS PRODUCT_GROUP_NAME,
+       d25.CCP_JS AS CPJS,
+       D56.CPO_NUMBER AS PO_NUMBER56,
+       D06.CPNL_L * D06.CPNL_W * 0.000001 AS pnl_sq,
+       D06.CPNL_L AS panel_ln,
+       D06.CPNL_W AS panel_wd,
+       d34_2.COPERATION_CODE AS PROCESS_CODE,
+       d34_2.COPERATION_CNAME AS PROCESS_NAME,
+       d25.CSOURCE_PART_NUMNER AS SOURCE_PART_Number,
+	   D60.CFOB AS PO_NUMBER,
+	   D08.CMASS_PRODUCTION_SCRAP_RTBL_PLAN_JOB_TICKET_ONLINEATE,
+	   D06.CQUAN_REJ / CONVERT(DECIMAL,D06.CQUAN_SCH) * 100 AS CURRENT_SCRAPPED_RATE
+FROM dbo.TBL_BD_CUSTOMER AS D10_2
+    RIGHT JOIN dbo.TBL_PLUS_ORDER AS D60
+        ON D10_2.CUSTOMER_SHORT = D60.CORIG_CUSTOMER
+    RIGHT OUTER JOIN dbo.TBL_MI_JOB_INFO AS d25
+        INNER JOIN dbo.TBL_PLAN_JOB_TICKET AS D06
+            ON D06.CBOM_PTR = d25.CID
+        INNER JOIN dbo.TBL_PLAN_JOB_TICKET_ONLINE AS D56
+            ON D56.CWO_PTR = D06.CID
+        INNER JOIN dbo.TBL_BD_PROCESS AS d34
+            ON D56.CDEPT_PTR = d34.CID
+        INNER JOIN dbo.TBL_BD_OPERATION AS d34_2
+            ON d34.CPROCESS_OPERATION_ID = d34_2.CID
+        INNER JOIN dbo.TBL_PLAN_FEEDING AS D492
+            ON D492.CCUT_NO = D06.CCUT_NO
+        INNER JOIN dbo.TBL_BD_ITEM_FORM AS D08
+            ON D08.CTYPE_CODE = d25.CPROD_CODE_PTR
+        LEFT JOIN dbo.TBL_SYS_ORGANIZATION AS d15
+            ON D06.CORG_CODE = d15.CORG_CODE
+        ON D60.CSALES_ORDER = D492.CSO_NO
+WHERE (D06.CENTERPRISE_CODE = '*' )-- OR d06.CENTERPRISE_CODE = '{enterpriseCode}') AND (D06.CORG_CODE = '*' OR d06.CORG_CODE = '{orgCode}'
+</pre>
+
+
+
+<h2 id="toc_12.4">过数 </h2>
+<p>
+获取当前在线步骤号，pcs数量，panel数量，客户代码，料号名，流程名称，流程代码，工厂代码<br />
+</p>
+
+
+<h3 id="toc_12.4.1">MI流程有更改，更改流程和步骤号 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+declare @work_order_number varchar(MAX)= 'B0024337-1-60-07'
+declare @wo_ptr varchar(MAX)
+
+select @wo_ptr = CID from [TBL_PLAN_JOB_TICKET] where CWORK_ORDER_NUMBER = @work_order_number
+update TBL_PLAN_JOB_TICKET_ONLINE set CDEPT_PTR = '8E2E55A1-4609-4ED6-9E8F-42B8129D2B06',CSTEP = 6 where CWO_PTR = @wo_ptr
+</pre>
+
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+--获取当前工序
+ select a.CSTEP,a.CQTY_BACKLOG,a.CPANELS, c.CMANU_PART_DESC,c.CMANU_PART_NUMBER,d.CPROCESS_NAME,d.CPROCESS_CODE, b.CORG_CODE from [TBL_PLAN_JOB_TICKET_ONLINE]  a
+ left join TBL_PLAN_JOB_TICKET  b on a.CWO_PTR = b.CID
+ left join TBL_MI_JOB_INFO c on b.CBOM_PTR = c.cid
+ left join TBL_BD_PROCESS d on a.CDEPT_PTR = d.CID
+ where b.CWORK_ORDER_NUMBER = 'B0000003-0-18-01A'
+</pre>
+
+
+<h3 id="toc_12.4.2">根据步骤号和作业单号获取工序名称，工序代码 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+--获取下一个工序的
+select d.CPROCESS_NAME,d.CPROCESS_CODE,c.CPROCESS_STEP_NUMBER from TBL_PLAN_JOB_TICKET a 
+left join  TBL_MI_JOB_INFO b on a.CBOM_PTR = b.CID
+left join TBL_MI_PROCESS c on c.CMANU_PART_NUMBER = b.CMANU_PART_NUMBER 
+left JOIN TBL_BD_PROCESS d ON c.CPROCESS_PTR = d.CID
+where a.CWORK_ORDER_NUMBER = 'B0000009-2-02-01A' and c.CPROCESS_STEP_NUMBER  &gt; 14 and d.CBARCODE_ENTRY_FLAG = 'Y'
+order by c.CPROCESS_STEP_NUMBER 
+</pre>
+
+
+<h3 id="toc_12.4.3">当前过数工序到下一个过数之前的所有非过数工序 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+ select   d.CPROCESS_NAME,d.CPROCESS_CODE,c.CPROCESS_STEP_NUMBER,d.CBARCODE_ENTRY_FLAG  from TBL_PLAN_JOB_TICKET a 
+left join  TBL_MI_JOB_INFO b on a.CBOM_PTR = b.CID
+left join TBL_MI_PROCESS c on c.CMANU_PART_NUMBER = b.CMANU_PART_NUMBER 
+left JOIN TBL_BD_PROCESS d ON c.CPROCESS_PTR = d.CID
+where a.CWORK_ORDER_NUMBER = 'B0000003-0-18-01A' 
+ and c.CPROCESS_STEP_NUMBER &gt;= 7
+ and c.CPROCESS_STEP_NUMBER &lt; 15
+-- and d.CBARCODE_ENTRY_FLAG = 'N'
+ order by  c.CPROCESS_STEP_NUMBER
+</pre>
+
+
+
+<h3 id="toc_12.4.4">按作业单查出配料单号 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+select a.CCUT_NO from TBL_PLAN_JOB_TICKET a
+inner join TBL_PLAN_JOB_TICKET_ONLINE b on a.CID = b.CWO_PTR
+inner join TBL_MI_JOB_INFO c on a.CBOM_PTR = c.CID
+where  a.CWORK_ORDER_NUMBER = 'B0000009-2-02-01'
+
+</pre>
+
+
+<h3 id="toc_12.4.5">指定步骤号，配料单号，查所有的作业单号，按作业单顺序排序 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+select   a.CWORK_ORDER_NUMBER from TBL_PLAN_JOB_TICKET a
+inner join TBL_PLAN_JOB_TICKET_ONLINE b on a.CID = b.CWO_PTR
+where  a.CCUT_NO = 'B0000009-2'
+and b.CSTEP = '14'
+order by a.CWORK_ORDER_NUMBER
+</pre>
+
+<h3 id="toc_12.4.6">返工过数 </h3>
+<ol>
+<li>
+不管是在线返工，退货返工还是成品返工。都要走返工流程；
+
+<li>
+作业单表必须有流程编号，返工流程才能取出来也就是TBL_PLAN_JOB_TICKET的 REWORDNUMBER；
+
+</ol>
+
+<p>
+流程编号：<br />
+在线返工当前所在的step：TBL_PLAN_JOB_TICKET_ONLINE的CWTYPE<br />
+</p>
+
+
+<h4 id="toc_12.4.6.1">更改为在线返工 </h4>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT * FROM dbo.TBL_PLAN_JOB_TICKET WHERE CWORK_ORDER_NUMBER = 'B0023402-2-61-54'
+
+UPDATE  TBL_PLAN_JOB_TICKET SET CWTYPE = 6,CPROD_STATUS = 3 WHERE CWORK_ORDER_NUMBER = 'B0023402-2-61-54'
+
+UPDATE dbo.TBL_PLAN_JOB_TICKET_ONLINE SET CDEPT_PTR = '8BDD8C01-9EAB-40AB-99B4-CA5B4935AB62' WHERE CWO_PTR =  '052939D5-1E5A-4E6D-8B28-B085981862AE'
+
+</pre>
+
+
+
+
+<h4 id="toc_12.4.6.2">根据作业单号获取返工过数所有流程 </h4>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+   --查出所有的返工流程
+  SELECT c.CSTEP,d.CPROCESS_CODE,d.CPROCESS_NAME,* FROM dbo.TBL_PLAN_JOB_TICKET a
+  LEFT JOIN dbo.TBL_REWORK_PROCESS b ON a.CBOM_PTR = b.CBOM_PTR
+  LEFT JOIN dbo.TBL_REWORK_PROCESS_DTL c ON c.CPARENT_ID = b.CID
+  LEFT JOIN dbo.TBL_BD_PROCESS  d ON c.CPROCESS_PTR = d.CID
+  WHERE a.CWORK_ORDER_NUMBER = 'W-B0023571-0-06-04' AND b.CNUMBER = a.REWORDNUMBER 
+  ORDER BY c.CSTEP
+
+</pre>
+
+<h4 id="toc_12.4.6.3">根据作业单号获取在线返工在返工之前的流程名称和流程代码 </h4>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT    f.CWTYPE AS 返工原工序步骤号,c.CPROCESS_STEP_NUMBER,d.CPROCESS_NAME,d.CPROCESS_CODE,c.CPROCESS_STEP_NUMBER,d.CBARCODE_ENTRY_FLAG AS 是否需要过数  from TBL_PLAN_JOB_TICKET a 
+left join  TBL_MI_JOB_INFO b on a.CBOM_PTR = b.CID
+left join TBL_MI_PROCESS c on c.CMANU_PART_NUMBER = b.CMANU_PART_NUMBER 
+left JOIN TBL_BD_PROCESS d ON c.CPROCESS_PTR = d.CID
+LEFT JOIN TBL_PLAN_JOB_TICKET_ONLINE f on a.CID = f.CWO_PTR
+where a.CWORK_ORDER_NUMBER = 'B0021235-0-116-059'
+AND c.CPROCESS_STEP_NUMBER = f.CWTYPE
+-- and d.CBARCODE_ENTRY_FLAG = 'N'
+ order by  c.CPROCESS_STEP_NUMBER
+</pre>
+
+
+
+<h4 id="toc_12.4.6.4">获取返工过数的下一个工序 </h4>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+ --更改步骤好，获取下一个工序
+  SELECT a.REWORDNUMBER, c.CSTEP,d.CPROCESS_CODE,d.CPROCESS_NAME,* FROM dbo.TBL_PLAN_JOB_TICKET a
+  LEFT JOIN dbo.TBL_REWORK_PROCESS b ON a.CBOM_PTR = b.CBOM_PTR
+  LEFT JOIN dbo.TBL_REWORK_PROCESS_DTL c ON c.CPARENT_ID = b.CID
+  LEFT JOIN dbo.TBL_BD_PROCESS  d ON c.CPROCESS_PTR = d.CID
+  WHERE a.CWORK_ORDER_NUMBER = 'W-B0023539-0-02-02' AND b.CNUMBER = a.REWORDNUMBER
+  AND c.CSTEP &gt; 6
+  AND d.CBARCODE_ENTRY_FLAG = 'Y'
+  ORDER BY c.CSTEP
+</pre>
+
+
+<h4 id="toc_12.4.6.5">查找在线返工问题 </h4>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  --查看当前作业单的返工编号，当前step，
+  SELECT REWORDNUMBER AS 返工流程编号,CSTEP AS 当前流程step,a.CWTYPE AS 返工前流程step,a.cid AS 在线作业单的CID ,b.CID AS 作业单的CID,* FROM dbo.TBL_PLAN_JOB_TICKET_ONLINE TBL_PLAN_JOB_TICKET_ONLINEa
+  LEFT JOIN TBL_PLAN_JOB_TICKET  b ON a.CWO_PTR = b.cid 
+  WHERE b.CWORK_ORDER_NUMBER = 'W-B0023290-0-09-05A'
+
+  --上面只能查出返工之前的step，需要查出step对应的流程名字，流程代码
+	SELECT    f.CWTYPE AS 返工原工序步骤号,c.CPROCESS_STEP_NUMBER,d.CPROCESS_NAME,d.CPROCESS_CODE,c.CPROCESS_STEP_NUMBER,d.CBARCODE_ENTRY_FLAG AS 是否需要过数  from TBL_PLAN_JOB_TICKET a 
+	left join  TBL_MI_JOB_INFO b on a.CBOM_PTR = b.CID
+	left join TBL_MI_PROCESS c on c.CMANU_PART_NUMBER = b.CMANU_PART_NUMBER 
+	left JOIN TBL_BD_PROCESS d ON c.CPROCESS_PTR = d.CID
+	LEFT JOIN TBL_PLAN_JOB_TICKET_ONLINE f on a.CID = f.CWO_PTR
+	where a.CWORK_ORDER_NUMBER = 'B0021235-0-116-059'
+	AND c.CPROCESS_STEP_NUMBER = f.CWTYPE
+	-- and d.CBARCODE_ENTRY_FLAG = 'N'
+	 order by  c.CPROCESS_STEP_NUMBER
+	 
+
+  --更新过数类型，正常0，退货或成品返工为3，在线返工为6，这里更新为在线返工
+  UPDATE TBL_PLAN_JOB_TICKET SET CWTYPE = 6 WHERE CWORK_ORDER_NUMBER = 'W-B0023290-0-09-05A'
+
+  --更新作业单的返工编号。
+  UPDATE TBL_PLAN_JOB_TICKET SET REWORDNUMBER = 1 WHERE CWORK_ORDER_NUMBER = 'W-B0023290-0-09-05A'
+
+  --根据作业单号更新作业单在线返工之前的流程
+  UPDATE TBL_PLAN_JOB_TICKET_ONLINE SET CWTYPE = 68 WHERE CWO_PTR = 
+(SELECT CID　FROM dbo.TBL_PLAN_JOB_TICKET WHERE CWORK_ORDER_NUMBER = 'W-B0023290-0-09-05A')
+
+</pre>
+
+
+
+<h4 id="toc_12.4.6.6">获取返工前流程 </h4>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT c.CSTEP,d.CPROCESS_CODE,d.CPROCESS_NAME,* FROM dbo.TBL_PLAN_JOB_TICKET a
+  LEFT JOIN dbo.TBL_REWORK_PROCESS b ON a.CBOM_PTR = b.CBOM_PTR
+  LEFT JOIN dbo.TBL_REWORK_PROCESS_DTL c ON c.CPARENT_ID = b.CID
+  LEFT JOIN dbo.TBL_BD_PROCESS  d ON c.CPROCESS_PTR = d.CID
+  LEFT JOIN dbo.TBL_PLAN_JOB_TICKET_ONLINE e ON a.CID = e.CWO_PTR
+  WHERE a.CWORK_ORDER_NUMBER =  'W-B0024655-0-03-02' AND b.CNUMBER = a.REWORDNUMBER  AND c.CSTEP = e.CWTYPE
+  ORDER BY c.CSTEP
+</pre>
+
+
+
+
+
+<h1 id="toc_13">Sys 系统管理 </h1><HR SIZE=1>
+<h2 id="toc_13.1">删除菜单 </h2>
 <pre  name="code" class="brush: sql">
 
 /****** Script for SelectTopNRows command from SSMS  ******/
@@ -147,7 +995,13 @@ SELECT TOP (1000) *
 DELETE FROM [CIMOMJXZH].[dbo].[TBL_SYS_MODULE]  WHERE CID = '994830BE587C400F99F9F3FB2833321F'
 </pre>
 
+<ul>
+<li>
+[TBL_SYS_MODULE] CPARENT_MODULE_ID是指向上一级的CID，在同一个表。最上面的ID是ROOT。
 
+</ul>
+ 
+ 
 <pre  name="code" class="brush: sql">
 
 /****** Script for SelectTopNRows command from SSMS  ******/
@@ -168,20 +1022,20 @@ SELECT TOP (1000) [CID]
   FROM [CIMOMJXZH].[dbo].[TBL_SFC_PROCESS_PARAMS]
 </pre>
 
-<h2 id="toc_7.2">工厂 </h2>
+<h2 id="toc_13.2">工厂 </h2>
 <p>
 [TBL_SYS_ENTERPRISE]<br />
 </p>
 
 
-<h2 id="toc_7.3">数据字典 </h2>
+<h2 id="toc_13.3">数据字典 </h2>
 <p>
 [TBL_SYS_MODULE]<br />
 [TBL_SYS_DICTIONARY]<br />
 </p>
 
-<h1 id="toc_8">Tracibility </h1><HR SIZE=1>
-<h2 id="toc_8.1">前处理读码查询 </h2>
+<h1 id="toc_14">Tracibility </h1><HR SIZE=1>
+<h2 id="toc_14.1">前处理读码查询 </h2>
 
 <pre  name="code" class="brush: sql">
 select distinct CSFC from TBL_SFC_ACTIVITY_LOG 
@@ -191,7 +1045,7 @@ CSFC in
 (select distinct CPANEL_SERIAL from TBL_SFC_LOT_PANEL where CITEM_CODE='BFR0Z0600131A0.I23' and CDATETIME_CREATED&gt;'2019-12-24')
 </pre>
 
-<h2 id="toc_8.2">读码器数据表 </h2>
+<h2 id="toc_14.2">读码器数据表 </h2>
 <ul>
 <li>
 TBL_SFC_ACTIVITY_LOG 
@@ -211,7 +1065,7 @@ TBL_SFC_ACTIVITY_LOG
 </ul>
 </ul>
 
-<h2 id="toc_8.3">条码绑定料号 </h2>
+<h2 id="toc_14.3">条码绑定料号 </h2>
 <ul>
 <li>
 TBL_SFC_LOT_PANEL
@@ -224,7 +1078,7 @@ TBL_SFC_LOT_PANEL
 </ul>
 
 
-<h2 id="toc_8.4">查看设备的数据采集 </h2>
+<h2 id="toc_14.4">查看设备的数据采集 </h2>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
 /****** Script for SelectTopNRows command from SSMS  ******/
 --根据设备名称查
@@ -253,18 +1107,21 @@ left join TBL_EAP_EQUIPMENT_ADDRESS  b on a.CADDRESS_ID = b.CID
 order by a.CDATETIME_CREATED desc
 </pre>
 
+<p>
+19907073286<br />
+</p>
 
 
 
-<h1 id="toc_9">Recipe </h1><HR SIZE=1>
-<h2 id="toc_9.1">压机Recipe </h2>
+<h1 id="toc_15">Recipe </h1><HR SIZE=1>
+<h2 id="toc_15.1">压机Recipe </h2>
 <p>
 [LAUFFER_RECIPE].[dbo].[Load_Data] 压机的配方表<br />
 [TBL_SFC_LAM_LOT_BARCODE]	压合的锣卡二维码表<br />
 </p>
 
 
-<h1 id="toc_10">岗位资格认证 </h1><HR SIZE=1>
+<h1 id="toc_16">岗位资格认证 </h1><HR SIZE=1>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
 select c.CCERTIFICATION_CODE from TBL_BD_QUALIFIED_AUZ a 
 inner join TBL_SYS_USER b
@@ -285,6 +1142,52 @@ where CCERTIFICATION_CODE = 'FQC-005'
 and CEQUIPMENT_CODE = 'FAE-DRL-003'
 
 </pre>
+
+
+
+<h1 id="toc_17">sqlsugar </h1><HR SIZE=1>
+<h2 id="toc_17.1">嵌套查找 </h2>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+var list = ssc.Queryable&lt;TBL_SRM_PO_DTL&gt;("t2")
+.Where(t2 =&gt; t2.CID == dtlId)
+.Select("t2.*,(select count(1) from TBL_SRM_PO_DELIVER tt where tt.CPO_DETAIL_ID = t2.CID) as DeliverCount").ToList();
+
+</pre>
+
+<h2 id="toc_17.2">用sql语句更新表字段 </h2>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+string sql = $@"UPDATE TBL_MI_JOB_INFO SET CID = CRKEY WHERE CRKEY = '{model.CRKEY}'";                Context.GetDB().Ado.ExecuteCommand(sql);
+</pre>
+
+
+<h2 id="toc_17.3">某个字段不更新 </h2>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+  Context.GetDB().Updateable&lt;TBL_BD_LABEL_TEMPLATE&gt;(model).IgnoreColumns(it =&gt; it == "CLABEL_TEMPLATE_CONTENT").ExecuteCommand();
+</pre>
+
+<h2 id="toc_17.4">执行存储过程 </h2>
+<pre &lt;pre  name="code" class="brush: csharp"&gt;>
+Context.GetDB().Ado.UseStoredProcedure().GetDataTable("SP_PLAN_ASSIGN"
+                    , new SugarParameter("@main_WO_NO", outerJobID.CID)
+                    , new SugarParameter("@Sub_WO_List", InWoID)
+                    , new SugarParameter("@Qty_List", PCSQtyList)
+                    , new SugarParameter("@PNLQty_List", PNLQtyList)
+                    , new SugarParameter("@User_ptr", Service.CurrentUserName));
+</pre>
+
+
+
+
+<h2 id="toc_17.5">某个字段忽略 </h2>
+<p>
+[SugarColumn(IsIgnore = true)]<br />
+</p>
+
+
+<p>
+"context": {"CultureName": "zh-CN","EntCode": "6","OrgCode": "JX001","UserCode": "MES"},<br />
+"context": {"CultureName": "zh-CN","EntCode": "6","OrgCode": "J0001","UserCode": "MES"}<br />
+</p>
 
 
 <div class="foot">

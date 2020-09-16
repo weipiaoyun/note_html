@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>账号密码</title>
+<title>JxzhSolution</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,30 +18,38 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">jetbrains </a>
-<li class="menu1"><a href="#toc_2">邮件 </a>
-<li class="menu1"><a href="#toc_3">广东省统一身份认证平台 </a>
+<li class="menu1"><a href="#toc_1">手动创建插件 </a>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">jetbrains </h1><HR SIZE=1>
-<p>
-511596240@qq.com<br />
-Password:Zh987654321<br />
-</p>
+<h1 id="toc_1">手动创建插件 </h1><HR SIZE=1>
+<ol>
+<li>
+右击EAM或EAP等文件夹。添加-&gt;新建项目-&gt;ASP.NET Core Web应用程序。下一步，项目名称Plugins.Equipment.Test，位置选择Plugins路径。点击创建。选择API。点击创建。
 
-<h1 id="toc_2">邮件 </h1><HR SIZE=1>
-<p>
-密码：lw820578<br />
-</p>
+<li>
+右击项目Plugins.Equipment.Test。选择第一个应用程序，输出类型改为类库。
 
+<li>
+选择第二个生成，输出路径改为..\..\ReleaseAssemblies\Windows-64\Plugins\
 
-<h1 id="toc_3">广东省统一身份认证平台 </h1><HR SIZE=1>
-<p>
-linwei1010<br />
-Yj13549109877<br />
-</p>
+<li>
+选择调试，【启动】改为可执行文件。【可执行文件】选择E:\code\MesPlugins\ReleaseAssemblies\Windows-64\WebApi.exe
+
+<li>
+设置为启动项目
+
+<li>
+打开Plugins.Equipment.Test.csproj。添加 &lt;AppendTargetFrameworkToOutputPath&gt;false&lt;/AppendTargetFrameworkToOutputPath&gt;属性
+
+<li>
+更改路由属性[Route("[controller]")]
+
+<li>
+点击启动-&gt;
+
+</ol>
 
 
 <div class="foot">

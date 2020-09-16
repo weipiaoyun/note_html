@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>上传工序转移</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">如下ID设为首序 </a>
+<li class="menu1"><a href="#toc_2">前工序按pnl，后工序按PCS </a>
+</ul>
+</div>
+<div class="content">
+
+
+<h1 id="toc_1">如下ID设为首序 </h1><HR SIZE=1>
+
+<p>
+  SELECT CPROCESS_NAME,CID FROM dbo.TBL_BD_PROCESS WHERE CID IN (SELECT  CFM_DEPT_PTR<br />
+  FROM [CIMOMJXZH].[dbo].[TBL_SFC_WORKNUMBER_FLOW] WHERE cid NOT LIKE '%-%'  AND  CSTEP_NO = 1<br />
+  GROUP BY CFM_DEPT_PTR)<br />
+  AND CPROCESS_NAME = '发料' OR CPROCESS_NAME = '开料'<br />
+  GROUP BY CPROCESS_NAME,CID<br />
+</p>
+
+<p>
+0B7A5F93-F9A4-416B-B7BC-038E44109C0C<br />
+86E1034A-C5C8-4BB9-9E04-4C9896DB234C<br />
+90982D8C-CE6F-4A63-962F-FD14BFDCD74C<br />
+B22522624544460AA91C1B33A2F7CBEA<br />
+E4BCFB7D93D14B7BA15378FE6AB72D36<br />
+</p>
+<blockquote>
+TBL_SFC_WORKNUMBER_FLOW_U9 TBL_SFC_WORKNUMBER_FLOW_U9 = new TBL_SFC_WORKNUMBER_FLOW_U9();
+//配料单号，对应U9
+</blockquote>
+<blockquote>
+TBL_SFC_WORKNUMBER_FLOW_U9.CWO_PTR = model.CWO_PTR;
+</blockquote>
+<blockquote>
+//pcs数量
+TBL_SFC_WORKNUMBER_FLOW_U9.CQTY_PROD = (int?)model.CQTY;
+</blockquote>
+<blockquote>
+//panel数量
+TBL_SFC_WORKNUMBER_FLOW_U9.CQTY_PANELS = (int?)model.CQTY_PANELS;
+</blockquote>
+<blockquote>
+//当前流程的CID，从什么流程来的CID
+TBL_SFC_WORKNUMBER_FLOW_U9.CFM_DEPT_PTR = datas[i].CID;
+</blockquote>
+<blockquote>
+//到什么流程的CID
+TBL_SFC_WORKNUMBER_FLOW_U9.CTO_DEPT_PTR = datas[i + 1].CID;
+</blockquote>
+<blockquote>
+TBL_SFC_WORKNUMBER_FLOW_U9.CCCUT_NO = datas[i].CCUT_NO;
+</blockquote>
+<blockquote>
+TBL_SFC_WORKNUMBER_FLOW_U9.CSTEP_NO = datas[i].CPROCESS_STEP_NUMBER;
+</blockquote>
+<blockquote>
+//工序名称
+TBL_SFC_WORKNUMBER_FLOW_U9.OpNum = datas[i].COPERATION_CODE;
+</blockquote>
+<blockquote>
+//是否首工序，是否最后一个工序,先查        
+CheckIfCore(model, TBL_SFC_WORKNUMBER_FLOW_U9);
+//TBL_SFC_WORKNUMBER_FLOW_U9.CISLASTOP = false;
+</blockquote>
+<blockquote>
+public dynamic UploadU9(string StartDate, string EndDate)
+{
+</blockquote>
+<blockquote>
+FunctionResult rst = new FunctionResult();
+try
+{
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+catch (Exception ex)
+{
+rst.Success = false;
+rst.Content = ex.Message.ToString();
+}
+return rst;
+}
+</blockquote>
+<blockquote>
+[RESTful(UriTemplate = "/UploadU9?&amp;StartDate={StartDate}&amp;EndDate={EndDate}", Method = RequestMethods.GET, Code = "101")]
+public dynamic UploadU9(string StartDate, string EndDate)
+{
+MODomain sd = new MODomain(this);
+int count = 0;
+return sd.UploadU9(StartDate, EndDate);
+}
+</blockquote>
+
+
+
+<h1 id="toc_2">前工序按pnl，后工序按PCS </h1><HR SIZE=1>
+<blockquote>
+SELECT a.CCCUT_NO AS MO ,a.OpNum,SUM(a.CQTY_PANELS),
+</blockquote>
+<p>
+   CASE WHEN SUM(a.CQTY_PANELS) &lt;&gt; 0 THEN SUM( a.CQTY_PANELS*b.CPNL_L*b.CPNL_W*0.000001) ELSE SUM( a.CQTY_PROD*c.CUNIT_SQ ) END  AS RunLaborHours, 'Hour' AS  TimeUOM, 0 AS TotalHours,0 AS WorkingType,GETDATE() AS BusinessDate FROM  dbo.TBL_SFC_WORKNUMBER_FLOW_U9  a<br />
+</p>
+<blockquote>
+LEFT JOIN TBL_PLAN_JOB_TICKET b ON a.CWO_PTR = b.CID
+LEFT JOIN dbo.TBL_MI_JOB_INFO c ON b.CBOM_PTR = c.CID
+WHERE CCCUT_NO = 'B0023725-0'-- AND
+</blockquote>
+<p>
+   -- WHERE  a.CQTY_PROD &lt;&gt; 0 AND a.CDATETIME_CREATED &gt; '2020-07-01' AND a.CDATETIME_CREATED &lt; '2020-07-02' <br />
+</p>
+<blockquote>
+GROUP BY a.CCCUT_NO ,a.OpNum,a.CISFIRSTOP,a.CISLASTOP
+</blockquote>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

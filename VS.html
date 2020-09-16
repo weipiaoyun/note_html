@@ -19,26 +19,27 @@
 <div class="toc">
 <ul>
 <li class="menu1"><a href="#toc_1">即时窗口 </a>
-<li class="menu1"><a href="#toc_2">插件 </a>
+<li class="menu1"><a href="#toc_2">File Structure</a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">Resharp </a>
+<li class="menu2"><a href="#toc_2.1">添加应用程序配置文件App.config</a>
 </ul>
-<li class="menu1"><a href="#toc_3">File Structure</a>
+<li class="menu1"><a href="#toc_3">显示行号</a>
+<li class="menu1"><a href="#toc_4">vs快捷键</a>
+<li class="menu1"><a href="#toc_5">设置自动换行 </a>
 <ul>
-<li class="menu2"><a href="#toc_3.1">添加应用程序配置文件App.config</a>
+<li class="menu2"><a href="#toc_5.1">在调试里面也可以打开输出</a>
 </ul>
-<li class="menu1"><a href="#toc_4">显示行号</a>
-<li class="menu1"><a href="#toc_5">vs快捷键</a>
-<li class="menu1"><a href="#toc_6">设置自动换行 </a>
+<li class="menu1"><a href="#toc_6">注册dll </a>
+<li class="menu1"><a href="#toc_7">插件 </a>
 <ul>
-<li class="menu2"><a href="#toc_6.1">在调试里面也可以打开输出</a>
+<li class="menu2"><a href="#toc_7.1">JetBrains.ReSharperUltimate.2018 </a>
 </ul>
-<li class="menu1"><a href="#toc_7">注册dll </a>
-<li class="menu1"><a href="#toc_8">插件 </a>
+<li class="menu1"><a href="#toc_8">常用插件 </a>
+<li class="menu1"><a href="#toc_9">插件 </a>
 <ul>
-<li class="menu2"><a href="#toc_8.1">JetBrains.ReSharperUltimate.2018 </a>
+<li class="menu2"><a href="#toc_9.1">Resharp </a>
 </ul>
-<li class="menu1"><a href="#toc_9">常用插件 </a>
+<li class="menu1"><a href="#toc_10">工具栏 </a>
 </ul>
 </div>
 <div class="content">
@@ -47,19 +48,9 @@
 <p>
  TBL_EAP_EQUIPMENT_ADDRESS.FirstOrDefault(m=&gt;m.CADDRESS_CODE.Equals("D1542"));<br />
 </p>
-<h1 id="toc_2">插件 </h1><HR SIZE=1>
-<h2 id="toc_2.1">Resharp </h2>
-<p>
-打开Crack文件夹-&gt;用管理员的身份运行AutoPatch 2018.1.cmd-&gt;打开ReSharper输入licens界面-&gt;按下右上角的按钮。<br />
-</p>
 
 
-<p>
-ReSharper-&gt;window<br />
-</p>
-
-
-<h1 id="toc_3">File Structure</h1><HR SIZE=1>
+<h1 id="toc_2">File Structure</h1><HR SIZE=1>
 
 <p>
 在项目进行编译后，在 bin/Debuge 文件下，将出现两个配置文件 ( 以本项目为例 ) ，一个名为“JxcManagement.EXE.config ”，另一个名为“ JxcManagement.vshost.exe.config ”。第一个文件为项目实际使用的配置文件，在程序运行中所做的更改都将被保存于此；第二个文件为原代码“ app.config ”的同步文件，在程序运行中不会发生更改。<br />
@@ -71,7 +62,7 @@ ReSharper-&gt;window<br />
 &lt;? xml version = "1.0 "encoding = "utf-8 " ?&gt;<br />
 选择“添加”→“添加新建项”，在出现的“添加新项”对话框中，选择“添加应用程序配置文件”；如果项目以前没有配置文件，则默认的文件名称为“ app.config ”，单击“确定”。出现在设计器视图中的app.config 文件为：<br />
 </p>
-<h2 id="toc_3.1">添加应用程序配置文件App.config</h2>
+<h2 id="toc_2.1">添加应用程序配置文件App.config</h2>
 
 <p>
 ctrl+M，Ctrl+M 折叠取反<br />
@@ -85,11 +76,11 @@ ctrl+M,Ctrl+l 不折叠<br />
 ctrl+M Ctrl+o，折叠<br />
 </p>
 
-<h1 id="toc_4">显示行号</h1><HR SIZE=1>
+<h1 id="toc_3">显示行号</h1><HR SIZE=1>
 <p>
 tool-》option-&gt;文本编辑器<br />
 </p>
-<h1 id="toc_5">vs快捷键</h1><HR SIZE=1>
+<h1 id="toc_4">vs快捷键</h1><HR SIZE=1>
 
 <p>
 窗口.关闭文档窗口  Ctrk+w<br />
@@ -105,29 +96,29 @@ VS的各个组成部分：1，解决方案.sln；2，项目.csproj；3，类.cs<
 </p>
 
 
-<h1 id="toc_6">设置自动换行 </h1><HR SIZE=1>
+<h1 id="toc_5">设置自动换行 </h1><HR SIZE=1>
 <p>
 工具-》选项-&gt;文本编辑器-》C#-&gt;自动换行<br />
 </p>
 
 
-<h2 id="toc_6.1">在调试里面也可以打开输出</h2>
+<h2 id="toc_5.1">在调试里面也可以打开输出</h2>
 <p>
 调试-》窗口-》输出<br />
 </p>
 
-<h1 id="toc_7">注册dll </h1><HR SIZE=1>
+<h1 id="toc_6">注册dll </h1><HR SIZE=1>
 <p>
 gacutil.exe -i<br />
 </p>
 
-<h1 id="toc_8">插件 </h1><HR SIZE=1>
+<h1 id="toc_7">插件 </h1><HR SIZE=1>
 <p>
 Productivity<br />
 </p>
 
 
-<h2 id="toc_8.1">JetBrains.ReSharperUltimate.2018 </h2>
+<h2 id="toc_7.1">JetBrains.ReSharperUltimate.2018 </h2>
 <p>
 选择F12到函数体。更改默认<br />
 Resharper-&gt;Build-&gt;External Sources<br />
@@ -135,10 +126,31 @@ Resharper-&gt;Build-&gt;External Sources<br />
 
 
 
-<h1 id="toc_9">常用插件 </h1><HR SIZE=1>
+<h1 id="toc_8">常用插件 </h1><HR SIZE=1>
 <p>
 productivity power<br />
 web essential<br />
+</p>
+
+
+<h1 id="toc_9">插件 </h1><HR SIZE=1>
+<h2 id="toc_9.1">Resharp </h2>
+<p>
+打开Crack文件夹-&gt;用管理员的身份运行AutoPatch 2018.1.cmd-&gt;打开ReSharper输入licens界面-&gt;按下右上角的按钮。<br />
+</p>
+
+
+<p>
+ReSharper-&gt;window<br />
+</p>
+
+<p>
+Lin@13549<br />
+</p>
+
+<h1 id="toc_10">工具栏 </h1><HR SIZE=1>
+<p>
+隐藏了右击，调试位置<br />
 </p>
 
 

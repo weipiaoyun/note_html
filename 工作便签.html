@@ -18,22 +18,179 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">常用地址 </a>
-<li class="menu1"><a href="#toc_2">常用链接 </a>
-<li class="menu1"><a href="#toc_3">工作清单 </a>
+<li class="menu1"><a href="#toc_1">客户物料号u9和MES对不上 </a>
+<li class="menu1"><a href="#toc_2">更改当前流程和步骤号 </a>
+<li class="menu1"><a href="#toc_3">Inplan上传报错 </a>
+<li class="menu1"><a href="#toc_4">隐藏报废 </a>
+<li class="menu1"><a href="#toc_5">过数 </a>
+<li class="menu1"><a href="#toc_6">工序转移上传 </a>
 <ul>
-<li class="menu2"><a href="#toc_3.1">待处理 </a>
-<li class="menu2"><a href="#toc_3.2">处理中 </a>
-<li class="menu2"><a href="#toc_3.3">已处理 </a>
+<li class="menu2"><a href="#toc_6.1">查过数的作业单号 </a>
+<li class="menu2"><a href="#toc_6.2">过数记录表 </a>
 </ul>
-<li class="menu1"><a href="#toc_4">密码加解密 </a>
-<li class="menu1"><a href="#toc_5">规范 </a>
-<li class="menu1"><a href="#toc_6">翻译网址 </a>
+<li class="menu1"><a href="#toc_7">外发 </a>
+<li class="menu1"><a href="#toc_8">常用地址 </a>
+<li class="menu1"><a href="#toc_9">常用链接 </a>
+<li class="menu1"><a href="#toc_10">工作清单 </a>
+<ul>
+<li class="menu2"><a href="#toc_10.1">待处理 </a>
+<li class="menu2"><a href="#toc_10.2">处理中 </a>
+<li class="menu2"><a href="#toc_10.3">已处理 </a>
+</ul>
+<li class="menu1"><a href="#toc_11">密码加解密 </a>
+<li class="menu1"><a href="#toc_12">规范 </a>
+<li class="menu1"><a href="#toc_13">翻译网址 </a>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">常用地址 </h1><HR SIZE=1>
+
+<p>
+GME-WF1-001的采集<br />
+</p>
+
+
+<p>
+设备与MES对接要求<br />
+1.       厂商设备须有条码扫描功能，能扫描读取工单号，并与建立与MES对接的接口中读取对应工单工件的所有参数用于生产中（有效防止操作人员输入错误）<br />
+2.       设备实时的运行情况记录到MES中（入料,出料,故障报警,温度,电流等）<br />
+3.       MES提供相应的接口，与厂商设备进行对接。<br />
+提供给厂商接口技术（注： 基于网络安全考虑一般采用webservice ），提供内网与外网的测试地址 ，各个接口的名称与参数的个数,内容定义，数据格式，长度。（通常需要与设备商双方沟通先确定下来，因为每个流程的设备需求不一样！）<br />
+4.    DMS, MES均为以太网接口, 配8口交换机<br />
+ <br />
+ <br />
+注：提供内外网的测试地址非常重要可以更快更有效开展工作（与深南电路也是这样做的，主导是你们MES开发人员与工艺人员，每个板件资料必须要在MES系统中维护进来的，同时还提供了不同开发语言的对接案例给厂商参考）。<br />
+</p>
+
+
+<h1 id="toc_1">客户物料号u9和MES对不上 </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT CANALYSIS_CODE_2,* FROM dbo.TBL_MI_JOB_INFO WHERE CMANU_PART_NUMBER like 'TFH3v0800317c0%'
+UPDATE TBL_MI_JOB_INFO SET CANALYSIS_CODE_2 = 'A22101013519702' WHERE CMANU_PART_NUMBER like 'TFH3v0800317c0%'
+
+</pre>
+
+
+<h1 id="toc_2">更改当前流程和步骤号 </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+  --1查找厂别， 2，查看当前流程。3，查找MI流程。4
+  --SELECT CORG_CODE FROM dbo.TBL_PLAN_JOB_TICKET WHERE CWORK_ORDER_NUMBER = 'B0024610-1-87-42'
+
+  DECLARE @CWORK_ORDER_NUMBER_RANGE VARCHAR(MAX) = '46-61'
+  DECLARE @CWORK_ORDER_NUMBER VARCHAR(MAX) = 'B0024338-0-32-22A'
+  DECLARE @PROCESS_CODE  VARCHAR(MAX) = 'SLDR2'
+  DECLARE @CSTEP  INT = 7
+
+
+  DECLARE @PROCESS_CID VARCHAR(MAX)
+  DECLARE @CWORK_ORDER_NUMBER_CID VARCHAR(MAX)
+  
+  DECLARE @LEFT  INT
+  DECLARE @RIGHT  INT
+
+ SET @LEFT =  CONVERT(INT,LEFT(@CWORK_ORDER_NUMBER_RANGE,2))
+ SET @RIGHT = CONVERT(INT,RIGHT(@CWORK_ORDER_NUMBER_RANGE,2))
+
+ WHILE (@LEFT &lt;= @RIGHT)
+ BEGIN
+  DECLARE @CWORK_ORDER_NUMBER_NEW VARCHAR(MAX)
+   SET  @CWORK_ORDER_NUMBER_NEW = @CWORK_ORDER_NUMBER + CONVERT(VARCHAR(MAX),@LEFT)
+   SELECT @PROCESS_CID = CID FROM dbo.TBL_BD_PROCESS WHERE CPROCESS_CODE = @PROCESS_CODE
+    SELECT @CWORK_ORDER_NUMBER_CID = CID FROM dbo.TBL_PLAN_JOB_TICKET WHERE CWORK_ORDER_NUMBER = @CWORK_ORDER_NUMBER_NEW
+	SET @LEFT = @LEFT + 1
+   UPDATE dbo.TBL_PLAN_JOB_TICKET_ONLINE SET CSTEP = @CSTEP, CDEPT_PTR = @PROCESS_CID  WHERE CWO_PTR = @CWORK_ORDER_NUMBER_CID
+ END
+
+
+
+ --单独设置
+DECLARE @PROCESS_CODE  VARCHAR(MAX) = 'FQA1'
+DECLARE @CWORK_ORDER_NUMBER_NEW VARCHAR(MAX) = 'B0024338-0-32-22B'
+DECLARE @PROCESS_CID VARCHAR(MAX)
+DECLARE @CWORK_ORDER_NUMBER_CID VARCHAR(MAX)
+SELECT @PROCESS_CID = CID FROM dbo.TBL_BD_PROCESS WHERE CPROCESS_CODE = @PROCESS_CODE
+SELECT @CWORK_ORDER_NUMBER_CID = CID FROM dbo.TBL_PLAN_JOB_TICKET WHERE CWORK_ORDER_NUMBER = @CWORK_ORDER_NUMBER_NEW
+UPDATE dbo.TBL_PLAN_JOB_TICKET_ONLINE SET CSTEP = 0, CDEPT_PTR = @PROCESS_CID  WHERE CWO_PTR = @CWORK_ORDER_NUMBER_CID
+
+</pre>
+
+
+<h1 id="toc_3">Inplan上传报错 </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT CANALYSIS_CODE_2 ,* FROM dbo.TBL_MI_JOB_INFO WHERE CMANU_PART_NUMBER LIKE  '%TFH1V0800350B0%'
+UPDATE TBL_MI_JOB_INFO SET CANALYSIS_CODE_2 = '470001135' WHERE CMANU_PART_NUMBER LIKE  '%TFH1V0800361B0%'
+</pre>
+
+<h1 id="toc_4">隐藏报废 </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT * FROM dbo.TBL_QM_SM_DATA WHERE CJOBNAME IN ('TGR0E0600467A0','TGR0I1000200A0','BGR0I1000188A0')
+UPDATE dbo.TBL_QM_SM_DATA SET CORG_CODE = 'J0001' WHERE CJOBNAME IN ('TGR0E0600467A0','TGR0I1000200A0','BGR0I1000188A0') AND CORG_CODE = 'J0001-del' 
+
+</pre>
+
+<p>
+foobarbaz<br />
+</p>
+
+
+<p>
+<a href="tmp0727.html">tmp0727</a>
+</p>
+
+<p>
+<a href="二次过数更改.html">二次过数更改</a>
+</p>
+
+<p>
+<a href="上传工序转移.html">上传工序转移</a>
+</p>
+
+<p>
+SELECT TOP 1000 b.CWORK_ORDER_NUMBER,* FROM dbo.TBL_SFC_WORKNUMBER_FLOW a<br />
+LEFT JOIN dbo.TBL_PLAN_JOB_TICKET b ON a.CWO_PTR = b.CID<br />
+ORDER BY<br />
+a.CDATETIME_CREATED DESC<br />
+</p>
+
+
+<h1 id="toc_5">过数 </h1><HR SIZE=1>
+<p>
+过数方法：CountByPCNEW-&gt;GuoShu<br />
+</p>
+
+<h1 id="toc_6">工序转移上传 </h1><HR SIZE=1>
+<p>
+高多层转HDI做，传成本是传到HDI还是高多层<br />
+</p>
+
+<h2 id="toc_6.1">查过数的作业单号 </h2>
+<h2 id="toc_6.2">过数记录表 </h2>
+<p>
+select CWO_PTR from [CIMOMJXZH].[dbo].[TBL_SFC_WORKNUMBER_FLOW]<br />
+</p>
+
+<p>
+CWO_PTR 作业单指针<br />
+</p>
+
+<p>
+找出作业单<br />
+SELECT * FROM dbo.TBL_PLAN_JOB_TICKET WHERE cid = '2BBA96FC-3B40-43A8-8566-97E7D96DE103'<br />
+</p>
+
+<p>
+找出在线作业单<br />
+SELECT  * FROM dbo.TBL_PLAN_JOB_TICKET_ONLINE WHERE CWO_PTR = '2BBA96FC-3B40-43A8-8566-97E7D96DE103'<br />
+</p>
+
+<h1 id="toc_7">外发 </h1><HR SIZE=1>
+<p>
+ERP数据字典地址：<a href="http://172.19.9.32:8081">http://172.19.9.32:8081</a>
+GetLotInfoNew<br />
+外发作业单获取   Middleware.Plugins.QM.SmData  GetOnlineLotExternalProcess<br />
+</p>
+
+<h1 id="toc_8">常用地址 </h1><HR SIZE=1>
 <table>
 <tr>
 <th>
@@ -43,27 +200,30 @@
 IP
 </th>
 <th>
-用户
+密码
 </th>
 <th>
-密码
+用户
 </th>
 </tr>
 <tr>
-<td rowspan="2">
+<td>
 数据库
 </td>
 <td>
 172.18.120.254
 </td>
 <td>
-developer
+mes123456
 </td>
 <td>
-mes123456
+developer
 </td>
 </tr>
 <tr>
+<td rowspan="2">
+数据库
+</td>
 <td>
 172.19.9.1
 </td>
@@ -76,16 +236,27 @@ csfoti@160721
 </tr>
 <tr>
 <td>
+172.19.9.1
+</td>
+<td>
+csfoti@160721
+</td>
+<td>
+MOM
+</td>
+</tr>
+<tr>
+<td>
 Radmin
 </td>
 <td>
 172.19.99.1/2
 </td>
 <td>
-mes
+C&amp;kE54JD
 </td>
 <td>
-C&amp;kE54JD
+mes
 </td>
 </tr>
 <tr>
@@ -96,50 +267,95 @@ C&amp;kE54JD
 172.18.120.254
 </td>
 <td>
+Silly99
+</td>
+<td>
 Administrator
+</td>
+</tr>
+<tr>
+<td>
+wifi
+</td>
+<td>
+172.18.120.254
 </td>
 <td>
 erp@0769
 </td>
+<td>
+Administrator
+</td>
 </tr>
 </table>
 
-<h1 id="toc_2">常用链接 </h1><HR SIZE=1>
+
+<h1 id="toc_9">常用链接 </h1><HR SIZE=1>
 <p>
 <a href="江西.html">江西</a>
 <a href="志浩MES功能模块.html">志浩MES功能模块</a>
+<a href="CIMOM_TABLE.html">CIMOM_TABLE</a>
 </p>
 
-<h1 id="toc_3">工作清单 </h1><HR SIZE=1>
-<h2 id="toc_3.1">待处理 </h2>
+<h1 id="toc_10">工作清单 </h1><HR SIZE=1>
+<h2 id="toc_10.1">待处理 </h2>
+<ul>
+<li>
+一个外层配料单号可以对应多个内层core，对应多个一样的工序。开始工序也有多个。数量是相加吗？
+
+</ul>
+
+<h2 id="toc_10.2">处理中 </h2>
 <ol>
 <li>
-VCP的数据库连接不上
+外发申请的顺序按工卡顺序排序，方便查找
+
+<li>
+过数调用IQPS，品质确认检测添加工厂。
+
+<li>
+外发申请增加时间查询。
+
+<li>
+下配方捞取的有关原来老erp的数据转移到新MES。
+
+<li>
+工单在高多层，报废要打在hdi，无法消数。消数分厂，工单不要分厂。
+
+<li>
+在线返工流程最后一个流程如果是作业单的最后一个流程，则为待入仓
+
+<li>
+在线返工前的流程。如果基础数据改为非过数流程，则无法返回返工前流程。
 
 </ol>
 
 
 
-<p>
-无法采集的设备编码<br />
-FME-VPP-001<br />
-FME-VPP-002<br />
-FME-VPP-003<br />
-FME-HEC-001-E<br />
-GME-VEC-001-SPCT<br />
-FME-HEC-001-S<br />
-</p>
 
-<h2 id="toc_3.2">处理中 </h2>
 
-<h2 id="toc_3.3">已处理 </h2>
+<h2 id="toc_10.3">已处理 </h2>
+<ul>
+<li>
+【外发生产、生产前暂缓、生产中暂缓、取消、拆后的副卡] 取消先进先出限制。
 
-<h1 id="toc_4">密码加解密 </h1><HR SIZE=1>
+<li>
+报废取消控制，产线自己控制
+
+<li>
+外发申请的申请界面需要选择哪个料号只显示该料号，其它料号屏蔽。
+
+<li>
+外发申请增加删除料号对应删除所有作业单功能。
+
+</ul>
+
+<h1 id="toc_11">密码加解密 </h1><HR SIZE=1>
 <p>
 <a href="密码加解密.html">密码加解密</a>
 </p>
 
-<h1 id="toc_5">规范 </h1><HR SIZE=1>
+<h1 id="toc_12">规范 </h1><HR SIZE=1>
 <p>
 <a href="WZ.html">WZ</a>
 <a href="OTHER.html">OTHER</a>
@@ -147,19 +363,59 @@ FME-HEC-001-S<br />
 <a href="程序规范.html">程序规范</a>
 </p>
 
-<h1 id="toc_6">翻译网址 </h1><HR SIZE=1>
+<h1 id="toc_13">翻译网址 </h1><HR SIZE=1>
 <p>
 <a href="https://www.merriam-webster.com/dictionary/belt">https://www.merriam-webster.com/dictionary/belt</a>
-</p>
-
-<p>
-<a href="https://github.com/vimwiki/vimwiki/releases">https://github.com/vimwiki/vimwiki/releases</a>
-</p>
-
-<p>
 xmanage的配置<br />
 更改按钮图片<br />
 <a href="https://msdn.microsoft.com/en-us/magazine/gg598924.aspx">https://msdn.microsoft.com/en-us/magazine/gg598924.aspx</a>
+</p>
+
+
+<p>
+0000 C03F 0000 0000 0000 C03F 0000 0000 0000 0000<br />
+</p>
+
+
+
+<p>
+{"context":{"CultureName":"zh-CN","EntCode":"001","OrgCode":"JX001","UserCode":"mes"},"jsonStr":"BFH1I0800155A0"}<br />
+</p>
+
+
+<p>
+品质过程控制 SPC/CPK <br />
+</p>
+
+<p>
+设备的制程能力。<br />
+设备的产能，加工效率不一样。<br />
+MES的调度中心进行计算，哪条线最适合生产该产品。<br />
+调度agv什么时候调用哪个物料到哪个站点。<br />
+产能吃紧，负荷超标。<br />
+</p>
+
+
+<p>
+加工单，<br />
+用辅材，及时添加。<br />
+物料用量<br />
+SPC<br />
+设备CP<br />
+</p>
+				
+<p>
+<a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-3.1&amp;tabs=visual-studio">https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-model?view=aspnetcore-3.1&amp;tabs=visual-studio</a>
+</p>
+
+
+<p>
+In the preceding code, the DisplayNameFor HTML Helper inspects the Title property referenced in the lambda expression to determine the display name. Since the lambda expression is inspected rather than evaluated, you don't receive an access violation when model, model.Movies, or model.Movies[0] are null or empty. When the lambda expression is evaluated (for example, @Html.DisplayFor(modelItem =&gt; item.Title)), the model's property values are evaluated.<br />
+</p>
+
+
+<p>
+在上述代码中，DisplayNameFor HTML 帮助程序检查 Lambda 表达式中引用的 Title 属性来确定显示名称。 由于只检查但未计算 Lambda 表达式，因此当 model、model.Movies[0] 或 model.Movies 为 null 或空时，你不会收到访问冲突。 对 Lambda 表达式求值时（例如，@Html.DisplayFor(modelItem =&gt; item.Title)），将求得该模型的属性值<br />
 </p>
 
 

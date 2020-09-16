@@ -16,8 +16,352 @@
 </head>
 <body>
 
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">字符串 </a>
+<li class="menu1"><a href="#toc_2">引用 </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">单引号，双引号，三引号 </a>
+</ul>
+<li class="menu1"><a href="#toc_3">数据类型 </a>
+<ul>
+<li class="menu2"><a href="#toc_3.1">类型转换 </a>
+<li class="menu2"><a href="#toc_3.2">数值运算 </a>
+<li class="menu2"><a href="#toc_3.3">list </a>
+<li class="menu2"><a href="#toc_3.4">元组 </a>
+<ul>
+<li class="menu3"><a href="#toc_3.4.1">元组的作用 </a>
+</ul>
+<li class="menu2"><a href="#toc_3.5">Set集合 </a>
+<li class="menu2"><a href="#toc_3.6">字典 </a>
+</ul>
+<li class="menu1"><a href="#toc_4">关键字 </a>
+<li class="menu1"><a href="#toc_5">迭代器和生成器 </a>
+<li class="menu1"><a href="#toc_6">特殊语法 </a>
+<li class="menu1"><a href="#toc_7">使用模块 </a>
+<li class="menu1"><a href="#toc_8">特殊注意 </a>
+<li class="menu1"><a href="#toc_9">模块 </a>
+<li class="menu1"><a href="#toc_10">面向对象 </a>
+<li class="menu1"><a href="#toc_11">if _<em>name</em>_ = '_<em>main</em>_' </a>
+<li class="menu1"><a href="#toc_12">单下划线，双下划线，头尾双下划线 </a>
+</ul>
+</div>
+<div class="content">
 <p>
 pip install wxpython<br />
+</p>
+
+
+<ol>
+<li>
+python 是交互式的，解释性的，面向对象的语言；
+
+<li>
+默认编码UTF-8,所有的字符串都是unicode字符串。
+
+<li>
+python最具特色的就是使用缩进来表示代码块，不需要使用大括号 {} 。
+
+<li>
+缩进的空格数是可变的，但是同一个代码块的语句必须包含相同的缩进空格数
+
+<li>
+在 [], {}, 或 () 中的多行语句，不需要使用反斜杠(\)，例如：total = ['item_one', 'item_two', 'item_three', 'item_four', 'item_five']
+
+<li>
+python中数字有四种类型：整数(int)、布尔型(bool)、浮点(float)数和复数(complex)。python2 中有 Long。
+
+</ol>
+
+<h1 id="toc_1">字符串 </h1><HR SIZE=1>
+<ol>
+<li>
+python中单引号和双引号使用完全相同。
+
+<li>
+字符串可以用 + 运算符连接在一起，用 * 运算符重复。
+
+<li>
+Python 中的字符串有两种索引方式，从左往右以 0 开始，从右往左以 -1 开始。
+
+<li>
+Python中的字符串不能改变。Python 没有单独的字符类型，一个字符就是长度为 1 的字符串。
+
+<li>
+print(testString1[2:4]) 从第二个开始打印到第4个。不包含第四个。2:4，只有4-2=2个字符。
+
+<li>
+a, b, c = 1, 2, "john"
+
+<li>
+像if、while、def和class这样的复合语句，首行以关键字开始，以冒号( : )结束，该行之后的一行或多行代码构成代码组。(关键字开始，冒号结束)
+
+<li>
+print(testString1[-5:-2], end="  ") #包括第-5个，不包括第-2个 打印默认是换行输出。
+
+<li>
+Python 有办法将任意值转为字符串：将它传入repr() 或str() 函数。
+
+</ol>
+
+
+<h1 id="toc_2">引用 </h1><HR SIZE=1>
+<ol>
+<li>
+在 python 用 import 或者 from...import 来导入相应的模块。
+
+<li>
+import somemodule
+
+<li>
+from somemodule import somefunction
+
+<li>
+from somemodule import firstfunc, secondfunc, thirdfunc
+
+<li>
+from somemodule import *
+
+</ol>
+
+<p>
+使用from，不必再加somemodule.somefunction. 直接用somefunction.<br />
+</p>
+
+<h2 id="toc_2.1">单引号，双引号，三引号 </h2>
+<p>
+单引号和双一号一样，都是字符串<br />
+原始字符串：r'c:\windows\system32'<br />
+python3中不再使用反引号了<br />
+</p>
+
+<h1 id="toc_3">数据类型 </h1><HR SIZE=1>
+<p>
+Python3 中有六个标准的数据类型：<br />
+</p>
+
+<p>
+Number（数字）<br />
+String（字符串）<br />
+List（列表）<br />
+Tuple（元组）<br />
+Set（集合）<br />
+Dictionary（字典）<br />
+Python3 的六个标准数据类型中：<br />
+</p>
+
+<p>
+不可变数据（3 个）：Number（数字）、String（字符串）、Tuple（元组）；<br />
+可变数据（3 个）：List（列表）、Dictionary（字典）、Set（集合）。<br />
+</p>
+
+
+
+<ol>
+<li>
+在 Python 中，变量就是变量，它没有类型，我们所说的"类型"是变量所指的内存中对象的类型。
+
+</ol>
+
+
+<ol>
+<li>
+在 Python2 中是没有布尔型的，它用数字 0 表示 False，用 1 表示 True。到 Python3 中，把 True 和 False 定义成关键字了，但它们的值还是 1 和 0，它们可以和数字相加。
+
+</ol>
+
+<h2 id="toc_3.1">类型转换 </h2>
+<p>
+string.atoi(raw_intput())<br />
+</p>
+
+
+<h2 id="toc_3.2">数值运算 </h2>
+<p>
+1、Python可以同时为多个变量赋值，如a, b = 1, 2。<br />
+2、一个变量可以通过赋值指向不同类型的对象。<br />
+3、数值的除法包含两个运算符：/ 返回一个浮点数，// 返回一个整数。<br />
+4、在混合计算时，Python会把整型转换成为浮点数。<br />
+</p>
+
+
+<h2 id="toc_3.3">list </h2>
+<p>
+与Python字符串不一样的是，列表中的元素是可以改变的：<br />
+</p>
+
+<p>
+1、List写在方括号之间，元素用逗号隔开。<br />
+2、和字符串一样，list可以被索引和切片。<br />
+3、List可以使用+操作符进行拼接。<br />
+4、List中的元素是可以改变的。<br />
+</p>
+
+<h2 id="toc_3.4">元组 </h2>
+<p>
+1、与字符串一样，元组的元素不能修改，也就是说它也没有 append()，insert() 这样的方法。<br />
+2、元组也可以被索引和切片，方法一样。<br />
+3、注意构造包含 0 或 1 个元素的元组的特殊语法规则。<br />
+4、元组也可以使用+操作符进行拼接。<br />
+</p>
+<ol>
+<li>
+初始化0个元素的原组Tup=（）
+
+<li>
+Tup=（“Hello”）这样得到的是一个字符串，而不是一个元组。正确的是Tup=（”Hello“，）
+
+<li>
+那是因为tuple是不可变的，所以代码更安全。所以建议能用tuple代替list就尽量用tuple 。
+
+<li>
+可以简单地理解为“只读列表”
+
+<li>
+元组使用小括号，列表使用方括号。字典使用大括号。
+
+<li>
+不能删除单个元组元素，只能删除全部元组
+
+</ol>
+
+<h3 id="toc_3.4.1">元组的作用 </h3>
+<p>
+函数的参数和返回值；一个函数可以接收任意多个参数，或者一次返回多个数据。<br />
+格式字符串，格式化字符串后面的()本质上就是一个元组。<br />
+保护数据安全，列表不能被修改。<br />
+</p>
+
+<h2 id="toc_3.5">Set集合 </h2>
+<ol>
+<li>
+可以使用大括号 { } 或者 set() 函数创建集合，注意：创建一个空集合必须用 set() 而不是 { }，因为 { } 是用来创建一个空字典。
+
+<li>
+
+
+</ol>
+
+
+<h2 id="toc_3.6">字典 </h2>
+<p>
+列表是有序的对象集合，字典是无序的对象集合。两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。<br />
+</p>
+
+<p>
+1、字典是一种映射类型，它的元素是键值对。<br />
+2、字典的关键字必须为不可变类型，且不能重复。<br />
+3、创建空字典使用 { }。<br />
+</p>
+
+<h1 id="toc_4">关键字 </h1><HR SIZE=1>
+<p>
+['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']<br />
+</p>
+
+<p>
+注释# ‘三个单引号包围或三个双引号包围。<br />
+</p>
+
+
+<h1 id="toc_5">迭代器和生成器 </h1><HR SIZE=1>
+<p>
+for x in it:<br />
+</p>
+
+
+<h1 id="toc_6">特殊语法 </h1><HR SIZE=1>
+<ol>
+<li>
+wsp = ' '*len(args&gt;0)
+
+<li>
+os.environ.has_key('GENESIS_DIR'): 换成if 'GENESIS_TMP' in os.environ:
+
+<li>
+函数定义def。注意代码段开始用冒号，然后一个table
+
+</ol>
+
+<h1 id="toc_7">使用模块 </h1><HR SIZE=1>
+<ol>
+<li>
+sys.stderr.write(msg+"\n")
+
+<li>
+import os, sys, time, string
+
+</ol>
+
+
+<h1 id="toc_8">特殊注意 </h1><HR SIZE=1>
+<ol>
+<li>
+新建一个对象不需要new关键字
+
+<li>
+gen  = myGenesisClasses.Genesis().除非使用from myGenesisClasses import Genesis/*。把Genesis导入到该文件了；否则不能直接使用gen=Genesis()，而是使用MyGenesisClasses.Genesis() (模块.类名());
+
+<li>
+# -<strong>- coding: UTF-8 -</strong>-  表示使用utf8编码
+
+<li>
+ def _<em>init</em>_(self):构造函数
+
+<li>
+else后面也要加：后加代码段
+
+<li>
+return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。
+
+<li>
+sys.stderr.write|sys.stdout.write|sys.stdout.flush.
+
+</ol>
+
+
+<h1 id="toc_9">模块 </h1><HR SIZE=1>
+<ol>
+<li>
+一个模块就是一个文件，以.py结尾。
+
+<li>
+import的模块必须用逗号隔开，不能只用空格隔开。
+
+</ol>
+
+<h1 id="toc_10">面向对象 </h1><HR SIZE=1>
+<ol>
+<li>
+class B(A):  B继承A.用括号。
+
+<li>
+__private_method：两个下划线开头，声明该方法为私有方法，不能在类的外部调用。在类的内部调用 self.__private_methods
+
+</ol>
+
+
+<h1 id="toc_11">if _<em>name</em>_ = '_<em>main</em>_' </h1><HR SIZE=1>
+<ol>
+<li>
+程序的入口
+
+<li>
+只有执行脚本为当前文档时，下面的代码才会被执行。否则跳过。
+
+</ol>
+
+<h1 id="toc_12">单下划线，双下划线，头尾双下划线 </h1><HR SIZE=1>
+<p>
+_<em>foo</em>_: 定义的是特殊方法，一般是系统定义名字 ，类似 _<em>init</em>_() 之类的<br />
+</p>
+
+<p>
+_foo: 以单下划线开头的表示的是 protected 类型的变量，即保护类型只能允许其本身与子类进行访问，不能用于 from module import *<br />
+</p>
+
+<p>
+__foo: 双下划线的表示的是私有类型(private)的变量, 只能是允许这个类本身进行访问了<br />
 </p>
 
 

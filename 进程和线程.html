@@ -21,6 +21,9 @@
 <li class="menu2"><a href="#toc_0.1">InvokeRequired 和 Invoke</a>
 </ul>
 <li class="menu1"><a href="#toc_1">线程的异步 </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">异步和多线程 </a>
+</ul>
 <li class="menu1"><a href="#toc_2">并行和并发(看CPU)</a>
 <li class="menu1"><a href="#toc_3">C# 线程 </a>
 <ul>
@@ -89,6 +92,10 @@
 </p>
 
 <p>
+ 多线程作用：一心(异步无心)多用，防阻塞<br />
+</p>
+
+<p>
 <strong>多线程是实现异步的一种方式</strong> 多线程不等于异步。异步可以有其它的实现方式。如I/O接口和内存的交互，不需要经过CPU。<br />
 </p>
 
@@ -96,6 +103,13 @@
 学习网：<br />
 <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model">https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/task-asynchronous-programming-model</a>
 </p>
+
+
+<h2 id="toc_1.1">异步和多线程 </h2>
+<p>
+异步是目的，多线程是实现异步的一个方法。<br />
+</p>
+
 <h1 id="toc_2">并行和并发(看CPU)</h1><HR SIZE=1>
 <p>
 	并行和并发是一种<code>运行方式</code>，一个是只有一个CPU，某一时刻只能运行一个线程。一个是多个cpu，某一时刻可以同时运行线程。<br />

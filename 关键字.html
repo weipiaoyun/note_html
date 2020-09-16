@@ -240,6 +240,12 @@ namespace AsyncTest
 <strong>await后面的肯定是一个任务Task</strong><br />
 </p>
 
+<ul>
+<li>
+主线程从main函数中过来，后一直执行，然后进入test类中的MyMethodAsync中执行。遇到await的时候(令一个线程执行await后面的任务)，主线程返回，继续执行任务。如果不是用异步的方式，则需要等await后面的执行完才能继续执行。影响效率。
+
+</ul>
+
 
 <div class="foot">
 <button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
