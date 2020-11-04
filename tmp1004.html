@@ -1,0 +1,1606 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>tmp1004</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<p>
+using System;<br />
+using System.Collections.Generic;<br />
+using System.ComponentModel;<br />
+using System.Data;<br />
+using System.Diagnostics;<br />
+using System.IO;<br />
+using System.Linq;<br />
+using System.Net;<br />
+using System.Text;<br />
+using System.Runtime.InteropServices;<br />
+using System.Runtime.Remoting.Contexts;<br />
+using System.Threading;<br />
+using System.Timers;<br />
+using BLL.PLCCONNECT;<br />
+using Interface.IPLC;<br />
+using Model.PLC;<br />
+using System.Threading.Tasks;<br />
+using Joz.RabbitMQClient;<br />
+using PLCConnectAPI.Models;<br />
+using PLCConnectAPI.Redis;<br />
+using ServiceBase = System.ServiceProcess.ServiceBase;<br />
+using Joz.RabbitMQClient.Enum;<br />
+using System.Configuration;<br />
+using HslCommunication;<br />
+using Newtonsoft.Json;<br />
+using Newtonsoft.Json.Linq;<br />
+using System.Runtime.Serialization.Json;<br />
+using ServiceStack.Common.Extensions;<br />
+using ConnectPLC.DAL.DBContext;<br />
+using System.Text.RegularExpressions;<br />
+using System.Runtime.CompilerServices;<br />
+using System.ServiceProcess;<br />
+using Common.Unit;<br />
+</p>
+
+<p>
+namespace ConnectPLC<br />
+{<br />
+</p>
+<blockquote>
+public enum LogType
+{
+KB,
+GetParm,
+SXBJ,
+ConnectPlc,
+Invoke
+}
+</blockquote>
+<blockquote>
+public partial class connectPLC : ServiceBase
+{
+private bool exectude = true;
+static Dictionary&lt;string, IPLCConnect&gt; dictionaryIPlcConnects = new Dictionary&lt;string, IPLCConnect&gt;();
+static Dictionary&lt;string, bool&gt; dictionaryResetPlcConnects = new Dictionary&lt;string, bool&gt;();
+static Dictionary&lt;string, bool&gt; dictionaryLock = new Dictionary&lt;string, bool&gt;();
+private static string _logPath = AppDomain.CurrentDomain.BaseDirectory + "\\log.txt";
+private static bool _debug = false;
+static int inTimer = 0;
+static string middleware = ConfigurationManager.AppSettings["Middleware"];
+string jsonfile = $"{AppDomain.CurrentDomain.BaseDirectory}\\Config\\..\\..\\ConnectPLC.config";
+string _serverName = string.Empty;
+private static bool addressHasChanged = false;
+</blockquote>
+<blockquote>
+int inTimer1 = 0;
+</blockquote>
+<blockquote>
+public connectPLC()
+{
+InitializeComponent();
+}
+</blockquote>
+<blockquote>
+protected override void OnStart(string[] args)
+{
+</blockquote>
+
+<p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mine<br />
+</p>
+<blockquote>
+//Thread.Sleep(1000 * 10);
+</blockquote>
+<p>
+||||||| .r3357<br />
+</p>
+<blockquote>
+Thread.Sleep(1000 * 10);
+</blockquote>
+<p>
+=======<br />
+</p>
+<blockquote>
+//Thread.Sleep(1000 * 10);
+</blockquote>
+<p>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r3361<br />
+</p>
+<blockquote>
+string[] dir = $"{AppDomain.CurrentDomain.BaseDirectory}".Split('\\');
+_serverName = dir[dir.Length - 2];
+</blockquote>
+<blockquote>
+//获取服务名字
+//GetServerName();
+//设置线程最大数
+ThreadPool.SetMinThreads(80, 40);
+ThreadPool.SetMaxThreads(100, 50);//设置线程数
+//获取参数
+ThreadPool.QueueUserWorkItem(new WaitCallback(getDataTimerFun), new object());
+//看板更新参数
+ThreadPool.QueueUserWorkItem(new WaitCallback(KBFuntion), new object());
+//读取上下板机状态，调用AGV
+ThreadPool.QueueUserWorkItem(new WaitCallback(agvFun), new object());
+//读取配置文档，更新设备
+ThreadPool.QueueUserWorkItem(new WaitCallback(ReadMachine), new object());
+////重新连接设备
+//ThreadPool.QueueUserWorkItem(new WaitCallback(ResetEquipment), new object());
+</blockquote>
+<blockquote>
+////更新设备
+//ThreadPool.QueueUserWorkItem(new WaitCallback(UpdateEquipment), new object());
+}
+</blockquote>
+
+
+<p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mine<br />
+||||||| .r3357<br />
+</p>
+<blockquote>
+static void SendRabbit(EventMessage eventMessage)
+{
+try
+{
+lock (channel)
+{
+Dictionary&lt;string, uint&gt; keyValues = new Dictionary&lt;string, uint&gt;();
+List&lt;uint&gt; sorts = new List&lt;uint&gt;();
+Type type = typeof(QueueNames);
+PropertyInfo[] props = type.GetProperties();
+foreach (PropertyInfo prop in props)
+{
+uint count = channel.MessageCount(prop.Name);
+keyValues.Add(prop.Name, count);
+sorts.Add(count);
+}
+uint minInt = sorts.Min();
+string queue = string.Empty;
+foreach (var key in keyValues.Keys)
+{
+if (keyValues[key] == minInt)
+{
+queue = key;
+}
+}
+var properties = channel.CreateBasicProperties();
+properties.DeliveryMode = 2; //表示持久化消息
+//消息触发，执行推送
+channel.BasicPublish(ExchangeNames.DirectExchange, queue.ToString(), properties, messageSerializer.SerializerBytes(eventMessage));
+}
+}
+catch (Exception ex)
+{
+LogHelper.WriteErrorLog("发送消息:" + ex);
+}
+}
+</blockquote>
+<p>
+=======<br />
+</p>
+<blockquote>
+static void SendRabbit(EventMessage eventMessage)
+{
+try
+{
+lock (channel)
+{
+Dictionary&lt;string, uint&gt; keyValues = new Dictionary&lt;string, uint&gt;();
+List&lt;uint&gt; sorts = new List&lt;uint&gt;();
+Type type = typeof(QueueNames);
+PropertyInfo[] props = type.GetProperties();
+foreach (PropertyInfo prop in props)
+{
+uint count = channel.MessageCount(prop.Name);
+keyValues.Add(prop.Name, count);
+sorts.Add(count);
+}
+uint minInt = sorts.Min();
+string queue = string.Empty;
+foreach (var key in keyValues.Keys)
+{
+if (keyValues[key] == minInt)
+{
+queue = key;
+}
+}
+var properties = channel.CreateBasicProperties();
+properties.DeliveryMode = 2; //表示持久化消息
+//消息触发，执行推送
+channel.BasicPublish(ExchangeNames.DirectExchange, queue.ToString(), properties, messageSerializer.SerializerBytes(eventMessage));
+}
+</blockquote>
+<blockquote>
+}
+catch (Exception ex)
+{
+LogHelper.WriteErrorLog("发送消息:" + ex);
+}
+}
+</blockquote>
+<p>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r3361<br />
+</p>
+<blockquote>
+/// &lt;summary&gt;
+/// 获取服务名字
+/// &lt;/summary&gt;
+//public void GetServerName()
+//{
+//    if (File.Exists(jsonfile))
+//    {
+//        using (System.IO.StreamReader file = System.IO.File.OpenText(jsonfile))
+//        {
+//            using (JsonTextReader reader = new JsonTextReader(file))
+//            {
+//                JObject o = (JObject)JToken.ReadFrom(reader);
+//                if (o["SERVERNAME"] != null)
+//                {
+//                    //_serverName = o["SERVERNAME"].ToString();
+//                }
+//            }
+//        }
+//    }
+//}
+</blockquote>
+<blockquote>
+public void UpdateEquipment(object sender)
+{
+while (true)
+{
+try
+{
+List&lt;string&gt; equipmentList = RedisCommon.Instance.Get&lt;List&lt;string&gt;&gt;($"equipmentList_{_serverName}");
+Parallel.ForEach(equipmentList, m =&gt; { updateEquipment(RedisCommon.Instance.Get&lt;TBL_EAP_EQUIPMENT&gt;(m)); });
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+Thread.Sleep(1000 * 10);
+}
+}
+</blockquote>
+<blockquote>
+public void ResetEquipment(object sender)
+{
+while (true)
+{
+try
+{
+foreach (var item in dictionaryIPlcConnects)
+{
+if (!dictionaryResetPlcConnects.ContainsKey(item.Key))
+{
+dictionaryResetPlcConnects.Add(item.Key, true);
+}
+else
+{
+dictionaryResetPlcConnects[item.Key] = true;
+}
+}
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+Thread.Sleep(60 * 1000 * 3);
+}
+}
+</blockquote>
+<blockquote>
+public void ReadMachine(object sender)
+{
+//读取localName
+while (true)
+{
+try
+{
+List&lt;string&gt; equipmentList = new List&lt;string&gt;();
+List&lt;string&gt; SXBJList = new List&lt;string&gt;();
+</blockquote>
+<blockquote>
+if (File.Exists(jsonfile))
+{
+using (System.IO.StreamReader file = System.IO.File.OpenText(jsonfile))
+{
+using (JsonTextReader reader = new JsonTextReader(file))
+{
+JObject o = (JObject)JToken.ReadFrom(reader);
+string equipmentListConfig = "equipmentList_" + _serverName;
+string equipmentListSXBJConfig = "SXBJList_" + _serverName;
+if (o[equipmentListConfig] != null)
+{
+string localName = o[equipmentListConfig].ToString();
+equipmentList = (List&lt;string&gt;)JsonToObject(localName, equipmentList);
+}
+</blockquote>
+<blockquote>
+if (o[equipmentListSXBJConfig] != null)
+{
+string localName = o[equipmentListSXBJConfig].ToString();
+SXBJList = (List&lt;string&gt;)JsonToObject(localName, SXBJList);
+}
+</blockquote>
+<blockquote>
+if (o["Debug"] != null)
+{
+if (o["Debug"].ToString().Equals("1"))
+{
+_debug = true;
+}
+else
+{
+_debug = false;
+}
+}
+}
+}
+}
+</blockquote>
+<blockquote>
+RedisCommon.Instance.Set(equipmentList, $"equipmentList_{_serverName}");
+RedisCommon.Instance.Set(SXBJList, $"SXBJList{_serverName}");
+List&lt;string&gt; equipmentList1 = RedisCommon.Instance.Get&lt;List&lt;string&gt;&gt;($"SXBJList{_serverName}");
+</blockquote>
+<blockquote>
+Thread.Sleep(60 * 1000);
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+}
+}
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// 写日志
+/// &lt;/summary&gt;
+/// &lt;param name="message"&gt;日志信息&lt;/param&gt;
+private static void WriteLog(string message, string type = "ConnectPLC", bool needWrite = false)
+{
+if (!_debug &amp;&amp; !needWrite)
+{
+return;
+}
+try
+{
+string logDir = $"{AppDomain.CurrentDomain.BaseDirectory}/log_{type}";
+if (!Directory.Exists(logDir))
+Directory.CreateDirectory(logDir);
+_logPath = $"{logDir}/log-{DateTime.Now.ToString("yyyy-MM-dd")}.txt";
+</blockquote>
+<blockquote>
+using (FileStream fs = new FileStream(_logPath, FileMode.Append, FileAccess.Write))
+{
+</blockquote>
+<blockquote>
+string strContent = "\n" + message + ":" + DateTime.Now.ToString() + "\n";
+byte[] byteFile = Encoding.UTF8.GetBytes(strContent);
+fs.Write(byteFile, 0, byteFile.Length);
+fs.Close();
+fs.Dispose();
+}
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+}
+</blockquote>
+<blockquote>
+protected override void OnStop()
+{
+WriteLog("停止服务\n");
+}
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// 连接设备
+/// &lt;/summary&gt;
+/// &lt;param name="equipment"&gt;&lt;/param&gt;
+private static void ConnectPLC(TBL_EAP_EQUIPMENT equipment)
+{
+try
+{
+if (Interlocked.Exchange(ref inTimer, 1) == 0)
+{
+PLCDataClass equippmentType = new PLCDataClass();
+equippmentType = (PLCDataClass)Enum.Parse(typeof(PLCDataClass), equipment.CPLC_MODEL);
+</blockquote>
+<blockquote>
+//IDBContext DB = new DBContext();
+////获取当前设备地址
+//bool EquiomentId = DB.MainDB.Queryable&lt;TBL_EAP_EQUIPMENT&gt;().Where(m =&gt; m.CEQUIPMENT_CODE == equipment.CEQUIPMENT_CODE).ToList().First().CUPDATE;
+</blockquote>
+<blockquote>
+//equipment.CUPDATE = true;
+</blockquote>
+<blockquote>
+//从未连接
+if (!dictionaryIPlcConnects.ContainsKey(equipment.CEQUIPMENT_CODE))
+{
+IPLCConnect iPlcConnect = new PLCConnect(equippmentType, equipment.CIP, equipment.CPORTREAD);
+dictionaryIPlcConnects.Add(equipment.CEQUIPMENT_CODE, iPlcConnect);
+TBL_EAP_EQUIPMENT_ADDRESS_VAL tBL_EAP_EQUIPMENT_ADDRESS_VAL = new TBL_EAP_EQUIPMENT_ADDRESS_VAL() { CADDRESS_CODE = equipment.CEQUIPMENT_CODE };
+var sendMessage = EventMessageFactory.CreateEventMessageInstance(tBL_EAP_EQUIPMENT_ADDRESS_VAL, "200");
+RabbitMqClient.Instance.TriggerDirectEventMessageAvg(sendMessage, true);
+}
+//需要更新连接
+else if (equipment.CUPDATE)
+{
+updateEquipment(equipment);
+}
+//连接不成功
+else if (dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult() == null || !dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult().IsSuccess)
+{
+dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE] = new PLCConnect(equippmentType, equipment.CIP, equipment.CPORTREAD);
+}
+else if (dictionaryResetPlcConnects.ContainsKey(equipment.CEQUIPMENT_CODE) &amp;&amp; dictionaryResetPlcConnects[equipment.CEQUIPMENT_CODE])
+{
+try
+{
+dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].DisConnectPLC();
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE] = new PLCConnect(equippmentType, equipment.CIP, equipment.CPORTREAD);
+dictionaryResetPlcConnects[equipment.CEQUIPMENT_CODE] = false;
+}
+</blockquote>
+<blockquote>
+OperateResult result = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult();
+if (!result.IsSuccess)
+{
+WriteLog(result.Message, LogType.ConnectPlc.ToString());
+}
+}
+}
+catch (Exception e)
+{
+WriteLog(e.Message.ToString());
+}
+Interlocked.Exchange(ref inTimer, 0);
+}
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// 更新设备
+/// &lt;/summary&gt;
+/// &lt;param name="equipment"&gt;&lt;/param&gt;
+private static void updateEquipment(TBL_EAP_EQUIPMENT equipment)
+{
+//equipment.CUPDATE = true;
+if (!equipment.CUPDATE) return;
+equipment.CUPDATE = false;
+PLCDataClass equippmentType = new PLCDataClass();
+try
+{
+equippmentType = (PLCDataClass)Enum.Parse(typeof(PLCDataClass), equipment.CPLC_MODEL);
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+RedisCommon.Instance.Set(equipment, equipment.CEQUIPMENT_CODE);
+</blockquote>
+<blockquote>
+//更新地址
+//获取地址, 更新地址
+JObject resultERP = (JObject)JsonConvert.DeserializeObject(Invoke($"<a href="http://{middleware}//api/EAP/PlcConnect/GetAllAddresses?equipmentCode={equipment.CEQUIPMENT_CODE}",">http://{middleware}//api/EAP/PlcConnect/GetAllAddresses?equipmentCode={equipment.CEQUIPMENT_CODE}",</a> "GET", ""));
+</blockquote>
+<blockquote>
+if (resultERP["data"]["Success"].Equals("false"))
+{
+return;
+}
+</blockquote>
+<blockquote>
+//地址列表
+List&lt;TBL_EAP_EQUIPMENT_ADDRESS&gt; TBL_EAP_EQUIPMENT_ADDRESS = (List&lt;TBL_EAP_EQUIPMENT_ADDRESS&gt;)JsonToObject(resultERP["data"]["Datas"].ToString(), new List&lt;TBL_EAP_EQUIPMENT_ADDRESS&gt;());
+</blockquote>
+<blockquote>
+//写入
+RedisCommon.Instance.Set(TBL_EAP_EQUIPMENT_ADDRESS, equipment.CEQUIPMENT_CODE + "_Addresses");
+</blockquote>
+<blockquote>
+//更新每个设备地址编码对应的等级List
+foreach (var address in TBL_EAP_EQUIPMENT_ADDRESS)
+{
+JObject result1 = (JObject)JsonConvert.DeserializeObject(Invoke($"<a href="http://{middleware}//api/EAP/EquipmentAddress/GetAddressMag?AddressId={address.CID}",">http://{middleware}//api/EAP/EquipmentAddress/GetAddressMag?AddressId={address.CID}",</a> "GET", ""));
+</blockquote>
+<blockquote>
+if (result1["data"]["Success"].Equals("false"))
+{
+continue;
+}
+</blockquote>
+<blockquote>
+//读取当前地址的等级
+List&lt;TBL_EAP_EQUIPMENT_ADDRESS_VALMAG&gt; TBL_EAP_EQUIPMENT_ADDRESS_VALMAG = (List&lt;TBL_EAP_EQUIPMENT_ADDRESS_VALMAG&gt;)JsonToObject(result1["data"]["Datas"].ToString(), new List&lt;TBL_EAP_EQUIPMENT_ADDRESS_VALMAG&gt;());
+</blockquote>
+<blockquote>
+TBL_EAP_EQUIPMENT_ADDRESS_VALMAG TBL_EAP_EQUIPMENT_ADDRESS_VALMAG_TMP = new TBL_EAP_EQUIPMENT_ADDRESS_VALMAG();
+TBL_EAP_EQUIPMENT_ADDRESS_VALMAG_TMP.CADDRESSID = address.CID;
+TBL_EAP_EQUIPMENT_ADDRESS_VALMAG_TMP.CADDRESSNAME = address.CADDRESS_NAME;
+TBL_EAP_EQUIPMENT_ADDRESS_VALMAG_TMP.CCAMPAREVALUE = address.CADRESS_EXCEPTION_VAL;
+TBL_EAP_EQUIPMENT_ADDRESS_VALMAG_TMP.COPTIONS = "Equal";
+TBL_EAP_EQUIPMENT_ADDRESS_VALMAG_TMP.CDEGREE = address.CADRESS_EXCEPTION_DEGREE.ToString();
+</blockquote>
+<blockquote>
+TBL_EAP_EQUIPMENT_ADDRESS_VALMAG.Add(TBL_EAP_EQUIPMENT_ADDRESS_VALMAG_TMP);
+</blockquote>
+<blockquote>
+RedisCommon.Instance.Set(TBL_EAP_EQUIPMENT_ADDRESS_VALMAG, address.CID + "_Degree");
+</blockquote>
+<blockquote>
+if (address.CADDRESS_CODE.Equals("M822"))
+{
+string aaa = "";
+}
+}
+</blockquote>
+<blockquote>
+//重新连接PLC
+try
+{
+dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].DisConnectPLC();
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE] = new PLCConnect(equippmentType, equipment.CIP, equipment.CPORTREAD);
+</blockquote>
+<blockquote>
+//重置
+TBL_EAP_EQUIPMENT_ADDRESS_VAL tBL_EAP_EQUIPMENT_ADDRESS_VAL = new TBL_EAP_EQUIPMENT_ADDRESS_VAL() { CEQUIPMENT_CODE = equipment.CEQUIPMENT_CODE, CADDRESS_CODE = equipment.CEQUIPMENT_CODE };
+</blockquote>
+<blockquote>
+//重置等级
+//通知有更新状态
+var sendMessage = EventMessageFactory.CreateEventMessageInstance(tBL_EAP_EQUIPMENT_ADDRESS_VAL, "200");
+RabbitMqClient.Instance.TriggerDirectEventMessageAvg(sendMessage, true);
+}
+</blockquote>
+<blockquote>
+public static object JsonToObject(string jsonString, object obj)
+{
+DataContractJsonSerializer serializer = new DataContractJsonSerializer(obj.GetType());
+MemoryStream mStream = new MemoryStream(Encoding.UTF8.GetBytes(jsonString));
+return serializer.ReadObject(mStream);
+}
+</blockquote>
+<blockquote>
+public static void GetPar(object TBL_EAP_EQUIPMENT)
+{
+TBL_EAP_EQUIPMENT equipment = (TBL_EAP_EQUIPMENT)TBL_EAP_EQUIPMENT;
+if (equipment == null) return;
+if (equipment.CEQUIPMENT_CODE == null || string.IsNullOrEmpty(equipment.CEQUIPMENT_CODE)) return;
+ConnectPLC(equipment);
+if (!dictionaryIPlcConnects.ContainsKey(equipment.CEQUIPMENT_CODE)) return;
+</blockquote>
+<blockquote>
+bool isConnected = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult().IsSuccess;
+//PLC如果连接成功
+if (isConnected)
+{
+try
+{
+</blockquote>
+<blockquote>
+IDBContext DB = new DBContext();
+//获取当前设备地址
+string EquiomentId = DB.MainDB.Queryable&lt;TBL_EAP_EQUIPMENT&gt;().Where(m =&gt; m.CEQUIPMENT_CODE == equipment.CEQUIPMENT_CODE).ToList().First().CID;
+List&lt;TBL_EAP_EQUIPMENT_ADDRESS1&gt; listAddress = DB.MainDB.Queryable&lt;TBL_EAP_EQUIPMENT_ADDRESS1&gt;().Where(it =&gt; it.CEQUIPMENT_ID == EquiomentId).ToList();
+</blockquote>
+<blockquote>
+//地址名字不存在
+if (listAddress == null || listAddress.Count &lt; 1)
+{
+return;
+}
+</blockquote>
+<blockquote>
+string CGET_ID = Guid.NewGuid().ToString("N");
+</blockquote>
+<blockquote>
+//地址存在， 循环地址
+foreach (var address in listAddress)
+{
+</blockquote>
+<blockquote>
+if (address.CSTATE == "D") { continue; }
+if (address.CCOLLECT != "1") { continue; }
+//新建数据值对象
+TBL_EAP_EQUIPMENT_DATA data = new TBL_EAP_EQUIPMENT_DATA();
+</blockquote>
+<blockquote>
+//获取地址名字，获取PLC里面的值
+string addressDataType = address.CDATA_TYPE;
+</blockquote>
+<blockquote>
+data.CADDRESS_ID = address.CID;                        //data.CADD
+data.CGET_ID = CGET_ID;
+//读取地址数据
+lock (dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE])
+{
+data.CDATA_VALUE = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].ReadVal(address.CDATA_TYPE, address.CADDRESS_CODE);
+}
+</blockquote>
+<blockquote>
+if (!dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult().IsSuccess || data.CDATA_VALUE.Equals("-1") || data.CDATA_VALUE == null)
+{
+continue;
+}
+else
+{
+</blockquote>
+<blockquote>
+double dataValue;
+if (double.TryParse(data.CDATA_VALUE, out dataValue))
+{
+if (address.CMULTIPLE != 0 &amp;&amp; address.CMULTIPLE != 1)
+{
+dataValue = dataValue * address.CMULTIPLE;
+}
+data.CDATA_VALUE = dataValue.ToString("0.00");
+}
+}
+</blockquote>
+<blockquote>
+//TBL_EAP_EQUIPMENT_DATA data_db = DB.MainDB.Queryable&lt;TBL_EAP_EQUIPMENT_DATA&gt;()
+//.Where(it =&gt; it.CADDRESS_ID == address.CID).First();
+</blockquote>
+<blockquote>
+DB.MainDB.Insertable&lt;TBL_EAP_EQUIPMENT_DATA&gt;(data).ExecuteCommand();
+}
+</blockquote>
+<blockquote>
+TBL_EAP_EQUIPMENT_SNAPSHOT data1 = new TBL_EAP_EQUIPMENT_SNAPSHOT();
+data1.CEQUIPMENT_CODE = equipment.CEQUIPMENT_CODE;
+data1.CSNAPSHOT_ID = CGET_ID;
+DB.MainDB.Insertable&lt;TBL_EAP_EQUIPMENT_SNAPSHOT&gt;(data1).ExecuteCommand();
+}
+catch (Exception ex)
+{
+</blockquote>
+<blockquote>
+WriteLog($"\nErr:异常\n{ex.Message}\n", LogType.GetParm.ToString());
+</blockquote>
+<blockquote>
+}
+try
+{
+</blockquote>
+<blockquote>
+dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].DisConnectPLC();
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+}
+else
+{
+WriteLog($"\nErr:无法连接设备\n{equipment.CEQUIPMENT_CODE}\n", LogType.GetParm.ToString());
+}
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// 一直读取PLC地址的值
+/// &lt;/summary&gt;
+/// &lt;param name="TBL_EAP_EQUIPMENT"&gt;&lt;/param&gt;
+public static void ThreadMethod(object TBL_EAP_EQUIPMENT)
+{
+</blockquote>
+<blockquote>
+TBL_EAP_EQUIPMENT equipment = (TBL_EAP_EQUIPMENT)TBL_EAP_EQUIPMENT;
+try
+{
+dictionaryLock[equipment.CEQUIPMENT_CODE] = true;
+if (equipment?.CEQUIPMENT_CODE == null || string.IsNullOrEmpty(equipment.CEQUIPMENT_CODE)) return;
+ConnectPLC(equipment);
+if (!dictionaryIPlcConnects.ContainsKey(equipment.CEQUIPMENT_CODE)) return;
+</blockquote>
+<blockquote>
+//如果连接PLC成功
+bool isConnected = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult().IsSuccess;
+if (isConnected)
+{
+//获取所有的地址
+List&lt;TBL_EAP_EQUIPMENT_ADDRESS&gt; addresses =
+RedisCommon.Instance.Get&lt;List&lt;TBL_EAP_EQUIPMENT_ADDRESS&gt;&gt;(
+equipment.CEQUIPMENT_CODE + "_Addresses");
+//地址为空，返回
+if (addresses == null) return;
+</blockquote>
+<blockquote>
+//读取设备状态
+//lock (dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE])
+//{
+if (string.IsNullOrEmpty(equipment.CEQUIPMENT_STATUSOK_VALUE) ||
+string.IsNullOrEmpty(equipment.CEQUIPMENT_STATUS_ADDRESS) ||
+string.IsNullOrEmpty(equipment.CEQUIPMENT_STATUS_ADDRESS_TYPE)
+)
+{
+}
+else
+{
+string status = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE]
+.ReadVal(equipment.CEQUIPMENT_STATUS_ADDRESS_TYPE, equipment.CEQUIPMENT_STATUS_ADDRESS);
+List&lt;string&gt; valueList = new List&lt;string&gt;();
+equipment.CEQUIPMENT_STATUSOK_VALUE.Split('|').ForEach(m =&gt; valueList.Add(m.ToUpper()));
+</blockquote>
+<blockquote>
+if (!valueList.Contains(status.ToUpper()))
+{
+return;
+}
+</blockquote>
+<blockquote>
+//}
+}
+</blockquote>
+<blockquote>
+//地址是否有变化，针对地址值，需要更新redis，进行比对
+</blockquote>
+<blockquote>
+//循环所有的地址
+//foreach (var address in addresses)
+//{
+Parallel.ForEach(addresses, address =&gt;
+{
+if (address.CSTATE != null &amp;&amp; address.CSTATE == "D")
+{
+return;
+}
+</blockquote>
+<blockquote>
+//设备需要更新
+if (equipment.CUPDATE) return;
+</blockquote>
+<blockquote>
+//读取PLC的值
+//lock (dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE])
+//{
+address.CADDRESS_READ_VALUE = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE]
+.ReadVal(address.CDATA_TYPE, address.CADDRESS_CODE);
+//}
+</blockquote>
+<blockquote>
+//读取有问题
+var result = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult();
+if (!result.IsSuccess || address.CADDRESS_READ_VALUE.Equals("-1") ||
+address.CADDRESS_READ_VALUE == null)
+{
+return;
+}
+</blockquote>
+<blockquote>
+//MyThread myThread = new MyThread();
+//myThread.equipment = equipment;
+//myThread.address = address;
+//myThread.addresses = addresses;
+//Thread thread = new Thread(myThread.ThreadMain);
+//thread.IsBackground = true;
+//thread.Start();
+ProcessAddress(equipment, address, addresses);
+//ThreadPool.QueueUserWorkItem(new WaitCallback(ProcessAddress1), myThread);
+});
+}
+}
+catch (Exception ex)
+{
+}
+finally
+{
+lock (dictionaryLock)
+{
+dictionaryLock[equipment.CEQUIPMENT_CODE] = false;
+}
+}
+</blockquote>
+<blockquote>
+//Parallel.ForEach(addresses, m =&gt; { ProcessAddress(equipment, m); });
+</blockquote>
+<blockquote>
+ClearMemory(); //释放内存。
+}
+</blockquote>
+<blockquote>
+public class MyThread
+{
+public TBL_EAP_EQUIPMENT equipment { get; set; }
+public TBL_EAP_EQUIPMENT_ADDRESS address { get; set; }
+public List&lt;TBL_EAP_EQUIPMENT_ADDRESS&gt; addresses { get; set; }
+</blockquote>
+<blockquote>
+public void ThreadMain()
+{
+//ProcessAddress(equipment, address, addresses);
+ThreadMethod(equipment);
+}
+}
+</blockquote>
+<blockquote>
+public static void ProcessAddress(TBL_EAP_EQUIPMENT equipment, TBL_EAP_EQUIPMENT_ADDRESS address, List&lt;TBL_EAP_EQUIPMENT_ADDRESS&gt; addresses)
+{
+</blockquote>
+<blockquote>
+try
+{
+//处理倍数
+if (address.CMULTIPLE != 0 &amp;&amp; address.CMULTIPLE != 1)
+{
+address.CADDRESS_READ_VALUE = (float.Parse(address.CADDRESS_READ_VALUE) * address.CMULTIPLE).ToString();
+}
+</blockquote>
+<blockquote>
+//浮点型保留位数
+if (address.CDATA_TYPE.Equals("float"))
+{
+address.CADDRESS_READ_VALUE = float.Parse(address.CADDRESS_READ_VALUE).ToString("0.00");
+}
+</blockquote>
+<blockquote>
+address.CSTATUS = false;
+address.CSTATUS_DEGREE = "0";
+address.CSTATUS_COLOR = null;
+double valueD;
+</blockquote>
+<blockquote>
+//如果redis里面的数据为空，或者是值和读取来的不同
+if (address.CDATA_VALUE == null || !address.CDATA_VALUE.Equals(address.CADDRESS_READ_VALUE))
+{
+//只要一个地址有变化，地址就要更新
+address.CDATA_VALUE = address.CADDRESS_READ_VALUE;
+RedisCommon.Instance.Set(addresses, equipment.CEQUIPMENT_CODE + "_Addresses");
+</blockquote>
+<blockquote>
+//更新redis
+address.CDATETIME = DateTime.Now.ToString();
+//更新
+// 发送到队列中执行
+TBL_EAP_EQUIPMENT_ADDRESS_VAL TBL_EAP_EQUIPMENT_ADDRESS_VAL = new TBL_EAP_EQUIPMENT_ADDRESS_VAL();
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CUPDATE = address.CUPDATE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CADDRESS_CODE = address.CADDRESS_CODE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CDATA_VALUE = address.CDATA_VALUE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CEQUIPMENT_CODE = equipment.CEQUIPMENT_CODE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CSTATUS_DEGREE = address.CSTATUS_DEGREE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CSTATUS_COLOR = address.CSTATUS_COLOR;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CDATETIME = address.CDATETIME;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CID = address.CID;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CSTATUS = address.CSTATUS;
+var sendMessage = EventMessageFactory.CreateEventMessageInstance(TBL_EAP_EQUIPMENT_ADDRESS_VAL, "200");
+</blockquote>
+<blockquote>
+RedisCommon.Instance.Set(TBL_EAP_EQUIPMENT_ADDRESS_VAL, equipment.CEQUIPMENT_CODE + "_" + address.CADDRESS_CODE);
+SendRabbit(sendMessage);
+</blockquote>
+<blockquote>
+//调用IQPS，报警已经解除
+if (address.CADDRESS_READ_VALUE.Trim().ToUpper().Equals("FALSE"))
+{
+//string invokeString = $"<a href="http://{middleware}/api/EAP/Equipment/StartDeviceExceptProcess?machineCode={equipment.CEQUIPMENT_CODE}&amp;machineName={String2Unicode(equipment.CEQUIPMENT_NAME)}&amp;addressCode={address.CADDRESS_CODE}&amp;addressName={String2Unicode(address.CADDRESS_NAME)}&amp;degree={degree}&amp;why={String2Unicode(why)}&amp;exceptionTime={DateTime.Now}";">http://{middleware}/api/EAP/Equipment/StartDeviceExceptProcess?machineCode={equipment.CEQUIPMENT_CODE}&amp;machineName={String2Unicode(equipment.CEQUIPMENT_NAME)}&amp;addressCode={address.CADDRESS_CODE}&amp;addressName={String2Unicode(address.CADDRESS_NAME)}&amp;degree={degree}&amp;why={String2Unicode(why)}&amp;exceptionTime={DateTime.Now}";</a>
+//invokeString = invokeString.Replace("#", "");
+//string result = Invoke($"{invokeString}", "GET", "");
+WriteLog($"报警消除：{equipment.CEQUIPMENT_CODE} - {address.CADDRESS_NAME}", "报警消除", true);
+}
+}
+</blockquote>
+<blockquote>
+//等级判断
+List&lt;TBL_EAP_EQUIPMENT_ADDRESS_VALMAG&gt; TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList = RedisCommon.Instance.Get&lt;List&lt;TBL_EAP_EQUIPMENT_ADDRESS_VALMAG&gt;&gt;(address.CID + "_Degree");
+</blockquote>
+<blockquote>
+//判断是否超出范围
+if (double.TryParse(address.CADDRESS_READ_VALUE, out valueD))
+{
+if (TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList != null)
+{
+foreach (var degree in TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList)
+{
+//degreevalue 乘以倍数
+double degreeValue;
+if (double.TryParse(degree.CCAMPAREVALUE, out degreeValue))
+{
+if (address.CMULTIPLE != 0 &amp;&amp; address.CMULTIPLE != 1)
+{
+degreeValue = degreeValue * address.CMULTIPLE;
+}
+}
+if (degree.COPTIONS.Equals("Equal") &amp;&amp; valueD == degreeValue) EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} == 参考值{degreeValue}");
+if (degree.COPTIONS.Equals("Greater") &amp;&amp; valueD &gt; degreeValue) EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} &gt; 参考值{degreeValue}");
+if (degree.COPTIONS.Equals("GreaterEqual") &amp;&amp; valueD &gt;= degreeValue) EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} &gt;= 参考值{degreeValue}");
+if (degree.COPTIONS.Equals("Less") &amp;&amp; valueD &lt; degreeValue) EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} &lt; 参考值{degreeValue}");
+if (degree.COPTIONS.Equals("LessEqual") &amp;&amp; valueD &lt;= degreeValue) EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} &lt;= 参考值{degreeValue}");
+}
+</blockquote>
+<blockquote>
+//报黄
+if (address.CSTANDARD_VAL != 0 &amp;&amp; address.CADDRESS_READ_VALUE != null)
+{
+double CTOL_DOWN = address.CSTANDARD_VAL - address.CSTANDARD_VAL * 0.05;
+double CTOL_UP = address.CSTANDARD_VAL + address.CSTANDARD_VAL * 0.05;
+//判断是否超出%5
+if (valueD &lt; CTOL_DOWN || (CTOL_UP != 0 &amp;&amp; valueD &gt; CTOL_UP))
+{
+//更新报警信息
+address.CSTATUS = true;
+address.CSTATUS_DEGREE = "99";
+address.CSTATUS_COLOR = "yellow";
+//EquipmentAlarm(equipment, address, "4", $"%5");
+}
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+//爆红
+if (valueD &lt; address.CTOL_DOWN || (address.CTOL_UP != 0 &amp;&amp; valueD &gt; address.CTOL_UP))
+{
+//更新报警信息
+address.CSTATUS = true;
+address.CSTATUS_DEGREE = "88";
+address.CSTATUS_COLOR = "red";
+</blockquote>
+<blockquote>
+EquipmentAlarm(equipment, address, "1", $"超出上下公差");
+//存入数据库
+//ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadMethod2), address);
+}
+}
+</blockquote>
+<blockquote>
+}
+else
+{
+</blockquote>
+<blockquote>
+if (address.CADDRESS_CODE.Equals("M822"))
+{
+string aaa = "";
+}
+//默认都是一等级
+if (TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList != null &amp;&amp; TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList.Count &gt; 0)
+{
+</blockquote>
+<blockquote>
+foreach (var degree in TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList)
+{
+if (degree.COPTIONS.Equals("Equal") &amp;&amp; degree.CCAMPAREVALUE != null &amp;&amp; degree.CCAMPAREVALUE.ToUpper().Equals(address.CADDRESS_READ_VALUE.ToUpper()))
+{
+EquipmentAlarm(equipment, address, degree.CDEGREE, "设备报警");
+address.CSTATUS = true;
+address.CSTATUS_DEGREE = degree.CDEGREE;
+switch (int.Parse(degree.CDEGREE))
+{
+case 1:
+address.CSTATUS_COLOR = "red";
+break;
+case 2:
+address.CSTATUS_COLOR = "orange";
+break;
+case 3:
+address.CSTATUS_COLOR = "yellow";
+break;
+</blockquote>
+<blockquote>
+}
+}
+}
+}
+else
+{
+address.CSTATUS = true;
+address.CSTATUS_DEGREE = "1";
+address.CSTATUS_COLOR = "red";
+}
+}
+</blockquote>
+<blockquote>
+//数据有更改，推送到redis
+if (address.CDATA_VALUE == null || !address.CDATA_VALUE.Equals(address.CADDRESS_READ_VALUE))
+{
+</blockquote>
+
+<p>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mine<br />
+</p>
+<blockquote>
+RedisCommon.Instance.Set(TBL_EAP_EQUIPMENT_ADDRESS_VAL, equipment.CEQUIPMENT_CODE + "_" + address.CADDRESS_CODE);
+RabbitMqClient.Instance.TriggerDirectEventMessageAvg(sendMessage, true);
+</blockquote>
+<p>
+||||||| .r3357<br />
+</p>
+<blockquote>
+RedisCommon.Instance.Set(TBL_EAP_EQUIPMENT_ADDRESS_VAL, equipment.CEQUIPMENT_CODE + "_" + address.CADDRESS_CODE);
+//RabbitMqClient.Instance.TriggerDirectEventMessageAvg(sendMessage, true);
+LogHelper.WriteWarnLog(address.CDATA_VALUE);
+SendRabbit(sendMessage);
+</blockquote>
+
+<p>
+=======<br />
+</p>
+
+<p>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r3361<br />
+</p>
+<blockquote>
+}
+}
+catch (Exception ex)
+{
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+public static void ProcessAddress1(object obj)
+{
+</blockquote>
+<blockquote>
+try
+{
+MyThread myThread = obj as MyThread;
+</blockquote>
+<blockquote>
+TBL_EAP_EQUIPMENT equipment = myThread.equipment;
+TBL_EAP_EQUIPMENT_ADDRESS address = myThread.address;
+List&lt;TBL_EAP_EQUIPMENT_ADDRESS&gt; addresses = myThread.addresses;
+</blockquote>
+<blockquote>
+//读取有问题
+var result = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult();
+if (!result.IsSuccess || address.CADDRESS_READ_VALUE.Equals("-1") ||
+address.CADDRESS_READ_VALUE == null)
+{
+return;
+}
+</blockquote>
+<blockquote>
+//处理倍数
+if (address.CMULTIPLE != 0 &amp;&amp; address.CMULTIPLE != 1)
+{
+address.CADDRESS_READ_VALUE =
+(float.Parse(address.CADDRESS_READ_VALUE) * address.CMULTIPLE).ToString();
+}
+</blockquote>
+<blockquote>
+//浮点型保留位数
+if (address.CDATA_TYPE.Equals("float"))
+{
+address.CADDRESS_READ_VALUE = float.Parse(address.CADDRESS_READ_VALUE).ToString("0.00");
+}
+</blockquote>
+<blockquote>
+address.CSTATUS = false;
+address.CSTATUS_DEGREE = "0";
+address.CSTATUS_COLOR = null;
+double valueD;
+</blockquote>
+<blockquote>
+//如果redis里面的数据为空，或者是值和读取来的不同
+if (address.CDATA_VALUE == null || !address.CDATA_VALUE.Equals(address.CADDRESS_READ_VALUE))
+{
+//address.hasChanged = true;
+</blockquote>
+<blockquote>
+//只要一个地址有变化，地址就要更新
+address.CDATA_VALUE = address.CADDRESS_READ_VALUE;
+RedisCommon.Instance.Set(addresses, equipment.CEQUIPMENT_CODE + "_Addresses");
+}
+</blockquote>
+<blockquote>
+//等级判断
+List&lt;TBL_EAP_EQUIPMENT_ADDRESS_VALMAG&gt; TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList =
+RedisCommon.Instance.Get&lt;List&lt;TBL_EAP_EQUIPMENT_ADDRESS_VALMAG&gt;&gt;(address.CID + "_Degree");
+</blockquote>
+<blockquote>
+//判断是否超出范围
+if (double.TryParse(address.CADDRESS_READ_VALUE, out valueD))
+{
+foreach (var degree in TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList)
+{
+//degreevalue 乘以倍数
+double degreeValue;
+if (double.TryParse(degree.CCAMPAREVALUE, out degreeValue))
+{
+if (address.CMULTIPLE != 0 &amp;&amp; address.CMULTIPLE != 1)
+{
+degreeValue = degreeValue * address.CMULTIPLE;
+}
+}
+</blockquote>
+<blockquote>
+if (degree.COPTIONS.Equals("Equal") &amp;&amp; valueD == degreeValue)
+EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} == 参考值{degreeValue}");
+if (degree.COPTIONS.Equals("Greater") &amp;&amp; valueD &gt; degreeValue)
+EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} &gt; 参考值{degreeValue}");
+if (degree.COPTIONS.Equals("GreaterEqual") &amp;&amp; valueD &gt;= degreeValue)
+EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} &gt;= 参考值{degreeValue}");
+if (degree.COPTIONS.Equals("Less") &amp;&amp; valueD &lt; degreeValue)
+EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} &lt; 参考值{degreeValue}");
+if (degree.COPTIONS.Equals("LessEqual") &amp;&amp; valueD &lt;= degreeValue)
+EquipmentAlarm(equipment, address, degree.CDEGREE, $"当前值{valueD} &lt;= 参考值{degreeValue}");
+}
+</blockquote>
+<blockquote>
+//报黄
+if (address.CSTANDARD_VAL != 0 &amp;&amp; address.CADDRESS_READ_VALUE != null)
+{
+double CTOL_DOWN = address.CSTANDARD_VAL - address.CSTANDARD_VAL * 0.05;
+double CTOL_UP = address.CSTANDARD_VAL + address.CSTANDARD_VAL * 0.05;
+//判断是否超出%5
+if (valueD &lt; CTOL_DOWN || (CTOL_UP != 0 &amp;&amp; valueD &gt; CTOL_UP))
+{
+//更新报警信息
+address.CSTATUS = true;
+address.CSTATUS_DEGREE = "99";
+address.CSTATUS_COLOR = "yellow";
+//EquipmentAlarm(equipment, address, "4", $"%5");
+}
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+//爆红
+if (valueD &lt; address.CTOL_DOWN || (address.CTOL_UP != 0 &amp;&amp; valueD &gt; address.CTOL_UP))
+{
+//更新报警信息
+address.CSTATUS = true;
+address.CSTATUS_DEGREE = "88";
+address.CSTATUS_COLOR = "red";
+</blockquote>
+<blockquote>
+EquipmentAlarm(equipment, address, "1", $"超出上下公差");
+//存入数据库
+//ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadMethod2), address);
+}
+</blockquote>
+<blockquote>
+}
+else
+{
+</blockquote>
+<blockquote>
+if (address.CADDRESS_CODE.Equals("M822"))
+{
+string aaa = "";
+}
+</blockquote>
+<blockquote>
+//默认都是一等级
+if (TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList != null &amp;&amp; TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList.Count &gt; 0)
+{
+</blockquote>
+<blockquote>
+foreach (var degree in TBL_EAP_EQUIPMENT_ADDRESS_VALMAGList)
+{
+if (degree.COPTIONS.Equals("Equal") &amp;&amp; degree.CCAMPAREVALUE != null &amp;&amp; degree.CCAMPAREVALUE
+.ToUpper().Equals(address.CADDRESS_READ_VALUE.ToUpper()))
+{
+EquipmentAlarm(equipment, address, degree.CDEGREE, "设备报警");
+address.CSTATUS = true;
+address.CSTATUS_DEGREE = degree.CDEGREE;
+switch (int.Parse(degree.CDEGREE))
+{
+case 1:
+address.CSTATUS_COLOR = "red";
+break;
+case 2:
+address.CSTATUS_COLOR = "orange";
+break;
+case 3:
+address.CSTATUS_COLOR = "yellow";
+break;
+</blockquote>
+<blockquote>
+}
+}
+}
+}
+else
+{
+address.CSTATUS = true;
+address.CSTATUS_DEGREE = "1";
+address.CSTATUS_COLOR = "red";
+}
+}
+</blockquote>
+<blockquote>
+//数据有更改，推送到redis
+if (address.CDATA_VALUE == null || !address.CDATA_VALUE.Equals(address.CADDRESS_READ_VALUE))
+{
+//更新redis
+address.CDATETIME = DateTime.Now.ToString();
+//更新
+// 发送到队列中执行
+TBL_EAP_EQUIPMENT_ADDRESS_VAL TBL_EAP_EQUIPMENT_ADDRESS_VAL = new TBL_EAP_EQUIPMENT_ADDRESS_VAL();
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CUPDATE = address.CUPDATE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CADDRESS_CODE = address.CADDRESS_CODE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CDATA_VALUE = address.CDATA_VALUE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CEQUIPMENT_CODE = equipment.CEQUIPMENT_CODE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CSTATUS_DEGREE = address.CSTATUS_DEGREE;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CSTATUS_COLOR = address.CSTATUS_COLOR;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CDATETIME = address.CDATETIME;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CID = address.CID;
+TBL_EAP_EQUIPMENT_ADDRESS_VAL.CSTATUS = address.CSTATUS;
+var sendMessage =
+EventMessageFactory.CreateEventMessageInstance(TBL_EAP_EQUIPMENT_ADDRESS_VAL, "200");
+</blockquote>
+<blockquote>
+RedisCommon.Instance.Set(TBL_EAP_EQUIPMENT_ADDRESS_VAL,
+equipment.CEQUIPMENT_CODE + "_" + address.CADDRESS_CODE);
+RabbitMqClient.Instance.TriggerDirectEventMessageAvg(sendMessage, true);
+}
+}
+catch (Exception ex)
+{
+</blockquote>
+<blockquote>
+WriteLog($"处理地址错误：{ex}", "Process", true);
+}
+}
+</blockquote>
+<blockquote>
+public static void EquipmentAlarm(TBL_EAP_EQUIPMENT equipment, TBL_EAP_EQUIPMENT_ADDRESS address, string degree, string why = "", bool hasChanged = false)
+{
+</blockquote>
+<blockquote>
+if (int.Parse(degree) == 0)
+{
+return;
+}
+</blockquote>
+<blockquote>
+IDBContext DB = new DBContext();
+try
+{
+</blockquote>
+<blockquote>
+var datas1 = DB.MainDB.Queryable&lt;TBL_EAP_EQUIPMENT_START_DEVICE_EXCEPTPROCESS_LOG&gt;()
+.Where(it =&gt; it.addressCode == address.CADDRESS_CODE &amp;&amp; !it.IS_OK &amp;&amp; it.deviceCode == equipment.CEQUIPMENT_CODE)
+.OrderBy(it =&gt; it.CDATETIME_CREATED, SqlSugar.OrderByType.Desc).First();
+</blockquote>
+<blockquote>
+if (!address.CDATA_VALUE.Equals(address.CADDRESS_READ_VALUE) || datas1 == null || datas1.CDATETIME_CREATED.AddMinutes(30) &lt;= DateTime.Now)
+{
+//address.hasChanged = false;
+string invokeString = $"<a href="http://{middleware}/api/EAP/Equipment/StartDeviceExceptProcess?machineCode={equipment.CEQUIPMENT_CODE}&amp;machineName={String2Unicode(equipment.CEQUIPMENT_NAME)}&amp;addressCode={address.CADDRESS_CODE}&amp;addressName={String2Unicode(address.CADDRESS_NAME)}&amp;degree={degree}&amp;why={String2Unicode(why)}&amp;exceptionTime={DateTime.Now}";">http://{middleware}/api/EAP/Equipment/StartDeviceExceptProcess?machineCode={equipment.CEQUIPMENT_CODE}&amp;machineName={String2Unicode(equipment.CEQUIPMENT_NAME)}&amp;addressCode={address.CADDRESS_CODE}&amp;addressName={String2Unicode(address.CADDRESS_NAME)}&amp;degree={degree}&amp;why={String2Unicode(why)}&amp;exceptionTime={DateTime.Now}";</a>
+invokeString = invokeString.Replace("#", "");
+string result = Invoke($"{invokeString}", "GET", "");
+}
+}
+catch
+{
+}
+</blockquote>
+<blockquote>
+//DB.GetDB
+//
+//if (address.CDATA_VALUE == null || ).
+</blockquote>
+<blockquote>
+//int i = 10;
+////while (result.Contains("false") &amp;&amp; i &gt; 0)
+////{
+//    result = Invoke($"{invokeString}", "GET", "");
+//    i--;
+//}
+}
+</blockquote>
+<blockquote>
+[DllImport("kernel32.dll", EntryPoint = "SetProcessWorkingSetSize")]
+public static extern int SetProcessWorkingSetSize(IntPtr process, int minSize, int maxSize);
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// 清空内存
+/// &lt;/summary&gt;
+public static void ClearMemory()
+{
+GC.Collect();
+GC.WaitForPendingFinalizers();
+if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+{
+SetProcessWorkingSetSize(System.Diagnostics.Process.GetCurrentProcess().Handle, -1, -1);
+}
+}
+</blockquote>
+<blockquote>
+private static void ThreadMethod2(object obj)
+{
+TBL_EAP_EQUIPMENT_ADDRESS address = (TBL_EAP_EQUIPMENT_ADDRESS)obj;
+</blockquote>
+<blockquote>
+}
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// 上下板机和agv对接
+/// &lt;/summary&gt;
+/// &lt;param name="sender"&gt;&lt;/param&gt;
+public void agvFun(object sender)
+{
+</blockquote>
+<blockquote>
+while (true)
+{
+Thread.Sleep(100);
+</blockquote>
+<blockquote>
+try
+{
+//获取所有的上下板机设备
+List&lt;string&gt; equipmentList = RedisCommon.Instance.Get&lt;List&lt;string&gt;&gt;($"SXBJList{_serverName}");
+</blockquote>
+<blockquote>
+foreach (var equipmentCODE in equipmentList)
+{
+TBL_EAP_EQUIPMENT equipment = RedisCommon.Instance.Get&lt;TBL_EAP_EQUIPMENT&gt;(equipmentCODE);
+if (equipment == null) return;
+if (equipment.CEQUIPMENT_CODE == null || string.IsNullOrEmpty(equipment.CEQUIPMENT_CODE)) return;
+ConnectPLC(equipment);
+//如果连接PLC成功
+bool isConnected = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].GetOperateResult().IsSuccess;
+if (isConnected)
+{
+//读取自动控制模式
+float value = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].ReadShortVal("D1000");
+if (Math.Abs(value - 1) &lt; 0.01)
+{
+//读取左上板机控制位
+value = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].ReadShortVal("D1001");
+</blockquote>
+<blockquote>
+//0表示无架，2表示有架无板
+if (value == 0 || value == 2)
+{
+//直接调取任务
+string result = Invoke($"<a href="http://{middleware}//api/EAP/AgvTask/AgvPlc?machine={equipmentCODE}&amp;location=1&amp;state={value}",">http://{middleware}//api/EAP/AgvTask/AgvPlc?machine={equipmentCODE}&amp;location=1&amp;state={value}",</a> "GET", "");
+WriteLog($"左上下板机调用，结果为{result}\n", LogType.SXBJ.ToString());
+}
+</blockquote>
+<blockquote>
+//读取右上板机控制位
+value = dictionaryIPlcConnects[equipment.CEQUIPMENT_CODE].ReadShortVal("D1002");
+</blockquote>
+<blockquote>
+if (value == 0 || value == 2)
+{
+//直接调取任务
+string result = Invoke($"<a href="http://{middleware}//api/EAP/AgvTask/AgvPlc?machine={equipmentCODE}&amp;location=2&amp;state={value}",">http://{middleware}//api/EAP/AgvTask/AgvPlc?machine={equipmentCODE}&amp;location=2&amp;state={value}",</a> "GET", "");
+WriteLog($"右上下板机调用，结果为{result}\n", LogType.SXBJ.ToString());
+}
+}
+}
+</blockquote>
+<blockquote>
+}
+}
+catch (Exception e)
+{
+WriteLog(e.Message.ToString());
+}
+}
+}
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// 五分钟获取参数
+/// &lt;/summary&gt;
+/// &lt;param name="sender"&gt;&lt;/param&gt;
+public void getDataTimerFun(object sender)
+{
+Thread.Sleep(1000 * 10);
+while (true)
+{
+try
+{
+</blockquote>
+<blockquote>
+List&lt;string&gt; equipmentList = RedisCommon.Instance.Get&lt;List&lt;string&gt;&gt;($"equipmentList_{_serverName}");
+if (_debug)
+{
+//Parallel.ForEach(equipmentList, m =&gt; { GetPar(RedisCommon.Instance.Get&lt;TBL_EAP_EQUIPMENT&gt;(m)); });
+foreach (var equipment in equipmentList)
+{
+GetPar(RedisCommon.Instance.Get&lt;TBL_EAP_EQUIPMENT&gt;(equipment));
+}
+}
+else
+{
+Parallel.ForEach(equipmentList, m =&gt; { GetPar(RedisCommon.Instance.Get&lt;TBL_EAP_EQUIPMENT&gt;(m)); });
+}
+}
+catch (Exception e)
+{
+WriteLog($"\nErr:\n{e.Message.ToString()}\n", LogType.GetParm.ToString());
+}
+</blockquote>
+<blockquote>
+Thread.Sleep(1000 * 60 * 5);
+//Thread.Sleep(1000);
+}
+}
+</blockquote>
+<blockquote>
+public void KBFuntion(object parm)
+{
+</blockquote>
+<blockquote>
+while (true)
+{
+try
+{
+List&lt;string&gt; equipmentList = RedisCommon.Instance.Get&lt;List&lt;string&gt;&gt;($"equipmentList_{_serverName}");
+//Parallel.ForEach(equipmentList, m =&gt; { ThreadMethod(RedisCommon.Instance.Get&lt;TBL_EAP_EQUIPMENT&gt;(m)); });
+Parallel.ForEach(equipmentList, m =&gt;
+{
+if (!dictionaryLock.ContainsKey(m) ||
+!dictionaryLock[m])
+{
+TBL_EAP_EQUIPMENT equipment = RedisCommon.Instance.Get&lt;TBL_EAP_EQUIPMENT&gt;(m);
+if (equipment != null)
+{
+MyThread myThread = new MyThread();
+myThread.equipment = equipment;
+//myThread.address = address;
+//myThread.addresses = addresses;
+Thread thread = new Thread(myThread.ThreadMain);
+thread.IsBackground = true;
+thread.Start();
+//ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadMethod), equipment);
+}
+}
+});
+;
+}
+catch
+{
+</blockquote>
+<blockquote>
+}
+}
+}
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// 获取服务接口
+/// &lt;/summary&gt;
+/// &lt;param name="method"&gt;GET/POST&lt;/param&gt;
+/// &lt;param name="parameters"&gt;参数&lt;/param&gt;
+/// &lt;returns&gt;&lt;/returns&gt;
+public static string Invoke(string url, string method, string parameters = null)
+{
+string resultStr = "";
+try
+{
+</blockquote>
+<blockquote>
+HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+httpWebRequest.ContentType = "application/json";
+</blockquote>
+<blockquote>
+if (method.ToUpper() == "POST")
+{
+}
+</blockquote>
+<blockquote>
+if (method.ToUpper() == "GET")
+{
+httpWebRequest.Method = "GET";
+httpWebRequest.Timeout = 20000;
+HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream());
+resultStr = streamReader.ReadToEnd();
+}
+}
+catch (Exception ex)
+{
+resultStr = "ERROR:" + ex.Message;
+}
+</blockquote>
+<blockquote>
+WriteLog(resultStr, LogType.Invoke.ToString());
+</blockquote>
+<blockquote>
+return resultStr;
+}
+</blockquote>
+<blockquote>
+/// &lt;summary&gt;
+/// &lt;summary&gt;
+/// 字符串转Unicode
+/// &lt;/summary&gt;
+/// &lt;param name="source"&gt;源字符串&lt;/param&gt;
+/// &lt;returns&gt;Unicode编码后的字符串&lt;/returns&gt;
+public static string String2Unicode(string source)
+{
+byte[] bytes = Encoding.Unicode.GetBytes(source);
+StringBuilder stringBuilder = new StringBuilder();
+for (int i = 0; i &lt; bytes.Length; i += 2)
+{
+stringBuilder.AppendFormat("\\u{0}{1}", bytes[i + 1].ToString("x").PadLeft(2, '0'), bytes[i].ToString("x").PadLeft(2, '0'));
+}
+return stringBuilder.ToString();
+}
+</blockquote>
+<blockquote>
+}
+</blockquote>
+
+<p>
+}<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>
