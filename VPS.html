@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>东莞MES</title>
+<title>VPS</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,38 +18,20 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">设备管理 </a>
-<li class="menu1"><a href="#toc_2">设备异常报警 </a>
-<ul>
-<li class="menu2"><a href="#toc_2.1">宇宙线报警 </a>
-</ul>
-<li class="menu1"><a href="#toc_3">锣房报警 </a>
+<li class="menu1"><a href="#toc_1">添加证书 </a>
 </ul>
 </div>
 <div class="content">
 
 
-<h1 id="toc_1">设备管理 </h1><HR SIZE=1>
+<h1 id="toc_1">添加证书 </h1><HR SIZE=1>
 <p>
-H0302543  宇宙1线<br />
-H0302437  宇宙2线<br />
-H0302676  宇宙3线<br />
-H0303097  宇宙4线<br />
-</p>
-
-<h1 id="toc_2">设备异常报警 </h1><HR SIZE=1>
-<h2 id="toc_2.1">宇宙线报警 </h2>
-<p>
-<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/3086695672a41f827b9ce19fb83a8f9.jpg" /></div><br />
+~/.acme.sh/acme.sh  --issue  -d williamalecemail.xyz(yourdomain)  --webroot /usr/share/nginx/html/<br />
 </p>
 
 
-
-
-
-<h1 id="toc_3">锣房报警 </h1><HR SIZE=1>
 <p>
-opc.tcp://172.18.0.234:62547/VEGACNC/OpcUaServer<br />
+~/.acme.sh/acme.sh  --installcert  -d  williamalecemail.xyz   --key-file   /usr/src/williamalecemailxyz-cert/private.key --fullchain-file /usr/src/williamalecemailxyz-cert/fullchain.cer --reloadcmd  "systemctl force-reload  nginx.service"<br />
 </p>
 
 

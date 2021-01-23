@@ -18,47 +18,73 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">MES项目 </a>
-<li class="menu1"><a href="#toc_2">What's MES </a>
-<li class="menu1"><a href="#toc_3">目的 </a>
-<li class="menu1"><a href="#toc_4">框架 </a>
-<li class="menu1"><a href="#toc_5">硬件 </a>
+<li class="menu1"><a href="#toc_1">问题 </a>
+<li class="menu1"><a href="#toc_2">MES项目 </a>
+<li class="menu1"><a href="#toc_3">What's MES </a>
 <ul>
-<li class="menu2"><a href="#toc_5.1">账号管理 </a>
-</ul>
-<li class="menu1"><a href="#toc_6">志浩MES功能模块 </a>
-<li class="menu1"><a href="#toc_7">术语 </a>
+<li class="menu2"><a href="#toc_3.1">MES模块 </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">客户型号 </a>
-<li class="menu2"><a href="#toc_7.2">Q </a>
-<li class="menu2"><a href="#toc_7.3">系统 </a>
+<li class="menu3"><a href="#toc_3.1.1">异常管理 </a>
 </ul>
-<li class="menu1"><a href="#toc_8">重点优先 </a>
-<li class="menu1"><a href="#toc_9">AGV </a>
+</ul>
+<li class="menu1"><a href="#toc_4">目的 </a>
+<li class="menu1"><a href="#toc_5">框架 </a>
+<li class="menu1"><a href="#toc_6">硬件 </a>
 <ul>
-<li class="menu2"><a href="#toc_9.1">AGV解决方案 </a>
+<li class="menu2"><a href="#toc_6.1">账号管理 </a>
 </ul>
-<li class="menu1"><a href="#toc_10">流程 </a>
+<li class="menu1"><a href="#toc_7">志浩MES功能模块 </a>
+<li class="menu1"><a href="#toc_8">术语 </a>
 <ul>
-<li class="menu2"><a href="#toc_10.1">关心的问题 </a>
+<li class="menu2"><a href="#toc_8.1">客户型号 </a>
+<li class="menu2"><a href="#toc_8.2">Q </a>
+<li class="menu2"><a href="#toc_8.3">系统 </a>
 </ul>
-<li class="menu1"><a href="#toc_11">traceability  of the all technological process </a>
-<li class="menu1"><a href="#toc_12">HslCommunication </a>
-<li class="menu1"><a href="#toc_13">MES系统架构 </a>
+<li class="menu1"><a href="#toc_9">重点优先 </a>
+<li class="menu1"><a href="#toc_10">AGV </a>
 <ul>
-<li class="menu2"><a href="#toc_13.1">设备采集和看板 </a>
+<li class="menu2"><a href="#toc_10.1">AGV解决方案 </a>
 </ul>
-<li class="menu1"><a href="#toc_14">西门子camstar </a>
-<li class="menu1"><a href="#toc_15">中软项目计划 </a>
+<li class="menu1"><a href="#toc_11">流程 </a>
+<ul>
+<li class="menu2"><a href="#toc_11.1">关心的问题 </a>
+</ul>
+<li class="menu1"><a href="#toc_12">traceability  of the all technological process </a>
+<li class="menu1"><a href="#toc_13">HslCommunication </a>
+<li class="menu1"><a href="#toc_14">MES系统架构 </a>
+<ul>
+<li class="menu2"><a href="#toc_14.1">设备采集和看板 </a>
+</ul>
+<li class="menu1"><a href="#toc_15">西门子camstar </a>
+<li class="menu1"><a href="#toc_16">中软项目计划 </a>
 </ul>
 </div>
 <div class="content">
-<h1 id="toc_1">MES项目 </h1><HR SIZE=1>
+<h1 id="toc_1">问题 </h1><HR SIZE=1>
+<p>
+如何区分计划放在MES和ERP问题。生产计划属于第4层，但第三层也有生产计划存在。<br />
+</p>
+
+<p>
+<a href="OPC.html">OPC</a>
+</p>
+
+<p>
+<a href="ISA95.html">ISA95</a>
+</p>
+
+
+
+<h1 id="toc_2">MES项目 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/江西志浩工厂MES项目整体计划v2.0.xlsx"download=\"文件名.txt\">点击下载:【江西志浩工厂MES项目整体计划v2.0.xlsx】</a></div><br />
 </p>
 
-<h1 id="toc_2">What's MES </h1><HR SIZE=1>
+<h1 id="toc_3">What's MES </h1><HR SIZE=1>
+<p>
+MES是位于上层的计划管理系统与底层的工业控制之间的面向车间层的管理信息系统<br />
+</p>
+
 <p>
 The ANSI/ISA-95 standard merged the MESA-11 model with the Purdue Reference Model, creating a functional hierarchy. In this model, MES was established at the intermediate level three, between enterprise resource planning (ERP) at level four and process control at levels zero, one and two.<br />
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/erp-mesa_11_model_desktop.jpg" /></div><br />
@@ -117,7 +143,114 @@ Process Engineers: measure process capability against product specifications<br 
 </p>
 
 
-<h1 id="toc_3">目的 </h1><HR SIZE=1>
+<h2 id="toc_3.1">MES模块 </h2>
+<p>
+人，机，物(物料)<br />
+</p>
+<ol>
+<li>
+制造数据管理(机器)
+
+<ul>
+<li>
+首件信息
+
+</ul>
+<li>
+计划排程管理(产品)
+
+<li>
+生产调度管理(产品)
+
+<li>
+库存管理(产品，原材料，半成品，成品)
+
+<li>
+质量管理(产品)
+
+<ul>
+<li>
+来料管理(IQC来料后，一部分IQC检测，一部分物理实验室检验，检验后判定如果不合格，到评审)
+
+<li>
+过程管理
+
+<ul>
+<li>
+首件
+
+<li>
+过程
+
+<li>
+检测
+
+</ul>
+<li>
+出货管理
+
+</ul>
+<li>
+人力资源管理(人员)
+
+<li>
+设备管理/工作中心(设备)
+
+<li>
+工具工装管理(设备)
+
+<li>
+采购管理
+
+<li>
+成本管理
+
+<li>
+项目看板管理
+
+<li>
+生产过程控制
+
+<li>
+数据分析
+
+<li>
+异常管理
+
+<ul>
+<li>
+设备
+
+<li>
+产品
+
+<li>
+药水
+
+<li>
+其他
+
+</ul>
+<li>
+设备异常
+
+<li>
+防呆防错
+
+<ul>
+<li>
+电子点检
+
+</ul>
+</ol>
+
+
+<h3 id="toc_3.1.1">异常管理 </h3>
+<p>
+不合格品流程<br />
+</p>
+
+<h1 id="toc_4">目的 </h1><HR SIZE=1>
 <ol>
 <li>
 建立数字化车间
@@ -154,7 +287,7 @@ agv调度系统
 完工<br />
 </p>
 
-<h1 id="toc_4">框架 </h1><HR SIZE=1>
+<h1 id="toc_5">框架 </h1><HR SIZE=1>
 <p>
 车间服务器<br />
 开发员<br />
@@ -163,12 +296,12 @@ agv调度系统
 操作员<br />
 </p>
 
-<h1 id="toc_5">硬件 </h1><HR SIZE=1>
+<h1 id="toc_6">硬件 </h1><HR SIZE=1>
 <p>
 节点机房<br />
 </p>
 
-<h2 id="toc_5.1">账号管理 </h2>
+<h2 id="toc_6.1">账号管理 </h2>
 <ol>
 <li>
 需要根据名字查找角色。找到角色对应的权限。
@@ -179,12 +312,12 @@ agv调度系统
 </ol>
 
 
-<h1 id="toc_6">志浩MES功能模块 </h1><HR SIZE=1>
+<h1 id="toc_7">志浩MES功能模块 </h1><HR SIZE=1>
 <p>
 <a href="志浩MES功能模块.html">志浩MES功能模块</a>
 </p>
 
-<h1 id="toc_7">术语 </h1><HR SIZE=1>
+<h1 id="toc_8">术语 </h1><HR SIZE=1>
 <p>
 配料单，<br />
 流程卡、Lot卡，工单。<br />
@@ -229,25 +362,25 @@ process change notice
 </tr>
 </table>
 
-<h2 id="toc_7.1">客户型号 </h2>
+<h2 id="toc_8.1">客户型号 </h2>
 <p>
 客户型号和客户料号同一个概念<br />
 客户代码是我们厂里面建立的。<br />
 </p>
 
-<h2 id="toc_7.2">Q </h2>
+<h2 id="toc_8.2">Q </h2>
 <p>
 是否可以根据工单，获取批次号<br />
 流程卡，lot卡，工单分别指什么？<br />
 </p>
 
-<h2 id="toc_7.3">系统 </h2>
+<h2 id="toc_8.3">系统 </h2>
 <p>
 FAQ 常见的系统问题处理。<br />
 </p>
 
 
-<h1 id="toc_8">重点优先 </h1><HR SIZE=1>
+<h1 id="toc_9">重点优先 </h1><HR SIZE=1>
 <p>
 racipe and tracebility<br />
 高级计划排程<br />
@@ -255,7 +388,7 @@ racipe and tracebility<br />
 
 
 
-<h1 id="toc_9">AGV </h1><HR SIZE=1>
+<h1 id="toc_10">AGV </h1><HR SIZE=1>
 <p>
 上料，下料，转运空盘<br />
 </p>
@@ -271,7 +404,7 @@ racipe and tracebility<br />
 物料存储区<br />
 </p>
 
-<h2 id="toc_9.1">AGV解决方案 </h2>
+<h2 id="toc_10.1">AGV解决方案 </h2>
 <p>
 如果是待料状态，则一直呼叫，如果返回的是0，则表示待料。返回的是1，则表示正在配料中。<br />
 </p>
@@ -281,13 +414,13 @@ racipe and tracebility<br />
 </p>
 
 
-<h1 id="toc_10">流程 </h1><HR SIZE=1>
+<h1 id="toc_11">流程 </h1><HR SIZE=1>
 <p>
 工段(钻孔)-&gt;工序(钻孔工段分为机械钻，镭射钻等工序)-&gt;工艺流程(机械钻孔1是工艺流程)<br />
 </p>
 
 	
-<h2 id="toc_10.1">关心的问题 </h2>
+<h2 id="toc_11.1">关心的问题 </h2>
 <ol>
 <li>
 服务器部署到云，不安全。
@@ -298,7 +431,7 @@ racipe and tracebility<br />
 </ol>
  
 
-<h1 id="toc_11">traceability  of the all technological process </h1><HR SIZE=1>
+<h1 id="toc_12">traceability  of the all technological process </h1><HR SIZE=1>
 <p>
 	we use the scan machine to get the parameters, which include temperature, speed, pressure etc.<br />
 </p>
@@ -307,7 +440,7 @@ racipe and tracebility<br />
 	Data source：PLC(register)、 sensing element 、IPC<br />
 </p>
 
-<h1 id="toc_12">HslCommunication </h1><HR SIZE=1>
+<h1 id="toc_13">HslCommunication </h1><HR SIZE=1>
 <p>
 主界面 HslCommunicationDemo.FormLoad<br />
 三菱  FormMelsecBinary  <br />
@@ -323,13 +456,13 @@ racipe and tracebility<br />
 </p>
 
 
-<h1 id="toc_13">MES系统架构 </h1><HR SIZE=1>
+<h1 id="toc_14">MES系统架构 </h1><HR SIZE=1>
 <p>
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/mes系统架构.jfif" /></div><br />
 </p>
 
 
-<h2 id="toc_13.1">设备采集和看板 </h2>
+<h2 id="toc_14.1">设备采集和看板 </h2>
 <p>
 设备<br />
  |<br />
@@ -352,7 +485,7 @@ DB<br />
         
 
 
-<h1 id="toc_14">西门子camstar </h1><HR SIZE=1>
+<h1 id="toc_15">西门子camstar </h1><HR SIZE=1>
 <p>
 <a href="camstar.html">camstar</a>
 </p>
@@ -364,7 +497,7 @@ DB<br />
 
  
 
-<h1 id="toc_15">中软项目计划 </h1><HR SIZE=1>
+<h1 id="toc_16">中软项目计划 </h1><HR SIZE=1>
 <p>
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/中软项目计划.jpg" /></div><br />
 </p>

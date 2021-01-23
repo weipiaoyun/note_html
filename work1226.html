@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>work1226</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<blockquote>
+&lt;DataGrid Name="dataGrid" Grid.Row="2" ScrollViewer.CanContentScroll="True"  ScrollViewer.VerticalScrollBarVisibility="Visible" BorderThickness="0" HeadersVisibility="All" RowHeaderWidth="0" ItemsSource="{Binding DataList}" GridLinesVisibility="None" Padding="0"&gt;
+&lt;DataGrid.RowStyle&gt;
+&lt;Style TargetType="{x:Type DataGridRow}"&gt;
+&lt;Style.Triggers&gt;
+&lt;DataTrigger Binding="{Binding Index}" Value="2" &gt;
+&lt;Setter Property="Background" Value="LightPink" /&gt;
+&lt;/DataTrigger&gt;
+&lt;DataTrigger Binding="{Binding 实际值}" &gt;
+&lt;Setter Property="Background" Value="Blue" /&gt;
+&lt;/DataTrigger&gt;
+</blockquote>
+<blockquote>
+&lt;Trigger Property="IsSelected" Value="True"&gt;
+&lt;Setter Property="Foreground" Value="Black" /&gt;
+&lt;/Trigger&gt;
+</blockquote>
+<blockquote>
+&lt;/Style.Triggers&gt;
+&lt;/Style&gt;
+&lt;/DataGrid.RowStyle&gt;
+</blockquote>
+<blockquote>
+&lt;DataGrid.CellStyle&gt;
+&lt;Style TargetType="{x:Type DataGridCell}"&gt;
+&lt;Style.Triggers&gt;
+&lt;DataTrigger Binding="{Binding Index}" Value="2" &gt;
+&lt;Setter Property="Background" Value="red" /&gt;
+&lt;/DataTrigger&gt;
+</blockquote>
+<blockquote>
+&lt;Trigger Property="IsSelected" Value="True"&gt;
+&lt;Setter Property="Foreground" Value="Black"/&gt;
+&lt;/Trigger&gt;
+&lt;/Style.Triggers&gt;
+&lt;/Style&gt;
+&lt;/DataGrid.CellStyle&gt;
+</blockquote>
+<blockquote>
+&lt;!--标题颜色--&gt;&lt;!--
+&lt;DataGrid.ColumnHeaderStyle&gt;
+&lt;Style TargetType="DataGridColumnHeader"&gt;
+&lt;Setter Property="HorizontalContentAlignment" Value="Center"&gt;
+&lt;/Setter&gt;
+&lt;Setter Property="Background" Value="#001f55"&gt;&lt;/Setter&gt;
+&lt;Setter Property="Foreground" Value="#17acae"&gt;&lt;/Setter&gt;
+&lt;Setter Property="BorderThickness" Value="0" /&gt;
+&lt;Setter Property="BorderBrush" Value="#17acae" /&gt;
+&lt;/Style&gt;
+&lt;/DataGrid.ColumnHeaderStyle&gt;--&gt;
+</blockquote>
+<blockquote>
+&lt;!--多选--&gt;
+&lt;!--&lt;DataGrid.RowHeaderTemplate&gt;
+&lt;DataTemplate&gt;
+&lt;CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/&gt;
+&lt;/DataTemplate&gt;
+&lt;/DataGrid.RowHeaderTemplate&gt;--&gt;
+</blockquote>
+<blockquote>
+&lt;DataGrid.Columns&gt;
+&lt;DataGridTextColumn IsReadOnly="True" Width="80" CanUserResize="False" Binding="{Binding Index}" Header="555"/&gt;
+&lt;!--&lt;DataGridTemplateColumn Width="60" CanUserResize="False"&gt;
+&lt;DataGridTemplateColumn.CellTemplate&gt;
+&lt;DataTemplate&gt;
+&lt;Image Source="{Binding ImgPath}" Width="32" Height="32" Stretch="Uniform"/&gt;
+&lt;/DataTemplate&gt;
+&lt;/DataGridTemplateColumn.CellTemplate&gt;
+&lt;/DataGridTemplateColumn&gt;--&gt;
+&lt;DataGridTextColumn  Binding="{Binding Name}" Header="Name"/&gt;
+&lt;DataGridCheckBoxColumn MinWidth="1000" CanUserResize="False" Binding="{Binding IsSelected}" Header="222"/&gt;
+&lt;!--&lt;DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="333"/&gt;--&gt;
+&lt;DataGridTextColumn Width="*" Binding="{Binding Remark}" Header="4444"/&gt;
+</blockquote>
+<blockquote>
+&lt;DataGridTextColumn Header="First Name" Binding="{Binding Path=Index}"&gt;
+&lt;DataGridTextColumn.CellStyle&gt;
+&lt;Style TargetType="DataGridCell"&gt;
+&lt;Setter Property="Background" Value="{Binding Path=BackGroundColor}" /&gt;
+&lt;/Style&gt;
+&lt;/DataGridTextColumn.CellStyle&gt;
+&lt;/DataGridTextColumn&gt;
+</blockquote>
+<blockquote>
+&lt;/DataGrid.Columns&gt;
+&lt;/DataGrid&gt;
+</blockquote>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>OPCUA</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">什么是OPCUA，和OPC区别 </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">UA </a>
+<li class="menu2"><a href="#toc_1.2">VS OPC </a>
+</ul>
+<li class="menu1"><a href="#toc_2">OPC的目的 </a>
+<li class="menu1"><a href="#toc_3">使用OPC的好处 </a>
+<li class="menu1"><a href="#toc_4">信息模型 </a>
+</ul>
+</div>
+<div class="content">
+
+<h1 id="toc_1">什么是OPCUA，和OPC区别 </h1><HR SIZE=1>
+<p>
+OPCUA： Open Platform Communications Unified Architecture(开发通信平台统一架构)<br />
+</p>
+
+<h2 id="toc_1.1">UA </h2>
+<p>
+统一架构，是OPC DA数据访问规范 + OPC HDA历史数据访问规范 + OPC A&amp;E 报警事件访问规范 + OPC Security安全协议 这些统一起来的架构。<br />
+</p>
+
+<h2 id="toc_1.2">VS OPC </h2>
+<p>
+VS OPC：OPC只能在windows平台上通信。<br />
+</p>
+
+<h1 id="toc_2">OPC的目的 </h1><HR SIZE=1>
+<p>
+为了实现分布式控制系统中的分布式对象技术<br />
+</p>
+
+<h1 id="toc_3">使用OPC的好处 </h1><HR SIZE=1>
+<ol>
+<li>
+跨平台
+
+<li>
+打通了工业通信的各个层级。从传感器到企业云都可以使用OPCUA的通信方式将数据层层传递，另外在同一层级的不同设备部署OPC UA也能完成数据的横向传递，为整个工厂的智能车间提供了活力。此外，OPC UA通过单一端口进行通信以及其标准安全协议的特点，也为数据的安全性提供了有力保障。
+
+</ol>
+
+
+<h1 id="toc_4">信息模型 </h1><HR SIZE=1>
+<p>
+OPC UA 使用了对象（objects）作为过程系统表示数据和活动的基础。对象包含了变量，事件和方法，它们通过引用（reference）来互相连接。这个概念和面向对象程序设计方法非常相似。<br />
+</p>
+
+<p>
+OPC UA 信息模型是节点的网络（Network of Node,），或者称为结构化图（graph），由节点(node)和引用(References)组成，这种结构图称之为OPC UA 的地址空间。这种图形结构可以描述各种各样的结构化信息(对象)。<br />
+</p>
+
+<p>
+节点(nodes) : 共计有8种节点(对象,对象类型,变量,变量类型,视图,方法,引用,数据类型)<br />
+E:\Download\Chrome\HSLSharp-7e9cfa4eff44568d9a71244cd4b3ffe51a7379bf\OpcUaDll\<br />
+</p>
+
+<p>
+严重性	代码	说明	项目	文件	行	禁止显示状态<br />
+错误	CS1503	参数 1: 无法从“System.IdentityModel.Tokens.SecurityToken”转换为“Opc.Ua.IssuedIdentityToken”	HSLSharp	E:\Download\Chrome\HSLSharp-7e9cfa4eff44568d9a71244cd4b3ffe51a7379bf\HSLSharp\OpcUaServer\DataTransferServer.cs	129	活动<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

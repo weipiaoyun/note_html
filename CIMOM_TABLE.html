@@ -42,6 +42,7 @@
 <li class="menu2"><a href="#toc_5.5">流程和工序 </a>
 <ul>
 <li class="menu3"><a href="#toc_5.5.1">根据流程找工序 </a>
+<li class="menu3"><a href="#toc_5.5.2">根据料号找流程 </a>
 </ul>
 <li class="menu2"><a href="#toc_5.6">查询MI叠构 </a>
 <li class="menu2"><a href="#toc_5.7">料号表 </a>
@@ -218,6 +219,11 @@ SELECT * FROM dbo.TBL_REWORK_PROCESS_PARAM
 </p>
 
 
+<p>
+[TBL_BI_DRILL_BUILDCODE_RECORD]  二维码绑定lot卡表<br />
+</p>
+
+
 <h1 id="toc_3">术语 </h1><HR SIZE=1>
 <p>
 产品部件指针 25表<br />
@@ -290,6 +296,18 @@ TBL_BD_TECHNICS_PARAM<br />
   on a.CPROCESS_OPERATION_ID = b.CID
   where CPROCESS_CODE = 'VPP1'
 </pre>
+
+
+<h3 id="toc_5.5.2">根据料号找流程 </h3>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+SELECT TOP 100  process.CPROCESS_STEP_NUMBER, bdProcess.* FROM TBL_MI_PROCESS process  --料号ID对应的流程ID
+INNER JOIN TBL_BD_PROCESS bdProcess ON process.CPROCESS_PTR = bdProcess.CID 
+WHERE 
+process.CMANU_PART_NUMBER = 'BGP0I0800150A0.I67'
+ORDER BY process.CDATETIME_CREATED  
+
+</pre>
+
 
 
 

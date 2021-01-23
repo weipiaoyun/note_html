@@ -58,10 +58,15 @@
 <ul>
 <li class="menu2"><a href="#toc_10.1">链接器的作用 </a>
 </ul>
+<li class="menu1"><a href="#toc_11">休眠开启命令 </a>
 </ul>
 </div>
 <div class="content">
 
+
+<p>
+VPS<br />
+</p>
 
 <p>
 <a href="windows server.html">windows server</a>
@@ -152,9 +157,7 @@ Windows Registry Editor Version 5.00<br />
 
 <p>
 5、输入 dism /online /Enable-Feature /all /FeatureName:NetFx3 /Source:"%windir%" /LimitAccess<br />
-</p>
-
-<p>
+dism.exe /online /enable-feature /featurename:NetFX3 /Source:C:Windows<br />
 6、安装成功！<br />
 </p>
 
@@ -216,6 +219,12 @@ osk，点击软键盘上的win键即可.<br />
 <p>
 一是修改目标文件中的信息，对地址做重定位<br />
 二是把多个目标文件合并成一个可执行文件<br />
+</p>
+
+
+<h1 id="toc_11">休眠开启命令 </h1><HR SIZE=1>
+<p>
+powercfg -h on<br />
 </p>
 
 

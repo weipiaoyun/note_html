@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>东莞MES</title>
+<title>Vue_Kanban</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,38 +18,41 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">设备管理 </a>
-<li class="menu1"><a href="#toc_2">设备异常报警 </a>
+<li class="menu1"><a href="#toc_1">问题 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">宇宙线报警 </a>
+<li class="menu2"><a href="#toc_1.1">报Network Error </a>
 </ul>
-<li class="menu1"><a href="#toc_3">锣房报警 </a>
+<li class="menu1"><a href="#toc_2">代理设置 </a>
+<li class="menu1"><a href="#toc_3">菜单和路由设置 </a>
+<li class="menu1"><a href="#toc_4">东莞看板主界面 </a>
 </ul>
 </div>
 <div class="content">
 
-
-<h1 id="toc_1">设备管理 </h1><HR SIZE=1>
+<h1 id="toc_1">问题 </h1><HR SIZE=1>
+<h2 id="toc_1.1">报Network Error </h2>
 <p>
-H0302543  宇宙1线<br />
-H0302437  宇宙2线<br />
-H0302676  宇宙3线<br />
-H0303097  宇宙4线<br />
-</p>
-
-<h1 id="toc_2">设备异常报警 </h1><HR SIZE=1>
-<h2 id="toc_2.1">宇宙线报警 </h2>
-<p>
-<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/3086695672a41f827b9ce19fb83a8f9.jpg" /></div><br />
+本地的会跨域要搞代理<br />
+更改Vue_kanban/store/modules下面的app.js.更改为本地的。<br />
 </p>
 
 
 
-
-
-<h1 id="toc_3">锣房报警 </h1><HR SIZE=1>
+<h1 id="toc_2">代理设置 </h1><HR SIZE=1>
 <p>
-opc.tcp://172.18.0.234:62547/VEGACNC/OpcUaServer<br />
+/vue_kanban/vue.config.js 的proxy对象<br />
+</p>
+
+
+<h1 id="toc_3">菜单和路由设置 </h1><HR SIZE=1>
+<p>
+/vue_kanban/src/utils/global.js<br />
+</p>
+
+
+<h1 id="toc_4">东莞看板主界面 </h1><HR SIZE=1>
+<p>
+E:\code\Vue_Kanban\src\views\dongguan\index.vue<br />
 </p>
 
 

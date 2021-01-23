@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>三菱</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">三菱MC协议_A-1E </a>
+</ul>
+</div>
+<div class="content">
+
+<h1 id="toc_1">三菱MC协议_A-1E </h1><HR SIZE=1>
+
+<p>
+A-1E（二进制）<br />
+数据格式 ：头部 + 应用数据<br />
+头部：无需设置<br />
+应用数据：副头部+文本（副头部 区分指令、响应）（文本 数据信息）<br />
+</p>
+
+<p>
+读取（二进制，高低位需互换）<br />
+示例指令 ：00 FF 0A 00 64 00 00 00 20 40 0C 00<br />
+副标题： 00 功能码 PC号： FF PC号固定为FF<br />
+监视定时器： 0A 00这是用于设置在以太网适配器向可编程控制器发出读出/写入要求后到返回结果之间等待时间的定时器。<br />
+a) 设置值可以如下指定。<br />
+0000H(0): 无限等待(一直等到可编程控制器返回响应。 )<br />
+0001～FFFFH(1～65535): 等待时间(单位250ms)<br />
+b) 要进行正常的数据通信， 建议根据通信对象， 在1～40(0.25～10秒)的设置范围内使用。<br />
+地址： 64 00 00 00<br />
+软元件： 20 40<br />
+点数软元件： 0C<br />
+结束代码： 00 00: 正常结束 00以外: 异常结束(50～60H) 异常结束时， 请根据下文对应的故障排除， 确认内容并采取措施。当结束代码为5BH/线须“5B”时， 后面会紧跟着异常代码(10～18H)的数据和00H/“00”。<br />
+</p>
+
+<p>
+示例回复：<br />
+成功：80 00 10 10 01 10<br />
+副标题：80 结束代码：00<br />
+应答数据：1010 0110 需要根据读取数据类型解析<br />
+</p>
+
+<p>
+写入<br />
+示例指令 ：02 FF 0A 00 32 00 00 00 20 4D 0C 00 01 11 01 00 00 01<br />
+黑色部分同读取一样<br />
+蓝色部分：<br />
+指令：02，即为批量写入<br />
+写入数据：011101000001 根据发送数据类型解析<br />
+示例回复：<br />
+成功：8200<br />
+副标题：82 结束代码：00<br />
+</p>
+
+<p>
+指令<br />
+批量读取（位） ：00 —— 回复副标题：80<br />
+批量读取（字） ：01 —— 回复副标题：81<br />
+批量写入（位） ：02 —— 回复副标题：82<br />
+批量写入（字） ：03 —— 回复副标题：83<br />
+测试（随机写入）（位） ：04 —— 回复副标题：84<br />
+测试（随机写入）（字） ：05 —— 回复副标题：85<br />
+</p>
+
+<p>
+软元件<br />
+数据寄存器D*：0x4420<br />
+扩展寄存器R*：0x5220<br />
+输入继电器X*： 0x5820<br />
+输出继电器Y*：0x5920<br />
+定时器触点TS：0x5453<br />
+定时器当前值TN：0x544E<br />
+计数器触点CS：0x4353<br />
+计数器当前值CN：0x434E<br />
+状态S*：0x5320<br />
+辅助继电器M*：0x4D20<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>
