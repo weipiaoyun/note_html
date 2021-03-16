@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>深圳</title>
+<title>SQLyog</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,9 +18,31 @@
 
 
 <p>
-���<br />
-��8.112���SA���wisdompcb1077<br />
-3mcvy3<br />
+SQLyog连接数据库报错plugin caching_sha2_password could not be loaded<br />
+</p>
+
+<p>
+打开cmd：mysql -uroot -p <br />
+</p>
+
+<p>
+进入mysql依次执行下面语句<br />
+</p>
+
+<p>
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER; #修改加密规则 <br />
+</p>
+
+<p>
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; #更新一下用户的密码 <br />
+</p>
+
+<p>
+FLUSH PRIVILEGES; #刷新权限<br />
+</p>
+
+<p>
+alter user 'root'@'localhost' identified by 'xzx123456';#重置密码，xzx123456就是变更后的密码，自己的密码自己更改下哦<br />
 </p>
 
 

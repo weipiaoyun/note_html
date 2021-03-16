@@ -18,23 +18,229 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">用友U9产品介绍 </a>
-<li class="menu1"><a href="#toc_2">五珠ERP表结构 </a>
-<li class="menu1"><a href="#toc_3">HX ERP </a>
-<li class="menu1"><a href="#toc_4">字段说明 </a>
+<li class="menu1"><a href="#toc_1">原ERP缺陷 </a>
+<li class="menu1"><a href="#toc_2">功能模块 </a>
+<li class="menu1"><a href="#toc_3">ERP表 </a>
+<li class="menu1"><a href="#toc_4">供应商协同 </a>
+<li class="menu1"><a href="#toc_5">市场销售 </a>
+<ul>
+<li class="menu2"><a href="#toc_5.1">订单预处理 </a>
+</ul>
+<li class="menu1"><a href="#toc_6">ERP组织架构 </a>
+<li class="menu1"><a href="#toc_7">用友U9产品介绍 </a>
+<li class="menu1"><a href="#toc_8">五珠ERP表结构 </a>
+<li class="menu1"><a href="#toc_9">公共基础数据定义明细 </a>
+<li class="menu1"><a href="#toc_10">ERP业务流 </a>
+<ul>
+<li class="menu2"><a href="#toc_10.1">采购数据结构 </a>
+</ul>
+<li class="menu1"><a href="#toc_11">HX ERP </a>
+<li class="menu1"><a href="#toc_12">字段说明 </a>
+<li class="menu1"><a href="#toc_13">采购 </a>
+<li class="menu1"><a href="#toc_14">采购单管理 </a>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">用友U9产品介绍 </h1><HR SIZE=1>
+<ol>
+<li>
+个人办公
+
+<ul>
+<li>
+便签
+
+<li>
+收藏
+
+<li>
+日程安排
+
+<li>
+共享资料
+
+<li>
+消息管理
+
+</ul>
+</ol>
+
+<ol>
+<li>
+客户管理
+
+<li>
+预算管理
+
+<li>
+商务沟通
+
+<li>
+MPS计划
+
+<li>
+BOM物料清单
+
+<li>
+BOM展开
+
+<li>
+共用物料
+
+<li>
+缺料
+
+<li>
+采购询价
+
+<li>
+行情调查
+
+<li>
+批量采购
+
+<li>
+验收、退料、换料
+
+<li>
+工艺路线，工作中心
+
+<li>
+瓶颈工序，关键工艺路线
+
+<li>
+产能不足
+
+<li>
+委外
+
+<li>
+紧急订单
+
+<li>
+订单确认
+
+<li>
+紧急采购
+
+<li>
+采购跟催
+
+<li>
+验收，入库，转入库账款。
+
+<li>
+紧急订购意向
+
+<li>
+设备采购，人力资源
+
+<li>
+应收货款催要
+
+</ol>
+
+<h1 id="toc_1">原ERP缺陷 </h1><HR SIZE=1>
+<p>
+1：早期系统是基于单一组织代码开发，各厂数据库独立运作。所有用户权限密码需要独立创建。对于集团多组织代码用户，需要在各厂的系统中都需要创建各自的用户名和密码。不利于系统用户管理。<br />
+2：单一组织代码系统运行需要大量的基础数据定义。主要有材料分类、材料编码、单位代码，货币代码，税率代码，供应商代码，品质缺陷代码，工序代码，供应商价格，会计科目定义等。这些基础数据定义各厂都是独立定义的。且各厂都存在数据重复定义，且代码不一致。导致集团数据综合统计分析困难。<br />
+3：移动端开发需求增加，程序开发困难。<br />
+4：只有中文操作，没有中英文双语选择。。<br />
+</p>
+<h1 id="toc_2">功能模块 </h1><HR SIZE=1>
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/ERP功能模块.jpg" /></div><br />
+</p>
+
+
+<h1 id="toc_3">ERP表 </h1><HR SIZE=1>
+<p>
+Data0273 ecn变更表<br />
+</p>
+
+
+<p>
+<a href="新ERP功能菜单.html">新ERP功能菜单</a>
+</p>
+		
+
+<h1 id="toc_4">供应商协同 </h1><HR SIZE=1>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/ERP/供应商协同BS开发规划.xmind"download=\"文件名.txt\">点击下载:【供应商协同BS开发规划.xmind】</a></div><br />
+</p>
+
+<h1 id="toc_5">市场销售 </h1><HR SIZE=1>
+<h2 id="toc_5.1">订单预处理 </h2>
+
+
+<p>
+组织代码定义，仓库定义，库位定义、部门定义<br />
+材料组别定义，材料类型定义，材料编码定义<br />
+</p>
+
+<h1 id="toc_6">ERP组织架构 </h1><HR SIZE=1>
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/ERP公司组织架构.jpg" /></div><br />
+</p>
+
+<h1 id="toc_7">用友U9产品介绍 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/ERP/2M.02.07 U9产品介绍(1).pptx"download=\"文件名.txt\">点击下载:【2M.02.07 U9产品介绍(1).pptx】</a></div><br />
 </p>
 
 
-<h1 id="toc_2">五珠ERP表结构 </h1><HR SIZE=1>
+<h1 id="toc_8">五珠ERP表结构 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/ERP/数据表结构ERP.rar"download=\"文件名.txt\">点击下载:【数据表结构ERP.rar】</a></div><br />
+</p>
+
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/老erp本厂编号表结构.jpg" /></div><br />
+</p>
+
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/老ERP销售表结构.png" /></div><br />
+</p>
+
+<p>
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/老ERP采购数据结构.png" /></div><br />
+</p>
+
+
+<h1 id="toc_9">公共基础数据定义明细 </h1><HR SIZE=1>
+
+<p>
+货币代码：data0001(需增加按年月货币汇率明细表:data0001_month)<br />
+单位代码：data0002<br />
+税率代码：data0189<br />
+国家或区域代码：data0250<br />
+装运方法代码：data0370<br />
+产品应用领域：data0247<br />
+产品表面工艺代码：data0007<br />
+产品分类代码：data0008<br />
+产品特性代码：data0619<br />
+材料分组代码：data0019<br />
+材料分类代码：data0496<br />
+材料编码属性定义：data0593<br />
+材料编码属性选择定义：data0594<br />
+材料编码分类定义：data0595<br />
+材料编码分类定义明细：data0596<br />
+材料编码定义：data0017<br />
+集团组织代码定义：data0015<br />
+仓库位置定义：data0016<br />
+仓库货位定义：data0176<br />
+材料退货原因分类定义：data0076<br />
+产品缺陷代码定义：data0039<br />
+产品缺陷类别定义：qc_groupnameofbug<br />
+固定资产类别：data0514<br />
+固定资产变动分类定义：data0515<br />
+固定资产使用状态定义：data0516<br />
+工具费用类别定义：data0061<br />
+客户代码：data0010<br />
+供应商代码：data0023<br />
+杂项请购类别：data0075<br />
+部门班组工序代码定义：data0034<br />
+工程参数代码定义：data0278<br />
 </p>
 
 
@@ -48,8 +254,48 @@
 ERP查询工序代码 (表是工序代码形式存在，通过工序代码)<br />
 </p>
 
+<h1 id="toc_10">ERP业务流 </h1><HR SIZE=1>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/ERP/ERP PO和SO流程图.pptx"download=\"文件名.txt\">点击下载:【ERP PO和SO流程图.pptx】</a></div><br />
+SO(销售订单sale order) 销售流：销售定单-&gt;提交评审-&gt;销售定单确认-&gt;工程制作-&gt;投产管理-&gt;作业单发放-&gt;手工过数-&gt;成品入库提交-&gt;成品入仓-&gt;销售订单装运指派-&gt;装箱单管理<br />
+</p>
 
-<h1 id="toc_3">HX ERP </h1><HR SIZE=1>
+<p>
+报价审批流：市场销售-&gt;基础数据-&gt;客户信息管理-&gt;订单管理-&gt;创建本厂编号-&gt;智能报价-&gt;报价时效管理-&gt;BOM报价单-&gt;BOM报价审核<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/ERP SO流.jpg" /></div><br />
+</p>
+
+<p>
+订单管理-&gt;销售订单-&gt;工程设计-&gt;计划生产-&gt;销售订单<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/erp流程.bmp" /></div><br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/ERP流程.png" /></div><br />
+</p>
+	
+<p>
+PO (purchase order 采购订单)  采购流：开请购单-&gt;生产物料和杂项物料-&gt;编辑采购单管理模块(编码物料)时决定是否VMI物料.-&gt;入库时,如果是正常采购下单,按PO入库.如果是VMI就在供应商VMI库存管理入库.直接入库一般是刚实施或者不用付款项-&gt;VMI出库时,在按采购单接收入库,按VMI入仓.<br />
+</p>
+
+<p>
+工厂-仓库-材料分组-材料类型-材料编码定义-供应商信息-供应商价格<br />
+请购需求预算-审批流程定义-采购审批授权定义<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/ERP PO流.jpg" /></div><br />
+</p>
+
+
+
+<h2 id="toc_10.1">采购数据结构 </h2>
+<p>
+data0068 请购主表<br />
+	data0069 生产物料请购明细表<br />
+		data0071 生产物料请购明细<br />
+	data0204 杂项物料请购明细表<br />
+		data0072 杂项物品采购明细<br />
+data0070 物料采购订单主表<br />
+</p>
+	
+
+
+<h1 id="toc_11">HX ERP </h1><HR SIZE=1>
 <p>
 Data0278     查出需要后补的项(PARAMETER_DESC:最小阻焊桥)对应的RKEY(2074)<br />
 Data0287	 添加绑定的后补项<br />
@@ -63,7 +309,7 @@ T_AutoCam_PushERPParms  genesis后补的项和ERP后补项连接。<br />
 
 
 
-<h1 id="toc_4">字段说明 </h1><HR SIZE=1>
+<h1 id="toc_12">字段说明 </h1><HR SIZE=1>
 <p>
 "Cust_Code": "6000",	客户代码<br />
 "sales_order": "190506006-01",	销售订单号<br />
@@ -97,6 +343,44 @@ T_AutoCam_PushERPParms  genesis后补的项和ERP后补项连接。<br />
 "Qty_OnHand": 0,	库存数量<br />
 "ORD_REQ_QTY": 316,	待计划数<br />
 "ANALYSIS_CODE_1": "616.5mm X 539.5mm",	交货尺寸<br />
+</p>
+
+
+<h1 id="toc_13">采购 </h1><HR SIZE=1>
+<p>
+请购<br />
+</p>
+<ol>
+<li>
+生产物料(有编码)
+
+<li>
+杂项物料(临时或供应商赠品，无编码，只有物料名称和规格)
+
+</ol>
+
+<p>
+以上区别：生产物料在系统里面有编码。<br />
+</p>
+
+<p>
+请购-&gt;审批<br />
+</p>
+
+<h1 id="toc_14">采购单管理 </h1><HR SIZE=1>
+<p>
+编码采购，非编码采购<br />
+</p>
+
+
+<p>
+CO：客户订单,或销售订单<br />
+PO：采购订单 (purchase order)<br />
+MO：生产订单<br />
+</p>
+
+<p>
+<a href="原材料.html">原材料</a>
 </p>
 
 

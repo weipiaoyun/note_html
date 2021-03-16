@@ -18,16 +18,92 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">perl mysql </a>
-<li class="menu1"><a href="#toc_2">执行数据库方法 </a>
-<li class="menu1"><a href="#toc_3">linux创建mysql新用户并添加权限 </a>
-<li class="menu1"><a href="#toc_4">表 </a>
+<li class="menu1"><a href="#toc_1">安装mysql </a>
 <ul>
-<li class="menu2"><a href="#toc_4.1">FPC脚本 </a>
+<li class="menu2"><a href="#toc_1.1">windows </a>
+<li class="menu2"><a href="#toc_1.2">linux </a>
+<li class="menu2"><a href="#toc_1.3">安装后问题 </a>
+<ul>
+<li class="menu3"><a href="#toc_1.3.1">登录 </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_2">perl mysql </a>
+<li class="menu1"><a href="#toc_3">执行数据库方法 </a>
+<li class="menu1"><a href="#toc_4">linux创建mysql新用户并添加权限 </a>
+<li class="menu1"><a href="#toc_5">忘记密码 </a>
+<li class="menu1"><a href="#toc_6">表 </a>
+<ul>
+<li class="menu2"><a href="#toc_6.1">FPC脚本 </a>
 </ul>
 </ul>
 </div>
 <div class="content">
+
+
+<h1 id="toc_1">安装mysql </h1><HR SIZE=1>
+<h2 id="toc_1.1">windows </h2>
+<ol>
+<li>
+下载解压
+
+<li>
+配置my.ini和Data文件夹
+
+<li>
+配置系统环境MYSQL_HOME和path  %MYSQL_HOME%\bin
+
+<li>
+cmd 初始化命令mysqld --initialize --user=mysql --console
+
+<li>
+mysqld -install
+
+<li>
+net start mysql
+
+<li>
+mysql -u root -p
+
+<li>
+ALTER USER <code>root</code>@<code>localhost</code> IDENTIFIED BY '你的密码', <code>root</code>@<code>localhost</code> PASSWORD EXPIRE NEVER;
+
+</ol>
+
+<h2 id="toc_1.2">linux </h2>
+<p>
+yum -y install wget<br />
+wget <a href="http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm">http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</a> 
+rpm -ivh mysql-community-release-el7-5.noarch.rpm<br />
+ls -1 /etc/yum.repos.d/mysql-community*<br />
+yum install mysql-server<br />
+</p>
+
+<p>
+启动<br />
+</p>
+<ol>
+<li>
+systemctl start mysqld.service
+
+</ol>
+<p>
+如果卡住，删除/var/mysql文件夹重新安装<br />
+</p>
+
+
+<h2 id="toc_1.3">安装后问题 </h2>
+<h3 id="toc_1.3.1">登录 </h3>
+<ol>
+<li>
+Your password has expired
+
+</ol>
+<p>
+mysql -u root -p<br />
+ALTER USER <code>root</code>@<code>localhost</code> IDENTIFIED BY '你的密码', <code>root</code>@<code>localhost</code> PASSWORD EXPIRE NEVER;<br />
+</p>
+
+
 <p>
 库如文件夹，表如文件，字段如内容<br />
 <a href="MySQL语句.html">MySQL语句</a>
@@ -36,7 +112,7 @@
 <a href="mysql 学习笔记.html">mysql 学习笔记</a>
 <a href="mysql 字符集.html">mysql 字符集</a>
 </p>
-<h1 id="toc_1">perl mysql </h1><HR SIZE=1>
+<h1 id="toc_2">perl mysql </h1><HR SIZE=1>
 <p>
 use DBI;<br />
 </p>
@@ -66,14 +142,14 @@ my \(rows = \)dbh-&gt;do("INSERT INTO users VALUES (4, 'jay', 'CZ'), (5, 'll', '
 $dbh-&gt;disconnect(); #断开连接<br />
 </p>
 
-<h1 id="toc_2">执行数据库方法 </h1><HR SIZE=1>
+<h1 id="toc_3">执行数据库方法 </h1><HR SIZE=1>
 <p>
 prepare：一般是查询，如select<br />
 do：执行删除，创建等；delete， create<br />
 </p>
 
 
-<h1 id="toc_3">linux创建mysql新用户并添加权限 </h1><HR SIZE=1>
+<h1 id="toc_4">linux创建mysql新用户并添加权限 </h1><HR SIZE=1>
 <ol>
 <li>
 mysql -uroot -p #登录
@@ -98,8 +174,14 @@ select * from mysql.user where user = 'admin';
 
 </ol>
 
-<h1 id="toc_4">表 </h1><HR SIZE=1>
-<h2 id="toc_4.1">FPC脚本 </h2>
+
+<h1 id="toc_5">忘记密码 </h1><HR SIZE=1>
+<p>
+update mysql.user set authentication_string=password('root') where user='root';<br />
+</p>
+
+<h1 id="toc_6">表 </h1><HR SIZE=1>
+<h2 id="toc_6.1">FPC脚本 </h2>
 <p>
 HcCam_ChildFlowList<br />
 </p>

@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>javaAnnotation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">spring annotation </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">取消ComponentScan方式，通过加@Bean方式创建bean </a>
+<li class="menu2"><a href="#toc_1.2">通过Setter Injection </a>
+<li class="menu2"><a href="#toc_1.3">私有属性Setter的Autowired区别 </a>
+</ul>
+</ul>
+</div>
+<div class="content">
+
+<h1 id="toc_1">spring annotation </h1><HR SIZE=1>
+
+<p>
+从xml里面取出类，定义后放入comtainer中。<br />
+&lt;bean id = "CollegeBean" class="com.example.annotation.demo.College"&gt;&lt;/bean&gt;&gt;<br />
+&lt;bean id = "College2Bean" class="com.example.annotation.demo.College2"&gt;&lt;/bean&gt;<br />
+</p>
+
+<p>
+ApplicationContext context = new ClassPathXmlApplicationContext("Bean.xml");//程序扫描Bean.xml文件。所有的bean会放到contex容器里面。<br />
+System.out.println("load xml ok");<br />
+College college = context.getBean("CollegeBean", College.class);//重容器里面取出。<br />
+College2 college2 = context.getBean("College2Bean", College2.class);<br />
+System.out.println("created by spring" + college);<br />
+System.out.println("created by spring" + college2);<br />
+</p>
+
+
+<ul>
+<li>
+如果一个命名空间有多个bean。需要xml里面配置多次。可以通过xml里面增加如下，并在需要扫描的类上面添加@Component注解，统一扫描。
+
+<li>
+注意注解@Component后面添加bean的Id。
+
+</ul>
+<p>
+context:component-scan base-package="com.example.annotation.demo"&gt;<br />
+</p>
+
+
+<p>
+@Component("CollegeBean")<br />
+public class College {<br />
+}<br />
+</p>
+
+<ol>
+<li>
+读取xml。知道在com.example.annotation.demo下面扫描带有@Component注解的类，创建对象。
+
+</ol>
+
+
+<ul>
+<li>
+取消xml文件配置，用代码代替。
+
+</ul>
+
+<p>
+添加一个类College。添加备注@Configuration。和@ComponentScan(basePackages = "com.example.annotation.demo")<br />
+更改主函数类，从类中获取配置。<br />
+ApplicationContext context = new AnnotationConfigApplicationContext(CollegeConfig.class);<br />
+College college = context.getBean("CollegeBean", College.class);<br />
+System.out.println("created by spring" + college);<br />
+</p>
+
+<ol>
+<li>
+通过CollegeConfig的@ComponentScan(basePackages = "com.example.annotation.demo") 扫描所有要@Component注解的类，定义。加入到container中。
+
+</ol>
+
+<p>
+以上可以删除bean配置文件。<br />
+</p>
+
+
+<h2 id="toc_1.1">取消ComponentScan方式，通过加@Bean方式创建bean </h2>
+<ol>
+<li>
+College类的@Component("CollegeBean")注解， 移除CollegeConfig的 ComponentScan
+
+<li>
+在CollegeConfig里面添加如下Bean
+    @Bean
+    public College collegeBean()
+    {
+        //College college = new College();
+        return new College();
+    }
+
+</ol>
+
+<ol>
+<li>
+程序执行new AnnotationConfigApplicationContext(CollegeConfig.class);的时候可以扫描所有含@Bean注解的方法。创建对象
+
+</ol>
+
+
+<p>
+默认情况下类的Bean Id就是类名。第一字母转小写，也可以指定id，@Component("xxx");<br />
+</p>
+
+
+<h2 id="toc_1.2">通过Setter Injection </h2>
+
+<p>
+如果添加了 @Autowired 注解。这可以不添加Setter依赖注入。<br />
+</p>
+
+<p>
+因为container中已经有了对象。所以添加了@Autowired后。会初始化的时候自动先扫描@Autowired，对所有@Autowired的字段进行初始化。<br />
+</p>
+
+
+<table>
+<tr>
+<th>
+注解
+</th>
+<th>
+地方
+</th>
+<th>
+作用
+</th>
+<th>
+替代
+</th>
+<th>
+&nbsp;
+</th>
+</tr>
+<tr>
+<td>
+@Component("CollegeBean")
+</td>
+<td>
+类上面
+</td>
+<td>
+有它程序扫描到的类会定义对象加到容器
+</td>
+<td>
+xml &lt;bean&gt;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+@ComponentScan(basePackages="x")
+</td>
+<td>
+配置类上面
+</td>
+<td>
+扫描x包里面所有带@Component的类，定义对象，加到容器
+</td>
+<td>
+xml &lt;component-scan
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+@Bean
+</td>
+<td>
+配置类方法
+</td>
+<td>
+把要加到容器的类都建对象，加到容器
+</td>
+<td>
+@ComponentScan
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+@Autowired
+</td>
+<td>
+setter或属性
+</td>
+<td>
+从容器中获取出来赋值给属性
+</td>
+<td>
+@ComponentScan
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+@Value
+</td>
+<td>
+属性
+</td>
+<td>
+对String等自带类型赋值
+</td>
+<td>
+@ComponentScan
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+
+<h2 id="toc_1.3">私有属性Setter的Autowired区别 </h2>
+<p>
+私有属性Autowired是把容器里面的数据直接赋值给了变量。可能引发数据异常。<br />
+</p>
+
+<p>
+Setter是因为有新的<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

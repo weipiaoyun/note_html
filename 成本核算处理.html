@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>成本核算处理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<p>
+工序成本说明<br />
+目前u9系统中工序成本和原有的成本计算主要区别在<br />
+1.增加了生产工序成本和费用结转<br />
+（1）工序成本计算汇总了发生成本以后，材料和费用就在工序成本中进行结转<br />
+（2）原有的成本计算需要根据成本参数，进行完工在制分配，等级分配 合格报废<br />
+分配等<br />
+2.间接费用支持分配到工序<br />
+（1）工序成本支持费用分配到工序<br />
+（2）原有的成本计算不支持<br />
+3．完工成本回写不同<br />
+（1） 工序成本回写完工的金额是最后一道序的转出成本回写，产量数据会记录<br />
+是否最后一道工序，最后一道工序转出成本，最后回写到完工报告<br />
+（2） 原有的成本计算回写完工报告是根据工单成本计算的入库数据回写的完工报告。<br />
+4 .产量数据增加了是否首序工序，和是否末序字段，产量数据需要从智能工厂取数<br />
+  （1）根据产量信息的是否首序工序，判读是否首序，首序需要核算本序本期的材料转出成本<br />
+  （2）根据产量信息的是否末序工序  判断是否末序，完工报告金额是根据末序的转出材料和用金额回写完工报告<br />
+（3）原有的成本计算和工序成本计算区别在于成本计算过程的差别，具体如图<br />
+原有成本计算过程过程，需要进行联副分配，完工在制分配，等级分配，<br />
+废品分配等最后回写完工成本<br />
+ 工序成本计算过程，工序费用分配，工序材料和费用结转，回写完工报告<br />
+</p>
+ 
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/ Doc/WZ/ERP/五株客开：工序成本计算需求.doc"download=\"文件名.txt\">点击下载:【五株客开：工序成本计算需求.doc】</a></div><br />
+</p>
+
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/ERP/五株客开：工序成本说明(1).docx"download=\"文件名.txt\">点击下载:【五株客开：工序成本说明(1).docx】</a></div><br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

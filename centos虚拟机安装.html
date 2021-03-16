@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>深圳</title>
+<title>centos虚拟机安装</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,9 +18,40 @@
 
 
 <p>
-���<br />
-��8.112���SA���wisdompcb1077<br />
-3mcvy3<br />
+<a href="https://baijiahao.baidu.com/s?id=1663296249136264521&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1663296249136264521&amp;wfr=spider&amp;for=pc</a>
+</p>
+
+
+<p>
+安装后无法上网<br />
+</p>
+
+<p>
+cd /etc/sysconfig/network-scripts<br />
+</p>
+
+<p>
+ifcfg-ens33<br />
+</p>
+
+<p>
+更改ONBOOT=yes<br />
+</p>
+
+<p>
+增加<br />
+DNS1=8.8.8.8<br />
+DNS2=4.2.2.2<br />
+</p>
+
+<p>
+重启<br />
+#systemctl restart network<br />
+</p>
+
+<p>
+ping外网<br />
+ping www.baidu.com
 </p>
 
 

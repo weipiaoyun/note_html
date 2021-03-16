@@ -72,7 +72,8 @@
 <li class="menu3"><a href="#toc_7.1.4">设置开机自启动，关闭自动更新功能 </a>
 <li class="menu3"><a href="#toc_7.1.5">vncserver不能自动启动： </a>
 <li class="menu3"><a href="#toc_7.1.6">linux中英文，中文输入法问题 </a>
-<li class="menu3"><a href="#toc_7.1.7">linux非超级用户不能保存 </a>
+<li class="menu3"><a href="#toc_7.1.7">硬盘问题，修复模式无法更改fstab </a>
+<li class="menu3"><a href="#toc_7.1.8">linux非超级用户不能保存 </a>
 </ul>
 <li class="menu2"><a href="#toc_7.2">软件问题 </a>
 <ul>
@@ -89,6 +90,7 @@
 </div>
 <div class="content">
 <p>
+<a href="centos虚拟机安装.html">centos虚拟机安装</a>
 <a href="linux概念.html">linux概念</a>
 <a href="linux服务.html">linux服务</a>
 <a href="启动过程.html">启动过程</a>
@@ -574,8 +576,13 @@ system-&gt;Administration-&gt;server settings-&gt;services 把vncservear勾选�
 <p>
 	<a href="https://blog.csdn.net/lzjsqn/article/details/54377604">https://blog.csdn.net/lzjsqn/article/details/54377604</a>
 </p>
+	
+<h3 id="toc_7.1.7">硬盘问题，修复模式无法更改fstab </h3>
+<p>
+mount -o remount,rw /<br />
+</p>
 
-<h3 id="toc_7.1.7">linux非超级用户不能保存 </h3>
+<h3 id="toc_7.1.8">linux非超级用户不能保存 </h3>
 <ol>
 <li>
 切换到root用户，运行visudo命令

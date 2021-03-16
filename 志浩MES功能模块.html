@@ -96,12 +96,14 @@
 </ul>
 <li class="menu1"><a href="#toc_14">智能仓储 </a>
 <ul>
-<li class="menu2"><a href="#toc_14.1">收货 </a>
-<li class="menu2"><a href="#toc_14.2">仓库档案 </a>
-<li class="menu2"><a href="#toc_14.3">IQC(Incoming Quality Control) 来料质量控制 </a>
-<li class="menu2"><a href="#toc_14.4">包装入库 </a>
-<li class="menu2"><a href="#toc_14.5">出库 </a>
-<li class="menu2"><a href="#toc_14.6">WCS系统 </a>
+<li class="menu2"><a href="#toc_14.1">仓库物料分类和编码规则 </a>
+<li class="menu2"><a href="#toc_14.2">江西志浩智能仓储 </a>
+<li class="menu2"><a href="#toc_14.3">收货 </a>
+<li class="menu2"><a href="#toc_14.4">仓库档案 </a>
+<li class="menu2"><a href="#toc_14.5">IQC(Incoming Quality Control) 来料质量控制 </a>
+<li class="menu2"><a href="#toc_14.6">包装入库 </a>
+<li class="menu2"><a href="#toc_14.7">出库 </a>
+<li class="menu2"><a href="#toc_14.8">WCS系统 </a>
 </ul>
 <li class="menu1"><a href="#toc_15">计划管理 </a>
 <ul>
@@ -670,6 +672,10 @@ location：左边上板机还是右边上板机
 </ul>
 </ol>
 
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/TMP/上下板机导入点表.xlsx"download=\"文件名.txt\">点击下载:【上下板机导入点表.xlsx】</a></div><br />
+</p>
+
 <h2 id="toc_13.4">AGV接口 </h2>
 <h3 id="toc_13.4.1">AGV地图 </h3>
 <p>
@@ -696,6 +702,20 @@ location：左边上板机还是右边上板机
 </p>
 
 <h1 id="toc_14">智能仓储 </h1><HR SIZE=1>
+
+<h2 id="toc_14.1">仓库物料分类和编码规则 </h2>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/MES/仓库物料分类及编码的规则.doc"download=\"文件名.txt\">点击下载:【仓库物料分类及编码的规则.doc】</a></div><br />
+</p>
+
+<h2 id="toc_14.2">江西志浩智能仓储 </h2>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西志浩智能仓储/江西志浩智能仓储对接API接口协议V0.1.2.docx"download=\"文件名.txt\">点击下载:【江西志浩智能仓储对接API接口协议V0.1.2.docx】</a></div><br />
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西志浩智能仓储/ZH综合库项目实施方案V1.0.pdf"download=\"文件名.txt\">点击下载:【ZH综合库项目实施方案V1.0.pdf】</a></div><br />
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西志浩智能仓储/测试库实施方案-v1.0(1).pdf"download=\"文件名.txt\">点击下载:【测试库实施方案-v1.0(1).pdf】</a></div><br />
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西志浩智能仓储/冷冻库项目实施方案20200227 V1.0.pdf"download=\"文件名.txt\">点击下载:【冷冻库项目实施方案20200227 V1.0.pdf】</a></div><br />
+</p>
+
 <p>
 收料-&gt;IQC-&gt;入库<br />
 发料-&gt;调拨-&gt;盘点<br />
@@ -712,7 +732,7 @@ location：左边上板机还是右边上板机
 </p>
 
 
-<h2 id="toc_14.1">收货 </h2>
+<h2 id="toc_14.3">收货 </h2>
 <p>
 收货：为了收货后，货物进入仓库，正常情况是直接扫码，进行入库处理。<br />
 故，供应商出货的时候需要调用下我们公司的接口，返回这个货需要的二维码，供应商打印到出货单上。<br />
@@ -756,7 +776,7 @@ location：左边上板机还是右边上板机
 
 
 
-<h2 id="toc_14.2">仓库档案 </h2>
+<h2 id="toc_14.4">仓库档案 </h2>
 
 <table>
 <tr>
@@ -948,20 +968,24 @@ pp仓
 </table>
 
 
-<h2 id="toc_14.3">IQC(Incoming Quality Control) 来料质量控制 </h2>
+<h2 id="toc_14.5">IQC(Incoming Quality Control) 来料质量控制 </h2>
 <p>
 IQC检验报告。<br />
 IQC通过在库打条码。<br />
 </p>
 
-<h2 id="toc_14.4">包装入库 </h2>
+<h2 id="toc_14.6">包装入库 </h2>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/包装打印条码操作文档.doc"download=\"文件名.txt\">点击下载:【包装打印条码操作文档.doc】</a></div><br />
 每块板包装之前都要有二维码。<br />
 大包装绑定小包装，小包装绑定里面的每块板。<br />
 </p>
 
-<h2 id="toc_14.5">出库 </h2>
+<p>
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/五株科技MES项目生产包装培训v2.pptx"download=\"文件名.txt\">点击下载:【五株科技MES项目生产包装培训v2.pptx】</a></div><br />
+</p>
+
+<h2 id="toc_14.7">出库 </h2>
 <p>
 备料<br />
 </p>
@@ -984,7 +1008,7 @@ IQC通过在库打条码。<br />
 WMS&lt;=&gt;WCS&lt;=&gt;MES<br />
 </p>
 
-<h2 id="toc_14.6">WCS系统 </h2>
+<h2 id="toc_14.8">WCS系统 </h2>
 <ol>
 <li>
 原物料仓
@@ -2082,6 +2106,7 @@ WIP，趋势图，库存，<br />
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/江西PCB三化一稳定严进严出基线V2.0(IT).xlsx "download=\"文件名.txt\">点击下载:【江西PCB三化一稳定严进严出基线V2.0(IT).xlsx 】</a></div><br />
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/华为三化一稳备注.xlsx"download=\"文件名.txt\">点击下载:【华为三化一稳备注.xlsx】</a></div><br />
+<div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/副本供应商三化一稳定严进严出评估报告模板.xlsx"download=\"文件名.txt\">点击下载:【副本供应商三化一稳定严进严出评估报告模板.xlsx】</a></div><br />
 </p>
 
 <h2 id="toc_28.2">华为要求 </h2>

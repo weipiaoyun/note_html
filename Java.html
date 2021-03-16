@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>Java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">Spring Inversion Of control </a>
+<li class="menu1"><a href="#toc_2">maven </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">A JNI error has occurred . Please check your installation </a>
+<li class="menu2"><a href="#toc_2.2">IntelliJ 查看版本 </a>
+<li class="menu2"><a href="#toc_2.3">添加JAVA_HOME环境变量 </a>
+</ul>
+<li class="menu1"><a href="#toc_3">annotation </a>
+<ul>
+<li class="menu2"><a href="#toc_3.1">java annotation purposes </a>
+<ul>
+<li class="menu3"><a href="#toc_3.1.1">Build-time instructions </a>
+</ul>
+<li class="menu2"><a href="#toc_3.2">Built-in Java annotations </a>
+</ul>
+</ul>
+</div>
+<div class="content">
+
+<p>
+JDK<br />
+JVM、JRE <br />
+JAVASE<br />
+javaEE<br />
+javaME<br />
+</p>
+
+<h1 id="toc_1">Spring Inversion Of control </h1><HR SIZE=1>
+<p>
+createing object for us<br />
+managing our object<br />
+helping our application to be configurable<br />
+</p>
+
+
+
+
+<p>
+<a href="springCloud.html">springCloud</a>
+</p>
+
+
+<h1 id="toc_2">maven </h1><HR SIZE=1>
+<ol>
+<li>
+mvnw spring-boot:run
+
+</ol>
+
+<p>
+<a href="maven.html">maven</a>
+</p>
+
+
+<p>
+<a href="javaAnnotation.html">javaAnnotation</a>
+</p>
+ 
+<h2 id="toc_2.1">A JNI error has occurred . Please check your installation </h2>
+<p>
+java和javac的版本不一样。<br />
+更换jdk的版本<br />
+</p>
+
+<h2 id="toc_2.2">IntelliJ 查看版本 </h2>
+<p>
+Select "File" -&gt; "Project Structure". Under "Project Settings" select "Project" From there you can select the "Project SDK".<br />
+</p>
+
+<h2 id="toc_2.3">添加JAVA_HOME环境变量 </h2>
+<p>
+系统变量---&gt;新建JAVA_HOME ---&gt; 值为C:\Program Files\Java\jdk1.6.0_23<br />
+</p>
+
+
+<ol>
+<li>
+mvnw clean package
+
+<li>
+java -jar target/gs-rest-service-0.1.0.jar
+
+</ol>
+
+
+<h1 id="toc_3">annotation </h1><HR SIZE=1>
+<p>
+Code Generation<br />
+</p>
+<ol>
+<li>
+to no repeat the same tasks again and again
+
+<li>
+
+
+</ol>
+
+
+
+<ol>
+<li>
+java annotation do not directly affect the execution of your code.although some types of annotations can actually be used for that purpose.
+
+</ol>
+
+<h2 id="toc_3.1">java annotation purposes </h2>
+<ol>
+<li>
+Compiler instructions
+
+<li>
+Build-time instructions
+
+<li>
+Runtime instructions
+
+</ol>
+
+
+<h3 id="toc_3.1.1">Build-time instructions </h3>
+<ol>
+<li>
+generating source code
+
+<li>
+compiling the source
+
+<li>
+generating XMF files(deployment descriptors)
+
+<li>
+packaging the compiled code and files into a JAR file
+
+</ol>
+
+<p>
+Building the software is typically done by an automatic build tool like Apache Ant or Apache Maven.<br />
+Build tools may scan your Java code for specific annotations and generate source code or other files based on these annotations.<br />
+</p>
+
+<p>
+Normally, java annotations are not present in your code after compilation.<br />
+</p>
+
+<h2 id="toc_3.2">Built-in Java annotations </h2>
+<ol>
+<li>
+@Deprecated.  is used to mark a class, method or field. meaning it should no longer be used.
+
+<li>
+@Override  is used to override a method in a superclass
+
+<li>
+@SuppressWarnings 
+
+</ol>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

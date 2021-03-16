@@ -19,33 +19,34 @@
 <div class="toc">
 <ul>
 <li class="menu1"><a href="#toc_1">常用命令 </a>
+<li class="menu1"><a href="#toc_2">和windows共享 </a>
 <ul>
-<li class="menu2"><a href="#toc_1.1">查找版本号</a>
+<li class="menu2"><a href="#toc_2.1">查找版本号</a>
 </ul>
-<li class="menu1"><a href="#toc_2">设置默认的shell为csh </a>
-<li class="menu1"><a href="#toc_3">linux</a>
+<li class="menu1"><a href="#toc_3">设置默认的shell为csh </a>
+<li class="menu1"><a href="#toc_4">linux</a>
 <ul>
-<li class="menu2"><a href="#toc_3.1">查看linux内核版本</a>
-<li class="menu2"><a href="#toc_3.2">切换模式</a>
-<li class="menu2"><a href="#toc_3.3">锁</a>
-<li class="menu2"><a href="#toc_3.4">批处理命令</a>
-<li class="menu2"><a href="#toc_3.5">查找大于500M的文件</a>
-<li class="menu2"><a href="#toc_3.6">ssh</a>
-<li class="menu2"><a href="#toc_3.7">服务开机启动与禁用</a>
-<li class="menu2"><a href="#toc_3.8">查看linux的发行版本</a>
-<li class="menu2"><a href="#toc_3.9">用户管理</a>
-<li class="menu2"><a href="#toc_3.10">VNC管理</a>
-<li class="menu2"><a href="#toc_3.11">linux远程桌面</a>
-<li class="menu2"><a href="#toc_3.12">远程数据同步工具</a>
-<li class="menu2"><a href="#toc_3.13">防火墙管理</a>
-<li class="menu2"><a href="#toc_3.14">查看物理逻辑空间</a>
-<li class="menu2"><a href="#toc_3.15">查看linux端口号</a>
-<li class="menu2"><a href="#toc_3.16">压缩与解压tgz</a>
-<li class="menu2"><a href="#toc_3.17">查看文件大小的命令</a>
-<li class="menu2"><a href="#toc_3.18">查看磁盘空间</a>
-<li class="menu2"><a href="#toc_3.19">查看文件的最后2行</a>
-<li class="menu2"><a href="#toc_3.20">查看环境变量</a>
-<li class="menu2"><a href="#toc_3.21">编辑linux自动执行</a>
+<li class="menu2"><a href="#toc_4.1">查看linux内核版本</a>
+<li class="menu2"><a href="#toc_4.2">切换模式</a>
+<li class="menu2"><a href="#toc_4.3">锁</a>
+<li class="menu2"><a href="#toc_4.4">批处理命令</a>
+<li class="menu2"><a href="#toc_4.5">查找大于500M的文件</a>
+<li class="menu2"><a href="#toc_4.6">ssh</a>
+<li class="menu2"><a href="#toc_4.7">服务开机启动与禁用</a>
+<li class="menu2"><a href="#toc_4.8">查看linux的发行版本</a>
+<li class="menu2"><a href="#toc_4.9">用户管理</a>
+<li class="menu2"><a href="#toc_4.10">VNC管理</a>
+<li class="menu2"><a href="#toc_4.11">linux远程桌面</a>
+<li class="menu2"><a href="#toc_4.12">远程数据同步工具</a>
+<li class="menu2"><a href="#toc_4.13">防火墙管理</a>
+<li class="menu2"><a href="#toc_4.14">查看物理逻辑空间</a>
+<li class="menu2"><a href="#toc_4.15">查看linux端口号</a>
+<li class="menu2"><a href="#toc_4.16">压缩与解压tgz</a>
+<li class="menu2"><a href="#toc_4.17">查看文件大小的命令</a>
+<li class="menu2"><a href="#toc_4.18">查看磁盘空间</a>
+<li class="menu2"><a href="#toc_4.19">查看文件的最后2行</a>
+<li class="menu2"><a href="#toc_4.20">查看环境变量</a>
+<li class="menu2"><a href="#toc_4.21">编辑linux自动执行</a>
 </ul>
 </ul>
 </div>
@@ -120,6 +121,11 @@ p，不改变原来的属性
 </table>
 
 
+<h1 id="toc_2">和windows共享 </h1><HR SIZE=1>
+<p>
+#yum install lrzsz<br />
+</p>
+
 <p>
 #!/bin/bash<br />
 #通过sed自动删除文件分发垃圾桶里面修改时间超过60天的文件<br />
@@ -167,7 +173,7 @@ find /doc \( -name 'ja*' -o- -name 'ma*' \) –print<br />
 find /doc -name '*bak' -exec rm {} \;<br />
 </p>
 
-<h2 id="toc_1.1">查找版本号</h2>
+<h2 id="toc_2.1">查找版本号</h2>
 <p>
 more /etc/issue<br />
 </p>
@@ -178,7 +184,7 @@ vncserver<br />
 
 
 
-<h1 id="toc_2">设置默认的shell为csh </h1><HR SIZE=1>
+<h1 id="toc_3">设置默认的shell为csh </h1><HR SIZE=1>
 <p>
 which　csh<br />
 chsh -s /bin/csh<br />
@@ -245,7 +251,7 @@ dmesg<br />
 </p>
 
 
-<h1 id="toc_3">linux</h1><HR SIZE=1>
+<h1 id="toc_4">linux</h1><HR SIZE=1>
 <p>
 find -maxdepth 2 -type d -exec mkdir -p /mnt/zh_pesvr_bak/<br />
 </p>
@@ -308,18 +314,18 @@ setsebool httpd_enable_homedirs on<br />
 /usr/sbin/lsof -i :80 | awk '{print $2}' | xargs kill ""<br />
 </p>
 
-<h2 id="toc_3.1">查看linux内核版本</h2>
+<h2 id="toc_4.1">查看linux内核版本</h2>
 <p>
 uname -a 可以查看位数，内核，主机名<br />
 </p>
 
-<h2 id="toc_3.2">切换模式</h2>
+<h2 id="toc_4.2">切换模式</h2>
 <p>
 Alt+Ctrl+(F1-F6)进入命令模式，Alt+Ctrl+F7进入图形界面<br />
 Alt+Ctrl+Backspacd注销linux<br />
 </p>
 
-<h2 id="toc_3.3">锁</h2>
+<h2 id="toc_4.3">锁</h2>
 <p>
 use Fcntl qw(:DEFAULT :flock);<br />
 sub writeLog {<br />
@@ -356,24 +362,24 @@ LOCK_SH:共享锁，读锁。对文件进行了读锁，其它事务可以同时
 在写入文件的时候要使用排它锁，确定写入正确<br />
 </p>
 
-<h2 id="toc_3.4">批处理命令</h2>
+<h2 id="toc_4.4">批处理命令</h2>
 <p>
 批量dos转换unix<br />
 find . -type f -exec dos2unix {} \;<br />
 </p>
 
-<h2 id="toc_3.5">查找大于500M的文件</h2>
+<h2 id="toc_4.5">查找大于500M的文件</h2>
 <p>
 find / -xdev -size +500M -exec ls -l {} \;<br />
 </p>
 
-<h2 id="toc_3.6">ssh</h2>
+<h2 id="toc_4.6">ssh</h2>
 <p>
 ssh 192.168.8.111 -p 1863 -lroot<br />
 -frontlime<br />
 </p>
 
-<h2 id="toc_3.7">服务开机启动与禁用</h2>
+<h2 id="toc_4.7">服务开机启动与禁用</h2>
 <p>
 查看自动状态<br />
 /sbin/chkconfig iptables --list<br />
@@ -395,80 +401,80 @@ chkconfig on 把K改为S。<br />
 只要是/etc/rc.d/init.d有脚本，就可以用/sbin/service执行，可以用/sbin/chkconfig添加rcn.d软链接，可以用/sbin/chkconfig 设置开机启动和关闭<br />
 </p>
 
-<h2 id="toc_3.8">查看linux的发行版本</h2>
+<h2 id="toc_4.8">查看linux的发行版本</h2>
 <p>
 cat /etc/redhat-release<br />
 </p>
 
-<h2 id="toc_3.9">用户管理</h2>
+<h2 id="toc_4.9">用户管理</h2>
 <p>
 system-config-users<br />
 </p>
 
-<h2 id="toc_3.10">VNC管理</h2>
+<h2 id="toc_4.10">VNC管理</h2>
 <p>
 vnc的配置文件<br />
 vim /etc/sysconfig/vncserver<br />
 vim ~/.vnc/xstartup<br />
 </p>
 
-<h2 id="toc_3.11">linux远程桌面</h2>
+<h2 id="toc_4.11">linux远程桌面</h2>
 <p>
 rdesktop -u d018002063 -p hcsystem -a 16 -g 1275x970 192.168.122.2<br />
 </p>
 
-<h2 id="toc_3.12">远程数据同步工具</h2>
+<h2 id="toc_4.12">远程数据同步工具</h2>
 <p>
 rsync<br />
 </p>
 
-<h2 id="toc_3.13">防火墙管理</h2>
+<h2 id="toc_4.13">防火墙管理</h2>
 <p>
 system-config-firewall<br />
 </p>
 
-<h2 id="toc_3.14">查看物理逻辑空间</h2>
+<h2 id="toc_4.14">查看物理逻辑空间</h2>
 <p>
 pvdisplay (physical volume)<br />
 lvdisplay (logical volume)<br />
 </p>
 
-<h2 id="toc_3.15">查看linux端口号</h2>
+<h2 id="toc_4.15">查看linux端口号</h2>
 <p>
 查看ssh的端口号 netstat -panl | grep ssh<br />
 查看端口号被什么占用 lsof -i :1863<br />
 </p>
 
 
-<h2 id="toc_3.16">压缩与解压tgz</h2>
+<h2 id="toc_4.16">压缩与解压tgz</h2>
 <p>
 1，tar  -zcvf  aa.tar.gz <br />
 2, tar  -zxvf aa.tar.gz <br />
 </p>
 
-<h2 id="toc_3.17">查看文件大小的命令</h2>
+<h2 id="toc_4.17">查看文件大小的命令</h2>
 <p>
 Du –sh ./input<br />
 </p>
 
-<h2 id="toc_3.18">查看磁盘空间</h2>
+<h2 id="toc_4.18">查看磁盘空间</h2>
 <p>
 df -h<br />
 fdisk<br />
 cat /proc/patitions<br />
 </p>
 
-<h2 id="toc_3.19">查看文件的最后2行</h2>
+<h2 id="toc_4.19">查看文件的最后2行</h2>
 <p>
 Tail  -2 tmp<br />
 </p>
 
-<h2 id="toc_3.20">查看环境变量</h2>
+<h2 id="toc_4.20">查看环境变量</h2>
 <p>
 setenv    <br />
 </p>
 
-<h2 id="toc_3.21">编辑linux自动执行</h2>
+<h2 id="toc_4.21">编辑linux自动执行</h2>
 <p>
 Crontab –e<br />
 </p>

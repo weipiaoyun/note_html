@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>销售订单更改市场部</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">拆分销售订单 </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">市场部拆分订单逻辑 </a>
+</ul>
+</ul>
+</div>
+<div class="content">
+
+<h1 id="toc_1">拆分销售订单 </h1><HR SIZE=1>
+<h2 id="toc_1.1">市场部拆分订单逻辑 </h2>
+<p>
+1先判断25表销售状态是否为1停止销售，如果停止，就提示当前销售单已暂停销售，升级的本厂编号为【'+sName+'】，是否继续?(判断料品的有效性)<br />
+2.拆单时生成一个新订单号显示在界面，保存后才生效，生成规则为订单号后面-xx，例如-01拆单已经有-02的话就为-03，没有就-02。(新订单号生成规则)<br />
+3.当输入pcs数量的时候要提示pcs不是出货板数set的倍数!是否继续(提示信息,检查PCS数是否交货单元数的整数倍)<br />
+4.拆分数量时设置判断条件。1拆分的订单数量不能为零。2拆分的订单数量不能大于原订单的欠货数(拆分逻辑)<br />
+5.拆单可以拆多条订单，拆的时候填写拆出单的计划交期默认原单计划交期，可修改，客户交期默认原单客户交期，可修改，订单pcs数默认0，可修改，订单set数默认0，可修改<br />
+，修改订单客户交期或计划交期时联动，客户交期比计划交期迟一天<br />
+6.保存时比对数据库是否在打开界面时保存前已经有其他人拆过本订单。有的话提示原订单送货数量,投产数量发生变化不能拆分,请刷新数据，不继续往下执行。<br />
+7.检查原订单数量PCS不能小于已装运数量，否则不继续往下执行。<br />
+8.原订完工单日期内完工数量必须等于原订单数量PCS数减去拆分PCS数量！<br />
+9开启事务开始进行拆分保存。更改原订单数量，并且生成新订单，新订单为有效状态，并且不带入（工具费用，已装运的数量，已退回的数量，已开发票数量，已计划的数量，已投产数量，退货再指派数量）。<br />
+10.如果拆分后原订单数量加上已退回的数量小于等于已装运数量加上退货再指派(退补)数量，则原订单改为已完成. <br />
+11.如果订单未投产，则新订单的未投产数为订单拆出来的pcs数，旧订单的未投产数为旧订单拆分以后的pcs数，如果已投产，标记为已投产，待计划数量为0。<br />
+12.把评审记录赋值给新单。(WZ_SM_SO90 表名 , SOReviewBE 实体,根据LineID查找并复制记录,然后把复制出来记录的lineID更新为拆分出来的新订单行的ID)<br />
+</p>
+
+
+<p>
+1、A单原来有1000，拆分成出B单和C单，分别是A保留200个，新增B单300个，新增C单500个。<br />
+</p>
+
+<p>
+2、 生产订单不进行拆分，生产订单由MES回写，实际上U9上销售订单与生产订单并没有关系<br />
+</p>
+
+<p>
+3、拆分后的数量不能底于已出货量，比如说A订单数量是1000，已出货200个，那么A订单拆分后A订单的数量不能低于200个<br />
+</p>
+
+<p>
+4、拆分后的数量不能超过原来订单数量<br />
+</p>
+
+<p>
+5、已转产数量&lt;订单数量时，只允许拆分未转产数量(并需要投产)：在拆分时，检查生产订单的来源销售订单+行号，在上例中，。如果A订单1000个  已转产600个那么,拆分出来的新订单只能是小于1000-600=400个。<br />
+</p>
+
+<p>
+如果A订单1000个  已转产600个那么,拆分出来的新订单只能是小于1000-600=400个.<br />
+</p>
+
+<p>
+注：生产订单是由MES写过去，并不是由销售订单转过去的，所以在销售订单并没有已转数量记录。在MES写入到生产订单上时会写入生产订单的来源单号+行号<br />
+</p>
+
+<p>
+6、不存在拆行的情况，一定是拆单<br />
+</p>
+
+<p>
+回复交期：由拆分时录入的数据<br />
+计划交期：由拆分时录入的数据<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>
