@@ -22,6 +22,13 @@
 <ul>
 <li class="menu2"><a href="#toc_1.1">windows </a>
 <li class="menu2"><a href="#toc_1.2">linux </a>
+<ul>
+<li class="menu3"><a href="#toc_1.2.1">新装mysql </a>
+<ul>
+<li class="menu4"><a href="#toc_1.2.1.1">设置mysql的数据库文件路径 </a>
+</ul>
+<li class="menu3"><a href="#toc_1.2.2">you need the SUPER privilege for this operation </a>
+</ul>
 <li class="menu2"><a href="#toc_1.3">安装后问题 </a>
 <ul>
 <li class="menu3"><a href="#toc_1.3.1">登录 </a>
@@ -90,6 +97,107 @@ systemctl start mysqld.service
 如果卡住，删除/var/mysql文件夹重新安装<br />
 </p>
 
+
+<h3 id="toc_1.2.1">新装mysql </h3>
+<ol>
+<li>
+service mysqld stop
+
+</ol>
+<p>
+然后:<br />
+</p>
+<ol>
+<li>
+mysqld_safe --skip-grant-tables
+
+</ol>
+<p>
+启动mysql:<br />
+</p>
+<ol>
+<li>
+service mysqld start
+
+</ol>
+<p>
+mysql -u root<br />
+mysql&gt; use mysql<br />
+mysql&gt; UPDATE user SET Password=PASSWORD('xxx') WHERE user='root';<br />
+mysql&gt; flush privileges;<br />
+</p>
+
+
+
+<p>
+update user set host = '%' where user ='root';<br />
+flush privileges;<br />
+</p>
+
+<h4 id="toc_1.2.1.1">设置mysql的数据库文件路径 </h4>
+<ul>
+<li>
+查看原来的路径
+
+</ul>
+<p>
+mysql&gt; show variables like '%dir%'<br />
+</p>
+
+<p>
+更改路径<br />
+cp -r /usr/var/mysql /space/ImportantDataBackup/mysqlDataDir/mysql<br />
+</p>
+
+<ul>
+<li>
+vi /etc/my.cnf
+
+<li>
+datadir=/space/ImportantDataBackup/mysqlDataDir/mysql
+
+<li>
+innodb_data_home_dir=/space/ImportantDataBackup/mysqlDataDir/mysql
+
+<li>
+innodb_log_group_home_dir=/space/ImportantDataBackup/mysqlDataDir/mysql
+
+<li>
+
+
+</ul>
+
+
+<h3 id="toc_1.2.2">you need the SUPER privilege for this operation </h3>
+<ul>
+<li>
+需要超级权限才能访问
+
+</ul>
+<p>
+you need the SUPER privilege for this operation<br />
+</p>
+
+<ol>
+<li>
+service mysqld stop
+
+<li>
+mysqld_safe skip-grant-tables
+
+<li>
+mysql -u root
+
+<li>
+USE mysql ;
+
+<li>
+UPDATE user SET Password = password ( 'anylinux' ) WHERE User = 'root' ;
+
+<li>
+flush privileges ;
+
+</ol>
 
 <h2 id="toc_1.3">安装后问题 </h2>
 <h3 id="toc_1.3.1">登录 </h3>

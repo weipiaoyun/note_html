@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>gogs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">安装 </a>
+<li class="menu1"><a href="#toc_2">this user requires old password authentication. </a>
+</ul>
+</div>
+<div class="content">
+
+<h1 id="toc_1">安装 </h1><HR SIZE=1>
+<ol>
+<li>
+yum -y install git
+
+<li>
+yum -y install mysql mysql-server
+
+<li>
+service mysqld start
+
+<li>
+配置mysql
+
+<li>
+mysql&gt;create user 'gogs'@'localhost' identified by '123456';
+
+<li>
+adduser git   //创建一个用户
+
+<li>
+su git        //切换到git用户
+
+<li>
+cd /home/git
+
+<li>
+wget <a href="https://dl.gogs.io/0.11.29/linux_amd64.tar.gz">https://dl.gogs.io/0.11.29/linux_amd64.tar.gz</a>    //下载Gogs二进制安装包
+
+<li>
+tar -zxvf linux_amd64.tar.gz //解压安装包
+
+<li>
+
+
+</ol>
+
+<p>
+cd /home/git/gogs/scripts/       //切换目录到gogs脚本文件夹<br />
+mysql -u root -p &lt; mysql.sql     //使用mysql.sql创建gogs数据库，这里会要求输入密码。<br />
+//假如执行这条命令会报错【ERROR 1115 (42000) at line 2: Unknown character set: 'utf8mb4'】的话继续执行下面这个可选操作,在重新执行上面的命令。<br />
+vim mysql.sql                    //修改mysql.sql<br />
+/*************** 原文 ***************/<br />
+DROP DATABASE IF EXISTS gogs;<br />
+CREATE DATABASE IF NOT EXISTS gogs CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;<br />
+/*************** 修改为 *************/<br />
+DROP DATABASE IF EXISTS gogs;<br />
+CREATE DATABASE IF NOT EXISTS gogs CHARACTER SET utf8 COLLATE utf8_general_ci;<br />
+/*************** 结束 ***************/<br />
+</p>
+
+<p>
+./home/git/gogs/gogs web    //启动gogs<br />
+</p>
+
+<ol>
+<li>
+<a href="http://你的服务器IP:3000">http://你的服务器IP:3000</a>
+
+<li>
+设置gogs自启动。
+
+</ol>
+
+<h1 id="toc_2">this user requires old password authentication. </h1><HR SIZE=1>
+
+<p>
+<a href="http://code.openark.org/blog/mysql/upgrading-passwords-from-old_passwords-to-new-passwords">http://code.openark.org/blog/mysql/upgrading-passwords-from-old_passwords-to-new-passwords</a>
+</p>
+
+<ol>
+<li>
+注意配置文档/etc/my.conf  [old_passwords=0]
+
+<li>
+
+
+</ol>
+
+
+<p>
+Upgrading passwords from old_passwords to “new passwords”<br />
+</p>
+
+
+<p>
+You have old_passwords=1 in your my.cnf. I’m guessing this is because you used one of the my-small.cnf, my-large.cnf etc. templates provided with your MySQL distribution.<br />
+</p>
+
+<p>
+These files can easily win the “most outdated sample configuration file contest”.<br />
+</p>
+
+<p>
+Usually it’s no big deal: if some parameter isn’t right, you just go and change it. Some variables, though, have a long-lasting effect, and are not easily reversed.<br />
+</p>
+
+<p>
+What’s the deal with old_passwords?<br />
+No one should be using these anymore. This variable makes the password hashing algorithm compatible with that of MySQL 4.0. I’m pretty sure 4.0 was released 9 years ago. I don’t know of anyone still using it (or 4.0 client libraries).<br />
+</p>
+
+<p>
+The deal is this: with old_passwords you get a 16 hexadecimal digits (64 bit) hashing of your passwords. With so called “new passwords” you get 40 hexadecimal digits (plus extra “*“). So this is about better encryption of your password. Read more on the manual.<br />
+</p>
+
+<p>
+How do I upgrade to new password format?<br />
+You can’t just put a comment on the “old_passwords=1” entry in the configuration file. If you do so, the next client to connect will attempt to match a 41 characters hashed password to your existing 16 characters entry in the mysql.users table. So you need to make a simultaneous change: both remove the old_passwords entry and set a new password. You must know all accounts’ passwords before you begin.<br />
+</p>
+
+<p>
+Interestingly, old_passwords is both a global and a session variable. To work out an example, let’s assume the account ‘webuser’@’localhost’ enters with ‘123456’. Take a look at the following:<br />
+</p>
+
+<p>
+root@mysql-5.1.51&gt; SET SESSION old_passwords=0;<br />
+Query OK, 0 rows affected (0.00 sec)<br />
+</p>
+
+<p>
+root@mysql-5.1.51&gt; SELECT PASSWORD('123456');<br />
++-------------------------------------------+<br />
+<table>
+<tr>
+<td>
+PASSWORD('123456')
+</td>
+</tr>
+</table>
++-------------------------------------------+<br />
+<table>
+<tr>
+<td>
+*6BB4837EB74329105EE4568DDA7DC67ED2CA2AD9
+</td>
+</tr>
+</table>
++-------------------------------------------+<br />
+1 row in set (0.00 sec)<br />
+</p>
+
+<p>
+root@mysql-5.1.51&gt; SET SESSION old_passwords=1;<br />
+Query OK, 0 rows affected (0.00 sec)<br />
+</p>
+
+<p>
+root@mysql-5.1.51&gt; SELECT PASSWORD('123456');<br />
++--------------------+<br />
+<table>
+<tr>
+<td>
+PASSWORD('123456')
+</td>
+</tr>
+</table>
++--------------------+<br />
+<table>
+<tr>
+<td>
+565491d704013245
+</td>
+</tr>
+</table>
++--------------------+<br />
+1 row in set (0.00 sec<br />
+So, the PASSWORD() function consults the old_passwords session variable.<br />
+</p>
+
+<p>
+To upgrade ‘webuser’@’localhost’‘s password we do:<br />
+</p>
+
+<p>
+root@mysql-5.1.51&gt; SET SESSION old_passwords=0;<br />
+Query OK, 0 rows affected (0.00 sec)<br />
+</p>
+
+<p>
+root@mysql-5.1.51&gt; SET PASSWORD FOR 'webuser'@'localhost' = PASSWORD('123456')<br />
+Go ahead and see the password entry on the mysql.users table.<br />
+</p>
+
+<p>
+What we’ve just done is to set a 41 characters password hash for that account. Now, the next time the client wishes to connect, it must know in advance it is to expect a new password, otherwise it will encode a 16 characters hash, and try to match it with our new 41 characters hash. It is now time to perform:<br />
+</p>
+
+<p>
+root@mysql-5.1.51&gt; SET GLOBAL old_passwords=0;<br />
+Query OK, 0 rows affected (0.00 sec<br />
+This will apply to all new connections made from that moment on (not affecting any existing connections). So, make sure you have updated passwords for all accounts.<br />
+</p>
+
+<p>
+To wrap it up, don’t forget to set old_passwords=0 in the my.cnf file, or, better yet, completely remove the entry.<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>
