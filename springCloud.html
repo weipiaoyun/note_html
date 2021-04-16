@@ -20,6 +20,10 @@
 <ul>
 <li class="menu1"><a href="#toc_1">clone test </a>
 <li class="menu1"><a href="#toc_2">eureka </a>
+<li class="menu1"><a href="#toc_3">Feign </a>
+<ul>
+<li class="menu2"><a href="#toc_3.1">超时时间设置 </a>
+</ul>
 </ul>
 </div>
 <div class="content">
@@ -43,6 +47,34 @@ File-&gt;Project Structure-&gt;Project Settings-&gt;Modules-&gt;Language level�
 	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;<br />
 	&lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;<br />
 &lt;/dependency&gt;<br />
+</p>
+
+
+<h1 id="toc_3">Feign </h1><HR SIZE=1>
+<ol>
+<li>
+在启动项里面添加@EnableFeignClients
+
+<li>
+在接口里面添加注释@FeignClient(value = "wzkj-file"); value等于nacos里面的服务名称
+
+<li>
+从Spring Cloud Edgware开始，@EnableDiscoveryClient 或@EnableEurekaClient 可省略。只需加上相关依赖，并进行相应配置，即可将微服务注册到服务发现组件上。
+
+<li>
+
+
+</ol>
+
+
+<h2 id="toc_3.1">超时时间设置 </h2>
+<p>
+ribbon:<br />
+  ReadTimeout: 100000<br />
+  ConnectTimeout: 100000<br />
+  MaxAutoRetries: 0<br />
+  MaxAutoRetriesNextServer: 1<br />
+  OkToRetryOnAllOperations: false<br />
 </p>
 
 

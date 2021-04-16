@@ -36,6 +36,10 @@
 </ul>
 <li class="menu1"><a href="#toc_6">好用技巧 </a>
 <li class="menu1"><a href="#toc_7">查错 </a>
+<li class="menu1"><a href="#toc_8">vim脚本 </a>
+<ul>
+<li class="menu2"><a href="#toc_8.1">替换 </a>
+</ul>
 </ul>
 </div>
 <div class="content">
@@ -189,6 +193,14 @@ map &lt;F12&gt; :%s/spam/foo/&lt;enter&gt;:%s/ham/bar/&lt;enter&gt;:%s/eggs/baz/
 <p>
 将/ e标志添加到每个替换命令.它不显示错误消息,并继续,就好像没有出现错误.这将是新的映射：<br />
 map &lt;F12&gt; :%s/spam/foo/e&lt;enter&gt;:%s/ham/bar/e&lt;enter&gt;:%s/eggs/baz/e&lt;enter&gt;<br />
+</p>
+
+
+<h1 id="toc_8">vim脚本 </h1><HR SIZE=1>
+<h2 id="toc_8.1">替换 </h2>
+<p>
+let val = substitute(val, '|', '\\\|', '')<br />
+上面含有|的字符替换成\|。注意第一部分特殊字符匹配的不用\。第二部分替换成的字符特殊符号要加\<br />
 </p>
 
 

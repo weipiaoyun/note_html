@@ -16,18 +16,38 @@
 </head>
 <body>
 
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">校验</a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">奇偶校验 </a>
+</ul>
+</ul>
+</div>
+<div class="content">
 <p>
 <a href="存储器.html">存储器</a>
 <a href="控制矩阵.html">控制矩阵</a>
-<a href="校验.html">校验</a>
 <a href="地址.html">地址</a>
-<a href="各个周期.html">各个周期</a>
 <a href="寻址方式.html">寻址方式</a>
-<a href="定时计数器.html">定时计数器</a>
-<a href="奇偶校验.html">奇偶校验</a>
-<a href="各种器件的使用.html">各种器件的使用</a>
-<a href="总线.html">总线</a>
-<a href="控制器.html">控制器</a>
+</p>
+
+
+<h1 id="toc_1">校验</h1><HR SIZE=1>
+<p>
+奇校验：和为奇数，后面加个0，作为校验<br />
+偶校验：和为偶数，后面加个0.<br />
+</p>
+
+<p>
+循环冗余校验：循环就是循环也是CRC码，冗余就是余数为0.就是看数据有什么规律，接受的时候按规律检查。循环冗余检查。<br />
+</p>
+<h2 id="toc_1.1">奇偶校验 </h2>
+<p>
+对传输的各个位进行相加如果为1则奇，为0则偶与c比较可判断是否正确<br />
+</p>
+
+<p>
 <a href="进程和线程.html">进程和线程</a>
 </p>
 

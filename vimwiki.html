@@ -30,8 +30,12 @@
 <li class="menu2"><a href="#toc_7.2">查找 </a>
 <li class="menu2"><a href="#toc_7.3">修改快捷键 </a>
 <ul>
-<li class="menu3"><a href="#toc_7.3.1">加链接 </a>
-<li class="menu3"><a href="#toc_7.3.2">连接本地图片 </a>
+<li class="menu3"><a href="#toc_7.3.1">修改查找的快捷键 </a>
+<ul>
+<li class="menu4"><a href="#toc_7.3.1.1">全局搜wiki </a>
+</ul>
+<li class="menu3"><a href="#toc_7.3.2">加链接 </a>
+<li class="menu3"><a href="#toc_7.3.3">连接本地图片 </a>
 </ul>
 <li class="menu2"><a href="#toc_7.4">双击取消左边目录添加命令 </a>
 </ul>
@@ -224,6 +228,9 @@ normal模式，ci\可以更改当前单元格。
 <li>
 使用 |:cprevious| 命令显示上一个匹配项。
 
+<li>
+如上都被normal模式下gs命令替换
+
 </ul>
 
 <h2 id="toc_7.3">修改快捷键 </h2>
@@ -238,7 +245,55 @@ normal模式，ci\可以更改当前单元格。
 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/<a href="&lt;C-r&gt;p.html">&lt;C-r&gt;p</a>&lt;CR&gt;<br />
 </p>
 
-<h3 id="toc_7.3.1">加链接 </h3>
+
+<h3 id="toc_7.3.1">修改查找的快捷键 </h3>
+<ul>
+<li>
+在D:\Vim\vim\vimfiles\ftplugin\vimwiki.vim中添加command! -buffer VimwikiSearchDIY call vimwiki#base#search_diy()
+
+<li>
+在D:\Vim\vim\vimfiles\autoload\vimwiki\base.vim中添加如下函数。
+
+</ul>
+<p>
+function! vimwiki#base#search_diy() "{{{<br />
+  "" file system funcs<br />
+  "" Delete wiki link you are in from filesystem<br />
+  let val = input('请输入查找内容：', "")<br />
+  execute 'noautocmd  silent lvimgrep /'.val .'/j *.wiki | lopen'<br />
+endfunction "}}}<br />
+</p>
+<ol>
+<li>
+在D:\Vim\vim\vimfiles\ftplugin\vimwiki.vim 最后面添加 nnoremap gs :VimwikiSearchDIY&lt;CR&gt;
+
+</ol>
+
+<h4 id="toc_7.3.1.1">全局搜wiki </h4>
+<p>
+因为第一次搜索后光标在结果列表，此时无法再用搜索命令，必须切换到wiki界面才能继续使用。<br />
+</p>
+
+<p>
+在vimrc里面添加如下(定义一个方法，添加一个快捷键)：<br />
+function SearchDiy()<br />
+	let val = input('请输入查找内容：', "")<br />
+	if val =~ '\|'<br />
+		let val = substitute(val, '|', '\\\|', '')<br />
+	endif<br />
+</p>
+
+<p>
+	execute 'noautocmd  silent lvimgrep /'.val .'/j d:\Vim\vim\mysite\note\*.wiki | lopen'<br />
+endfunction<br />
+</p>
+
+<p>
+nnoremap gs :call SearchDiy()&lt;CR&gt;<br />
+</p>
+
+
+<h3 id="toc_7.3.2">加链接 </h3>
 <p>
 在d:\Vim\vimfiles\ftplugin\vimwiki.vim里面添加<br />
 </p>
@@ -254,7 +309,7 @@ ctrl加回车加链接  nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;C-CR&gt; 0v$"p
 
 </ol>
 
-<h3 id="toc_7.3.2">连接本地图片 </h3>
+<h3 id="toc_7.3.3">连接本地图片 </h3>
 <p>
 vnoremap &lt;silent&gt;&lt;buffer&gt; &lt;S-CR&gt; "py&lt;S-v&gt;:s/&lt;C-r&gt;p/{{local:images\/&lt;C-r&gt;p}}&lt;CR&gt;<br />
 </p>

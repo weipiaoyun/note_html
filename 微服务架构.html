@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>公司网络</title>
+<title>微服务架构</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,62 +16,45 @@
 </head>
 <body>
 
-<div class="toc">
-<ul>
-<li class="menu1"><a href="#toc_1">跨区域网络 </a>
-</ul>
-</div>
-<div class="content">
-<p>
-我的IP：172.18.1.143<br />
-	172.18.8.39<br />
-</p>
-	
 
 <p>
-DNS服务器：202.96.128.86<br />
+单体应用时代：<br />
 </p>
+<ol>
+<li>
+优点 开发简单，集中管理，没有分布式损耗。
+
+<li>
+缺点，不好维护，升级困难，无法快捷迭代。
+
+</ol>
 
 <p>
-人事管理地址:172.18.8.11<br />
-王葛网址：172.17.1.98<br />
-MI程序地址：172.18.1.42<br />
-软板VNC：172.18.2.239:9<br />
-软板workfile：172.18.2.239<br />
-硬板VNC：172.18.100.9:3<br />
-svn：<a href="svn://172.18.3.113/hc/genesis/">svn://172.18.3.113/hc/genesis/</a> 密码：l987<br />
+分布式服务<br />
+1 一系列服务组装成系统<br />
+2 独立部署，独立运行<br />
+3 独立开发和维护<br />
+4 分布式管理<br />
+5 强调隔离性<br />
 </p>
 
-<p>
-\\172.18.3.113\hc\5.documents\工程电脑\工程电脑登记簿<br />
-</p>
+<ol>
+<li>
+分布式服务是一个用分布式服务拆分逻辑，完成解耦的架构服务。
 
+<li>
+由原来的进程内部之间的调用变成多个进程的服务和服务之间的调用。
+
+<li>
+一个大型单体应用程序拆分成锁哥微服务
+
+<li>
+UI-&gt;逻辑-&gt;gateway(客户端直接访问实例，实例还得暴露出去，所以需要网关保护)-&gt;微服务-&gt;数据库   gateway的作用？
+
+</ol>
 
 <p>
-咨询部备份IP：172.18.8.17<br />
-志浩<br />
-172.17.3.18（192.168.6.253）<br />
-172.17.3.72（192.168.6.1）<br />
-172.17.1.98（192.168.6.254）<br />
-172.17.3.67<br />
-172.17.3.9<br />
-梅双<br />
-172.17.0.66<br />
-软板<br />
-172.18.20.113<br />
-172.18.2.187<br />
-172.18.100.201<br />
-172.18.2.241<br />
-172.18.2.242<br />
-172.18.2.239<br />
-1722.18.100.1<br />
-</p>
-
-<h1 id="toc_1">跨区域网络 </h1><HR SIZE=1>
-<p>
-route add 172.16.0.0 mask 255.255.0.0 172.18.254.1 -p<br />
-route add 172.17.0.0 mask 255.255.0.0 172.18.254.1 -p<br />
-route add 172.19.0.0 mask 255.255.0.0 172.18.0.2 -p<br />
+<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/编程/微服务架构/微服务架构图.jpg" /></div><br />
 </p>
 
 

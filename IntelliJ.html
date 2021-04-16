@@ -19,6 +19,9 @@
 <div class="toc">
 <ul>
 <li class="menu1"><a href="#toc_1">Template </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">console设置自动换行 </a>
+</ul>
 <li class="menu1"><a href="#toc_2">调试 </a>
 <ul>
 <li class="menu2"><a href="#toc_2.1">多服务运行管理 </a>
@@ -26,6 +29,10 @@
 <li class="menu1"><a href="#toc_3">清除索引 </a>
 <li class="menu1"><a href="#toc_4">插件 </a>
 <li class="menu1"><a href="#toc_5">显示使用 </a>
+<li class="menu1"><a href="#toc_6">添加用gvim打开 </a>
+<ul>
+<li class="menu2"><a href="#toc_6.1">为新加的扩展工具添加快捷键 </a>
+</ul>
 </ul>
 </div>
 <div class="content">
@@ -38,7 +45,6 @@ Go to class	Ctrl+N<br />
 Go to symbol	Ctrl+Alt+Shift+N<br />
 Go to declaration	Ctrl+B<br />
 </p>
-
 
 <p>
 Ctrl+J 提示代码补全<br />
@@ -62,7 +68,6 @@ Ctrl+Alt+L	Reformat code<br />
 <p>
 Jump to the next or previous highlighted error.<br />
 </p>
-
 
 
 <p>
@@ -167,6 +172,10 @@ psfs<br />
 public static final int \(VAR1\) = \(VAR2\)<br />
 </p>
 
+<p>
+File<br />
+</p>
+<h2 id="toc_1.1">console设置自动换行 </h2>
 
 <h1 id="toc_2">调试 </h1><HR SIZE=1>
 <h2 id="toc_2.1">多服务运行管理 </h2>
@@ -214,6 +223,20 @@ File-&gt;Settings<br />
 	Build, Execution，Deployment<br />
 		Compiler<br />
 			勾上Build project automatically 和Compile independent modules in parallel<br />
+</p>
+		
+	
+		
+
+<h1 id="toc_6">添加用gvim打开 </h1><HR SIZE=1>
+<p>
+File-&gt;Settings-&gt;Tools-&gt;External Tools-&gt;添加<br />
+参数为(复制过去，注意美元符号) +\(LineNumber\) \(FilePath\)<br />
+</p>
+
+<h2 id="toc_6.1">为新加的扩展工具添加快捷键 </h2>
+<p>
+File-&gt;Settings-&gt;Keymap-&gt;搜索Gvim-&gt;右击Add keyboard shortcut<br />
 </p>
 
 
