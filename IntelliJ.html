@@ -18,24 +18,73 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Template </a>
+<li class="menu1"><a href="#toc_1">Git </a>
+<li class="menu1"><a href="#toc_2">Template </a>
 <ul>
-<li class="menu2"><a href="#toc_1.1">console设置自动换行 </a>
+<li class="menu2"><a href="#toc_2.1">console设置自动换行 </a>
 </ul>
-<li class="menu1"><a href="#toc_2">调试 </a>
+<li class="menu1"><a href="#toc_3">调试 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">多服务运行管理 </a>
+<li class="menu2"><a href="#toc_3.1">多服务运行管理 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">清除索引 </a>
-<li class="menu1"><a href="#toc_4">插件 </a>
-<li class="menu1"><a href="#toc_5">显示使用 </a>
-<li class="menu1"><a href="#toc_6">添加用gvim打开 </a>
+<li class="menu1"><a href="#toc_4">清除索引 </a>
+<li class="menu1"><a href="#toc_5">插件 </a>
 <ul>
-<li class="menu2"><a href="#toc_6.1">为新加的扩展工具添加快捷键 </a>
+<li class="menu2"><a href="#toc_5.1">MyBatisLog无法打印的原因 </a>
 </ul>
+<li class="menu1"><a href="#toc_6">初始设置 </a>
+<ul>
+<li class="menu2"><a href="#toc_6.1">显示使用 </a>
+</ul>
+<li class="menu1"><a href="#toc_7">keymap </a>
+<li class="menu1"><a href="#toc_8">添加用gvim打开 </a>
+<ul>
+<li class="menu2"><a href="#toc_8.1">为新加的扩展工具添加快捷键 </a>
+</ul>
+<li class="menu1"><a href="#toc_9">设置detection，检测 </a>
+<li class="menu1"><a href="#toc_10">软件显示名字问题 </a>
+<ul>
+<li class="menu2"><a href="#toc_10.1">module里面有两个名字。 </a>
+</ul>
+<li class="menu1"><a href="#toc_11">intellij 的配置文档路径 </a>
 </ul>
 </div>
 <div class="content">
+<p>
+&lt;leader&gt;cp<br />
+</p>
+
+<p>
+Press Ctrl+Shift+E to get a list of recently viewed or changed code fragments.<br />
+</p>
+
+<p>
+You can invoke the Quick Definition Viewer Alt+F12 for items in code completion lists and the class, file, or symbol navigation commands.<br />
+</p>
+
+
+<p>
+To split changes made to the same file between different commits, in the Commit tool window Alt+0 in default keymap click Diff. Select the checkbox next to each chunk of modified or new code that you want to commit and click Commit. Unselected changes will stay in the current changelist.<br />
+</p>
+
+
+<p>
+Using options in Settings/Preferences | Editor | Reader Mode settings you can configure how to display code and comments in read-only files and libraries to make them easier to read and understand.<br />
+You can enable inlay hints, font ligatures, adjust line height, toggle rendered view of comments, and so on.<br />
+</p>
+
+
+<p>
+Alt+arrow (left right)<br />
+</p>
+
+<p>
+Ctrl+Shift+F<br />
+&lt;leader&gt; ff<br />
+&lt;leader&gt; fip<br />
+g; remapped to JumpToLastChange action.<br />
+g, remapped to JumpToNextChange.<br />
+</p>
 
 <p>
 Action	Shortcut<br />
@@ -88,10 +137,6 @@ Ctrl-D<br />
 </p>
 
 
-<p>
-g; remapped to JumpToLastChange action.<br />
-g, remapped to JumpToNextChange.<br />
-</p>
 
 
 
@@ -122,7 +167,13 @@ Ctrl+Shift+Backspace for Last Edit Location.<br />
  Alt+Enter 错<br />
 </p>
  
-<h1 id="toc_1" class="justcenter">Template </h1><HR SIZE=1>
+<h1 id="toc_1" class="justcenter">Git </h1><HR SIZE=1>
+<p>
+ rollback 回滚=git checkout .  更改了文件，没有commit之前。可以返回到和更改前，和服务器相同。<br />
+</p>
+ 
+ 
+<h1 id="toc_2" class="justcenter">Template </h1><HR SIZE=1>
 <p>
  File-&gt;Settings-&gt;Editor-&gt;Code Style-&gt;LiveTemplates<br />
  File-&gt;Settings-&gt;Editor-&gt;General-&gt;Postfix Completion<br />
@@ -175,37 +226,57 @@ public static final int \(VAR1\) = \(VAR2\)<br />
 <p>
 File<br />
 </p>
-<h2 id="toc_1.1">console设置自动换行 </h2>
+<h2 id="toc_2.1">console设置自动换行 </h2>
 
-<h1 id="toc_2">调试 </h1><HR SIZE=1>
-<h2 id="toc_2.1">多服务运行管理 </h2>
+<h1 id="toc_3">调试 </h1><HR SIZE=1>
+<h2 id="toc_3.1">多服务运行管理 </h2>
 <p>
  1. View -&gt; Tool Window -&gt; Services; 2. + -&gt; Run Configeration Type -&gt; Spring Boot<br />
 </p>
 
-<h1 id="toc_3">清除索引 </h1><HR SIZE=1>
+<h1 id="toc_4">清除索引 </h1><HR SIZE=1>
 <p>
 File-&gt;Invalidate Caches/Restart<br />
 </p>
 
-<h1 id="toc_4">插件 </h1><HR SIZE=1>
+<h1 id="toc_5">插件 </h1><HR SIZE=1>
 <p>
-GsonFormat<br />
+GsonFormat：将JSONObject格式的String 解析成实体。<br />
+Free MyBatis plugin：<br />
+JRebel and XRebel： 热部署<br />
+RestfulTool：接口<br />
+GitToolBox<br />
+MyBatisLog: 访问数据库打印日志<br />
 </p>
 
 
-
- 
-<h1 id="toc_5" class="justcenter">显示使用 </h1><HR SIZE=1>
+<h2 id="toc_5.1">MyBatisLog无法打印的原因 </h2>
 <p>
-File-&gt;Settings-&gt;Editor-&gt;Inlay Hints-&gt;Java-&gt;Code vision-&gt;Show hints for Usages <br />
+在项目的application.yml里面添加如下：<br />
+mybatis:<br />
 </p>
+<blockquote>
+basepackage: com.github.wxiaoqi.security.admin.modules.mapper
+xmlLocation: classpath:mapper/*<strong>/</strong>.xml
+mapper-locations: "classpath*:mapper/*.xml"
+configuration:
+log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+</blockquote>
 
+<p>
+然后重启项目<br />
+</p>
 
 <p>
 <a href="actionlist.html">actionlist</a>
 </p>
 
+
+<h1 id="toc_6">初始设置 </h1><HR SIZE=1>
+<h2 id="toc_6.1">显示使用 </h2>
+<p>
+File-&gt;Settings-&gt;Editor-&gt;Inlay Hints-&gt;Java-&gt;Code vision-&gt;Show hints for Usages <br />
+</p>
 
 <p>
 File-&gt;Settings<br />
@@ -226,17 +297,42 @@ File-&gt;Settings<br />
 </p>
 		
 	
+<h1 id="toc_7">keymap </h1><HR SIZE=1>
+<p>
+关闭当前编辑窗口: Main Menu-&gt;Editor Tabs-&gt;Close<br />
+</p>
+
 		
 
-<h1 id="toc_6">添加用gvim打开 </h1><HR SIZE=1>
+<h1 id="toc_8">添加用gvim打开 </h1><HR SIZE=1>
 <p>
 File-&gt;Settings-&gt;Tools-&gt;External Tools-&gt;添加<br />
 参数为(复制过去，注意美元符号) +\(LineNumber\) \(FilePath\)<br />
 </p>
 
-<h2 id="toc_6.1">为新加的扩展工具添加快捷键 </h2>
+<h2 id="toc_8.1">为新加的扩展工具添加快捷键 </h2>
 <p>
 File-&gt;Settings-&gt;Keymap-&gt;搜索Gvim-&gt;右击Add keyboard shortcut<br />
+</p>
+
+
+<h1 id="toc_9">设置detection，检测 </h1><HR SIZE=1>
+<p>
+Project Structure | Facets | Detection<br />
+</p>
+
+
+<h1 id="toc_10">软件显示名字问题 </h1><HR SIZE=1>
+<h2 id="toc_10.1">module里面有两个名字。 </h2>
+<p>
+因为module的名字和.iml后缀的名字不一样导致的。<br />
+maven下面的名称不一样：修改&lt;name&gt;&lt;/name&gt;<br />
+</p>
+
+
+<h1 id="toc_11">intellij 的配置文档路径 </h1><HR SIZE=1>
+<p>
+C:\Users\Administrator\AppData\Roaming\JetBrains\IntelliJIdea2021.1<br />
 </p>
 
 

@@ -42,6 +42,7 @@
 <ul>
 <li class="menu2"><a href="#toc_6.1">FPC脚本 </a>
 </ul>
+<li class="menu1"><a href="#toc_7">数据库备份 </a>
 </ul>
 </div>
 <div class="content">
@@ -292,6 +293,12 @@ update mysql.user set authentication_string=password('root') where user='root';<
 <h2 id="toc_6.1">FPC脚本 </h2>
 <p>
 HcCam_ChildFlowList<br />
+</p>
+
+
+<h1 id="toc_7">数据库备份 </h1><HR SIZE=1>
+<p>
+mysqldump -h 10.10.9.2 -u root -p  base_data &gt; ~/base_data.sql<br />
 </p>
 
 

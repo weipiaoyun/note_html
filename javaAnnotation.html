@@ -28,6 +28,9 @@
 </div>
 <div class="content">
 
+
+
+
 <h1 id="toc_1">spring annotation </h1><HR SIZE=1>
 
 <p>
@@ -44,7 +47,6 @@ College2 college2 = context.getBean("College2Bean", College2.class);<br />
 System.out.println("created by spring" + college);<br />
 System.out.println("created by spring" + college2);<br />
 </p>
-
 
 <ul>
 <li>
@@ -239,6 +241,23 @@ setter或属性
 &nbsp;
 </td>
 </tr>
+<tr>
+<td>
+@Configuration
+</td>
+<td>
+类上面
+</td>
+<td>
+springboot扫描改注解包含bean方法，生成bean，加到容器
+</td>
+<td>
+@Component
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
 </table>
 
 
@@ -247,7 +266,7 @@ setter或属性
 </p>
 <ol>
 <li>
-目前有三种方式可以注入到Bean。1.xml；2，Component+Component scan；3，Bean 不用Component
+目前有三种方式可以注入到Bean。1.xml；2，Component+Component scan；3，Bean 不用Component(bean类上面需要添加@Configuration，spring可以自动扫描)
 
 <li>
 @Component的注解所生成的Bean名字可以默认，也可以加参数替换Bean名字。默认Bean的名字第一个字母一定是小写。其他和类名相同。

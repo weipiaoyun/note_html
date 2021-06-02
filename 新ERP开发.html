@@ -16,7 +16,74 @@
 </head>
 <body>
 
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">前端 </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">wzui项目 </a>
+<li class="menu2"><a href="#toc_1.2">超时 </a>
+</ul>
+<li class="menu1"><a href="#toc_2">后端 </a>
+<ul>
+<li class="menu3"><a href="#toc_2.0.1">企业 </a>
+</ul>
+<li class="menu2"><a href="#toc_2.1">接口 </a>
+</ul>
+<li class="menu1"><a href="#toc_3">自动发送邮件配置 </a>
+<li class="menu1"><a href="#toc_4">服务器 </a>
+<li class="menu1"><a href="#toc_5">文件管理 </a>
+<li class="menu1"><a href="#toc_6">数据库 </a>
+<ul>
+<li class="menu2"><a href="#toc_6.1">表 </a>
+<ul>
+<li class="menu3"><a href="#toc_6.1.1">获取租户ID </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_7">问题 </a>
+<ul>
+<li class="menu2"><a href="#toc_7.1">swag </a>
+<ul>
+<li class="menu3"><a href="#toc_7.1.1">无法找到api </a>
+</ul>
+</ul>
+</ul>
+</div>
+<div class="content">
 
+<h1 id="toc_1">前端 </h1><HR SIZE=1>
+<ol>
+<li>
+打开终端，npm i 安装
+
+<li>
+cd 切换到packages\wz-translate下面 npm i，如果报错删除node_modules。然后重新npm i
+
+<li>
+复制一个.env.development 名字为.env.lw.local。更改代理地址
+
+<li>
+npx vue-cli-service serve --mode lw
+
+</ol>
+
+
+
+<h2 id="toc_1.1">wzui项目 </h2>
+<p>
+cd wzui/<br />
+npm i<br />
+npm run lib<br />
+</p>
+
+
+<h2 id="toc_1.2">超时 </h2>
+<p>
+E:\wz-erp-web-pro\wz-erp-web-pro\packages\wz-lib\lib\request<br />
+</p>
+
+
+
+<h1 id="toc_2">后端 </h1><HR SIZE=1>
 <ol>
 <li>
 建模，数据库字段的确认
@@ -34,6 +101,170 @@
 写业务逻辑
 
 </ol>
+
+<p>
+判断为null等<br />
+E:\wzkj\wzkj_hr\src\main\java\com\wzkj\hr\dto\request<br />
+</p>
+
+<p>
+建议增删除改查等基础接口按照下面，或者大家定义的名称来写，<br />
+前端对接会比较方便，减少不必要的沟通成本：<br />
+</p>
+<ol>
+<li>
+/add   增加 |  method post
+
+<li>
+/batch-add   批量增加 | method post
+
+<li>
+/remove   删除 | method delete
+
+<li>
+/batch-remove   批量删除 | method delete
+
+<li>
+/update   修改 | method put
+
+<li>
+/batch-update   批量修改 | method put
+
+<li>
+/list   分页查询 | method get
+
+<li>
+/init   初始化基础数据，如获取某下拉项目数据 | method get
+
+<li>
+/export   导出数据 | method get
+
+<li>
+/import   导入数据 | method put
+
+<li>
+/template-download    导入数据时候的模板下载 | method get
+
+<li>
+/remove/{id} 
+
+<li>
+/remove/{id}  | /batch-remove/{ids}  ps:ids为逗号隔开的id ;  
+
+<li>
+/detail/{id}  详情
+
+<li>
+
+
+</ol>
+
+
+<h3 id="toc_2.0.1">企业 </h3>
+<p>
+/rpc/registerInvitation 同步租户信息<br />
+/registerTenantAdmin 注册企业及管理员<br />
+</p>
+
+
+<p>
+<a href="http://localhost:8684/api/user/captcha/registerAdmin_84st6YTA">http://localhost:8684/api/user/captcha/registerAdmin_84st6YTA</a>  获取验证码
+</p>
+
+
+<h2 id="toc_2.1">接口 </h2>
+<p>
+/enterpriseUser/saveOrUpdate 保存和更新用户<br />
+</p>
+
+
+<p>
+public FrontUserV2 getUserInfoV2() { 登录是获取用户信息<br />
+</p>
+
+
+<p>
+://localhost:8683/api/admin/api/user/captcha/68f4bd22-5dab-4066-bb71-8dbfc2e05e34<br />
+</p>
+
+<p>
+/api/admin/api<br />
+</p>
+
+<p>
+/test2/api/user/jwt/  getToken<br />
+/api/admin/jwt/ getToken<br />
+/user/captcha/{requestCode} 修改密码获取验证码<br />
+</p>
+
+
+<h1 id="toc_3">自动发送邮件配置 </h1><HR SIZE=1>
+<p>
+wzkj-message : resources application-dev.yml<br />
+</p>
+
+
+<h1 id="toc_4">服务器 </h1><HR SIZE=1>
+<p>
+Jenkins <br />
+</p>
+
+<p>
+nohup java -jar wzkj-gateway-1.0.0-SNAPSHOT.jar &gt;./gateway_nohup.log 2&gt;&amp;1&amp;<br />
+nohup java -jar wzkj-admin-1.0.0-SNAPSHOT.jar &gt;./admin_nohup.log 2&gt;&amp;1&amp;<br />
+</p>
+
+<p>
+sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.5.7 --server <a href="https://10.10.7.10">https://10.10.7.10</a> --token ngzpcrbtv7b9rvn6cgwsdsmqwpqcgvwgz9g9pv5nsmx5mx4kbhnvmm --ca-checksum 912c3d31c22fd698a68ecaa39d3f9a643c1d8f5df6fe82d52f2537fdda19bd60 --worker
+</p>
+
+<p>
+export NFSPATH =/nfs<br />
+</p>
+
+<p>
+yum install -y nfs-common nfs-utils &amp;&amp; yum install -y<br />
+</p>
+
+<p>
+docker images<br />
+docker ps<br />
+sudo docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --name portainer portainer/portainer<br />
+docker stop \((docker ps -q) &amp;&amp; docker rm -f \)(docker ps -aq)<br />
+</p>
+
+<p>
+docker ps -a<br />
+docker run -d --restart=always --name=sentinel -p 8858:8858 -p 8719:8719 bladex/sentinel-dashboard:latest<br />
+docker run -d --restart=always --name=zipkin   -p 9410:9410 -p 9411:9411 openzipkin/zipkin:latest<br />
+docker run -d --restart=always --name=nacos    -p 8848:8848 --env MODE=standalone  nacos/nacos-server:1.4.1<br />
+sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.5.7 --server <a href="https://10.10.7.10">https://10.10.7.10</a> --token s42wnwwf4r58tphhsshkkfvc667jkg7z7c8mbbm8fvgr7r47gqbbg8 --ca-checksum 912c3d31c22fd698a68ecaa39d3f9a643c1d8f5df6fe82d52f2537fdda19bd60 --etcd --controlplane --worker
+export NGINX_HOME_PROXY=/data/nginx-web<br />
+mkdir -p $NGINX_HOME_WEB/{conf,html,logs}<br />
+</p>
+
+
+<h1 id="toc_5">文件管理 </h1><HR SIZE=1>
+<p>
+attachmentName 如果有传，则按这个名字作为名字<br />
+</p>
+
+
+<h1 id="toc_6">数据库 </h1><HR SIZE=1>
+<h2 id="toc_6.1">表 </h2>
+<h3 id="toc_6.1.1">获取租户ID </h3>
+<p>
+cloud_admin_v2 ：system_param_config<br />
+</p>
+
+
+
+<h1 id="toc_7">问题 </h1><HR SIZE=1>
+<h2 id="toc_7.1">swag </h2>
+<h3 id="toc_7.1.1">无法找到api </h3>
+<p>
+检查application.yml的swagger配置，base-package的值是不是当前项目的值。<br />
+</p>
 
 
 <div class="foot">

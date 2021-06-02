@@ -20,6 +20,41 @@
 <ul>
 <li class="menu1"><a href="#toc_1">windows下载地址 </a>
 <li class="menu1"><a href="#toc_2">win10激活 </a>
+<li class="menu1"><a href="#toc_3">快捷键 </a>
+<ul>
+<li class="menu2"><a href="#toc_3.1">添加快捷方式 </a>
+<ul>
+<li class="menu3"><a href="#toc_3.1.1">添加右键 </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_4">还原系统 </a>
+<ul>
+<li class="menu2"><a href="#toc_4.1">win10还原 </a>
+</ul>
+<li class="menu1"><a href="#toc_5">genesis共享 </a>
+<li class="menu1"><a href="#toc_6">问题解决 </a>
+<ul>
+<li class="menu2"><a href="#toc_6.1">多个显示器问题 </a>
+<ul>
+<li class="menu3"><a href="#toc_6.1.1">扩展屏幕分辨率低 </a>
+</ul>
+<li class="menu2"><a href="#toc_6.2">win10 </a>
+<ul>
+<li class="menu3"><a href="#toc_6.2.1">win10安装dotnetFrameWork3.5 </a>
+</ul>
+<li class="menu2"><a href="#toc_6.3">win7 </a>
+<ul>
+<li class="menu3"><a href="#toc_6.3.1">电脑桌面的图标删除以后必须手动刷新才看不到已经删除的图标，这是怎么回事啊？</a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_7">服务 </a>
+<ul>
+<li class="menu2"><a href="#toc_7.1">安装服务 </a>
+<li class="menu2"><a href="#toc_7.2">卸载服务 </a>
+</ul>
+<li class="menu1"><a href="#toc_8">休眠开启命令 </a>
+<li class="menu1"><a href="#toc_9">清理C盘 </a>
+<li class="menu1"><a href="#toc_10">限制了远程数量 </a>
 </ul>
 </div>
 <div class="content">
@@ -32,6 +67,175 @@
 <p>
 暴风激活工具<br />
 </p>
+
+
+<p>
+VPS<br />
+</p>
+
+<p>
+<a href="windows server.html">windows server</a>
+</p>
+
+<h1 id="toc_3">快捷键 </h1><HR SIZE=1>
+<p>
+win+space  空白<br />
+win+D	最小化<br />
+win+E  资源管理器<br />
+win++ 放大<br />
+win+L锁定计算机<br />
+c+D删除<br />
+s+D直接删除<br />
+alt+enter 属性<br />
+ctrl+shift+esc打开任务管理器<br />
+ctrl+W关闭窗口<br />
+ctrl+shilf+N新建文件夹<br />
+Shift+ 鼠标右键 – 增强版右键发送到<br />
+Shift + 右键 – 在当前文件夹用命令行打开。<br />
+在任务栏中快速切换程序<br />
+所谓分区，就是形成地址映射。分为多少块。<br />
+</p>
+
+<h2 id="toc_3.1">添加快捷方式 </h2>
+<h3 id="toc_3.1.1">添加右键 </h3>
+<ol>
+<li>
+HKEY_LOCAL_MACHINE-&gt;SOFTWARE-&gt;CLASSES-&gt;shell-&gt;新建项vim-&gt;新建项command-&gt;修改值
+
+<li>
+修改注册表
+
+</ol>
+<p>
+Windows Registry Editor Version 5.00<br />
+</p>
+
+<p>
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\vim\command]<br />
+@="D:\\vim\\gvim.bat \"%1\""<br />
+</p>
+
+<p>
+[HKEY_CLASSES_ROOT\*\shell\Gvim\command]<br />
+@="D:\\Vim\\vim\\gvimEdit.exe %1"<br />
+</p>
+
+<h1 id="toc_4">还原系统 </h1><HR SIZE=1>
+<h2 id="toc_4.1">win10还原 </h2>
+<p>
+在c:/tmp建立文件夹。genesis使用<br />
+</p>
+
+<h1 id="toc_5">genesis共享 </h1><HR SIZE=1>
+<p>
+<a href="计算机共享.html">计算机共享</a>
+</p>
+
+<h1 id="toc_6">问题解决 </h1><HR SIZE=1>
+
+<h2 id="toc_6.1">多个显示器问题 </h2>
+<h3 id="toc_6.1.1">扩展屏幕分辨率低 </h3>
+<p>
+右键-&gt;显示设置-&gt;高级显示设置-&gt;先选择显示器【显示2】-&gt;显示2的显示设配器属性-&gt;监视器-&gt;屏幕刷新频率改打即可。<br />
+</p>
+
+
+<h2 id="toc_6.2">win10 </h2>
+<h3 id="toc_6.2.1">win10安装dotnetFrameWork3.5 </h3>
+<p>
+1、下载 NET Framework 3.5的安装包：链接：<a href="https://pan.baidu.com/s/1snibXpj">https://pan.baidu.com/s/1snibXpj</a>  密码：jbmk
+</p>
+
+<p>
+2、将下载下来的 .cab 放进  C:\Windows 目录下<br />
+</p>
+
+<p>
+3、打开控制面板 -&gt; 程序 -&gt; 启动或关闭Windows功能 -&gt; 关闭其他.NET Framework服务<br />
+</p>
+
+<p>
+4、之后 右击开始 -&gt; 点击命令提示符（管理员）<br />
+</p>
+
+<p>
+5、输入 dism /online /Enable-Feature /all /FeatureName:NetFx3 /Source:"%windir%" /LimitAccess<br />
+dism.exe /online /enable-feature /featurename:NetFX3 /Source:C:Windows<br />
+6、安装成功！<br />
+</p>
+
+<p>
+7、之后再开启其他.NET Framework服务<br />
+</p>
+
+<h2 id="toc_6.3">win7 </h2>
+<h3 id="toc_6.3.1">电脑桌面的图标删除以后必须手动刷新才看不到已经删除的图标，这是怎么回事啊？</h3>
+<p>
+一.这是因为系统的图标缓存文件被破坏了.解决的方法是恢复这个文件即可,在任意文件夹中打开文件夹选项窗口,切换到"查看"选项卡,选中"显示所有文件",然后返回并在windows系统文件夹下找到ShellconCache的文件将其删除.这样重新启动电脑系统将自动重新建立该文件<br />
+</p>
+
+<p>
+二.是因为在升级系统或移动文件夹时把不同用户下的“桌面”文件夹重叠到一起了，解决办法：点 开始－运行－输regedit打开注册表，然后在 HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders 右边窗口找到Desktop键，点右键删除，或者修改成D:\\桌面（或者D:\\desktop或者 E:\\Love You 等等，选在哪个盘下叫什么，你自己根据情况自己定，只要不冲突就行）然后重启动<br />
+</p>
+
+<h1 id="toc_7">服务 </h1><HR SIZE=1>
+<h2 id="toc_7.1">安装服务 </h2>
+<p>
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\installutil.exe  /i  E:\code\ConnectPLC\ConnectPLC\bin\Debug\ConnectPLC.exe<br />
+</p>
+
+<h2 id="toc_7.2">卸载服务 </h2>
+<p>
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\installutil.exe  /u  E:\code\ConnectPLC\ConnectPLC\bin\Debug\ConnectPLC.exe<br />
+</p>
+
+
+<p>
+sc delete 服务名<br />
+</p>
+
+<h1 id="toc_8">休眠开启命令 </h1><HR SIZE=1>
+
+<p>
+powercfg -h on<br />
+</p>
+
+<p>
+休眠命令 rundll32.exe powrprof.dll,SetSuspendState<br />
+</p>
+
+<p>
+每天晚上11点半自动休眠<br />
+schtasks /create /tn my-standby /tr "rundll32.exe powrprof.dll,SetSuspendState" /sc once /st 23:30<br />
+</p>
+
+
+<h1 id="toc_9">清理C盘 </h1><HR SIZE=1>
+<ol>
+<li>
+火绒的Quarantine文件夹占用太多。清除方法：菜单-&gt;隔离区-&gt;清空
+
+<li>
+windows下面的搜索-&gt;磁盘清理或者clean,清空
+
+<li>
+删除%Temp%里面的文档
+
+<li>
+清空回收站
+
+</ol>
+
+
+<h1 id="toc_10">限制了远程数量 </h1><HR SIZE=1>
+<ol>
+<li>
+gpedit.msc
+
+<li>
+计算机配置-&gt;管理模块-&gt;windows组件-&gt;远程桌面服务-&gt;远程桌面会话主机-&gt;连接-&gt;限制连接数量-&gt;禁用
+
+</ol>
 
 
 <div class="foot">

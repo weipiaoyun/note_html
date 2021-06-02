@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>CloudPlatform</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">前端 </a>
+<li class="menu1"><a href="#toc_2">前端 </a>
+<li class="menu1"><a href="#toc_3">后端 </a>
+<li class="menu1"><a href="#toc_4">登录后获取权限 </a>
+<li class="menu1"><a href="#toc_5">表 </a>
+<li class="menu1"><a href="#toc_6">权限管理 </a>
+<li class="menu1"><a href="#toc_7">获取用户的权限 </a>
+</ul>
+</div>
+<div class="content">
+
+<p>
+token定期刷新<br />
+</p>
+
+<p>
+wzkj-auth-sdk<br />
+</p>
+
+
+<h1 id="toc_1">前端 </h1><HR SIZE=1>
+<p>
+代理<br />
+vue.config.js<br />
+.env.development<br />
+</p>
+
+
+<ol>
+<li>
+npm install -g cnpm -registry=<a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a>
+
+<li>
+npm install --save-dev node-sass
+
+<li>
+npm install
+
+<li>
+npm run dev
+
+</ol>
+
+
+
+<h1 id="toc_2">前端 </h1><HR SIZE=1>
+<p>
+前端代码<a href="https://gitee.com/geek_qi/Cloud-Platform-UI-V2">https://gitee.com/geek_qi/Cloud-Platform-UI-V2</a> 不用更改任何东西
+</p>
+
+
+<ol>
+<li>
+/api/auth/captcha 登录前获取验证码
+
+<li>
+/api/auth/jwt/token 用户名密码等发送给服务器，鉴权后服务器返回一个token给到客户端。
+
+<li>
+/api/admin/user/v2/front/info 获取菜单权限
+
+</ol>
+
+
+<h1 id="toc_3">后端 </h1><HR SIZE=1>
+<ol>
+<li>
+mysql
+
+<li>
+redis
+
+</ol>
+
+
+<ol>
+<li>
+运行init.sql文件，数据库建立
+
+<li>
+更改数据库连接
+
+<li>
+
+
+</ol>
+
+
+<p>
+clientId name code id等生成jwt，传到header里面<br />
+</p>
+
+<p>
+登录-获取token-&gt;<br />
+	/jwt/token<br />
+	网关-&gt;auth 认证中心<br />
+</p>
+
+
+<h1 id="toc_4">登录后获取权限 </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+--  根据username获取所有的用户信息  ==&gt;
+SELECT id,username,password,name,birthday,address,mobile_phone,tel_phone,email,sex,type,description,crt_time,crt_user,crt_name,crt_host,upd_time,upd_user,upd_name,upd_host,attr1,attr2,attr3,attr4,attr5,attr6,attr7,attr8
+ FROM base_user
+ WHERE username = 'test1';
+------------------------------------------------------------------------------------------------------------------------
+--  257 获取菜单权限  ==&gt;
+select distinct t.*
+ FROM base_resource_authority ra
+ INNER JOIN base_menu t
+ --权限和菜单相连，权限的id，通过角色去获取菜单权限。角色绑定了用户和领导
+ ON ra.resource_id = t.id and ra.authority_id in (
+ SELECT group_id
+ FROM base_group_member
+ WHERE user_id = 16
+ UNION SELECT group_id
+ FROM base_group_leader
+ WHERE user_id = 16 ) and ra.authority_type = 'group' and ra.resource_type = 'menu' order by t.id;
+------------------------------------------------------------------------------------------------------------------------
+--  258 获取button的权限 ==&gt;
+select distinct t.code,t.type,t.name,t.uri,t.method,m.title as menu_id
+ FROM base_resource_authority ra
+ INNER JOIN base_element t
+ ON ra.resource_id = t.id and ra.authority_id in (
+ SELECT group_id
+ FROM base_group_member
+ WHERE user_id = '16'
+ UNION SELECT group_id
+ FROM base_group_leader
+ WHERE user_id = '16' ) and ra.authority_type = 'group' and ra.resource_type = 'button'
+ INNER JOIN base_menu m
+ ON t.menu_id = m.id;
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+</pre>
+
+
+<p>
+拦截器<br />
+public class WebConfiguration implements WebMvcConfigurer<br />
+</p>
+
+<p>
+UserAuthRestInterceptor 用户拦截器，把token解密用户id，name等<br />
+</p>
+
+<p>
+auth 认证中心<br />
+admin端的所有可可访问的服务列表是从auth认证中心中获取的。<br />
+</p>
+
+
+<h1 id="toc_5">表 </h1><HR SIZE=1>
+<p>
+auth_client_service<br />
+通过client_id获取可以访问的服务列表<br />
+</p>
+
+
+<p>
+base_group_type  角色类型<br />
+base_group 角色<br />
+base_group_member 角色的成员<br />
+base_group_leader 角色的领导<br />
+base_resource_authority 权限表 和角色绑定，不直接和用户绑定。<br />
+</p>
+
+
+<h1 id="toc_6">权限管理 </h1><HR SIZE=1>
+<p>
+在角色权限管理新建一个角色<br />
+对角色进行权限分配。可以访问那些菜单。<br />
+INSERT INTO base_resource_authority ( authority_id,authority_type,resource_id,resource_type,parent_id ) VALUES( '10','group','13','menu','-1' );<br />
+</p>
+
+
+<p>
+对角色进行关联用户<br />
+insert into base_group_member ( group_id,user_id ) values( 10,16 );<br />
+insert into base_group_leader ( group_id,user_id ) values( 10,16 );<br />
+</p>
+
+
+
+<p>
+getAllowedClient获取可访问列表<br />
+</p>
+
+<p>
+如果postman请求<br />
+登录<br />
+1，获取token<br />
+2，params的token要加上token，Headers里面也要加上Authorization，内容都是获取出来的token<br />
+</p>
+
+
+
+
+
+<p>
+访问时经过gateway设置token： BaseContextHandler.setToken(authToken);<br />
+具体到服务是获取到token：<br />
+</p>
+
+
+
+
+<h1 id="toc_7">获取用户的权限 </h1><HR SIZE=1>
+<p>
+角色权限管理-选择角色-权限分配<br />
+调用了三个接口<br />
+</p>
+<ol>
+<li>
+/api/admin/menu/tree 获取所有的菜单树
+
+<li>
+api/admin/group/authority/getSelectedMenu?groupId=10009 获取已经勾选的有权限的菜单
+
+<li>
+api/admin/group/authority/getSelectedElement?groupId=10009 获取有权限的资源，button等。
+
+<li>
+
+
+</ol>
+
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+select distinct t.* from base_resource_authority as ra
+inner join base_menu as t
+on ra.resource_id = t.id
+and ra.authority_id in (
+  select group_id from base_group_member where user_id = 1
+  union select group_id from base_group_leader where user_id = 1
+)
+and ra.authority_type = 'group'
+and ra.resource_type = 'menu'
+order by t.id
+</pre>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

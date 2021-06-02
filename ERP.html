@@ -18,29 +18,69 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">原ERP缺陷 </a>
-<li class="menu1"><a href="#toc_2">功能模块 </a>
-<li class="menu1"><a href="#toc_3">ERP表 </a>
-<li class="menu1"><a href="#toc_4">供应商协同 </a>
-<li class="menu1"><a href="#toc_5">市场销售 </a>
+<li class="menu1"><a href="#toc_1">考勤添加权限 </a>
 <ul>
-<li class="menu2"><a href="#toc_5.1">订单预处理 </a>
+<li class="menu2"><a href="#toc_1.1">考勤异常 </a>
+<li class="menu2"><a href="#toc_1.2">查找考勤记录 </a>
 </ul>
-<li class="menu1"><a href="#toc_6">ERP组织架构 </a>
-<li class="menu1"><a href="#toc_7">用友U9产品介绍 </a>
-<li class="menu1"><a href="#toc_8">五珠ERP表结构 </a>
-<li class="menu1"><a href="#toc_9">公共基础数据定义明细 </a>
-<li class="menu1"><a href="#toc_10">ERP业务流 </a>
+<li class="menu1"><a href="#toc_2">原ERP缺陷 </a>
+<li class="menu1"><a href="#toc_3">功能模块 </a>
+<li class="menu1"><a href="#toc_4">ERP表 </a>
+<li class="menu1"><a href="#toc_5">供应商协同 </a>
+<li class="menu1"><a href="#toc_6">市场销售 </a>
 <ul>
-<li class="menu2"><a href="#toc_10.1">采购数据结构 </a>
+<li class="menu2"><a href="#toc_6.1">订单预处理 </a>
 </ul>
-<li class="menu1"><a href="#toc_11">HX ERP </a>
-<li class="menu1"><a href="#toc_12">字段说明 </a>
-<li class="menu1"><a href="#toc_13">采购 </a>
-<li class="menu1"><a href="#toc_14">采购单管理 </a>
+<li class="menu1"><a href="#toc_7">ERP组织架构 </a>
+<li class="menu1"><a href="#toc_8">用友U9产品介绍 </a>
+<li class="menu1"><a href="#toc_9">五珠ERP表结构 </a>
+<li class="menu1"><a href="#toc_10">公共基础数据定义明细 </a>
+<li class="menu1"><a href="#toc_11">ERP业务流 </a>
+<ul>
+<li class="menu2"><a href="#toc_11.1">采购数据结构 </a>
+</ul>
+<li class="menu1"><a href="#toc_12">HX ERP </a>
+<li class="menu1"><a href="#toc_13">字段说明 </a>
+<li class="menu1"><a href="#toc_14">采购 </a>
+<li class="menu1"><a href="#toc_15">采购单管理 </a>
 </ul>
 </div>
 <div class="content">
+<p>
+zgp725<br />
+</p>
+
+<h1 id="toc_1">考勤添加权限 </h1><HR SIZE=1>
+<p>
+人事管理-基础数据-HR部门控制-用户-程序-点右上新增<br />
+</p>
+
+
+<h2 id="toc_1.1">考勤异常 </h2>
+<p>
+人事管理-&gt;考勤管理-&gt;考勤明细与统计-&gt;解锁-&gt;自动计算-&gt;加锁<br />
+</p>
+
+
+<h2 id="toc_1.2">查找考勤记录 </h2>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP 1000 [rkey]
+      ,[employeecard]
+      ,[card_time]
+      ,[date_e]
+      ,[time_e]
+      ,[dev_id]
+      ,[employeeid]
+      ,[ClassID]
+      ,[SignDesc]
+      ,[QuerySign]
+      ,[remark]
+  FROM [wisdompcb].[dbo].[OriginalCheckData] WHERE employeeid = 29640
+  ORDER BY card_time desc
+</pre>
+
+
 
 <ol>
 <li>
@@ -145,37 +185,45 @@ BOM展开
 <a href="新ERP开发.html">新ERP开发</a>
 </p>
 
-<h1 id="toc_1">原ERP缺陷 </h1><HR SIZE=1>
+<h1 id="toc_2">原ERP缺陷 </h1><HR SIZE=1>
 <p>
 1：早期系统是基于单一组织代码开发，各厂数据库独立运作。所有用户权限密码需要独立创建。对于集团多组织代码用户，需要在各厂的系统中都需要创建各自的用户名和密码。不利于系统用户管理。<br />
 2：单一组织代码系统运行需要大量的基础数据定义。主要有材料分类、材料编码、单位代码，货币代码，税率代码，供应商代码，品质缺陷代码，工序代码，供应商价格，会计科目定义等。这些基础数据定义各厂都是独立定义的。且各厂都存在数据重复定义，且代码不一致。导致集团数据综合统计分析困难。<br />
 3：移动端开发需求增加，程序开发困难。<br />
 4：只有中文操作，没有中英文双语选择。。<br />
 </p>
-<h1 id="toc_2">功能模块 </h1><HR SIZE=1>
+<h1 id="toc_3">功能模块 </h1><HR SIZE=1>
 <p>
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/ERP功能模块.jpg" /></div><br />
 </p>
 
 
-<h1 id="toc_3">ERP表 </h1><HR SIZE=1>
+<h1 id="toc_4">ERP表 </h1><HR SIZE=1>
 <p>
 Data0273 ecn变更表<br />
 </p>
 
+<p>
+[Data0073] erp账号表，password md5<br />
+[Data0074] erp权限表。<br />
+</p>
+
+<p>
+erp权限在erp系统里面进去可以复制<br />
+</p>
 
 <p>
 <a href="新ERP功能菜单.html">新ERP功能菜单</a>
 </p>
 		
 
-<h1 id="toc_4">供应商协同 </h1><HR SIZE=1>
+<h1 id="toc_5">供应商协同 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/ERP/供应商协同BS开发规划.xmind"download=\"文件名.txt\">点击下载:【供应商协同BS开发规划.xmind】</a></div><br />
 </p>
 
-<h1 id="toc_5">市场销售 </h1><HR SIZE=1>
-<h2 id="toc_5.1">订单预处理 </h2>
+<h1 id="toc_6">市场销售 </h1><HR SIZE=1>
+<h2 id="toc_6.1">订单预处理 </h2>
 
 
 <p>
@@ -183,18 +231,18 @@ Data0273 ecn变更表<br />
 材料组别定义，材料类型定义，材料编码定义<br />
 </p>
 
-<h1 id="toc_6">ERP组织架构 </h1><HR SIZE=1>
+<h1 id="toc_7">ERP组织架构 </h1><HR SIZE=1>
 <p>
 <div class="Img"><img src="file://D:\vim\vim\mysite\note/images/WZ/ERP/ERP公司组织架构.jpg" /></div><br />
 </p>
 
-<h1 id="toc_7">用友U9产品介绍 </h1><HR SIZE=1>
+<h1 id="toc_8">用友U9产品介绍 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/ERP/2M.02.07 U9产品介绍(1).pptx"download=\"文件名.txt\">点击下载:【2M.02.07 U9产品介绍(1).pptx】</a></div><br />
 </p>
 
 
-<h1 id="toc_8">五珠ERP表结构 </h1><HR SIZE=1>
+<h1 id="toc_9">五珠ERP表结构 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/江西志浩/ERP/数据表结构ERP.rar"download=\"文件名.txt\">点击下载:【数据表结构ERP.rar】</a></div><br />
 </p>
@@ -212,7 +260,7 @@ Data0273 ecn变更表<br />
 </p>
 
 
-<h1 id="toc_9">公共基础数据定义明细 </h1><HR SIZE=1>
+<h1 id="toc_10">公共基础数据定义明细 </h1><HR SIZE=1>
 
 <p>
 货币代码：data0001(需增加按年月货币汇率明细表:data0001_month)<br />
@@ -259,7 +307,7 @@ Data0273 ecn变更表<br />
 ERP查询工序代码 (表是工序代码形式存在，通过工序代码)<br />
 </p>
 
-<h1 id="toc_10">ERP业务流 </h1><HR SIZE=1>
+<h1 id="toc_11">ERP业务流 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/ERP/ERP PO和SO流程图.pptx"download=\"文件名.txt\">点击下载:【ERP PO和SO流程图.pptx】</a></div><br />
 SO(销售订单sale order) 销售流：销售定单-&gt;提交评审-&gt;销售定单确认-&gt;工程制作-&gt;投产管理-&gt;作业单发放-&gt;手工过数-&gt;成品入库提交-&gt;成品入仓-&gt;销售订单装运指派-&gt;装箱单管理<br />
@@ -288,7 +336,7 @@ PO (purchase order 采购订单)  采购流：开请购单-&gt;生产物料和�
 
 
 
-<h2 id="toc_10.1">采购数据结构 </h2>
+<h2 id="toc_11.1">采购数据结构 </h2>
 <p>
 data0068 请购主表<br />
 	data0069 生产物料请购明细表<br />
@@ -300,7 +348,7 @@ data0070 物料采购订单主表<br />
 	
 
 
-<h1 id="toc_11">HX ERP </h1><HR SIZE=1>
+<h1 id="toc_12">HX ERP </h1><HR SIZE=1>
 <p>
 Data0278     查出需要后补的项(PARAMETER_DESC:最小阻焊桥)对应的RKEY(2074)<br />
 Data0287	 添加绑定的后补项<br />
@@ -314,7 +362,7 @@ T_AutoCam_PushERPParms  genesis后补的项和ERP后补项连接。<br />
 
 
 
-<h1 id="toc_12">字段说明 </h1><HR SIZE=1>
+<h1 id="toc_13">字段说明 </h1><HR SIZE=1>
 <p>
 "Cust_Code": "6000",	客户代码<br />
 "sales_order": "190506006-01",	销售订单号<br />
@@ -351,7 +399,7 @@ T_AutoCam_PushERPParms  genesis后补的项和ERP后补项连接。<br />
 </p>
 
 
-<h1 id="toc_13">采购 </h1><HR SIZE=1>
+<h1 id="toc_14">采购 </h1><HR SIZE=1>
 <p>
 请购<br />
 </p>
@@ -372,7 +420,7 @@ T_AutoCam_PushERPParms  genesis后补的项和ERP后补项连接。<br />
 请购-&gt;审批<br />
 </p>
 
-<h1 id="toc_14">采购单管理 </h1><HR SIZE=1>
+<h1 id="toc_15">采购单管理 </h1><HR SIZE=1>
 <p>
 编码采购，非编码采购<br />
 </p>

@@ -18,19 +18,75 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">config</a>
-<li class="menu1"><a href="#toc_2">每次只允许一个Total Commander 运行 </a>
+<li class="menu1"><a href="#toc_1">commander+vim+发送 批量修改 </a>
+<li class="menu1"><a href="#toc_2">搜索不包含.svn文件夹 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">右击菜单栏显示 </a>
-<li class="menu2"><a href="#toc_2.2">不能按时间排序 </a>
+<li class="menu2"><a href="#toc_2.1">直接不显示，也不搜索 </a>
+<li class="menu2"><a href="#toc_2.2">搜索栏过滤 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">重命名-扩展名 </a>
-<li class="menu1"><a href="#toc_4">命令 </a>
-<li class="menu1"><a href="#toc_5">改变文件夹图标大小 </a>
-<li class="menu1"><a href="#toc_6">直接修改config文件 </a>
+<li class="menu1"><a href="#toc_3">快捷键 </a>
+<li class="menu1"><a href="#toc_4">config</a>
+<li class="menu1"><a href="#toc_5">每次只允许一个Total Commander 运行 </a>
+<ul>
+<li class="menu2"><a href="#toc_5.1">右击菜单栏显示 </a>
+<li class="menu2"><a href="#toc_5.2">不能按时间排序 </a>
+</ul>
+<li class="menu1"><a href="#toc_6">重命名-扩展名 </a>
+<li class="menu1"><a href="#toc_7">命令 </a>
+<li class="menu1"><a href="#toc_8">改变文件夹图标大小 </a>
+<li class="menu1"><a href="#toc_9">直接修改config文件 </a>
 </ul>
 </div>
 <div class="content">
+
+<h1 id="toc_1">commander+vim+发送 批量修改 </h1><HR SIZE=1>
+
+
+<h1 id="toc_2">搜索不包含.svn文件夹 </h1><HR SIZE=1>
+<h2 id="toc_2.1">直接不显示，也不搜索 </h2>
+<p>
+Configuration menu / Options / (Display) / Ignore List<br />
+</p>
+
+<p>
+配置-&gt;选项-&gt;操作-&gt;隐藏文件<br />
+</p>
+
+<h2 id="toc_2.2">搜索栏过滤 </h2>
+<ul>
+<li>
+Exclude from search *.bak and *.old files
+
+</ul>
+<p>
+my*.<strong>|</strong>.bak *.old<br />
+</p>
+
+<ul>
+<li>
+Don't search in .svn folders
+
+</ul>
+
+<ul>
+<li>
+*.cs|.svn\
+
+</ul>
+<p>
+Don't search in .git folder<br />
+</p>
+
+<p>
+*.cs|.git\<br />
+</p>
+
+<p>
+The meaning of | is: 'and not'.<br />
+</p>
+
+<h1 id="toc_3">快捷键 </h1><HR SIZE=1>
+
 <p>
 SHIFT + F6   重命名文件<br />
 shift + F4 新建文件<br />
@@ -65,8 +121,8 @@ Ctrl+table 切换标签<br />
 table 切换左右侧<br />
 </p>
 
-<h1 id="toc_1">config</h1><HR SIZE=1>
-<h1 id="toc_2">每次只允许一个Total Commander 运行 </h1><HR SIZE=1>
+<h1 id="toc_4">config</h1><HR SIZE=1>
+<h1 id="toc_5">每次只允许一个Total Commander 运行 </h1><HR SIZE=1>
 <p>
 配置-&gt;选项-&gt;操作-&gt;主程序<br />
 </p>
@@ -76,7 +132,7 @@ table 切换左右侧<br />
 配置-&gt;选项-&gt;快速搜索-&gt;仅字母   如果没有效果，则按Ctrl+s键<br />
 </p>
 
-<h2 id="toc_2.1">右击菜单栏显示 </h2>
+<h2 id="toc_5.1">右击菜单栏显示 </h2>
 <p>
 右击 | 配置-&gt;选项-&gt;操作，鼠标左键选择(使用windows模式)<br />
 </p>
@@ -91,24 +147,24 @@ table 切换左右侧<br />
 
 </ol>
 
-<h2 id="toc_2.2">不能按时间排序 </h2>
+<h2 id="toc_5.2">不能按时间排序 </h2>
 <p>
 配置-&gt;显示-&gt;文件夹排序方式-&gt;和文件一样(也可根据时间排序)<br />
 </p>
 
-<h1 id="toc_3">重命名-扩展名 </h1><HR SIZE=1>
+<h1 id="toc_6">重命名-扩展名 </h1><HR SIZE=1>
 <p>
 操作方式-》重命名时只选择文件名<br />
 </p>
 
 
-<h1 id="toc_4">命令 </h1><HR SIZE=1>
+<h1 id="toc_7">命令 </h1><HR SIZE=1>
 <p>
 cm_SrcActivateTab1 激活标签1<br />
 </p>
 
 
-<h1 id="toc_5">改变文件夹图标大小 </h1><HR SIZE=1>
+<h1 id="toc_8">改变文件夹图标大小 </h1><HR SIZE=1>
 <p>
 配置-&gt;显示-&gt;图标<br />
 配置-&gt;显示-&gt;字体<br />
@@ -116,7 +172,7 @@ cm_SrcActivateTab1 激活标签1<br />
 </p>
 
 
-<h1 id="toc_6">直接修改config文件 </h1><HR SIZE=1>
+<h1 id="toc_9">直接修改config文件 </h1><HR SIZE=1>
 <p>
 [Configuration]<br />
 UseNewDefFont=1<br />
