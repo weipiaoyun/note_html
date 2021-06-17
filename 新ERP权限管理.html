@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>IQPS</title>
+<title>新ERP权限管理</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,91 +18,18 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">查餐费 </a>
-<li class="menu1"><a href="#toc_2">查考勤 </a>
+<li class="menu1"><a href="#toc_1">通过角色去获取所有的菜单权限 </a>
 </ul>
 </div>
 <div class="content">
 
-<h1 id="toc_1">查餐费 </h1><HR SIZE=1>
-<p>
-/****** Script for SelectTopNRows command from SSMS  ******/<br />
-SELECT TOP 1000 [rd_id]<br />
-</p>
-<blockquote>
-,[cp_id]
-,[location]
-,[device_id]
-,[cp_name]
-,[cp_ip]
-,[canteen_pos_enabled]
-,[ufdid]
-,[user_location]
-,[uid]
-,[user_name]
-,[purchase_time]
-,[purchase_date]
-,[period_id]
-,[period_name]
-,[year_week]
-,[year_month]
-,[purchase_money]
-,[subsidize_money]
-,[actual_money]
-,[delete]
-,[insert_time]
-</blockquote>
-<p>
-  FROM [iqps].[ism].[v_canteen_pos_record_detail] WHERE user_name = '林伟' ORDER BY purchase_time DESC<br />
-</p>
-  
-  
+<h1 id="toc_1">通过角色去获取所有的菜单权限 </h1><HR SIZE=1>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
-  /****** Script for SelectTopNRows command from SSMS  ******/
-SELECT TOP 1000 [rd_id]
-      ,[cp_id]
-      ,[location]
-      ,[device_id]
-      ,[cp_name]
-      ,[cp_ip]
-      ,[canteen_pos_enabled]
-      ,[ufdid]
-      ,[user_location]
-      ,[uid]
-      ,[user_name]
-      ,[purchase_time]
-      ,[purchase_date]
-      ,[period_id]
-      ,[period_name]
-      ,[year_week]
-      ,[year_month]
-      ,[purchase_money]
-      ,[subsidize_money]
-      ,[actual_money]
-      ,[delete]
-      ,[insert_time]
-  FROM [iqps].[ism].[v_canteen_pos_record_detail] WHERE ufdid = '3839' ORDER BY purchase_time DESC
+SELECT a.*,b.title,b.*
+ FROM base_resource_authority as a
+ inner join base_menu  as b on  a.resource_id = b.id
+ WHERE authority_id = 1 AND authority_type = 'group' AND resource_type = 'menu';
 </pre>
-  
-
-<h1 id="toc_2">查考勤 </h1><HR SIZE=1>
-<p>
-/****** Script for SelectTopNRows command from SSMS  ******/<br />
-SELECT TOP 1000 [device_id]<br />
-</p>
-<blockquote>
-,[ufdid]
-,[recognize_time]
-,[state]
-,[create_time]
-</blockquote>
-<p>
-  FROM [iqps].[ism].[device_recognize_record]  WHERE ufdid = '1370' ORDER BY recognize_time DESC<br />
-</p>
-  
-<p>
-条件：1370可以通过上面的查餐费查出<br />
-</p>
 
 
 <div class="foot">

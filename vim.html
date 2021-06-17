@@ -31,8 +31,11 @@
 <li class="menu1"><a href="#toc_4">Python版本 </a>
 <li class="menu1"><a href="#toc_5">查找和替换 </a>
 <ul>
-<li class="menu2"><a href="#toc_5.1">忽略大小写 </a>
-<li class="menu2"><a href="#toc_5.2">g命令 </a>
+<li class="menu2"><a href="#toc_5.1">vimgrep </a>
+<li class="menu2"><a href="#toc_5.2">在笔记里面查找字符 </a>
+<li class="menu2"><a href="#toc_5.3">多个文档一起替换并保存更新 </a>
+<li class="menu2"><a href="#toc_5.4">忽略大小写 </a>
+<li class="menu2"><a href="#toc_5.5">g命令 </a>
 </ul>
 <li class="menu1"><a href="#toc_6">好用技巧 </a>
 <li class="menu1"><a href="#toc_7">查错 </a>
@@ -149,12 +152,30 @@ python-2.7.13<br />
 如果要省略大小写就用ignorecase<br />
 </p>
 
-<h2 id="toc_5.1">忽略大小写 </h2>
+<h2 id="toc_5.1">vimgrep </h2>
+<p>
+vimgrep /{pattern}/[flags] {file(s)} 会比较慢。禁用自动命令可以提高速度。用<br />
+:noautocmd vimgrep /{pattern}/[flags] {file(s)}<br />
+</p>
+
+<h2 id="toc_5.2">在笔记里面查找字符 </h2>
+<p>
+在normal模式下敲gs(该命令在_vimrc里面配置function SearchDiy)<br />
+</p>
+
+
+<h2 id="toc_5.3">多个文档一起替换并保存更新 </h2>
+<p>
+:argdo %s/hate/love/gc | update<br />
+如上将hate替换成love，update表示要写入到文件中，否则只作替换而不写入<br />
+</p>
+
+<h2 id="toc_5.4">忽略大小写 </h2>
 <p>
 /string\c<br />
 </p>
 
-<h2 id="toc_5.2">g命令 </h2>
+<h2 id="toc_5.5">g命令 </h2>
 <p>
 多次重复命令。先匹配后执行。<br />
 :g/PAUSE/p  或:g/PAUSE 打印出所有带PAUSE的行<br />
