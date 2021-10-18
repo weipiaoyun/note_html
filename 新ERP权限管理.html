@@ -19,9 +19,22 @@
 <div class="toc">
 <ul>
 <li class="menu1"><a href="#toc_1">通过角色去获取所有的菜单权限 </a>
+<li class="menu1"><a href="#toc_2">base_menu </a>
 </ul>
 </div>
 <div class="content">
+
+
+<p>
+角色类型<br />
+</p>
+
+<p>
+平台角色<br />
+租户角色<br />
+groupType/all<br />
+</p>
+
 
 <h1 id="toc_1">通过角色去获取所有的菜单权限 </h1><HR SIZE=1>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
@@ -30,6 +43,36 @@ SELECT a.*,b.title,b.*
  inner join base_menu  as b on  a.resource_id = b.id
  WHERE authority_id = 1 AND authority_type = 'group' AND resource_type = 'menu';
 </pre>
+
+
+
+<p>
+base_resource_authority<br />
+</p>
+
+<p>
+authority_id = 角色的ID base_group的ID<br />
+resource_id = 菜单的ID base_menu<br />
+</p>
+
+
+<h1 id="toc_2">base_menu </h1><HR SIZE=1>
+<p>
+Id   132 权限管理<br />
+16 角色权限<br />
+</p>
+
+
+
+
+<p>
+base_group     10018<br />
+</p>
+
+
+<p>
+用户绑定租户   base_tenant_user_r<br />
+</p>
 
 
 <div class="foot">

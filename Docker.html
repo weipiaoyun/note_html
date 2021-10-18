@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style.css">
+<link rel="Stylesheet" type="text/css" href="styles/style4Toc.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
+<link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
+
+<title>Docker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">docker命令 </a>
+<ul>
+<li class="menu2"><a href="#toc_1.1">镜像命令 </a>
+<li class="menu2"><a href="#toc_1.2">容器 </a>
+<ul>
+<li class="menu3"><a href="#toc_1.2.1">删除全部的容器 </a>
+<li class="menu3"><a href="#toc_1.2.2">进入容器 </a>
+<li class="menu3"><a href="#toc_1.2.3">从容器内拷贝文件到主机上 </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_2">linux 安装docker </a>
+<ul>
+<li class="menu2"><a href="#toc_2.1">docker 路径 </a>
+</ul>
+</ul>
+</div>
+<div class="content">
+
+
+<p>
+虚拟机：虚拟化技术 几个G<br />
+docker 是容器化技术。也是一种虚拟化技术。<br />
+</p>
+
+<p>
+docker 隔离，镜像(）最核心的环境4m+jdk+mysql)，十分小巧，2M，秒级启动。<br />
+</p>
+
+<p>
+docker是基于go语言开发的。<br />
+</p>
+
+<p>
+镜像image：<br />
+一个模板-可以通过这个模板创建容器服务，tomcat镜像=&gt;run=&gt;tomcat01容器(提供服务器)，通过这个镜像可以创建多个容器(服务和项目的运行就在容器中)。<br />
+容器container：<br />
+独立运行一个或一组应用，通过镜像创建<br />
+仓库：repository：<br />
+存镜像的地方。<br />
+</p>
+
+<h1 id="toc_1">docker命令 </h1><HR SIZE=1>
+<p>
+docker version<br />
+docker info<br />
+docker --help<br />
+</p>
+
+<h2 id="toc_1.1">镜像命令 </h2>
+<p>
+docker images<br />
+docker images --help<br />
+</p>
+
+<p>
+docker serach mysql<br />
+docker pull mysql 下载镜像<br />
+docker rmi <br />
+</p>
+
+
+<h2 id="toc_1.2">容器 </h2>
+<p>
+docker pull centos<br />
+docker run -it centos /bin/bash<br />
+docker start/restart/stop/kill<br />
+Ctrl+P+Q  容器不停止退出<br />
+docker run -d centos<br />
+docker logs<br />
+</p>
+
+<h3 id="toc_1.2.1">删除全部的容器 </h3>
+<p>
+docker rm -f $(docker ps -aq)<br />
+</p>
+
+<h3 id="toc_1.2.2">进入容器 </h3>
+<p>
+docker exec -i -t bae742b7bf9f /bin/bash 进入容器后开启一个新的终端，可以在里面操作<br />
+docker attach id  进入容器正在执行的终端，不会启动新的进程<br />
+</p>
+
+
+<h3 id="toc_1.2.3">从容器内拷贝文件到主机上 </h3>
+<p>
+docker cp 容器id:容器内路径 目的主机路径。<br />
+</p>
+
+
+
+
+<h1 id="toc_2">linux 安装docker </h1><HR SIZE=1>
+<p>
+yum install -y yum-utils device-mapper-persistent-data lvm2<br />
+yum-config-manager --add-repo <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a>  |  sudo yum-config-manager \
+</p>
+<blockquote>
+--add-repo \
+<a href="https://download.docker.com/linux/centos/docker-ce.repo">https://download.docker.com/linux/centos/docker-ce.repo</a>
+</blockquote>
+<p>
+wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo">http://mirrors.aliyun.com/repo/Centos-7.repo</a>
+yum list docker-ce --showduplicates | sort -r<br />
+yum makecache fast<br />
+yum -y install docker-ce docker-ce-cli containerd.io<br />
+systemctl start docker<br />
+docker version<br />
+</p>
+
+
+<p>
+阿里云镜像加速器<br />
+sudo mkdir -p /etc/docker<br />
+</p>
+
+<p>
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'<br />
+{<br />
+  "registry-mirrors": ["<a href="https://v4bjgk5n.mirror.aliyuncs.com"]">https://v4bjgk5n.mirror.aliyuncs.com"]</a>
+}<br />
+EOF<br />
+</p>
+
+<p>
+sudo systemctl daemon-reload<br />
+sudo systemctl restart docker<br />
+</p>
+
+<h2 id="toc_2.1">docker 路径 </h2>
+<p>
+/var/lib/docker/<br />
+</p>
+
+
+<div class="foot">
+<button id="back_to_topA" class="back_to_top" style='background-color:red'>返回顶部</button>
+
+<a id="returnIndexA" href="d:\vim\vim\mysite\note_html\笔记整理.html" onclick="fun_a()">
+<button id=returnIndex class="back_to_index">返回首页</button>
+</a>
+
+
+
+<HR SIZE=5>
+<p class="left">
+<!-- <div class="text" style=" text-align:center;font-size:15px"></div>-->
+© <span id="year">2018</span> 
+</p>
+<script src="scripts/my.js"></script>
+<script src="scripts/script4Toc.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/XRegExp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shCore.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJava.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushJScript.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCSharp.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/codeStyleScript/shBrushPerl.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.all()
+</script>
+</div>
+</div>
+</body>
+</html>

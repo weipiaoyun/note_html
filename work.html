@@ -18,49 +18,237 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">admin </a>
-<li class="menu1"><a href="#toc_2">linwei </a>
-<li class="menu1"><a href="#toc_3">常用链接 </a>
-<li class="menu1"><a href="#toc_4">工作清单 </a>
+<li class="menu1"><a href="#toc_1">数据库 </a>
+<li class="menu1"><a href="#toc_2">租户端 </a>
+<li class="menu1"><a href="#toc_3">平台端 </a>
+<li class="menu1"><a href="#toc_4">admin </a>
+<li class="menu1"><a href="#toc_5">linwei </a>
+<li class="menu1"><a href="#toc_6">常用链接 </a>
+<li class="menu1"><a href="#toc_7">工作清单 </a>
 <ul>
-<li class="menu2"><a href="#toc_4.1">待处理 </a>
-<li class="menu2"><a href="#toc_4.2">处理中 </a>
-<li class="menu2"><a href="#toc_4.3">已处理 </a>
+<li class="menu2"><a href="#toc_7.1">待处理 </a>
+<li class="menu2"><a href="#toc_7.2">处理中 </a>
+<li class="menu2"><a href="#toc_7.3">已处理 </a>
 </ul>
-<li class="menu1"><a href="#toc_5">Inplan上传报错 </a>
+<li class="menu1"><a href="#toc_8">Inplan上传报错 </a>
 <ul>
-<li class="menu2"><a href="#toc_5.1">客户物料号u9和MES对不上 </a>
+<li class="menu2"><a href="#toc_8.1">客户物料号u9和MES对不上 </a>
 </ul>
-<li class="menu1"><a href="#toc_6">隐藏报废 </a>
+<li class="menu1"><a href="#toc_9">隐藏报废 </a>
 <ul>
-<li class="menu2"><a href="#toc_6.1">查过数的作业单号 </a>
-<li class="menu2"><a href="#toc_6.2">过数记录表 </a>
+<li class="menu2"><a href="#toc_9.1">查过数的作业单号 </a>
+<li class="menu2"><a href="#toc_9.2">过数记录表 </a>
 </ul>
-<li class="menu1"><a href="#toc_7">外发 </a>
-<li class="menu1"><a href="#toc_8">密码加解密 </a>
-<li class="menu1"><a href="#toc_9">规范 </a>
-<li class="menu1"><a href="#toc_10">翻译网址 </a>
-<li class="menu1"><a href="#toc_11">工作总结 </a>
+<li class="menu1"><a href="#toc_10">外发 </a>
+<li class="menu1"><a href="#toc_11">密码加解密 </a>
+<li class="menu1"><a href="#toc_12">规范 </a>
+<li class="menu1"><a href="#toc_13">翻译网址 </a>
+<li class="menu1"><a href="#toc_14">工作总结 </a>
 </ul>
 </div>
 <div class="content">
+<p>
+delete from enterprise where id not in (1,2);<br />
+delete from enterprise_customer where enterprise_id &lt;&gt; 1 and (enterprise_id = 2 and customer_enterprise_id &lt;&gt; 2);<br />
+TRUNCATE table enterprise_customer_address;<br />
+TRUNCATE table enterprise_customer_bank_account;<br />
+TRUNCATE table enterprise_customer_contact;<br />
+TRUNCATE table enterprise_customer_finance;<br />
+delete from enterprise_relation where enterprise_id &lt;&gt; 1;<br />
+delete from enterprise_relation_authorization where enterprise_relation_id &lt;&gt; 2597;<br />
+delete from enterprise_tenant where id not in (1,2);<br />
+delete from register_invitation where id &lt;&gt;1;<br />
+</p>
+
+
+<p>
+-- 无效供应商<br />
+update enterprise_customer set as_seller = 0;<br />
+delete from enterprise_relation where relation_type = 1;<br />
+</p>
+
+<p>
+Jxu2105094708<br />
+admin Jxu2105094708<br />
+</p>
+
+<p>
+付款方式<br />
+付款周期<br />
+币别<br />
+汇率<br />
+vmi<br />
+会计科目<br />
+</p>
+
+
+<h1 id="toc_1">数据库 </h1><HR SIZE=1>
+<p>
+cloud_admin_v2<br />
+enterpry<br />
+</p>
+
+
+<p>
+221<br />
+</p>
+<blockquote>
+@LcnTransaction//分布式事务
+</blockquote>
+
+<p>
+00EEB8E9AF86<br />
+</p>
+
+<p>
+-- TRUNCATE table enterprise;<br />
+</p>
+
+<p>
+TRUNCATE table enterprise_customer;<br />
+</p>
+
+<p>
+TRUNCATE table enterprise_customer_bank_account;<br />
+</p>
+
+<p>
+TRUNCATE table enterprise_customer_contact;<br />
+</p>
+
+<p>
+TRUNCATE table enterprise_customer_finance;<br />
+</p>
+
+<p>
+delete from  enterprise_relation where id not in (1,2)<br />
+</p>
+
+<p>
+TRUNCATE table enterprise_relation_authorization;<br />
+</p>
+
+
+
+<p>
+SELECT e.NAME AS enterpriseName, e.enterprise_number enterpriseNumber, et.enterprise_id enterpriseId, et.contact_person contactPerson, et.mobile_phone mobilePhone, et.email, et.tenant_id tenantId, et.register_time registerTime<br />
+ FROM enterprise_tenant et JOIN enterprise e<br />
+ ON et.enterprise_id = e.id join enterprise_relation er<br />
+ ON er.enterprise_id= e.id and er.relation_type ='3'<br />
+ WHERE et.valid_status = 1 AND e.valid_status = 1 AND er.relation_enterprise_id = 5;<br />
+</p>
+
+
+
+<p>
+<a href="http://127.0.0.1:8686/ureport2/excel?fileName=full:enterprise.ureport.xml&amp;file=%E4%BE%9B%E5%BA%94%E5%95%86">http://127.0.0.1:8686/ureport2/excel?fileName=full:enterprise.ureport.xml&amp;file=%E4%BE%9B%E5%BA%94%E5%95%86</a>
+tenantBiz<br />
+sysAdmin<br />
+customerBiz<br />
+pda<br />
+</p>
+
+
+<p>
+10151<br />
+</p>
+<ol>
+<li>
+导dxf
+
+<li>
+电镀面积，沉金面积
+
+<li>
+去尖角
+
+<li>
+阻焊层帮我加一个350x560的边框
+
+</ol>
+
+
+<p>
+  datasource:<br />
+</p>
+<blockquote>
+name: test
+url: jdbc:mysql://127.0.0.1:3306/${var.db-name}?useUnicode=true&amp;allowMultiQueries=true&amp;serverTimezone=Asia/Shanghai&amp;characterEncoding=UTF-8
+username: root
+password: 123456
+</blockquote>
+<ol>
+<li>
+使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+
+</ol>
+    
+<p>
+tongshuai@dg.topcb.net,huangzhihui@mz.topcb.net,linwei@dg.topcb.net,taocaixia@dg.topcb.net,zhangjiajia@dg.topcb.net<br />
+</p>
+
+
+<p>
+test <br />
+test1<br />
+test2<br />
+</p>
+
+
+<p>
+<a href="http://10.10.7.3:40001/project/28/interface/api/7698">http://10.10.7.3:40001/project/28/interface/api/7698</a>      
+linwei@dg.topcb.net<br />
+wz_erp@dg.topcb.net<br />
+enterprise_customer 添加字段 供应商开发人<br />
+</p>
+
+
+
 <p>
 youtube-dl --proxy socks5://127.0.0.1:10808  <a href="https://youtu.be/I_2TxV1LkHI">https://youtu.be/I_2TxV1LkHI</a>
 opc.tcp://172.18.0.234:62547/VEGACNC/OpcUaServer<br />
 </p>
 
-<h1 id="toc_1">admin </h1><HR SIZE=1>
+
+<h1 id="toc_2">租户端 </h1><HR SIZE=1>
+<p>
+eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ6aCIsImlkIjozLCJuYW1lIjoi56ef5oi3566h55CG5ZGYIiwianNvblN0ciI6IntcImNyZWF0ZURhdGVcIjoxNjI2MzM0NTkxMTc3LFwiZW1haWxcIjpcImhlcGluZ0BnbWFpbC5jb21cIixcImVudGVycHJpc2VJZFwiOjUsXCJlbnRlcnByaXNlTmFtZVwiOlwi5bmz5a6J6ZO26KGM6IKh5Lu95pyJ6ZmQ5YWs5Y-4XCIsXCJlbnRlcnByaXNlTnVtYmVyXCI6XCIwMDAwMjBcIixcImV4cGlyZVwiOjMxMTA0MDAwLFwiaWRcIjozLFwibW9iaWxlUGhvbmVcIjpcIjE1ODgwMjEyOTA4XCIsXCJuYW1lXCI6XCLnp5_miLfnrqHnkIblkZhcIixcInNvdXJjZVNpZGVcIjpcInRlbmFudEJpelwiLFwidGVuYW50SWRcIjozLFwidG9rZW5JZFwiOlwiaHR1VXdyZmZcIixcInVuaXF1ZU5hbWVcIjpcInpoXCIsXCJ1c2VySWRcIjozLFwidXNlcm5hbWVcIjpcInpoXCJ9IiwidG9rZW5JZCI6Imh0dVV3cmZmIiwiZW50ZXJwcmlzZUlkIjo1LCJlbnRlcnByaXNlTmFtZSI6IuW5s-WuiemTtuihjOiCoeS7veaciemZkOWFrOWPuCIsInRlbmFudElkIjoiaHR1VXdyZmYiLCJzb3VyY2VTaWRlIjoidGVuYW50Qml6IiwiZXhwIjoxNjU3NDM4NTkxfQ.k-wou4e--KX_XLJJT_OkHA901oZIoac5pkmfjUpxKuY2W-bMHGCJMxCyR5gLzi2HvgHMzq67fPzfS5GtdouuwatRbVG4wib46eTzcjzjAXdGEbEJgk-dgMnAj5wVWvnpoaGr7Qal-CrCyqyzgqKzskaDzsvGRHq-TntYyyrbDG8<br />
+</p>
+
+
+<h1 id="toc_3">平台端 </h1><HR SIZE=1>
+<p>
+eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlkIjoxLCJuYW1lIjoi6LaF57qn566h55CG5ZGYIiwianNvblN0ciI6IntcImNyZWF0ZURhdGVcIjoxNjI2MzU0ODk5Mzk1LFwiZW1haWxcIjpcImFkbWluQHFxLmNvbVwiLFwiZW50ZXJwcmlzZUlkXCI6MSxcImVudGVycHJpc2VOYW1lXCI6XCLotLXlt57pu5TlkbPogIHlubLlpojpo5_lk4HmnInpmZDlhazlj7hcIixcImVudGVycHJpc2VOdW1iZXJcIjpcIjAwMDAxNVwiLFwiZXhwaXJlXCI6MzExMDQwMDAsXCJpZFwiOjEsXCJtb2JpbGVQaG9uZVwiOlwiMTM3MTIzNDU2NzhcIixcIm5hbWVcIjpcIui2hee6p-euoeeQhuWRmFwiLFwic291cmNlU2lkZVwiOlwic3lzQWRtaW5cIixcInRlbmFudElkXCI6MSxcInRva2VuSWRcIjpcIlNSS29PbTRFXCIsXCJ1bmlxdWVOYW1lXCI6XCJhZG1pblwiLFwidXNlcklkXCI6MSxcInVzZXJuYW1lXCI6XCJhZG1pblwifSIsInRva2VuSWQiOiJTUktvT200RSIsImVudGVycHJpc2VJZCI6MSwiZW50ZXJwcmlzZU5hbWUiOiLotLXlt57pu5TlkbPogIHlubLlpojpo5_lk4HmnInpmZDlhazlj7giLCJ0ZW5hbnRJZCI6IlNSS29PbTRFIiwic291cmNlU2lkZSI6InN5c0FkbWluIiwiZXhwIjoxNjU3NDU4ODk5fQ.RB2AdMWLb8iMeJRvhWKdbVnsu4BhsgmKag4ydM3-OEXNRzQGTYeGeei93A74Im7ke21MtShgErUh9Rfs6QflUy2FPBWB5TkQp-_1EB-MhV8gz2mGlpIGlC3MQWC24yeo7EXHJ6jaXPQEucs-MMoTw0Yf0hoXbpQdiu4ErYhgEtU<br />
+</p>
+
+<h1 id="toc_4">admin </h1><HR SIZE=1>
 <p>
 Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlkIjoxLCJuYW1lIjoiYWRtaW4iLCJqc29uU3RyIjoie1wiY3JlYXRlRGF0ZVwiOjE2MjIxNjI0ODc5NjAsXCJlbWFpbFwiOlwiYWRtaW5AcXEuY29tXCIsXCJlbnRlcnByaXNlSWRcIjoxLFwiZW50ZXJwcmlzZU5hbWVcIjpcIui0teW3num7lOWRs-iAgeW5suWmiOmjn-WTgeaciemZkOWFrOWPuFwiLFwiZW50ZXJwcmlzZU51bWJlclwiOlwiMDAwMDE1XCIsXCJleHBpcmVcIjozMTEwNDAwMDAsXCJpZFwiOjEsXCJtb2JpbGVQaG9uZVwiOlwiMTM3MTIzNDU2NzhcIixcIm5hbWVcIjpcImFkbWluXCIsXCJwYXJlbnRFbnRlcnByaXNlSWRcIjoxLFwicGFyZW50VGVuYW50SWRcIjoxLFwidGVuYW50SWRcIjoxLFwidG9rZW5JZFwiOlwibDhJOWRYT2FcIixcInVuaXF1ZU5hbWVcIjpcImFkbWluXCIsXCJ1c2VySWRcIjoxLFwidXNlcm5hbWVcIjpcImFkbWluXCJ9IiwidG9rZW5JZCI6Imw4STlkWE9hIiwiZW50ZXJwcmlzZUlkIjoxLCJlbnRlcnByaXNlTmFtZSI6Iui0teW3num7lOWRs-iAgeW5suWmiOmjn-WTgeaciemZkOWFrOWPuCIsInRlbmFudElkIjoibDhJOWRYT2EiLCJwYXJlbnRUZW5hbnRJZCI6MSwicGFyZW50RW50ZXJwcmlzZUlkIjoxLCJleHAiOjE5MzMyMDI0ODd9.kM-k2lNQYkpsjtgn0UDRMVIqZPqMFLznb1uZT1p6-L6IkvhopWOirdb7awL1HyxLANkGAtxw7Q0N_V2KcxWl86_JkUBN97-XMBqC2T9EThq8J-7jaaIyWRRj4T0my-vgXpolNWRsutaIjEddr2zPIMtPkwVCUjYDf_EAIqNSRrU<br />
 </p>
 
-<h1 id="toc_2">linwei </h1><HR SIZE=1>
+<h1 id="toc_5">linwei </h1><HR SIZE=1>
 <p>
 Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJsaW53ZWkiLCJpZCI6OSwibmFtZSI6Iuael-S8nyIsImpzb25TdHIiOiJ7XCJjcmVhdGVEYXRlXCI6MTYyMjE2MzEzMTgzMyxcImVtYWlsXCI6XCJsaW53ZWlAZGcudG9wY2IubmV0XCIsXCJlbnRlcnByaXNlSWRcIjoxLFwiZW50ZXJwcmlzZU5hbWVcIjpcIui0teW3num7lOWRs-iAgeW5suWmiOmjn-WTgeaciemZkOWFrOWPuFwiLFwiZW50ZXJwcmlzZU51bWJlclwiOlwiMDAwMDE1XCIsXCJleHBpcmVcIjozMTEwNDAwMDAsXCJpZFwiOjksXCJtb2JpbGVQaG9uZVwiOlwiMTM3OTQ4OTQ0OTFcIixcIm5hbWVcIjpcIuael-S8n1wiLFwicGFyZW50RW50ZXJwcmlzZUlkXCI6MSxcInBhcmVudFRlbmFudElkXCI6MSxcInRlbmFudElkXCI6MSxcInRva2VuSWRcIjpcIm1mTExnaHhEXCIsXCJ1bmlxdWVOYW1lXCI6XCJsaW53ZWlcIixcInVzZXJJZFwiOjksXCJ1c2VybmFtZVwiOlwibGlud2VpXCJ9IiwidG9rZW5JZCI6Im1mTExnaHhEIiwiZW50ZXJwcmlzZUlkIjoxLCJlbnRlcnByaXNlTmFtZSI6Iui0teW3num7lOWRs-iAgeW5suWmiOmjn-WTgeaciemZkOWFrOWPuCIsInRlbmFudElkIjoibWZMTGdoeEQiLCJwYXJlbnRUZW5hbnRJZCI6MSwicGFyZW50RW50ZXJwcmlzZUlkIjoxLCJleHAiOjE5MzMyMDMxMzF9.yaz-42e5QZeXIgEmrfTTxsZu1gho47yTtxYx_NQI9hqrC1z58l1p5vp7hClTGxfY7LloTNeBJAmIWGyqi3yqC2sawq0LqdUL9q6ppkH2Sm1dRSvqz4SBDc8fUjxunU97uFwR08hVRHzgd7Q1_5pj00kgPdfYhQOrdWyib4ryvQ4<br />
 </p>
 
-<h1 id="toc_3">常用链接 </h1><HR SIZE=1>
+<h1 id="toc_6">常用链接 </h1><HR SIZE=1>
 <p>
+待看<br />
 <a href="workTest.html">workTest</a>
 <a href="work1226.html">work1226</a>
 <a href="江西.html">江西</a>
@@ -68,17 +256,17 @@ Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJsaW53ZWkiLCJpZCI6OSwibmFtZSI6Iuael-S8nyIs
 <a href="CIMOM_TABLE.html">CIMOM_TABLE</a>
 </p>
 
-<h1 id="toc_4">工作清单 </h1><HR SIZE=1>
-<h2 id="toc_4.1">待处理 </h2>
+<h1 id="toc_7">工作清单 </h1><HR SIZE=1>
+<h2 id="toc_7.1">待处理 </h2>
 
-<h2 id="toc_4.2">处理中 </h2>
+<h2 id="toc_7.2">处理中 </h2>
 <ol>
 <li>
 在线返工前的流程。如果基础数据改为非过数流程，则无法返回返工前流程。
 
 </ol>
 
-<h2 id="toc_4.3">已处理 </h2>
+<h2 id="toc_7.3">已处理 </h2>
 
 <p>
 高多层内层线路前处理2# 数据采集 刘荣<br />
@@ -97,14 +285,14 @@ PLC调用agv接口切换到新中间件<br />
 </p>
 
 
-<h1 id="toc_5">Inplan上传报错 </h1><HR SIZE=1>
-<h2 id="toc_5.1">客户物料号u9和MES对不上 </h2>
+<h1 id="toc_8">Inplan上传报错 </h1><HR SIZE=1>
+<h2 id="toc_8.1">客户物料号u9和MES对不上 </h2>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
 SELECT CANALYSIS_CODE_2 ,* FROM dbo.TBL_MI_JOB_INFO WHERE CMANU_PART_NUMBER LIKE  '%TFH1V0800350B0%'
 UPDATE TBL_MI_JOB_INFO SET CANALYSIS_CODE_2 = '470001135' WHERE CMANU_PART_NUMBER LIKE  '%TFH1V0800361B0%'
 </pre>
 
-<h1 id="toc_6">隐藏报废 </h1><HR SIZE=1>
+<h1 id="toc_9">隐藏报废 </h1><HR SIZE=1>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
 SELECT * FROM dbo.TBL_QM_SM_DATA WHERE CJOBNAME IN ('TGR0E0600467A0','TGR0I1000200A0','BGR0I1000188A0')
 UPDATE dbo.TBL_QM_SM_DATA SET CORG_CODE = 'J0001' WHERE CJOBNAME IN ('TGR0E0600467A0','TGR0I1000200A0','BGR0I1000188A0') AND CORG_CODE = 'J0001-del' 
@@ -114,8 +302,8 @@ UPDATE dbo.TBL_QM_SM_DATA SET CORG_CODE = 'J0001' WHERE CJOBNAME IN ('TGR0E06004
 <a href="上传工序转移.html">上传工序转移</a>
 </p>
 
-<h2 id="toc_6.1">查过数的作业单号 </h2>
-<h2 id="toc_6.2">过数记录表 </h2>
+<h2 id="toc_9.1">查过数的作业单号 </h2>
+<h2 id="toc_9.2">过数记录表 </h2>
 <p>
 select CWO_PTR from [CIMOMJXZH].[dbo].[TBL_SFC_WORKNUMBER_FLOW]<br />
 </p>
@@ -134,7 +322,7 @@ SELECT * FROM dbo.TBL_PLAN_JOB_TICKET WHERE cid = '2BBA96FC-3B40-43A8-8566-97E7D
 SELECT  * FROM dbo.TBL_PLAN_JOB_TICKET_ONLINE WHERE CWO_PTR = '2BBA96FC-3B40-43A8-8566-97E7D96DE103'<br />
 </p>
 
-<h1 id="toc_7">外发 </h1><HR SIZE=1>
+<h1 id="toc_10">外发 </h1><HR SIZE=1>
 <p>
 ERP数据字典地址：<a href="http://172.19.9.32:8081">http://172.19.9.32:8081</a>
 GetLotInfoNew<br />
@@ -144,12 +332,12 @@ GetLotInfoNew<br />
 <p>
 5129046<br />
 </p>
-<h1 id="toc_8">密码加解密 </h1><HR SIZE=1>
+<h1 id="toc_11">密码加解密 </h1><HR SIZE=1>
 <p>
 <a href="密码加解密.html">密码加解密</a>
 </p>
 
-<h1 id="toc_9">规范 </h1><HR SIZE=1>
+<h1 id="toc_12">规范 </h1><HR SIZE=1>
 <p>
 <a href="WZ.html">WZ</a>
 <a href="OTHER.html">OTHER</a>
@@ -157,7 +345,7 @@ GetLotInfoNew<br />
 <a href="程序规范.html">程序规范</a>
 </p>
 
-<h1 id="toc_10">翻译网址 </h1><HR SIZE=1>
+<h1 id="toc_13">翻译网址 </h1><HR SIZE=1>
 <p>
 <a href="https://www.merriam-webster.com/dictionary/belt">https://www.merriam-webster.com/dictionary/belt</a>
 </p>
@@ -234,7 +422,7 @@ PP里面没有用量。
 </ol>
 
 
-<h1 id="toc_11">工作总结 </h1><HR SIZE=1>
+<h1 id="toc_14">工作总结 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/工作文档/39周-林伟.pptx"download=\"文件名.txt\">点击下载:【39周-林伟.pptx】</a></div><br />
 </p>
@@ -980,6 +1168,529 @@ to只是系统托盘中<br />
 本中转来消除格式，有了Ditto后，一<br />
 ps5NcY7HFxjR7dcpT2uk18ZLX2dPKJdlx7W7UVkAdNVvvJqmuDaUbvs1NNe9ZFg50Hj6LJaQdyvHKBIAg06gUuOi0UEblC0igWOm3+lSX/qZ0IysELWecc3zPhsCS7uYQLwakTLgEavMAKaxIAUi22jDBboupbBkv4PReo2hHGA0HX0meEl2zsNs18hrkCKsCny+8+TGD+TFVZkK6D3gK6RQqyYTPRES1CzWlnDX1+32qIV4Wv/ekZQlAeireN34rGKa/MG11eC+RaNDfWWdxy1xF38y00eVHV1rsXHQuFtaUtlcryGS0vryFHLCBoFtr3FViDdhz0KV1a48dd7k8Q==<br />
 	D:\Program Files\PremiumSoft\Navicat Premium 15\instantclient_11_2172.18.8.216<br />
+</p>
+	
+	
+
+  
+  
+<p>
+private boolean saveHead(RequisitionHead head) {<br />
+</p>
+<blockquote>
+head.setReqNo(codeHelper.getNextId(CodeRuleEnum.PUR_REQ_CODE));
+head.setDeleteFlag(PurchaseConstant.DELETE_NO);
+head.setStatusFlag(ReqStatusEnum.CREATED.getValue());
+head.setTenantId(this.getTenantId());
+head.setTotal(BigDecimal.ZERO);
+head.setTotal(BigDecimal.ZERO);
+if (head.getReqDate() == null) {
+head.setReqDate(LocalDate.now());
+}
+</blockquote>
+<blockquote>
+JWTInfo info = JWTInfoContext.getJWTInfo();
+OrganizationRespDTO dept = this.getDept(info.getUserId());
+head.setReqOrgId(dept.getId());
+head.setReqOrgName(dept.getName());
+head.setReqOrgNameEn(dept.getNameEn());
+</blockquote>
+<blockquote>
+return this.save(head);
+</blockquote>
+<p>
+}<br />
+</p>
+
+
+
+<p>
+2140158550<br />
+</p>
+
+
+
+<p>
+BFL01268A0<br />
+</p>
+
+<p>
+23   1980000125<br />
+45	 1980000218<br />
+67   1980000322<br />
+89	 1910000236<br />
+</p>
+
+
+
+<p>
+"approvalProcessId": 33,<br />
+"approvalProcessName": "领料审核",<br />
+"createTime": 1625109882000,<br />
+"createUserUid": "admin",<br />
+"deleteFlag": "0",<br />
+"id": "1410439188129742849",<br />
+"remark": "test",<br />
+"reqEmployeId": 1,<br />
+"reqEmployeName": "超级管理员",<br />
+"reqOrgId": 14,<br />
+"reqOrgName": "IT部",<br />
+"reqType": "0",<br />
+"requisitionNo": "WR2021070100001",<br />
+"statusFlag": "1",<br />
+"tenantId": 1,<br />
+"useOrgId": 2,<br />
+"useOrgName": "资讯部",<br />
+"workFlowCode": "2021063000007",<br />
+</p>
+
+<p>
+	// "financeStatus": "String",<br />
+</p>
+	
+<p>
+	红宝书<br />
+	默默记单词<br />
+	田静英语<br />
+</p>
+
+
+<p>
+英语 刘晓燕 朱伟 唐迟<br />
+管综数学 石磊 韩超 陈剑<br />
+管综逻辑 薛瑞 鑫全<br />
+管综写作 王诚<br />
+</p>
+
+
+
+<p>
+CREATE TABLE <code>return_oder_head</code> (<br />
+  <code>id</code> bigint(20) NOT NULL COMMENT '主键',<br />
+  <code>oder_no</code> varchar(50) DEFAULT NULL COMMENT '退货单号',<br />
+  <code>oder_type</code> varchar(1) DEFAULT NULL COMMENT '退货单类型:1=生产，2=杂项，3=vmi',<br />
+  <code>supplier_id</code> bigint(20) DEFAULT NULL COMMENT '供应商id',<br />
+  <code>supplier_code</code> varchar(50) DEFAULT NULL COMMENT '供应商代码',<br />
+  <code>supplier_name</code> varchar(50) DEFAULT NULL COMMENT '供应商名字',<br />
+  <code>receive_addr</code> varchar(100) DEFAULT NULL COMMENT '收货地址',<br />
+  <code>supplier_contacts</code> varchar(50) DEFAULT NULL COMMENT '供应商联系人名字',<br />
+  <code>supplier_telephone</code> varchar(50) DEFAULT NULL COMMENT '供应商联系人电话',<br />
+  <code>enterprise_id</code> bigint(20) DEFAULT NULL COMMENT '企业id',<br />
+  <code>enterprise_code</code> varchar(50) DEFAULT NULL COMMENT '企业代码',<br />
+  <code>enterprise_name</code> varchar(50) DEFAULT NULL COMMENT '企业名字',<br />
+  <code>enterprise_addr</code> varchar(100) DEFAULT NULL COMMENT '企业地址',<br />
+  <code>shipment_name</code> varchar(15) DEFAULT NULL COMMENT '装运方法名字',<br />
+  <code>shipment_code</code> varchar(15) DEFAULT NULL COMMENT '装运代码',<br />
+  <code>shipment_user</code> varchar(500) DEFAULT NULL COMMENT '装运人名字',<br />
+  <code>shipment_time</code> datetime DEFAULT NULL COMMENT '装运时间',<br />
+  <code>finance_status</code> char(1) DEFAULT '0' COMMENT '提交财务状态：0 待提交，1已提交,3=已审核，4=记账，5=拒绝',<br />
+  <code>tenant_id</code> bigint(20) DEFAULT NULL COMMENT '租户ID',<br />
+  <code>status_flag</code> char(1) DEFAULT '1' COMMENT '复查结果：1 通过，0是不通过',<br />
+  <code>delete_flag</code> char(1) DEFAULT '0' COMMENT '是否删除：1是删除，0是没有删除',<br />
+  <code>remark</code> varchar(500) DEFAULT NULL COMMENT '备注',<br />
+  <code>create_user_uid</code> varchar(50) DEFAULT NULL COMMENT '创建者',<br />
+  <code>create_time</code> datetime DEFAULT NULL COMMENT '创建时间',<br />
+  <code>last_update_time</code> datetime DEFAULT NULL COMMENT '最后修改时间',<br />
+  <code>last_update_user_uid</code> varchar(50) DEFAULT NULL COMMENT '最后修改人',<br />
+  <code>create_user_name</code> varchar(50) DEFAULT NULL COMMENT '创建者名字',<br />
+  <code>last_update_user_name</code> varchar(50) DEFAULT NULL COMMENT '最后修改人名字',<br />
+  PRIMARY KEY (<code>id</code>)<br />
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='退货单头';<br />
+</p>
+
+
+
+
+
+
+<p>
+"oderNo": "uu", <br />
+"supplierName: "jjj",<br />
+"oderType: 1<br />
+</p>
+
+
+<p>
+注册企业和管理员<br />
+registerTenantAdmin<br />
+</p>
+
+
+
+
+<p>
+ update base_code_rule set tenant_id = 3;<br />
+ update base_country_region set tenant_id = 3;<br />
+ update base_exchange_rate_detail set tenant_id = 3;<br />
+ update base_exchange_rate_head set tenant_id = 3;<br />
+ update base_item set tenant_id = 3;<br />
+ update base_item_group set tenant_id = 3;<br />
+ update base_item_type_detailed set tenant_id = 3;<br />
+ update base_item_type_head set tenant_id = 3;<br />
+ update base_product set tenant_id = 3;<br />
+ update base_product_approve_remark set tenant_id = 3;<br />
+ update base_product_manufacture set tenant_id = 3;<br />
+ update base_product_size set tenant_id = 3;<br />
+ update base_projectparams set tenant_id = 3;<br />
+ update base_projectparams_values set tenant_id = 3;<br />
+ update base_shipment_mode set tenant_id = 3;<br />
+ update base_supplier_pricee set tenant_id = 3;<br />
+ update base_supplier_pricee_log set tenant_id = 3;<br />
+ update base_tax_rate set tenant_id = 3;<br />
+ update base_unit set tenant_id = 3;<br />
+ update <br />
+</p>
+ 
+
+
+
+
+<p>
+INSERT INTO base_resource_authority ( id,authority_id,authority_type,resource_id,resource_type,parent_id,path,description,crt_time,crt_user,crt_name,crt_host,attr1,attr2,attr3,attr4 ) VALUES( null,10023,'group',119,'menu',-1,null,null,'2021-07-14 16:19:53.396','3','租户管理员','172.18.8.39',null,null,null,null );<br />
+</p>
+
+<p>
+INSERT INTO base_resource_authority ( id,authority_id,authority_type,resource_id,resource_type,parent_id,path,description,crt_time,crt_user,crt_name,crt_host,attr1,attr2,attr3,attr4 ) VALUES( null,10023,'group',132,'menu',-1,null,null,'2021-07-14 16:27:05.719','3','租户管理员','172.18.8.39',null,null,null,null );<br />
+</p>
+
+<p>
+INSERT INTO base_resource_authority ( id,authority_id,authority_type,resource_id,resource_type,parent_id,path,description,crt_time,crt_user,crt_name,crt_host,attr1,attr2,attr3,attr4 ) VALUES( null,10023,'group',157,'menu',-1,null,null,'2021-07-14 16:27:45.632','3','租户管理员','172.18.8.39',null,null,null,null );<br />
+</p>
+
+
+<p>
+  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br />
+  <code>code</code> varchar(255) DEFAULT NULL COMMENT '角色编码',<br />
+  <code>name</code> varchar(255) DEFAULT NULL COMMENT '角色名称',<br />
+  <code>parent_id</code> bigint(20) NOT NULL COMMENT '上级节点',<br />
+  <code>path</code> varchar(2000) DEFAULT NULL COMMENT '树状关系',<br />
+  <code>type</code> char(1) DEFAULT NULL COMMENT '类型',<br />
+  <code>group_type</code> bigint(20) NOT NULL COMMENT '角色组类型',<br />
+  <code>description</code> varchar(255) DEFAULT NULL,<br />
+  <code>crt_time</code> datetime DEFAULT NULL,<br />
+  <code>crt_user</code> varchar(255) DEFAULT NULL,<br />
+  <code>crt_name</code> varchar(255) DEFAULT NULL,<br />
+  <code>crt_host</code> varchar(255) DEFAULT NULL,<br />
+  <code>upd_time</code> datetime DEFAULT NULL,<br />
+  <code>upd_user</code> varchar(255) DEFAULT NULL,<br />
+  <code>upd_name</code> varchar(255) DEFAULT NULL,<br />
+  <code>upd_host</code> varchar(255) DEFAULT NULL,<br />
+</p>
+  
+
+<p>
+  asBuyer: 1<br />
+asGroupCorp: 0<br />
+asSeller: null<br />
+baseTaxRateId: null<br />
+businessLicense: null<br />
+businessScope: "制造、销售：柔性电路板及其他各种规格的单、多层电路板，设备租赁、厂房租赁。(依法须经批准的项目，经相关部门批准后方可开展经营活动)〓"<br />
+customerNumber: "000002"<br />
+defaultContactEmail: "linwei@dg.topcb.net"<br />
+defaultContactPerson: "tets"<br />
+defaultContactTelephone: "13549111111"<br />
+enterpriseCustomerId: null<br />
+enterpriseNumber: "000002"<br />
+enterpriseRelationId: null<br />
+establishTime: "2011-03-29"<br />
+exchangeRateId: null<br />
+id: 7<br />
+industryType: "计算机、通信和其他电子设备制造业"<br />
+invitationStatus: null<br />
+invitationTime: null<br />
+legalRepresentative: "蔡志浩"<br />
+legalRepresentativeIdNumber: null<br />
+legalRepresentativeIdType: "身份证"<br />
+name: "梅州五株电路板有限公司"<br />
+organizationType: "其他有限责任公司"<br />
+registerAddress: "梅州市梅江区三角镇五洲工业园"<br />
+registerCapital: 135000000<br />
+registerCurrency: null<br />
+registerStatus: null<br />
+registerTime: null<br />
+serialNumber: "9144140057019189X7"<br />
+shortCode: null<br />
+shortName: null<br />
+supplierNature: null<br />
+supplierType: null<br />
+teamWorkTime: null<br />
+validStatus: "1"<br />
+vmiSupplier: null<br />
+</p>
+
+
+<p>
+"enterpriseCustomerId":12,<br />
+"type":"付款账户",<br />
+"headOffice":"开户名称",<br />
+"subBranch":"支行名称A",<br />
+"accountName:"张三",<br />
+"accountCode":"1123456",<br />
+"status":1,<br />
+"defaultAccount":1,<br />
+"remark":"备注"<br />
+</p>
+
+
+<p>
+{"reqOrgId":2,"reqOrgName":"HDI事业部","useOrgId":15,"useOrgName":"1","remake":null,"approvalProcessId":33,"approvalProcessName":"领料审批","workFlowCode":"2021071900030","reqType":"0","requisitionNo":"WR2021072700002","reqEmployeId":3,"reqEmployeName":"租户管理员","tenantId":3,"statusFlag":"1","deleteFlag":"0","createUserUid":"zh","createTime":1627346006000,"createUserName":"租户管理员","materialRequisitionDetailReqAddDTOList":[{"id":null,"headId":null,"materielId":154722,"materielCode":"LA00000088","materielName":"玻璃门电子门锁","materialStandard":"室外锁体尺寸：L:195 x W:80 x H:29(mm) 工作电压范围：4.0~6.0V 室内锁体尺寸：L:195 x W:80x H:46(mm)  SL牌 质保3年","purchaseUnitName":null,"grantQty":null,"reqQty":"1","qty":-2,"manufacturerId":null,"manufacturerCode":null,"manufacturerName":null,"remark":null},{"id":null,"headId":null,"materielId":154722,"materielCode":"LA00000088","materielName":"玻璃门电子门锁","materialStandard":"室外锁体尺寸：L:195 x W:80 x H:29(mm) 工作电压范围：4.0~6.0V 室内锁体尺寸：L:195 x W:80x H:46(mm)  SL牌 质保3年","purchaseUnitName":null,"grantQty":null,"reqQty":"2","qty":-2,"manufacturerId":null,"manufacturerCode":null,"manufacturerName":null,"remark":null}]}<br />
+</p>
+
+
+<p>
+AutoCam.Execute.exe   AutoCam.Windows.OutPut.OutPut<br />
+admin Jxu2105094708<br />
+<a href="http://127.0.0.1:8080/#/register?redisCode=registerUser_KxEjYaHi">http://127.0.0.1:8080/#/register?redisCode=registerUser_KxEjYaHi</a>
+</p>
+
+<p>
+<a href="http://172.18.8.71:9103/#/login?redirect=%2Fdashboard%2Fconsole">http://172.18.8.71:9103/#/login?redirect=%2Fdashboard%2Fconsole</a>
+</p>
+
+
+
+<p>
+  SELECT barcode.<strong>, d.purchase_no,b.production_batch_no,t.</strong>, b.row_number<br />
+ FROM srm_po_deliver_detail t<br />
+ INNER JOIN srm_po_deliver b<br />
+ ON t.business_key = b.id<br />
+  INNER JOIN srm_small_packing_barcode barcode<br />
+	ON barcode.business_key = b.id<br />
+ INNER JOIN purchase_detail c<br />
+ ON c.id = b.po_detail_id<br />
+ INNER JOIN purchase_head d<br />
+ ON d.id = c.purchase_head_id<br />
+ WHERE t.delete_flag = 0 AND t.status_flag = 1 AND t.id = 171<br />
+</p>
+ 
+
+
+
+
+<p>
+ SELECT t5.tenant_id,t.*<br />
+ from srm_po_deliver_head t<br />
+ left join srm_po_deliver_detail t2 on t.id = t2.deliver_head_id<br />
+ left join srm_po_deliver t3 on t3.id = t2.business_key  and t2.business_type='SRM'<br />
+ left join purchase_detail t4 on t3.po_detail_id = t4.id<br />
+ left join purchase_head t5 on t4.purchase_head_id =t5.id<br />
+</p>
+ 
+
+<p>
+eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ6aCIsImlkIjozLCJuYW1lIjoi57O757uf566h55CG5ZGYIiwianNvblN0ciI6IntcImNyZWF0ZURhdGVcIjoxNjI5MjY1NjI2NTg0LFwiZW1haWxcIjpcImxpbndlaTFAZGcudG9wY2IubmV0XCIsXCJlbnRlcnByaXNlSWRcIjo1LFwiZW50ZXJwcmlzZU5hbWVcIjpcIuaxn-ilv-W_l-a1qeeUteWtkOenkeaKgOaciemZkOWFrOWPuFwiLFwiZW50ZXJwcmlzZU51bWJlclwiOlwiMDAwMDIwXCIsXCJleHBpcmVcIjoxNDQwMCxcImlkXCI6MyxcIm1vYmlsZVBob25lXCI6XCIxNTg4MDIxMjkwOFwiLFwibmFtZVwiOlwi57O757uf566h55CG5ZGYXCIsXCJzb3VyY2VTaWRlXCI6XCJ0ZW5hbnRCaXpcIixcInRlbmFudElkXCI6MyxcInRva2VuSWRcIjpcIjV0ZTQ5TEFzXCIsXCJ1bmlxdWVOYW1lXCI6XCJ6aFwiLFwidXNlcklkXCI6MyxcInVzZXJuYW1lXCI6XCJ6aFwifSIsInRva2VuSWQiOiI1dGU0OUxBcyIsImVudGVycHJpc2VJZCI6NSwiZW50ZXJwcmlzZU5hbWUiOiLmsZ_opb_lv5fmtannlLXlrZDnp5HmioDmnInpmZDlhazlj7giLCJ0ZW5hbnRJZCI6IjV0ZTQ5TEFzIiwic291cmNlU2lkZSI6InRlbmFudEJpeiIsImV4cCI6MTYyOTI4MDAyNn0.ZB-h23mZopdKjkYA6YHk-zlKDmhWDCoyMalHMulVAVNqe7uEUPCizMYfvwlIHwKJdcFrA9ByiN1ns3eR0K7QYjCbx9rOU6sdPN4Lf8_XZdLaGFVc1mLJZg_dXYsGIh66gqChPJ4izdGsw4SPQVw-ZW9n90fDJHnGSiBsEAOxfgM<br />
+</p>
+
+<p>
+eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ6aCIsImlkIjozLCJuYW1lIjoi57O757uf566h55CG5ZGYIiwianNvblN0ciI6IntcImNyZWF0ZURhdGVcIjoxNjI5MjY1NjI2NTg0LFwiZW1haWxcIjpcImxpbndlaTFAZGcudG9wY2IubmV0XCIsXCJlbnRlcnByaXNlSWRcIjo1LFwiZW50ZXJwcmlzZU5hbWVcIjpcIuaxn-ilv-W_l-a1qeeUteWtkOenkeaKgOaciemZkOWFrOWPuFwiLFwiZW50ZXJwcmlzZU51bWJlclwiOlwiMDAwMDIwXCIsXCJleHBpcmVcIjoxNDQwMCxcImlkXCI6MyxcIm1vYmlsZVBob25lXCI6XCIxNTg4MDIxMjkwOFwiLFwibmFtZVwiOlwi57O757uf566h55CG5ZGYXCIsXCJzb3VyY2VTaWRlXCI6XCJ0ZW5hbnRCaXpcIixcInRlbmFudElkXCI6MyxcInRva2VuSWRcIjpcIjV0ZTQ5TEFzXCIsXCJ1bmlxdWVOYW1lXCI6XCJ6aFwiLFwidXNlcklkXCI6MyxcInVzZXJuYW1lXCI6XCJ6aFwifSIsInRva2VuSWQiOiI1dGU0OUxBcyIsImVudGVycHJpc2VJZCI6NSwiZW50ZXJwcmlzZU5hbWUiOiLmsZ_opb_lv5fmtannlLXlrZDnp5HmioDmnInpmZDlhazlj7giLCJ0ZW5hbnRJZCI6IjV0ZTQ5TEFzIiwic291cmNlU2lkZSI6InRlbmFudEJpeiIsImV4cCI6MTYyOTI4MDAyNn0.ZB-h23mZopdKjkYA6YHk-zlKDmhWDCoyMalHMulVAVNqe7uEUPCizMYfvwlIHwKJdcFrA9ByiN1ns3eR0K7QYjCbx9rOU6sdPN4Lf8_XZdLaGFVc1mLJZg_dXYsGIh66gqChPJ4izdGsw4SPQVw-ZW9n90fDJHnGSiBsEAOxfgM<br />
+</p>
+
+
+
+
+
+<p>
+3RMKhJ17KeVUGwXS9/hqSs1PHsWYwclDh4P1a8Tw/4A=<br />
+</p>
+
+<p>
+/registerlnvitation/invite<br />
+</p>
+
+<p>
+/menu<br />
+</p>
+
+<p>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;ureport&gt;&lt;cell expand="None" name="A1" row="1" col="1"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[参数代码]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="B1" row="1" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[参数名称]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="C1" row="1" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[参数类型]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="D1" row="1" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[数据类型]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="E1" row="1" col="5"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[单位]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="F1" row="1" col="6"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[是否有效]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="A2" row="2" col="1"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="工程参数" aggregate="select" property="parameterCode" order="none" mapping-type="simple"&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="B2" row="2" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="工程参数" aggregate="select" property="parameterName" order="none" mapping-type="simple"&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="C2" row="2" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="工程参数" aggregate="select" property="parameterType" order="none" mapping-type="simple"&gt;&lt;mapping-item value="2" label="全局"/&gt;&lt;mapping-item value="3" label="制程"/&gt;&lt;mapping-item value="4" label="BOM报价必备全局参数"/&gt;&lt;mapping-item value="5" label="BOM报价销售参数"/&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="D2" row="2" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="工程参数" aggregate="select" property="dataType" order="none" mapping-type="simple"&gt;&lt;mapping-item value="1" label="数字型"/&gt;&lt;mapping-item value="2" label="字符型"/&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="E2" row="2" col="5"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="工程参数" aggregate="select" property="unitCode" order="none" mapping-type="simple"&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="F2" row="2" col="6"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="工程参数" aggregate="select" property="statusFlag" order="none" mapping-type="simple"&gt;&lt;mapping-item value="1" label="有效"/&gt;&lt;mapping-item value="0" label="无效"/&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="A3" row="3" col="1"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="B3" row="3" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="C3" row="3" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="D3" row="3" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="E3" row="3" col="5"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="F3" row="3" col="6"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;row row-number="1" height="18"/&gt;&lt;row row-number="2" height="18"/&gt;&lt;row row-number="3" height="18"/&gt;&lt;column col-number="1" width="80"/&gt;&lt;column col-number="2" width="80"/&gt;&lt;column col-number="3" width="80"/&gt;&lt;column col-number="4" width="80"/&gt;&lt;column col-number="5" width="74"/&gt;&lt;column col-number="6" width="74"/&gt;&lt;datasource name="engineeringBean" type="spring" bean="engineeringBean"&gt;&lt;dataset name="工程参数" type="bean" method="loadData" clazz="com.wzkj.dto.response.engineering.ExcelEngineeringParamRespDTO"&gt;&lt;field name="parameterType"/&gt;&lt;field name="dataType"/&gt;&lt;field name="unitCode"/&gt;&lt;field name="tenantId"/&gt;&lt;field name="id"/&gt;&lt;field name="parameterName"/&gt;&lt;field name="parameterCode"/&gt;&lt;field name="statusFlag"/&gt;&lt;/dataset&gt;&lt;/datasource&gt;&lt;paper type="A4" left-margin="90" right-margin="90"<br />
+</p>
+<blockquote>
+top-margin="72" bottom-margin="72" paging-mode="fitpage" fixrows="0"
+width="595" height="842" orientation="portrait" html-report-align="left" bg-image="" html-interval-refresh-value="0" column-enabled="false"&gt;&lt;/paper&gt;&lt;/ureport&gt;l
+</blockquote>
+
+
+<p>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;ureport&gt;&lt;cell expand="None" name="A1" row="1" col="1"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="B1" row="1" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="C1" row="1" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="D1" row="1" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="A2" row="2" col="1"&gt;&lt;cell-style font-size="10" forecolor="0,0,0" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;slash-value&gt;&lt;slash text="项目1" x="76" y="8" degree="4"/&gt;&lt;slash text="项目2" x="85" y="12" degree="12"/&gt;&lt;slash text="项目3" x="20" y="4" degree="36"/&gt;&lt;base64-data&gt;&lt;![CDATA[data:image/png;base64,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]]&gt;&lt;/base64-data&gt;&lt;/slash-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="B2" row="2" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="C2" row="2" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="D2" row="2" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="A3" row="3" col="1"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="B3" row="3" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="C3" row="3" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="D3" row="3" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;row row-number="1" height="18" band="title"/&gt;&lt;row row-number="2" height="18"/&gt;&lt;row row-number="3" height="18"/&gt;&lt;column col-number="1" width="80"/&gt;&lt;column col-number="2" width="80"/&gt;&lt;column col-number="3" width="80"/&gt;&lt;column col-number="4" width="80"/&gt;&lt;datasource name="com.wzkj.report.service.ureport.EngineeringBean" type="spring" bean="com.wzkj.report.service.ureport.EngineeringBean"&gt;&lt;/datasource&gt;&lt;datasource name="UReportDataSource" type="buildin"&gt;&lt;/datasource&gt;&lt;paper type="A4" left-margin="90" right-margin="90"<br />
+</p>
+<blockquote>
+top-margin="72" bottom-margin="72" paging-mode="fitpage" fixrows="0"
+width="595" height="842" orientation="portrait" html-report-align="left" bg-image="" html-interval-refresh-value="0" column-enabled="false"&gt;&lt;/paper&gt;&lt;search-form form-position="up"&gt;&lt;/search-form&gt;&lt;/ureport&gt;
+</blockquote>
+    
+
+
+
+<p>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;ureport&gt;&lt;cell expand="None" name="A1" row="1" col="1"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[账号]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="B1" row="1" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[参数名称]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="C1" row="1" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[参数类型]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="D1" row="1" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[数据类型]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="E1" row="1" col="5"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[单位]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="F1" row="1" col="6"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[是否有效]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="A2" row="2" col="1"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="账号列表" aggregate="select" property="username" order="none" mapping-type="simple"&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="B2" row="2" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="账号列表" aggregate="select" property="birthday" order="none" mapping-type="simple"&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="C2" row="2" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="账号列表" aggregate="select" property="birthday" order="none" mapping-type="simple"&gt;&lt;mapping-item value="2" label="全局"/&gt;&lt;mapping-item value="3" label="制程"/&gt;&lt;mapping-item value="4" label="BOM报价必备全局参数"/&gt;&lt;mapping-item value="5" label="BOM报价销售参数"/&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="D2" row="2" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="账号列表" aggregate="select" property="description" order="none" mapping-type="simple"&gt;&lt;mapping-item value="1" label="数字型"/&gt;&lt;mapping-item value="2" label="字符型"/&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="E2" row="2" col="5"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="账号列表" aggregate="select" property="birthday" order="none" mapping-type="simple"&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="Down" name="F2" row="2" col="6"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;dataset-value dataset-name="账号列表" aggregate="select" property="crtTime" order="none" mapping-type="simple"&gt;&lt;mapping-item value="1" label="有效"/&gt;&lt;mapping-item value="0" label="无效"/&gt;&lt;/dataset-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="A3" row="3" col="1"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="B3" row="3" col="2"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="C3" row="3" col="3"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="D3" row="3" col="4"&gt;&lt;cell-style font-size="10" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="E3" row="3" col="5"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;cell expand="None" name="F3" row="3" col="6"&gt;&lt;cell-style font-size="9" forecolor="0,0,0" font-family="宋体" align="center" valign="middle"&gt;&lt;/cell-style&gt;&lt;simple-value&gt;&lt;![CDATA[]]&gt;&lt;/simple-value&gt;&lt;/cell&gt;&lt;row row-number="1" height="18"/&gt;&lt;row row-number="2" height="18"/&gt;&lt;row row-number="3" height="18"/&gt;&lt;column col-number="1" width="80"/&gt;&lt;column col-number="2" width="80"/&gt;&lt;column col-number="3" width="80"/&gt;&lt;column col-number="4" width="80"/&gt;&lt;column col-number="5" width="74"/&gt;&lt;column col-number="6" width="74"/&gt;&lt;datasource name="engineeringBean" type="spring" bean="engineeringBean"&gt;&lt;dataset name="账号列表" type="bean" method="loadData" clazz="com.wzkj.dto.response.admin.UserRespDTO"&gt;&lt;field name="birthday"/&gt;&lt;field name="address"/&gt;&lt;field name="crtTime"/&gt;&lt;field name="description"/&gt;&lt;field name="employeId"/&gt;&lt;field name="lastLoginTime"/&gt;&lt;field name="password"/&gt;&lt;field name="telPhone"/&gt;&lt;field name="mobilePhone"/&gt;&lt;field name="tenantName"/&gt;&lt;field name="validStatus"/&gt;&lt;field name="name"/&gt;&lt;field name="tenantId"/&gt;&lt;field name="id"/&gt;&lt;field name="email"/&gt;&lt;field name="status"/&gt;&lt;field name="username"/&gt;&lt;/dataset&gt;&lt;/datasource&gt;&lt;paper type="A4" left-margin="90" right-margin="90"<br />
+</p>
+<blockquote>
+top-margin="72" bottom-margin="72" paging-mode="fitpage" fixrows="0"
+width="595" height="842" orientation="portrait" html-report-align="left" bg-image="" html-interval-refresh-value="0" column-enabled="false"&gt;&lt;/paper&gt;&lt;/ureport&gt;	
+</blockquote>
+    
+
+
+<div class="toc">
+<ul>
+<li class="menu1"><a href="#toc_1">数据库 </a>
+<li class="menu1"><a href="#toc_2">租户端 </a>
+<li class="menu1"><a href="#toc_3">平台端 </a>
+<li class="menu1"><a href="#toc_4">admin </a>
+<li class="menu1"><a href="#toc_5">linwei </a>
+<li class="menu1"><a href="#toc_6">常用链接 </a>
+<li class="menu1"><a href="#toc_7">工作清单 </a>
+<ul>
+<li class="menu2"><a href="#toc_7.1">待处理 </a>
+<li class="menu2"><a href="#toc_7.2">处理中 </a>
+<li class="menu2"><a href="#toc_7.3">已处理 </a>
+</ul>
+<li class="menu1"><a href="#toc_8">Inplan上传报错 </a>
+<ul>
+<li class="menu2"><a href="#toc_8.1">客户物料号u9和MES对不上 </a>
+</ul>
+<li class="menu1"><a href="#toc_9">隐藏报废 </a>
+<ul>
+<li class="menu2"><a href="#toc_9.1">查过数的作业单号 </a>
+<li class="menu2"><a href="#toc_9.2">过数记录表 </a>
+</ul>
+<li class="menu1"><a href="#toc_10">外发 </a>
+<li class="menu1"><a href="#toc_11">密码加解密 </a>
+<li class="menu1"><a href="#toc_12">规范 </a>
+<li class="menu1"><a href="#toc_13">翻译网址 </a>
+<li class="menu1"><a href="#toc_14">工作总结 </a>
+</ul>
+</div>
+<div class="content">
+<p>
+华文宋体<br />
+<a href="http://127.0.0.1:8686/api/report/ureport2/excel?fileName=full:tenant_userList.ureport.xml&amp;file=材料信息">http://127.0.0.1:8686/api/report/ureport2/excel?fileName=full:tenant_userList.ureport.xml&amp;file=材料信息</a>
+</p>
+
+
+
+
+<p>
+package com.wzkj.report.service.impl.jasper;<br />
+</p>
+
+<p>
+import com.wzkj.api.coordination.CoordinationService;<br />
+import com.wzkj.dto.request.warehouse.SrmSmallPackingBarcodeReqDTO;<br />
+import com.wzkj.report.service.jasper.JasperService;<br />
+import com.wzkj.report.service.ureport.AbstractUReportBean;<br />
+import org.springframework.beans.factory.annotation.Autowired;<br />
+import org.springframework.stereotype.Component;<br />
+</p>
+
+<p>
+import java.util.Collection;<br />
+import java.util.LinkedHashMap;<br />
+import java.util.List;<br />
+import java.util.Map;<br />
+</p>
+
+<p>
+@Component("customerCoordinationReportImpl")<br />
+</p>
+
+<p>
+public class CustomerCoordinationReportImpl extends AbstractUReportBean&lt;SrmSmallPackingBarcodeReqDTO&gt; implements JasperService&lt;SrmSmallPackingBarcodeReqDTO&gt; {<br />
+</p>
+<blockquote>
+@Autowired
+public void setCoordinationService(CoordinationService coordinationService) {
+this.coordinationService = coordinationService;
+}
+</blockquote>
+<blockquote>
+CoordinationService  coordinationService;
+</blockquote>
+<blockquote>
+@Override
+public Collection&lt;?&gt; getBeanCollection(LinkedHashMap linkedHashMap) {
+SrmSmallPackingBarcodeReqDTO srmSmallPackingBarcodeReqDTO = getParameterWithNoneEmpty(SrmSmallPackingBarcodeReqDTO.class, linkedHashMap);
+return  coordinationService.print(srmSmallPackingBarcodeReqDTO).getData();
+}
+</blockquote>
+<blockquote>
+@Override
+public List&lt;SrmSmallPackingBarcodeReqDTO&gt; loadData(String dsName, String databaseName, Map&lt;String, Object&gt; parameters) {
+return null;
+}
+</blockquote>
+<p>
+}<br />
+</p>
+
+<p>
+<a href="http://127.0.0.1:8083/#/register?redisCode=registerAdmin_VOMiblSr">http://127.0.0.1:8083/#/register?redisCode=registerAdmin_VOMiblSr</a>
+</p>
+
+
+<p>
+深圳市正菱机械有限公司<br />
+广东源兴光学仪器有限公司<br />
+景荣机械制造（深圳）有限公司<br />
+</p>
+
+
+<p>
+  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT,<br />
+  <code>enterprise_customer_id</code> bigint(20) DEFAULT NULL COMMENT '企业客户D',<br />
+  <code>contact</code> varchar(100) DEFAULT NULL COMMENT '联系人',<br />
+  <code>telephone</code> varchar(30) DEFAULT NULL COMMENT '手机号',<br />
+  <code>email</code> varchar(100) DEFAULT NULL COMMENT '电子邮箱',<br />
+  <code>address</code> varchar(200) DEFAULT NULL COMMENT '联系地址',<br />
+  <code>default_contact</code> tinyint(4) DEFAULT '0' COMMENT '是否默认联系人: 0-否 1-是',<br />
+  <code>remark</code> varchar(500) DEFAULT NULL COMMENT '备注',<br />
+  <code>crt_time</code> datetime DEFAULT NULL,<br />
+  <code>crt_user</code> varchar(255) DEFAULT NULL,<br />
+  <code>crt_name</code> varchar(255) DEFAULT NULL,<br />
+  <code>crt_host</code> varchar(255) DEFAULT NULL,<br />
+  <code>upd_time</code> datetime DEFAULT NULL,<br />
+  <code>upd_user</code> varchar(255) DEFAULT NULL,<br />
+  <code>upd_name</code> varchar(255) DEFAULT NULL,<br />
+  <code>upd_host</code> varchar(255) DEFAULT NULL,<br />
+  <code>fax</code> varchar(30) DEFAULT NULL COMMENT '传真',<br />
+  PRIMARY KEY (<code>id</code>) USING BTREE,<br />
+  KEY <code>Index_1</code> (<code>enterprise_customer_id</code>) USING BTREE<br />
+) ENGINE=InnoDB AUTO_INCREMENT=1521 DEFAULT CHARSET=utf8mb4 COMMENT='企业客户联系人';<br />
+</p>
+
+
+
+	
+<p>
+13480006065<br />
+</p>
+<blockquote>
+private void insertOpt(MaterialInfo materialInfo, MaterialPurchaseInfoReqDTO materialPurchaseInfoReqDTO,
+MaterialPurchaseInfo dataPurchaseInfo) {
+StringBuilder sb = new StringBuilder();
+sb.append("变更前:").append(PurchaseFlag.getDesc(dataPurchaseInfo.getPurchaseFlag()))
+.append("<br/>")
+.append("变更后:").append(PurchaseFlag.getDesc(materialPurchaseInfoReqDTO.getPurchaseFlag()));
+</blockquote>
+<blockquote>
+//写操作日志
+optLogHelper.addLog(
+OptLogBuilder.create(OptLogBusinessType.MATERIAL_PURCHASE)
+.setBusinessKey(materialInfo.getMaterialCode())
+.setOptType(OptLogType.EDIT)
+.setOptRemark(materialPurchaseInfoReqDTO.getPurchaseChangeReason())
+.setBody(sb.toString())
+.setOptFrontField(OptFrontField.PURCHASE_FLAG)
+.setRequest()
+.setCrtUser()
+);
+}
+</blockquote>
+
+
+
+<p>
+  ENTERPRISE_UPDATE_NAME("更改企业", "3"),<br />
 </p>
 
 

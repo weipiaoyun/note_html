@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>公司网络</title>
+<title>Java报表</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,60 +18,37 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">跨区域网络 </a>
+<li class="menu1"><a href="#toc_1">Excel </a>
 </ul>
 </div>
 <div class="content">
-<p>
-我的IP：172.18.1.143<br />
-	172.18.8.39  255.255.0.0   172.18.0.1  202.96.128.86 114.114.114.114<br />
-</p>
-	
 
 <p>
-DNS服务器：202.96.128.86<br />
+wzkj-report-&gt;src-&gt;main-&gt;java-&gt;ureport-&gt;复制一个warehouseBean 粘贴为EnterpriseBean<br />
 </p>
 
+
+
+<h1 id="toc_1">Excel </h1><HR SIZE=1>
 <p>
-人事管理地址:172.18.8.11<br />
-王葛网址：172.17.1.98<br />
-MI程序地址：172.18.1.42<br />
-软板VNC：172.18.2.239:9<br />
-软板workfile：172.18.2.239<br />
-硬板VNC：172.18.100.9:3<br />
-svn：<a href="svn://172.18.3.113/hc/genesis/">svn://172.18.3.113/hc/genesis/</a> 密码：l987<br />
+<a href="http://127.0.0.1:8686/ureport/designer">http://127.0.0.1:8686/ureport/designer</a>
 </p>
 
 <p>
-\\172.18.3.113\hc\5.documents\工程电脑\工程电脑登记簿<br />
+点击叶子-&gt;springBean数据源配置-&gt;数据源名称【enterprise】-&gt;Bean ID【com.wzkj.dto.response.enterprise.EnterpriseRespDTO】<br />
+右击新加的enterprise-&gt;添加数据集-&gt;数据集名称【企业】-&gt;方法名-&gt;选择方法-&gt;loadData<br />
+返回对象com.wzkj.dto.response.enterprise.EnterpriseTableRowRespDTO<br />
 </p>
 
 
 <p>
-咨询部备份IP：172.18.8.17<br />
-志浩<br />
-172.17.3.18（192.168.6.253）<br />
-172.17.3.72（192.168.6.1）<br />
-172.17.1.98（192.168.6.254）<br />
-172.17.3.67<br />
-172.17.3.9<br />
-梅双<br />
-172.17.0.66<br />
-软板<br />
-172.18.20.113<br />
-172.18.2.187<br />
-172.18.100.201<br />
-172.18.2.241<br />
-172.18.2.242<br />
-172.18.2.239<br />
-1722.18.100.1<br />
+点击enterpriseBean下面的企业-&gt;刷新-&gt;保存-&gt;enterprise<br />
 </p>
 
-<h1 id="toc_1">跨区域网络 </h1><HR SIZE=1>
 <p>
-route add 172.16.0.0 mask 255.255.0.0 172.18.254.1 -p<br />
-route add 172.17.0.0 mask 255.255.0.0 172.18.254.1 -p<br />
-route add 172.19.0.0 mask 255.255.0.0 172.18.0.2 -p<br />
+选择单元格-&gt;选择属性<br />
+第一行，文本内容<br />
+第二行，属性-&gt;单元格类型-&gt;数据集-&gt;数据集选企业-&gt;属性选name-&gt;聚合方式选列表<br />
 </p>
 
 
