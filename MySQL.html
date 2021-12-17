@@ -49,7 +49,8 @@
 <div class="content">
 <p>
 mysqld --console --skip-grant-tables --shared-memory<br />
- update user set authentication_string='123456' where user='root';<br />
+update user set authentication_string='123456' where user='root';<br />
+update user set host = '%' where user = 'root';<br />
 </p>
 
 <h1 id="toc_1">链接更新 </h1><HR SIZE=1>

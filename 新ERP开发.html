@@ -18,50 +18,76 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">问题 </a>
-<li class="menu1"><a href="#toc_2">前端 </a>
+<li class="menu1"><a href="#toc_1">本地服务环境配置 </a>
+<li class="menu1"><a href="#toc_2">问题 </a>
+<li class="menu1"><a href="#toc_3">前端 </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">wzui项目 </a>
-<li class="menu2"><a href="#toc_2.2">超时 </a>
-<li class="menu2"><a href="#toc_2.3">报错处理 </a>
+<li class="menu2"><a href="#toc_3.1">wzui项目 </a>
+<li class="menu2"><a href="#toc_3.2">超时 </a>
+<li class="menu2"><a href="#toc_3.3">报错处理 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">后端 </a>
+<li class="menu1"><a href="#toc_4">后端 </a>
 <ul>
-<li class="menu2"><a href="#toc_3.1">权限管理 </a>
+<li class="menu2"><a href="#toc_4.1">权限管理 </a>
 <ul>
-<li class="menu3"><a href="#toc_3.1.1">数据权限 </a>
-<li class="menu3"><a href="#toc_3.1.2">字段权限 </a>
-<li class="menu3"><a href="#toc_3.1.3">问题 </a>
+<li class="menu3"><a href="#toc_4.1.1">数据权限 </a>
+<li class="menu3"><a href="#toc_4.1.2">字段权限 </a>
+<li class="menu3"><a href="#toc_4.1.3">问题 </a>
 </ul>
-<li class="menu2"><a href="#toc_3.2">企业 </a>
+<li class="menu2"><a href="#toc_4.2">企业 </a>
 <ul>
-<li class="menu4"><a href="#toc_3.2.0.1">表 </a>
-<li class="menu4"><a href="#toc_3.2.0.2">企业邀请 </a>
+<li class="menu4"><a href="#toc_4.2.0.1">表 </a>
+<li class="menu4"><a href="#toc_4.2.0.2">企业邀请 </a>
 </ul>
 </ul>
-<li class="menu2"><a href="#toc_3.3">接口 </a>
+<li class="menu2"><a href="#toc_4.3">接口 </a>
 </ul>
-<li class="menu1"><a href="#toc_4">自动发送邮件配置 </a>
-<li class="menu1"><a href="#toc_5">服务器 </a>
-<li class="menu1"><a href="#toc_6">文件管理 </a>
-<li class="menu1"><a href="#toc_7">数据库 </a>
+<li class="menu1"><a href="#toc_5">自动发送邮件配置 </a>
+<li class="menu1"><a href="#toc_6">服务器 </a>
+<li class="menu1"><a href="#toc_7">启动 </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">表 </a>
+<li class="menu2"><a href="#toc_7.1">路径 </a>
+<li class="menu2"><a href="#toc_7.2">jenkins工作区 </a>
+</ul>
+<li class="menu1"><a href="#toc_8">文件管理 </a>
+<li class="menu1"><a href="#toc_9">数据库 </a>
 <ul>
-<li class="menu3"><a href="#toc_7.1.1">获取租户ID </a>
-</ul>
-</ul>
-<li class="menu1"><a href="#toc_8">问题 </a>
+<li class="menu2"><a href="#toc_9.1">表 </a>
 <ul>
-<li class="menu2"><a href="#toc_8.1">swag </a>
+<li class="menu3"><a href="#toc_9.1.1">获取租户ID </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_10">问题 </a>
 <ul>
-<li class="menu3"><a href="#toc_8.1.1">无法找到api </a>
+<li class="menu2"><a href="#toc_10.1">swag </a>
+<ul>
+<li class="menu3"><a href="#toc_10.1.1">无法找到api </a>
 </ul>
 </ul>
+<li class="menu1"><a href="#toc_11">系统配置 </a>
+<ul>
+<li class="menu2"><a href="#toc_11.1">安装maven </a>
+<li class="menu2"><a href="#toc_11.2">nacos </a>
+<ul>
+<li class="menu3"><a href="#toc_11.2.1">开机启动 </a>
+</ul>
+</ul>
+<li class="menu1"><a href="#toc_12">消息队列 </a>
 </ul>
 </div>
 <div class="content">
+
+<h1 id="toc_1">本地服务环境配置 </h1><HR SIZE=1>
 <p>
+mount  10.96.58.102:/space/cam cam02_share<br />
+</p>
+
+
+
+
+
+<p>
+<a href="新erp sql语句.html">新erp sql语句</a>
 <a href="新ERP功能菜单.html">新ERP功能菜单</a>
 </p>
 
@@ -70,12 +96,17 @@
 搜接口  cloumnConfig/page<br />
 </p>
 
-<h1 id="toc_1">问题 </h1><HR SIZE=1>
+<h1 id="toc_2">问题 </h1><HR SIZE=1>
 <p>
 获取访问的ip<br />
 </p>
 
-<h1 id="toc_2">前端 </h1><HR SIZE=1>
+
+<p>
+Load balancer does not contain an instance for the service localhost<br />
+</p>
+
+<h1 id="toc_3">前端 </h1><HR SIZE=1>
 <ol>
 <li>
 打开终端，npm i 安装
@@ -123,7 +154,7 @@ cnpm run build
 </ol>
 
 
-<h2 id="toc_2.1">wzui项目 </h2>
+<h2 id="toc_3.1">wzui项目 </h2>
 <p>
 cd wzui/<br />
 npm i<br />
@@ -131,13 +162,13 @@ npm run lib 或者npx vue-cli-service build --mode lw --target lib --name wzui -
 </p>
 
 
-<h2 id="toc_2.2">超时 </h2>
+<h2 id="toc_3.2">超时 </h2>
 <p>
 E:\wz-erp-web-pro\wz-erp-web-pro\packages\wz-lib\lib\request<br />
 </p>
 
 
-<h2 id="toc_2.3">报错处理 </h2>
+<h2 id="toc_3.3">报错处理 </h2>
 <p>
 cd wzui<br />
 npm run lib:dev<br />
@@ -155,7 +186,7 @@ npx vue-cli-service serve    <br />
 <p>
 npm run dev <br />
 </p>
-<h1 id="toc_3">后端 </h1><HR SIZE=1>
+<h1 id="toc_4">后端 </h1><HR SIZE=1>
 <ol>
 <li>
 建模，数据库字段的确认
@@ -236,7 +267,7 @@ E:\wzkj\wzkj_hr\src\main\java\com\wzkj\hr\dto\request<br />
 <a href="新ERP权限管理.html">新ERP权限管理</a>
 </p>
 
-<h2 id="toc_3.1">权限管理 </h2>
+<h2 id="toc_4.1">权限管理 </h2>
 <p>
 类JWTInfo：sourceSide 发起请求的应用端：比如系统后台管理，租户端，业务端<br />
 </p>
@@ -288,7 +319,7 @@ base_resource_authority 的resource_id 对应base_data_privilege的id 对应base
 
 </ol>
 
-<h3 id="toc_3.1.1">数据权限 </h3>
+<h3 id="toc_4.1.1">数据权限 </h3>
 <p>
 com.wzkj.base.common.Handler.MyDataPermissionHandler<br />
 </p>
@@ -331,7 +362,7 @@ SELECT DISTINCT u.id ,bp.id , bp.type, bg.id as groupId
   WHERE u.STATUS = 1  AND be.uri = '/engineeringParam/queryList' AND bg.tenant_id = 1 AND u.id = 1;
 </pre>
 
-<h3 id="toc_3.1.2">字段权限 </h3>
+<h3 id="toc_4.1.2">字段权限 </h3>
 <p>
 com.wzkj.base.common.Handler.TimmingHandlerInterceptor<br />
 </p>
@@ -342,19 +373,19 @@ com.wzkj.base.common.Handler.TimmingHandlerInterceptor<br />
 构选后 base_cloumn_privilege 增加一行<br />
 </p>
 
-
 <p>
+nohup java -Xms64m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=512m  -jar   /cam02_share/lw/workplace/wzcloud-enterprise.jar  --spring.profiles.active=lw &gt; /cam02_share/lw/workplace//logs/wzcloud-enterprise.log&gt;&amp;1&amp;<br />
 添加菜单：menu  <br />
 </p>
 
-<h3 id="toc_3.1.3">问题 </h3>
+<h3 id="toc_4.1.3">问题 </h3>
 <p>
 <a href="审批流程.html">审批流程</a>
 </p>
 
 
-<h2 id="toc_3.2">企业 </h2>
-<h4 id="toc_3.2.0.1">表 </h4>
+<h2 id="toc_4.2">企业 </h2>
+<h4 id="toc_4.2.0.1">表 </h4>
 <p>
 enterprise_tenant 租户管理<br />
 register_invitation 邀请管理<br />
@@ -372,7 +403,7 @@ register_invitation 邀请管理<br />
 <a href="http://localhost:8684/api/user/captcha/registerAdmin_84st6YTA">http://localhost:8684/api/user/captcha/registerAdmin_84st6YTA</a>  获取验证码
 </p>
 
-<h4 id="toc_3.2.0.2">企业邀请 </h4>
+<h4 id="toc_4.2.0.2">企业邀请 </h4>
 <p>
 取消邀请状态：<br />
 </p>
@@ -427,7 +458,7 @@ enterprise_relation_authorization 的authorized_enterprise_ids 为的1更改为5
 在cloud_admin_v2库里面不能存在相同邮箱<br />
 </p>
 
-<h2 id="toc_3.3">接口 </h2>
+<h2 id="toc_4.3">接口 </h2>
 <p>
 /enterpriseUser/saveOrUpdate 保存和更新用户<br />
 </p>
@@ -453,13 +484,13 @@ public FrontUserV2 getUserInfoV2() { 登录是获取用户信息<br />
 </p>
 
 
-<h1 id="toc_4">自动发送邮件配置 </h1><HR SIZE=1>
+<h1 id="toc_5">自动发送邮件配置 </h1><HR SIZE=1>
 <p>
 wzkj-message : resources application-dev.yml<br />
 </p>
 
 
-<h1 id="toc_5">服务器 </h1><HR SIZE=1>
+<h1 id="toc_6">服务器 </h1><HR SIZE=1>
 <p>
 Jenkins <br />
 </p>
@@ -468,6 +499,7 @@ Jenkins <br />
 nohup java -jar wzkj-gateway-1.0.0-SNAPSHOT.jar &gt;./gateway_nohup.log 2&gt;&amp;1&amp;<br />
 nohup java -jar wzkj-admin-1.0.0-SNAPSHOT.jar &gt;./admin_nohup.log 2&gt;&amp;1&amp;<br />
 </p>
+
 
 <p>
 sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run  rancher/rancher-agent:v2.5.7 --server <a href="https://10.10.7.10">https://10.10.7.10</a> --token ngzpcrbtv7b9rvn6cgwsdsmqwpqcgvwgz9g9pv5nsmx5mx4kbhnvmm --ca-checksum 912c3d31c22fd698a68ecaa39d3f9a643c1d8f5df6fe82d52f2537fdda19bd60 --worker
@@ -504,26 +536,220 @@ find -name nginx/nginx.conf<br />
 netstat -tanlp |grep 8080<br />
 </p>
 
-<h1 id="toc_6">文件管理 </h1><HR SIZE=1>
+
+<h1 id="toc_7">启动 </h1><HR SIZE=1>
+<p>
+nohup java -Xms64m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=512m  -jar   /cam02_share/lw/workplace/wzcloud-enterprise.jar  --spring.profiles.active=lw &gt; /cam02_share/lw/workplace/logs/wzcloud-enterprise.log&gt;&amp;1&amp;<br />
+</p>
+
+<p>
+nohup java -Xms64m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=512m  -jar   /cam02_share/lw/workplace/wzcloud-hr.jar  --spring.profiles.active=lw &gt; /cam02_share/lw/workplace/logs/wzcloud-hr.log&gt;&amp;1&amp;<br />
+</p>
+
+<p>
+nohup java -Xms64m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=512m  -jar   /cam02_share/lw/workplace/wzcloud-enterprise.jar  --spring.profiles.active=lw &gt; /cam02_share/lw/workplace//logs/wzcloud-enterprise.log&gt;&amp;1&amp;<br />
+</p>
+
+<h2 id="toc_7.1">路径 </h2>
+<h2 id="toc_7.2">jenkins工作区 </h2>
+<p>
+10.10.7.16<br />
+/root/.jenkins/workspace<br />
+</p>
+
+<h1 id="toc_8">文件管理 </h1><HR SIZE=1>
 <p>
 attachmentName 如果有传，则按这个名字作为名字<br />
 </p>
 
 
-<h1 id="toc_7">数据库 </h1><HR SIZE=1>
-<h2 id="toc_7.1">表 </h2>
-<h3 id="toc_7.1.1">获取租户ID </h3>
+<h1 id="toc_9">数据库 </h1><HR SIZE=1>
+<h2 id="toc_9.1">表 </h2>
+<h3 id="toc_9.1.1">获取租户ID </h3>
 <p>
 cloud_admin_v2 ：system_param_config<br />
 </p>
 
 
 
-<h1 id="toc_8">问题 </h1><HR SIZE=1>
-<h2 id="toc_8.1">swag </h2>
-<h3 id="toc_8.1.1">无法找到api </h3>
+<h1 id="toc_10">问题 </h1><HR SIZE=1>
+<h2 id="toc_10.1">swag </h2>
+<h3 id="toc_10.1.1">无法找到api </h3>
 <p>
 检查application.yml的swagger配置，base-package的值是不是当前项目的值。<br />
+</p>
+
+
+
+
+<h1 id="toc_11">系统配置 </h1><HR SIZE=1>
+<p>
+安装jdk<br />
+</p>
+
+<p>
+解压到/usr/local/<br />
+export JAVA_HOME=/usr/local/jdk1.8.0_301<br />
+export JRE_HOME=${JAVA_HOME}/jre  <br />
+export CLASSPATH=.:\({JAVA_HOME}/lib:\){JRE_HOME}/lib  <br />
+export  PATH=\({JAVA_HOME}/bin:\)PATH<br />
+</p>
+
+<h2 id="toc_11.1">安装maven </h2>
+<p>
+tar -zxvf apache-maven-3.6.1-bin.tar.gz<br />
+</p>
+
+<p>
+export MAVEN_HOME=/usr/local/apache-maven-3.6.1<br />
+export PATH=\(MAVEN_HOME/bin:\)PATH <br />
+source /etc/profile<br />
+mvn -v <br />
+</p>
+
+
+<h2 id="toc_11.2">nacos </h2>
+<p>
+#nohup sh startup.sh -m standalone<br />
+</p>
+
+<h3 id="toc_11.2.1">开机启动 </h3>
+<p>
+cd /lib/systemd/system<br />
+vi nacos.service<br />
+</p>
+
+<p>
+[Unit]<br />
+Description=nacos<br />
+After=network.target<br />
+</p>
+
+<p>
+[Service]<br />
+Type=forking<br />
+ExecStart=/home/nacos/nacos/bin/startup.sh -m standalone<br />
+ExecReload=/home/nacos/nacos/bin/shutdown.sh<br />
+ExecStop=/home/nacos/nacos/bin/shutdown.sh<br />
+PrivateTmp=true<br />
+</p>
+
+<p>
+[Install]  <br />
+WantedBy=multi-user.target<br />
+</p>
+
+
+<ol>
+<li>
+systemctl daemon-reload
+
+<li>
+systemctl enable nacos.service
+
+</ol>
+
+
+<p>
+	JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.275.b01-0.el7_9.x86_64/jre # 添加这行指定java的路径<br />
+cygwin=false<br />
+darwin=false<br />
+os400=false<br />
+case "<code>uname</code>" in<br />
+CYGWIN*) cygwin=true;;<br />
+Darwin*) darwin=true;;<br />
+OS400*) os400=true;;<br />
+esac<br />
+error_exit ()<br />
+{<br />
+</p>
+<blockquote>
+echo "ERROR: $1 !!"
+exit 1
+</blockquote>
+<p>
+}<br />
+[ ! -e "\(JAVA_HOME/bin/java" ] &amp;&amp; JAVA_HOME=\)HOME/jdk/java<br />
+[ ! -e "$JAVA_HOME/bin/java" ] &amp;&amp; JAVA_HOME=/usr/java<br />
+[ ! -e "$JAVA_HOME/bin/java" ] &amp;&amp; JAVA_HOME=/opt/taobao/java<br />
+[ ! -e "$JAVA_HOME/bin/java" ] &amp;&amp; unset JAVA_HOME<br />
+</p>
+
+
+<ol>
+<li>
+systemctl start nacos.service
+
+</ol>
+
+
+
+<h1 id="toc_12">消息队列 </h1><HR SIZE=1>
+<p>
+COM.ERP.MATERIEL.QUEUE<br />
+COM.ERP.WAREHOUSE.RQUEUE<br />
+</p>
+
+
+
+<p>
+CREATE TABLE <code>purchase_head</code> (<br />
+  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',<br />
+  <code>purchase_no</code> varchar(20) DEFAULT NULL COMMENT '采购单号',<br />
+  <code>tenant_id</code> bigint(20) DEFAULT NULL COMMENT '租户id',<br />
+  <code>source_purchase_nos</code> varchar(500) DEFAULT NULL COMMENT '原采购单号，多个以逗号隔开',<br />
+  <code>source_purchase_ids</code> varchar(500) DEFAULT NULL COMMENT '原采购id，多个以逗号隔开',<br />
+  <code>shipment_name</code> varchar(15) DEFAULT NULL COMMENT '装运方法',<br />
+  <code>shipment_code</code> varchar(15) DEFAULT NULL COMMENT '装运代码',<br />
+  <code>curr_code</code> varchar(5) DEFAULT NULL COMMENT '货币代码（英文用）',<br />
+  <code>curr_name</code> varchar(20) DEFAULT NULL COMMENT '货币代码（中文用）',<br />
+  <code>qte_base_to_other</code> decimal(15,4) DEFAULT NULL COMMENT '报价相对汇率 （该币种兑换多少基准货币）',<br />
+  <code>supplier_id</code> bigint(20) DEFAULT NULL COMMENT '供应商id',<br />
+  <code>supplier_code</code> varchar(50) DEFAULT NULL COMMENT '供应商代码',<br />
+  <code>sporadic_supplier</code> varchar(50) DEFAULT NULL COMMENT '零星供应商名',<br />
+  <code>supplier_name</code> varchar(50) DEFAULT NULL COMMENT '供应商名字',<br />
+  <code>supplier_contact_id</code> bigint(20) DEFAULT NULL COMMENT '供应商联系人ID',<br />
+  <code>supplier_contact</code> varchar(50) DEFAULT NULL COMMENT '供应商联系人',<br />
+  <code>invoice_type</code> tinyint(4) DEFAULT '1' COMMENT '票据种类 1:普通发票 2-增值税发票',<br />
+  <code>supplier_telephone</code> varchar(50) DEFAULT NULL COMMENT '供应商电话',<br />
+  <code>vmi_supplier</code> tinyint(4) DEFAULT NULL COMMENT 'VMI供应商 0 - 不寄放 1 - 寄放',<br />
+  <code>price_type</code> tinyint(4) DEFAULT '1' COMMENT '入库价格取值方式 1:最新入库价格 2-采购价',<br />
+  <code>tax_include_total</code> decimal(18,2) DEFAULT NULL COMMENT '含税总金额',<br />
+  <code>tax_total</code> decimal(18,2) DEFAULT NULL COMMENT '税费总金额',<br />
+  <code>tax_rate</code> decimal(4,2) DEFAULT NULL COMMENT '税率%',<br />
+  <code>purchase_type</code> char(1) NOT NULL DEFAULT '0' COMMENT '请求类型(S,M)标准,杂项(0标准1杂项)',<br />
+  <code>approval_process_id</code> bigint(20) DEFAULT NULL COMMENT '审批流程id',<br />
+  <code>delivery_address</code> varchar(200) DEFAULT NULL COMMENT '送货地点',<br />
+  <code>delivery_address_id</code> bigint(20) DEFAULT NULL COMMENT '送货地址ID',<br />
+  <code>req_org_name</code> varchar(1000) DEFAULT NULL COMMENT '请购部门名字，多个用逗号隔开',<br />
+  <code>req_names</code> varchar(1000) DEFAULT NULL COMMENT '请购人员姓名，多个以逗号隔开',<br />
+  <code>purchase_user_id</code> bigint(20) DEFAULT NULL COMMENT '采购人员ID',<br />
+  <code>purchase_name</code> varchar(50) DEFAULT NULL COMMENT '采购人员姓名',<br />
+  <code>user_name</code> varchar(50) DEFAULT NULL COMMENT '使用人员姓名',<br />
+  <code>user_phone</code> varchar(20) DEFAULT NULL COMMENT '使用人员电话',<br />
+  <code>prepayment_flag</code> char(1) DEFAULT '0' COMMENT '预付款：0否，1是',<br />
+  <code>contract_flag</code> char(1) DEFAULT '0' COMMENT '按合同付款：0否，1是',<br />
+  <code>payment_method</code> varchar(20) DEFAULT NULL COMMENT '付款方法',<br />
+  <code>payment_days</code> int(11) DEFAULT NULL COMMENT '净付款天数',<br />
+  <code>approval_time</code> datetime DEFAULT NULL COMMENT '审批日期',<br />
+  <code>refuse_remark</code> varchar(500) DEFAULT NULL COMMENT '退回备注',<br />
+  <code>material_type_name</code> varchar(50) DEFAULT NULL COMMENT '物料类别',<br />
+  <code>send_mail_time</code> datetime DEFAULT NULL COMMENT '发送邮件时间',<br />
+  <code>remark</code> varchar(500) DEFAULT NULL COMMENT '备注',<br />
+  <code>status_flag</code> char(1) DEFAULT '1' COMMENT ' 状态  1 := ''未提交''; 2 := ''待审批''; 3 := ''''已批准''; 4 := ''被退回''; 5 := ''已收货''',<br />
+  <code>delete_flag</code> char(1) DEFAULT '0' COMMENT '是否删除：1是删除，0是没有删除',<br />
+  <code>print_flag</code> char(1) DEFAULT '0' COMMENT '是否打印：1是，0否',<br />
+  <code>source_type</code> char(1) DEFAULT '2' COMMENT '来源：1代表请购，2代表自定义新增',<br />
+  <code>create_user_uid</code> varchar(50) DEFAULT NULL COMMENT '创建者',<br />
+  <code>create_time</code> datetime DEFAULT NULL COMMENT '创建时间',<br />
+  <code>last_update_time</code> datetime DEFAULT NULL COMMENT '最后修改时间',<br />
+  <code>last_update_user_uid</code> varchar(50) DEFAULT NULL COMMENT '最后修改人',<br />
+  <code>create_user_name</code> varchar(50) DEFAULT NULL COMMENT '创建者名字',<br />
+  <code>last_update_user_name</code> varchar(50) DEFAULT NULL COMMENT '最后修改人名字',<br />
+  <code>last_approval_name</code> varchar(50) DEFAULT NULL COMMENT '最后审批人',<br />
+  <code>source_rkey</code> bigint(20) DEFAULT NULL COMMENT 'erpRkey',<br />
+  PRIMARY KEY (<code>id</code>) USING BTREE<br />
+) ENGINE=InnoDB AUTO_INCREMENT=49131 DEFAULT CHARSET=utf8mb4 COMMENT='采购单头';<br />
 </p>
 
 

@@ -41,15 +41,16 @@
 <li class="menu3"><a href="#toc_3.5.1">Method Attribute </a>
 <li class="menu3"><a href="#toc_3.5.2">What's differenc between class and id </a>
 </ul>
-<li class="menu2"><a href="#toc_3.6">编程语言 </a>
-<li class="menu2"><a href="#toc_3.7">快捷键 </a>
-<li class="menu2"><a href="#toc_3.8">框架 </a>
-<li class="menu2"><a href="#toc_3.9">更改iframe里面的内容 </a>
-<li class="menu2"><a href="#toc_3.10">颜色 </a>
-<li class="menu2"><a href="#toc_3.11">学习网站 </a>
-<li class="menu2"><a href="#toc_3.12">HTML 标签 </a>
+<li class="menu2"><a href="#toc_3.6">Internationalization Attributes </a>
+<li class="menu2"><a href="#toc_3.7">编程语言 </a>
+<li class="menu2"><a href="#toc_3.8">快捷键 </a>
+<li class="menu2"><a href="#toc_3.9">框架 </a>
+<li class="menu2"><a href="#toc_3.10">更改iframe里面的内容 </a>
+<li class="menu2"><a href="#toc_3.11">颜色 </a>
+<li class="menu2"><a href="#toc_3.12">学习网站 </a>
+<li class="menu2"><a href="#toc_3.13">HTML 标签 </a>
 <ul>
-<li class="menu3"><a href="#toc_3.12.1">HTML head 元素 </a>
+<li class="menu3"><a href="#toc_3.13.1">HTML head 元素 </a>
 </ul>
 </ul>
 <li class="menu1"><a href="#toc_4">HTML base 元素</a>
@@ -75,6 +76,11 @@
 </ul>
 </div>
 <div class="content">
+
+<p>
+<a href="vue.html">vue</a>
+</p>
+
 
 <h1 id="toc_1">concept </h1><HR SIZE=1>
 
@@ -191,6 +197,15 @@ The <div> element has no required attributes, but style, class, and id are commo
 href(Hypertext REFerence)<br />
 </p>
 
+<p>
+The four core attributes that can be used on the majority of HTML elements (although not all) are −<br />
+Id<br />
+Title<br />
+Class<br />
+Style<br />
+</p>
+
+
 
 <p>
 &lt;a href="default.asp"&gt;<br />
@@ -201,6 +216,7 @@ href(Hypertext REFerence)<br />
 <p>
 Image Floating float right float left<br />
 </p>
+
 
 <h3 id="toc_3.5.1">Method Attribute </h3>
 <p>
@@ -221,22 +237,30 @@ However, when GET is used, the summitted form data will be visible in the page a
 An HTML element can only have one unique id that belongs to that single element, while a class name can be used by multiple elements:<br />
 </p>
 
-<h2 id="toc_3.6">编程语言 </h2>
-<h2 id="toc_3.7">快捷键 </h2>
+
+<h2 id="toc_3.6">Internationalization Attributes </h2>
+<p>
+&lt;html dir = "rtl"&gt;      direction<br />
+&lt;html lang = "en"&gt;     language<br />
+</p>
+	
+
+<h2 id="toc_3.7">编程语言 </h2>
+<h2 id="toc_3.8">快捷键 </h2>
 <p>
 浏览器里面的F12(firebug)   Ctl+shift+j(Error Console)<br />
 </p>
 
-<h2 id="toc_3.8">框架 </h2>
+<h2 id="toc_3.9">框架 </h2>
 
-<h2 id="toc_3.9">更改iframe里面的内容 </h2>
+<h2 id="toc_3.10">更改iframe里面的内容 </h2>
 <p>
 &lt;iframe src="2067yum源安装.html" frameborder="0" name="iframe_a"&gt;&lt;/iframe&gt;<br />
 &lt;p&gt;&lt;a href="<a href="http://www.runoob.com"">http://www.runoob.com"</a> target="iframe_a"&gt;RUNOOB.COM&lt;/a&gt;&lt;/p&gt;
 </p>
 
 
-<h2 id="toc_3.10">颜色 </h2>
+<h2 id="toc_3.11">颜色 </h2>
 <p>
 0.25表示透明度<br />
 &lt;p style="background-color:rgba(255,255,0,0.25)"&gt;<br />
@@ -252,7 +276,7 @@ HTML 中的常用字符实体是不间断空格(&amp;nbsp;)。<br />
 </p>
 
 
-<h2 id="toc_3.11">学习网站 </h2>
+<h2 id="toc_3.12">学习网站 </h2>
 <p>
 <a href="http://www.runoob.com/html/html-intro.html">http://www.runoob.com/html/html-intro.html</a>
 <a href="https://www.freecodecamp.org/learn/">https://www.freecodecamp.org/learn/</a>
@@ -261,8 +285,10 @@ HTML 中的常用字符实体是不间断空格(&amp;nbsp;)。<br />
 <a href="https://scrimba.com/g/gvuex">https://scrimba.com/g/gvuex</a>
 </p>
 
-<h2 id="toc_3.12">HTML 标签 </h2>
+<h2 id="toc_3.13">HTML 标签 </h2>
+
 <p>
+&lt;p&gt;An example of this technique appears in the movie "12&amp;nbsp;Angry&amp;nbsp;Men."&lt;/p&gt;   &amp;nbsp;  12和Angry和Men不能在不一样行。<br />
 &lt;!DOCTYPE html&gt; 声明为 HTML5 文档<br />
 &lt;html&gt; 元素是 HTML 页面的根元素<br />
 &lt;head&gt; 元素包含了文档的元（meta）数据<br />
@@ -273,6 +299,9 @@ HTML 中的常用字符实体是不间断空格(&amp;nbsp;)。<br />
 &lt;p&gt; 元素定义一个段落<br />
 &lt;a href="<a href="http://www.baidu.com/"">http://www.baidu.com/"</a> target="_blank"&gt;访问菜鸟教程!&lt;/a&gt;
 &lt;a href="<a href="http://www.baidu.com"&gt;这是链接&lt;/a&gt;">http://www.baidu.com"&gt;这是链接&lt;/a&gt;</a>
+&lt;pre&gt;...&lt;/pre&gt; 不变 preformat : follow the exact format of how it is written in the HTML document.<br />
+<br />换行<br />
+<hr />横线 Horizontal line<br />
 href 属性<br />
 </p>
 
@@ -282,10 +311,42 @@ href 属性<br />
 
 <p>
 &lt;iframe src="demo_iframe.htm" frameborder="0"&gt;&lt;/iframe&gt;<br />
+<b>...</b> bold<br />
+<i>...</i> italicize<br />
+<u>...</u> underline<br />
+&lt;strike&gt;...&lt;/strike&gt;  strikethrough<br />
+&lt;tt&gt;...&lt;/tt&gt; monospaced <br />
+<sup>...</sup> Superscript <br />
+ <del>...</del> <br />
+ The <div> and &lt;span&gt; elements allow you to group together several elements to create sections or subsections of a page.<br />
+</p>
+ 
+<p>
+ The &lt;span&gt; element, on the other hand, can be used to group inline elements only. So, if you have a part of a sentence or paragraph which you want to group together, you could use the &lt;span&gt; element as follows.<br />
+</p>
+ 
+<p>
+ &lt;em&gt;...&lt;/em&gt; emphasize<br />
+</p>
+
+<p>
+&lt;table&gt;<br />
+&lt;tr&gt; table row<br />
+&lt;td&gt; table data cell;  data column<br />
+&lt;th&gt; table heading<br />
 </p>
 
 
-<h3 id="toc_3.12.1">HTML head 元素 </h3>
+<p>
+List<br />
+</p>
+
+<p>
+&lt;ul&gt; unordered list<br />
+&lt;ol&gt; order list<br />
+</p>
+
+<h3 id="toc_3.13.1">HTML head 元素 </h3>
 <p>
 &lt;head&gt; 元素包含了所有的头部标签元素。在 &lt;head&gt;元素中你可以插入脚本（scripts）, 样式文件（CSS），及各种meta信息。<br />
 </p>
@@ -306,6 +367,11 @@ href 属性<br />
 其中images/logo.png 相对于d:/vim/Apps/Gvim/mysite/笔记整理_html/的路径。<br />
 </p>
 
+
+<p>
+Tag VS Element<br />
+&lt;p&gt; is starting tag of a paragraph and &lt;/p&gt; is closing tag of the same paragraph but &lt;p&gt;This is paragraph&lt;/p&gt; is a paragraph element.<br />
+</p>
 
 <h1 id="toc_5">css 样式配置</h1><HR SIZE=1>
 <h2 id="toc_5.1">内部样式表 (直接加在内部)</h2>

@@ -18,38 +18,47 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Git </a>
-<li class="menu1"><a href="#toc_2">Template </a>
+<li class="menu1"><a href="#toc_1">忽略项目 pom.yml添加一条删除线 </a>
+<li class="menu1"><a href="#toc_2">Git </a>
+<li class="menu1"><a href="#toc_3">Template </a>
 <ul>
-<li class="menu2"><a href="#toc_2.1">console设置自动换行 </a>
+<li class="menu2"><a href="#toc_3.1">console设置自动换行 </a>
 </ul>
-<li class="menu1"><a href="#toc_3">调试 </a>
+<li class="menu1"><a href="#toc_4">调试 </a>
 <ul>
-<li class="menu2"><a href="#toc_3.1">多服务运行管理 </a>
+<li class="menu2"><a href="#toc_4.1">多服务运行管理 </a>
 </ul>
-<li class="menu1"><a href="#toc_4">清除索引 </a>
-<li class="menu1"><a href="#toc_5">插件 </a>
+<li class="menu1"><a href="#toc_5">清除索引 </a>
+<li class="menu1"><a href="#toc_6">插件 </a>
 <ul>
-<li class="menu2"><a href="#toc_5.1">MyBatisLog无法打印的原因 </a>
+<li class="menu2"><a href="#toc_6.1">MyBatisLog无法打印的原因 </a>
 </ul>
-<li class="menu1"><a href="#toc_6">初始设置 </a>
+<li class="menu1"><a href="#toc_7">初始设置 </a>
 <ul>
-<li class="menu2"><a href="#toc_6.1">显示使用 </a>
+<li class="menu2"><a href="#toc_7.1">显示使用 </a>
 </ul>
-<li class="menu1"><a href="#toc_7">keymap </a>
-<li class="menu1"><a href="#toc_8">添加用gvim打开 </a>
+<li class="menu1"><a href="#toc_8">keymap </a>
+<li class="menu1"><a href="#toc_9">添加用gvim打开 </a>
 <ul>
-<li class="menu2"><a href="#toc_8.1">为新加的扩展工具添加快捷键 </a>
+<li class="menu2"><a href="#toc_9.1">为新加的扩展工具添加快捷键 </a>
 </ul>
-<li class="menu1"><a href="#toc_9">设置detection，检测 </a>
-<li class="menu1"><a href="#toc_10">软件显示名字问题 </a>
+<li class="menu1"><a href="#toc_10">设置detection，检测 </a>
+<li class="menu1"><a href="#toc_11">软件显示名字问题 </a>
 <ul>
-<li class="menu2"><a href="#toc_10.1">module里面有两个名字。 </a>
+<li class="menu2"><a href="#toc_11.1">module里面有两个名字。 </a>
 </ul>
-<li class="menu1"><a href="#toc_11">intellij 的配置文档路径 </a>
+<li class="menu1"><a href="#toc_12">intellij 的配置文档路径 </a>
 </ul>
 </div>
 <div class="content">
+
+<h1 id="toc_1">忽略项目 pom.yml添加一条删除线 </h1><HR SIZE=1>
+<p>
+File-&gt;Settings-&gt;Build,Execution,Deployment-&gt;Ignored Files.<br />
+</p>
+
+
+
 <ol>
 <li>
 File-&gt;Project Structure-&gt;删除model-&gt;重新添加model
@@ -184,13 +193,13 @@ Ctrl+Shift+Backspace for Last Edit Location.<br />
  Alt+Enter 错<br />
 </p>
  
-<h1 id="toc_1" class="justcenter">Git </h1><HR SIZE=1>
+<h1 id="toc_2" class="justcenter">Git </h1><HR SIZE=1>
 <p>
  rollback 回滚=git checkout .  更改了文件，没有commit之前。可以返回到和更改前，和服务器相同。<br />
 </p>
  
  
-<h1 id="toc_2" class="justcenter">Template </h1><HR SIZE=1>
+<h1 id="toc_3" class="justcenter">Template </h1><HR SIZE=1>
 <p>
  File-&gt;Settings-&gt;Editor-&gt;Code Style-&gt;LiveTemplates<br />
  File-&gt;Settings-&gt;Editor-&gt;General-&gt;Postfix Completion<br />
@@ -243,31 +252,32 @@ public static final int \(VAR1\) = \(VAR2\)<br />
 <p>
 File<br />
 </p>
-<h2 id="toc_2.1">console设置自动换行 </h2>
+<h2 id="toc_3.1">console设置自动换行 </h2>
 
-<h1 id="toc_3">调试 </h1><HR SIZE=1>
-<h2 id="toc_3.1">多服务运行管理 </h2>
+<h1 id="toc_4">调试 </h1><HR SIZE=1>
+<h2 id="toc_4.1">多服务运行管理 </h2>
 <p>
  1. View -&gt; Tool Window -&gt; Services; 2. + -&gt; Run Configeration Type -&gt; Spring Boot<br />
 </p>
 
-<h1 id="toc_4">清除索引 </h1><HR SIZE=1>
+<h1 id="toc_5">清除索引 </h1><HR SIZE=1>
 <p>
 File-&gt;Invalidate Caches/Restart<br />
 </p>
 
-<h1 id="toc_5">插件 </h1><HR SIZE=1>
+<h1 id="toc_6">插件 </h1><HR SIZE=1>
 <p>
 GsonFormat：将JSONObject格式的String 解析成实体。<br />
 Free MyBatis plugin：<br />
 JRebel and XRebel： 热部署<br />
+	mybatisPlus xml热部署：JRebel MybatisPlus extension<br />
 RestfulTool：接口<br />
 GitToolBox<br />
 MyBatisLog: 访问数据库打印日志<br />
 </p>
 
 
-<h2 id="toc_5.1">MyBatisLog无法打印的原因 </h2>
+<h2 id="toc_6.1">MyBatisLog无法打印的原因 </h2>
 <p>
 在项目的application.yml里面添加如下：<br />
 mybatis:<br />
@@ -289,8 +299,8 @@ log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 </p>
 
 
-<h1 id="toc_6">初始设置 </h1><HR SIZE=1>
-<h2 id="toc_6.1">显示使用 </h2>
+<h1 id="toc_7">初始设置 </h1><HR SIZE=1>
+<h2 id="toc_7.1">显示使用 </h2>
 <p>
 File-&gt;Settings-&gt;Editor-&gt;Inlay Hints-&gt;Java-&gt;Code vision-&gt;Show hints for Usages <br />
 </p>
@@ -314,40 +324,40 @@ File-&gt;Settings<br />
 </p>
 		
 	
-<h1 id="toc_7">keymap </h1><HR SIZE=1>
+<h1 id="toc_8">keymap </h1><HR SIZE=1>
 <p>
 关闭当前编辑窗口: Main Menu-&gt;Editor Tabs-&gt;Close<br />
 </p>
 
 		
 
-<h1 id="toc_8">添加用gvim打开 </h1><HR SIZE=1>
+<h1 id="toc_9">添加用gvim打开 </h1><HR SIZE=1>
 <p>
 File-&gt;Settings-&gt;Tools-&gt;External Tools-&gt;添加<br />
 参数为(复制过去，注意美元符号) +\(LineNumber\) \(FilePath\)<br />
 </p>
 
-<h2 id="toc_8.1">为新加的扩展工具添加快捷键 </h2>
+<h2 id="toc_9.1">为新加的扩展工具添加快捷键 </h2>
 <p>
 File-&gt;Settings-&gt;Keymap-&gt;搜索Gvim-&gt;右击Add keyboard shortcut<br />
 </p>
 
 
-<h1 id="toc_9">设置detection，检测 </h1><HR SIZE=1>
+<h1 id="toc_10">设置detection，检测 </h1><HR SIZE=1>
 <p>
 Project Structure | Facets | Detection<br />
 </p>
 
 
-<h1 id="toc_10">软件显示名字问题 </h1><HR SIZE=1>
-<h2 id="toc_10.1">module里面有两个名字。 </h2>
+<h1 id="toc_11">软件显示名字问题 </h1><HR SIZE=1>
+<h2 id="toc_11.1">module里面有两个名字。 </h2>
 <p>
 因为module的名字和.iml后缀的名字不一样导致的。<br />
 maven下面的名称不一样：修改&lt;name&gt;&lt;/name&gt;<br />
 </p>
 
 
-<h1 id="toc_11">intellij 的配置文档路径 </h1><HR SIZE=1>
+<h1 id="toc_12">intellij 的配置文档路径 </h1><HR SIZE=1>
 <p>
 C:\Users\Administrator\AppData\Roaming\JetBrains\IntelliJIdea2021.1<br />
 </p>

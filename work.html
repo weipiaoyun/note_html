@@ -18,35 +18,453 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">数据库 </a>
-<li class="menu1"><a href="#toc_2">租户端 </a>
-<li class="menu1"><a href="#toc_3">平台端 </a>
-<li class="menu1"><a href="#toc_4">admin </a>
-<li class="menu1"><a href="#toc_5">linwei </a>
-<li class="menu1"><a href="#toc_6">常用链接 </a>
-<li class="menu1"><a href="#toc_7">工作清单 </a>
+<li class="menu1"><a href="#toc_1">东莞 </a>
+<li class="menu1"><a href="#toc_2">数据库 </a>
+<li class="menu1"><a href="#toc_3">租户端 </a>
+<li class="menu1"><a href="#toc_4">平台端 </a>
+<li class="menu1"><a href="#toc_5">admin </a>
+<li class="menu1"><a href="#toc_6">linwei </a>
+<li class="menu1"><a href="#toc_7">常用链接 </a>
+<li class="menu1"><a href="#toc_8">工作清单 </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">待处理 </a>
-<li class="menu2"><a href="#toc_7.2">处理中 </a>
-<li class="menu2"><a href="#toc_7.3">已处理 </a>
+<li class="menu2"><a href="#toc_8.1">待处理 </a>
+<li class="menu2"><a href="#toc_8.2">处理中 </a>
+<li class="menu2"><a href="#toc_8.3">已处理 </a>
 </ul>
-<li class="menu1"><a href="#toc_8">Inplan上传报错 </a>
+<li class="menu1"><a href="#toc_9">Inplan上传报错 </a>
 <ul>
-<li class="menu2"><a href="#toc_8.1">客户物料号u9和MES对不上 </a>
+<li class="menu2"><a href="#toc_9.1">客户物料号u9和MES对不上 </a>
 </ul>
-<li class="menu1"><a href="#toc_9">隐藏报废 </a>
+<li class="menu1"><a href="#toc_10">隐藏报废 </a>
 <ul>
-<li class="menu2"><a href="#toc_9.1">查过数的作业单号 </a>
-<li class="menu2"><a href="#toc_9.2">过数记录表 </a>
+<li class="menu2"><a href="#toc_10.1">查过数的作业单号 </a>
+<li class="menu2"><a href="#toc_10.2">过数记录表 </a>
 </ul>
-<li class="menu1"><a href="#toc_10">外发 </a>
-<li class="menu1"><a href="#toc_11">密码加解密 </a>
-<li class="menu1"><a href="#toc_12">规范 </a>
-<li class="menu1"><a href="#toc_13">翻译网址 </a>
-<li class="menu1"><a href="#toc_14">工作总结 </a>
+<li class="menu1"><a href="#toc_11">外发 </a>
+<li class="menu1"><a href="#toc_12">密码加解密 </a>
+<li class="menu1"><a href="#toc_13">规范 </a>
+<li class="menu1"><a href="#toc_14">翻译网址 </a>
+<li class="menu1"><a href="#toc_15">工作总结 </a>
 </ul>
 </div>
 <div class="content">
+
+
+
+<p>
+INSERT materiel_inventory_check (<br />
+	check_id,<br />
+	check_seq,<br />
+	material_type_id,<br />
+	material_type_code,<br />
+	material_type_name,<br />
+	materiel_id,<br />
+	materiel_code,<br />
+	materiel_name,<br />
+	warehouse_id,<br />
+	qty,<br />
+	check_qty,<br />
+	manufacturer_id,<br />
+	manufacturer_code,<br />
+	manufacturer_name,<br />
+	stock_unit_code,<br />
+	stock_unit_name <br />
+) SELECT<br />
+14,<br />
+1,<br />
+b.material_type_id,<br />
+b.material_type_code,<br />
+b.material_type_name,<br />
+a.materiel_id,<br />
+a.materiel_code,<br />
+a.materiel_name,<br />
+a.warehouse_id,<br />
+sum( recieving_qty - grant_qty ) AS qty,<br />
+sum( recieving_qty - grant_qty ) AS check_qty,<br />
+a.manufacturer_id,<br />
+a.manufacturer_code,<br />
+a.manufacturer_name,<br />
+a.stock_unit_code,<br />
+a.stock_unit_name <br />
+FROM<br />
+	warehousing_in_detail a<br />
+	INNER JOIN materiel_inventory_info b ON a.materiel_id = b.materiel_id <br />
+WHERE<br />
+	recieving_qty - grant_qty &gt; 0 <br />
+GROUP BY<br />
+	a.materiel_id,<br />
+	a.materiel_code,<br />
+	a.materiel_name,<br />
+	a.manufacturer_id,<br />
+	a.manufacturer_code,<br />
+	a.manufacturer_name,<br />
+	a.stock_unit_code,<br />
+	a.stock_unit_name,<br />
+	a.warehouse_id,<br />
+	b.material_type_id,<br />
+	b.material_type_code,<br />
+	b.material_type_name;<br />
+</p>
+	
+	
+	
+
+
+
+<p>
+CREATE TABLE <code>materiel_inventory_check</code> (<br />
+  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',<br />
+  <code>inventory_id</code> bigint(20) DEFAULT NULL COMMENT '库存id',<br />
+  <code>position_id</code> bigint(20) DEFAULT NULL COMMENT '库位id',<br />
+  <code>check_id</code> bigint(20) DEFAULT NULL COMMENT '盘点id',<br />
+  <code>check_seq</code> bigint(20) DEFAULT NULL COMMENT '盘点物料序号',<br />
+  <code>in_detail_id</code> bigint(20) DEFAULT NULL COMMENT '入库单明细id',<br />
+  <code>material_type_id</code> bigint(20) DEFAULT NULL COMMENT '物料类别id',<br />
+  <code>material_type_code</code> varchar(50) DEFAULT NULL COMMENT '材料类别代码',<br />
+  <code>material_type_name</code> varchar(20) DEFAULT NULL COMMENT '材料类别描述',<br />
+  <code>materiel_id</code> bigint(20) DEFAULT NULL COMMENT '物料id',<br />
+  <code>materiel_code</code> varchar(50) DEFAULT NULL COMMENT '材料代码',<br />
+  <code>materiel_name</code> varchar(50) DEFAULT NULL COMMENT '材料名字',<br />
+  <code>material_standard</code> varchar(50) DEFAULT NULL COMMENT '材料規格',<br />
+  <code>warehouse_id</code> bigint(20) DEFAULT NULL COMMENT '仓库id',<br />
+  <code>qty</code> decimal(18,6) DEFAULT NULL COMMENT '库存数量',<br />
+  <code>check_qty</code> decimal(18,6) DEFAULT NULL COMMENT '盘点数量',<br />
+  <code>manufacturer_id</code> bigint(20) DEFAULT NULL COMMENT '制造商id',<br />
+  <code>manufacturer_code</code> varchar(50) DEFAULT NULL COMMENT '制造商代码',<br />
+  <code>manufacturer_name</code> varchar(50) DEFAULT NULL COMMENT '制造商名字',<br />
+  <code>stock_unit_code</code> varchar(10) DEFAULT NULL COMMENT '库存单位代码',<br />
+  <code>stock_unit_name</code> varchar(30) DEFAULT NULL COMMENT '库存单位名称',<br />
+  <code>remark</code> varchar(500) DEFAULT NULL COMMENT '备注',<br />
+  <code>status_flag</code> char(1) DEFAULT '1' COMMENT '是否有效：1是有效，0是无效',<br />
+  <code>delete_flag</code> char(1) DEFAULT '0' COMMENT '是否删除：1是删除，0是没有删除',<br />
+  <code>tenant_id</code> bigint(20) DEFAULT NULL COMMENT '租户ID',<br />
+  <code>create_user_uid</code> varchar(50) DEFAULT NULL COMMENT '创建者',<br />
+  <code>create_time</code> datetime DEFAULT NULL COMMENT '创建时间',<br />
+  <code>create_user_name</code> varchar(50) DEFAULT NULL COMMENT '创建者名字',<br />
+  <code>last_update_user_name</code> varchar(50) DEFAULT NULL COMMENT '最后修改人名字',<br />
+  <code>last_update_time</code> datetime DEFAULT NULL COMMENT '最后修改时间',<br />
+  <code>last_update_user_uid</code> varchar(50) DEFAULT NULL COMMENT '最后修改人',<br />
+  PRIMARY KEY (<code>id</code>) USING BTREE,<br />
+  UNIQUE KEY <code>Index_1</code> (<code>materiel_id</code>) USING BTREE<br />
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='物料库存盘点信息';<br />
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+J301248<br />
+</p>
+
+<p>
+TrDYFgNALPCWBceif2heb1zDADI6bUAjE4rpPjbcTJ8=<br />
+</p>
+
+<p>
+325<br />
+</p>
+
+<p>
+nohup java -jar wzcloud-warehouse.jar --spring.profiles.active=uat &gt;/dev/null 2&gt;&amp;1&amp;<br />
+</p>
+
+
+
+
+<p>
+update material_requisition_detail  set manufacturer_name_old = manufacturer_name where manufacturer_code is not null;<br />
+</p>
+
+
+<p>
+update material_requisition_detail a<br />
+</p>
+
+<p>
+join sheet1 b on a.manufacturer_code = b.supplier_code<br />
+</p>
+
+<p>
+set a.manufacturer_name = b.name where a.manufacturer_code is not null<br />
+</p>
+
+
+
+
+<p>
+SELECT a.manufacturer_code,b.supplier_code,a.manufacturer_name,b.<code>name</code>,a.manufacturer_name_new FROM <code>material_ingredient_detail</code>  a<br />
+join sheet1 b on a.manufacturer_code = b.supplier_code<br />
+</p>
+
+
+
+
+
+
+
+<p>
+ Page&lt;PurchaseHeadReqDTO&gt; pagePurchaseHead = PageHelper.toPage(page, OrderItem.desc("id"));<br />
+6721  position_qty 0-&gt;50<br />
+</p>
+
+
+<p>
+update in_inventory_r_barcode a<br />
+</p>
+
+<p>
+join sheet1 b on a.manufacturer_code = b.supplier_code<br />
+</p>
+
+<p>
+set a.manufacturer_name_new = b.name<br />
+</p>
+
+
+<p>
+SELECT a.manufacturer_code,b.supplier_code,a.manufacturer_name,b.<code>name</code>,a.manufacturer_name_new FROM <code>in_inventory_r_barcode</code>  a<br />
+join sheet1 b on a.manufacturer_code = b.supplier_code<br />
+</p>
+
+
+
+<p>
+update in_inventory_r a<br />
+</p>
+
+<p>
+join sheet1 b on a.manufacturer_code = b.supplier_code<br />
+</p>
+
+<p>
+set a.manufacturer_name_new = b.name<br />
+</p>
+
+
+<p>
+SELECT a.manufacturer_code,b.supplier_code,a.manufacturer_name,b.<code>name</code>,a.manufacturer_name_new FROM <code>in_inventory_r</code>  a<br />
+join sheet1 b on a.manufacturer_code = b.supplier_code<br />
+</p>
+
+
+
+
+<p>
+pidlist=<code>ps -ef | grep \(newproject | grep -v "grep"|awk '{print \)2}'</code><br />
+echo “old process id：$pidlist”<br />
+if [ "$pidlist" = "" ]; then<br />
+	echo "no newproject pid alive"<br />
+else<br />
+	echo "newproject Id list :$pidlist"<br />
+	for pid in ${pidlist}<br />
+	{<br />
+			kill -9 $pid<br />
+			echo "KILL $pid:"<br />
+			echo "newproject stop success"<br />
+	}<br />
+fi<br />
+</p>
+
+
+
+
+
+<p>
+export oldproject=wzkj-hr-1.0.0-SNAPSHOT.jar<br />
+export newproject=wzcloud-hr.jar<br />
+export oldPath=/var/lib/jenkins/workspace/wzcloud-hr/target/<br />
+export dirproject=/cam02_share/lw/workplace/<br />
+</p>
+
+<p>
+cp \(oldPath\)oldproject  /cam02_share/lw/workplace/<br />
+</p>
+
+
+
+
+<p>
+export oldproject=wzkj-hr-1.0.0-SNAPSHOT.jar<br />
+export newproject=wzcloud-hr.jar<br />
+export oldPath=/var/lib/jenkins/workspace/wzcloud-hr/target/<br />
+export dirproject=/cam02_share/lw/workplace/<br />
+</p>
+
+
+<p>
+pidlist=<code>ps -ef | grep \(newproject | grep -v "grep"|awk '{print \)2}'</code><br />
+echo “old process id：$pidlist”<br />
+if [ "$pidlist" = "" ]; then<br />
+	echo "no newproject pid alive"<br />
+else<br />
+	echo "newproject Id list :$pidlist"<br />
+	for pid in ${pidlist}<br />
+	{<br />
+			kill -9 $pid<br />
+			echo "KILL $pid:"<br />
+			echo "newproject stop success"<br />
+	}<br />
+fi<br />
+</p>
+
+<p>
+rm -rf \(dirproject\)newproject<br />
+cp \(dirproject\)oldproject \(dirproject\)newproject<br />
+chmod 777 \(dirproject\)newproject<br />
+</p>
+
+<p>
+nohup java -Xms64m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=512m  -jar   \(dirproject/wzcloud-hr.jar  --spring.profiles.active=lw &gt; \)dirproject/logs/wzcloud-hr.log&gt;&amp;1&amp;<br />
+</p>
+
+
+
+
+<p>
+/admin/jwt/,/user/captcha,/admin/user/enterpriseUser/getTenants,/file/attachmentInfo/getUrl,/user/sentResetPasswordMail,/user/resetPassword,/admin/baseTenant/registerTenantAdmin,/admin/baseTenant/getUserByCode,/admin/wxAutoLogin,/message/oauth/getUserInfo,/customercoordination/IFS/SynTable/SetReceiving<br />
+</p>
+<blockquote>
+Page&lt;RequisitionHead&gt; page = PageHelper.toPage(reqDTO, OrderItem.desc("id"));
+</blockquote>
+
+<p>
+#!/bin/bash<br />
+sync;sync;sync<br />
+sleep 60<br />
+echo 3 &gt; /proc/sys/vm/drop_caches<br />
+</p>
+
+
+<p>
+0 */12 * * * sh /etc/cron.m/cleanCache.sh<br />
+</p>
+
+
+<p>
+npm -g config set user root<br />
+</p>
+
+<p>
+//根据客户名字获取客户的租户Id<br />
+if (!StringUtil.isEmpty(barcodelistDTO.getCustomerName())) {<br />
+	ResponseResult&lt;List&lt;Long&gt;&gt; responseResult = enterpriseService.getTenantIdsByName(barcodelistDTO.getCustomerName());<br />
+	if (responseResult.isSuccess()) {<br />
+		if (responseResult.getData().size() &lt; 1) {<br />
+			return ResponseResult.success();<br />
+		}<br />
+		barcodelistDTO.setCustomerIds(responseResult.getData());<br />
+	} else {<br />
+		return ResponseResult.error("查询失败，调用企业接口异常");<br />
+	}<br />
+}<br />
+</p>
+
+<p>
+<a href="tan.html">tan</a>
+</p>
+
+
+<ol>
+<li>
+修改条码数量，更新交付行的数量
+
+</ol>
+
+<ol>
+<li>
+删除条码，更新交付行数量，外箱条码数-1，如果外箱条码数为0，删除外箱条码。
+
+<li>
+如果交付行内箱数量剩余为0, 删除交付行
+
+</ol>
+
+<ol>
+<li>
+删外箱条码，把内箱条码全部删除
+
+<li>
+同一交付行如果外箱条码数量为0, 删除交付行
+
+</ol>
+
+
+
+<ol>
+<li>
+订单交付行删除条码的时候没有删除外包装条码。
+
+</ol>
+
+<p>
+manage<br />
+	最后一个，57行<br />
+</p>
+	
+
+
+<p>
+DeliverPrintInnerBarcode<br />
+新建：DeliverPrintInnerBarcodeReportImpl<br />
+</p>
+
+
+
+<h1 id="toc_1">东莞 </h1><HR SIZE=1>
+<p>
+172.18.6.80 123456 jenkins 123456<br />
+172.18.6.81 123456 cam49 数据库+nacos<br />
+172.18.6.78 123456 cam46   123456<br />
+</p>
+
+
+
+<p>
+10.96.58.104 -Infor<br />
+</p>
+
+
+
+<p>
+<a href="jenkins.html">jenkins</a>  <br />
+transfer <br />
+</p>
+
+<p>
+echo 1 &gt; /proc/sys/vm/drop_caches<br />
+ps aux | grep -v PID |sort -rn -k 4 | head<br />
+</p>
+
+<p>
+配置transfer。自动生成到路径<br />
+</p>
+
+<p>
+nohup java -jar wzkj-txlcn-tm.jar &gt;/tmp/wzkj-txlcn-tm.log&gt;&amp;1&amp;<br />
+nohup java -jar wzkj-base-data-1.0.0-SNAPSHOT.jar &gt;/tmp/wzkj-base-data.log&gt;&amp;1&amp;<br />
+</p>
+
+
+
+<p>
+消息队列要添加租户Id<br />
+</p>
+
+
+<p>
+有供应商编辑权限人<br />
+请购人,包括部门。不包括审核人。<br />
+</p>
+
 <p>
 delete from enterprise where id not in (1,2);<br />
 delete from enterprise_customer where enterprise_id &lt;&gt; 1 and (enterprise_id = 2 and customer_enterprise_id &lt;&gt; 2);<br />
@@ -68,6 +486,7 @@ delete from enterprise_relation where relation_type = 1;<br />
 </p>
 
 <p>
+kkt520<br />
 Jxu2105094708<br />
 admin Jxu2105094708<br />
 </p>
@@ -82,7 +501,7 @@ vmi<br />
 </p>
 
 
-<h1 id="toc_1">数据库 </h1><HR SIZE=1>
+<h1 id="toc_2">数据库 </h1><HR SIZE=1>
 <p>
 cloud_admin_v2<br />
 enterpry<br />
@@ -225,28 +644,28 @@ opc.tcp://172.18.0.234:62547/VEGACNC/OpcUaServer<br />
 </p>
 
 
-<h1 id="toc_2">租户端 </h1><HR SIZE=1>
+<h1 id="toc_3">租户端 </h1><HR SIZE=1>
 <p>
 eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJ6aCIsImlkIjozLCJuYW1lIjoi56ef5oi3566h55CG5ZGYIiwianNvblN0ciI6IntcImNyZWF0ZURhdGVcIjoxNjI2MzM0NTkxMTc3LFwiZW1haWxcIjpcImhlcGluZ0BnbWFpbC5jb21cIixcImVudGVycHJpc2VJZFwiOjUsXCJlbnRlcnByaXNlTmFtZVwiOlwi5bmz5a6J6ZO26KGM6IKh5Lu95pyJ6ZmQ5YWs5Y-4XCIsXCJlbnRlcnByaXNlTnVtYmVyXCI6XCIwMDAwMjBcIixcImV4cGlyZVwiOjMxMTA0MDAwLFwiaWRcIjozLFwibW9iaWxlUGhvbmVcIjpcIjE1ODgwMjEyOTA4XCIsXCJuYW1lXCI6XCLnp5_miLfnrqHnkIblkZhcIixcInNvdXJjZVNpZGVcIjpcInRlbmFudEJpelwiLFwidGVuYW50SWRcIjozLFwidG9rZW5JZFwiOlwiaHR1VXdyZmZcIixcInVuaXF1ZU5hbWVcIjpcInpoXCIsXCJ1c2VySWRcIjozLFwidXNlcm5hbWVcIjpcInpoXCJ9IiwidG9rZW5JZCI6Imh0dVV3cmZmIiwiZW50ZXJwcmlzZUlkIjo1LCJlbnRlcnByaXNlTmFtZSI6IuW5s-WuiemTtuihjOiCoeS7veaciemZkOWFrOWPuCIsInRlbmFudElkIjoiaHR1VXdyZmYiLCJzb3VyY2VTaWRlIjoidGVuYW50Qml6IiwiZXhwIjoxNjU3NDM4NTkxfQ.k-wou4e--KX_XLJJT_OkHA901oZIoac5pkmfjUpxKuY2W-bMHGCJMxCyR5gLzi2HvgHMzq67fPzfS5GtdouuwatRbVG4wib46eTzcjzjAXdGEbEJgk-dgMnAj5wVWvnpoaGr7Qal-CrCyqyzgqKzskaDzsvGRHq-TntYyyrbDG8<br />
 </p>
 
 
-<h1 id="toc_3">平台端 </h1><HR SIZE=1>
+<h1 id="toc_4">平台端 </h1><HR SIZE=1>
 <p>
 eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlkIjoxLCJuYW1lIjoi6LaF57qn566h55CG5ZGYIiwianNvblN0ciI6IntcImNyZWF0ZURhdGVcIjoxNjI2MzU0ODk5Mzk1LFwiZW1haWxcIjpcImFkbWluQHFxLmNvbVwiLFwiZW50ZXJwcmlzZUlkXCI6MSxcImVudGVycHJpc2VOYW1lXCI6XCLotLXlt57pu5TlkbPogIHlubLlpojpo5_lk4HmnInpmZDlhazlj7hcIixcImVudGVycHJpc2VOdW1iZXJcIjpcIjAwMDAxNVwiLFwiZXhwaXJlXCI6MzExMDQwMDAsXCJpZFwiOjEsXCJtb2JpbGVQaG9uZVwiOlwiMTM3MTIzNDU2NzhcIixcIm5hbWVcIjpcIui2hee6p-euoeeQhuWRmFwiLFwic291cmNlU2lkZVwiOlwic3lzQWRtaW5cIixcInRlbmFudElkXCI6MSxcInRva2VuSWRcIjpcIlNSS29PbTRFXCIsXCJ1bmlxdWVOYW1lXCI6XCJhZG1pblwiLFwidXNlcklkXCI6MSxcInVzZXJuYW1lXCI6XCJhZG1pblwifSIsInRva2VuSWQiOiJTUktvT200RSIsImVudGVycHJpc2VJZCI6MSwiZW50ZXJwcmlzZU5hbWUiOiLotLXlt57pu5TlkbPogIHlubLlpojpo5_lk4HmnInpmZDlhazlj7giLCJ0ZW5hbnRJZCI6IlNSS29PbTRFIiwic291cmNlU2lkZSI6InN5c0FkbWluIiwiZXhwIjoxNjU3NDU4ODk5fQ.RB2AdMWLb8iMeJRvhWKdbVnsu4BhsgmKag4ydM3-OEXNRzQGTYeGeei93A74Im7ke21MtShgErUh9Rfs6QflUy2FPBWB5TkQp-_1EB-MhV8gz2mGlpIGlC3MQWC24yeo7EXHJ6jaXPQEucs-MMoTw0Yf0hoXbpQdiu4ErYhgEtU<br />
 </p>
 
-<h1 id="toc_4">admin </h1><HR SIZE=1>
+<h1 id="toc_5">admin </h1><HR SIZE=1>
 <p>
 Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlkIjoxLCJuYW1lIjoiYWRtaW4iLCJqc29uU3RyIjoie1wiY3JlYXRlRGF0ZVwiOjE2MjIxNjI0ODc5NjAsXCJlbWFpbFwiOlwiYWRtaW5AcXEuY29tXCIsXCJlbnRlcnByaXNlSWRcIjoxLFwiZW50ZXJwcmlzZU5hbWVcIjpcIui0teW3num7lOWRs-iAgeW5suWmiOmjn-WTgeaciemZkOWFrOWPuFwiLFwiZW50ZXJwcmlzZU51bWJlclwiOlwiMDAwMDE1XCIsXCJleHBpcmVcIjozMTEwNDAwMDAsXCJpZFwiOjEsXCJtb2JpbGVQaG9uZVwiOlwiMTM3MTIzNDU2NzhcIixcIm5hbWVcIjpcImFkbWluXCIsXCJwYXJlbnRFbnRlcnByaXNlSWRcIjoxLFwicGFyZW50VGVuYW50SWRcIjoxLFwidGVuYW50SWRcIjoxLFwidG9rZW5JZFwiOlwibDhJOWRYT2FcIixcInVuaXF1ZU5hbWVcIjpcImFkbWluXCIsXCJ1c2VySWRcIjoxLFwidXNlcm5hbWVcIjpcImFkbWluXCJ9IiwidG9rZW5JZCI6Imw4STlkWE9hIiwiZW50ZXJwcmlzZUlkIjoxLCJlbnRlcnByaXNlTmFtZSI6Iui0teW3num7lOWRs-iAgeW5suWmiOmjn-WTgeaciemZkOWFrOWPuCIsInRlbmFudElkIjoibDhJOWRYT2EiLCJwYXJlbnRUZW5hbnRJZCI6MSwicGFyZW50RW50ZXJwcmlzZUlkIjoxLCJleHAiOjE5MzMyMDI0ODd9.kM-k2lNQYkpsjtgn0UDRMVIqZPqMFLznb1uZT1p6-L6IkvhopWOirdb7awL1HyxLANkGAtxw7Q0N_V2KcxWl86_JkUBN97-XMBqC2T9EThq8J-7jaaIyWRRj4T0my-vgXpolNWRsutaIjEddr2zPIMtPkwVCUjYDf_EAIqNSRrU<br />
 </p>
 
-<h1 id="toc_5">linwei </h1><HR SIZE=1>
+<h1 id="toc_6">linwei </h1><HR SIZE=1>
 <p>
 Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJsaW53ZWkiLCJpZCI6OSwibmFtZSI6Iuael-S8nyIsImpzb25TdHIiOiJ7XCJjcmVhdGVEYXRlXCI6MTYyMjE2MzEzMTgzMyxcImVtYWlsXCI6XCJsaW53ZWlAZGcudG9wY2IubmV0XCIsXCJlbnRlcnByaXNlSWRcIjoxLFwiZW50ZXJwcmlzZU5hbWVcIjpcIui0teW3num7lOWRs-iAgeW5suWmiOmjn-WTgeaciemZkOWFrOWPuFwiLFwiZW50ZXJwcmlzZU51bWJlclwiOlwiMDAwMDE1XCIsXCJleHBpcmVcIjozMTEwNDAwMDAsXCJpZFwiOjksXCJtb2JpbGVQaG9uZVwiOlwiMTM3OTQ4OTQ0OTFcIixcIm5hbWVcIjpcIuael-S8n1wiLFwicGFyZW50RW50ZXJwcmlzZUlkXCI6MSxcInBhcmVudFRlbmFudElkXCI6MSxcInRlbmFudElkXCI6MSxcInRva2VuSWRcIjpcIm1mTExnaHhEXCIsXCJ1bmlxdWVOYW1lXCI6XCJsaW53ZWlcIixcInVzZXJJZFwiOjksXCJ1c2VybmFtZVwiOlwibGlud2VpXCJ9IiwidG9rZW5JZCI6Im1mTExnaHhEIiwiZW50ZXJwcmlzZUlkIjoxLCJlbnRlcnByaXNlTmFtZSI6Iui0teW3num7lOWRs-iAgeW5suWmiOmjn-WTgeaciemZkOWFrOWPuCIsInRlbmFudElkIjoibWZMTGdoeEQiLCJwYXJlbnRUZW5hbnRJZCI6MSwicGFyZW50RW50ZXJwcmlzZUlkIjoxLCJleHAiOjE5MzMyMDMxMzF9.yaz-42e5QZeXIgEmrfTTxsZu1gho47yTtxYx_NQI9hqrC1z58l1p5vp7hClTGxfY7LloTNeBJAmIWGyqi3yqC2sawq0LqdUL9q6ppkH2Sm1dRSvqz4SBDc8fUjxunU97uFwR08hVRHzgd7Q1_5pj00kgPdfYhQOrdWyib4ryvQ4<br />
 </p>
 
-<h1 id="toc_6">常用链接 </h1><HR SIZE=1>
+<h1 id="toc_7">常用链接 </h1><HR SIZE=1>
 <p>
 待看<br />
 <a href="workTest.html">workTest</a>
@@ -256,17 +675,17 @@ Bearer eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJsaW53ZWkiLCJpZCI6OSwibmFtZSI6Iuael-S8nyIs
 <a href="CIMOM_TABLE.html">CIMOM_TABLE</a>
 </p>
 
-<h1 id="toc_7">工作清单 </h1><HR SIZE=1>
-<h2 id="toc_7.1">待处理 </h2>
+<h1 id="toc_8">工作清单 </h1><HR SIZE=1>
+<h2 id="toc_8.1">待处理 </h2>
 
-<h2 id="toc_7.2">处理中 </h2>
+<h2 id="toc_8.2">处理中 </h2>
 <ol>
 <li>
 在线返工前的流程。如果基础数据改为非过数流程，则无法返回返工前流程。
 
 </ol>
 
-<h2 id="toc_7.3">已处理 </h2>
+<h2 id="toc_8.3">已处理 </h2>
 
 <p>
 高多层内层线路前处理2# 数据采集 刘荣<br />
@@ -285,14 +704,14 @@ PLC调用agv接口切换到新中间件<br />
 </p>
 
 
-<h1 id="toc_8">Inplan上传报错 </h1><HR SIZE=1>
-<h2 id="toc_8.1">客户物料号u9和MES对不上 </h2>
+<h1 id="toc_9">Inplan上传报错 </h1><HR SIZE=1>
+<h2 id="toc_9.1">客户物料号u9和MES对不上 </h2>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
 SELECT CANALYSIS_CODE_2 ,* FROM dbo.TBL_MI_JOB_INFO WHERE CMANU_PART_NUMBER LIKE  '%TFH1V0800350B0%'
 UPDATE TBL_MI_JOB_INFO SET CANALYSIS_CODE_2 = '470001135' WHERE CMANU_PART_NUMBER LIKE  '%TFH1V0800361B0%'
 </pre>
 
-<h1 id="toc_9">隐藏报废 </h1><HR SIZE=1>
+<h1 id="toc_10">隐藏报废 </h1><HR SIZE=1>
 <pre &lt;pre  name="code" class="brush: sql"&gt;>
 SELECT * FROM dbo.TBL_QM_SM_DATA WHERE CJOBNAME IN ('TGR0E0600467A0','TGR0I1000200A0','BGR0I1000188A0')
 UPDATE dbo.TBL_QM_SM_DATA SET CORG_CODE = 'J0001' WHERE CJOBNAME IN ('TGR0E0600467A0','TGR0I1000200A0','BGR0I1000188A0') AND CORG_CODE = 'J0001-del' 
@@ -302,8 +721,8 @@ UPDATE dbo.TBL_QM_SM_DATA SET CORG_CODE = 'J0001' WHERE CJOBNAME IN ('TGR0E06004
 <a href="上传工序转移.html">上传工序转移</a>
 </p>
 
-<h2 id="toc_9.1">查过数的作业单号 </h2>
-<h2 id="toc_9.2">过数记录表 </h2>
+<h2 id="toc_10.1">查过数的作业单号 </h2>
+<h2 id="toc_10.2">过数记录表 </h2>
 <p>
 select CWO_PTR from [CIMOMJXZH].[dbo].[TBL_SFC_WORKNUMBER_FLOW]<br />
 </p>
@@ -322,7 +741,7 @@ SELECT * FROM dbo.TBL_PLAN_JOB_TICKET WHERE cid = '2BBA96FC-3B40-43A8-8566-97E7D
 SELECT  * FROM dbo.TBL_PLAN_JOB_TICKET_ONLINE WHERE CWO_PTR = '2BBA96FC-3B40-43A8-8566-97E7D96DE103'<br />
 </p>
 
-<h1 id="toc_10">外发 </h1><HR SIZE=1>
+<h1 id="toc_11">外发 </h1><HR SIZE=1>
 <p>
 ERP数据字典地址：<a href="http://172.19.9.32:8081">http://172.19.9.32:8081</a>
 GetLotInfoNew<br />
@@ -332,12 +751,12 @@ GetLotInfoNew<br />
 <p>
 5129046<br />
 </p>
-<h1 id="toc_11">密码加解密 </h1><HR SIZE=1>
+<h1 id="toc_12">密码加解密 </h1><HR SIZE=1>
 <p>
 <a href="密码加解密.html">密码加解密</a>
 </p>
 
-<h1 id="toc_12">规范 </h1><HR SIZE=1>
+<h1 id="toc_13">规范 </h1><HR SIZE=1>
 <p>
 <a href="WZ.html">WZ</a>
 <a href="OTHER.html">OTHER</a>
@@ -345,7 +764,7 @@ GetLotInfoNew<br />
 <a href="程序规范.html">程序规范</a>
 </p>
 
-<h1 id="toc_13">翻译网址 </h1><HR SIZE=1>
+<h1 id="toc_14">翻译网址 </h1><HR SIZE=1>
 <p>
 <a href="https://www.merriam-webster.com/dictionary/belt">https://www.merriam-webster.com/dictionary/belt</a>
 </p>
@@ -422,7 +841,7 @@ PP里面没有用量。
 </ol>
 
 
-<h1 id="toc_14">工作总结 </h1><HR SIZE=1>
+<h1 id="toc_15">工作总结 </h1><HR SIZE=1>
 <p>
 <div class="Doc"><a  href="file:\/D:\vim\vim\mysite\note/Doc/WZ/工作文档/39周-林伟.pptx"download=\"文件名.txt\">点击下载:【39周-林伟.pptx】</a></div><br />
 </p>
@@ -1533,32 +1952,33 @@ width="595" height="842" orientation="portrait" html-report-align="left" bg-imag
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">数据库 </a>
-<li class="menu1"><a href="#toc_2">租户端 </a>
-<li class="menu1"><a href="#toc_3">平台端 </a>
-<li class="menu1"><a href="#toc_4">admin </a>
-<li class="menu1"><a href="#toc_5">linwei </a>
-<li class="menu1"><a href="#toc_6">常用链接 </a>
-<li class="menu1"><a href="#toc_7">工作清单 </a>
+<li class="menu1"><a href="#toc_1">东莞 </a>
+<li class="menu1"><a href="#toc_2">数据库 </a>
+<li class="menu1"><a href="#toc_3">租户端 </a>
+<li class="menu1"><a href="#toc_4">平台端 </a>
+<li class="menu1"><a href="#toc_5">admin </a>
+<li class="menu1"><a href="#toc_6">linwei </a>
+<li class="menu1"><a href="#toc_7">常用链接 </a>
+<li class="menu1"><a href="#toc_8">工作清单 </a>
 <ul>
-<li class="menu2"><a href="#toc_7.1">待处理 </a>
-<li class="menu2"><a href="#toc_7.2">处理中 </a>
-<li class="menu2"><a href="#toc_7.3">已处理 </a>
+<li class="menu2"><a href="#toc_8.1">待处理 </a>
+<li class="menu2"><a href="#toc_8.2">处理中 </a>
+<li class="menu2"><a href="#toc_8.3">已处理 </a>
 </ul>
-<li class="menu1"><a href="#toc_8">Inplan上传报错 </a>
+<li class="menu1"><a href="#toc_9">Inplan上传报错 </a>
 <ul>
-<li class="menu2"><a href="#toc_8.1">客户物料号u9和MES对不上 </a>
+<li class="menu2"><a href="#toc_9.1">客户物料号u9和MES对不上 </a>
 </ul>
-<li class="menu1"><a href="#toc_9">隐藏报废 </a>
+<li class="menu1"><a href="#toc_10">隐藏报废 </a>
 <ul>
-<li class="menu2"><a href="#toc_9.1">查过数的作业单号 </a>
-<li class="menu2"><a href="#toc_9.2">过数记录表 </a>
+<li class="menu2"><a href="#toc_10.1">查过数的作业单号 </a>
+<li class="menu2"><a href="#toc_10.2">过数记录表 </a>
 </ul>
-<li class="menu1"><a href="#toc_10">外发 </a>
-<li class="menu1"><a href="#toc_11">密码加解密 </a>
-<li class="menu1"><a href="#toc_12">规范 </a>
-<li class="menu1"><a href="#toc_13">翻译网址 </a>
-<li class="menu1"><a href="#toc_14">工作总结 </a>
+<li class="menu1"><a href="#toc_11">外发 </a>
+<li class="menu1"><a href="#toc_12">密码加解密 </a>
+<li class="menu1"><a href="#toc_13">规范 </a>
+<li class="menu1"><a href="#toc_14">翻译网址 </a>
+<li class="menu1"><a href="#toc_15">工作总结 </a>
 </ul>
 </div>
 <div class="content">
@@ -1691,6 +2111,413 @@ OptLogBuilder.create(OptLogBusinessType.MATERIAL_PURCHASE)
 
 <p>
   ENTERPRISE_UPDATE_NAME("更改企业", "3"),<br />
+</p>
+  
+
+
+
+
+<p>
+   CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '企业名称',<br />
+  00) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '企业英文名称',<br />
+  char(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '统一社会信用代码',<br />
+  r(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '简码',<br />
+  r(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '简称',<br />
+  int(11) DEFAULT NULL COMMENT '企业评分',<br />
+  ve` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '法人代表',<br />
+  ve_id_type` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '法人证件类型: 1001 - 身份证 1002 - 港澳通行证 1003 - 护照',<br />
+  ve_id_number` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '法人证件号码',<br />
+  varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '注册详细地址',<br />
+   varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '注册币种',<br />
+  decimal(20,2) DEFAULT NULL COMMENT '注册资本',<br />
+   varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '企业性质',<br />
+  char(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '所属行业',<br />
+  xt CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci COMMENT '经营范围',<br />
+  varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '营业执照',<br />
+  nt(4) DEFAULT '0' COMMENT '认证状态: 0 - 未认证 1 - 已认证 2 - 认证中 3 - 认证失败',<br />
+   tinyint(4) DEFAULT '0' COMMENT '是否开通电子签章: 0-否 1-是',<br />
+  int(4) DEFAULT '1' COMMENT '有效状态: 0 - 否 1 - 是',<br />
+  te DEFAULT NULL COMMENT '成立日期',<br />
+  200) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL COMMENT '头像url',<br />
+   DEFAULT NULL,<br />
+  255) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL,<br />
+  255) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL,<br />
+  255) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL,<br />
+   DEFAULT NULL,<br />
+  255) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL,<br />
+  255) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL,<br />
+  255) CHARACTER SET utf8mb4 COLLATE utf8mb4_croatian_ci DEFAULT NULL,<br />
+</p>
+
+
+
+
+
+<p>
+<code>name</code><br />
+<code>name_en</code><br />
+<code>serial_number</code><br />
+<code>short_code</code><br />
+<code>short_name</code><br />
+<code>percentile_Score</code><br />
+<code>register_address</code><br />
+<code>register_currency</code><br />
+<code>register_capital</code> <br />
+<code>organization_type</code><br />
+<code>industry_type</code><br />
+<code>business_scope</code><br />
+<code>business_license</code> <br />
+<code>lock_status</code><br />
+<code>digital_seal_open</code><br />
+<code>valid_status</code><br />
+<code>establish_time</code><br />
+<code>logo_url</code><br />
+e.crt_time,<br />
+e.crt_user,<br />
+e.crt_name,<br />
+e.crt_host,<br />
+</p>
+
+<p>
+e.upd_time,<br />
+e.upd_user,<br />
+e.upd_name,<br />
+e.upd_host,<br />
+</p>
+
+
+
+
+
+<p>
+CREATE TABLE <code>purchase_head</code> (<br />
+  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',<br />
+  <code>purchase_no</code> varchar(20) DEFAULT NULL COMMENT '采购单号',<br />
+  <code>tenant_id</code> bigint(20) DEFAULT NULL COMMENT '租户id',<br />
+  <code>source_purchase_nos</code> varchar(500) DEFAULT NULL COMMENT '原采购单号，多个以逗号隔开',<br />
+  <code>source_purchase_ids</code> varchar(500) DEFAULT NULL COMMENT '原采购id，多个以逗号隔开',<br />
+  <code>shipment_name</code> varchar(15) DEFAULT NULL COMMENT '装运方法',<br />
+  <code>shipment_code</code> varchar(15) DEFAULT NULL COMMENT '装运代码',<br />
+  <code>curr_code</code> varchar(5) DEFAULT NULL COMMENT '货币代码（英文用）',<br />
+  <code>curr_name</code> varchar(20) DEFAULT NULL COMMENT '货币代码（中文用）',<br />
+  <code>qte_base_to_other</code> decimal(15,4) DEFAULT NULL COMMENT '报价相对汇率 （该币种兑换多少基准货币）',<br />
+  <code>supplier_id</code> bigint(20) DEFAULT NULL COMMENT '供应商id',<br />
+  <code>supplier_code</code> varchar(50) DEFAULT NULL COMMENT '供应商代码',<br />
+  <code>sporadic_supplier</code> varchar(50) DEFAULT NULL COMMENT '零星供应商名',<br />
+  <code>supplier_name</code> varchar(50) DEFAULT NULL COMMENT '供应商名字',<br />
+  <code>supplier_contact_id</code> bigint(20) DEFAULT NULL COMMENT '供应商联系人ID',<br />
+  <code>supplier_contact</code> varchar(50) DEFAULT NULL COMMENT '供应商联系人',<br />
+  <code>invoice_type</code> tinyint(4) DEFAULT '1' COMMENT '票据种类 1:普通发票 2-增值税发票',<br />
+  <code>supplier_telephone</code> varchar(50) DEFAULT NULL COMMENT '供应商电话',<br />
+  <code>vmi_supplier</code> tinyint(4) DEFAULT NULL COMMENT 'VMI供应商 0 - 不寄放 1 - 寄放',<br />
+  <code>price_type</code> tinyint(4) DEFAULT '1' COMMENT '入库价格取值方式 1:最新入库价格 2-采购价',<br />
+  <code>tax_include_total</code> decimal(18,2) DEFAULT NULL COMMENT '含税总金额',<br />
+  <code>tax_total</code> decimal(18,2) DEFAULT NULL COMMENT '税费总金额',<br />
+  <code>tax_rate</code> decimal(4,2) DEFAULT NULL COMMENT '税率%',<br />
+  <code>purchase_type</code> char(1) NOT NULL DEFAULT '0' COMMENT '请求类型(S,M)标准,杂项(0标准1杂项)',<br />
+  <code>approval_process_id</code> bigint(20) DEFAULT NULL COMMENT '审批流程id',<br />
+  <code>delivery_address</code> varchar(200) DEFAULT NULL COMMENT '送货地点',<br />
+  <code>delivery_address_id</code> bigint(20) DEFAULT NULL COMMENT '送货地址ID',<br />
+  <code>req_org_name</code> varchar(1000) DEFAULT NULL COMMENT '请购部门名字，多个用逗号隔开',<br />
+  <code>req_names</code> varchar(1000) DEFAULT NULL COMMENT '请购人员姓名，多个以逗号隔开',<br />
+  <code>purchase_user_id</code> bigint(20) DEFAULT NULL COMMENT '采购人员ID',<br />
+  <code>purchase_name</code> varchar(50) DEFAULT NULL COMMENT '采购人员姓名',<br />
+  <code>user_name</code> varchar(50) DEFAULT NULL COMMENT '使用人员姓名',<br />
+  <code>user_phone</code> varchar(20) DEFAULT NULL COMMENT '使用人员电话',<br />
+  <code>prepayment_flag</code> char(1) DEFAULT '0' COMMENT '预付款：0否，1是',<br />
+  <code>contract_flag</code> char(1) DEFAULT '0' COMMENT '按合同付款：0否，1是',<br />
+  <code>payment_method</code> varchar(20) DEFAULT NULL COMMENT '付款方法',<br />
+  <code>payment_days</code> int(11) DEFAULT NULL COMMENT '净付款天数',<br />
+  <code>approval_time</code> datetime DEFAULT NULL COMMENT '审批日期',<br />
+  <code>refuse_remark</code> varchar(500) DEFAULT NULL COMMENT '退回备注',<br />
+  <code>send_mail_time</code> datetime DEFAULT NULL COMMENT '发送邮件时间',<br />
+  <code>remark</code> varchar(500) DEFAULT NULL COMMENT '备注',<br />
+  <code>status_flag</code> char(1) DEFAULT '1' COMMENT ' 状态  1 := ''未提交''; 2 := ''待审批''; 3 := ''''已批准''; 4 := ''被退回''; 5 := ''已收货''',<br />
+  <code>delete_flag</code> char(1) DEFAULT '0' COMMENT '是否删除：1是删除，0是没有删除',<br />
+  <code>print_flag</code> char(1) DEFAULT '0' COMMENT '是否打印：1是，0否',<br />
+  <code>create_user_uid</code> varchar(50) DEFAULT NULL COMMENT '创建者',<br />
+  <code>create_time</code> datetime DEFAULT NULL COMMENT '创建时间',<br />
+  <code>last_update_time</code> datetime DEFAULT NULL COMMENT '最后修改时间',<br />
+  <code>last_update_user_uid</code> varchar(50) DEFAULT NULL COMMENT '最后修改人',<br />
+  <code>create_user_name</code> varchar(50) DEFAULT NULL COMMENT '创建者名字',<br />
+  <code>last_update_user_name</code> varchar(50) DEFAULT NULL COMMENT '最后修改人名字',<br />
+  <code>source_type</code> char(1) DEFAULT '2' COMMENT '来源：1代表请购，2代表自定义新增',<br />
+  <code>last_approval_name</code> varchar(50) DEFAULT NULL COMMENT '最后审批人',<br />
+  PRIMARY KEY (<code>id</code>) USING BTREE<br />
+) ENGINE=InnoDB AUTO_INCREMENT=896 DEFAULT CHARSET=utf8mb4 COMMENT='采购单头';<br />
+</p>
+
+
+<p>
+pidlist=<code>ps -ef | grep \(newproject | grep -v grep  |awk '{print \)2}'</code><br />
+echo “old process id：$pidlist”<br />
+if [ "$pidlist" = "" ]; then<br />
+	echo "no newproject pid alive"<br />
+else<br />
+	echo "newproject Id list :$pidlist"<br />
+	for pid in ${pidlist}<br />
+	{<br />
+			kill -9 $pid<br />
+			echo "KILL $pid:"<br />
+			echo "newproject stop success"<br />
+	}<br />
+fi<br />
+</p>
+
+<p>
+rm -rf \(dirproject\)newproject<br />
+cp \(dirproject\)oldproject \(dirproject\)newproject<br />
+chmod 777 \(dirproject\)newproject<br />
+</p>
+
+<p>
+nohup java   -Xms64m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=512m  -jar   \(dirproject/wzcloud-base_data.jar  --spring.profiles.active=lw &gt; \)dirproject/log/wzcloud-base_data.log&gt;&amp;1&amp;<br />
+</p>
+
+
+
+
+<p>
+export oldproject=wzkj-enterpry-1.0.0-SNAPSHOT.jar<br />
+export newproject=wzcloud-enterprise.jar<br />
+export oldPath=/var/lib/jenkins/workspace/wzcloud-enterprise/target/<br />
+export dirproject=/cam02_share/lw/workplace/<br />
+</p>
+
+<p>
+cp \(oldPath\)oldproject  /cam02_share/lw/workplace/<br />
+pidlist=<code>ps -ef | grep \(newproject | grep -v "grep"|awk '{print \)2}'</code><br />
+echo “old process id：$pidlist”<br />
+if [ "$pidlist" = "" ]; then<br />
+	echo "no newproject pid alive"<br />
+else<br />
+	echo "newproject Id list :$pidlist"<br />
+	for pid in ${pidlist}<br />
+	{<br />
+			kill -9 $pid<br />
+			echo "KILL $pid:"<br />
+			echo "newproject stop success"<br />
+	}<br />
+fi<br />
+</p>
+
+<p>
+rm -rf \(dirproject\)newproject<br />
+cp \(dirproject\)oldproject \(dirproject\)newproject<br />
+chmod 777 \(dirproject\)newproject<br />
+</p>
+
+<p>
+nohup java -Xms64m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=512m  -jar   \(dirproject/wzcloud-enterprise.jar  --spring.profiles.active=lw &gt; \)dirproject/log/wzcloud-enterprise.log&gt;&amp;1&amp;<br />
+</p>
+
+
+<p>
+sleep 1<br />
+</p>
+
+<p>
+CREATE TABLE <code>purchase_detail</code> (<br />
+  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键自增长',<br />
+  <code>purchase_head_id</code> bigint(20) NOT NULL COMMENT '采购单id',<br />
+  <code>po_seq</code> varchar(20) DEFAULT NULL COMMENT '采购单行号',<br />
+  <code>source_detail_ids</code> varchar(200) DEFAULT NULL COMMENT '采购明细源ids，多个以逗号隔开',<br />
+  <code>requisition_detail_ids</code> varchar(200) DEFAULT NULL COMMENT '请购明细ids，多个以逗号隔开',<br />
+  <code>req_nos</code> varchar(500) DEFAULT NULL COMMENT '请购编号，多个以逗号隔开',<br />
+  <code>materiel_id</code> bigint(20) DEFAULT NULL COMMENT '物料id',<br />
+  <code>materiel_code</code> varchar(50) DEFAULT NULL COMMENT '材料代码',<br />
+  <code>materiel_name</code> varchar(50) DEFAULT NULL COMMENT '材料名字',<br />
+  <code>material_standard</code> varchar(200) DEFAULT NULL COMMENT '材料規格',<br />
+  <code>material_type_id</code> bigint(20) DEFAULT NULL COMMENT '物料类型ID',<br />
+  <code>material_type_name</code> varchar(50) DEFAULT NULL COMMENT '物料类别',<br />
+  <code>purchase_unit_name</code> varchar(30) DEFAULT NULL COMMENT '采购单位名称',<br />
+  <code>purchase_unit_code</code> varchar(10) DEFAULT NULL COMMENT '采购单位代码',<br />
+  <code>stock_unit_code</code> varchar(10) DEFAULT NULL COMMENT '库存单位代码',<br />
+  <code>stock_unit_name</code> varchar(30) DEFAULT NULL COMMENT '库存单位名称',<br />
+  <code>conversion_factor</code> int(11) DEFAULT NULL COMMENT '库存和采购单位转换率',<br />
+  <code>storage_period_days</code> int(11) DEFAULT NULL COMMENT '物料有效天数',<br />
+  <code>delivery_date</code> date DEFAULT NULL COMMENT '交货日期',<br />
+  <code>reply_date</code> date DEFAULT NULL COMMENT '供应商回复交期(暂时是等于需求日期)',<br />
+  <code>purchase_qty</code> decimal(18,6) NOT NULL COMMENT '实际采购数量',<br />
+  <code>remain_qty</code> decimal(18,6) DEFAULT NULL COMMENT '剩余采购数量',<br />
+  <code>tax_price</code> decimal(18,4) NOT NULL COMMENT '含税单价',<br />
+  <code>tax_total</code> decimal(18,2) DEFAULT NULL COMMENT '税费总金额',<br />
+  <code>tax_include_total</code> decimal(18,2) DEFAULT NULL COMMENT '含税总金额',<br />
+  <code>tax_rate</code> decimal(4,2) DEFAULT NULL COMMENT '税率%',<br />
+  <code>material_important_type</code> char(1) DEFAULT NULL COMMENT '材料重要类别：A,B,C,D,E,F',<br />
+  <code>iqc_flag</code> char(1) DEFAULT '0' COMMENT '是否检查:1是，0否',<br />
+  <code>req_reason</code> varchar(400) DEFAULT NULL COMMENT '请购原因',<br />
+  <code>material_special_req</code> varchar(300) DEFAULT NULL COMMENT '特殊要求',<br />
+  <code>urgency_flag</code> char(1) DEFAULT '0' COMMENT '是否紧急物料',<br />
+  <code>remark</code> varchar(500) DEFAULT NULL COMMENT '备注',<br />
+  <code>status_flag</code> char(1) DEFAULT '1' COMMENT ' 状态  1 := ''未提交''; 2 := ''待审批''; 3 := ''''已批准''; 4 := ''被退回''; 5 := ''已收货''',<br />
+  <code>delete_flag</code> char(1) DEFAULT '0' COMMENT '是否删除：1是删除，0是没有删除',<br />
+  <code>order_status</code> char(1) DEFAULT '0' COMMENT '协同状态：0未完成，1已完成',<br />
+  <code>manufacturer_id</code> bigint(20) DEFAULT NULL COMMENT '制造商ID',<br />
+  <code>manufacturer_code</code> varchar(50) DEFAULT NULL COMMENT '制造商代码',<br />
+  <code>manufacturer_name</code> varchar(50) DEFAULT NULL COMMENT '制造商名字',<br />
+  <code>create_user_uid</code> varchar(50) DEFAULT NULL COMMENT '创建者',<br />
+  <code>create_time</code> datetime DEFAULT NULL COMMENT '创建时间',<br />
+  <code>last_update_time</code> datetime DEFAULT NULL COMMENT '最后修改时间',<br />
+  <code>last_update_user_uid</code> varchar(50) DEFAULT NULL COMMENT '最后修改人',<br />
+  <code>create_user_name</code> varchar(50) DEFAULT NULL COMMENT '创建者名字',<br />
+  <code>last_update_user_name</code> varchar(50) DEFAULT NULL COMMENT '最后修改人名字',<br />
+  <code>environment_level</code> varchar(10) DEFAULT NULL COMMENT '环何标识（等级）',<br />
+  <code>brand</code> varchar(50) DEFAULT NULL COMMENT '品牌',<br />
+  <code>source_type</code> char(1) DEFAULT '2' COMMENT '来源：1代表请购，2代表自定义新增',<br />
+  <code>req_org_id</code> bigint(20) DEFAULT NULL COMMENT '请购部门',<br />
+  <code>req_org_name</code> varchar(200) DEFAULT NULL COMMENT '请购部门名字，多个用逗号隔开',<br />
+  <code>user_id</code> bigint(20) DEFAULT NULL COMMENT '使用人id',<br />
+  <code>user_name</code> varchar(50) DEFAULT NULL COMMENT '使用人员姓名',<br />
+  <code>user_phone</code> varchar(20) DEFAULT NULL COMMENT '使用人员电话',<br />
+  <code>req_user_id</code> varchar(50) DEFAULT NULL COMMENT '请购人id',<br />
+  <code>req_names</code> varchar(200) DEFAULT NULL COMMENT '请购人员姓名，多个以逗号隔开',<br />
+  <code>source_rkey</code> int(255) DEFAULT NULL COMMENT 'erpRkey',<br />
+  <code>isclose</code> int(255) DEFAULT NULL COMMENT 'erpIsClose',<br />
+  PRIMARY KEY (<code>id</code>) USING BTREE<br />
+) ENGINE=InnoDB AUTO_INCREMENT=51351 DEFAULT CHARSET=utf8mb4 COMMENT='采购明细';<br />
+</p>
+
+
+
+<p>
+$F{materielCode}<br />
+</p>
+
+<p>
+D:\ConnectPLCService&gt;sc create "ConnectPLCServer2240_1" binpath="D:\ConnectPLCService\Server2240_1\ConnectPLC.exe"<br />
+</p>
+
+
+<p>
+   "eslint": "6.8.0"<br />
+</p>
+   
+
+<p>
+   CREATE TABLE <code>purchase_head</code> (<br />
+  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',<br />
+  <code>purchase_no</code> varchar(20) DEFAULT NULL COMMENT '采购单号',<br />
+  <code>tenant_id</code> bigint(20) DEFAULT NULL COMMENT '租户id',<br />
+  <code>source_purchase_nos</code> varchar(500) DEFAULT NULL COMMENT '原采购单号，多个以逗号隔开',<br />
+  <code>source_purchase_ids</code> varchar(500) DEFAULT NULL COMMENT '原采购id，多个以逗号隔开',<br />
+  <code>shipment_name</code> varchar(15) DEFAULT NULL COMMENT '装运方法',<br />
+  <code>shipment_code</code> varchar(15) DEFAULT NULL COMMENT '装运代码',<br />
+  <code>curr_code</code> varchar(5) DEFAULT NULL COMMENT '货币代码（英文用）',<br />
+  <code>curr_name</code> varchar(20) DEFAULT NULL COMMENT '货币代码（中文用）',<br />
+  <code>qte_base_to_other</code> decimal(15,4) DEFAULT NULL COMMENT '报价相对汇率 （该币种兑换多少基准货币）',<br />
+  <code>supplier_id</code> bigint(20) DEFAULT NULL COMMENT '供应商id',<br />
+  <code>supplier_code</code> varchar(50) DEFAULT NULL COMMENT '供应商代码',<br />
+  <code>sporadic_supplier</code> varchar(50) DEFAULT NULL COMMENT '零星供应商名',<br />
+  <code>supplier_name</code> varchar(50) DEFAULT NULL COMMENT '供应商名字',<br />
+  <code>supplier_contact_id</code> bigint(20) DEFAULT NULL COMMENT '供应商联系人ID',<br />
+  <code>supplier_contact</code> varchar(50) DEFAULT NULL COMMENT '供应商联系人',<br />
+  <code>invoice_type</code> tinyint(4) DEFAULT '1' COMMENT '票据种类 1:普通发票 2-增值税发票',<br />
+  <code>supplier_telephone</code> varchar(50) DEFAULT NULL COMMENT '供应商电话',<br />
+  <code>vmi_supplier</code> tinyint(4) DEFAULT NULL COMMENT 'VMI供应商 0 - 不寄放 1 - 寄放',<br />
+  <code>price_type</code> tinyint(4) DEFAULT '1' COMMENT '入库价格取值方式 1:最新入库价格 2-采购价',<br />
+  <code>tax_include_total</code> decimal(18,2) DEFAULT NULL COMMENT '含税总金额',<br />
+  <code>tax_total</code> decimal(18,2) DEFAULT NULL COMMENT '税费总金额',<br />
+  <code>tax_rate</code> decimal(4,2) DEFAULT NULL COMMENT '税率%',<br />
+  <code>purchase_type</code> char(1) NOT NULL DEFAULT '0' COMMENT '请求类型(S,M)标准,杂项(0标准1杂项)',<br />
+  <code>approval_process_id</code> bigint(20) DEFAULT NULL COMMENT '审批流程id',<br />
+  <code>delivery_address</code> varchar(200) DEFAULT NULL COMMENT '送货地点',<br />
+  <code>delivery_address_id</code> bigint(20) DEFAULT NULL COMMENT '送货地址ID',<br />
+  <code>req_org_name</code> varchar(1000) DEFAULT NULL COMMENT '请购部门名字，多个用逗号隔开',<br />
+  <code>req_names</code> varchar(1000) DEFAULT NULL COMMENT '请购人员姓名，多个以逗号隔开',<br />
+  <code>purchase_user_id</code> bigint(20) DEFAULT NULL COMMENT '采购人员ID',<br />
+  <code>purchase_name</code> varchar(50) DEFAULT NULL COMMENT '采购人员姓名',<br />
+  <code>user_name</code> varchar(50) DEFAULT NULL COMMENT '使用人员姓名',<br />
+  <code>user_phone</code> varchar(20) DEFAULT NULL COMMENT '使用人员电话',<br />
+  <code>prepayment_flag</code> char(1) DEFAULT '0' COMMENT '预付款：0否，1是',<br />
+  <code>contract_flag</code> char(1) DEFAULT '0' COMMENT '按合同付款：0否，1是',<br />
+  <code>payment_method</code> varchar(20) DEFAULT NULL COMMENT '付款方法',<br />
+  <code>payment_days</code> int(11) DEFAULT NULL COMMENT '净付款天数',<br />
+  <code>approval_time</code> datetime DEFAULT NULL COMMENT '审批日期',<br />
+  <code>refuse_remark</code> varchar(500) DEFAULT NULL COMMENT '退回备注',<br />
+  <code>material_type_name</code> varchar(50) DEFAULT NULL COMMENT '物料类别',<br />
+  <code>send_mail_time</code> datetime DEFAULT NULL COMMENT '发送邮件时间',<br />
+  <code>remark</code> varchar(500) DEFAULT NULL COMMENT '备注',<br />
+  <code>status_flag</code> char(1) DEFAULT '1' COMMENT ' 状态  1 := ''未提交''; 2 := ''待审批''; 3 := ''''已批准''; 4 := ''被退回''; 5 := ''已收货''',<br />
+  <code>delete_flag</code> char(1) DEFAULT '0' COMMENT '是否删除：1是删除，0是没有删除',<br />
+  <code>print_flag</code> char(1) DEFAULT '0' COMMENT '是否打印：1是，0否',<br />
+  <code>source_type</code> char(1) DEFAULT '2' COMMENT '来源：1代表请购，2代表自定义新增',<br />
+  <code>create_user_uid</code> varchar(50) DEFAULT NULL COMMENT '创建者',<br />
+  <code>create_time</code> datetime DEFAULT NULL COMMENT '创建时间',<br />
+  <code>last_update_time</code> datetime DEFAULT NULL COMMENT '最后修改时间',<br />
+  <code>last_update_user_uid</code> varchar(50) DEFAULT NULL COMMENT '最后修改人',<br />
+  <code>create_user_name</code> varchar(50) DEFAULT NULL COMMENT '创建者名字',<br />
+  <code>last_update_user_name</code> varchar(50) DEFAULT NULL COMMENT '最后修改人名字',<br />
+  <code>last_approval_name</code> varchar(50) DEFAULT NULL COMMENT '最后审批人',<br />
+  <code>source_rkey</code> bigint(20) DEFAULT NULL COMMENT 'erpRkey',<br />
+  PRIMARY KEY (<code>id</code>) USING BTREE<br />
+) ENGINE=InnoDB AUTO_INCREMENT=48931 DEFAULT CHARSET=utf8mb4 COMMENT='采购单头';<br />
+</p>
+
+
+
+
+<p>
+CREATE TABLE <code>purchase_detail</code> (<br />
+  <code>id</code> bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键自增长',<br />
+  <code>purchase_head_id</code> bigint(20) NOT NULL COMMENT '采购单id',<br />
+  <code>po_seq</code> varchar(20) DEFAULT NULL COMMENT '采购单行号',<br />
+  <code>source_detail_ids</code> varchar(200) DEFAULT NULL COMMENT '采购明细源ids，多个以逗号隔开',<br />
+  <code>requisition_detail_ids</code> varchar(200) DEFAULT NULL COMMENT '请购明细ids，多个以逗号隔开',<br />
+  <code>req_nos</code> varchar(500) DEFAULT NULL COMMENT '请购编号，多个以逗号隔开',<br />
+  <code>materiel_id</code> bigint(20) DEFAULT NULL COMMENT '物料id',<br />
+  <code>materiel_code</code> varchar(50) DEFAULT NULL COMMENT '材料代码',<br />
+  <code>materiel_name</code> varchar(50) DEFAULT NULL COMMENT '材料名字',<br />
+  <code>material_standard</code> varchar(200) DEFAULT NULL COMMENT '材料規格',<br />
+  <code>material_type_id</code> bigint(20) DEFAULT NULL COMMENT '物料类型ID',<br />
+  <code>material_type_name</code> varchar(50) DEFAULT NULL COMMENT '物料类别',<br />
+  <code>purchase_unit_name</code> varchar(30) DEFAULT NULL COMMENT '采购单位名称',<br />
+  <code>purchase_unit_code</code> varchar(10) DEFAULT NULL COMMENT '采购单位代码',<br />
+  <code>stock_unit_code</code> varchar(10) DEFAULT NULL COMMENT '库存单位代码',<br />
+  <code>stock_unit_name</code> varchar(30) DEFAULT NULL COMMENT '库存单位名称',<br />
+  <code>conversion_factor</code> int(11) DEFAULT NULL COMMENT '库存和采购单位转换率',<br />
+  <code>storage_period_days</code> int(11) DEFAULT NULL COMMENT '物料有效天数',<br />
+  <code>delivery_date</code> date DEFAULT NULL COMMENT '交货日期',<br />
+  <code>reply_date</code> date DEFAULT NULL COMMENT '供应商回复交期(暂时是等于需求日期)',<br />
+  <code>purchase_qty</code> decimal(18,6) NOT NULL COMMENT '实际采购数量',<br />
+  <code>remain_qty</code> decimal(18,6) DEFAULT NULL COMMENT '剩余采购数量',<br />
+  <code>tax_price</code> decimal(18,4) NOT NULL COMMENT '含税单价',<br />
+  <code>tax_total</code> decimal(18,2) DEFAULT NULL COMMENT '税费总金额',<br />
+  <code>tax_include_total</code> decimal(18,2) DEFAULT NULL COMMENT '含税总金额',<br />
+  <code>tax_rate</code> decimal(4,2) DEFAULT NULL COMMENT '税率%',<br />
+  <code>material_important_type</code> char(1) DEFAULT NULL COMMENT '材料重要类别：A,B,C,D,E,F',<br />
+  <code>iqc_flag</code> char(1) DEFAULT '0' COMMENT '是否检查:1是，0否',<br />
+  <code>req_reason</code> varchar(400) DEFAULT NULL COMMENT '请购原因',<br />
+  <code>material_special_req</code> varchar(300) DEFAULT NULL COMMENT '特殊要求',<br />
+  <code>urgency_flag</code> char(1) DEFAULT '0' COMMENT '是否紧急物料',<br />
+  <code>remark</code> varchar(500) DEFAULT NULL COMMENT '备注',<br />
+  <code>status_flag</code> char(1) DEFAULT '1' COMMENT ' 状态  1 := ''未提交''; 2 := ''待审批''; 3 := ''''已批准''; 4 := ''被退回''; 5 := ''已收货''',<br />
+  <code>delete_flag</code> char(1) DEFAULT '0' COMMENT '是否删除：1是删除，0是没有删除',<br />
+  <code>order_status</code> char(1) DEFAULT '0' COMMENT '协同状态：0未完成，1已完成',<br />
+  <code>manufacturer_id</code> bigint(20) DEFAULT NULL COMMENT '制造商ID',<br />
+  <code>manufacturer_code</code> varchar(50) DEFAULT NULL COMMENT '制造商代码',<br />
+  <code>manufacturer_name</code> varchar(50) DEFAULT NULL COMMENT '制造商名字',<br />
+  <code>create_user_uid</code> varchar(50) DEFAULT NULL COMMENT '创建者',<br />
+  <code>create_time</code> datetime DEFAULT NULL COMMENT '创建时间',<br />
+  <code>last_update_time</code> datetime DEFAULT NULL COMMENT '最后修改时间',<br />
+  <code>last_update_user_uid</code> varchar(50) DEFAULT NULL COMMENT '最后修改人',<br />
+  <code>create_user_name</code> varchar(50) DEFAULT NULL COMMENT '创建者名字',<br />
+  <code>last_update_user_name</code> varchar(50) DEFAULT NULL COMMENT '最后修改人名字',<br />
+  <code>environment_level</code> varchar(10) DEFAULT NULL COMMENT '环何标识（等级）',<br />
+  <code>brand</code> varchar(50) DEFAULT NULL COMMENT '品牌',<br />
+  <code>source_type</code> char(1) DEFAULT '2' COMMENT '来源：1代表请购，2代表自定义新增',<br />
+  <code>req_org_id</code> bigint(20) DEFAULT NULL COMMENT '请购部门',<br />
+  <code>req_org_name</code> varchar(200) DEFAULT NULL COMMENT '请购部门名字，多个用逗号隔开',<br />
+  <code>user_id</code> bigint(20) DEFAULT NULL COMMENT '使用人id',<br />
+  <code>user_name</code> varchar(50) DEFAULT NULL COMMENT '使用人员姓名',<br />
+  <code>user_phone</code> varchar(20) DEFAULT NULL COMMENT '使用人员电话',<br />
+  <code>req_user_id</code> varchar(50) DEFAULT NULL COMMENT '请购人id',<br />
+  <code>req_names</code> varchar(200) DEFAULT NULL COMMENT '请购人员姓名，多个以逗号隔开',<br />
+  <code>change_remark</code> varchar(2000) DEFAULT NULL COMMENT '记录退回后再提交的变得记录',<br />
+  <code>source_rkey</code> int(255) DEFAULT NULL,<br />
+  <code>isclose</code> int(255) DEFAULT NULL,<br />
+  PRIMARY KEY (<code>id</code>,<code>tax_price</code>) USING BTREE<br />
+) ENGINE=InnoDB AUTO_INCREMENT=100000321 DEFAULT CHARSET=utf8mb4 COMMENT='采购明细';<br />
 </p>
 
 

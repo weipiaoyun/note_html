@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>grammar</title>
+<title>新erp sql语句</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,56 +18,72 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Verb +s or es </a>
-<li class="menu1"><a href="#toc_2">most </a>
-<li class="menu1"><a href="#toc_3">Position of Adverbs in English Sentences </a>
-<li class="menu1"><a href="#toc_4">How to pronounce words ending in s </a>
-<li class="menu1"><a href="#toc_5">object complement </a>
+<li class="menu1"><a href="#toc_1">有供应商编辑权限的r </a>
+<li class="menu1"><a href="#toc_2">请购，不包括审核人,包括部门 </a>
+<li class="menu1"><a href="#toc_3">删除既是请购又是请购审核的请购人 </a>
 </ul>
 </div>
 <div class="content">
+<h1 id="toc_1">有供应商编辑权限的r </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+	SELECT
+	* 
+FROM
+	base_user
+	LEFT JOIN base_group_member member ON member.user_id = base_user.id 
+WHERE
+	group_id IN (
+	SELECT
+		au.authority_id 
+	FROM
+		base_resource_authority au
+		LEFT JOIN base_group bg ON au.authority_id = bg.id 
+	WHERE
+		resource_type = 'element' 
+		AND bg.tenant_id = 4 
+		AND bg.CODE != 'tenantAdmin' 
+		AND resource_id IN (
+		SELECT
+			be.id 
+		FROM
+			base_element be
+			LEFT JOIN base_data_privilege dp
+			INNER JOIN base_resource_authority bra ON bra.resource_id = dp.id ON be.id = dp.element_id 
+		WHERE
+			be.menu_id = 227 
+		) 
+	AND authority_id != 2 
+	)
+</pre>
 
-<p>
-不定式的单词多为“打算”“计划”“希望”“将要做某事”等表示未来（未做的事）的动词。同样与不定式表示不同,现在分词表示正在进行，一般性或经常性发生的行为。<br />
-</p>
 
-<p>
-<a href="to.html">to</a>
-<a href="Ving.html">Ving</a>
-</p>
-
-<h1 id="toc_1">Verb +s or es </h1><HR SIZE=1>
-<p>
-<a href="https://smrtenglish.com/sg/lesson/2531">https://smrtenglish.com/sg/lesson/2531</a>
-</p>
-
-<h1 id="toc_2">most </h1><HR SIZE=1>
-<p>
-adj's most "the" can't be  omit, adv can omit "the"<br />
-</p>
-
-<h1 id="toc_3">Position of Adverbs in English Sentences </h1><HR SIZE=1>
-<p>
-<a href="https://www.espressoenglish.net/position-of-adverbs-in-english-sentences/">https://www.espressoenglish.net/position-of-adverbs-in-english-sentences/</a>
-</p>
-
-
-<h1 id="toc_4">How to pronounce words ending in s </h1><HR SIZE=1>
-<p>
-<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/pronounceWhenEndS.png" /></div><br />
-</p>
+<h1 id="toc_2">请购，不包括审核人,包括部门 </h1><HR SIZE=1>
+<pre &lt;pre  name="code" class="brush: sql"&gt;>
+	
+SELECT
+	org.NAME,
+	bu.* 
+FROM
+	base_group_member bgm
+	LEFT JOIN base_user bu ON bgm.user_id = bu.id
+	LEFT JOIN hr.hr_employe_user_r hru ON hru.user_id = bu.id
+	LEFT JOIN hr.hr_employe employee ON employee.id = hru.employe_id
+	LEFT JOIN hr.hr_organization_employe_r org_emp ON org_emp.employe_id = employee.id
+	LEFT JOIN hr.hr_organization org ON org.id = org_emp.organization_id 
+WHERE
+	bgm.group_id = 4 
+	AND bgm.user_id NOT IN (
+	SELECT
+		user_id 
+	FROM
+		base_group_member bgm 
+	WHERE
+		bgm.group_id = 7 
+	)
+</pre>
 
 
-<h1 id="toc_5">object complement </h1><HR SIZE=1>
-<p>
-is a noun or an adjective<br />
-complete the meaning of the verb <br />
-modifies， names, or renames the direct object.<br />
-</p>
-
-<p>
-are only in sentences that have direct objects<br />
-</p>
+<h1 id="toc_3">删除既是请购又是请购审核的请购人 </h1><HR SIZE=1>
 
 
 <div class="foot">

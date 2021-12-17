@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shCore.css">
 <link rel="stylesheet" type="text/css" href="styles/codeStyles/shThemeDefault.css">
 
-<title>grammar</title>
+<title>jenkins</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,55 +18,109 @@
 
 <div class="toc">
 <ul>
-<li class="menu1"><a href="#toc_1">Verb +s or es </a>
-<li class="menu1"><a href="#toc_2">most </a>
-<li class="menu1"><a href="#toc_3">Position of Adverbs in English Sentences </a>
-<li class="menu1"><a href="#toc_4">How to pronounce words ending in s </a>
-<li class="menu1"><a href="#toc_5">object complement </a>
+<li class="menu1"><a href="#toc_1">代理 </a>
+<li class="menu1"><a href="#toc_2">东莞 </a>
 </ul>
 </div>
 <div class="content">
 
 <p>
-不定式的单词多为“打算”“计划”“希望”“将要做某事”等表示未来（未做的事）的动词。同样与不定式表示不同,现在分词表示正在进行，一般性或经常性发生的行为。<br />
-</p>
-
-<p>
-<a href="to.html">to</a>
-<a href="Ving.html">Ving</a>
-</p>
-
-<h1 id="toc_1">Verb +s or es </h1><HR SIZE=1>
-<p>
-<a href="https://smrtenglish.com/sg/lesson/2531">https://smrtenglish.com/sg/lesson/2531</a>
-</p>
-
-<h1 id="toc_2">most </h1><HR SIZE=1>
-<p>
-adj's most "the" can't be  omit, adv can omit "the"<br />
-</p>
-
-<h1 id="toc_3">Position of Adverbs in English Sentences </h1><HR SIZE=1>
-<p>
-<a href="https://www.espressoenglish.net/position-of-adverbs-in-english-sentences/">https://www.espressoenglish.net/position-of-adverbs-in-english-sentences/</a>
+cam02  WZinformation<br />
+cam06 -Information<br />
 </p>
 
 
-<h1 id="toc_4">How to pronounce words ending in s </h1><HR SIZE=1>
+<h1 id="toc_1">代理 </h1><HR SIZE=1>
+
 <p>
-<div class="Img"><img src="file://D:\vim\vim\mysite\note/images/pronounceWhenEndS.png" /></div><br />
+10.30.2.61<br />
+8080<br />
+<a href="http://updates.jenkins.io/update-center.json">http://updates.jenkins.io/update-center.json</a>
 </p>
 
 
-<h1 id="toc_5">object complement </h1><HR SIZE=1>
+
 <p>
-is a noun or an adjective<br />
-complete the meaning of the verb <br />
-modifies， names, or renames the direct object.<br />
+export newproject=wzcloud-file.jar<br />
 </p>
 
 <p>
-are only in sentences that have direct objects<br />
+pidlist=<code>ps -ef | grep \(newproject | grep -v grep  |awk '{print \)2}'</code><br />
+</p>
+
+<p>
+echo “old process id：$pidlist”<br />
+if [ "$pidlist" = "" ]; then<br />
+	echo "no newproject pid alive"<br />
+else<br />
+	echo "newproject Id list :$pidlist"<br />
+	for pid in ${pidlist}<br />
+	{<br />
+			kill -9 $pid<br />
+			echo "KILL $pid:"<br />
+			echo "newproject stop success"<br />
+	}<br />
+fi<br />
+</p>
+
+
+
+<p>
+export dirproject=/cam02_share/lw/workplace/<br />
+</p>
+
+<p>
+nohup java -Xms64m -Xmx512m -XX:PermSize=32m -XX:MaxPermSize=512m  -jar   \(dirproject/wzcloud-file.jar  --spring.profiles.active=lw &gt; \)dirproject/log/wzcloud-file.log&gt;&amp;1&amp;<br />
+</p>
+
+
+<p>
+sleep 1<br />
+</p>
+
+
+<h1 id="toc_2">东莞 </h1><HR SIZE=1>
+<ol>
+<li>
+添加代理连接
+
+</ol>
+
+<p>
+vi /etc/resolv.conf<br />
+search localdomain<br />
+nameserver 8.8.8.8<br />
+nameserver 8.8.4.4<br />
+</p>
+
+
+
+
+<p>
+yum install <a href="https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm">https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</a>
+</p>
+
+<p>
+没有可用软件包 epel-release。<br />
+没有可用软件包 pwgen。<br />
+错误：无须任何处理<br />
+</p>
+
+
+
+<p>
+Manage Jenkins=&gt;Global Tool Configuration=&gt;Maven Configuration=&gt;<br />
+Default settings provider=&gt;选Settings file in filesystem<br />
+FilePath =&gt;填/usr/local/apache-maven-3.8.3/conf/settings.xml<br />
+</p>
+
+
+<p>
+global<br />
+</p>
+
+<p>
+	/usr/local/apache-maven-3.8.3/conf/settings.xml<br />
 </p>
 
 
